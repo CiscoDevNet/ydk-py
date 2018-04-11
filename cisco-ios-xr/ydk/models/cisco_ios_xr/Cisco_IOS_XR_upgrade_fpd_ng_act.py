@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class UpgradeFpd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-upgrade-fpd-ng-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = UpgradeFpd.Input()
         self.input.parent = self
@@ -89,14 +93,17 @@ class UpgradeFpd(Entity):
             self.yang_parent_name = "upgrade-fpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.location = YLeaf(YType.str, "location")
-
-            self.fpd = YLeaf(YType.str, "fpd")
-
-            self.force = YLeaf(YType.empty, "force")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('location', YLeaf(YType.str, 'location')),
+                ('fpd', YLeaf(YType.str, 'fpd')),
+                ('force', YLeaf(YType.empty, 'force')),
+            ])
+            self.location = None
+            self.fpd = None
+            self.force = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-upgrade-fpd-ng-act:upgrade-fpd/%s" % self._segment_path()
 

@@ -1,155 +1,175 @@
 submodule Cisco-IOS-XR-infra-serg-oper-sub2 {
-
   belongs-to Cisco-IOS-XR-infra-serg-oper {
     prefix Cisco-IOS-XR-infra-serg-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-serg package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Serg-show-mem {
     type enumeration {
-      enum standard {
+      enum "standard" {
         value 0;
-        description "Standard type";
+        description
+          "Standard type";
       }
-      enum chunk {
+      enum "chunk" {
         value 1;
-        description "Chunk type";
+        description
+          "Chunk type";
       }
-      enum edm {
+      enum "edm" {
         value 2;
-        description "EDM type";
+        description
+          "EDM type";
       }
-      enum string {
+      enum "string" {
         value 3;
-        description "String type";
+        description
+          "String type";
       }
-      enum static {
+      enum "static" {
         value 4;
-        description "Static type";
+        description
+          "Static type";
       }
-      enum unknown {
+      enum "unknown" {
         value 5;
-        description "Unknown type";
+        description
+          "Unknown type";
       }
     }
-    description "SERG Memory Manager type";
+    description
+      "SERG Memory Manager type";
   }
 
   grouping SERG-SHOW-STRING-MEMORY-INFO {
-    description "string memory Information";
+    description
+      "string memory Information";
     leaf size {
       type uint32;
-      description "Size of the block";
+      description
+        "Size of the block";
     }
     leaf total {
       type uint32;
-      description "Total request";
+      description
+        "Total request";
     }
     leaf success {
       type uint32;
-      description "Cache-hit success";
+      description
+        "Cache-hit success";
     }
     leaf failure {
       type uint32;
-      description "Cache-hit failure";
+      description
+        "Cache-hit failure";
     }
   }
 
   grouping SERG-SHOW-EDM-MEMORY-INFO {
-    description "edm memory Information";
+    description
+      "edm memory Information";
     leaf size {
       type uint32;
-      description "Size of the block";
+      description
+        "Size of the block";
     }
     leaf total {
       type uint32;
-      description "Total request";
+      description
+        "Total request";
     }
     leaf success {
       type uint32;
-      description "Cache-hit success";
+      description
+        "Cache-hit success";
     }
     leaf failure {
       type uint32;
-      description "Cache-hit failure";
+      description
+        "Cache-hit failure";
     }
   }
 
   grouping SERG-SHOW-MEMORY-INFO {
-    description "memory Information";
+    description
+      "memory Information";
     leaf structure-name {
       type string;
-      description "Structure Name";
+      description
+        "Structure Name";
     }
     leaf size {
       type uint32;
-      description "Size of the datastructure";
+      description
+        "Size of the datastructure";
     }
     leaf current-count {
       type uint32;
-      description "Current Count";
+      description
+        "Current Count";
     }
     leaf alloc-fails {
       type uint32;
-      description "Allocation Fails";
+      description
+        "Allocation Fails";
     }
     leaf alloc-count {
       type uint32;
-      description "Allocated count";
+      description
+        "Allocated count";
     }
     leaf freed-count {
       type uint32;
-      description "Freed Count";
+      description
+        "Freed Count";
     }
     leaf memory-type {
       type Serg-show-mem;
-      description "Memory Type";
+      description
+        "Memory Type";
     }
   }
 
   grouping SERG-SHOW-MEMORY {
-    description "Memory Information";
-
+    description
+      "Memory Information";
     list memory-info {
-      description "Memory Info";
+      description
+        "Memory Info";
       uses SERG-SHOW-MEMORY-INFO;
     }
-
     list edm-memory-info {
-      description "EDM Memory Info";
+      description
+        "EDM Memory Info";
       uses SERG-SHOW-EDM-MEMORY-INFO;
     }
-
     list string-memory-info {
-      description "String Memory Info";
+      description
+        "String Memory Info";
       uses SERG-SHOW-STRING-MEMORY-INFO;
     }
   }

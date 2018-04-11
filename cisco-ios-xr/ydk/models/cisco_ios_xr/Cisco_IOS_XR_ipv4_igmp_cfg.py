@@ -13,15 +13,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class IgmpFilter(Enum):
     """
-    IgmpFilter
+    IgmpFilter (Enum Class)
 
     Igmp filter
 
@@ -80,9 +82,11 @@ class Igmp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-igmp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vrfs" : ("vrfs", Igmp.Vrfs), "default-context" : ("default_context", Igmp.DefaultContext)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Igmp.Vrfs)), ("default-context", ("default_context", Igmp.DefaultContext))])
+        self._child_list_classes = OrderedDict([])
         self.is_presence_container = True
+        self._leafs = OrderedDict()
 
         self.vrfs = Igmp.Vrfs()
         self.vrfs.parent = self
@@ -118,8 +122,10 @@ class Igmp(Entity):
             self.yang_parent_name = "igmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf" : ("vrf", Igmp.Vrfs.Vrf)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf", ("vrf", Igmp.Vrfs.Vrf))])
+            self._leafs = OrderedDict()
 
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
@@ -133,7 +139,7 @@ class Igmp(Entity):
             """
             Configuration for a particular vrf
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	Name for this vrf
             	**type**\: str
@@ -193,14 +199,17 @@ class Igmp(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"traffic" : ("traffic", Igmp.Vrfs.Vrf.Traffic), "inheritable-defaults" : ("inheritable_defaults", Igmp.Vrfs.Vrf.InheritableDefaults), "ssm-access-groups" : ("ssm_access_groups", Igmp.Vrfs.Vrf.SsmAccessGroups), "maximum" : ("maximum", Igmp.Vrfs.Vrf.Maximum), "interfaces" : ("interfaces", Igmp.Vrfs.Vrf.Interfaces)}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.ssmdns_query_group = YLeaf(YType.empty, "ssmdns-query-group")
-
-                self.robustness = YLeaf(YType.uint32, "robustness")
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([("traffic", ("traffic", Igmp.Vrfs.Vrf.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Igmp.Vrfs.Vrf.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Igmp.Vrfs.Vrf.SsmAccessGroups)), ("maximum", ("maximum", Igmp.Vrfs.Vrf.Maximum)), ("interfaces", ("interfaces", Igmp.Vrfs.Vrf.Interfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
+                    ('robustness', YLeaf(YType.uint32, 'robustness')),
+                ])
+                self.vrf_name = None
+                self.ssmdns_query_group = None
+                self.robustness = None
 
                 self.traffic = Igmp.Vrfs.Vrf.Traffic()
                 self.traffic.parent = self
@@ -226,7 +235,7 @@ class Igmp(Entity):
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
-                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -258,10 +267,13 @@ class Igmp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('profile', YLeaf(YType.str, 'profile')),
+                    ])
+                    self.profile = None
                     self._segment_path = lambda: "traffic"
 
                 def __setattr__(self, name, value):
@@ -354,20 +366,23 @@ class Igmp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"maximum-groups-per-interface-oor" : ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor), "explicit-tracking" : ("explicit_tracking", Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking)}
-                    self._child_list_classes = {}
-
-                    self.query_timeout = YLeaf(YType.uint32, "query-timeout")
-
-                    self.access_group = YLeaf(YType.str, "access-group")
-
-                    self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
-
-                    self.version = YLeaf(YType.uint32, "version")
-
-                    self.router_enable = YLeaf(YType.boolean, "router-enable")
-
-                    self.query_interval = YLeaf(YType.uint32, "query-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
+                        ('access_group', YLeaf(YType.str, 'access-group')),
+                        ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
+                        ('version', YLeaf(YType.uint32, 'version')),
+                        ('router_enable', YLeaf(YType.boolean, 'router-enable')),
+                        ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                    ])
+                    self.query_timeout = None
+                    self.access_group = None
+                    self.query_max_response_time = None
+                    self.version = None
+                    self.router_enable = None
+                    self.query_interval = None
 
                     self.maximum_groups_per_interface_oor = None
                     self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
@@ -428,15 +443,18 @@ class Igmp(Entity):
                         self.yang_parent_name = "inheritable-defaults"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._leafs = OrderedDict([
+                            ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.maximum_groups = None
+                        self.warning_threshold = None
+                        self.access_list_name = None
                         self._segment_path = lambda: "maximum-groups-per-interface-oor"
 
                     def __setattr__(self, name, value):
@@ -477,13 +495,16 @@ class Igmp(Entity):
                         self.yang_parent_name = "inheritable-defaults"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.enable = None
+                        self.access_list_name = None
                         self._segment_path = lambda: "explicit-tracking"
 
                     def __setattr__(self, name, value):
@@ -513,8 +534,10 @@ class Igmp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ssm-access-group" : ("ssm_access_group", Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup))])
+                    self._leafs = OrderedDict()
 
                     self.ssm_access_group = YList(self)
                     self._segment_path = lambda: "ssm-access-groups"
@@ -527,7 +550,7 @@ class Igmp(Entity):
                     """
                     SSM static Access Group
                     
-                    .. attribute:: source_address  <key>
+                    .. attribute:: source_address  (key)
                     
                     	IP source address
                     	**type**\: union of the below types:
@@ -563,13 +586,16 @@ class Igmp(Entity):
                         self.yang_parent_name = "ssm-access-groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-                        self._segment_path = lambda: "ssm-access-group" + "[source-address='" + self.source_address.get() + "']"
+                        self.ylist_key_names = ['source_address']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('source_address', YLeaf(YType.str, 'source-address')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.source_address = None
+                        self.access_list_name = None
+                        self._segment_path = lambda: "ssm-access-group" + "[source-address='" + str(self.source_address) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup, ['source_address', 'access_list_name'], name, value)
@@ -602,10 +628,13 @@ class Igmp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                    ])
+                    self.maximum_groups = None
                     self._segment_path = lambda: "maximum"
 
                 def __setattr__(self, name, value):
@@ -635,8 +664,10 @@ class Igmp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Igmp.Vrfs.Vrf.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Igmp.Vrfs.Vrf.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -649,7 +680,7 @@ class Igmp(Entity):
                     """
                     The name of the interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Name of the interface
                     	**type**\: str
@@ -750,22 +781,25 @@ class Igmp(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"join-groups" : ("join_groups", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups), "static-group-group-addresses" : ("static_group_group_addresses", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses), "maximum-groups-per-interface-oor" : ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor), "explicit-tracking" : ("explicit_tracking", Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.query_timeout = YLeaf(YType.uint32, "query-timeout")
-
-                        self.access_group = YLeaf(YType.str, "access-group")
-
-                        self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.router_enable = YLeaf(YType.boolean, "router-enable")
-
-                        self.query_interval = YLeaf(YType.uint32, "query-interval")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("join-groups", ("join_groups", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
+                            ('access_group', YLeaf(YType.str, 'access-group')),
+                            ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
+                            ('version', YLeaf(YType.uint32, 'version')),
+                            ('router_enable', YLeaf(YType.boolean, 'router-enable')),
+                            ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                        ])
+                        self.interface_name = None
+                        self.query_timeout = None
+                        self.access_group = None
+                        self.query_max_response_time = None
+                        self.version = None
+                        self.router_enable = None
+                        self.query_interval = None
 
                         self.join_groups = None
                         self._children_name_map["join_groups"] = "join-groups"
@@ -783,7 +817,7 @@ class Igmp(Entity):
                         self.explicit_tracking = None
                         self._children_name_map["explicit_tracking"] = "explicit-tracking"
                         self._children_yang_names.add("explicit-tracking")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -819,9 +853,11 @@ class Igmp(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"join-group" : ("join_group", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup), "join-group-source-address" : ("join_group_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("join-group", ("join_group", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
                             self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.join_group = YList(self)
                             self.join_group_source_address = YList(self)
@@ -836,7 +872,7 @@ class Igmp(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -870,13 +906,16 @@ class Igmp(Entity):
                                 self.yang_parent_name = "join-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.mode = YLeaf(YType.enumeration, "mode")
-                                self._segment_path = lambda: "join-group" + "[group-address='" + self.group_address.get() + "']"
+                                self.ylist_key_names = ['group_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ])
+                                self.group_address = None
+                                self.mode = None
+                                self._segment_path = lambda: "join-group" + "[group-address='" + str(self.group_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup, ['group_address', 'mode'], name, value)
@@ -887,7 +926,7 @@ class Igmp(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -900,7 +939,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	Optional IP source address
                             	**type**\: union of the below types:
@@ -934,15 +973,18 @@ class Igmp(Entity):
                                 self.yang_parent_name = "join-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.mode = YLeaf(YType.enumeration, "mode")
-                                self._segment_path = lambda: "join-group-source-address" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                                self.ylist_key_names = ['group_address','source_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ])
+                                self.group_address = None
+                                self.source_address = None
+                                self.mode = None
+                                self._segment_path = lambda: "join-group-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, ['group_address', 'source_address', 'mode'], name, value)
@@ -996,8 +1038,10 @@ class Igmp(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"static-group-group-address" : ("static_group_group_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress), "static-group-group-address-source-address" : ("static_group_group_address_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress), "static-group-group-address-source-address-source-address-mask" : ("static_group_group_address_source_address_source_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask), "static-group-group-address-group-address-mask" : ("static_group_group_address_group_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask), "static-group-group-address-group-address-mask-source-address" : ("static_group_group_address_group_address_mask_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress), "static-group-group-address-group-address-mask-source-address-source-address-mask" : ("static_group_group_address_group_address_mask_source_address_source_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
+                            self._leafs = OrderedDict()
 
                             self.static_group_group_address = YList(self)
                             self.static_group_group_address_source_address = YList(self)
@@ -1016,7 +1060,7 @@ class Igmp(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -1068,17 +1112,20 @@ class Igmp(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address" + "[group-address='" + self.group_address.get() + "']"
+                                self.ylist_key_names = ['group_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address" + "[group-address='" + str(self.group_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, ['group_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1089,7 +1136,7 @@ class Igmp(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -1102,7 +1149,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	IP source address
                             	**type**\: union of the below types:
@@ -1154,19 +1201,22 @@ class Igmp(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                                self.ylist_key_names = ['group_address','source_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.source_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, ['group_address', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1177,7 +1227,7 @@ class Igmp(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -1190,7 +1240,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	IP source address
                             	**type**\: union of the below types:
@@ -1203,7 +1253,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address_mask  <key>
+                            .. attribute:: source_address_mask  (key)
                             
                             	Mask for Source Address
                             	**type**\: union of the below types:
@@ -1255,21 +1305,24 @@ class Igmp(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.source_address_mask = YLeaf(YType.str, "source-address-mask")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[source-address-mask='" + self.source_address_mask.get() + "']"
+                                self.ylist_key_names = ['group_address','source_address','source_address_mask']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.source_address = None
+                                self.source_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, ['group_address', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1280,7 +1333,7 @@ class Igmp(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -1293,7 +1346,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: group_address_mask  <key>
+                            .. attribute:: group_address_mask  (key)
                             
                             	Mask for Group Address
                             	**type**\: union of the below types:
@@ -1345,19 +1398,22 @@ class Igmp(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']"
+                                self.ylist_key_names = ['group_address','group_address_mask']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, ['group_address', 'group_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1368,7 +1424,7 @@ class Igmp(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -1381,7 +1437,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: group_address_mask  <key>
+                            .. attribute:: group_address_mask  (key)
                             
                             	Mask for Group Address
                             	**type**\: union of the below types:
@@ -1394,7 +1450,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	IP source address
                             	**type**\: union of the below types:
@@ -1446,21 +1502,24 @@ class Igmp(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                                self.ylist_key_names = ['group_address','group_address_mask','source_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.source_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, ['group_address', 'group_address_mask', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1471,7 +1530,7 @@ class Igmp(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -1484,7 +1543,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: group_address_mask  <key>
+                            .. attribute:: group_address_mask  (key)
                             
                             	Mask for Group Address
                             	**type**\: union of the below types:
@@ -1497,7 +1556,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	IP source address
                             	**type**\: union of the below types:
@@ -1510,7 +1569,7 @@ class Igmp(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address_mask  <key>
+                            .. attribute:: source_address_mask  (key)
                             
                             	Mask for Source Address
                             	**type**\: union of the below types:
@@ -1562,23 +1621,26 @@ class Igmp(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.source_address_mask = YLeaf(YType.str, "source-address-mask")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[source-address-mask='" + self.source_address_mask.get() + "']"
+                                self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.source_address = None
+                                self.source_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, ['group_address', 'group_address_mask', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1630,15 +1692,18 @@ class Igmp(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+                            self._leafs = OrderedDict([
+                                ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ])
+                            self.maximum_groups = None
+                            self.warning_threshold = None
+                            self.access_list_name = None
                             self._segment_path = lambda: "maximum-groups-per-interface-oor"
 
                         def __setattr__(self, name, value):
@@ -1679,13 +1744,16 @@ class Igmp(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ])
+                            self.enable = None
+                            self.access_list_name = None
                             self._segment_path = lambda: "explicit-tracking"
 
                         def __setattr__(self, name, value):
@@ -1766,13 +1834,16 @@ class Igmp(Entity):
             self.yang_parent_name = "igmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"nsf" : ("nsf", Igmp.DefaultContext.Nsf), "unicast-qos-adjust" : ("unicast_qos_adjust", Igmp.DefaultContext.UnicastQosAdjust), "accounting" : ("accounting", Igmp.DefaultContext.Accounting), "traffic" : ("traffic", Igmp.DefaultContext.Traffic), "inheritable-defaults" : ("inheritable_defaults", Igmp.DefaultContext.InheritableDefaults), "ssm-access-groups" : ("ssm_access_groups", Igmp.DefaultContext.SsmAccessGroups), "maximum" : ("maximum", Igmp.DefaultContext.Maximum), "interfaces" : ("interfaces", Igmp.DefaultContext.Interfaces)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("nsf", ("nsf", Igmp.DefaultContext.Nsf)), ("unicast-qos-adjust", ("unicast_qos_adjust", Igmp.DefaultContext.UnicastQosAdjust)), ("accounting", ("accounting", Igmp.DefaultContext.Accounting)), ("traffic", ("traffic", Igmp.DefaultContext.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Igmp.DefaultContext.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Igmp.DefaultContext.SsmAccessGroups)), ("maximum", ("maximum", Igmp.DefaultContext.Maximum)), ("interfaces", ("interfaces", Igmp.DefaultContext.Interfaces))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.ssmdns_query_group = YLeaf(YType.empty, "ssmdns-query-group")
-
-            self.robustness = YLeaf(YType.uint32, "robustness")
+            self._leafs = OrderedDict([
+                ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
+                ('robustness', YLeaf(YType.uint32, 'robustness')),
+            ])
+            self.ssmdns_query_group = None
+            self.robustness = None
 
             self.nsf = Igmp.DefaultContext.Nsf()
             self.nsf.parent = self
@@ -1849,10 +1920,13 @@ class Igmp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lifetime = YLeaf(YType.uint32, "lifetime")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                ])
+                self.lifetime = None
                 self._segment_path = lambda: "nsf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
 
@@ -1912,14 +1986,17 @@ class Igmp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.download_interval = YLeaf(YType.uint32, "download-interval")
-
-                self.adjustment_delay = YLeaf(YType.uint32, "adjustment-delay")
-
-                self.hold_off = YLeaf(YType.uint32, "hold-off")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('download_interval', YLeaf(YType.uint32, 'download-interval')),
+                    ('adjustment_delay', YLeaf(YType.uint32, 'adjustment-delay')),
+                    ('hold_off', YLeaf(YType.uint32, 'hold-off')),
+                ])
+                self.download_interval = None
+                self.adjustment_delay = None
+                self.hold_off = None
                 self._segment_path = lambda: "unicast-qos-adjust"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
 
@@ -1937,11 +2014,11 @@ class Igmp(Entity):
             	Configure IGMP accounting Maximum History setting
             	**type**\: int
             
-            	**range:** 0..365
+            	**range:** 1..365
             
             	**units**\: day
             
-            	**default value**\: 0
+            	**default value**\: 1
             
             
 
@@ -1957,10 +2034,13 @@ class Igmp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.max_history = YLeaf(YType.uint32, "max-history")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('max_history', YLeaf(YType.uint32, 'max-history')),
+                ])
+                self.max_history = None
                 self._segment_path = lambda: "accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
 
@@ -1993,10 +2073,13 @@ class Igmp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.profile = YLeaf(YType.str, "profile")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('profile', YLeaf(YType.str, 'profile')),
+                ])
+                self.profile = None
                 self._segment_path = lambda: "traffic"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
 
@@ -2090,20 +2173,23 @@ class Igmp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"maximum-groups-per-interface-oor" : ("maximum_groups_per_interface_oor", Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor), "explicit-tracking" : ("explicit_tracking", Igmp.DefaultContext.InheritableDefaults.ExplicitTracking)}
-                self._child_list_classes = {}
-
-                self.query_timeout = YLeaf(YType.uint32, "query-timeout")
-
-                self.access_group = YLeaf(YType.str, "access-group")
-
-                self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
-
-                self.version = YLeaf(YType.uint32, "version")
-
-                self.router_enable = YLeaf(YType.boolean, "router-enable")
-
-                self.query_interval = YLeaf(YType.uint32, "query-interval")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.DefaultContext.InheritableDefaults.ExplicitTracking))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
+                    ('access_group', YLeaf(YType.str, 'access-group')),
+                    ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
+                    ('version', YLeaf(YType.uint32, 'version')),
+                    ('router_enable', YLeaf(YType.boolean, 'router-enable')),
+                    ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                ])
+                self.query_timeout = None
+                self.access_group = None
+                self.query_max_response_time = None
+                self.version = None
+                self.router_enable = None
+                self.query_interval = None
 
                 self.maximum_groups_per_interface_oor = None
                 self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
@@ -2165,15 +2251,18 @@ class Igmp(Entity):
                     self.yang_parent_name = "inheritable-defaults"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
-
-                    self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+                    self._leafs = OrderedDict([
+                        ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                        ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                    ])
+                    self.maximum_groups = None
+                    self.warning_threshold = None
+                    self.access_list_name = None
                     self._segment_path = lambda: "maximum-groups-per-interface-oor"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/inheritable-defaults/%s" % self._segment_path()
 
@@ -2215,13 +2304,16 @@ class Igmp(Entity):
                     self.yang_parent_name = "inheritable-defaults"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.enable = YLeaf(YType.boolean, "enable")
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+                    self._leafs = OrderedDict([
+                        ('enable', YLeaf(YType.boolean, 'enable')),
+                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                    ])
+                    self.enable = None
+                    self.access_list_name = None
                     self._segment_path = lambda: "explicit-tracking"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/inheritable-defaults/%s" % self._segment_path()
 
@@ -2252,8 +2344,10 @@ class Igmp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ssm-access-group" : ("ssm_access_group", Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup))])
+                self._leafs = OrderedDict()
 
                 self.ssm_access_group = YList(self)
                 self._segment_path = lambda: "ssm-access-groups"
@@ -2267,7 +2361,7 @@ class Igmp(Entity):
                 """
                 SSM static Access Group
                 
-                .. attribute:: source_address  <key>
+                .. attribute:: source_address  (key)
                 
                 	IP source address
                 	**type**\: union of the below types:
@@ -2303,13 +2397,16 @@ class Igmp(Entity):
                     self.yang_parent_name = "ssm-access-groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.source_address = YLeaf(YType.str, "source-address")
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-                    self._segment_path = lambda: "ssm-access-group" + "[source-address='" + self.source_address.get() + "']"
+                    self.ylist_key_names = ['source_address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('source_address', YLeaf(YType.str, 'source-address')),
+                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                    ])
+                    self.source_address = None
+                    self.access_list_name = None
+                    self._segment_path = lambda: "ssm-access-group" + "[source-address='" + str(self.source_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/ssm-access-groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2343,10 +2440,13 @@ class Igmp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                ])
+                self.maximum_groups = None
                 self._segment_path = lambda: "maximum"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
 
@@ -2377,8 +2477,10 @@ class Igmp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Igmp.DefaultContext.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", Igmp.DefaultContext.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -2392,7 +2494,7 @@ class Igmp(Entity):
                 """
                 The name of the interface
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Name of the interface
                 	**type**\: str
@@ -2493,22 +2595,25 @@ class Igmp(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"join-groups" : ("join_groups", Igmp.DefaultContext.Interfaces.Interface.JoinGroups), "static-group-group-addresses" : ("static_group_group_addresses", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses), "maximum-groups-per-interface-oor" : ("maximum_groups_per_interface_oor", Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor), "explicit-tracking" : ("explicit_tracking", Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking)}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.query_timeout = YLeaf(YType.uint32, "query-timeout")
-
-                    self.access_group = YLeaf(YType.str, "access-group")
-
-                    self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
-
-                    self.version = YLeaf(YType.uint32, "version")
-
-                    self.router_enable = YLeaf(YType.boolean, "router-enable")
-
-                    self.query_interval = YLeaf(YType.uint32, "query-interval")
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([("join-groups", ("join_groups", Igmp.DefaultContext.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
+                        ('access_group', YLeaf(YType.str, 'access-group')),
+                        ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
+                        ('version', YLeaf(YType.uint32, 'version')),
+                        ('router_enable', YLeaf(YType.boolean, 'router-enable')),
+                        ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                    ])
+                    self.interface_name = None
+                    self.query_timeout = None
+                    self.access_group = None
+                    self.query_max_response_time = None
+                    self.version = None
+                    self.router_enable = None
+                    self.query_interval = None
 
                     self.join_groups = None
                     self._children_name_map["join_groups"] = "join-groups"
@@ -2526,7 +2631,7 @@ class Igmp(Entity):
                     self.explicit_tracking = None
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
                     self._children_yang_names.add("explicit-tracking")
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2563,9 +2668,11 @@ class Igmp(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"join-group" : ("join_group", Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup), "join-group-source-address" : ("join_group_source_address", Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("join-group", ("join_group", Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
                         self.is_presence_container = True
+                        self._leafs = OrderedDict()
 
                         self.join_group = YList(self)
                         self.join_group_source_address = YList(self)
@@ -2580,7 +2687,7 @@ class Igmp(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -2614,13 +2721,16 @@ class Igmp(Entity):
                             self.yang_parent_name = "join-groups"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.mode = YLeaf(YType.enumeration, "mode")
-                            self._segment_path = lambda: "join-group" + "[group-address='" + self.group_address.get() + "']"
+                            self.ylist_key_names = ['group_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                            ])
+                            self.group_address = None
+                            self.mode = None
+                            self._segment_path = lambda: "join-group" + "[group-address='" + str(self.group_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup, ['group_address', 'mode'], name, value)
@@ -2631,7 +2741,7 @@ class Igmp(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -2644,7 +2754,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	Optional IP source address
                         	**type**\: union of the below types:
@@ -2678,15 +2788,18 @@ class Igmp(Entity):
                             self.yang_parent_name = "join-groups"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.mode = YLeaf(YType.enumeration, "mode")
-                            self._segment_path = lambda: "join-group-source-address" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                            self.ylist_key_names = ['group_address','source_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                            ])
+                            self.group_address = None
+                            self.source_address = None
+                            self.mode = None
+                            self._segment_path = lambda: "join-group-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, ['group_address', 'source_address', 'mode'], name, value)
@@ -2740,8 +2853,10 @@ class Igmp(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"static-group-group-address" : ("static_group_group_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress), "static-group-group-address-source-address" : ("static_group_group_address_source_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress), "static-group-group-address-source-address-source-address-mask" : ("static_group_group_address_source_address_source_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask), "static-group-group-address-group-address-mask" : ("static_group_group_address_group_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask), "static-group-group-address-group-address-mask-source-address" : ("static_group_group_address_group_address_mask_source_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress), "static-group-group-address-group-address-mask-source-address-source-address-mask" : ("static_group_group_address_group_address_mask_source_address_source_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
+                        self._leafs = OrderedDict()
 
                         self.static_group_group_address = YList(self)
                         self.static_group_group_address_source_address = YList(self)
@@ -2760,7 +2875,7 @@ class Igmp(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -2812,17 +2927,20 @@ class Igmp(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address" + "[group-address='" + self.group_address.get() + "']"
+                            self.ylist_key_names = ['group_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address" + "[group-address='" + str(self.group_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, ['group_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -2833,7 +2951,7 @@ class Igmp(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -2846,7 +2964,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	IP source address
                         	**type**\: union of the below types:
@@ -2898,19 +3016,22 @@ class Igmp(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                            self.ylist_key_names = ['group_address','source_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.source_address = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, ['group_address', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -2921,7 +3042,7 @@ class Igmp(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -2934,7 +3055,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	IP source address
                         	**type**\: union of the below types:
@@ -2947,7 +3068,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address_mask  <key>
+                        .. attribute:: source_address_mask  (key)
                         
                         	Mask for Source Address
                         	**type**\: union of the below types:
@@ -2999,21 +3120,24 @@ class Igmp(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.source_address_mask = YLeaf(YType.str, "source-address-mask")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[source-address-mask='" + self.source_address_mask.get() + "']"
+                            self.ylist_key_names = ['group_address','source_address','source_address_mask']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.source_address = None
+                            self.source_address_mask = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, ['group_address', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3024,7 +3148,7 @@ class Igmp(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -3037,7 +3161,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: group_address_mask  <key>
+                        .. attribute:: group_address_mask  (key)
                         
                         	Mask for Group Address
                         	**type**\: union of the below types:
@@ -3089,19 +3213,22 @@ class Igmp(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']"
+                            self.ylist_key_names = ['group_address','group_address_mask']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.group_address_mask = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, ['group_address', 'group_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3112,7 +3239,7 @@ class Igmp(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -3125,7 +3252,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: group_address_mask  <key>
+                        .. attribute:: group_address_mask  (key)
                         
                         	Mask for Group Address
                         	**type**\: union of the below types:
@@ -3138,7 +3265,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	IP source address
                         	**type**\: union of the below types:
@@ -3190,21 +3317,24 @@ class Igmp(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                            self.ylist_key_names = ['group_address','group_address_mask','source_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.group_address_mask = None
+                            self.source_address = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, ['group_address', 'group_address_mask', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3215,7 +3345,7 @@ class Igmp(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -3228,7 +3358,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: group_address_mask  <key>
+                        .. attribute:: group_address_mask  (key)
                         
                         	Mask for Group Address
                         	**type**\: union of the below types:
@@ -3241,7 +3371,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	IP source address
                         	**type**\: union of the below types:
@@ -3254,7 +3384,7 @@ class Igmp(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address_mask  <key>
+                        .. attribute:: source_address_mask  (key)
                         
                         	Mask for Source Address
                         	**type**\: union of the below types:
@@ -3306,23 +3436,26 @@ class Igmp(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.source_address_mask = YLeaf(YType.str, "source-address-mask")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[source-address-mask='" + self.source_address_mask.get() + "']"
+                            self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.group_address_mask = None
+                            self.source_address = None
+                            self.source_address_mask = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, ['group_address', 'group_address_mask', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3374,15 +3507,18 @@ class Igmp(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._leafs = OrderedDict([
+                            ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.maximum_groups = None
+                        self.warning_threshold = None
+                        self.access_list_name = None
                         self._segment_path = lambda: "maximum-groups-per-interface-oor"
 
                     def __setattr__(self, name, value):
@@ -3423,13 +3559,16 @@ class Igmp(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.enable = None
+                        self.access_list_name = None
                         self._segment_path = lambda: "explicit-tracking"
 
                     def __setattr__(self, name, value):
@@ -3542,28 +3681,31 @@ class Amt(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-igmp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"relay-adv-add" : ("relay_adv_add", Amt.RelayAdvAdd), "relay-anycast-prefix" : ("relay_anycast_prefix", Amt.RelayAnycastPrefix)}
-        self._child_list_classes = {}
-
-        self.maximum_v4_route_gateway = YLeaf(YType.uint32, "maximum-v4-route-gateway")
-
-        self.gateway_filter = YLeaf(YType.str, "gateway-filter")
-
-        self.maximum_v4_routes = YLeaf(YType.uint32, "maximum-v4-routes")
-
-        self.amttos = YLeaf(YType.uint32, "amttos")
-
-        self.amtttl = YLeaf(YType.uint32, "amtttl")
-
-        self.maximum_v6_route_gateway = YLeaf(YType.uint32, "maximum-v6-route-gateway")
-
-        self.maximum_gateway = YLeaf(YType.uint32, "maximum-gateway")
-
-        self.maximum_v6_routes = YLeaf(YType.uint32, "maximum-v6-routes")
-
-        self.amtqqic = YLeaf(YType.uint32, "amtqqic")
-
-        self.amtmtu = YLeaf(YType.uint32, "amtmtu")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("relay-adv-add", ("relay_adv_add", Amt.RelayAdvAdd)), ("relay-anycast-prefix", ("relay_anycast_prefix", Amt.RelayAnycastPrefix))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('maximum_v4_route_gateway', YLeaf(YType.uint32, 'maximum-v4-route-gateway')),
+            ('gateway_filter', YLeaf(YType.str, 'gateway-filter')),
+            ('maximum_v4_routes', YLeaf(YType.uint32, 'maximum-v4-routes')),
+            ('amttos', YLeaf(YType.uint32, 'amttos')),
+            ('amtttl', YLeaf(YType.uint32, 'amtttl')),
+            ('maximum_v6_route_gateway', YLeaf(YType.uint32, 'maximum-v6-route-gateway')),
+            ('maximum_gateway', YLeaf(YType.uint32, 'maximum-gateway')),
+            ('maximum_v6_routes', YLeaf(YType.uint32, 'maximum-v6-routes')),
+            ('amtqqic', YLeaf(YType.uint32, 'amtqqic')),
+            ('amtmtu', YLeaf(YType.uint32, 'amtmtu')),
+        ])
+        self.maximum_v4_route_gateway = None
+        self.gateway_filter = None
+        self.maximum_v4_routes = None
+        self.amttos = None
+        self.amtttl = None
+        self.maximum_v6_route_gateway = None
+        self.maximum_gateway = None
+        self.maximum_v6_routes = None
+        self.amtqqic = None
+        self.amtmtu = None
 
         self.relay_adv_add = None
         self._children_name_map["relay_adv_add"] = "relay-adv-add"
@@ -3614,13 +3756,16 @@ class Amt(Entity):
             self.yang_parent_name = "amt"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.address = YLeaf(YType.str, "address")
-
-            self.interface = YLeaf(YType.str, "interface")
+            self._leafs = OrderedDict([
+                ('address', YLeaf(YType.str, 'address')),
+                ('interface', YLeaf(YType.str, 'interface')),
+            ])
+            self.address = None
+            self.interface = None
             self._segment_path = lambda: "relay-adv-add"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:amt/%s" % self._segment_path()
 
@@ -3664,13 +3809,16 @@ class Amt(Entity):
             self.yang_parent_name = "amt"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.address = YLeaf(YType.str, "address")
-
-            self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+            self._leafs = OrderedDict([
+                ('address', YLeaf(YType.str, 'address')),
+                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+            ])
+            self.address = None
+            self.prefix_length = None
             self._segment_path = lambda: "relay-anycast-prefix"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:amt/%s" % self._segment_path()
 
@@ -3714,9 +3862,11 @@ class Mld(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-igmp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vrfs" : ("vrfs", Mld.Vrfs), "default-context" : ("default_context", Mld.DefaultContext)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Mld.Vrfs)), ("default-context", ("default_context", Mld.DefaultContext))])
+        self._child_list_classes = OrderedDict([])
         self.is_presence_container = True
+        self._leafs = OrderedDict()
 
         self.vrfs = Mld.Vrfs()
         self.vrfs.parent = self
@@ -3752,8 +3902,10 @@ class Mld(Entity):
             self.yang_parent_name = "mld"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf" : ("vrf", Mld.Vrfs.Vrf)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf", ("vrf", Mld.Vrfs.Vrf))])
+            self._leafs = OrderedDict()
 
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
@@ -3767,7 +3919,7 @@ class Mld(Entity):
             """
             Configuration for a particular vrf
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	Name for this vrf
             	**type**\: str
@@ -3827,14 +3979,17 @@ class Mld(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"traffic" : ("traffic", Mld.Vrfs.Vrf.Traffic), "inheritable-defaults" : ("inheritable_defaults", Mld.Vrfs.Vrf.InheritableDefaults), "ssm-access-groups" : ("ssm_access_groups", Mld.Vrfs.Vrf.SsmAccessGroups), "maximum" : ("maximum", Mld.Vrfs.Vrf.Maximum), "interfaces" : ("interfaces", Mld.Vrfs.Vrf.Interfaces)}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.ssmdns_query_group = YLeaf(YType.empty, "ssmdns-query-group")
-
-                self.robustness = YLeaf(YType.uint32, "robustness")
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([("traffic", ("traffic", Mld.Vrfs.Vrf.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Mld.Vrfs.Vrf.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Mld.Vrfs.Vrf.SsmAccessGroups)), ("maximum", ("maximum", Mld.Vrfs.Vrf.Maximum)), ("interfaces", ("interfaces", Mld.Vrfs.Vrf.Interfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
+                    ('robustness', YLeaf(YType.uint32, 'robustness')),
+                ])
+                self.vrf_name = None
+                self.ssmdns_query_group = None
+                self.robustness = None
 
                 self.traffic = Mld.Vrfs.Vrf.Traffic()
                 self.traffic.parent = self
@@ -3860,7 +4015,7 @@ class Mld(Entity):
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
-                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3892,10 +4047,13 @@ class Mld(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('profile', YLeaf(YType.str, 'profile')),
+                    ])
+                    self.profile = None
                     self._segment_path = lambda: "traffic"
 
                 def __setattr__(self, name, value):
@@ -3988,20 +4146,23 @@ class Mld(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"maximum-groups-per-interface-oor" : ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor), "explicit-tracking" : ("explicit_tracking", Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking)}
-                    self._child_list_classes = {}
-
-                    self.query_timeout = YLeaf(YType.uint32, "query-timeout")
-
-                    self.access_group = YLeaf(YType.str, "access-group")
-
-                    self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
-
-                    self.version = YLeaf(YType.uint32, "version")
-
-                    self.router_enable = YLeaf(YType.boolean, "router-enable")
-
-                    self.query_interval = YLeaf(YType.uint32, "query-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
+                        ('access_group', YLeaf(YType.str, 'access-group')),
+                        ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
+                        ('version', YLeaf(YType.uint32, 'version')),
+                        ('router_enable', YLeaf(YType.boolean, 'router-enable')),
+                        ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                    ])
+                    self.query_timeout = None
+                    self.access_group = None
+                    self.query_max_response_time = None
+                    self.version = None
+                    self.router_enable = None
+                    self.query_interval = None
 
                     self.maximum_groups_per_interface_oor = None
                     self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
@@ -4062,15 +4223,18 @@ class Mld(Entity):
                         self.yang_parent_name = "inheritable-defaults"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._leafs = OrderedDict([
+                            ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.maximum_groups = None
+                        self.warning_threshold = None
+                        self.access_list_name = None
                         self._segment_path = lambda: "maximum-groups-per-interface-oor"
 
                     def __setattr__(self, name, value):
@@ -4111,13 +4275,16 @@ class Mld(Entity):
                         self.yang_parent_name = "inheritable-defaults"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.enable = None
+                        self.access_list_name = None
                         self._segment_path = lambda: "explicit-tracking"
 
                     def __setattr__(self, name, value):
@@ -4147,8 +4314,10 @@ class Mld(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ssm-access-group" : ("ssm_access_group", Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup))])
+                    self._leafs = OrderedDict()
 
                     self.ssm_access_group = YList(self)
                     self._segment_path = lambda: "ssm-access-groups"
@@ -4161,7 +4330,7 @@ class Mld(Entity):
                     """
                     SSM static Access Group
                     
-                    .. attribute:: source_address  <key>
+                    .. attribute:: source_address  (key)
                     
                     	IP source address
                     	**type**\: union of the below types:
@@ -4197,13 +4366,16 @@ class Mld(Entity):
                         self.yang_parent_name = "ssm-access-groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-                        self._segment_path = lambda: "ssm-access-group" + "[source-address='" + self.source_address.get() + "']"
+                        self.ylist_key_names = ['source_address']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('source_address', YLeaf(YType.str, 'source-address')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.source_address = None
+                        self.access_list_name = None
+                        self._segment_path = lambda: "ssm-access-group" + "[source-address='" + str(self.source_address) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup, ['source_address', 'access_list_name'], name, value)
@@ -4236,10 +4408,13 @@ class Mld(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                    ])
+                    self.maximum_groups = None
                     self._segment_path = lambda: "maximum"
 
                 def __setattr__(self, name, value):
@@ -4269,8 +4444,10 @@ class Mld(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Mld.Vrfs.Vrf.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Mld.Vrfs.Vrf.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -4283,7 +4460,7 @@ class Mld(Entity):
                     """
                     The name of the interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Name of the interface
                     	**type**\: str
@@ -4384,22 +4561,25 @@ class Mld(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"join-groups" : ("join_groups", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups), "static-group-group-addresses" : ("static_group_group_addresses", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses), "maximum-groups-per-interface-oor" : ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor), "explicit-tracking" : ("explicit_tracking", Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.query_timeout = YLeaf(YType.uint32, "query-timeout")
-
-                        self.access_group = YLeaf(YType.str, "access-group")
-
-                        self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.router_enable = YLeaf(YType.boolean, "router-enable")
-
-                        self.query_interval = YLeaf(YType.uint32, "query-interval")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("join-groups", ("join_groups", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
+                            ('access_group', YLeaf(YType.str, 'access-group')),
+                            ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
+                            ('version', YLeaf(YType.uint32, 'version')),
+                            ('router_enable', YLeaf(YType.boolean, 'router-enable')),
+                            ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                        ])
+                        self.interface_name = None
+                        self.query_timeout = None
+                        self.access_group = None
+                        self.query_max_response_time = None
+                        self.version = None
+                        self.router_enable = None
+                        self.query_interval = None
 
                         self.join_groups = None
                         self._children_name_map["join_groups"] = "join-groups"
@@ -4417,7 +4597,7 @@ class Mld(Entity):
                         self.explicit_tracking = None
                         self._children_name_map["explicit_tracking"] = "explicit-tracking"
                         self._children_yang_names.add("explicit-tracking")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -4453,9 +4633,11 @@ class Mld(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"join-group" : ("join_group", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup), "join-group-source-address" : ("join_group_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("join-group", ("join_group", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
                             self.is_presence_container = True
+                            self._leafs = OrderedDict()
 
                             self.join_group = YList(self)
                             self.join_group_source_address = YList(self)
@@ -4470,7 +4652,7 @@ class Mld(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -4504,13 +4686,16 @@ class Mld(Entity):
                                 self.yang_parent_name = "join-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.mode = YLeaf(YType.enumeration, "mode")
-                                self._segment_path = lambda: "join-group" + "[group-address='" + self.group_address.get() + "']"
+                                self.ylist_key_names = ['group_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ])
+                                self.group_address = None
+                                self.mode = None
+                                self._segment_path = lambda: "join-group" + "[group-address='" + str(self.group_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup, ['group_address', 'mode'], name, value)
@@ -4521,7 +4706,7 @@ class Mld(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -4534,7 +4719,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	Optional IP source address
                             	**type**\: union of the below types:
@@ -4568,15 +4753,18 @@ class Mld(Entity):
                                 self.yang_parent_name = "join-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.mode = YLeaf(YType.enumeration, "mode")
-                                self._segment_path = lambda: "join-group-source-address" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                                self.ylist_key_names = ['group_address','source_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ])
+                                self.group_address = None
+                                self.source_address = None
+                                self.mode = None
+                                self._segment_path = lambda: "join-group-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, ['group_address', 'source_address', 'mode'], name, value)
@@ -4630,8 +4818,10 @@ class Mld(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"static-group-group-address" : ("static_group_group_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress), "static-group-group-address-source-address" : ("static_group_group_address_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress), "static-group-group-address-source-address-source-address-mask" : ("static_group_group_address_source_address_source_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask), "static-group-group-address-group-address-mask" : ("static_group_group_address_group_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask), "static-group-group-address-group-address-mask-source-address" : ("static_group_group_address_group_address_mask_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress), "static-group-group-address-group-address-mask-source-address-source-address-mask" : ("static_group_group_address_group_address_mask_source_address_source_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
+                            self._leafs = OrderedDict()
 
                             self.static_group_group_address = YList(self)
                             self.static_group_group_address_source_address = YList(self)
@@ -4650,7 +4840,7 @@ class Mld(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -4702,17 +4892,20 @@ class Mld(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address" + "[group-address='" + self.group_address.get() + "']"
+                                self.ylist_key_names = ['group_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address" + "[group-address='" + str(self.group_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, ['group_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -4723,7 +4916,7 @@ class Mld(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -4736,7 +4929,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	IP source address
                             	**type**\: union of the below types:
@@ -4788,19 +4981,22 @@ class Mld(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                                self.ylist_key_names = ['group_address','source_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.source_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, ['group_address', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -4811,7 +5007,7 @@ class Mld(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -4824,7 +5020,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	IP source address
                             	**type**\: union of the below types:
@@ -4837,7 +5033,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address_mask  <key>
+                            .. attribute:: source_address_mask  (key)
                             
                             	Mask for Source Address
                             	**type**\: union of the below types:
@@ -4889,21 +5085,24 @@ class Mld(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.source_address_mask = YLeaf(YType.str, "source-address-mask")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[source-address-mask='" + self.source_address_mask.get() + "']"
+                                self.ylist_key_names = ['group_address','source_address','source_address_mask']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.source_address = None
+                                self.source_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, ['group_address', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -4914,7 +5113,7 @@ class Mld(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -4927,7 +5126,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: group_address_mask  <key>
+                            .. attribute:: group_address_mask  (key)
                             
                             	Mask for Group Address
                             	**type**\: union of the below types:
@@ -4979,19 +5178,22 @@ class Mld(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']"
+                                self.ylist_key_names = ['group_address','group_address_mask']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, ['group_address', 'group_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -5002,7 +5204,7 @@ class Mld(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -5015,7 +5217,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: group_address_mask  <key>
+                            .. attribute:: group_address_mask  (key)
                             
                             	Mask for Group Address
                             	**type**\: union of the below types:
@@ -5028,7 +5230,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	IP source address
                             	**type**\: union of the below types:
@@ -5080,21 +5282,24 @@ class Mld(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                                self.ylist_key_names = ['group_address','group_address_mask','source_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.source_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, ['group_address', 'group_address_mask', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -5105,7 +5310,7 @@ class Mld(Entity):
                             IP group address and optional source address
                             to include
                             
-                            .. attribute:: group_address  <key>
+                            .. attribute:: group_address  (key)
                             
                             	IP group address
                             	**type**\: union of the below types:
@@ -5118,7 +5323,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: group_address_mask  <key>
+                            .. attribute:: group_address_mask  (key)
                             
                             	Mask for Group Address
                             	**type**\: union of the below types:
@@ -5131,7 +5336,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address  <key>
+                            .. attribute:: source_address  (key)
                             
                             	IP source address
                             	**type**\: union of the below types:
@@ -5144,7 +5349,7 @@ class Mld(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: source_address_mask  <key>
+                            .. attribute:: source_address_mask  (key)
                             
                             	Mask for Source Address
                             	**type**\: union of the below types:
@@ -5196,23 +5401,26 @@ class Mld(Entity):
                                 self.yang_parent_name = "static-group-group-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.group_address = YLeaf(YType.str, "group-address")
-
-                                self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.source_address_mask = YLeaf(YType.str, "source-address-mask")
-
-                                self.group_count = YLeaf(YType.uint32, "group-count")
-
-                                self.source_count = YLeaf(YType.uint32, "source-count")
-
-                                self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                                self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[source-address-mask='" + self.source_address_mask.get() + "']"
+                                self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
+                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ])
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.source_address = None
+                                self.source_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+                                self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, ['group_address', 'group_address_mask', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -5264,15 +5472,18 @@ class Mld(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
-
-                            self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+                            self._leafs = OrderedDict([
+                                ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ])
+                            self.maximum_groups = None
+                            self.warning_threshold = None
+                            self.access_list_name = None
                             self._segment_path = lambda: "maximum-groups-per-interface-oor"
 
                         def __setattr__(self, name, value):
@@ -5313,13 +5524,16 @@ class Mld(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ])
+                            self.enable = None
+                            self.access_list_name = None
                             self._segment_path = lambda: "explicit-tracking"
 
                         def __setattr__(self, name, value):
@@ -5400,13 +5614,16 @@ class Mld(Entity):
             self.yang_parent_name = "mld"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"nsf" : ("nsf", Mld.DefaultContext.Nsf), "unicast-qos-adjust" : ("unicast_qos_adjust", Mld.DefaultContext.UnicastQosAdjust), "accounting" : ("accounting", Mld.DefaultContext.Accounting), "traffic" : ("traffic", Mld.DefaultContext.Traffic), "inheritable-defaults" : ("inheritable_defaults", Mld.DefaultContext.InheritableDefaults), "ssm-access-groups" : ("ssm_access_groups", Mld.DefaultContext.SsmAccessGroups), "maximum" : ("maximum", Mld.DefaultContext.Maximum), "interfaces" : ("interfaces", Mld.DefaultContext.Interfaces)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("nsf", ("nsf", Mld.DefaultContext.Nsf)), ("unicast-qos-adjust", ("unicast_qos_adjust", Mld.DefaultContext.UnicastQosAdjust)), ("accounting", ("accounting", Mld.DefaultContext.Accounting)), ("traffic", ("traffic", Mld.DefaultContext.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Mld.DefaultContext.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Mld.DefaultContext.SsmAccessGroups)), ("maximum", ("maximum", Mld.DefaultContext.Maximum)), ("interfaces", ("interfaces", Mld.DefaultContext.Interfaces))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.ssmdns_query_group = YLeaf(YType.empty, "ssmdns-query-group")
-
-            self.robustness = YLeaf(YType.uint32, "robustness")
+            self._leafs = OrderedDict([
+                ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
+                ('robustness', YLeaf(YType.uint32, 'robustness')),
+            ])
+            self.ssmdns_query_group = None
+            self.robustness = None
 
             self.nsf = Mld.DefaultContext.Nsf()
             self.nsf.parent = self
@@ -5483,10 +5700,13 @@ class Mld(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lifetime = YLeaf(YType.uint32, "lifetime")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                ])
+                self.lifetime = None
                 self._segment_path = lambda: "nsf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
 
@@ -5546,14 +5766,17 @@ class Mld(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.download_interval = YLeaf(YType.uint32, "download-interval")
-
-                self.adjustment_delay = YLeaf(YType.uint32, "adjustment-delay")
-
-                self.hold_off = YLeaf(YType.uint32, "hold-off")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('download_interval', YLeaf(YType.uint32, 'download-interval')),
+                    ('adjustment_delay', YLeaf(YType.uint32, 'adjustment-delay')),
+                    ('hold_off', YLeaf(YType.uint32, 'hold-off')),
+                ])
+                self.download_interval = None
+                self.adjustment_delay = None
+                self.hold_off = None
                 self._segment_path = lambda: "unicast-qos-adjust"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
 
@@ -5571,11 +5794,11 @@ class Mld(Entity):
             	Configure IGMP accounting Maximum History setting
             	**type**\: int
             
-            	**range:** 0..365
+            	**range:** 1..365
             
             	**units**\: day
             
-            	**default value**\: 0
+            	**default value**\: 1
             
             
 
@@ -5591,10 +5814,13 @@ class Mld(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.max_history = YLeaf(YType.uint32, "max-history")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('max_history', YLeaf(YType.uint32, 'max-history')),
+                ])
+                self.max_history = None
                 self._segment_path = lambda: "accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
 
@@ -5627,10 +5853,13 @@ class Mld(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.profile = YLeaf(YType.str, "profile")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('profile', YLeaf(YType.str, 'profile')),
+                ])
+                self.profile = None
                 self._segment_path = lambda: "traffic"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
 
@@ -5724,20 +5953,23 @@ class Mld(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"maximum-groups-per-interface-oor" : ("maximum_groups_per_interface_oor", Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor), "explicit-tracking" : ("explicit_tracking", Mld.DefaultContext.InheritableDefaults.ExplicitTracking)}
-                self._child_list_classes = {}
-
-                self.query_timeout = YLeaf(YType.uint32, "query-timeout")
-
-                self.access_group = YLeaf(YType.str, "access-group")
-
-                self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
-
-                self.version = YLeaf(YType.uint32, "version")
-
-                self.router_enable = YLeaf(YType.boolean, "router-enable")
-
-                self.query_interval = YLeaf(YType.uint32, "query-interval")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.DefaultContext.InheritableDefaults.ExplicitTracking))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
+                    ('access_group', YLeaf(YType.str, 'access-group')),
+                    ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
+                    ('version', YLeaf(YType.uint32, 'version')),
+                    ('router_enable', YLeaf(YType.boolean, 'router-enable')),
+                    ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                ])
+                self.query_timeout = None
+                self.access_group = None
+                self.query_max_response_time = None
+                self.version = None
+                self.router_enable = None
+                self.query_interval = None
 
                 self.maximum_groups_per_interface_oor = None
                 self._children_name_map["maximum_groups_per_interface_oor"] = "maximum-groups-per-interface-oor"
@@ -5799,15 +6031,18 @@ class Mld(Entity):
                     self.yang_parent_name = "inheritable-defaults"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
-
-                    self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+                    self._leafs = OrderedDict([
+                        ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                        ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                    ])
+                    self.maximum_groups = None
+                    self.warning_threshold = None
+                    self.access_list_name = None
                     self._segment_path = lambda: "maximum-groups-per-interface-oor"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/inheritable-defaults/%s" % self._segment_path()
 
@@ -5849,13 +6084,16 @@ class Mld(Entity):
                     self.yang_parent_name = "inheritable-defaults"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.enable = YLeaf(YType.boolean, "enable")
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+                    self._leafs = OrderedDict([
+                        ('enable', YLeaf(YType.boolean, 'enable')),
+                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                    ])
+                    self.enable = None
+                    self.access_list_name = None
                     self._segment_path = lambda: "explicit-tracking"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/inheritable-defaults/%s" % self._segment_path()
 
@@ -5886,8 +6124,10 @@ class Mld(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ssm-access-group" : ("ssm_access_group", Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ssm-access-group", ("ssm_access_group", Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup))])
+                self._leafs = OrderedDict()
 
                 self.ssm_access_group = YList(self)
                 self._segment_path = lambda: "ssm-access-groups"
@@ -5901,7 +6141,7 @@ class Mld(Entity):
                 """
                 SSM static Access Group
                 
-                .. attribute:: source_address  <key>
+                .. attribute:: source_address  (key)
                 
                 	IP source address
                 	**type**\: union of the below types:
@@ -5937,13 +6177,16 @@ class Mld(Entity):
                     self.yang_parent_name = "ssm-access-groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.source_address = YLeaf(YType.str, "source-address")
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-                    self._segment_path = lambda: "ssm-access-group" + "[source-address='" + self.source_address.get() + "']"
+                    self.ylist_key_names = ['source_address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('source_address', YLeaf(YType.str, 'source-address')),
+                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                    ])
+                    self.source_address = None
+                    self.access_list_name = None
+                    self._segment_path = lambda: "ssm-access-group" + "[source-address='" + str(self.source_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/ssm-access-groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5977,10 +6220,13 @@ class Mld(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                ])
+                self.maximum_groups = None
                 self._segment_path = lambda: "maximum"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
 
@@ -6011,8 +6257,10 @@ class Mld(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Mld.DefaultContext.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", Mld.DefaultContext.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -6026,7 +6274,7 @@ class Mld(Entity):
                 """
                 The name of the interface
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Name of the interface
                 	**type**\: str
@@ -6127,22 +6375,25 @@ class Mld(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"join-groups" : ("join_groups", Mld.DefaultContext.Interfaces.Interface.JoinGroups), "static-group-group-addresses" : ("static_group_group_addresses", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses), "maximum-groups-per-interface-oor" : ("maximum_groups_per_interface_oor", Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor), "explicit-tracking" : ("explicit_tracking", Mld.DefaultContext.Interfaces.Interface.ExplicitTracking)}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.query_timeout = YLeaf(YType.uint32, "query-timeout")
-
-                    self.access_group = YLeaf(YType.str, "access-group")
-
-                    self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
-
-                    self.version = YLeaf(YType.uint32, "version")
-
-                    self.router_enable = YLeaf(YType.boolean, "router-enable")
-
-                    self.query_interval = YLeaf(YType.uint32, "query-interval")
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([("join-groups", ("join_groups", Mld.DefaultContext.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.DefaultContext.Interfaces.Interface.ExplicitTracking))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
+                        ('access_group', YLeaf(YType.str, 'access-group')),
+                        ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
+                        ('version', YLeaf(YType.uint32, 'version')),
+                        ('router_enable', YLeaf(YType.boolean, 'router-enable')),
+                        ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                    ])
+                    self.interface_name = None
+                    self.query_timeout = None
+                    self.access_group = None
+                    self.query_max_response_time = None
+                    self.version = None
+                    self.router_enable = None
+                    self.query_interval = None
 
                     self.join_groups = None
                     self._children_name_map["join_groups"] = "join-groups"
@@ -6160,7 +6411,7 @@ class Mld(Entity):
                     self.explicit_tracking = None
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
                     self._children_yang_names.add("explicit-tracking")
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -6197,9 +6448,11 @@ class Mld(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"join-group" : ("join_group", Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup), "join-group-source-address" : ("join_group_source_address", Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("join-group", ("join_group", Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup)), ("join-group-source-address", ("join_group_source_address", Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress))])
                         self.is_presence_container = True
+                        self._leafs = OrderedDict()
 
                         self.join_group = YList(self)
                         self.join_group_source_address = YList(self)
@@ -6214,7 +6467,7 @@ class Mld(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -6248,13 +6501,16 @@ class Mld(Entity):
                             self.yang_parent_name = "join-groups"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.mode = YLeaf(YType.enumeration, "mode")
-                            self._segment_path = lambda: "join-group" + "[group-address='" + self.group_address.get() + "']"
+                            self.ylist_key_names = ['group_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                            ])
+                            self.group_address = None
+                            self.mode = None
+                            self._segment_path = lambda: "join-group" + "[group-address='" + str(self.group_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup, ['group_address', 'mode'], name, value)
@@ -6265,7 +6521,7 @@ class Mld(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -6278,7 +6534,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	Optional IP source address
                         	**type**\: union of the below types:
@@ -6312,15 +6568,18 @@ class Mld(Entity):
                             self.yang_parent_name = "join-groups"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.mode = YLeaf(YType.enumeration, "mode")
-                            self._segment_path = lambda: "join-group-source-address" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                            self.ylist_key_names = ['group_address','source_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                            ])
+                            self.group_address = None
+                            self.source_address = None
+                            self.mode = None
+                            self._segment_path = lambda: "join-group-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, ['group_address', 'source_address', 'mode'], name, value)
@@ -6374,8 +6633,10 @@ class Mld(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"static-group-group-address" : ("static_group_group_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress), "static-group-group-address-source-address" : ("static_group_group_address_source_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress), "static-group-group-address-source-address-source-address-mask" : ("static_group_group_address_source_address_source_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask), "static-group-group-address-group-address-mask" : ("static_group_group_address_group_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask), "static-group-group-address-group-address-mask-source-address" : ("static_group_group_address_group_address_mask_source_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress), "static-group-group-address-group-address-mask-source-address-source-address-mask" : ("static_group_group_address_group_address_mask_source_address_source_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("static-group-group-address", ("static_group_group_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress)), ("static-group-group-address-source-address", ("static_group_group_address_source_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress)), ("static-group-group-address-source-address-source-address-mask", ("static_group_group_address_source_address_source_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask)), ("static-group-group-address-group-address-mask", ("static_group_group_address_group_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask)), ("static-group-group-address-group-address-mask-source-address", ("static_group_group_address_group_address_mask_source_address", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress)), ("static-group-group-address-group-address-mask-source-address-source-address-mask", ("static_group_group_address_group_address_mask_source_address_source_address_mask", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask))])
+                        self._leafs = OrderedDict()
 
                         self.static_group_group_address = YList(self)
                         self.static_group_group_address_source_address = YList(self)
@@ -6394,7 +6655,7 @@ class Mld(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -6446,17 +6707,20 @@ class Mld(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address" + "[group-address='" + self.group_address.get() + "']"
+                            self.ylist_key_names = ['group_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address" + "[group-address='" + str(self.group_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, ['group_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6467,7 +6731,7 @@ class Mld(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -6480,7 +6744,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	IP source address
                         	**type**\: union of the below types:
@@ -6532,19 +6796,22 @@ class Mld(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                            self.ylist_key_names = ['group_address','source_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.source_address = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, ['group_address', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6555,7 +6822,7 @@ class Mld(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -6568,7 +6835,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	IP source address
                         	**type**\: union of the below types:
@@ -6581,7 +6848,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address_mask  <key>
+                        .. attribute:: source_address_mask  (key)
                         
                         	Mask for Source Address
                         	**type**\: union of the below types:
@@ -6633,21 +6900,24 @@ class Mld(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.source_address_mask = YLeaf(YType.str, "source-address-mask")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[source-address-mask='" + self.source_address_mask.get() + "']"
+                            self.ylist_key_names = ['group_address','source_address','source_address_mask']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.source_address = None
+                            self.source_address_mask = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, ['group_address', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6658,7 +6928,7 @@ class Mld(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -6671,7 +6941,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: group_address_mask  <key>
+                        .. attribute:: group_address_mask  (key)
                         
                         	Mask for Group Address
                         	**type**\: union of the below types:
@@ -6723,19 +6993,22 @@ class Mld(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']"
+                            self.ylist_key_names = ['group_address','group_address_mask']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.group_address_mask = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, ['group_address', 'group_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6746,7 +7019,7 @@ class Mld(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -6759,7 +7032,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: group_address_mask  <key>
+                        .. attribute:: group_address_mask  (key)
                         
                         	Mask for Group Address
                         	**type**\: union of the below types:
@@ -6772,7 +7045,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	IP source address
                         	**type**\: union of the below types:
@@ -6824,21 +7097,24 @@ class Mld(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+                            self.ylist_key_names = ['group_address','group_address_mask','source_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.group_address_mask = None
+                            self.source_address = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, ['group_address', 'group_address_mask', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6849,7 +7125,7 @@ class Mld(Entity):
                         IP group address and optional source address
                         to include
                         
-                        .. attribute:: group_address  <key>
+                        .. attribute:: group_address  (key)
                         
                         	IP group address
                         	**type**\: union of the below types:
@@ -6862,7 +7138,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: group_address_mask  <key>
+                        .. attribute:: group_address_mask  (key)
                         
                         	Mask for Group Address
                         	**type**\: union of the below types:
@@ -6875,7 +7151,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	IP source address
                         	**type**\: union of the below types:
@@ -6888,7 +7164,7 @@ class Mld(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: source_address_mask  <key>
+                        .. attribute:: source_address_mask  (key)
                         
                         	Mask for Source Address
                         	**type**\: union of the below types:
@@ -6940,23 +7216,26 @@ class Mld(Entity):
                             self.yang_parent_name = "static-group-group-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.group_address = YLeaf(YType.str, "group-address")
-
-                            self.group_address_mask = YLeaf(YType.str, "group-address-mask")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.source_address_mask = YLeaf(YType.str, "source-address-mask")
-
-                            self.group_count = YLeaf(YType.uint32, "group-count")
-
-                            self.source_count = YLeaf(YType.uint32, "source-count")
-
-                            self.suppress_report = YLeaf(YType.boolean, "suppress-report")
-                            self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + self.group_address.get() + "']" + "[group-address-mask='" + self.group_address_mask.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[source-address-mask='" + self.source_address_mask.get() + "']"
+                            self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('group_address', YLeaf(YType.str, 'group-address')),
+                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
+                                ('group_count', YLeaf(YType.uint32, 'group-count')),
+                                ('source_count', YLeaf(YType.uint32, 'source-count')),
+                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                            ])
+                            self.group_address = None
+                            self.group_address_mask = None
+                            self.source_address = None
+                            self.source_address_mask = None
+                            self.group_count = None
+                            self.source_count = None
+                            self.suppress_report = None
+                            self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, ['group_address', 'group_address_mask', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -7008,15 +7287,18 @@ class Mld(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.maximum_groups = YLeaf(YType.uint32, "maximum-groups")
-
-                        self.warning_threshold = YLeaf(YType.uint32, "warning-threshold")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._leafs = OrderedDict([
+                            ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.maximum_groups = None
+                        self.warning_threshold = None
+                        self.access_list_name = None
                         self._segment_path = lambda: "maximum-groups-per-interface-oor"
 
                     def __setattr__(self, name, value):
@@ -7057,13 +7339,16 @@ class Mld(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.enable = None
+                        self.access_list_name = None
                         self._segment_path = lambda: "explicit-tracking"
 
                     def __setattr__(self, name, value):

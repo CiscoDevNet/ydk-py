@@ -9,9 +9,11 @@ For example, an ISL, SDE, or 802.1Q encapsulated
 subinterface, or Switched Virtual Interface (SVI).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -40,8 +42,10 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
         self.yang_parent_name = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cviVlanInterfaceIndexTable" : ("cvivlaninterfaceindextable", CISCOVLANIFTABLERELATIONSHIPMIB.Cvivlaninterfaceindextable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cviVlanInterfaceIndexTable", ("cvivlaninterfaceindextable", CISCOVLANIFTABLERELATIONSHIPMIB.Cvivlaninterfaceindextable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cvivlaninterfaceindextable = CISCOVLANIFTABLERELATIONSHIPMIB.Cvivlaninterfaceindextable()
         self.cvivlaninterfaceindextable.parent = self
@@ -85,8 +89,10 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cviVlanInterfaceIndexEntry" : ("cvivlaninterfaceindexentry", CISCOVLANIFTABLERELATIONSHIPMIB.Cvivlaninterfaceindextable.Cvivlaninterfaceindexentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cviVlanInterfaceIndexEntry", ("cvivlaninterfaceindexentry", CISCOVLANIFTABLERELATIONSHIPMIB.Cvivlaninterfaceindextable.Cvivlaninterfaceindexentry))])
+            self._leafs = OrderedDict()
 
             self.cvivlaninterfaceindexentry = YList(self)
             self._segment_path = lambda: "cviVlanInterfaceIndexTable"
@@ -110,14 +116,14 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
             Entries are deleted by the agent when the routed VLAN interface
             is removed from the system configuration.
             
-            .. attribute:: cvivlanid  <key>
+            .. attribute:: cvivlanid  (key)
             
             	The VLAN\-id number of the routed VLAN interface
             	**type**\: int
             
             	**range:** 0..4095
             
-            .. attribute:: cviphysicalifindex  <key>
+            .. attribute:: cviphysicalifindex  (key)
             
             	For subinterfaces, this object is the ifIndex of the physical interface for the subinterface.  For Switch Virtual Interfaces (SVIs), this object is zero
             	**type**\: int
@@ -145,15 +151,18 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
                 self.yang_parent_name = "cviVlanInterfaceIndexTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvivlanid = YLeaf(YType.int32, "cviVlanId")
-
-                self.cviphysicalifindex = YLeaf(YType.int32, "cviPhysicalIfIndex")
-
-                self.cviroutedvlanifindex = YLeaf(YType.int32, "cviRoutedVlanIfIndex")
-                self._segment_path = lambda: "cviVlanInterfaceIndexEntry" + "[cviVlanId='" + self.cvivlanid.get() + "']" + "[cviPhysicalIfIndex='" + self.cviphysicalifindex.get() + "']"
+                self.ylist_key_names = ['cvivlanid','cviphysicalifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvivlanid', YLeaf(YType.int32, 'cviVlanId')),
+                    ('cviphysicalifindex', YLeaf(YType.int32, 'cviPhysicalIfIndex')),
+                    ('cviroutedvlanifindex', YLeaf(YType.int32, 'cviRoutedVlanIfIndex')),
+                ])
+                self.cvivlanid = None
+                self.cviphysicalifindex = None
+                self.cviroutedvlanifindex = None
+                self._segment_path = lambda: "cviVlanInterfaceIndexEntry" + "[cviVlanId='" + str(self.cvivlanid) + "']" + "[cviPhysicalIfIndex='" + str(self.cviphysicalifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB/cviVlanInterfaceIndexTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

@@ -7,9 +7,11 @@ Techniques in RSVP\-TE, draft\-ietf\-mpls\-rsvp\-lsp\-fastreroute\-
 00.txt, January 2002.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -53,8 +55,10 @@ class CISCOIETFFRRMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-FRR-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cmplsFrrScalars" : ("cmplsfrrscalars", CISCOIETFFRRMIB.Cmplsfrrscalars), "cmplsFrrConstTable" : ("cmplsfrrconsttable", CISCOIETFFRRMIB.Cmplsfrrconsttable), "cmplsFrrLogTable" : ("cmplsfrrlogtable", CISCOIETFFRRMIB.Cmplsfrrlogtable), "cmplsFrrFacRouteDBTable" : ("cmplsfrrfacroutedbtable", CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cmplsFrrScalars", ("cmplsfrrscalars", CISCOIETFFRRMIB.Cmplsfrrscalars)), ("cmplsFrrConstTable", ("cmplsfrrconsttable", CISCOIETFFRRMIB.Cmplsfrrconsttable)), ("cmplsFrrLogTable", ("cmplsfrrlogtable", CISCOIETFFRRMIB.Cmplsfrrlogtable)), ("cmplsFrrFacRouteDBTable", ("cmplsfrrfacroutedbtable", CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cmplsfrrscalars = CISCOIETFFRRMIB.Cmplsfrrscalars()
         self.cmplsfrrscalars.parent = self
@@ -190,36 +194,39 @@ class CISCOIETFFRRMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-FRR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cmplsfrrdetourincoming = YLeaf(YType.uint32, "cmplsFrrDetourIncoming")
-
-            self.cmplsfrrdetouroutgoing = YLeaf(YType.uint32, "cmplsFrrDetourOutgoing")
-
-            self.cmplsfrrdetouroriginating = YLeaf(YType.uint32, "cmplsFrrDetourOriginating")
-
-            self.cmplsfrrswitchover = YLeaf(YType.uint32, "cmplsFrrSwitchover")
-
-            self.cmplsfrrnumofconfifs = YLeaf(YType.uint32, "cmplsFrrNumOfConfIfs")
-
-            self.cmplsfrractprotectedifs = YLeaf(YType.uint32, "cmplsFrrActProtectedIfs")
-
-            self.cmplsfrrconfprotectingtuns = YLeaf(YType.uint32, "cmplsFrrConfProtectingTuns")
-
-            self.cmplsfrractprotectedtuns = YLeaf(YType.uint32, "cmplsFrrActProtectedTuns")
-
-            self.cmplsfrractprotectedlsps = YLeaf(YType.uint32, "cmplsFrrActProtectedLSPs")
-
-            self.cmplsfrrconstprotectionmethod = YLeaf(YType.enumeration, "cmplsFrrConstProtectionMethod")
-
-            self.cmplsfrrnotifsenabled = YLeaf(YType.boolean, "cmplsFrrNotifsEnabled")
-
-            self.cmplsfrrlogtablemaxentries = YLeaf(YType.uint32, "cmplsFrrLogTableMaxEntries")
-
-            self.cmplsfrrlogtablecurrentries = YLeaf(YType.uint32, "cmplsFrrLogTableCurrEntries")
-
-            self.cmplsfrrnotifmaxrate = YLeaf(YType.uint32, "cmplsFrrNotifMaxRate")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cmplsfrrdetourincoming', YLeaf(YType.uint32, 'cmplsFrrDetourIncoming')),
+                ('cmplsfrrdetouroutgoing', YLeaf(YType.uint32, 'cmplsFrrDetourOutgoing')),
+                ('cmplsfrrdetouroriginating', YLeaf(YType.uint32, 'cmplsFrrDetourOriginating')),
+                ('cmplsfrrswitchover', YLeaf(YType.uint32, 'cmplsFrrSwitchover')),
+                ('cmplsfrrnumofconfifs', YLeaf(YType.uint32, 'cmplsFrrNumOfConfIfs')),
+                ('cmplsfrractprotectedifs', YLeaf(YType.uint32, 'cmplsFrrActProtectedIfs')),
+                ('cmplsfrrconfprotectingtuns', YLeaf(YType.uint32, 'cmplsFrrConfProtectingTuns')),
+                ('cmplsfrractprotectedtuns', YLeaf(YType.uint32, 'cmplsFrrActProtectedTuns')),
+                ('cmplsfrractprotectedlsps', YLeaf(YType.uint32, 'cmplsFrrActProtectedLSPs')),
+                ('cmplsfrrconstprotectionmethod', YLeaf(YType.enumeration, 'cmplsFrrConstProtectionMethod')),
+                ('cmplsfrrnotifsenabled', YLeaf(YType.boolean, 'cmplsFrrNotifsEnabled')),
+                ('cmplsfrrlogtablemaxentries', YLeaf(YType.uint32, 'cmplsFrrLogTableMaxEntries')),
+                ('cmplsfrrlogtablecurrentries', YLeaf(YType.uint32, 'cmplsFrrLogTableCurrEntries')),
+                ('cmplsfrrnotifmaxrate', YLeaf(YType.uint32, 'cmplsFrrNotifMaxRate')),
+            ])
+            self.cmplsfrrdetourincoming = None
+            self.cmplsfrrdetouroutgoing = None
+            self.cmplsfrrdetouroriginating = None
+            self.cmplsfrrswitchover = None
+            self.cmplsfrrnumofconfifs = None
+            self.cmplsfrractprotectedifs = None
+            self.cmplsfrrconfprotectingtuns = None
+            self.cmplsfrractprotectedtuns = None
+            self.cmplsfrractprotectedlsps = None
+            self.cmplsfrrconstprotectionmethod = None
+            self.cmplsfrrnotifsenabled = None
+            self.cmplsfrrlogtablemaxentries = None
+            self.cmplsfrrlogtablecurrentries = None
+            self.cmplsfrrnotifmaxrate = None
             self._segment_path = lambda: "cmplsFrrScalars"
             self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
 
@@ -228,7 +235,7 @@ class CISCOIETFFRRMIB(Entity):
 
         class Cmplsfrrconstprotectionmethod(Enum):
             """
-            Cmplsfrrconstprotectionmethod
+            Cmplsfrrconstprotectionmethod (Enum Class)
 
             Indicates which protection method is to be used for fast
 
@@ -279,8 +286,10 @@ class CISCOIETFFRRMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-FRR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cmplsFrrConstEntry" : ("cmplsfrrconstentry", CISCOIETFFRRMIB.Cmplsfrrconsttable.Cmplsfrrconstentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cmplsFrrConstEntry", ("cmplsfrrconstentry", CISCOIETFFRRMIB.Cmplsfrrconsttable.Cmplsfrrconstentry))])
+            self._leafs = OrderedDict()
 
             self.cmplsfrrconstentry = YList(self)
             self._segment_path = lambda: "cmplsFrrConstTable"
@@ -300,21 +309,21 @@ class CISCOIETFFRRMIB(Entity):
             interfaces on this device for which the FRR feature can operate
             on.
             
-            .. attribute:: cmplsfrrconstifindex  <key>
+            .. attribute:: cmplsfrrconstifindex  (key)
             
             	Uniquely identifies an interface for which fast reroute is configured. Tabular entries indexed with a 0 value apply to all interfaces on this device for which the FRR feature can operate on
             	**type**\: int
             
             	**range:** 0..2147483647
             
-            .. attribute:: cmplsfrrconsttunnelindex  <key>
+            .. attribute:: cmplsfrrconsttunnelindex  (key)
             
             	Uniquely identifies a tunnel for which fast reroute is requested
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: cmplsfrrconsttunnelinstance  <key>
+            .. attribute:: cmplsfrrconsttunnelinstance  (key)
             
             	Uniquely identifies an instance of this tunnel for which fast reroute is requested
             	**type**\: int
@@ -403,35 +412,38 @@ class CISCOIETFFRRMIB(Entity):
                 self.yang_parent_name = "cmplsFrrConstTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmplsfrrconstifindex = YLeaf(YType.int32, "cmplsFrrConstIfIndex")
-
-                self.cmplsfrrconsttunnelindex = YLeaf(YType.uint32, "cmplsFrrConstTunnelIndex")
-
-                self.cmplsfrrconsttunnelinstance = YLeaf(YType.uint32, "cmplsFrrConstTunnelInstance")
-
-                self.cmplsfrrconstsetupprio = YLeaf(YType.uint32, "cmplsFrrConstSetupPrio")
-
-                self.cmplsfrrconstholdingprio = YLeaf(YType.uint32, "cmplsFrrConstHoldingPrio")
-
-                self.cmplsfrrconstinclanyaffinity = YLeaf(YType.uint32, "cmplsFrrConstInclAnyAffinity")
-
-                self.cmplsfrrconstinclallaffinity = YLeaf(YType.uint32, "cmplsFrrConstInclAllAffinity")
-
-                self.cmplsfrrconstexclallaffinity = YLeaf(YType.uint32, "cmplsFrrConstExclAllAffinity")
-
-                self.cmplsfrrconsthoplimit = YLeaf(YType.uint32, "cmplsFrrConstHopLimit")
-
-                self.cmplsfrrconstbandwidth = YLeaf(YType.uint32, "cmplsFrrConstBandwidth")
-
-                self.cmplsfrrconstrowstatus = YLeaf(YType.enumeration, "cmplsFrrConstRowStatus")
-
-                self.cmplsfrrconstnumprotectingtunonif = YLeaf(YType.uint32, "cmplsFrrConstNumProtectingTunOnIf")
-
-                self.cmplsfrrconstnumprotectedtunonif = YLeaf(YType.uint32, "cmplsFrrConstNumProtectedTunOnIf")
-                self._segment_path = lambda: "cmplsFrrConstEntry" + "[cmplsFrrConstIfIndex='" + self.cmplsfrrconstifindex.get() + "']" + "[cmplsFrrConstTunnelIndex='" + self.cmplsfrrconsttunnelindex.get() + "']" + "[cmplsFrrConstTunnelInstance='" + self.cmplsfrrconsttunnelinstance.get() + "']"
+                self.ylist_key_names = ['cmplsfrrconstifindex','cmplsfrrconsttunnelindex','cmplsfrrconsttunnelinstance']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmplsfrrconstifindex', YLeaf(YType.int32, 'cmplsFrrConstIfIndex')),
+                    ('cmplsfrrconsttunnelindex', YLeaf(YType.uint32, 'cmplsFrrConstTunnelIndex')),
+                    ('cmplsfrrconsttunnelinstance', YLeaf(YType.uint32, 'cmplsFrrConstTunnelInstance')),
+                    ('cmplsfrrconstsetupprio', YLeaf(YType.uint32, 'cmplsFrrConstSetupPrio')),
+                    ('cmplsfrrconstholdingprio', YLeaf(YType.uint32, 'cmplsFrrConstHoldingPrio')),
+                    ('cmplsfrrconstinclanyaffinity', YLeaf(YType.uint32, 'cmplsFrrConstInclAnyAffinity')),
+                    ('cmplsfrrconstinclallaffinity', YLeaf(YType.uint32, 'cmplsFrrConstInclAllAffinity')),
+                    ('cmplsfrrconstexclallaffinity', YLeaf(YType.uint32, 'cmplsFrrConstExclAllAffinity')),
+                    ('cmplsfrrconsthoplimit', YLeaf(YType.uint32, 'cmplsFrrConstHopLimit')),
+                    ('cmplsfrrconstbandwidth', YLeaf(YType.uint32, 'cmplsFrrConstBandwidth')),
+                    ('cmplsfrrconstrowstatus', YLeaf(YType.enumeration, 'cmplsFrrConstRowStatus')),
+                    ('cmplsfrrconstnumprotectingtunonif', YLeaf(YType.uint32, 'cmplsFrrConstNumProtectingTunOnIf')),
+                    ('cmplsfrrconstnumprotectedtunonif', YLeaf(YType.uint32, 'cmplsFrrConstNumProtectedTunOnIf')),
+                ])
+                self.cmplsfrrconstifindex = None
+                self.cmplsfrrconsttunnelindex = None
+                self.cmplsfrrconsttunnelinstance = None
+                self.cmplsfrrconstsetupprio = None
+                self.cmplsfrrconstholdingprio = None
+                self.cmplsfrrconstinclanyaffinity = None
+                self.cmplsfrrconstinclallaffinity = None
+                self.cmplsfrrconstexclallaffinity = None
+                self.cmplsfrrconsthoplimit = None
+                self.cmplsfrrconstbandwidth = None
+                self.cmplsfrrconstrowstatus = None
+                self.cmplsfrrconstnumprotectingtunonif = None
+                self.cmplsfrrconstnumprotectedtunonif = None
+                self._segment_path = lambda: "cmplsFrrConstEntry" + "[cmplsFrrConstIfIndex='" + str(self.cmplsfrrconstifindex) + "']" + "[cmplsFrrConstTunnelIndex='" + str(self.cmplsfrrconsttunnelindex) + "']" + "[cmplsFrrConstTunnelInstance='" + str(self.cmplsfrrconsttunnelinstance) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrConstTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -463,8 +475,10 @@ class CISCOIETFFRRMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-FRR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cmplsFrrLogEntry" : ("cmplsfrrlogentry", CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cmplsFrrLogEntry", ("cmplsfrrlogentry", CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry))])
+            self._leafs = OrderedDict()
 
             self.cmplsfrrlogentry = YList(self)
             self._segment_path = lambda: "cmplsFrrLogTable"
@@ -481,7 +495,7 @@ class CISCOIETFFRRMIB(Entity):
             destroyed by the agent implementation. The maximum number 
             of entries in this log is governed by the scalar.
             
-            .. attribute:: cmplsfrrlogindex  <key>
+            .. attribute:: cmplsfrrlogindex  (key)
             
             	Uniquely identifies a fast reroute event entry
             	**type**\: int
@@ -535,21 +549,24 @@ class CISCOIETFFRRMIB(Entity):
                 self.yang_parent_name = "cmplsFrrLogTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmplsfrrlogindex = YLeaf(YType.uint32, "cmplsFrrLogIndex")
-
-                self.cmplsfrrlogeventtime = YLeaf(YType.uint32, "cmplsFrrLogEventTime")
-
-                self.cmplsfrrloginterface = YLeaf(YType.int32, "cmplsFrrLogInterface")
-
-                self.cmplsfrrlogeventtype = YLeaf(YType.enumeration, "cmplsFrrLogEventType")
-
-                self.cmplsfrrlogeventduration = YLeaf(YType.uint32, "cmplsFrrLogEventDuration")
-
-                self.cmplsfrrlogeventreasonstring = YLeaf(YType.str, "cmplsFrrLogEventReasonString")
-                self._segment_path = lambda: "cmplsFrrLogEntry" + "[cmplsFrrLogIndex='" + self.cmplsfrrlogindex.get() + "']"
+                self.ylist_key_names = ['cmplsfrrlogindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmplsfrrlogindex', YLeaf(YType.uint32, 'cmplsFrrLogIndex')),
+                    ('cmplsfrrlogeventtime', YLeaf(YType.uint32, 'cmplsFrrLogEventTime')),
+                    ('cmplsfrrloginterface', YLeaf(YType.int32, 'cmplsFrrLogInterface')),
+                    ('cmplsfrrlogeventtype', YLeaf(YType.enumeration, 'cmplsFrrLogEventType')),
+                    ('cmplsfrrlogeventduration', YLeaf(YType.uint32, 'cmplsFrrLogEventDuration')),
+                    ('cmplsfrrlogeventreasonstring', YLeaf(YType.str, 'cmplsFrrLogEventReasonString')),
+                ])
+                self.cmplsfrrlogindex = None
+                self.cmplsfrrlogeventtime = None
+                self.cmplsfrrloginterface = None
+                self.cmplsfrrlogeventtype = None
+                self.cmplsfrrlogeventduration = None
+                self.cmplsfrrlogeventreasonstring = None
+                self._segment_path = lambda: "cmplsFrrLogEntry" + "[cmplsFrrLogIndex='" + str(self.cmplsfrrlogindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrLogTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -557,7 +574,7 @@ class CISCOIETFFRRMIB(Entity):
 
             class Cmplsfrrlogeventtype(Enum):
                 """
-                Cmplsfrrlogeventtype
+                Cmplsfrrlogeventtype (Enum Class)
 
                 This object describes what type of fast reroute event
 
@@ -614,8 +631,10 @@ class CISCOIETFFRRMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-FRR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cmplsFrrFacRouteDBEntry" : ("cmplsfrrfacroutedbentry", CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cmplsFrrFacRouteDBEntry", ("cmplsfrrfacroutedbentry", CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry))])
+            self._leafs = OrderedDict()
 
             self.cmplsfrrfacroutedbentry = YList(self)
             self._segment_path = lambda: "cmplsFrrFacRouteDBTable"
@@ -635,42 +654,42 @@ class CISCOIETFFRRMIB(Entity):
             tunnels, and the ifEntry in the IF\-MIB for the protected
             interface.
             
-            .. attribute:: cmplsfrrfacrouteprotectedifindex  <key>
+            .. attribute:: cmplsfrrfacrouteprotectedifindex  (key)
             
             	Uniquely identifies the interface configured for FRR protection
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: cmplsfrrfacrouteprotectingtunindex  <key>
+            .. attribute:: cmplsfrrfacrouteprotectingtunindex  (key)
             
             	Uniquely identifies the mplsTunnelEntry primary index for the tunnel head interface designated to protect the  interface as specified in the mplsFrrFacRouteIfProtectedIndex (and all of the tunnels using this interface)
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: cmplsfrrfacrouteprotectedtunindex  <key>
+            .. attribute:: cmplsfrrfacrouteprotectedtunindex  (key)
             
             	Uniquely identifies an mplsTunnelEntry that is being protected by FRR
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: cmplsfrrfacrouteprotectedtuninstance  <key>
+            .. attribute:: cmplsfrrfacrouteprotectedtuninstance  (key)
             
             	Uniquely identifies an mplsTunnelEntry that is being protected by FRR
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cmplsfrrfacrouteprotectedtuningresslsrid  <key>
+            .. attribute:: cmplsfrrfacrouteprotectedtuningresslsrid  (key)
             
             	Uniquely identifies an mplsTunnelEntry that is being protected by FRR
             	**type**\: str
             
             	**length:** 4
             
-            .. attribute:: cmplsfrrfacrouteprotectedtunegresslsrid  <key>
+            .. attribute:: cmplsfrrfacrouteprotectedtunegresslsrid  (key)
             
             	Uniquely identifies an mplsTunnelEntry that is being protected by FRR
             	**type**\: str
@@ -708,27 +727,30 @@ class CISCOIETFFRRMIB(Entity):
                 self.yang_parent_name = "cmplsFrrFacRouteDBTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmplsfrrfacrouteprotectedifindex = YLeaf(YType.int32, "cmplsFrrFacRouteProtectedIfIndex")
-
-                self.cmplsfrrfacrouteprotectingtunindex = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectingTunIndex")
-
-                self.cmplsfrrfacrouteprotectedtunindex = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectedTunIndex")
-
-                self.cmplsfrrfacrouteprotectedtuninstance = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectedTunInstance")
-
-                self.cmplsfrrfacrouteprotectedtuningresslsrid = YLeaf(YType.str, "cmplsFrrFacRouteProtectedTunIngressLSRId")
-
-                self.cmplsfrrfacrouteprotectedtunegresslsrid = YLeaf(YType.str, "cmplsFrrFacRouteProtectedTunEgressLSRId")
-
-                self.cmplsfrrfacrouteprotectedtunstatus = YLeaf(YType.enumeration, "cmplsFrrFacRouteProtectedTunStatus")
-
-                self.cmplsfrrfacrouteprotectingtunresvbw = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectingTunResvBw")
-
-                self.cmplsfrrfacrouteprotectingtunprotectiontype = YLeaf(YType.enumeration, "cmplsFrrFacRouteProtectingTunProtectionType")
-                self._segment_path = lambda: "cmplsFrrFacRouteDBEntry" + "[cmplsFrrFacRouteProtectedIfIndex='" + self.cmplsfrrfacrouteprotectedifindex.get() + "']" + "[cmplsFrrFacRouteProtectingTunIndex='" + self.cmplsfrrfacrouteprotectingtunindex.get() + "']" + "[cmplsFrrFacRouteProtectedTunIndex='" + self.cmplsfrrfacrouteprotectedtunindex.get() + "']" + "[cmplsFrrFacRouteProtectedTunInstance='" + self.cmplsfrrfacrouteprotectedtuninstance.get() + "']" + "[cmplsFrrFacRouteProtectedTunIngressLSRId='" + self.cmplsfrrfacrouteprotectedtuningresslsrid.get() + "']" + "[cmplsFrrFacRouteProtectedTunEgressLSRId='" + self.cmplsfrrfacrouteprotectedtunegresslsrid.get() + "']"
+                self.ylist_key_names = ['cmplsfrrfacrouteprotectedifindex','cmplsfrrfacrouteprotectingtunindex','cmplsfrrfacrouteprotectedtunindex','cmplsfrrfacrouteprotectedtuninstance','cmplsfrrfacrouteprotectedtuningresslsrid','cmplsfrrfacrouteprotectedtunegresslsrid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmplsfrrfacrouteprotectedifindex', YLeaf(YType.int32, 'cmplsFrrFacRouteProtectedIfIndex')),
+                    ('cmplsfrrfacrouteprotectingtunindex', YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectingTunIndex')),
+                    ('cmplsfrrfacrouteprotectedtunindex', YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectedTunIndex')),
+                    ('cmplsfrrfacrouteprotectedtuninstance', YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectedTunInstance')),
+                    ('cmplsfrrfacrouteprotectedtuningresslsrid', YLeaf(YType.str, 'cmplsFrrFacRouteProtectedTunIngressLSRId')),
+                    ('cmplsfrrfacrouteprotectedtunegresslsrid', YLeaf(YType.str, 'cmplsFrrFacRouteProtectedTunEgressLSRId')),
+                    ('cmplsfrrfacrouteprotectedtunstatus', YLeaf(YType.enumeration, 'cmplsFrrFacRouteProtectedTunStatus')),
+                    ('cmplsfrrfacrouteprotectingtunresvbw', YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectingTunResvBw')),
+                    ('cmplsfrrfacrouteprotectingtunprotectiontype', YLeaf(YType.enumeration, 'cmplsFrrFacRouteProtectingTunProtectionType')),
+                ])
+                self.cmplsfrrfacrouteprotectedifindex = None
+                self.cmplsfrrfacrouteprotectingtunindex = None
+                self.cmplsfrrfacrouteprotectedtunindex = None
+                self.cmplsfrrfacrouteprotectedtuninstance = None
+                self.cmplsfrrfacrouteprotectedtuningresslsrid = None
+                self.cmplsfrrfacrouteprotectedtunegresslsrid = None
+                self.cmplsfrrfacrouteprotectedtunstatus = None
+                self.cmplsfrrfacrouteprotectingtunresvbw = None
+                self.cmplsfrrfacrouteprotectingtunprotectiontype = None
+                self._segment_path = lambda: "cmplsFrrFacRouteDBEntry" + "[cmplsFrrFacRouteProtectedIfIndex='" + str(self.cmplsfrrfacrouteprotectedifindex) + "']" + "[cmplsFrrFacRouteProtectingTunIndex='" + str(self.cmplsfrrfacrouteprotectingtunindex) + "']" + "[cmplsFrrFacRouteProtectedTunIndex='" + str(self.cmplsfrrfacrouteprotectedtunindex) + "']" + "[cmplsFrrFacRouteProtectedTunInstance='" + str(self.cmplsfrrfacrouteprotectedtuninstance) + "']" + "[cmplsFrrFacRouteProtectedTunIngressLSRId='" + str(self.cmplsfrrfacrouteprotectedtuningresslsrid) + "']" + "[cmplsFrrFacRouteProtectedTunEgressLSRId='" + str(self.cmplsfrrfacrouteprotectedtunegresslsrid) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrFacRouteDBTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -736,7 +758,7 @@ class CISCOIETFFRRMIB(Entity):
 
             class Cmplsfrrfacrouteprotectedtunstatus(Enum):
                 """
-                Cmplsfrrfacrouteprotectedtunstatus
+                Cmplsfrrfacrouteprotectedtunstatus (Enum Class)
 
                 Specifies the state of the protected tunnel.
 
@@ -771,7 +793,7 @@ class CISCOIETFFRRMIB(Entity):
 
             class Cmplsfrrfacrouteprotectingtunprotectiontype(Enum):
                 """
-                Cmplsfrrfacrouteprotectingtunprotectiontype
+                Cmplsfrrfacrouteprotectingtunprotectiontype (Enum Class)
 
                 Indicates type of the resource protection.
 

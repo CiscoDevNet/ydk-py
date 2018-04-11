@@ -9,7 +9,7 @@ function pip_check_install {
             return
         fi
     elif [[ $(uname) == "Darwin" ]] ; then
-        sudo pip install $@
+        pip install $@
         return
     fi
     pip install $@

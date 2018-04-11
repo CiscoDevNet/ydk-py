@@ -29,10 +29,16 @@ module Cisco-IOS-XE-zone {
   // =========================================================================
   // REVISION
   // =========================================================================
-  revision 2017-10-27 {
-    description
-      "Update supported interfaces";
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
   }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -153,7 +159,7 @@ module Cisco-IOS-XE-zone {
     uses config-interface-zone-member-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-interface-zone-member-grouping;
   }
 
@@ -166,6 +172,10 @@ module Cisco-IOS-XE-zone {
   }
 
   augment "/ios:native/ios:interface/ios:LISP" {
+    uses config-interface-zone-member-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
     uses config-interface-zone-member-grouping;
   }
 

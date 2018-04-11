@@ -1,122 +1,130 @@
 module Cisco-IOS-XR-lpts-punt-flowtrap-cfg {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-lpts-punt-flowtrap-cfg";
+  prefix lpts-punt-flowtrap-cfg;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-lpts-lib-cfg {
+    prefix a1;
+  }
 
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-lpts-punt-flowtrap-cfg";
-
-
-  prefix "lpts-punt-flowtrap-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-lpts-lib-cfg { prefix "a1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR lpts-punt-flowtrap package configuration.
-
+     
      This YANG module augments the
        Cisco-IOS-XR-lpts-lib-cfg
      module with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Lpts-punt-flowtrap-proto-id {
     type enumeration {
-      enum arp {
+      enum "arp" {
         value 1;
-        description "ARP";
+        description
+          "ARP";
       }
-      enum icmp {
+      enum "icmp" {
         value 2;
-        description "Internet Control Message Protocol";
+        description
+          "Internet Control Message Protocol";
       }
-      enum dhcp {
+      enum "dhcp" {
         value 3;
-        description "Dynamic Host Configuration Protocol";
+        description
+          "Dynamic Host Configuration Protocol";
       }
-      enum pppoe {
+      enum "pppoe" {
         value 4;
-        description "PPP over Ethernet";
+        description
+          "PPP over Ethernet";
       }
-      enum ppp {
+      enum "ppp" {
         value 5;
-        description "Point to point Protocol";
+        description
+          "Point to point Protocol";
       }
-      enum igmp {
+      enum "igmp" {
         value 6;
-        description "Internet Gateway Message Protocol";
+        description
+          "Internet Gateway Message Protocol";
       }
-      enum ipv4 {
+      enum "ipv4" {
         value 7;
-        description "IPv4";
+        description
+          "IPv4";
       }
-      enum l2tp {
+      enum "l2tp" {
         value 8;
-        description "Layer2 Tunneling Protocol";
+        description
+          "Layer2 Tunneling Protocol";
       }
-      enum unclassified {
+      enum "unclassified" {
         value 9;
-        description "Unclassified Source";
+        description
+          "Unclassified Source";
       }
-      enum ospf {
+      enum "ospf" {
         value 10;
-        description "OSPF";
+        description
+          "OSPF";
       }
-      enum bgp {
+      enum "bgp" {
         value 11;
-        description "BGP";
+        description
+          "BGP";
       }
-      enum default {
+      enum "default" {
         value 12;
-        description "All protocols";
+        description
+          "All protocols";
       }
     }
-    description "Lpts punt flowtrap proto id";
+    description
+      "Lpts punt flowtrap proto id";
   }
 
   augment "/a1:lpts" {
-
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-lpts-lib-cfg'";
     container punt {
-      description "Configure penalty timeout value";
-
+      description
+        "Configure penalty timeout value";
       container flowtrap {
         description
           "excessive punt flow trap configuration commands";
-
         container penalty-rates {
-          description "Configure penalty policing rate";
-
+          description
+            "Configure penalty policing rate";
           list penalty-rate {
             key "protocol-name";
-            description "none";
+            description
+              "none";
             leaf protocol-name {
               type Lpts-punt-flowtrap-proto-id;
-              description "none";
+              description
+                "none";
             }
             leaf rate {
               type uint32 {
@@ -128,33 +136,34 @@ module Cisco-IOS-XR-lpts-punt-flowtrap-cfg {
             }
           }
         }
-
         container penalty-timeouts {
-          description "Configure penalty timeout value";
-
+          description
+            "Configure penalty timeout value";
           list penalty-timeout {
             key "protocol-name";
-            description "none";
+            description
+              "none";
             leaf protocol-name {
               type Lpts-punt-flowtrap-proto-id;
-              description "none";
+              description
+                "none";
             }
             leaf timeout {
               type uint32 {
                 range "1..1000";
               }
               mandatory true;
-              description "Timeout value in minutes";
+              description
+                "Timeout value in minutes";
             }
           }
         }
-
         container exclude {
-          description "Exclude an item from all traps";
-
+          description
+            "Exclude an item from all traps";
           container interface-names {
-            description "none";
-
+            description
+              "none";
             list interface-name {
               key "ifname";
               description
@@ -167,7 +176,8 @@ module Cisco-IOS-XR-lpts-punt-flowtrap-cfg {
               leaf id1 {
                 type boolean;
                 mandatory true;
-                description "Enabled or disabled";
+                description
+                  "Enabled or disabled";
               }
             }
           }
@@ -176,7 +186,8 @@ module Cisco-IOS-XR-lpts-punt-flowtrap-cfg {
           type uint32 {
             range "1..60000";
           }
-          description "Maximum flow gap in milliseconds";
+          description
+            "Maximum flow gap in milliseconds";
         }
         leaf et-size {
           type uint32 {
@@ -184,7 +195,7 @@ module Cisco-IOS-XR-lpts-punt-flowtrap-cfg {
           }
           description
             "Should be power of 2. Any one of 1,2,4,8,16,32
-            ,64,128";
+             ,64,128";
         }
         leaf eviction-threshold {
           type uint32 {
@@ -192,25 +203,26 @@ module Cisco-IOS-XR-lpts-punt-flowtrap-cfg {
           }
           description
             "Eviction threshold, should be less than
-            report-threshold";
+             report-threshold";
         }
         leaf report-threshold {
           type xr:Cisco-ios-xr-port-number;
           description
             "Threshold to cross for a flow to be considered
-            as bad actor flow";
+             as bad actor flow";
         }
         leaf non-subscriber-interfaces {
           type int32;
           description
             "Enable trap based on source mac on
-            non-subscriber interface";
+             non-subscriber interface";
         }
         leaf sample-prob {
           type string {
             length "1..32";
           }
-          description "Probability of packets to be sampled";
+          description
+            "Probability of packets to be sampled";
         }
         leaf eviction-search-limit {
           type uint32 {
@@ -218,17 +230,18 @@ module Cisco-IOS-XR-lpts-punt-flowtrap-cfg {
           }
           description
             "Eviction search limit, should be less than
-            trap-size";
+             trap-size";
         }
         leaf routing-protocols-enable {
           type boolean;
           description
             "Allow routing protocols to pass through copp
-            sampler";
+             sampler";
         }
         leaf subscriber-interfaces {
           type boolean;
-          description "Enable the trap on subscriber interfaces";
+          description
+            "Enable the trap on subscriber interfaces";
         }
         leaf interface-based-flow {
           type boolean;
@@ -241,12 +254,9 @@ module Cisco-IOS-XR-lpts-punt-flowtrap-cfg {
           }
           description
             "Dampening period for a bad actor flow in
-            milliseconds";
+             milliseconds";
         }
       }
     }
-    description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-lpts-lib-cfg'";
   }
 }

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class Context(Enum):
     """
-    Context
+    Context (Enum Class)
 
     Context
 
@@ -42,7 +44,7 @@ class Context(Enum):
 
 class Copy(Enum):
     """
-    Copy
+    Copy (Enum Class)
 
     Copy
 
@@ -65,7 +67,7 @@ class Copy(Enum):
 
 class Mainmemory(Enum):
     """
-    Mainmemory
+    Mainmemory (Enum Class)
 
     Mainmemory
 
@@ -86,7 +88,7 @@ class Mainmemory(Enum):
 
 class Nocore(Enum):
     """
-    Nocore
+    Nocore (Enum Class)
 
     Nocore
 
@@ -109,7 +111,7 @@ class Nocore(Enum):
 
 class Packetmemory(Enum):
     """
-    Packetmemory
+    Packetmemory (Enum Class)
 
     Packetmemory
 
@@ -130,7 +132,7 @@ class Packetmemory(Enum):
 
 class Sharedmemory(Enum):
     """
-    Sharedmemory
+    Sharedmemory (Enum Class)
 
     Sharedmemory
 
@@ -151,7 +153,7 @@ class Sharedmemory(Enum):
 
 class Skipcpuinfo(Enum):
     """
-    Skipcpuinfo
+    Skipcpuinfo (Enum Class)
 
     Skipcpuinfo
 
@@ -174,7 +176,7 @@ class Skipcpuinfo(Enum):
 
 class Sparse(Enum):
     """
-    Sparse
+    Sparse (Enum Class)
 
     Sparse
 
@@ -278,22 +280,25 @@ class Exception(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-dumper-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"choice1" : ("choice1", Exception.Choice1), "choice3" : ("choice3", Exception.Choice3), "process-names" : ("process_names", Exception.ProcessNames), "choice2" : ("choice2", Exception.Choice2)}
-        self._child_list_classes = {}
-
-        self.sparse = YLeaf(YType.boolean, "sparse")
-
-        self.core_verification = YLeaf(YType.boolean, "core-verification")
-
-        self.core_size = YLeaf(YType.uint32, "core-size")
-
-        self.kernel_debugger = YLeaf(YType.empty, "kernel-debugger")
-
-        self.packet_memory = YLeaf(YType.boolean, "packet-memory")
-
-        self.sparse_size = YLeaf(YType.uint32, "sparse-size")
-
-        self.memory_threshold = YLeaf(YType.uint32, "memory-threshold")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("choice1", ("choice1", Exception.Choice1)), ("choice3", ("choice3", Exception.Choice3)), ("process-names", ("process_names", Exception.ProcessNames)), ("choice2", ("choice2", Exception.Choice2))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('sparse', YLeaf(YType.boolean, 'sparse')),
+            ('core_verification', YLeaf(YType.boolean, 'core-verification')),
+            ('core_size', YLeaf(YType.uint32, 'core-size')),
+            ('kernel_debugger', YLeaf(YType.empty, 'kernel-debugger')),
+            ('packet_memory', YLeaf(YType.boolean, 'packet-memory')),
+            ('sparse_size', YLeaf(YType.uint32, 'sparse-size')),
+            ('memory_threshold', YLeaf(YType.uint32, 'memory-threshold')),
+        ])
+        self.sparse = None
+        self.core_verification = None
+        self.core_size = None
+        self.kernel_debugger = None
+        self.packet_memory = None
+        self.sparse_size = None
+        self.memory_threshold = None
 
         self.choice1 = Exception.Choice1()
         self.choice1.parent = self
@@ -367,18 +372,21 @@ class Exception(Entity):
             self.yang_parent_name = "exception"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.compress = YLeaf(YType.boolean, "compress")
-
-            self.lower_limit = YLeaf(YType.uint32, "lower-limit")
-
-            self.higher_limit = YLeaf(YType.uint32, "higher-limit")
-
-            self.file_path = YLeaf(YType.str, "file-path")
-
-            self.filename = YLeaf(YType.str, "filename")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('compress', YLeaf(YType.boolean, 'compress')),
+                ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
+                ('higher_limit', YLeaf(YType.uint32, 'higher-limit')),
+                ('file_path', YLeaf(YType.str, 'file-path')),
+                ('filename', YLeaf(YType.str, 'filename')),
+            ])
+            self.compress = None
+            self.lower_limit = None
+            self.higher_limit = None
+            self.file_path = None
+            self.filename = None
             self._segment_path = lambda: "choice1"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-cfg:exception/%s" % self._segment_path()
 
@@ -433,18 +441,21 @@ class Exception(Entity):
             self.yang_parent_name = "exception"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.compress = YLeaf(YType.boolean, "compress")
-
-            self.lower_limit = YLeaf(YType.uint32, "lower-limit")
-
-            self.higher_limit = YLeaf(YType.uint32, "higher-limit")
-
-            self.file_path = YLeaf(YType.str, "file-path")
-
-            self.filename = YLeaf(YType.str, "filename")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('compress', YLeaf(YType.boolean, 'compress')),
+                ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
+                ('higher_limit', YLeaf(YType.uint32, 'higher-limit')),
+                ('file_path', YLeaf(YType.str, 'file-path')),
+                ('filename', YLeaf(YType.str, 'filename')),
+            ])
+            self.compress = None
+            self.lower_limit = None
+            self.higher_limit = None
+            self.file_path = None
+            self.filename = None
             self._segment_path = lambda: "choice3"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-cfg:exception/%s" % self._segment_path()
 
@@ -475,8 +486,10 @@ class Exception(Entity):
             self.yang_parent_name = "exception"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"process-name" : ("process_name", Exception.ProcessNames.ProcessName)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("process-name", ("process_name", Exception.ProcessNames.ProcessName))])
+            self._leafs = OrderedDict()
 
             self.process_name = YList(self)
             self._segment_path = lambda: "process-names"
@@ -490,7 +503,7 @@ class Exception(Entity):
             """
             Specify per process configuration
             
-            .. attribute:: processname  <key>
+            .. attribute:: processname  (key)
             
             	Specify per process configuration
             	**type**\: str
@@ -516,16 +529,19 @@ class Exception(Entity):
                 self.yang_parent_name = "process-names"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"core-option" : ("core_option", Exception.ProcessNames.ProcessName.CoreOption)}
-                self._child_list_classes = {}
-
-                self.processname = YLeaf(YType.str, "processname")
+                self.ylist_key_names = ['processname']
+                self._child_container_classes = OrderedDict([("core-option", ("core_option", Exception.ProcessNames.ProcessName.CoreOption))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('processname', YLeaf(YType.str, 'processname')),
+                ])
+                self.processname = None
 
                 self.core_option = Exception.ProcessNames.ProcessName.CoreOption()
                 self.core_option.parent = self
                 self._children_name_map["core_option"] = "core-option"
                 self._children_yang_names.add("core-option")
-                self._segment_path = lambda: "process-name" + "[processname='" + self.processname.get() + "']"
+                self._segment_path = lambda: "process-name" + "[processname='" + str(self.processname) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-cfg:exception/process-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -606,24 +622,27 @@ class Exception(Entity):
                     self.yang_parent_name = "process-name"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.main_memoryval = YLeaf(YType.enumeration, "main-memoryval")
-
-                    self.shared_memoryval = YLeaf(YType.enumeration, "shared-memoryval")
-
-                    self.packet_memoryval = YLeaf(YType.enumeration, "packet-memoryval")
-
-                    self.copyval = YLeaf(YType.enumeration, "copyval")
-
-                    self.sparseval = YLeaf(YType.enumeration, "sparseval")
-
-                    self.skipcpuinfoval = YLeaf(YType.enumeration, "skipcpuinfoval")
-
-                    self.contextval = YLeaf(YType.enumeration, "contextval")
-
-                    self.nocoreval = YLeaf(YType.enumeration, "nocoreval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('main_memoryval', YLeaf(YType.enumeration, 'main-memoryval')),
+                        ('shared_memoryval', YLeaf(YType.enumeration, 'shared-memoryval')),
+                        ('packet_memoryval', YLeaf(YType.enumeration, 'packet-memoryval')),
+                        ('copyval', YLeaf(YType.enumeration, 'copyval')),
+                        ('sparseval', YLeaf(YType.enumeration, 'sparseval')),
+                        ('skipcpuinfoval', YLeaf(YType.enumeration, 'skipcpuinfoval')),
+                        ('contextval', YLeaf(YType.enumeration, 'contextval')),
+                        ('nocoreval', YLeaf(YType.enumeration, 'nocoreval')),
+                    ])
+                    self.main_memoryval = None
+                    self.shared_memoryval = None
+                    self.packet_memoryval = None
+                    self.copyval = None
+                    self.sparseval = None
+                    self.skipcpuinfoval = None
+                    self.contextval = None
+                    self.nocoreval = None
                     self._segment_path = lambda: "core-option"
 
                 def __setattr__(self, name, value):
@@ -677,18 +696,21 @@ class Exception(Entity):
             self.yang_parent_name = "exception"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.compress = YLeaf(YType.boolean, "compress")
-
-            self.lower_limit = YLeaf(YType.uint32, "lower-limit")
-
-            self.higher_limit = YLeaf(YType.uint32, "higher-limit")
-
-            self.file_path = YLeaf(YType.str, "file-path")
-
-            self.filename = YLeaf(YType.str, "filename")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('compress', YLeaf(YType.boolean, 'compress')),
+                ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
+                ('higher_limit', YLeaf(YType.uint32, 'higher-limit')),
+                ('file_path', YLeaf(YType.str, 'file-path')),
+                ('filename', YLeaf(YType.str, 'filename')),
+            ])
+            self.compress = None
+            self.lower_limit = None
+            self.higher_limit = None
+            self.file_path = None
+            self.filename = None
             self._segment_path = lambda: "choice2"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-cfg:exception/%s" % self._segment_path()
 

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class WanphyAlarmRepStatus(Enum):
     """
-    WanphyAlarmRepStatus
+    WanphyAlarmRepStatus (Enum Class)
 
     WANPHY Alarm Report Status
 
@@ -40,7 +42,7 @@ class WanphyAlarmRepStatus(Enum):
 
 class WanphyModeInfo(Enum):
     """
-    WanphyModeInfo
+    WanphyModeInfo (Enum Class)
 
     WANPHY Modes
 
@@ -84,8 +86,10 @@ class Wanphy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-wanphy-ui-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"controllers" : ("controllers", Wanphy.Controllers)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("controllers", ("controllers", Wanphy.Controllers))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.controllers = Wanphy.Controllers()
         self.controllers.parent = self
@@ -117,8 +121,10 @@ class Wanphy(Entity):
             self.yang_parent_name = "wanphy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"controller" : ("controller", Wanphy.Controllers.Controller)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("controller", ("controller", Wanphy.Controllers.Controller))])
+            self._leafs = OrderedDict()
 
             self.controller = YList(self)
             self._segment_path = lambda: "controllers"
@@ -132,7 +138,7 @@ class Wanphy(Entity):
             """
             WANPHY controller operational data
             
-            .. attribute:: controller_name  <key>
+            .. attribute:: controller_name  (key)
             
             	Controller name
             	**type**\: str
@@ -158,16 +164,19 @@ class Wanphy(Entity):
                 self.yang_parent_name = "controllers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"info" : ("info", Wanphy.Controllers.Controller.Info)}
-                self._child_list_classes = {}
-
-                self.controller_name = YLeaf(YType.str, "controller-name")
+                self.ylist_key_names = ['controller_name']
+                self._child_container_classes = OrderedDict([("info", ("info", Wanphy.Controllers.Controller.Info))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('controller_name', YLeaf(YType.str, 'controller-name')),
+                ])
+                self.controller_name = None
 
                 self.info = Wanphy.Controllers.Controller.Info()
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
                 self._children_yang_names.add("info")
-                self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
+                self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-wanphy-ui-oper:wanphy/controllers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -497,98 +506,101 @@ class Wanphy(Entity):
                     self.yang_parent_name = "controller"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.admin_mode = YLeaf(YType.enumeration, "admin-mode")
-
-                    self.port_state = YLeaf(YType.uint32, "port-state")
-
-                    self.section_lof = YLeaf(YType.uint32, "section-lof")
-
-                    self.section_los = YLeaf(YType.uint32, "section-los")
-
-                    self.section_bip = YLeaf(YType.uint64, "section-bip")
-
-                    self.line_ais = YLeaf(YType.uint32, "line-ais")
-
-                    self.line_rdi = YLeaf(YType.uint32, "line-rdi")
-
-                    self.line_febe = YLeaf(YType.uint64, "line-febe")
-
-                    self.line_bip = YLeaf(YType.uint64, "line-bip")
-
-                    self.path_ais = YLeaf(YType.uint32, "path-ais")
-
-                    self.path_rdi = YLeaf(YType.uint32, "path-rdi")
-
-                    self.path_febe = YLeaf(YType.uint64, "path-febe")
-
-                    self.path_bip = YLeaf(YType.uint64, "path-bip")
-
-                    self.path_lop = YLeaf(YType.uint32, "path-lop")
-
-                    self.path_newptr = YLeaf(YType.uint32, "path-newptr")
-
-                    self.path_pse = YLeaf(YType.uint32, "path-pse")
-
-                    self.path_nse = YLeaf(YType.uint32, "path-nse")
-
-                    self.wis_alarms_ser = YLeaf(YType.uint32, "wis-alarms-ser")
-
-                    self.wis_alarms_felcdp = YLeaf(YType.uint32, "wis-alarms-felcdp")
-
-                    self.wis_alarms_feaisp = YLeaf(YType.uint32, "wis-alarms-feaisp")
-
-                    self.wis_alarms_wlos = YLeaf(YType.uint32, "wis-alarms-wlos")
-
-                    self.wis_alarms_plcd = YLeaf(YType.uint32, "wis-alarms-plcd")
-
-                    self.wis_alarms_lfebip = YLeaf(YType.uint64, "wis-alarms-lfebip")
-
-                    self.wis_alarms_pbec = YLeaf(YType.uint64, "wis-alarms-pbec")
-
-                    self.wis_alarms_plmp = YLeaf(YType.uint32, "wis-alarms-plmp")
-
-                    self.sf_ber_threshold = YLeaf(YType.uint32, "sf-ber-threshold")
-
-                    self.sd_ber_threshold = YLeaf(YType.uint32, "sd-ber-threshold")
-
-                    self.sf_ber_report = YLeaf(YType.enumeration, "sf-ber-report")
-
-                    self.sd_ber_report = YLeaf(YType.enumeration, "sd-ber-report")
-
-                    self.operational_mode = YLeaf(YType.enumeration, "operational-mode")
-
-                    self.remote_ip = YLeaf(YType.str, "remote-ip")
-
-                    self.register_p_febe = YLeaf(YType.uint32, "register-p-febe")
-
-                    self.register_l_fe_bip = YLeaf(YType.uint32, "register-l-fe-bip")
-
-                    self.register_l_bip = YLeaf(YType.uint32, "register-l-bip")
-
-                    self.register_p_bec = YLeaf(YType.uint32, "register-p-bec")
-
-                    self.register_s_bip = YLeaf(YType.uint32, "register-s-bip")
-
-                    self.register_j1_rx0 = YLeaf(YType.uint32, "register-j1-rx0")
-
-                    self.register_j1_rx1 = YLeaf(YType.uint32, "register-j1-rx1")
-
-                    self.register_j1_rx2 = YLeaf(YType.uint32, "register-j1-rx2")
-
-                    self.register_j1_rx3 = YLeaf(YType.uint32, "register-j1-rx3")
-
-                    self.register_j1_rx4 = YLeaf(YType.uint32, "register-j1-rx4")
-
-                    self.register_j1_rx5 = YLeaf(YType.uint32, "register-j1-rx5")
-
-                    self.register_j1_rx6 = YLeaf(YType.uint32, "register-j1-rx6")
-
-                    self.register_j1_rx7 = YLeaf(YType.uint32, "register-j1-rx7")
-
-                    self.wanphy_poll_timer = YLeaf(YType.uint32, "wanphy-poll-timer")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('admin_mode', YLeaf(YType.enumeration, 'admin-mode')),
+                        ('port_state', YLeaf(YType.uint32, 'port-state')),
+                        ('section_lof', YLeaf(YType.uint32, 'section-lof')),
+                        ('section_los', YLeaf(YType.uint32, 'section-los')),
+                        ('section_bip', YLeaf(YType.uint64, 'section-bip')),
+                        ('line_ais', YLeaf(YType.uint32, 'line-ais')),
+                        ('line_rdi', YLeaf(YType.uint32, 'line-rdi')),
+                        ('line_febe', YLeaf(YType.uint64, 'line-febe')),
+                        ('line_bip', YLeaf(YType.uint64, 'line-bip')),
+                        ('path_ais', YLeaf(YType.uint32, 'path-ais')),
+                        ('path_rdi', YLeaf(YType.uint32, 'path-rdi')),
+                        ('path_febe', YLeaf(YType.uint64, 'path-febe')),
+                        ('path_bip', YLeaf(YType.uint64, 'path-bip')),
+                        ('path_lop', YLeaf(YType.uint32, 'path-lop')),
+                        ('path_newptr', YLeaf(YType.uint32, 'path-newptr')),
+                        ('path_pse', YLeaf(YType.uint32, 'path-pse')),
+                        ('path_nse', YLeaf(YType.uint32, 'path-nse')),
+                        ('wis_alarms_ser', YLeaf(YType.uint32, 'wis-alarms-ser')),
+                        ('wis_alarms_felcdp', YLeaf(YType.uint32, 'wis-alarms-felcdp')),
+                        ('wis_alarms_feaisp', YLeaf(YType.uint32, 'wis-alarms-feaisp')),
+                        ('wis_alarms_wlos', YLeaf(YType.uint32, 'wis-alarms-wlos')),
+                        ('wis_alarms_plcd', YLeaf(YType.uint32, 'wis-alarms-plcd')),
+                        ('wis_alarms_lfebip', YLeaf(YType.uint64, 'wis-alarms-lfebip')),
+                        ('wis_alarms_pbec', YLeaf(YType.uint64, 'wis-alarms-pbec')),
+                        ('wis_alarms_plmp', YLeaf(YType.uint32, 'wis-alarms-plmp')),
+                        ('sf_ber_threshold', YLeaf(YType.uint32, 'sf-ber-threshold')),
+                        ('sd_ber_threshold', YLeaf(YType.uint32, 'sd-ber-threshold')),
+                        ('sf_ber_report', YLeaf(YType.enumeration, 'sf-ber-report')),
+                        ('sd_ber_report', YLeaf(YType.enumeration, 'sd-ber-report')),
+                        ('operational_mode', YLeaf(YType.enumeration, 'operational-mode')),
+                        ('remote_ip', YLeaf(YType.str, 'remote-ip')),
+                        ('register_p_febe', YLeaf(YType.uint32, 'register-p-febe')),
+                        ('register_l_fe_bip', YLeaf(YType.uint32, 'register-l-fe-bip')),
+                        ('register_l_bip', YLeaf(YType.uint32, 'register-l-bip')),
+                        ('register_p_bec', YLeaf(YType.uint32, 'register-p-bec')),
+                        ('register_s_bip', YLeaf(YType.uint32, 'register-s-bip')),
+                        ('register_j1_rx0', YLeaf(YType.uint32, 'register-j1-rx0')),
+                        ('register_j1_rx1', YLeaf(YType.uint32, 'register-j1-rx1')),
+                        ('register_j1_rx2', YLeaf(YType.uint32, 'register-j1-rx2')),
+                        ('register_j1_rx3', YLeaf(YType.uint32, 'register-j1-rx3')),
+                        ('register_j1_rx4', YLeaf(YType.uint32, 'register-j1-rx4')),
+                        ('register_j1_rx5', YLeaf(YType.uint32, 'register-j1-rx5')),
+                        ('register_j1_rx6', YLeaf(YType.uint32, 'register-j1-rx6')),
+                        ('register_j1_rx7', YLeaf(YType.uint32, 'register-j1-rx7')),
+                        ('wanphy_poll_timer', YLeaf(YType.uint32, 'wanphy-poll-timer')),
+                    ])
+                    self.admin_mode = None
+                    self.port_state = None
+                    self.section_lof = None
+                    self.section_los = None
+                    self.section_bip = None
+                    self.line_ais = None
+                    self.line_rdi = None
+                    self.line_febe = None
+                    self.line_bip = None
+                    self.path_ais = None
+                    self.path_rdi = None
+                    self.path_febe = None
+                    self.path_bip = None
+                    self.path_lop = None
+                    self.path_newptr = None
+                    self.path_pse = None
+                    self.path_nse = None
+                    self.wis_alarms_ser = None
+                    self.wis_alarms_felcdp = None
+                    self.wis_alarms_feaisp = None
+                    self.wis_alarms_wlos = None
+                    self.wis_alarms_plcd = None
+                    self.wis_alarms_lfebip = None
+                    self.wis_alarms_pbec = None
+                    self.wis_alarms_plmp = None
+                    self.sf_ber_threshold = None
+                    self.sd_ber_threshold = None
+                    self.sf_ber_report = None
+                    self.sd_ber_report = None
+                    self.operational_mode = None
+                    self.remote_ip = None
+                    self.register_p_febe = None
+                    self.register_l_fe_bip = None
+                    self.register_l_bip = None
+                    self.register_p_bec = None
+                    self.register_s_bip = None
+                    self.register_j1_rx0 = None
+                    self.register_j1_rx1 = None
+                    self.register_j1_rx2 = None
+                    self.register_j1_rx3 = None
+                    self.register_j1_rx4 = None
+                    self.register_j1_rx5 = None
+                    self.register_j1_rx6 = None
+                    self.register_j1_rx7 = None
+                    self.wanphy_poll_timer = None
                     self._segment_path = lambda: "info"
 
                 def __setattr__(self, name, value):

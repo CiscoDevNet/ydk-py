@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class Banner(Enum):
     """
-    Banner
+    Banner (Enum Class)
 
     Banner
 
@@ -87,8 +89,10 @@ class Banners(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-infra-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"banner" : ("banner", Banners.Banner)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("banner", ("banner", Banners.Banner))])
+        self._leafs = OrderedDict()
 
         self.banner = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-infra-infra-cfg:banners"
@@ -101,7 +105,7 @@ class Banners(Entity):
         """
         Select a Banner Type
         
-        .. attribute:: banner_name  <key>
+        .. attribute:: banner_name  (key)
         
         	Banner Type
         	**type**\:  :py:class:`Banner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_cfg.Banner>`
@@ -127,13 +131,16 @@ class Banners(Entity):
             self.yang_parent_name = "banners"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.banner_name = YLeaf(YType.enumeration, "banner-name")
-
-            self.banner_text = YLeaf(YType.str, "banner-text")
-            self._segment_path = lambda: "banner" + "[banner-name='" + self.banner_name.get() + "']"
+            self.ylist_key_names = ['banner_name']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('banner_name', YLeaf(YType.enumeration, 'banner-name')),
+                ('banner_text', YLeaf(YType.str, 'banner-text')),
+            ])
+            self.banner_name = None
+            self.banner_text = None
+            self._segment_path = lambda: "banner" + "[banner-name='" + str(self.banner_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-cfg:banners/%s" % self._segment_path()
 
         def __setattr__(self, name, value):

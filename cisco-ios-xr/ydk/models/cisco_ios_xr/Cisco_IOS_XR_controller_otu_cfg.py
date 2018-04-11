@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class OtnExpTtiTypeDapi(Enum):
     """
-    OtnExpTtiTypeDapi
+    OtnExpTtiTypeDapi (Enum Class)
 
     Otn exp tti type dapi
 
@@ -34,7 +36,7 @@ class OtnExpTtiTypeDapi(Enum):
 
 class OtnExpTtiTypeFull(Enum):
     """
-    OtnExpTtiTypeFull
+    OtnExpTtiTypeFull (Enum Class)
 
     Otn exp tti type full
 
@@ -55,7 +57,7 @@ class OtnExpTtiTypeFull(Enum):
 
 class OtnExpTtiTypeOs(Enum):
     """
-    OtnExpTtiTypeOs
+    OtnExpTtiTypeOs (Enum Class)
 
     Otn exp tti type os
 
@@ -76,7 +78,7 @@ class OtnExpTtiTypeOs(Enum):
 
 class OtnExpTtiTypeSapi(Enum):
     """
-    OtnExpTtiTypeSapi
+    OtnExpTtiTypeSapi (Enum Class)
 
     Otn exp tti type sapi
 
@@ -91,7 +93,7 @@ class OtnExpTtiTypeSapi(Enum):
 
 class OtnLoopback(Enum):
     """
-    OtnLoopback
+    OtnLoopback (Enum Class)
 
     Otn loopback
 
@@ -112,7 +114,7 @@ class OtnLoopback(Enum):
 
 class OtnPerMon(Enum):
     """
-    OtnPerMon
+    OtnPerMon (Enum Class)
 
     Otn per mon
 
@@ -133,7 +135,7 @@ class OtnPerMon(Enum):
 
 class OtnSecAdminState(Enum):
     """
-    OtnSecAdminState
+    OtnSecAdminState (Enum Class)
 
     Otn sec admin state
 
@@ -154,7 +156,7 @@ class OtnSecAdminState(Enum):
 
 class OtnSendTtiTypeDapi(Enum):
     """
-    OtnSendTtiTypeDapi
+    OtnSendTtiTypeDapi (Enum Class)
 
     Otn send tti type dapi
 
@@ -169,7 +171,7 @@ class OtnSendTtiTypeDapi(Enum):
 
 class OtnSendTtiTypeFull(Enum):
     """
-    OtnSendTtiTypeFull
+    OtnSendTtiTypeFull (Enum Class)
 
     Otn send tti type full
 
@@ -190,7 +192,7 @@ class OtnSendTtiTypeFull(Enum):
 
 class OtnSendTtiTypeOs(Enum):
     """
-    OtnSendTtiTypeOs
+    OtnSendTtiTypeOs (Enum Class)
 
     Otn send tti type os
 
@@ -211,7 +213,7 @@ class OtnSendTtiTypeOs(Enum):
 
 class OtnSendTtiTypeSapi(Enum):
     """
-    OtnSendTtiTypeSapi
+    OtnSendTtiTypeSapi (Enum Class)
 
     Otn send tti type sapi
 
@@ -226,7 +228,7 @@ class OtnSendTtiTypeSapi(Enum):
 
 class OtuForwardErrorCorrection(Enum):
     """
-    OtuForwardErrorCorrection
+    OtuForwardErrorCorrection (Enum Class)
 
     Otu forward error correction
 
@@ -277,7 +279,7 @@ class OtuForwardErrorCorrection(Enum):
 
 class OtuMode(Enum):
     """
-    OtuMode
+    OtuMode (Enum Class)
 
     Otu mode
 
@@ -310,7 +312,7 @@ class OtuMode(Enum):
 
 class OtuPattern(Enum):
     """
-    OtuPattern
+    OtuPattern (Enum Class)
 
     Otu pattern
 

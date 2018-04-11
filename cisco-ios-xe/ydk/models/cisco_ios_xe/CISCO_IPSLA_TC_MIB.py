@@ -15,15 +15,17 @@ Acronyms\:
  ICPIF\: Calculated Planning Impairment Factor
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class IpSlaCodecType(Enum):
     """
-    IpSlaCodecType
+    IpSlaCodecType (Enum Class)
 
     Specifies the IP SLA codec type to be used with the UDP 
 
@@ -58,7 +60,7 @@ class IpSlaCodecType(Enum):
 
 class IpSlaOperType(Enum):
     """
-    IpSlaOperType
+    IpSlaOperType (Enum Class)
 
     Specifies the type of IP SLA operation to be performed.
 
@@ -117,7 +119,7 @@ class IpSlaOperType(Enum):
 
 class IpSlaReactVar(Enum):
     """
-    IpSlaReactVar
+    IpSlaReactVar (Enum Class)
 
     The following are specific reaction variables for an
 

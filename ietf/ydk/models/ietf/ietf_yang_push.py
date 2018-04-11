@@ -4,15 +4,17 @@ This module contains conceptual YANG specifications
 for YANG push.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class ChangeType(Enum):
     """
-    ChangeType
+    ChangeType (Enum Class)
 
     Specifies different types of changes that may occur
 

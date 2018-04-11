@@ -6,9 +6,11 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -37,8 +39,10 @@ class MemoryStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-memory-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"memory-statistic" : ("memory_statistic", MemoryStatistics.MemoryStatistic)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("memory-statistic", ("memory_statistic", MemoryStatistics.MemoryStatistic))])
+        self._leafs = OrderedDict()
 
         self.memory_statistic = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-memory-oper:memory-statistics"
@@ -51,7 +55,7 @@ class MemoryStatistics(Entity):
         """
         The list of software memory pools in the system.
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	The name of the memory pool
         	**type**\: str
@@ -115,21 +119,24 @@ class MemoryStatistics(Entity):
             self.yang_parent_name = "memory-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.total_memory = YLeaf(YType.uint64, "total-memory")
-
-            self.used_memory = YLeaf(YType.uint64, "used-memory")
-
-            self.free_memory = YLeaf(YType.uint64, "free-memory")
-
-            self.lowest_usage = YLeaf(YType.uint64, "lowest-usage")
-
-            self.highest_usage = YLeaf(YType.uint64, "highest-usage")
-            self._segment_path = lambda: "memory-statistic" + "[name='" + self.name.get() + "']"
+            self.ylist_key_names = ['name']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('total_memory', YLeaf(YType.uint64, 'total-memory')),
+                ('used_memory', YLeaf(YType.uint64, 'used-memory')),
+                ('free_memory', YLeaf(YType.uint64, 'free-memory')),
+                ('lowest_usage', YLeaf(YType.uint64, 'lowest-usage')),
+                ('highest_usage', YLeaf(YType.uint64, 'highest-usage')),
+            ])
+            self.name = None
+            self.total_memory = None
+            self.used_memory = None
+            self.free_memory = None
+            self.lowest_usage = None
+            self.highest_usage = None
+            self._segment_path = lambda: "memory-statistic" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-memory-oper:memory-statistics/%s" % self._segment_path()
 
         def __setattr__(self, name, value):

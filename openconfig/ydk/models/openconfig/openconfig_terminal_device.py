@@ -51,9 +51,11 @@ ports per linecard, separate linecards for client and line ports,
 etc.).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -97,8 +99,10 @@ class TerminalDevice(Entity):
         self.yang_parent_name = "openconfig-terminal-device"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"config" : ("config", TerminalDevice.Config), "state" : ("state", TerminalDevice.State), "logical-channels" : ("logical_channels", TerminalDevice.LogicalChannels), "operational-modes" : ("operational_modes", TerminalDevice.OperationalModes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("config", ("config", TerminalDevice.Config)), ("state", ("state", TerminalDevice.State)), ("logical-channels", ("logical_channels", TerminalDevice.LogicalChannels)), ("operational-modes", ("operational_modes", TerminalDevice.OperationalModes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.config = TerminalDevice.Config()
         self.config.parent = self
@@ -140,8 +144,10 @@ class TerminalDevice(Entity):
             self.yang_parent_name = "terminal-device"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
 
@@ -164,8 +170,10 @@ class TerminalDevice(Entity):
             self.yang_parent_name = "terminal-device"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
 
@@ -193,8 +201,10 @@ class TerminalDevice(Entity):
             self.yang_parent_name = "terminal-device"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"channel" : ("channel", TerminalDevice.LogicalChannels.Channel)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("channel", ("channel", TerminalDevice.LogicalChannels.Channel))])
+            self._leafs = OrderedDict()
 
             self.channel = YList(self)
             self._segment_path = lambda: "logical-channels"
@@ -208,7 +218,7 @@ class TerminalDevice(Entity):
             """
             List of logical channels
             
-            .. attribute:: index  <key>
+            .. attribute:: index  (key)
             
             	Reference to the index of the logical channel
             	**type**\: int
@@ -261,10 +271,13 @@ class TerminalDevice(Entity):
                 self.yang_parent_name = "logical-channels"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.Config), "state" : ("state", TerminalDevice.LogicalChannels.Channel.State), "otn" : ("otn", TerminalDevice.LogicalChannels.Channel.Otn), "ethernet" : ("ethernet", TerminalDevice.LogicalChannels.Channel.Ethernet), "ingress" : ("ingress", TerminalDevice.LogicalChannels.Channel.Ingress), "logical-channel-assignments" : ("logical_channel_assignments", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments)}
-                self._child_list_classes = {}
-
-                self.index = YLeaf(YType.str, "index")
+                self.ylist_key_names = ['index']
+                self._child_container_classes = OrderedDict([("config", ("config", TerminalDevice.LogicalChannels.Channel.Config)), ("state", ("state", TerminalDevice.LogicalChannels.Channel.State)), ("otn", ("otn", TerminalDevice.LogicalChannels.Channel.Otn)), ("ethernet", ("ethernet", TerminalDevice.LogicalChannels.Channel.Ethernet)), ("ingress", ("ingress", TerminalDevice.LogicalChannels.Channel.Ingress)), ("logical-channel-assignments", ("logical_channel_assignments", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('index', YLeaf(YType.str, 'index')),
+                ])
+                self.index = None
 
                 self.config = TerminalDevice.LogicalChannels.Channel.Config()
                 self.config.parent = self
@@ -295,7 +308,7 @@ class TerminalDevice(Entity):
                 self.logical_channel_assignments.parent = self
                 self._children_name_map["logical_channel_assignments"] = "logical-channel-assignments"
                 self._children_yang_names.add("logical-channel-assignments")
-                self._segment_path = lambda: "channel" + "[index='" + self.index.get() + "']"
+                self._segment_path = lambda: "channel" + "[index='" + str(self.index) + "']"
                 self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/logical-channels/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -357,22 +370,25 @@ class TerminalDevice(Entity):
                     self.yang_parent_name = "channel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.index = YLeaf(YType.uint32, "index")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.admin_state = YLeaf(YType.enumeration, "admin-state")
-
-                    self.rate_class = YLeaf(YType.identityref, "rate-class")
-
-                    self.trib_protocol = YLeaf(YType.identityref, "trib-protocol")
-
-                    self.logical_channel_type = YLeaf(YType.identityref, "logical-channel-type")
-
-                    self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('index', YLeaf(YType.uint32, 'index')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
+                        ('rate_class', YLeaf(YType.identityref, 'rate-class')),
+                        ('trib_protocol', YLeaf(YType.identityref, 'trib-protocol')),
+                        ('logical_channel_type', YLeaf(YType.identityref, 'logical-channel-type')),
+                        ('loopback_mode', YLeaf(YType.enumeration, 'loopback-mode')),
+                    ])
+                    self.index = None
+                    self.description = None
+                    self.admin_state = None
+                    self.rate_class = None
+                    self.trib_protocol = None
+                    self.logical_channel_type = None
+                    self.loopback_mode = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -439,24 +455,27 @@ class TerminalDevice(Entity):
                     self.yang_parent_name = "channel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.index = YLeaf(YType.uint32, "index")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.admin_state = YLeaf(YType.enumeration, "admin-state")
-
-                    self.rate_class = YLeaf(YType.identityref, "rate-class")
-
-                    self.trib_protocol = YLeaf(YType.identityref, "trib-protocol")
-
-                    self.logical_channel_type = YLeaf(YType.identityref, "logical-channel-type")
-
-                    self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
-
-                    self.link_state = YLeaf(YType.enumeration, "link-state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('index', YLeaf(YType.uint32, 'index')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
+                        ('rate_class', YLeaf(YType.identityref, 'rate-class')),
+                        ('trib_protocol', YLeaf(YType.identityref, 'trib-protocol')),
+                        ('logical_channel_type', YLeaf(YType.identityref, 'logical-channel-type')),
+                        ('loopback_mode', YLeaf(YType.enumeration, 'loopback-mode')),
+                        ('link_state', YLeaf(YType.enumeration, 'link-state')),
+                    ])
+                    self.index = None
+                    self.description = None
+                    self.admin_state = None
+                    self.rate_class = None
+                    self.trib_protocol = None
+                    self.logical_channel_type = None
+                    self.loopback_mode = None
+                    self.link_state = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -464,7 +483,7 @@ class TerminalDevice(Entity):
 
                 class LinkState(Enum):
                     """
-                    LinkState
+                    LinkState (Enum Class)
 
                     Link\-state of the Ethernet protocol on the logical channel,
 
@@ -516,8 +535,10 @@ class TerminalDevice(Entity):
                     self.yang_parent_name = "channel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.Otn.Config), "state" : ("state", TerminalDevice.LogicalChannels.Channel.Otn.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", TerminalDevice.LogicalChannels.Channel.Otn.Config)), ("state", ("state", TerminalDevice.LogicalChannels.Channel.Otn.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = TerminalDevice.LogicalChannels.Channel.Otn.Config()
                     self.config.parent = self
@@ -564,14 +585,17 @@ class TerminalDevice(Entity):
                         self.yang_parent_name = "otn"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tti_msg_transmit = YLeaf(YType.str, "tti-msg-transmit")
-
-                        self.tti_msg_expected = YLeaf(YType.str, "tti-msg-expected")
-
-                        self.tti_msg_auto = YLeaf(YType.boolean, "tti-msg-auto")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tti_msg_transmit', YLeaf(YType.str, 'tti-msg-transmit')),
+                            ('tti_msg_expected', YLeaf(YType.str, 'tti-msg-expected')),
+                            ('tti_msg_auto', YLeaf(YType.boolean, 'tti-msg-auto')),
+                        ])
+                        self.tti_msg_transmit = None
+                        self.tti_msg_expected = None
+                        self.tti_msg_auto = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -698,34 +722,37 @@ class TerminalDevice(Entity):
                         self.yang_parent_name = "otn"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"pre-fec-ber" : ("pre_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer), "post-fec-ber" : ("post_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer), "q-value" : ("q_value", TerminalDevice.LogicalChannels.Channel.Otn.State.QValue), "esnr" : ("esnr", TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr)}
-                        self._child_list_classes = {}
-
-                        self.tti_msg_transmit = YLeaf(YType.str, "tti-msg-transmit")
-
-                        self.tti_msg_expected = YLeaf(YType.str, "tti-msg-expected")
-
-                        self.tti_msg_auto = YLeaf(YType.boolean, "tti-msg-auto")
-
-                        self.tti_msg_recv = YLeaf(YType.str, "tti-msg-recv")
-
-                        self.rdi_msg = YLeaf(YType.str, "rdi-msg")
-
-                        self.errored_seconds = YLeaf(YType.uint64, "errored-seconds")
-
-                        self.severely_errored_seconds = YLeaf(YType.uint64, "severely-errored-seconds")
-
-                        self.unavailable_seconds = YLeaf(YType.uint64, "unavailable-seconds")
-
-                        self.code_violations = YLeaf(YType.uint64, "code-violations")
-
-                        self.fec_uncorrectable_words = YLeaf(YType.uint64, "fec-uncorrectable-words")
-
-                        self.fec_corrected_bytes = YLeaf(YType.uint64, "fec-corrected-bytes")
-
-                        self.fec_corrected_bits = YLeaf(YType.uint64, "fec-corrected-bits")
-
-                        self.background_block_errors = YLeaf(YType.uint64, "background-block-errors")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("pre-fec-ber", ("pre_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer)), ("post-fec-ber", ("post_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer)), ("q-value", ("q_value", TerminalDevice.LogicalChannels.Channel.Otn.State.QValue)), ("esnr", ("esnr", TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tti_msg_transmit', YLeaf(YType.str, 'tti-msg-transmit')),
+                            ('tti_msg_expected', YLeaf(YType.str, 'tti-msg-expected')),
+                            ('tti_msg_auto', YLeaf(YType.boolean, 'tti-msg-auto')),
+                            ('tti_msg_recv', YLeaf(YType.str, 'tti-msg-recv')),
+                            ('rdi_msg', YLeaf(YType.str, 'rdi-msg')),
+                            ('errored_seconds', YLeaf(YType.uint64, 'errored-seconds')),
+                            ('severely_errored_seconds', YLeaf(YType.uint64, 'severely-errored-seconds')),
+                            ('unavailable_seconds', YLeaf(YType.uint64, 'unavailable-seconds')),
+                            ('code_violations', YLeaf(YType.uint64, 'code-violations')),
+                            ('fec_uncorrectable_words', YLeaf(YType.uint64, 'fec-uncorrectable-words')),
+                            ('fec_corrected_bytes', YLeaf(YType.uint64, 'fec-corrected-bytes')),
+                            ('fec_corrected_bits', YLeaf(YType.uint64, 'fec-corrected-bits')),
+                            ('background_block_errors', YLeaf(YType.uint64, 'background-block-errors')),
+                        ])
+                        self.tti_msg_transmit = None
+                        self.tti_msg_expected = None
+                        self.tti_msg_auto = None
+                        self.tti_msg_recv = None
+                        self.rdi_msg = None
+                        self.errored_seconds = None
+                        self.severely_errored_seconds = None
+                        self.unavailable_seconds = None
+                        self.code_violations = None
+                        self.fec_uncorrectable_words = None
+                        self.fec_corrected_bytes = None
+                        self.fec_corrected_bits = None
+                        self.background_block_errors = None
 
                         self.pre_fec_ber = TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer()
                         self.pre_fec_ber.parent = self
@@ -799,16 +826,19 @@ class TerminalDevice(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.instant = YLeaf(YType.str, "instant")
-
-                            self.avg = YLeaf(YType.str, "avg")
-
-                            self.min = YLeaf(YType.str, "min")
-
-                            self.max = YLeaf(YType.str, "max")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('instant', YLeaf(YType.str, 'instant')),
+                                ('avg', YLeaf(YType.str, 'avg')),
+                                ('min', YLeaf(YType.str, 'min')),
+                                ('max', YLeaf(YType.str, 'max')),
+                            ])
+                            self.instant = None
+                            self.avg = None
+                            self.min = None
+                            self.max = None
                             self._segment_path = lambda: "pre-fec-ber"
 
                         def __setattr__(self, name, value):
@@ -862,16 +892,19 @@ class TerminalDevice(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.instant = YLeaf(YType.str, "instant")
-
-                            self.avg = YLeaf(YType.str, "avg")
-
-                            self.min = YLeaf(YType.str, "min")
-
-                            self.max = YLeaf(YType.str, "max")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('instant', YLeaf(YType.str, 'instant')),
+                                ('avg', YLeaf(YType.str, 'avg')),
+                                ('min', YLeaf(YType.str, 'min')),
+                                ('max', YLeaf(YType.str, 'max')),
+                            ])
+                            self.instant = None
+                            self.avg = None
+                            self.min = None
+                            self.max = None
                             self._segment_path = lambda: "post-fec-ber"
 
                         def __setattr__(self, name, value):
@@ -924,16 +957,19 @@ class TerminalDevice(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.instant = YLeaf(YType.str, "instant")
-
-                            self.avg = YLeaf(YType.str, "avg")
-
-                            self.min = YLeaf(YType.str, "min")
-
-                            self.max = YLeaf(YType.str, "max")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('instant', YLeaf(YType.str, 'instant')),
+                                ('avg', YLeaf(YType.str, 'avg')),
+                                ('min', YLeaf(YType.str, 'min')),
+                                ('max', YLeaf(YType.str, 'max')),
+                            ])
+                            self.instant = None
+                            self.avg = None
+                            self.min = None
+                            self.max = None
                             self._segment_path = lambda: "q-value"
 
                         def __setattr__(self, name, value):
@@ -988,16 +1024,19 @@ class TerminalDevice(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.instant = YLeaf(YType.str, "instant")
-
-                            self.avg = YLeaf(YType.str, "avg")
-
-                            self.min = YLeaf(YType.str, "min")
-
-                            self.max = YLeaf(YType.str, "max")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('instant', YLeaf(YType.str, 'instant')),
+                                ('avg', YLeaf(YType.str, 'avg')),
+                                ('min', YLeaf(YType.str, 'min')),
+                                ('max', YLeaf(YType.str, 'max')),
+                            ])
+                            self.instant = None
+                            self.avg = None
+                            self.min = None
+                            self.max = None
                             self._segment_path = lambda: "esnr"
 
                         def __setattr__(self, name, value):
@@ -1033,8 +1072,10 @@ class TerminalDevice(Entity):
                     self.yang_parent_name = "channel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.Ethernet.Config), "state" : ("state", TerminalDevice.LogicalChannels.Channel.Ethernet.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", TerminalDevice.LogicalChannels.Channel.Ethernet.Config)), ("state", ("state", TerminalDevice.LogicalChannels.Channel.Ethernet.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = TerminalDevice.LogicalChannels.Channel.Ethernet.Config()
                     self.config.parent = self
@@ -1067,8 +1108,10 @@ class TerminalDevice(Entity):
                         self.yang_parent_name = "ethernet"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
                         self._segment_path = lambda: "config"
 
 
@@ -1161,28 +1204,31 @@ class TerminalDevice(Entity):
                         self.yang_parent_name = "ethernet"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.in_mac_control_frames = YLeaf(YType.uint64, "in-mac-control-frames")
-
-                        self.in_mac_pause_frames = YLeaf(YType.uint64, "in-mac-pause-frames")
-
-                        self.in_oversize_frames = YLeaf(YType.uint64, "in-oversize-frames")
-
-                        self.in_jabber_frames = YLeaf(YType.uint64, "in-jabber-frames")
-
-                        self.in_fragment_frames = YLeaf(YType.uint64, "in-fragment-frames")
-
-                        self.in_8021q_frames = YLeaf(YType.uint64, "in-8021q-frames")
-
-                        self.in_crc_errors = YLeaf(YType.uint64, "in-crc-errors")
-
-                        self.out_mac_control_frames = YLeaf(YType.uint64, "out-mac-control-frames")
-
-                        self.out_mac_pause_frames = YLeaf(YType.uint64, "out-mac-pause-frames")
-
-                        self.out_8021q_frames = YLeaf(YType.uint64, "out-8021q-frames")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('in_mac_control_frames', YLeaf(YType.uint64, 'in-mac-control-frames')),
+                            ('in_mac_pause_frames', YLeaf(YType.uint64, 'in-mac-pause-frames')),
+                            ('in_oversize_frames', YLeaf(YType.uint64, 'in-oversize-frames')),
+                            ('in_jabber_frames', YLeaf(YType.uint64, 'in-jabber-frames')),
+                            ('in_fragment_frames', YLeaf(YType.uint64, 'in-fragment-frames')),
+                            ('in_8021q_frames', YLeaf(YType.uint64, 'in-8021q-frames')),
+                            ('in_crc_errors', YLeaf(YType.uint64, 'in-crc-errors')),
+                            ('out_mac_control_frames', YLeaf(YType.uint64, 'out-mac-control-frames')),
+                            ('out_mac_pause_frames', YLeaf(YType.uint64, 'out-mac-pause-frames')),
+                            ('out_8021q_frames', YLeaf(YType.uint64, 'out-8021q-frames')),
+                        ])
+                        self.in_mac_control_frames = None
+                        self.in_mac_pause_frames = None
+                        self.in_oversize_frames = None
+                        self.in_jabber_frames = None
+                        self.in_fragment_frames = None
+                        self.in_8021q_frames = None
+                        self.in_crc_errors = None
+                        self.out_mac_control_frames = None
+                        self.out_mac_pause_frames = None
+                        self.out_8021q_frames = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -1219,8 +1265,10 @@ class TerminalDevice(Entity):
                     self.yang_parent_name = "channel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.Ingress.Config), "state" : ("state", TerminalDevice.LogicalChannels.Channel.Ingress.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", TerminalDevice.LogicalChannels.Channel.Ingress.Config)), ("state", ("state", TerminalDevice.LogicalChannels.Channel.Ingress.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = TerminalDevice.LogicalChannels.Channel.Ingress.Config()
                     self.config.parent = self
@@ -1269,12 +1317,15 @@ class TerminalDevice(Entity):
                         self.yang_parent_name = "ingress"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.transceiver = YLeaf(YType.str, "transceiver")
-
-                        self.physical_channel = YLeafList(YType.str, "physical-channel")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('transceiver', YLeaf(YType.str, 'transceiver')),
+                            ('physical_channel', YLeafList(YType.str, 'physical-channel')),
+                        ])
+                        self.transceiver = None
+                        self.physical_channel = []
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -1316,12 +1367,15 @@ class TerminalDevice(Entity):
                         self.yang_parent_name = "ingress"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.transceiver = YLeaf(YType.str, "transceiver")
-
-                        self.physical_channel = YLeafList(YType.str, "physical-channel")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('transceiver', YLeaf(YType.str, 'transceiver')),
+                            ('physical_channel', YLeafList(YType.str, 'physical-channel')),
+                        ])
+                        self.transceiver = None
+                        self.physical_channel = []
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -1351,8 +1405,10 @@ class TerminalDevice(Entity):
                     self.yang_parent_name = "channel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"assignment" : ("assignment", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("assignment", ("assignment", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment))])
+                    self._leafs = OrderedDict()
 
                     self.assignment = YList(self)
                     self._segment_path = lambda: "logical-channel-assignments"
@@ -1383,7 +1439,7 @@ class TerminalDevice(Entity):
                     along with a bandwidth allocation for the corresponding
                     assignment (e.g., to split or combine signal).
                     
-                    .. attribute:: index  <key>
+                    .. attribute:: index  (key)
                     
                     	Reference to the index for the current tributary assignment
                     	**type**\: int
@@ -1416,10 +1472,13 @@ class TerminalDevice(Entity):
                         self.yang_parent_name = "logical-channel-assignments"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config), "state" : ("state", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State)}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.str, "index")
+                        self.ylist_key_names = ['index']
+                        self._child_container_classes = OrderedDict([("config", ("config", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config)), ("state", ("state", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('index', YLeaf(YType.str, 'index')),
+                        ])
+                        self.index = None
 
                         self.config = TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config()
                         self.config.parent = self
@@ -1430,7 +1489,7 @@ class TerminalDevice(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
-                        self._segment_path = lambda: "assignment" + "[index='" + self.index.get() + "']"
+                        self._segment_path = lambda: "assignment" + "[index='" + str(self.index) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment, ['index'], name, value)
@@ -1496,20 +1555,23 @@ class TerminalDevice(Entity):
                             self.yang_parent_name = "assignment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.index = YLeaf(YType.uint32, "index")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
-
-                            self.logical_channel = YLeaf(YType.str, "logical-channel")
-
-                            self.optical_channel = YLeaf(YType.str, "optical-channel")
-
-                            self.allocation = YLeaf(YType.str, "allocation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', YLeaf(YType.uint32, 'index')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('assignment_type', YLeaf(YType.enumeration, 'assignment-type')),
+                                ('logical_channel', YLeaf(YType.str, 'logical-channel')),
+                                ('optical_channel', YLeaf(YType.str, 'optical-channel')),
+                                ('allocation', YLeaf(YType.str, 'allocation')),
+                            ])
+                            self.index = None
+                            self.description = None
+                            self.assignment_type = None
+                            self.logical_channel = None
+                            self.optical_channel = None
+                            self.allocation = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1517,7 +1579,7 @@ class TerminalDevice(Entity):
 
                         class AssignmentType(Enum):
                             """
-                            AssignmentType
+                            AssignmentType (Enum Class)
 
                             Each logical channel element may be assigned to subsequent
 
@@ -1605,20 +1667,23 @@ class TerminalDevice(Entity):
                             self.yang_parent_name = "assignment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.index = YLeaf(YType.uint32, "index")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
-
-                            self.logical_channel = YLeaf(YType.str, "logical-channel")
-
-                            self.optical_channel = YLeaf(YType.str, "optical-channel")
-
-                            self.allocation = YLeaf(YType.str, "allocation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', YLeaf(YType.uint32, 'index')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('assignment_type', YLeaf(YType.enumeration, 'assignment-type')),
+                                ('logical_channel', YLeaf(YType.str, 'logical-channel')),
+                                ('optical_channel', YLeaf(YType.str, 'optical-channel')),
+                                ('allocation', YLeaf(YType.str, 'allocation')),
+                            ])
+                            self.index = None
+                            self.description = None
+                            self.assignment_type = None
+                            self.logical_channel = None
+                            self.optical_channel = None
+                            self.allocation = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -1626,7 +1691,7 @@ class TerminalDevice(Entity):
 
                         class AssignmentType(Enum):
                             """
-                            AssignmentType
+                            AssignmentType (Enum Class)
 
                             Each logical channel element may be assigned to subsequent
 
@@ -1677,8 +1742,10 @@ class TerminalDevice(Entity):
             self.yang_parent_name = "terminal-device"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mode" : ("mode", TerminalDevice.OperationalModes.Mode)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mode", ("mode", TerminalDevice.OperationalModes.Mode))])
+            self._leafs = OrderedDict()
 
             self.mode = YList(self)
             self._segment_path = lambda: "operational-modes"
@@ -1695,7 +1762,7 @@ class TerminalDevice(Entity):
             of information such as symbol rate, modulation, pulse
             shaping, etc.
             
-            .. attribute:: mode_id  <key>
+            .. attribute:: mode_id  (key)
             
             	Reference to mode\-id
             	**type**\: int
@@ -1728,10 +1795,13 @@ class TerminalDevice(Entity):
                 self.yang_parent_name = "operational-modes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", TerminalDevice.OperationalModes.Mode.Config), "state" : ("state", TerminalDevice.OperationalModes.Mode.State)}
-                self._child_list_classes = {}
-
-                self.mode_id = YLeaf(YType.str, "mode-id")
+                self.ylist_key_names = ['mode_id']
+                self._child_container_classes = OrderedDict([("config", ("config", TerminalDevice.OperationalModes.Mode.Config)), ("state", ("state", TerminalDevice.OperationalModes.Mode.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mode_id', YLeaf(YType.str, 'mode-id')),
+                ])
+                self.mode_id = None
 
                 self.config = TerminalDevice.OperationalModes.Mode.Config()
                 self.config.parent = self
@@ -1742,7 +1812,7 @@ class TerminalDevice(Entity):
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
-                self._segment_path = lambda: "mode" + "[mode-id='" + self.mode_id.get() + "']"
+                self._segment_path = lambda: "mode" + "[mode-id='" + str(self.mode_id) + "']"
                 self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/operational-modes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1767,8 +1837,10 @@ class TerminalDevice(Entity):
                     self.yang_parent_name = "mode"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
                     self._segment_path = lambda: "config"
 
 
@@ -1808,14 +1880,17 @@ class TerminalDevice(Entity):
                     self.yang_parent_name = "mode"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.mode_id = YLeaf(YType.uint16, "mode-id")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.vendor_id = YLeaf(YType.str, "vendor-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mode_id', YLeaf(YType.uint16, 'mode-id')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('vendor_id', YLeaf(YType.str, 'vendor-id')),
+                    ])
+                    self.mode_id = None
+                    self.description = None
+                    self.vendor_id = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):

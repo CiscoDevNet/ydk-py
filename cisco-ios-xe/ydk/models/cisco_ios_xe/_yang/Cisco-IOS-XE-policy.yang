@@ -45,6 +45,29 @@ module Cisco-IOS-XE-policy {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-12-05 {
+     description
+       "Added Change for parameter-map and class-map match";
+  }
+
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+  revision 2017-09-01 {
+    description
+     "Add dependency for random-detect cos";
+  }
   revision 2017-08-26 {
     description
      "Add parameter-map regex";
@@ -992,6 +1015,17 @@ module Cisco-IOS-XE-policy {
                 leaf parameter-map {
                   description
                     "Specify parameter map name";
+                  type string; 
+                }
+              }
+            }
+            container map {
+              description
+                "map identity-update attribute to a auto-conf templates";
+              container attribute-to-service {
+                description
+                  "identity-update attribute to a auto-conf templates";
+                leaf table {
                   type string; 
                 }
               }
@@ -2513,6 +2547,35 @@ module Cisco-IOS-XE-policy {
         }
       }
     }
+    leaf client-type {
+      description "match the type of device from an event";
+      type enumeration {
+        enum "data";
+        enum "switch";
+        enum "video";
+        enum "voice";
+      }
+    }
+    leaf device-type {
+      description "match name of the device-type";
+      type string;
+    }
+    leaf interface {
+      description "match the session interface";
+      type string;
+    }
+    leaf ip-address {
+      description "match the IP address from an event";
+      type inet:ipv4-address;
+    }
+    leaf ipv6-address {
+      description "match the IPv6 address from an event";
+      type inet:ipv6-address;
+    }
+    leaf mac-address {
+      description "match the MAC address from an event";
+      type ios-types:cisco-mac-address-type;
+    }
     container method {
       description "match the type of authentication method from an event";
       leaf dot1x {
@@ -2529,6 +2592,18 @@ module Cisco-IOS-XE-policy {
           description
             "webauth";
           type empty;
+      }
+    }
+    leaf oui {
+      description "match the oui address from an event";
+      type ios-types:cisco-mac-address-type;
+    }
+    leaf port-type {
+      description "match the type interface from an event";
+      type enumeration {
+        enum "dot11-port";
+        enum "l2-port";
+        enum "l3-port";
       }
     }
     container result-type {
@@ -2554,6 +2629,43 @@ module Cisco-IOS-XE-policy {
         }
       }
       uses class-map-match-result-type-grouping;
+    }
+    leaf service-template {
+      description "match name of service template from an event";
+      type string;
+    }
+    leaf session-type {
+      description "match the session type";
+      type enumeration {
+        enum "wired";
+        enum "wireless";
+      }
+    }
+    leaf sgt {
+      description "match the sgt session";
+      type uint16 {
+        range "2..65519";
+      }
+    }
+    leaf ssid {
+      description "match the ssid of the session";
+      type string;
+    }
+    leaf tag {
+      description "match tag from an event";
+      type string;
+    }
+    leaf timer {
+      description "match the type of timer";
+      type string;
+    }
+    leaf user-role {
+      description "match the user-role";
+      type string;
+    }
+    leaf username {
+      description "match the username";
+      type string;
     }
   }
 
@@ -3068,6 +3180,179 @@ module Cisco-IOS-XE-policy {
         key regexp;
         leaf regexp {
           type string;
+        }
+      }
+    }
+    container virtual-ip {
+      description
+        "Virtual Ip Address";
+      container ipv4 {
+        description
+          "Ipv4 Address";
+        leaf address {
+          description "Recovery IP address";
+          type inet:ipv4-address;
+        }
+        leaf virtual-host {
+          description
+            "WEBAUTH Timeout in Seconds";
+          type string;
+        }
+      }
+      container ipv6 {
+        description
+          "Ipv6 Address";
+        leaf address {
+          description "Recovery IP address";
+          type inet:ipv6-address;
+        }
+        leaf virtual-host {
+          description
+            "WEBAUTH Timeout in Seconds";
+          type string;
+        }
+      }
+    }
+    leaf intercept-https-enable {
+      description
+        "Enable intercept of https traffic";
+      type empty;
+    }
+    leaf captive-bypass-portal {
+      description
+        "Turn on captive bypass";
+      type empty;
+    }
+    leaf logout-window-disabled {
+      description
+        "Webauth logout window disable";
+      type empty;
+    }
+    leaf success-window-disable {
+      description
+        "Disable Success Window";
+      type empty;
+    }
+    leaf max-http-conns {
+      description
+        "Webauth max HTTP connections per client";
+      type uint8 {
+        range "1..200";
+      }
+    }
+    container consent {
+      description
+        "consent parameters";
+      leaf email {
+        description
+          "Turn-on Consent with Email";
+        type empty;
+      }
+    }
+    container custom-page {
+      description
+        "Sleep timeout in Minute";
+      container login {
+        description
+          "Sleep timeout in Minute";
+        leaf device {
+          type string;
+        }
+        container expired {
+          description
+            "Sleep timeout in Minute";
+          leaf device {
+            type string;
+          }
+        }
+      }
+      container failure {
+        description
+          "Sleep timeout in Minute";
+        leaf device {
+          type string;
+        }
+      }
+      container success {
+        description
+          "Sleep timeout in Minute";
+        leaf device {
+          type string;
+        }
+      }
+    }
+    container login-auth-bypass {
+      description
+        "Sleep timeout in Minute";
+      container ip-access-list {
+        description
+          "vrf binding with parameter map";
+        leaf name {
+          type string;
+        }
+        leaf domain-name-list {
+          description
+            "vrf binding with parameter map";
+          type string;
+        }
+      }
+    }
+    container redirect {
+      description
+        "enable sleeping client for webauth";
+      container append {
+        description
+          "Sleep timeout in Minute";
+        container ap-mac {
+          description
+            "Sleep timeout in Minute";
+          leaf tag {
+            type string;
+          }
+        }
+        container client-mac {
+          description
+            "Sleep timeout in Minute";
+          leaf tag {
+            type string;
+          }
+        }
+        container wlan-ssid {
+          description
+            "Sleep timeout in Minute";
+          leaf tag {
+            type string;
+          }
+        }
+      }
+      container portal {
+        description
+          "Sleep timeout in Minute";
+        leaf ipv4 {
+          type inet:ipv4-address;
+        }
+        leaf ipv6 {
+          type inet:ipv6-address;
+        }
+      }
+      leaf for-login {
+        type string;
+      }
+      leaf on-failure {
+        type string;
+      }
+      leaf on-success {
+        type string;
+      }
+    }
+    container sleeping-client {
+      description
+        "enable sleeping client for webauth";
+      leaf timeout {
+        description
+          "Sleep timeout in Minute";
+        type uint32 {
+          range "60..3932100";
         }
       }
     }
@@ -3804,7 +4089,19 @@ module Cisco-IOS-XE-policy {
     uses config-interface-service-policy-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-service-policy-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-service-policy-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-service-policy-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-service-policy-grouping;
   }
 

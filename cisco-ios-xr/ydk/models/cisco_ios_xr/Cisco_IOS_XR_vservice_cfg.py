@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class SfcMetadataAlloc(Enum):
     """
-    SfcMetadataAlloc
+    SfcMetadataAlloc (Enum Class)
 
     Sfc metadata alloc
 
@@ -34,7 +36,7 @@ class SfcMetadataAlloc(Enum):
 
 class SfcMetadataDispositionAction(Enum):
     """
-    SfcMetadataDispositionAction
+    SfcMetadataDispositionAction (Enum Class)
 
     Sfc metadata disposition action
 
@@ -49,7 +51,7 @@ class SfcMetadataDispositionAction(Enum):
 
 class SfcMetadataDispositionMatch(Enum):
     """
-    SfcMetadataDispositionMatch
+    SfcMetadataDispositionMatch (Enum Class)
 
     Sfc metadata disposition match
 
@@ -64,7 +66,7 @@ class SfcMetadataDispositionMatch(Enum):
 
 class SfcMetadataType1AllocFormat(Enum):
     """
-    SfcMetadataType1AllocFormat
+    SfcMetadataType1AllocFormat (Enum Class)
 
     Sfc metadata type1 alloc format
 
@@ -79,7 +81,7 @@ class SfcMetadataType1AllocFormat(Enum):
 
 class SfcSfTransport(Enum):
     """
-    SfcSfTransport
+    SfcSfTransport (Enum Class)
 
     Sfc sf transport
 
@@ -137,8 +139,10 @@ class Vservice(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-vservice-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"service-function-locator" : ("service_function_locator", Vservice.ServiceFunctionLocator), "metadata-dispositions" : ("metadata_dispositions", Vservice.MetadataDispositions), "service-function-forward-locator" : ("service_function_forward_locator", Vservice.ServiceFunctionForwardLocator), "metadata-templates" : ("metadata_templates", Vservice.MetadataTemplates), "service-function-path" : ("service_function_path", Vservice.ServiceFunctionPath)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("service-function-locator", ("service_function_locator", Vservice.ServiceFunctionLocator)), ("metadata-dispositions", ("metadata_dispositions", Vservice.MetadataDispositions)), ("service-function-forward-locator", ("service_function_forward_locator", Vservice.ServiceFunctionForwardLocator)), ("metadata-templates", ("metadata_templates", Vservice.MetadataTemplates)), ("service-function-path", ("service_function_path", Vservice.ServiceFunctionPath))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.service_function_locator = Vservice.ServiceFunctionLocator()
         self.service_function_locator.parent = self
@@ -190,8 +194,10 @@ class Vservice(Entity):
             self.yang_parent_name = "vservice"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"names" : ("names", Vservice.ServiceFunctionLocator.Names)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("names", ("names", Vservice.ServiceFunctionLocator.Names))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.names = Vservice.ServiceFunctionLocator.Names()
             self.names.parent = self
@@ -224,8 +230,10 @@ class Vservice(Entity):
                 self.yang_parent_name = "service-function-locator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"name" : ("name", Vservice.ServiceFunctionLocator.Names.Name)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("name", ("name", Vservice.ServiceFunctionLocator.Names.Name))])
+                self._leafs = OrderedDict()
 
                 self.name = YList(self)
                 self._segment_path = lambda: "names"
@@ -239,14 +247,14 @@ class Vservice(Entity):
                 """
                 service function name
                 
-                .. attribute:: function_name  <key>
+                .. attribute:: function_name  (key)
                 
                 	Service function/forwarder name
                 	**type**\: str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: locator_id  <key>
+                .. attribute:: locator_id  (key)
                 
                 	Specify locator id
                 	**type**\: int
@@ -272,18 +280,21 @@ class Vservice(Entity):
                     self.yang_parent_name = "names"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionLocator.Names.Name.Node)}
-                    self._child_list_classes = {}
-
-                    self.function_name = YLeaf(YType.str, "function-name")
-
-                    self.locator_id = YLeaf(YType.uint32, "locator-id")
+                    self.ylist_key_names = ['function_name','locator_id']
+                    self._child_container_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionLocator.Names.Name.Node))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('function_name', YLeaf(YType.str, 'function-name')),
+                        ('locator_id', YLeaf(YType.uint32, 'locator-id')),
+                    ])
+                    self.function_name = None
+                    self.locator_id = None
 
                     self.node = Vservice.ServiceFunctionLocator.Names.Name.Node()
                     self.node.parent = self
                     self._children_name_map["node"] = "node"
                     self._children_yang_names.add("node")
-                    self._segment_path = lambda: "name" + "[function-name='" + self.function_name.get() + "']" + "[locator-id='" + self.locator_id.get() + "']"
+                    self._segment_path = lambda: "name" + "[function-name='" + str(self.function_name) + "']" + "[locator-id='" + str(self.locator_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-locator/names/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -334,16 +345,19 @@ class Vservice(Entity):
                         self.yang_parent_name = "name"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.transport = YLeaf(YType.enumeration, "transport")
-
-                        self.ipv4_source_address = YLeaf(YType.str, "ipv4-source-address")
-
-                        self.ipv4_destination_address = YLeaf(YType.str, "ipv4-destination-address")
-
-                        self.vni = YLeaf(YType.int32, "vni")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('transport', YLeaf(YType.enumeration, 'transport')),
+                            ('ipv4_source_address', YLeaf(YType.str, 'ipv4-source-address')),
+                            ('ipv4_destination_address', YLeaf(YType.str, 'ipv4-destination-address')),
+                            ('vni', YLeaf(YType.int32, 'vni')),
+                        ])
+                        self.transport = None
+                        self.ipv4_source_address = None
+                        self.ipv4_destination_address = None
+                        self.vni = None
                         self._segment_path = lambda: "node"
 
                     def __setattr__(self, name, value):
@@ -373,8 +387,10 @@ class Vservice(Entity):
             self.yang_parent_name = "vservice"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"metadata-disposition" : ("metadata_disposition", Vservice.MetadataDispositions.MetadataDisposition)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("metadata-disposition", ("metadata_disposition", Vservice.MetadataDispositions.MetadataDisposition))])
+            self._leafs = OrderedDict()
 
             self.metadata_disposition = YList(self)
             self._segment_path = lambda: "metadata-dispositions"
@@ -388,14 +404,14 @@ class Vservice(Entity):
             """
             metadata disposition name
             
-            .. attribute:: disposition_name  <key>
+            .. attribute:: disposition_name  (key)
             
             	disposition name
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: format  <key>
+            .. attribute:: format  (key)
             
             	Specify Format
             	**type**\:  :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
@@ -419,15 +435,18 @@ class Vservice(Entity):
                 self.yang_parent_name = "metadata-dispositions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"match-entry" : ("match_entry", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry)}
-
-                self.disposition_name = YLeaf(YType.str, "disposition-name")
-
-                self.format = YLeaf(YType.enumeration, "format")
+                self.ylist_key_names = ['disposition_name','format']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("match-entry", ("match_entry", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry))])
+                self._leafs = OrderedDict([
+                    ('disposition_name', YLeaf(YType.str, 'disposition-name')),
+                    ('format', YLeaf(YType.enumeration, 'format')),
+                ])
+                self.disposition_name = None
+                self.format = None
 
                 self.match_entry = YList(self)
-                self._segment_path = lambda: "metadata-disposition" + "[disposition-name='" + self.disposition_name.get() + "']" + "[format='" + self.format.get() + "']"
+                self._segment_path = lambda: "metadata-disposition" + "[disposition-name='" + str(self.disposition_name) + "']" + "[format='" + str(self.format) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/metadata-dispositions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -438,7 +457,7 @@ class Vservice(Entity):
                 """
                 match entry name
                 
-                .. attribute:: match_entry_name  <key>
+                .. attribute:: match_entry_name  (key)
                 
                 	match entry name
                 	**type**\: str
@@ -464,16 +483,19 @@ class Vservice(Entity):
                     self.yang_parent_name = "metadata-disposition"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"node" : ("node", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node)}
-                    self._child_list_classes = {}
-
-                    self.match_entry_name = YLeaf(YType.str, "match-entry-name")
+                    self.ylist_key_names = ['match_entry_name']
+                    self._child_container_classes = OrderedDict([("node", ("node", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('match_entry_name', YLeaf(YType.str, 'match-entry-name')),
+                    ])
+                    self.match_entry_name = None
 
                     self.node = Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node()
                     self.node.parent = self
                     self._children_name_map["node"] = "node"
                     self._children_yang_names.add("node")
-                    self._segment_path = lambda: "match-entry" + "[match-entry-name='" + self.match_entry_name.get() + "']"
+                    self._segment_path = lambda: "match-entry" + "[match-entry-name='" + str(self.match_entry_name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, ['match_entry_name'], name, value)
@@ -526,18 +548,21 @@ class Vservice(Entity):
                         self.yang_parent_name = "match-entry"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.match_type = YLeaf(YType.enumeration, "match-type")
-
-                        self.action_type = YLeaf(YType.enumeration, "action-type")
-
-                        self.vrf = YLeaf(YType.str, "vrf")
-
-                        self.nexthop_ipv4_address = YLeaf(YType.str, "nexthop-ipv4-address")
-
-                        self.tenant_id = YLeafList(YType.int32, "tenant-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('match_type', YLeaf(YType.enumeration, 'match-type')),
+                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                            ('vrf', YLeaf(YType.str, 'vrf')),
+                            ('nexthop_ipv4_address', YLeaf(YType.str, 'nexthop-ipv4-address')),
+                            ('tenant_id', YLeafList(YType.int32, 'tenant-id')),
+                        ])
+                        self.match_type = None
+                        self.action_type = None
+                        self.vrf = None
+                        self.nexthop_ipv4_address = None
+                        self.tenant_id = []
                         self._segment_path = lambda: "node"
 
                     def __setattr__(self, name, value):
@@ -567,8 +592,10 @@ class Vservice(Entity):
             self.yang_parent_name = "vservice"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"names" : ("names", Vservice.ServiceFunctionForwardLocator.Names)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("names", ("names", Vservice.ServiceFunctionForwardLocator.Names))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.names = Vservice.ServiceFunctionForwardLocator.Names()
             self.names.parent = self
@@ -601,8 +628,10 @@ class Vservice(Entity):
                 self.yang_parent_name = "service-function-forward-locator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"name" : ("name", Vservice.ServiceFunctionForwardLocator.Names.Name)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("name", ("name", Vservice.ServiceFunctionForwardLocator.Names.Name))])
+                self._leafs = OrderedDict()
 
                 self.name = YList(self)
                 self._segment_path = lambda: "names"
@@ -616,14 +645,14 @@ class Vservice(Entity):
                 """
                 service function name
                 
-                .. attribute:: function_name  <key>
+                .. attribute:: function_name  (key)
                 
                 	Service function/forwarder name
                 	**type**\: str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: locator_id  <key>
+                .. attribute:: locator_id  (key)
                 
                 	Specify locator id
                 	**type**\: int
@@ -649,18 +678,21 @@ class Vservice(Entity):
                     self.yang_parent_name = "names"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionForwardLocator.Names.Name.Node)}
-                    self._child_list_classes = {}
-
-                    self.function_name = YLeaf(YType.str, "function-name")
-
-                    self.locator_id = YLeaf(YType.uint32, "locator-id")
+                    self.ylist_key_names = ['function_name','locator_id']
+                    self._child_container_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionForwardLocator.Names.Name.Node))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('function_name', YLeaf(YType.str, 'function-name')),
+                        ('locator_id', YLeaf(YType.uint32, 'locator-id')),
+                    ])
+                    self.function_name = None
+                    self.locator_id = None
 
                     self.node = Vservice.ServiceFunctionForwardLocator.Names.Name.Node()
                     self.node.parent = self
                     self._children_name_map["node"] = "node"
                     self._children_yang_names.add("node")
-                    self._segment_path = lambda: "name" + "[function-name='" + self.function_name.get() + "']" + "[locator-id='" + self.locator_id.get() + "']"
+                    self._segment_path = lambda: "name" + "[function-name='" + str(self.function_name) + "']" + "[locator-id='" + str(self.locator_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/names/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -711,16 +743,19 @@ class Vservice(Entity):
                         self.yang_parent_name = "name"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.transport = YLeaf(YType.enumeration, "transport")
-
-                        self.ipv4_source_address = YLeaf(YType.str, "ipv4-source-address")
-
-                        self.ipv4_destination_address = YLeaf(YType.str, "ipv4-destination-address")
-
-                        self.vni = YLeaf(YType.int32, "vni")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('transport', YLeaf(YType.enumeration, 'transport')),
+                            ('ipv4_source_address', YLeaf(YType.str, 'ipv4-source-address')),
+                            ('ipv4_destination_address', YLeaf(YType.str, 'ipv4-destination-address')),
+                            ('vni', YLeaf(YType.int32, 'vni')),
+                        ])
+                        self.transport = None
+                        self.ipv4_source_address = None
+                        self.ipv4_destination_address = None
+                        self.vni = None
                         self._segment_path = lambda: "node"
 
                     def __setattr__(self, name, value):
@@ -750,8 +785,10 @@ class Vservice(Entity):
             self.yang_parent_name = "vservice"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"metadata-template" : ("metadata_template", Vservice.MetadataTemplates.MetadataTemplate)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("metadata-template", ("metadata_template", Vservice.MetadataTemplates.MetadataTemplate))])
+            self._leafs = OrderedDict()
 
             self.metadata_template = YList(self)
             self._segment_path = lambda: "metadata-templates"
@@ -765,19 +802,19 @@ class Vservice(Entity):
             """
             metadata name, type and format
             
-            .. attribute:: metadata_name  <key>
+            .. attribute:: metadata_name  (key)
             
             	metadata name
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: type  <key>
+            .. attribute:: type  (key)
             
             	Specify Type 
             	**type**\:  :py:class:`SfcMetadataAlloc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataAlloc>`
             
-            .. attribute:: format  <key>
+            .. attribute:: format  (key)
             
             	Specify Format
             	**type**\:  :py:class:`SfcMetadataType1AllocFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormat>`
@@ -803,17 +840,20 @@ class Vservice(Entity):
                 self.yang_parent_name = "metadata-templates"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.metadata_name = YLeaf(YType.str, "metadata-name")
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.format = YLeaf(YType.enumeration, "format")
-
-                self.tenant_id = YLeaf(YType.uint32, "tenant-id")
-                self._segment_path = lambda: "metadata-template" + "[metadata-name='" + self.metadata_name.get() + "']" + "[type='" + self.type.get() + "']" + "[format='" + self.format.get() + "']"
+                self.ylist_key_names = ['metadata_name','type','format']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('metadata_name', YLeaf(YType.str, 'metadata-name')),
+                    ('type', YLeaf(YType.enumeration, 'type')),
+                    ('format', YLeaf(YType.enumeration, 'format')),
+                    ('tenant_id', YLeaf(YType.uint32, 'tenant-id')),
+                ])
+                self.metadata_name = None
+                self.type = None
+                self.format = None
+                self.tenant_id = None
+                self._segment_path = lambda: "metadata-template" + "[metadata-name='" + str(self.metadata_name) + "']" + "[type='" + str(self.type) + "']" + "[format='" + str(self.format) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/metadata-templates/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -843,8 +883,10 @@ class Vservice(Entity):
             self.yang_parent_name = "vservice"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"paths" : ("paths", Vservice.ServiceFunctionPath.Paths)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("paths", ("paths", Vservice.ServiceFunctionPath.Paths))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.paths = Vservice.ServiceFunctionPath.Paths()
             self.paths.parent = self
@@ -877,8 +919,10 @@ class Vservice(Entity):
                 self.yang_parent_name = "service-function-path"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"path" : ("path", Vservice.ServiceFunctionPath.Paths.Path)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("path", ("path", Vservice.ServiceFunctionPath.Paths.Path))])
+                self._leafs = OrderedDict()
 
                 self.path = YList(self)
                 self._segment_path = lambda: "paths"
@@ -892,7 +936,7 @@ class Vservice(Entity):
                 """
                 specify the service function path id
                 
-                .. attribute:: path_id  <key>
+                .. attribute:: path_id  (key)
                 
                 	Specify the service function path id
                 	**type**\: int
@@ -918,13 +962,16 @@ class Vservice(Entity):
                     self.yang_parent_name = "paths"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"service-index" : ("service_index", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex)}
-
-                    self.path_id = YLeaf(YType.uint32, "path-id")
+                    self.ylist_key_names = ['path_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("service-index", ("service_index", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex))])
+                    self._leafs = OrderedDict([
+                        ('path_id', YLeaf(YType.uint32, 'path-id')),
+                    ])
+                    self.path_id = None
 
                     self.service_index = YList(self)
-                    self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+                    self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -935,7 +982,7 @@ class Vservice(Entity):
                     """
                     specify the service index
                     
-                    .. attribute:: index  <key>
+                    .. attribute:: index  (key)
                     
                     	Specify the id of service function
                     	**type**\: int
@@ -971,10 +1018,13 @@ class Vservice(Entity):
                         self.yang_parent_name = "path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"terminate" : ("terminate", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate), "sff-names" : ("sff_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames), "sf-names" : ("sf_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames)}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.uint32, "index")
+                        self.ylist_key_names = ['index']
+                        self._child_container_classes = OrderedDict([("terminate", ("terminate", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate)), ("sff-names", ("sff_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames)), ("sf-names", ("sf_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('index', YLeaf(YType.uint32, 'index')),
+                        ])
+                        self.index = None
 
                         self.terminate = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate()
                         self.terminate.parent = self
@@ -990,7 +1040,7 @@ class Vservice(Entity):
                         self.sf_names.parent = self
                         self._children_name_map["sf_names"] = "sf-names"
                         self._children_yang_names.add("sf-names")
-                        self._segment_path = lambda: "service-index" + "[index='" + self.index.get() + "']"
+                        self._segment_path = lambda: "service-index" + "[index='" + str(self.index) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, ['index'], name, value)
@@ -1019,8 +1069,10 @@ class Vservice(Entity):
                             self.yang_parent_name = "service-index"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node()
                             self.node.parent = self
@@ -1069,16 +1121,19 @@ class Vservice(Entity):
                                 self.yang_parent_name = "terminate"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.action = YLeaf(YType.enumeration, "action")
-
-                                self.vrf = YLeaf(YType.str, "vrf")
-
-                                self.nexthop_ipv4_address = YLeaf(YType.str, "nexthop-ipv4-address")
-
-                                self.metatdata_disposition = YLeaf(YType.str, "metatdata-disposition")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('action', YLeaf(YType.enumeration, 'action')),
+                                    ('vrf', YLeaf(YType.str, 'vrf')),
+                                    ('nexthop_ipv4_address', YLeaf(YType.str, 'nexthop-ipv4-address')),
+                                    ('metatdata_disposition', YLeaf(YType.str, 'metatdata-disposition')),
+                                ])
+                                self.action = None
+                                self.vrf = None
+                                self.nexthop_ipv4_address = None
+                                self.metatdata_disposition = None
                                 self._segment_path = lambda: "node"
 
                             def __setattr__(self, name, value):
@@ -1108,8 +1163,10 @@ class Vservice(Entity):
                             self.yang_parent_name = "service-index"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"sff-name" : ("sff_name", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("sff-name", ("sff_name", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName))])
+                            self._leafs = OrderedDict()
 
                             self.sff_name = YList(self)
                             self._segment_path = lambda: "sff-names"
@@ -1122,7 +1179,7 @@ class Vservice(Entity):
                             """
                             service function forwarder name
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: name  (key)
                             
                             	SFF Name
                             	**type**\: str
@@ -1148,16 +1205,19 @@ class Vservice(Entity):
                                 self.yang_parent_name = "sff-names"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node)}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = ['name']
+                                self._child_container_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.name = None
 
                                 self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node()
                                 self.node.parent = self
                                 self._children_name_map["node"] = "node"
                                 self._children_yang_names.add("node")
-                                self._segment_path = lambda: "sff-name" + "[name='" + self.name.get() + "']"
+                                self._segment_path = lambda: "sff-name" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, ['name'], name, value)
@@ -1191,12 +1251,15 @@ class Vservice(Entity):
                                     self.yang_parent_name = "sff-name"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.reserved = YLeaf(YType.empty, "reserved")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('reserved', YLeaf(YType.empty, 'reserved')),
+                                    ])
+                                    self.enable = None
+                                    self.reserved = None
                                     self._segment_path = lambda: "node"
 
                                 def __setattr__(self, name, value):
@@ -1226,8 +1289,10 @@ class Vservice(Entity):
                             self.yang_parent_name = "service-index"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"sf-name" : ("sf_name", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("sf-name", ("sf_name", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName))])
+                            self._leafs = OrderedDict()
 
                             self.sf_name = YList(self)
                             self._segment_path = lambda: "sf-names"
@@ -1240,7 +1305,7 @@ class Vservice(Entity):
                             """
                             service function name
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: name  (key)
                             
                             	SF Name
                             	**type**\: str
@@ -1266,16 +1331,19 @@ class Vservice(Entity):
                                 self.yang_parent_name = "sf-names"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"node" : ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node)}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = ['name']
+                                self._child_container_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.name = None
 
                                 self.node = Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node()
                                 self.node.parent = self
                                 self._children_name_map["node"] = "node"
                                 self._children_yang_names.add("node")
-                                self._segment_path = lambda: "sf-name" + "[name='" + self.name.get() + "']"
+                                self._segment_path = lambda: "sf-name" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, ['name'], name, value)
@@ -1309,12 +1377,15 @@ class Vservice(Entity):
                                     self.yang_parent_name = "sf-name"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.reserved = YLeaf(YType.empty, "reserved")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('reserved', YLeaf(YType.empty, 'reserved')),
+                                    ])
+                                    self.enable = None
+                                    self.reserved = None
                                     self._segment_path = lambda: "node"
 
                                 def __setattr__(self, name, value):

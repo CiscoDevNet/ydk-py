@@ -15,9 +15,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -109,26 +111,29 @@ class Watchdog(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-wd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"threshold-memory" : ("threshold_memory", Watchdog.ThresholdMemory)}
-        self._child_list_classes = {}
-
-        self.threshold_memory_switchover = YLeaf(YType.uint32, "threshold-memory-switchover")
-
-        self.restart_deadlock_disable = YLeaf(YType.empty, "restart-deadlock-disable")
-
-        self.monitor_qnet_timeout = YLeaf(YType.uint32, "monitor-qnet-timeout")
-
-        self.monitor_cpuhog_timeout = YLeaf(YType.uint32, "monitor-cpuhog-timeout")
-
-        self.monitor_procnto_timeout = YLeaf(YType.uint32, "monitor-procnto-timeout")
-
-        self.overload_notification = YLeaf(YType.empty, "overload-notification")
-
-        self.restart_cpuhog_disable = YLeaf(YType.empty, "restart-cpuhog-disable")
-
-        self.restart_memoryhog_disable = YLeaf(YType.empty, "restart-memoryhog-disable")
-
-        self.overload_throttle_timeout = YLeaf(YType.uint32, "overload-throttle-timeout")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("threshold-memory", ("threshold_memory", Watchdog.ThresholdMemory))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('threshold_memory_switchover', YLeaf(YType.uint32, 'threshold-memory-switchover')),
+            ('restart_deadlock_disable', YLeaf(YType.empty, 'restart-deadlock-disable')),
+            ('monitor_qnet_timeout', YLeaf(YType.uint32, 'monitor-qnet-timeout')),
+            ('monitor_cpuhog_timeout', YLeaf(YType.uint32, 'monitor-cpuhog-timeout')),
+            ('monitor_procnto_timeout', YLeaf(YType.uint32, 'monitor-procnto-timeout')),
+            ('overload_notification', YLeaf(YType.empty, 'overload-notification')),
+            ('restart_cpuhog_disable', YLeaf(YType.empty, 'restart-cpuhog-disable')),
+            ('restart_memoryhog_disable', YLeaf(YType.empty, 'restart-memoryhog-disable')),
+            ('overload_throttle_timeout', YLeaf(YType.uint32, 'overload-throttle-timeout')),
+        ])
+        self.threshold_memory_switchover = None
+        self.restart_deadlock_disable = None
+        self.monitor_qnet_timeout = None
+        self.monitor_cpuhog_timeout = None
+        self.monitor_procnto_timeout = None
+        self.overload_notification = None
+        self.restart_cpuhog_disable = None
+        self.restart_memoryhog_disable = None
+        self.overload_throttle_timeout = None
 
         self.threshold_memory = Watchdog.ThresholdMemory()
         self.threshold_memory.parent = self
@@ -179,14 +184,17 @@ class Watchdog(Entity):
             self.yang_parent_name = "watchdog"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.minor = YLeaf(YType.uint32, "minor")
-
-            self.severe = YLeaf(YType.uint32, "severe")
-
-            self.critical = YLeaf(YType.uint32, "critical")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('minor', YLeaf(YType.uint32, 'minor')),
+                ('severe', YLeaf(YType.uint32, 'severe')),
+                ('critical', YLeaf(YType.uint32, 'critical')),
+            ])
+            self.minor = None
+            self.severe = None
+            self.critical = None
             self._segment_path = lambda: "threshold-memory"
             self._absolute_path = lambda: "Cisco-IOS-XR-wd-cfg:watchdog/%s" % self._segment_path()
 

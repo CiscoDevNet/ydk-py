@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AaaAdminPassword(Enum):
     """
-    AaaAdminPassword
+    AaaAdminPassword (Enum Class)
 
     Aaa admin password
 
@@ -69,8 +71,10 @@ class Aaa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-aaa-locald-admin-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"usernames" : ("usernames", Aaa.Usernames)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("usernames", ("usernames", Aaa.Usernames))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.usernames = Aaa.Usernames()
         self.usernames.parent = self
@@ -102,8 +106,10 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"username" : ("username", Aaa.Usernames.Username)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("username", ("username", Aaa.Usernames.Username))])
+            self._leafs = OrderedDict()
 
             self.username = YList(self)
             self._segment_path = lambda: "usernames"
@@ -117,7 +123,7 @@ class Aaa(Entity):
             """
             Admin Username
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Username
             	**type**\: str
@@ -146,10 +152,13 @@ class Aaa(Entity):
                 self.yang_parent_name = "usernames"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"usergroup-under-usernames" : ("usergroup_under_usernames", Aaa.Usernames.Username.UsergroupUnderUsernames), "secret" : ("secret", Aaa.Usernames.Username.Secret)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("usergroup-under-usernames", ("usergroup_under_usernames", Aaa.Usernames.Username.UsergroupUnderUsernames)), ("secret", ("secret", Aaa.Usernames.Username.Secret))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
                 self.usergroup_under_usernames.parent = self
@@ -160,7 +169,7 @@ class Aaa(Entity):
                 self.secret.parent = self
                 self._children_name_map["secret"] = "secret"
                 self._children_yang_names.add("secret")
-                self._segment_path = lambda: "username" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "username" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -191,8 +200,10 @@ class Aaa(Entity):
                     self.yang_parent_name = "username"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"usergroup-under-username" : ("usergroup_under_username", Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("usergroup-under-username", ("usergroup_under_username", Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername))])
+                    self._leafs = OrderedDict()
 
                     self.usergroup_under_username = YList(self)
                     self._segment_path = lambda: "usergroup-under-usernames"
@@ -205,7 +216,7 @@ class Aaa(Entity):
                     """
                     Name of the usergroup
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Name of the usergroup
                     	**type**\: str
@@ -226,11 +237,14 @@ class Aaa(Entity):
                         self.yang_parent_name = "usergroup-under-usernames"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-                        self._segment_path = lambda: "usergroup-under-username" + "[name='" + self.name.get() + "']"
+                        self.ylist_key_names = ['name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
+                        self._segment_path = lambda: "usergroup-under-username" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, ['name'], name, value)
@@ -280,16 +294,19 @@ class Aaa(Entity):
                     self.yang_parent_name = "username"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.type = YLeaf(YType.enumeration, "type")
-
-                    self.secret5 = YLeaf(YType.str, "secret5")
-
-                    self.secret8 = YLeaf(YType.str, "secret8")
-
-                    self.secret9 = YLeaf(YType.str, "secret9")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                        ('secret5', YLeaf(YType.str, 'secret5')),
+                        ('secret8', YLeaf(YType.str, 'secret8')),
+                        ('secret9', YLeaf(YType.str, 'secret9')),
+                    ])
+                    self.type = None
+                    self.secret5 = None
+                    self.secret8 = None
+                    self.secret9 = None
                     self._segment_path = lambda: "secret"
 
                 def __setattr__(self, name, value):

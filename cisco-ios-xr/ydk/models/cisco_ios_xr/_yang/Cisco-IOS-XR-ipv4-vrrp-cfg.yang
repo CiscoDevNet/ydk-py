@@ -1,109 +1,111 @@
 module Cisco-IOS-XR-ipv4-vrrp-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-vrrp-cfg";
+  prefix ipv4-vrrp-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-snmp-agent-cfg {
+    prefix a1;
+  }
 
-  prefix "ipv4-vrrp-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-snmp-agent-cfg { prefix "a1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-vrrp package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        vrrp: VRRP configuration
-
+     
      This YANG module augments the
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-19" {
+  revision 2017-05-19 {
     description
       "Marked delay leafs min-delay and reload-delay as mandatory.";
   }
-
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2016-12-16" {
+  revision 2016-12-16 {
     description
       "IOS XR 6.2.1 revision.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
-
-  container vrrp {
-    description "VRRP configuration";
-
-    container logging {
-      description "VRRP logging options";
-      leaf state-change-disable {
+  augment "/a1:snmp/a1:notification" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-snmp-agent-cfg'";
+    container vrrp {
+      description
+        "VRRP-MIB notification configuration";
+      leaf enable {
         type empty;
-        description "VRRP state change IOS messages disable";
+        description
+          "Enable VRRP-MIB notifications";
       }
     }
-
+  }
+  container vrrp {
+    description
+      "VRRP configuration";
+    container logging {
+      description
+        "VRRP logging options";
+      leaf state-change-disable {
+        type empty;
+        description
+          "VRRP state change IOS messages disable";
+      }
+    }
     container interfaces {
-      description "Interface configuration table";
-
+      description
+        "Interface configuration table";
       list interface {
         key "interface-name";
-        description "The interface being configured";
-
+        description
+          "The interface being configured";
         container ipv6 {
-          description "IPv6 VRRP configuration";
-
+          description
+            "IPv6 VRRP configuration";
           container version3 {
-            description "Version 3 VRRP configuration";
-
+            description
+              "Version 3 VRRP configuration";
             container virtual-routers {
               description
                 "The VRRP virtual router configuration table";
-
               list virtual-router {
                 key "vr-id";
                 description
                   "The VRRP virtual router being configured";
-
                 container global-ipv6-addresses {
                   description
                     "The table of VRRP virtual global IPv6
-                    addresses";
-
+                     addresses";
                   list global-ipv6-address {
                     key "ip-address";
                     description
@@ -115,40 +117,40 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                     }
                   }
                 }
-
                 container tracks {
                   description
                     "Track an item, reducing priority if it
-                    goes down";
-
+                     goes down";
                   list track {
                     key "interface-name";
-                    description "Object to be tracked";
+                    description
+                      "Object to be tracked";
                     leaf interface-name {
                       type xr:Interface-name;
                       description
                         "Object to be tracked, interface name for
-                        interfaces";
+                         interfaces";
                     }
                     leaf priority {
                       type uint32 {
                         range "1..254";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container timer {
-                  description "Set advertisement timer";
+                  description
+                    "Set advertisement timer";
                   leaf in-msec {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Advertise time configured in
-                      milliseconds, FALSE - Advertise time
-                      configured in seconds";
+                       milliseconds, FALSE - Advertise time
+                       configured in seconds";
                   }
                   leaf advertisement-time-in-msec {
                     type uint32 {
@@ -163,48 +165,49 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                       range "1..40";
                     }
                     units "second";
-                    description "Advertisement time in seconds";
+                    description
+                      "Advertisement time in seconds";
                   }
                   leaf forced {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Force configured timer values to
-                      be used, required when configured in
-                      milliseconds";
+                       be used, required when configured in
+                       milliseconds";
                   }
                 }
-
                 container tracked-objects {
                   description
                     "Track an object, reducing priority if it
-                    goes down";
-
+                     goes down";
                   list tracked-object {
                     key "object-name";
-                    description "Object to be tracked";
+                    description
+                      "Object to be tracked";
                     leaf object-name {
                       type xr:Cisco-ios-xr-string;
                       description
                         "Object to be tracked, interface name for
-                        interfaces";
+                         interfaces";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..254";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container link-local-ipv6-address {
                   description
                     "The VRRP IPv6 virtual linklocal address";
                   leaf ip-address {
                     when "../auto-configure = 0" {
-                      description "../AutoConfigure = <expr>";
+                      description
+                        "../AutoConfigure = <expr>";
                     }
                     type inet:ip-address-no-zone;
                     description
@@ -215,28 +218,29 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                     default "false";
                     description
                       "TRUE if the virtual linklocal address is
-                      to be autoconfigured FALSE if an IPv6
-                      virtual linklocal address is configured";
+                       to be autoconfigured FALSE if an IPv6
+                       virtual linklocal address is configured";
                   }
                 }
                 leaf bfd {
                   type inet:ip-address-no-zone;
                   description
                     "Enable use of Bidirectional Forwarding
-                    Detection for this IP";
+                     Detection for this IP";
                 }
                 leaf priority {
                   type uint32 {
                     range "1..254";
                   }
                   default "100";
-                  description "Priority value";
+                  description
+                    "Priority value";
                 }
                 leaf accept-mode-disable {
                   type empty;
                   description
                     "Disable Accept Mode for this virtual
-                    IPAddress";
+                     IPAddress";
                 }
                 leaf preempt {
                   type uint32 {
@@ -250,57 +254,59 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                   type xr:Cisco-ios-xr-string {
                     length "1..16";
                   }
-                  description "VRRP Session Name";
+                  description
+                    "VRRP Session Name";
                 }
                 leaf vr-id {
                   type uint32 {
                     range "1..255";
                   }
-                  description "VRID Virtual Router Identifier";
+                  description
+                    "VRID Virtual Router Identifier";
                 }
               }
             }
           }
-
           container slave-virtual-routers {
-            description "The VRRP slave group configuration table";
-
+            description
+              "The VRRP slave group configuration table";
             list slave-virtual-router {
               key "slave-virtual-router-id";
-              description "The VRRP slave being configured";
-
+              description
+                "The VRRP slave being configured";
               container link-local-ipv6-address {
                 description
                   "The VRRP IPv6 virtual linklocal address";
                 leaf ip-address {
                   when "../auto-configure = 0" {
-                    description "../AutoConfigure = <expr>";
+                    description
+                      "../AutoConfigure = <expr>";
                   }
                   type inet:ip-address-no-zone;
-                  description "VRRP IPv6 virtual linklocal address";
+                  description
+                    "VRRP IPv6 virtual linklocal address";
                 }
                 leaf auto-configure {
                   type boolean;
                   default "false";
                   description
                     "TRUE if the virtual linklocal address is
-                    to be autoconfigured FALSE if an IPv6
-                    virtual linklocal address is configured";
+                     to be autoconfigured FALSE if an IPv6
+                     virtual linklocal address is configured";
                 }
               }
-
               container global-ipv6-addresses {
                 description
                   "The table of VRRP virtual global IPv6
-                  addresses";
-
+                   addresses";
                 list global-ipv6-address {
                   key "ip-address";
                   description
                     "A VRRP virtual global IPv6 IP address";
                   leaf ip-address {
                     type inet:ip-address-no-zone;
-                    description "VRRP virtual global IPv6 address";
+                    description
+                      "VRRP virtual global IPv6 address";
                   }
                 }
               }
@@ -313,28 +319,30 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                 type empty;
                 description
                   "Disable Accept Mode for this virtual
-                  IPAddress";
+                   IPAddress";
               }
               leaf slave-virtual-router-id {
                 type uint32 {
                   range "1..255";
                 }
-                description "Virtual Router ID";
+                description
+                  "Virtual Router ID";
               }
             }
           }
         }
-
         container delay {
           presence "Indicates a delay node is configured.";
-          description "Minimum and Reload Delay";
+          description
+            "Minimum and Reload Delay";
           leaf min-delay {
             type uint32 {
               range "0..10000";
             }
             units "second";
             mandatory true;
-            description "Minimum delay in seconds";
+            description
+              "Minimum delay in seconds";
           }
           leaf reload-delay {
             type uint32 {
@@ -342,34 +350,33 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
             }
             units "second";
             mandatory true;
-            description "Reload delay in seconds";
+            description
+              "Reload delay in seconds";
           }
         }
-
         container ipv4 {
-          description "IPv4 VRRP configuration";
-
+          description
+            "IPv4 VRRP configuration";
           container version3 {
-            description "Version 3 VRRP configuration";
-
+            description
+              "Version 3 VRRP configuration";
             container virtual-routers {
               description
                 "The VRRP virtual router configuration table";
-
               list virtual-router {
                 key "vr-id";
                 description
                   "The VRRP virtual router being configured";
-
                 container timer {
-                  description "Set advertisement timer";
+                  description
+                    "Set advertisement timer";
                   leaf in-msec {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Advertise time configured in
-                      milliseconds, FALSE - Advertise time
-                      configured in seconds";
+                       milliseconds, FALSE - Advertise time
+                       configured in seconds";
                   }
                   leaf advertisement-time-in-msec {
                     type uint32 {
@@ -384,76 +391,77 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                       range "1..40";
                     }
                     units "second";
-                    description "Advertisement time in seconds";
+                    description
+                      "Advertisement time in seconds";
                   }
                   leaf forced {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Force configured timer values to
-                      be used, required when configured in
-                      milliseconds";
+                       be used, required when configured in
+                       milliseconds";
                   }
                 }
-
                 container secondary-ipv4-addresses {
                   description
                     "The table of VRRP secondary IPv4 addresses";
-
                   list secondary-ipv4-address {
                     key "ip-address";
-                    description "A VRRP secondary IPv4 address";
+                    description
+                      "A VRRP secondary IPv4 address";
                     leaf ip-address {
                       type inet:ipv4-address-no-zone;
-                      description "VRRP Secondary IPv4 address";
+                      description
+                        "VRRP Secondary IPv4 address";
                     }
                   }
                 }
-
                 container tracked-objects {
                   description
                     "Track an object, reducing priority if it
-                    goes down";
-
+                     goes down";
                   list tracked-object {
                     key "object-name";
-                    description "Object to be tracked";
+                    description
+                      "Object to be tracked";
                     leaf object-name {
                       type xr:Cisco-ios-xr-string;
                       description
                         "Object to be tracked, interface name for
-                        interfaces";
+                         interfaces";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..254";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container tracks {
                   description
                     "Track an item, reducing priority if it
-                    goes down";
-
+                     goes down";
                   list track {
                     key "interface-name";
-                    description "Object to be tracked";
+                    description
+                      "Object to be tracked";
                     leaf interface-name {
                       type xr:Interface-name;
                       description
                         "Object to be tracked, interface name for
-                        interfaces";
+                         interfaces";
                     }
                     leaf priority {
                       type uint32 {
                         range "1..254";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
@@ -461,17 +469,19 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                   type xr:Cisco-ios-xr-string {
                     length "1..16";
                   }
-                  description "VRRP Session Name";
+                  description
+                    "VRRP Session Name";
                 }
                 leaf bfd {
                   type inet:ipv4-address-no-zone;
                   description
                     "Enable use of Bidirectional Forwarding
-                    Detection for this IP";
+                     Detection for this IP";
                 }
                 leaf primary-ipv4-address {
                   type inet:ipv4-address-no-zone;
-                  description "The Primary VRRP IPv4 address";
+                  description
+                    "The Primary VRRP IPv4 address";
                 }
                 leaf preempt {
                   type uint32 {
@@ -485,42 +495,44 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                   type empty;
                   description
                     "Disable Accept Mode for this virtual
-                    IPAddress";
+                     IPAddress";
                 }
                 leaf priority {
                   type uint32 {
                     range "1..254";
                   }
                   default "100";
-                  description "Priority value";
+                  description
+                    "Priority value";
                 }
                 leaf vr-id {
                   type uint32 {
                     range "1..255";
                   }
-                  description "VRID Virtual Router Identifier";
+                  description
+                    "VRID Virtual Router Identifier";
                 }
               }
             }
           }
-
           container slave-virtual-routers {
-            description "The VRRP slave group configuration table";
-
+            description
+              "The VRRP slave group configuration table";
             list slave-virtual-router {
               key "slave-virtual-router-id";
-              description "The VRRP slave being configured";
-
+              description
+                "The VRRP slave being configured";
               container secondary-ipv4-addresses {
                 description
                   "The table of VRRP secondary IPv4 addresses";
-
                 list secondary-ipv4-address {
                   key "ip-address";
-                  description "A VRRP secondary IPv4 address";
+                  description
+                    "A VRRP secondary IPv4 address";
                   leaf ip-address {
                     type inet:ipv4-address-no-zone;
-                    description "VRRP Secondary IPv4 address";
+                    description
+                      "VRRP Secondary IPv4 address";
                   }
                 }
               }
@@ -533,42 +545,42 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                 type empty;
                 description
                   "Disable Accept Mode for this virtual
-                  IPAddress";
+                   IPAddress";
               }
               leaf primary-ipv4-address {
                 type inet:ipv4-address-no-zone;
-                description "The Primary VRRP IPv4 address";
+                description
+                  "The Primary VRRP IPv4 address";
               }
               leaf slave-virtual-router-id {
                 type uint32 {
                   range "1..255";
                 }
-                description "Virtual Router ID";
+                description
+                  "Virtual Router ID";
               }
             }
           }
-
           container version2 {
-            description "Version 2 VRRP configuration";
-
+            description
+              "Version 2 VRRP configuration";
             container virtual-routers {
               description
                 "The VRRP virtual router configuration table";
-
               list virtual-router {
                 key "vr-id";
                 description
                   "The VRRP virtual router being configured";
-
                 container timer {
-                  description "Set advertisement timer";
+                  description
+                    "Set advertisement timer";
                   leaf in-msec {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Advertise time configured in
-                      milliseconds, FALSE - Advertise time
-                      configured in seconds";
+                       milliseconds, FALSE - Advertise time
+                       configured in seconds";
                   }
                   leaf advertisement-time-in-msec {
                     type uint32 {
@@ -583,76 +595,77 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                       range "1..255";
                     }
                     units "second";
-                    description "Advertisement time in seconds";
+                    description
+                      "Advertisement time in seconds";
                   }
                   leaf forced {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Force configured timer values to
-                      be used, required when configured in
-                      milliseconds";
+                       be used, required when configured in
+                       milliseconds";
                   }
                 }
-
                 container secondary-ipv4-addresses {
                   description
                     "The table of VRRP secondary IPv4 addresses";
-
                   list secondary-ipv4-address {
                     key "ip-address";
-                    description "A VRRP secondary IPv4 address";
+                    description
+                      "A VRRP secondary IPv4 address";
                     leaf ip-address {
                       type inet:ipv4-address-no-zone;
-                      description "VRRP Secondary IPv4 address";
+                      description
+                        "VRRP Secondary IPv4 address";
                     }
                   }
                 }
-
                 container tracks {
                   description
                     "Track an item, reducing priority if it
-                    goes down";
-
+                     goes down";
                   list track {
                     key "interface-name";
-                    description "Object to be tracked";
+                    description
+                      "Object to be tracked";
                     leaf interface-name {
                       type xr:Interface-name;
                       description
                         "Object to be tracked, interface name for
-                        interfaces";
+                         interfaces";
                     }
                     leaf priority {
                       type uint32 {
                         range "1..254";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container tracked-objects {
                   description
                     "Track an object, reducing priority if it
-                    goes down";
-
+                     goes down";
                   list tracked-object {
                     key "object-name";
-                    description "Object to be tracked";
+                    description
+                      "Object to be tracked";
                     leaf object-name {
                       type xr:Cisco-ios-xr-string;
                       description
                         "Object to be tracked, interface name for
-                        interfaces";
+                         interfaces";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..254";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
@@ -661,11 +674,13 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                     range "1..254";
                   }
                   default "100";
-                  description "Priority value";
+                  description
+                    "Priority value";
                 }
                 leaf primary-ipv4-address {
                   type inet:ipv4-address-no-zone;
-                  description "The Primary VRRP IPv4 address";
+                  description
+                    "The Primary VRRP IPv4 address";
                 }
                 leaf preempt {
                   type uint32 {
@@ -684,33 +699,35 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
                   type inet:ipv4-address-no-zone;
                   description
                     "Enable use of Bidirectional Forwarding
-                    Detection for this IP";
+                     Detection for this IP";
                 }
                 leaf session-name {
                   type xr:Cisco-ios-xr-string {
                     length "1..16";
                   }
-                  description "VRRP Session Name";
+                  description
+                    "VRRP Session Name";
                 }
                 leaf accept-mode-disable {
                   type empty;
                   description
                     "Disable Accept Mode for this virtual
-                    IPAddress";
+                     IPAddress";
                 }
                 leaf vr-id {
                   type uint32 {
                     range "1..255";
                   }
-                  description "VRID Virtual Router Identifier";
+                  description
+                    "VRID Virtual Router Identifier";
                 }
               }
             }
           }
         }
-
         container bfd {
-          description "BFD configuration";
+          description
+            "BFD configuration";
           leaf interval {
             type uint32 {
               range "3..30000";
@@ -718,7 +735,7 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
             units "millisecond";
             description
               "Hello interval for BFD sessions created by
-              vrrp";
+               vrrp";
           }
           leaf detection-multiplier {
             type uint32 {
@@ -726,7 +743,7 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
             }
             description
               "Detection multiplier for BFD sessions created
-              by vrrp";
+               by vrrp";
           }
         }
         leaf mac-refresh {
@@ -735,27 +752,15 @@ module Cisco-IOS-XR-ipv4-vrrp-cfg {
           }
           units "second";
           default "60";
-          description "VRRP Slave MAC-refresh rate in seconds";
+          description
+            "VRRP Slave MAC-refresh rate in seconds";
         }
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name to configure";
+          description
+            "Interface name to configure";
         }
       }
     }
-  }
-
-  augment "/a1:snmp/a1:notification" {
-
-    container vrrp {
-      description "VRRP-MIB notification configuration";
-      leaf enable {
-        type empty;
-        description "Enable VRRP-MIB notifications";
-      }
-    }
-    description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-snmp-agent-cfg'";
   }
 }

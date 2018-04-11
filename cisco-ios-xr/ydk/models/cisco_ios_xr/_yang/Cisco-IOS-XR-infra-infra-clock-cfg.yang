@@ -1,128 +1,137 @@
 module Cisco-IOS-XR-infra-infra-clock-cfg {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-infra-infra-clock-cfg";
+  prefix infra-infra-clock-cfg;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-infra-infra-clock-cfg";
-
-
-  prefix "infra-infra-clock-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR infra-infra-clock package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        clock: Configure time-of-day clock
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Clock-month {
     type enumeration {
-      enum january {
+      enum "january" {
         value 0;
-        description "January";
+        description
+          "January";
       }
-      enum february {
+      enum "february" {
         value 1;
-        description "February";
+        description
+          "February";
       }
-      enum march {
+      enum "march" {
         value 2;
-        description "March";
+        description
+          "March";
       }
-      enum april {
+      enum "april" {
         value 3;
-        description "April";
+        description
+          "April";
       }
-      enum may {
+      enum "may" {
         value 4;
-        description "May";
+        description
+          "May";
       }
-      enum june {
+      enum "june" {
         value 5;
-        description "June";
+        description
+          "June";
       }
-      enum july {
+      enum "july" {
         value 6;
-        description "July";
+        description
+          "July";
       }
-      enum august {
+      enum "august" {
         value 7;
-        description "August";
+        description
+          "August";
       }
-      enum september {
+      enum "september" {
         value 8;
-        description "September";
+        description
+          "September";
       }
-      enum october {
+      enum "october" {
         value 9;
-        description "October";
+        description
+          "October";
       }
-      enum november {
+      enum "november" {
         value 10;
-        description "November";
+        description
+          "November";
       }
-      enum december {
+      enum "december" {
         value 11;
-        description "December";
+        description
+          "December";
       }
     }
-    description "Clock month";
+    description
+      "Clock month";
   }
+
   typedef Clock-summer-time-mode {
     type enumeration {
-      enum recurring {
+      enum "recurring" {
         value 0;
-        description "Recurring summer time";
+        description
+          "Recurring summer time";
       }
-      enum date {
+      enum "date" {
         value 1;
-        description "Absolute summer time";
+        description
+          "Absolute summer time";
       }
     }
-    description "Clock summer time mode";
+    description
+      "Clock summer time mode";
   }
 
   container clock {
-    description "Configure time-of-day clock";
-
+    description
+      "Configure time-of-day clock";
     container summer-time {
       presence "Indicates a summer-time node is configured.";
-      description "Configure summer (daylight savings) time";
+      description
+        "Configure summer (daylight savings) time";
       leaf time-zone-name {
         type string;
         mandatory true;
-        description "Name of time zone in summer";
+        description
+          "Name of time zone in summer";
       }
       leaf mode {
         type Clock-summer-time-mode;
         mandatory true;
-        description "Summer time mode";
+        description
+          "Summer time mode";
       }
       leaf start-week-number-or-start-date {
         type uint32 {
@@ -130,9 +139,9 @@ module Cisco-IOS-XR-infra-infra-clock-cfg {
         }
         description
           " If Mode is set to 'Recurring' specify Week
-          number of the Month to start (first and last
-          strings are not allowed as they are in CLI) ,
-          if Mode is set to 'Date' specify Date to start ";
+           number of the Month to start (first and last
+           strings are not allowed as they are in CLI) ,
+           if Mode is set to 'Date' specify Date to start ";
       }
       leaf start-weekday-or-start-year {
         type uint32 {
@@ -140,24 +149,27 @@ module Cisco-IOS-XR-infra-infra-clock-cfg {
         }
         description
           " If Mode is set to 'Recurring' specify Weekday
-          to start , if Mode is set to 'Date' specify
-          Year to start ";
+           to start , if Mode is set to 'Date' specify
+           Year to start ";
       }
       leaf start-month {
         type Clock-month;
-        description " Month to start ";
+        description
+          " Month to start ";
       }
       leaf start-hour {
         type uint32 {
           range "0..23";
         }
-        description "Hour to start ";
+        description
+          "Hour to start ";
       }
       leaf start-minute {
         type uint32 {
           range "0..59";
         }
-        description "Minute to start ";
+        description
+          "Minute to start ";
       }
       leaf end-week-number-or-end-date {
         type uint32 {
@@ -165,9 +177,9 @@ module Cisco-IOS-XR-infra-infra-clock-cfg {
         }
         description
           "If Mode is set to 'Recurring' specify Week
-          number of the Month to end (first and last
-          strings are not allowed as they are in CLI), if
-          Mode is set to 'Date' specify Date to End";
+           number of the Month to end (first and last
+           strings are not allowed as they are in CLI), if
+           Mode is set to 'Date' specify Date to End";
       }
       leaf end-weekday-or-end-year {
         type uint32 {
@@ -175,41 +187,46 @@ module Cisco-IOS-XR-infra-infra-clock-cfg {
         }
         description
           "If Mode is set to 'Recurring' specify Weekday
-          to end , if Mode is set to 'Date' specify Year
-          to end";
+           to end , if Mode is set to 'Date' specify Year
+           to end";
       }
       leaf end-month {
         type Clock-month;
-        description " Month to end ";
+        description
+          " Month to end ";
       }
       leaf end-hour {
         type uint32 {
           range "0..23";
         }
-        description "Hour to end ";
+        description
+          "Hour to end ";
       }
       leaf end-minute {
         type uint32 {
           range "0..59";
         }
-        description "Minute to end ";
+        description
+          "Minute to end ";
       }
       leaf offset {
         type uint32 {
           range "1..1440";
         }
         units "minute";
-        description "Offset to add in minutes ";
+        description
+          "Offset to add in minutes ";
       }
     }
-
     container time-zone {
       presence "Indicates a time-zone node is configured.";
-      description "Configure time zone";
+      description
+        "Configure time zone";
       leaf time-zone-name {
         type string;
         mandatory true;
-        description "Name of time zone";
+        description
+          "Name of time zone";
       }
       leaf hour-offset {
         type int32 {
@@ -217,7 +234,8 @@ module Cisco-IOS-XR-infra-infra-clock-cfg {
         }
         units "hour";
         mandatory true;
-        description "Hours offset from UTC";
+        description
+          "Hours offset from UTC";
       }
       leaf minute-offset {
         type uint32 {
@@ -225,7 +243,8 @@ module Cisco-IOS-XR-infra-infra-clock-cfg {
         }
         units "minute";
         default "0";
-        description "Minutes offset from UTC";
+        description
+          "Minutes offset from UTC";
       }
     }
   }

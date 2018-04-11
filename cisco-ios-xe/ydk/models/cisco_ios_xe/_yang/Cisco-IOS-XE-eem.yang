@@ -27,12 +27,22 @@ module Cisco-IOS-XE-eem {
 
   description
     "Cisco XE Native Embedded Event Manager (EEM) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-20 {
+    description
+      "fix event oir event removal";
+  }
+ 
+  revision 2017-09-20 {
+    description
+      "Add some applet event support";
+  }
+ 
   revision 2017-08-03 {
     description
       "Add event time full support";
@@ -64,7 +74,15 @@ module Cisco-IOS-XE-eem {
     }
   }
 
-  grouping eem-timer-cron-group {
+  grouping eem-default-group {
+    leaf default {
+      description
+        "Default action timer";
+      type uint32;
+    }
+  }
+
+  grouping eem-maxrun-group {
     leaf maxrun {
       description
         "Maximum runtime of applet";
@@ -72,11 +90,19 @@ module Cisco-IOS-XE-eem {
         range "0..31536000";
       }
     }
-    leaf name {
+  }
+
+  grouping eem-maxrun-incomplete-group {
+    leaf maxrun {
       description
-        "Timer name string";
-      type string;
+        "Maximum runtime of applet";
+      type uint32 {
+        range "0..31536000";
+      }
     }
+  }
+
+  grouping eem-ratelimit-group {
     leaf ratelimit {
       description
         "seconds[.milliseconds] value";
@@ -84,6 +110,26 @@ module Cisco-IOS-XE-eem {
         range "0..31536000";
       }
     }
+  }
+
+  grouping eem-ratelimit-incomplete-group {
+    leaf ratelimit {
+      description
+        "seconds[.milliseconds] value";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+  }
+
+  grouping eem-timer-cron-group {
+    uses eem-maxrun-group;
+    leaf name {
+      description
+        "Timer name string";
+      type string;
+    }
+    uses eem-ratelimit-group;
     leaf cron-entry {
       description
         "Cron entry for cron timer";
@@ -92,25 +138,13 @@ module Cisco-IOS-XE-eem {
   }
 
   grouping eem-timer-common-group {
-    leaf maxrun {
-      description
-        "Maximum runtime of applet";
-      type uint32 {
-        range "0..31536000";
-      }
-    }
+    uses eem-maxrun-group;
     leaf name {
       description
         "Timer name string";
       type string;
     }
-    leaf ratelimit {
-      description
-        "Limit trigger to once per given time period";
-      type uint32 {
-        range "0..31536000";
-      }
-    }
+    uses eem-ratelimit-group;
     leaf time {
       description
         "Time period for watchdog / countdown / absolute timer";
@@ -119,6 +153,7 @@ module Cisco-IOS-XE-eem {
       }
     }
   }
+
 
   grouping config-eem-grouping {
     container manager {
@@ -294,6 +329,98 @@ module Cisco-IOS-XE-eem {
                 enum "up";
               }
             }
+          }
+          container none {
+            description
+              "Manually run policy event";
+            presence true;
+            uses eem-default-group;
+            uses eem-maxrun-group;
+            uses eem-ratelimit-group;
+            leaf sync {
+              description
+                "EEM policy execution sync or async";
+              type enumeration {
+                enum "yes";
+                enum "no";
+              }
+            }
+          }
+          container resource {
+            description 
+              "Resource event";
+            leaf policy {
+              description
+                "Resource policy name string";
+              type string;
+            } 
+            uses eem-maxrun-incomplete-group;
+            uses eem-ratelimit-incomplete-group;
+          }
+          container rpc {
+            description
+              "Remote Procedure Call event";
+            presence true;
+            uses eem-default-group;
+            uses eem-maxrun-group;
+            uses eem-ratelimit-group;
+          }
+          container config {
+            description
+              "Configuration policy event";
+            presence true;
+            uses eem-maxrun-group;
+            uses eem-ratelimit-group;
+          }
+          container env {
+            description
+              "Environmental event";
+            container severity {
+              description
+                "alarm severity";
+              choice severty-level {
+                container major {
+                  description
+                    "major environmental alarm";
+                  presence true;
+                  uses eem-maxrun-group;
+                  uses eem-ratelimit-group;
+                }
+                container minor {
+                  description
+                    "minor environmental alarm";
+                  presence true;
+                  uses eem-maxrun-group;
+                  uses eem-ratelimit-group;
+                }
+              }
+            }
+          }
+          container oir {
+            description
+              "OIR event";
+            presence true;
+            leaf event {
+              description
+                "OIR event";
+              type enumeration {
+                enum "all";
+                enum "insert";
+                enum "removal";
+              }
+            }
+            uses eem-maxrun-group;
+          }
+          container rf {
+            description
+              "event match string";
+            leaf event {
+              description
+                "Event match string";
+              type string;
+            }
+            uses eem-maxrun-group;
+            uses eem-ratelimit-group;
           }
         }
         list action {

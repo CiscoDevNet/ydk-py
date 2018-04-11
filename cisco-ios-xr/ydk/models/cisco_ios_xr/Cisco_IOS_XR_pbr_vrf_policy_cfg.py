@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class VrfPolicy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-pbr-vrf-policy-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"vrf" : ("vrf", VrfPolicy.Vrf)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("vrf", ("vrf", VrfPolicy.Vrf))])
+        self._leafs = OrderedDict()
 
         self.vrf = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy"
@@ -56,7 +60,7 @@ class VrfPolicy(Entity):
         """
         VRF Name
         
-        .. attribute:: vrf_name  <key>
+        .. attribute:: vrf_name  (key)
         
         	VRF name
         	**type**\: str
@@ -82,13 +86,16 @@ class VrfPolicy(Entity):
             self.yang_parent_name = "vrf-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"afi" : ("afi", VrfPolicy.Vrf.Afi)}
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = ['vrf_name']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("afi", ("afi", VrfPolicy.Vrf.Afi))])
+            self._leafs = OrderedDict([
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.vrf_name = None
 
             self.afi = YList(self)
-            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+            self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -99,12 +106,12 @@ class VrfPolicy(Entity):
             """
             address family
             
-            .. attribute:: afi_type  <key>
+            .. attribute:: afi_type  (key)
             
             	AFI name
             	**type**\: str
             
-            	**pattern:** (ipv4)
+            	**pattern:** (ipv4)\|(ipv6)
             
             .. attribute:: service_policy_in
             
@@ -125,13 +132,16 @@ class VrfPolicy(Entity):
                 self.yang_parent_name = "vrf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.afi_type = YLeaf(YType.str, "afi-type")
-
-                self.service_policy_in = YLeaf(YType.str, "service-policy-in")
-                self._segment_path = lambda: "afi" + "[afi-type='" + self.afi_type.get() + "']"
+                self.ylist_key_names = ['afi_type']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('afi_type', YLeaf(YType.str, 'afi-type')),
+                    ('service_policy_in', YLeaf(YType.str, 'service-policy-in')),
+                ])
+                self.afi_type = None
+                self.service_policy_in = None
+                self._segment_path = lambda: "afi" + "[afi-type='" + str(self.afi_type) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VrfPolicy.Vrf.Afi, ['afi_type', 'service_policy_in'], name, value)

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class DisconnectCause(Enum):
     """
-    DisconnectCause
+    DisconnectCause (Enum Class)
 
     Disconnect cause values
 
@@ -46,7 +48,7 @@ class DisconnectCause(Enum):
 
 class Peer(Enum):
     """
-    Peer
+    Peer (Enum Class)
 
      Peer type values
 
@@ -67,7 +69,7 @@ class Peer(Enum):
 
 class PeerStateValue(Enum):
     """
-    PeerStateValue
+    PeerStateValue (Enum Class)
 
     Peer State Values
 
@@ -118,7 +120,7 @@ class PeerStateValue(Enum):
 
 class ProtocolTypeValue(Enum):
     """
-    ProtocolTypeValue
+    ProtocolTypeValue (Enum Class)
 
     Protocol type values
 
@@ -139,7 +141,7 @@ class ProtocolTypeValue(Enum):
 
 class SecurityTypeValue(Enum):
     """
-    SecurityTypeValue
+    SecurityTypeValue (Enum Class)
 
     Security type values
 
@@ -166,7 +168,7 @@ class SecurityTypeValue(Enum):
 
 class WhoInitiatedDisconnect(Enum):
     """
-    WhoInitiatedDisconnect
+    WhoInitiatedDisconnect (Enum Class)
 
     Who initiated to disconnect
 

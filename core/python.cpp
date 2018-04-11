@@ -292,7 +292,8 @@ PYBIND11_MODULE(ydk_, ydk)
 
     class_<ydk::path::Session>(path, "Session")
         .def("get_root_schema", &ydk::path::Session::get_root_schema, return_value_policy::reference)
-        .def("invoke", &ydk::path::Session::invoke, return_value_policy::reference);
+        .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::Session::*)(ydk::path::Rpc& rpc) const) &ydk::path::Session::invoke, return_value_policy::reference)
+        .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::Session::*)(ydk::path::DataNode& rpc) const) &ydk::path::Session::invoke, return_value_policy::reference);
 
     class_<ydk::path::NetconfSession, ydk::path::Session>(path, "NetconfSession")
         .def("__init__",
@@ -430,7 +431,8 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("timeout")=-1)
 
         .def("get_root_schema", &ydk::path::NetconfSession::get_root_schema, return_value_policy::reference)
-        .def("invoke", &ydk::path::NetconfSession::invoke, return_value_policy::reference)
+        .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::NetconfSession::*)(ydk::path::Rpc& rpc) const) &ydk::path::NetconfSession::invoke, return_value_policy::reference)
+        .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::NetconfSession::*)(ydk::path::DataNode& rpc) const) &ydk::path::NetconfSession::invoke, return_value_policy::reference)
         .def("get_capabilities", &ydk::path::NetconfSession::get_capabilities, return_value_policy::reference);
 
     class_<ydk::path::RestconfSession, ydk::path::Session>(path, "RestconfSession")
@@ -454,7 +456,8 @@ PYBIND11_MODULE(ydk_, ydk)
              arg("config_url_root"),
              arg("state_url_root"))
         .def("get_root_schema", &ydk::path::RestconfSession::get_root_schema, return_value_policy::reference)
-        .def("invoke", &ydk::path::RestconfSession::invoke, return_value_policy::reference);
+        .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::RestconfSession::*)(ydk::path::Rpc& rpc) const) &ydk::path::RestconfSession::invoke, return_value_policy::reference)
+        .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::RestconfSession::*)(ydk::path::DataNode& rpc) const) &ydk::path::RestconfSession::invoke, return_value_policy::reference);
 
     class_<ydk::path::Statement>(path, "Statement")
         .def(init<const string &, const string &>(), arg("keyword"), arg("arg"))
@@ -475,6 +478,7 @@ PYBIND11_MODULE(ydk_, ydk)
     class_<ydk::path::DataNode, shared_ptr<ydk::path::DataNode>>(path, "DataNode")
         .def("get_schema_node", &ydk::path::DataNode::get_schema_node, return_value_policy::reference)
         .def("get_path", &ydk::path::DataNode::get_path, return_value_policy::reference)
+        .def("create_action", &ydk::path::DataNode::create_action, return_value_policy::reference)
         .def("create_datanode", (ydk::path::DataNode& (ydk::path::DataNode::*)(const string&)) &ydk::path::DataNode::create_datanode, return_value_policy::reference, arg("path"))
         .def("create_datanode", (ydk::path::DataNode& (ydk::path::DataNode::*)(const string&, const string&)) &ydk::path::DataNode::create_datanode, return_value_policy::reference, arg("path"), arg("value"))
         .def("get_value", &ydk::path::DataNode::get_value, return_value_policy::reference)
@@ -484,7 +488,8 @@ PYBIND11_MODULE(ydk_, ydk)
         .def("find", &ydk::path::DataNode::find, return_value_policy::reference, arg("path"))
         .def("add_annotation", &ydk::path::DataNode::add_annotation, return_value_policy::reference, arg("annotation"))
         .def("remove_annotation", &ydk::path::DataNode::remove_annotation, return_value_policy::reference, arg("annotation"))
-        .def("annotations", &ydk::path::DataNode::annotations, return_value_policy::reference);
+        .def("annotations", &ydk::path::DataNode::annotations, return_value_policy::reference)
+        .def("__call__", &ydk::path::DataNode::operator(), arg("service_provider"));
 
     class_<ydk::path::RootSchemaNode, shared_ptr<ydk::path::RootSchemaNode>>(path, "RootSchemaNode")
         .def("get_path", &ydk::path::RootSchemaNode::get_path, return_value_policy::reference)
@@ -524,7 +529,10 @@ PYBIND11_MODULE(ydk_, ydk)
 
     codec
         .def(init<>())
-        .def("encode", &ydk::path::Codec::encode, arg("data_node"), arg("encoding"), arg("pretty"))
+        .def("encode", (std::string (ydk::path::Codec::*)(const ydk::path::DataNode&, ydk::EncodingFormat, bool))
+                &ydk::path::Codec::encode, arg("data_node"), arg("encoding"), arg("pretty"))
+        .def("encode", (std::string (ydk::path::Codec::*)(std::vector<ydk::path::DataNode*>&, ydk::EncodingFormat, bool))
+                &ydk::path::Codec::encode, arg("data_node"), arg("encoding"), arg("pretty"))
         .def("decode", &ydk::path::Codec::decode, arg("root_schema_node"), arg("payload"), arg("encoding"))
         .def("decode_rpc_output", &ydk::path::Codec::decode_rpc_output, arg("root_schema_node"), arg("payload"), arg("rpc_path"), arg("encoding"));
 
@@ -532,7 +540,8 @@ PYBIND11_MODULE(ydk_, ydk)
         .value("candidate", ydk::DataStore::candidate)
         .value("running", ydk::DataStore::running)
         .value("startup", ydk::DataStore::startup)
-        .value("url", ydk::DataStore::url);
+        .value("url", ydk::DataStore::url)
+        .value("na", ydk::DataStore::na);
 
     enum_<ydk::YFilter>(filters, "YFilter")
         .value("merge", ydk::YFilter::merge)
@@ -604,6 +613,7 @@ PYBIND11_MODULE(ydk_, ydk)
                          })
         .def_readwrite("yfilter", &ydk::Entity::yfilter)
         .def_readwrite("yang_name", &ydk::Entity::yang_name, return_value_policy::reference)
+        .def_readwrite("ylist_key_names", &ydk::Entity::ylist_key_names, return_value_policy::reference)
         .def_readwrite("yang_parent_name", &ydk::Entity::yang_parent_name, return_value_policy::reference)
         .def_readwrite("is_presence_container", &ydk::Entity::is_presence_container, return_value_policy::reference)
         .def_readwrite("is_top_level_class", &ydk::Entity::is_top_level_class)
@@ -632,7 +642,11 @@ PYBIND11_MODULE(ydk_, ydk)
 
     class_<ydk::Identity>(types, "Identity")
         .def(init<const std::string &, const std::string &, const std::string &>())
-        .def("to_string", &ydk::Identity::to_string, return_value_policy::reference);
+        .def("to_string", &ydk::Identity::to_string, return_value_policy::reference)
+        .def("__str__", [](ydk::Identity &id)
+                          {
+                               return id.to_string();
+                          });
 
     class_<ydk::Enum> enum_(types, "Enum");
 
@@ -642,7 +656,7 @@ PYBIND11_MODULE(ydk_, ydk)
         .def(init<int, string>())
         .def("__str__", [](const ydk::Enum::YLeaf &eyl)
                         {
-                            return "ydk.types.Enum.YLeaf(" + eyl.name + ")";
+                            return eyl.name;
                         })
         .def_readwrite("value", &ydk::Enum::YLeaf::value)
         .def_readwrite("name", &ydk::Enum::YLeaf::name);
@@ -906,11 +920,42 @@ PYBIND11_MODULE(ydk_, ydk)
 
     class_<ydk::CrudService>(services, "CRUDService")
         .def(init<>())
-        .def("create", &ydk::CrudService::create, return_value_policy::reference)
-        .def("read", &ydk::CrudService::read)
-        .def("read_config", &ydk::CrudService::read_config)
-        .def("update", &ydk::CrudService::update, return_value_policy::reference)
-        .def("delete", &ydk::CrudService::delete_, return_value_policy::reference);
+        .def("create",
+            (bool (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, ydk::Entity& entity)) &ydk::CrudService::create,
+            return_value_policy::reference)
+        .def("create",
+            (bool (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, vector<ydk::Entity*>& entity_list)) &ydk::CrudService::create,
+            return_value_policy::reference)
+        .def("read",
+            (shared_ptr<ydk::Entity> (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, ydk::Entity& entity)) &ydk::CrudService::read)
+        .def("read",
+            (vector<shared_ptr<ydk::Entity>> (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, vector<ydk::Entity*>& entity_list)) &ydk::CrudService::read)
+        .def("read_config",
+            (shared_ptr<ydk::Entity> (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, ydk::Entity& entity)) &ydk::CrudService::read_config)
+        .def("read_config",
+            (vector<shared_ptr<ydk::Entity>> (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, vector<ydk::Entity*>& entity_list)) &ydk::CrudService::read_config)
+        .def("update",
+            (bool (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, ydk::Entity& entity)) &ydk::CrudService::update,
+            return_value_policy::reference)
+        .def("update",
+            (bool (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, vector<ydk::Entity*>& entity_list)) &ydk::CrudService::update,
+            return_value_policy::reference)
+        .def("delete",
+            (bool (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, ydk::Entity& entity)) &ydk::CrudService::delete_,
+            return_value_policy::reference)
+        .def("delete",
+            (bool (ydk::CrudService::*)
+                (ydk::ServiceProvider& provider, vector<ydk::Entity*>& entity_list)) &ydk::CrudService::delete_,
+            return_value_policy::reference);
 
     class_<ydk::ExecutorService>(services, "ExecutorService")
         .def(init<>())
@@ -928,18 +973,24 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("provider"), arg("confirmed") = false,
             arg("confirm_timeout") = -1, arg("persist") = -1,
             arg("persist-id") = -1, return_value_policy::reference)
-        .def("copy_config", (bool (ydk::NetconfService::*)(ydk::NetconfServiceProvider&,
-            ydk::DataStore,
-            ydk::DataStore,
-            std::string)) &ydk::NetconfService::copy_config,
+        .def("copy_config",
+            (bool (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, ydk::DataStore, ydk::DataStore, std::string))
+                &ydk::NetconfService::copy_config,
             arg("provider"),
             arg("target"),
             arg("source"),
             arg("url") = std::string{""},
             return_value_policy::reference)
-        .def("copy_config", (bool (ydk::NetconfService::*)(ydk::NetconfServiceProvider&,
-            ydk::DataStore,
-            ydk::Entity&)) &ydk::NetconfService::copy_config,
+        .def("copy_config",
+            (bool (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, ydk::DataStore, ydk::Entity&))
+                &ydk::NetconfService::copy_config,
+            arg("provider"),
+            arg("target"),
+            arg("source_config"),
+            return_value_policy::reference)
+        .def("copy_config",
+            (bool (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, ydk::DataStore, vector<ydk::Entity*>&))
+                &ydk::NetconfService::copy_config,
             arg("provider"),
             arg("target"),
             arg("source_config"),
@@ -949,13 +1000,33 @@ PYBIND11_MODULE(ydk_, ydk)
             return_value_policy::reference)
         .def("discard_changes", &ydk::NetconfService::discard_changes,
             arg("provider"), return_value_policy::reference)
-        .def("edit_config", &ydk::NetconfService::edit_config,
+        .def("edit_config",
+            (bool (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, ydk::DataStore, ydk::Entity&, string, string, string))
+                &ydk::NetconfService::edit_config,
             arg("provider"), arg("target"), arg("config"),
             arg("default_operation") = std::string{""}, arg("test_option") = std::string{""},
             arg("error_option") = std::string{""}, return_value_policy::reference)
-        .def("get_config", &ydk::NetconfService::get_config,
+        .def("edit_config",
+            (bool (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, ydk::DataStore, vector<ydk::Entity*>&, string, string, string))
+                &ydk::NetconfService::edit_config,
+            arg("provider"), arg("target"), arg("config"),
+            arg("default_operation") = std::string{""}, arg("test_option") = std::string{""},
+            arg("error_option") = std::string{""}, return_value_policy::reference)
+        .def("get_config",
+            (shared_ptr<ydk::Entity> (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, ydk::DataStore, ydk::Entity&))
+                &ydk::NetconfService::get_config,
             arg("provider"), arg("source"), arg("filter"))
-        .def("get", &ydk::NetconfService::get,
+        .def("get_config",
+            (vector<shared_ptr<ydk::Entity>> (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, ydk::DataStore, vector<ydk::Entity*>&))
+                &ydk::NetconfService::get_config,
+            arg("provider"), arg("source"), arg("filter"))
+        .def("get",
+            (shared_ptr<ydk::Entity> (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, ydk::Entity&))
+                &ydk::NetconfService::get,
+            arg("provider"), arg("filter"), return_value_policy::reference)
+        .def("get",
+            (vector<shared_ptr<ydk::Entity>> (ydk::NetconfService::*)(ydk::NetconfServiceProvider&, vector<ydk::Entity*>&))
+                &ydk::NetconfService::get,
             arg("provider"), arg("filter"), return_value_policy::reference)
         .def("kill_session", &ydk::NetconfService::kill_session,
             arg("provider"), arg("session_id"), return_value_policy::reference)

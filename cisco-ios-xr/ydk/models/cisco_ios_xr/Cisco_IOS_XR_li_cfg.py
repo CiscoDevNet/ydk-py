@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,10 +44,13 @@ class LawfulIntercept(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-li-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.disable = YLeaf(YType.empty, "disable")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('disable', YLeaf(YType.empty, 'disable')),
+        ])
+        self.disable = None
         self._segment_path = lambda: "Cisco-IOS-XR-li-cfg:lawful-intercept"
 
     def __setattr__(self, name, value):

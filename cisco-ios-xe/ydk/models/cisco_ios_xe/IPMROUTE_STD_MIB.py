@@ -5,9 +5,11 @@ independent of the specific multicast routing protocol in
 use.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -61,8 +63,10 @@ class IPMROUTESTDMIB(Entity):
         self.yang_parent_name = "IPMROUTE-STD-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipMRoute" : ("ipmroute", IPMROUTESTDMIB.Ipmroute), "ipMRouteTable" : ("ipmroutetable", IPMROUTESTDMIB.Ipmroutetable), "ipMRouteNextHopTable" : ("ipmroutenexthoptable", IPMROUTESTDMIB.Ipmroutenexthoptable), "ipMRouteInterfaceTable" : ("ipmrouteinterfacetable", IPMROUTESTDMIB.Ipmrouteinterfacetable), "ipMRouteBoundaryTable" : ("ipmrouteboundarytable", IPMROUTESTDMIB.Ipmrouteboundarytable), "ipMRouteScopeNameTable" : ("ipmroutescopenametable", IPMROUTESTDMIB.Ipmroutescopenametable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ipMRoute", ("ipmroute", IPMROUTESTDMIB.Ipmroute)), ("ipMRouteTable", ("ipmroutetable", IPMROUTESTDMIB.Ipmroutetable)), ("ipMRouteNextHopTable", ("ipmroutenexthoptable", IPMROUTESTDMIB.Ipmroutenexthoptable)), ("ipMRouteInterfaceTable", ("ipmrouteinterfacetable", IPMROUTESTDMIB.Ipmrouteinterfacetable)), ("ipMRouteBoundaryTable", ("ipmrouteboundarytable", IPMROUTESTDMIB.Ipmrouteboundarytable)), ("ipMRouteScopeNameTable", ("ipmroutescopenametable", IPMROUTESTDMIB.Ipmroutescopenametable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ipmroute = IPMROUTESTDMIB.Ipmroute()
         self.ipmroute.parent = self
@@ -126,12 +130,15 @@ class IPMROUTESTDMIB(Entity):
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ipmrouteenable = YLeaf(YType.enumeration, "ipMRouteEnable")
-
-            self.ipmrouteentrycount = YLeaf(YType.uint32, "ipMRouteEntryCount")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ipmrouteenable', YLeaf(YType.enumeration, 'ipMRouteEnable')),
+                ('ipmrouteentrycount', YLeaf(YType.uint32, 'ipMRouteEntryCount')),
+            ])
+            self.ipmrouteenable = None
+            self.ipmrouteentrycount = None
             self._segment_path = lambda: "ipMRoute"
             self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/%s" % self._segment_path()
 
@@ -140,7 +147,7 @@ class IPMROUTESTDMIB(Entity):
 
         class Ipmrouteenable(Enum):
             """
-            Ipmrouteenable
+            Ipmrouteenable (Enum Class)
 
             The enabled status of IP Multicast routing on this router.
 
@@ -181,8 +188,10 @@ class IPMROUTESTDMIB(Entity):
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipMRouteEntry" : ("ipmrouteentry", IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipMRouteEntry", ("ipmrouteentry", IPMROUTESTDMIB.Ipmroutetable.Ipmrouteentry))])
+            self._leafs = OrderedDict()
 
             self.ipmrouteentry = YList(self)
             self._segment_path = lambda: "ipMRouteTable"
@@ -200,21 +209,21 @@ class IPMROUTESTDMIB(Entity):
             Discontinuities in counters in this entry can be detected by
             observing the value of ipMRouteUpTime.
             
-            .. attribute:: ipmroutegroup  <key>
+            .. attribute:: ipmroutegroup  (key)
             
             	The IP multicast group address for which this entry contains multicast routing information
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipmroutesource  <key>
+            .. attribute:: ipmroutesource  (key)
             
             	The network address which when combined with the corresponding value of ipMRouteSourceMask identifies the sources for which this entry contains multicast routing information
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipmroutesourcemask  <key>
+            .. attribute:: ipmroutesourcemask  (key)
             
             	The network mask which when combined with the corresponding value of ipMRouteSource identifies the sources for which this entry contains multicast routing information
             	**type**\: str
@@ -457,83 +466,86 @@ class IPMROUTESTDMIB(Entity):
                 self.yang_parent_name = "ipMRouteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipmroutegroup = YLeaf(YType.str, "ipMRouteGroup")
-
-                self.ipmroutesource = YLeaf(YType.str, "ipMRouteSource")
-
-                self.ipmroutesourcemask = YLeaf(YType.str, "ipMRouteSourceMask")
-
-                self.ipmrouteupstreamneighbor = YLeaf(YType.str, "ipMRouteUpstreamNeighbor")
-
-                self.ipmrouteinifindex = YLeaf(YType.int32, "ipMRouteInIfIndex")
-
-                self.ipmrouteuptime = YLeaf(YType.uint32, "ipMRouteUpTime")
-
-                self.ipmrouteexpirytime = YLeaf(YType.uint32, "ipMRouteExpiryTime")
-
-                self.ipmroutepkts = YLeaf(YType.uint32, "ipMRoutePkts")
-
-                self.ipmroutedifferentinifpackets = YLeaf(YType.uint32, "ipMRouteDifferentInIfPackets")
-
-                self.ipmrouteoctets = YLeaf(YType.uint32, "ipMRouteOctets")
-
-                self.ipmrouteprotocol = YLeaf(YType.enumeration, "ipMRouteProtocol")
-
-                self.ipmroutertproto = YLeaf(YType.enumeration, "ipMRouteRtProto")
-
-                self.ipmroutertaddress = YLeaf(YType.str, "ipMRouteRtAddress")
-
-                self.ipmroutertmask = YLeaf(YType.str, "ipMRouteRtMask")
-
-                self.ipmrouterttype = YLeaf(YType.enumeration, "ipMRouteRtType")
-
-                self.ipmroutehcoctets = YLeaf(YType.uint64, "ipMRouteHCOctets")
-
-                self.ciscoipmroutepruneflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRoutePruneFlag")
-
-                self.ciscoipmroutesparseflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteSparseFlag")
-
-                self.ciscoipmrouteconnectedflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteConnectedFlag")
-
-                self.ciscoipmroutelocalflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteLocalFlag")
-
-                self.ciscoipmrouteregisterflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteRegisterFlag")
-
-                self.ciscoipmrouterpflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteRpFlag")
-
-                self.ciscoipmroutesptflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteSptFlag")
-
-                self.ciscoipmroutebps = YLeaf(YType.uint32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteBps")
-
-                self.ciscoipmroutemetric = YLeaf(YType.int32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteMetric")
-
-                self.ciscoipmroutemetricpreference = YLeaf(YType.int32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteMetricPreference")
-
-                self.ciscoipmrouteinlimit = YLeaf(YType.int32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteInLimit")
-
-                self.ciscoipmroutelastused = YLeaf(YType.uint32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteLastUsed")
-
-                self.ciscoipmrouteinlimit2 = YLeaf(YType.uint32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteInLimit2")
-
-                self.ciscoipmroutejoinflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteJoinFlag")
-
-                self.ciscoipmroutemsdpflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteMsdpFlag")
-
-                self.ciscoipmrouteproxyjoinflag = YLeaf(YType.boolean, "CISCO-IPMROUTE-MIB:ciscoIpMRouteProxyJoinFlag")
-
-                self.ciscoipmroutepkts = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRoutePkts")
-
-                self.ciscoipmroutedifferentinifpkts = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRouteDifferentInIfPkts")
-
-                self.ciscoipmrouteoctets = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRouteOctets")
-
-                self.ciscoipmroutebps2 = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRouteBps2")
-
-                self.ciscoipmroutemetric2 = YLeaf(YType.uint32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteMetric2")
-                self._segment_path = lambda: "ipMRouteEntry" + "[ipMRouteGroup='" + self.ipmroutegroup.get() + "']" + "[ipMRouteSource='" + self.ipmroutesource.get() + "']" + "[ipMRouteSourceMask='" + self.ipmroutesourcemask.get() + "']"
+                self.ylist_key_names = ['ipmroutegroup','ipmroutesource','ipmroutesourcemask']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipmroutegroup', YLeaf(YType.str, 'ipMRouteGroup')),
+                    ('ipmroutesource', YLeaf(YType.str, 'ipMRouteSource')),
+                    ('ipmroutesourcemask', YLeaf(YType.str, 'ipMRouteSourceMask')),
+                    ('ipmrouteupstreamneighbor', YLeaf(YType.str, 'ipMRouteUpstreamNeighbor')),
+                    ('ipmrouteinifindex', YLeaf(YType.int32, 'ipMRouteInIfIndex')),
+                    ('ipmrouteuptime', YLeaf(YType.uint32, 'ipMRouteUpTime')),
+                    ('ipmrouteexpirytime', YLeaf(YType.uint32, 'ipMRouteExpiryTime')),
+                    ('ipmroutepkts', YLeaf(YType.uint32, 'ipMRoutePkts')),
+                    ('ipmroutedifferentinifpackets', YLeaf(YType.uint32, 'ipMRouteDifferentInIfPackets')),
+                    ('ipmrouteoctets', YLeaf(YType.uint32, 'ipMRouteOctets')),
+                    ('ipmrouteprotocol', YLeaf(YType.enumeration, 'ipMRouteProtocol')),
+                    ('ipmroutertproto', YLeaf(YType.enumeration, 'ipMRouteRtProto')),
+                    ('ipmroutertaddress', YLeaf(YType.str, 'ipMRouteRtAddress')),
+                    ('ipmroutertmask', YLeaf(YType.str, 'ipMRouteRtMask')),
+                    ('ipmrouterttype', YLeaf(YType.enumeration, 'ipMRouteRtType')),
+                    ('ipmroutehcoctets', YLeaf(YType.uint64, 'ipMRouteHCOctets')),
+                    ('ciscoipmroutepruneflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRoutePruneFlag')),
+                    ('ciscoipmroutesparseflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteSparseFlag')),
+                    ('ciscoipmrouteconnectedflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteConnectedFlag')),
+                    ('ciscoipmroutelocalflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteLocalFlag')),
+                    ('ciscoipmrouteregisterflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteRegisterFlag')),
+                    ('ciscoipmrouterpflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteRpFlag')),
+                    ('ciscoipmroutesptflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteSptFlag')),
+                    ('ciscoipmroutebps', YLeaf(YType.uint32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteBps')),
+                    ('ciscoipmroutemetric', YLeaf(YType.int32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteMetric')),
+                    ('ciscoipmroutemetricpreference', YLeaf(YType.int32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteMetricPreference')),
+                    ('ciscoipmrouteinlimit', YLeaf(YType.int32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteInLimit')),
+                    ('ciscoipmroutelastused', YLeaf(YType.uint32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteLastUsed')),
+                    ('ciscoipmrouteinlimit2', YLeaf(YType.uint32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteInLimit2')),
+                    ('ciscoipmroutejoinflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteJoinFlag')),
+                    ('ciscoipmroutemsdpflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteMsdpFlag')),
+                    ('ciscoipmrouteproxyjoinflag', YLeaf(YType.boolean, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteProxyJoinFlag')),
+                    ('ciscoipmroutepkts', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRoutePkts')),
+                    ('ciscoipmroutedifferentinifpkts', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteDifferentInIfPkts')),
+                    ('ciscoipmrouteoctets', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteOctets')),
+                    ('ciscoipmroutebps2', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteBps2')),
+                    ('ciscoipmroutemetric2', YLeaf(YType.uint32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteMetric2')),
+                ])
+                self.ipmroutegroup = None
+                self.ipmroutesource = None
+                self.ipmroutesourcemask = None
+                self.ipmrouteupstreamneighbor = None
+                self.ipmrouteinifindex = None
+                self.ipmrouteuptime = None
+                self.ipmrouteexpirytime = None
+                self.ipmroutepkts = None
+                self.ipmroutedifferentinifpackets = None
+                self.ipmrouteoctets = None
+                self.ipmrouteprotocol = None
+                self.ipmroutertproto = None
+                self.ipmroutertaddress = None
+                self.ipmroutertmask = None
+                self.ipmrouterttype = None
+                self.ipmroutehcoctets = None
+                self.ciscoipmroutepruneflag = None
+                self.ciscoipmroutesparseflag = None
+                self.ciscoipmrouteconnectedflag = None
+                self.ciscoipmroutelocalflag = None
+                self.ciscoipmrouteregisterflag = None
+                self.ciscoipmrouterpflag = None
+                self.ciscoipmroutesptflag = None
+                self.ciscoipmroutebps = None
+                self.ciscoipmroutemetric = None
+                self.ciscoipmroutemetricpreference = None
+                self.ciscoipmrouteinlimit = None
+                self.ciscoipmroutelastused = None
+                self.ciscoipmrouteinlimit2 = None
+                self.ciscoipmroutejoinflag = None
+                self.ciscoipmroutemsdpflag = None
+                self.ciscoipmrouteproxyjoinflag = None
+                self.ciscoipmroutepkts = None
+                self.ciscoipmroutedifferentinifpkts = None
+                self.ciscoipmrouteoctets = None
+                self.ciscoipmroutebps2 = None
+                self.ciscoipmroutemetric2 = None
+                self._segment_path = lambda: "ipMRouteEntry" + "[ipMRouteGroup='" + str(self.ipmroutegroup) + "']" + "[ipMRouteSource='" + str(self.ipmroutesource) + "']" + "[ipMRouteSourceMask='" + str(self.ipmroutesourcemask) + "']"
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -541,7 +553,7 @@ class IPMROUTESTDMIB(Entity):
 
             class Ipmrouterttype(Enum):
                 """
-                Ipmrouterttype
+                Ipmrouterttype (Enum Class)
 
                 The reason the given route was placed in the (logical)
 
@@ -598,8 +610,10 @@ class IPMROUTESTDMIB(Entity):
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipMRouteNextHopEntry" : ("ipmroutenexthopentry", IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipMRouteNextHopEntry", ("ipmroutenexthopentry", IPMROUTESTDMIB.Ipmroutenexthoptable.Ipmroutenexthopentry))])
+            self._leafs = OrderedDict()
 
             self.ipmroutenexthopentry = YList(self)
             self._segment_path = lambda: "ipMRouteNextHopTable"
@@ -617,35 +631,35 @@ class IPMROUTESTDMIB(Entity):
             routed.  Discontinuities in counters in this entry can be
             detected by observing the value of ipMRouteUpTime.
             
-            .. attribute:: ipmroutenexthopgroup  <key>
+            .. attribute:: ipmroutenexthopgroup  (key)
             
             	The IP multicast group for which this entry specifies a next\-hop on an outgoing interface
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipmroutenexthopsource  <key>
+            .. attribute:: ipmroutenexthopsource  (key)
             
             	The network address which when combined with the corresponding value of ipMRouteNextHopSourceMask identifies the sources for which this entry specifies a next\-hop on an outgoing interface
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipmroutenexthopsourcemask  <key>
+            .. attribute:: ipmroutenexthopsourcemask  (key)
             
             	The network mask which when combined with the corresponding value of ipMRouteNextHopSource identifies the sources for which this entry specifies a next\-hop on an outgoing interface
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipmroutenexthopifindex  <key>
+            .. attribute:: ipmroutenexthopifindex  (key)
             
             	The ifIndex value of the interface for the outgoing interface for this next\-hop
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: ipmroutenexthopaddress  <key>
+            .. attribute:: ipmroutenexthopaddress  (key)
             
             	The address of the next\-hop specific to this entry.  For most interfaces, this is identical to ipMRouteNextHopGroup. NBMA interfaces, however, may have multiple next\-hop addresses out a single outgoing interface
             	**type**\: str
@@ -725,37 +739,40 @@ class IPMROUTESTDMIB(Entity):
                 self.yang_parent_name = "ipMRouteNextHopTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipmroutenexthopgroup = YLeaf(YType.str, "ipMRouteNextHopGroup")
-
-                self.ipmroutenexthopsource = YLeaf(YType.str, "ipMRouteNextHopSource")
-
-                self.ipmroutenexthopsourcemask = YLeaf(YType.str, "ipMRouteNextHopSourceMask")
-
-                self.ipmroutenexthopifindex = YLeaf(YType.int32, "ipMRouteNextHopIfIndex")
-
-                self.ipmroutenexthopaddress = YLeaf(YType.str, "ipMRouteNextHopAddress")
-
-                self.ipmroutenexthopstate = YLeaf(YType.enumeration, "ipMRouteNextHopState")
-
-                self.ipmroutenexthopuptime = YLeaf(YType.uint32, "ipMRouteNextHopUpTime")
-
-                self.ipmroutenexthopexpirytime = YLeaf(YType.uint32, "ipMRouteNextHopExpiryTime")
-
-                self.ipmroutenexthopclosestmemberhops = YLeaf(YType.int32, "ipMRouteNextHopClosestMemberHops")
-
-                self.ipmroutenexthopprotocol = YLeaf(YType.enumeration, "ipMRouteNextHopProtocol")
-
-                self.ipmroutenexthoppkts = YLeaf(YType.uint32, "ipMRouteNextHopPkts")
-
-                self.ciscoipmroutenexthopoutlimit = YLeaf(YType.uint32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteNextHopOutLimit")
-
-                self.ciscoipmroutenexthopmachdr = YLeaf(YType.str, "CISCO-IPMROUTE-MIB:ciscoIpMRouteNextHopMacHdr")
-
-                self.ciscoipmroutenexthoppkts = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRouteNextHopPkts")
-                self._segment_path = lambda: "ipMRouteNextHopEntry" + "[ipMRouteNextHopGroup='" + self.ipmroutenexthopgroup.get() + "']" + "[ipMRouteNextHopSource='" + self.ipmroutenexthopsource.get() + "']" + "[ipMRouteNextHopSourceMask='" + self.ipmroutenexthopsourcemask.get() + "']" + "[ipMRouteNextHopIfIndex='" + self.ipmroutenexthopifindex.get() + "']" + "[ipMRouteNextHopAddress='" + self.ipmroutenexthopaddress.get() + "']"
+                self.ylist_key_names = ['ipmroutenexthopgroup','ipmroutenexthopsource','ipmroutenexthopsourcemask','ipmroutenexthopifindex','ipmroutenexthopaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipmroutenexthopgroup', YLeaf(YType.str, 'ipMRouteNextHopGroup')),
+                    ('ipmroutenexthopsource', YLeaf(YType.str, 'ipMRouteNextHopSource')),
+                    ('ipmroutenexthopsourcemask', YLeaf(YType.str, 'ipMRouteNextHopSourceMask')),
+                    ('ipmroutenexthopifindex', YLeaf(YType.int32, 'ipMRouteNextHopIfIndex')),
+                    ('ipmroutenexthopaddress', YLeaf(YType.str, 'ipMRouteNextHopAddress')),
+                    ('ipmroutenexthopstate', YLeaf(YType.enumeration, 'ipMRouteNextHopState')),
+                    ('ipmroutenexthopuptime', YLeaf(YType.uint32, 'ipMRouteNextHopUpTime')),
+                    ('ipmroutenexthopexpirytime', YLeaf(YType.uint32, 'ipMRouteNextHopExpiryTime')),
+                    ('ipmroutenexthopclosestmemberhops', YLeaf(YType.int32, 'ipMRouteNextHopClosestMemberHops')),
+                    ('ipmroutenexthopprotocol', YLeaf(YType.enumeration, 'ipMRouteNextHopProtocol')),
+                    ('ipmroutenexthoppkts', YLeaf(YType.uint32, 'ipMRouteNextHopPkts')),
+                    ('ciscoipmroutenexthopoutlimit', YLeaf(YType.uint32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteNextHopOutLimit')),
+                    ('ciscoipmroutenexthopmachdr', YLeaf(YType.str, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteNextHopMacHdr')),
+                    ('ciscoipmroutenexthoppkts', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteNextHopPkts')),
+                ])
+                self.ipmroutenexthopgroup = None
+                self.ipmroutenexthopsource = None
+                self.ipmroutenexthopsourcemask = None
+                self.ipmroutenexthopifindex = None
+                self.ipmroutenexthopaddress = None
+                self.ipmroutenexthopstate = None
+                self.ipmroutenexthopuptime = None
+                self.ipmroutenexthopexpirytime = None
+                self.ipmroutenexthopclosestmemberhops = None
+                self.ipmroutenexthopprotocol = None
+                self.ipmroutenexthoppkts = None
+                self.ciscoipmroutenexthopoutlimit = None
+                self.ciscoipmroutenexthopmachdr = None
+                self.ciscoipmroutenexthoppkts = None
+                self._segment_path = lambda: "ipMRouteNextHopEntry" + "[ipMRouteNextHopGroup='" + str(self.ipmroutenexthopgroup) + "']" + "[ipMRouteNextHopSource='" + str(self.ipmroutenexthopsource) + "']" + "[ipMRouteNextHopSourceMask='" + str(self.ipmroutenexthopsourcemask) + "']" + "[ipMRouteNextHopIfIndex='" + str(self.ipmroutenexthopifindex) + "']" + "[ipMRouteNextHopAddress='" + str(self.ipmroutenexthopaddress) + "']"
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteNextHopTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -763,7 +780,7 @@ class IPMROUTESTDMIB(Entity):
 
             class Ipmroutenexthopstate(Enum):
                 """
-                Ipmroutenexthopstate
+                Ipmroutenexthopstate (Enum Class)
 
                 An indication of whether the outgoing interface and next\-
 
@@ -811,8 +828,10 @@ class IPMROUTESTDMIB(Entity):
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipMRouteInterfaceEntry" : ("ipmrouteinterfaceentry", IPMROUTESTDMIB.Ipmrouteinterfacetable.Ipmrouteinterfaceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipMRouteInterfaceEntry", ("ipmrouteinterfaceentry", IPMROUTESTDMIB.Ipmrouteinterfacetable.Ipmrouteinterfaceentry))])
+            self._leafs = OrderedDict()
 
             self.ipmrouteinterfaceentry = YList(self)
             self._segment_path = lambda: "ipMRouteInterfaceTable"
@@ -827,7 +846,7 @@ class IPMROUTESTDMIB(Entity):
             An entry (conceptual row) containing the multicast routing
             information for a particular interface.
             
-            .. attribute:: ipmrouteinterfaceifindex  <key>
+            .. attribute:: ipmrouteinterfaceifindex  (key)
             
             	The ifIndex value of the interface for which this entry contains information
             	**type**\: int
@@ -937,37 +956,40 @@ class IPMROUTESTDMIB(Entity):
                 self.yang_parent_name = "ipMRouteInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipmrouteinterfaceifindex = YLeaf(YType.int32, "ipMRouteInterfaceIfIndex")
-
-                self.ipmrouteinterfacettl = YLeaf(YType.int32, "ipMRouteInterfaceTtl")
-
-                self.ipmrouteinterfaceprotocol = YLeaf(YType.enumeration, "ipMRouteInterfaceProtocol")
-
-                self.ipmrouteinterfaceratelimit = YLeaf(YType.int32, "ipMRouteInterfaceRateLimit")
-
-                self.ipmrouteinterfaceinmcastoctets = YLeaf(YType.uint32, "ipMRouteInterfaceInMcastOctets")
-
-                self.ipmrouteinterfaceoutmcastoctets = YLeaf(YType.uint32, "ipMRouteInterfaceOutMcastOctets")
-
-                self.ipmrouteinterfacehcinmcastoctets = YLeaf(YType.uint64, "ipMRouteInterfaceHCInMcastOctets")
-
-                self.ipmrouteinterfacehcoutmcastoctets = YLeaf(YType.uint64, "ipMRouteInterfaceHCOutMcastOctets")
-
-                self.ciscoipmrouteifinmcastoctets = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRouteIfInMcastOctets")
-
-                self.ciscoipmrouteifoutmcastoctets = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRouteIfOutMcastOctets")
-
-                self.ciscoipmrouteifinmcastpkts = YLeaf(YType.uint32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteIfInMcastPkts")
-
-                self.ciscoipmrouteifhcinmcastpkts = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRouteIfHCInMcastPkts")
-
-                self.ciscoipmrouteifoutmcastpkts = YLeaf(YType.uint32, "CISCO-IPMROUTE-MIB:ciscoIpMRouteIfOutMcastPkts")
-
-                self.ciscoipmrouteifhcoutmcastpkts = YLeaf(YType.uint64, "CISCO-IPMROUTE-MIB:ciscoIpMRouteIfHCOutMcastPkts")
-                self._segment_path = lambda: "ipMRouteInterfaceEntry" + "[ipMRouteInterfaceIfIndex='" + self.ipmrouteinterfaceifindex.get() + "']"
+                self.ylist_key_names = ['ipmrouteinterfaceifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipmrouteinterfaceifindex', YLeaf(YType.int32, 'ipMRouteInterfaceIfIndex')),
+                    ('ipmrouteinterfacettl', YLeaf(YType.int32, 'ipMRouteInterfaceTtl')),
+                    ('ipmrouteinterfaceprotocol', YLeaf(YType.enumeration, 'ipMRouteInterfaceProtocol')),
+                    ('ipmrouteinterfaceratelimit', YLeaf(YType.int32, 'ipMRouteInterfaceRateLimit')),
+                    ('ipmrouteinterfaceinmcastoctets', YLeaf(YType.uint32, 'ipMRouteInterfaceInMcastOctets')),
+                    ('ipmrouteinterfaceoutmcastoctets', YLeaf(YType.uint32, 'ipMRouteInterfaceOutMcastOctets')),
+                    ('ipmrouteinterfacehcinmcastoctets', YLeaf(YType.uint64, 'ipMRouteInterfaceHCInMcastOctets')),
+                    ('ipmrouteinterfacehcoutmcastoctets', YLeaf(YType.uint64, 'ipMRouteInterfaceHCOutMcastOctets')),
+                    ('ciscoipmrouteifinmcastoctets', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteIfInMcastOctets')),
+                    ('ciscoipmrouteifoutmcastoctets', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteIfOutMcastOctets')),
+                    ('ciscoipmrouteifinmcastpkts', YLeaf(YType.uint32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteIfInMcastPkts')),
+                    ('ciscoipmrouteifhcinmcastpkts', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteIfHCInMcastPkts')),
+                    ('ciscoipmrouteifoutmcastpkts', YLeaf(YType.uint32, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteIfOutMcastPkts')),
+                    ('ciscoipmrouteifhcoutmcastpkts', YLeaf(YType.uint64, 'CISCO-IPMROUTE-MIB:ciscoIpMRouteIfHCOutMcastPkts')),
+                ])
+                self.ipmrouteinterfaceifindex = None
+                self.ipmrouteinterfacettl = None
+                self.ipmrouteinterfaceprotocol = None
+                self.ipmrouteinterfaceratelimit = None
+                self.ipmrouteinterfaceinmcastoctets = None
+                self.ipmrouteinterfaceoutmcastoctets = None
+                self.ipmrouteinterfacehcinmcastoctets = None
+                self.ipmrouteinterfacehcoutmcastoctets = None
+                self.ciscoipmrouteifinmcastoctets = None
+                self.ciscoipmrouteifoutmcastoctets = None
+                self.ciscoipmrouteifinmcastpkts = None
+                self.ciscoipmrouteifhcinmcastpkts = None
+                self.ciscoipmrouteifoutmcastpkts = None
+                self.ciscoipmrouteifhcoutmcastpkts = None
+                self._segment_path = lambda: "ipMRouteInterfaceEntry" + "[ipMRouteInterfaceIfIndex='" + str(self.ipmrouteinterfaceifindex) + "']"
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -998,8 +1020,10 @@ class IPMROUTESTDMIB(Entity):
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipMRouteBoundaryEntry" : ("ipmrouteboundaryentry", IPMROUTESTDMIB.Ipmrouteboundarytable.Ipmrouteboundaryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipMRouteBoundaryEntry", ("ipmrouteboundaryentry", IPMROUTESTDMIB.Ipmrouteboundarytable.Ipmrouteboundaryentry))])
+            self._leafs = OrderedDict()
 
             self.ipmrouteboundaryentry = YList(self)
             self._segment_path = lambda: "ipMRouteBoundaryTable"
@@ -1014,21 +1038,21 @@ class IPMROUTESTDMIB(Entity):
             An entry (conceptual row) in the ipMRouteBoundaryTable
             representing a scoped boundary.
             
-            .. attribute:: ipmrouteboundaryifindex  <key>
+            .. attribute:: ipmrouteboundaryifindex  (key)
             
             	The IfIndex value for the interface to which this boundary applies.  Packets with a destination address in the associated address/mask range will not be forwarded out this interface
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: ipmrouteboundaryaddress  <key>
+            .. attribute:: ipmrouteboundaryaddress  (key)
             
             	The group address which when combined with the corresponding value of ipMRouteBoundaryAddressMask identifies the group range for which the scoped boundary exists.  Scoped addresses must come from the range 239.x.x.x as specified in RFC 2365
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipmrouteboundaryaddressmask  <key>
+            .. attribute:: ipmrouteboundaryaddressmask  (key)
             
             	The group address mask which when combined with the corresponding value of ipMRouteBoundaryAddress identifies the group range for which the scoped boundary exists
             	**type**\: str
@@ -1054,17 +1078,20 @@ class IPMROUTESTDMIB(Entity):
                 self.yang_parent_name = "ipMRouteBoundaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipmrouteboundaryifindex = YLeaf(YType.int32, "ipMRouteBoundaryIfIndex")
-
-                self.ipmrouteboundaryaddress = YLeaf(YType.str, "ipMRouteBoundaryAddress")
-
-                self.ipmrouteboundaryaddressmask = YLeaf(YType.str, "ipMRouteBoundaryAddressMask")
-
-                self.ipmrouteboundarystatus = YLeaf(YType.enumeration, "ipMRouteBoundaryStatus")
-                self._segment_path = lambda: "ipMRouteBoundaryEntry" + "[ipMRouteBoundaryIfIndex='" + self.ipmrouteboundaryifindex.get() + "']" + "[ipMRouteBoundaryAddress='" + self.ipmrouteboundaryaddress.get() + "']" + "[ipMRouteBoundaryAddressMask='" + self.ipmrouteboundaryaddressmask.get() + "']"
+                self.ylist_key_names = ['ipmrouteboundaryifindex','ipmrouteboundaryaddress','ipmrouteboundaryaddressmask']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipmrouteboundaryifindex', YLeaf(YType.int32, 'ipMRouteBoundaryIfIndex')),
+                    ('ipmrouteboundaryaddress', YLeaf(YType.str, 'ipMRouteBoundaryAddress')),
+                    ('ipmrouteboundaryaddressmask', YLeaf(YType.str, 'ipMRouteBoundaryAddressMask')),
+                    ('ipmrouteboundarystatus', YLeaf(YType.enumeration, 'ipMRouteBoundaryStatus')),
+                ])
+                self.ipmrouteboundaryifindex = None
+                self.ipmrouteboundaryaddress = None
+                self.ipmrouteboundaryaddressmask = None
+                self.ipmrouteboundarystatus = None
+                self._segment_path = lambda: "ipMRouteBoundaryEntry" + "[ipMRouteBoundaryIfIndex='" + str(self.ipmrouteboundaryifindex) + "']" + "[ipMRouteBoundaryAddress='" + str(self.ipmrouteboundaryaddress) + "']" + "[ipMRouteBoundaryAddressMask='" + str(self.ipmrouteboundaryaddressmask) + "']"
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteBoundaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1094,8 +1121,10 @@ class IPMROUTESTDMIB(Entity):
             self.yang_parent_name = "IPMROUTE-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipMRouteScopeNameEntry" : ("ipmroutescopenameentry", IPMROUTESTDMIB.Ipmroutescopenametable.Ipmroutescopenameentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipMRouteScopeNameEntry", ("ipmroutescopenameentry", IPMROUTESTDMIB.Ipmroutescopenametable.Ipmroutescopenameentry))])
+            self._leafs = OrderedDict()
 
             self.ipmroutescopenameentry = YList(self)
             self._segment_path = lambda: "ipMRouteScopeNameTable"
@@ -1110,21 +1139,21 @@ class IPMROUTESTDMIB(Entity):
             An entry (conceptual row) in the ipMRouteScopeNameTable
             representing a multicast scope name.
             
-            .. attribute:: ipmroutescopenameaddress  <key>
+            .. attribute:: ipmroutescopenameaddress  (key)
             
             	The group address which when combined with the corresponding value of ipMRouteScopeNameAddressMask identifies the group range associated with the multicast scope.  Scoped addresses must come from the range 239.x.x.x
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipmroutescopenameaddressmask  <key>
+            .. attribute:: ipmroutescopenameaddressmask  (key)
             
             	The group address mask which when combined with the corresponding value of ipMRouteScopeNameAddress identifies the group range associated with the multicast scope
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipmroutescopenamelanguage  <key>
+            .. attribute:: ipmroutescopenamelanguage  (key)
             
             	The RFC 1766\-style language tag associated with the scope name
             	**type**\: str
@@ -1158,21 +1187,24 @@ class IPMROUTESTDMIB(Entity):
                 self.yang_parent_name = "ipMRouteScopeNameTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipmroutescopenameaddress = YLeaf(YType.str, "ipMRouteScopeNameAddress")
-
-                self.ipmroutescopenameaddressmask = YLeaf(YType.str, "ipMRouteScopeNameAddressMask")
-
-                self.ipmroutescopenamelanguage = YLeaf(YType.str, "ipMRouteScopeNameLanguage")
-
-                self.ipmroutescopenamestring = YLeaf(YType.str, "ipMRouteScopeNameString")
-
-                self.ipmroutescopenamedefault = YLeaf(YType.boolean, "ipMRouteScopeNameDefault")
-
-                self.ipmroutescopenamestatus = YLeaf(YType.enumeration, "ipMRouteScopeNameStatus")
-                self._segment_path = lambda: "ipMRouteScopeNameEntry" + "[ipMRouteScopeNameAddress='" + self.ipmroutescopenameaddress.get() + "']" + "[ipMRouteScopeNameAddressMask='" + self.ipmroutescopenameaddressmask.get() + "']" + "[ipMRouteScopeNameLanguage='" + self.ipmroutescopenamelanguage.get() + "']"
+                self.ylist_key_names = ['ipmroutescopenameaddress','ipmroutescopenameaddressmask','ipmroutescopenamelanguage']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipmroutescopenameaddress', YLeaf(YType.str, 'ipMRouteScopeNameAddress')),
+                    ('ipmroutescopenameaddressmask', YLeaf(YType.str, 'ipMRouteScopeNameAddressMask')),
+                    ('ipmroutescopenamelanguage', YLeaf(YType.str, 'ipMRouteScopeNameLanguage')),
+                    ('ipmroutescopenamestring', YLeaf(YType.str, 'ipMRouteScopeNameString')),
+                    ('ipmroutescopenamedefault', YLeaf(YType.boolean, 'ipMRouteScopeNameDefault')),
+                    ('ipmroutescopenamestatus', YLeaf(YType.enumeration, 'ipMRouteScopeNameStatus')),
+                ])
+                self.ipmroutescopenameaddress = None
+                self.ipmroutescopenameaddressmask = None
+                self.ipmroutescopenamelanguage = None
+                self.ipmroutescopenamestring = None
+                self.ipmroutescopenamedefault = None
+                self.ipmroutescopenamestatus = None
+                self._segment_path = lambda: "ipMRouteScopeNameEntry" + "[ipMRouteScopeNameAddress='" + str(self.ipmroutescopenameaddress) + "']" + "[ipMRouteScopeNameAddressMask='" + str(self.ipmroutescopenameaddressmask) + "']" + "[ipMRouteScopeNameLanguage='" + str(self.ipmroutescopenamelanguage) + "']"
                 self._absolute_path = lambda: "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteScopeNameTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

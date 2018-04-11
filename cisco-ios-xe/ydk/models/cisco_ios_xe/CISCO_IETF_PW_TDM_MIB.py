@@ -11,9 +11,11 @@ PW\-specific MIBs (such as this) contain config and stats for
 specific PW types.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -67,8 +69,10 @@ class CISCOIETFPWTDMMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpwCTDMObjects" : ("cpwctdmobjects", CISCOIETFPWTDMMIB.Cpwctdmobjects), "cpwCTDMTable" : ("cpwctdmtable", CISCOIETFPWTDMMIB.Cpwctdmtable), "cpwCTDMCfgTable" : ("cpwctdmcfgtable", CISCOIETFPWTDMMIB.Cpwctdmcfgtable), "cpwCTDMPerfCurrentTable" : ("cpwctdmperfcurrenttable", CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable), "cpwCTDMPerfIntervalTable" : ("cpwctdmperfintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable), "cpwCTDMPerf1DayIntervalTable" : ("cpwctdmperf1dayintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cpwCTDMObjects", ("cpwctdmobjects", CISCOIETFPWTDMMIB.Cpwctdmobjects)), ("cpwCTDMTable", ("cpwctdmtable", CISCOIETFPWTDMMIB.Cpwctdmtable)), ("cpwCTDMCfgTable", ("cpwctdmcfgtable", CISCOIETFPWTDMMIB.Cpwctdmcfgtable)), ("cpwCTDMPerfCurrentTable", ("cpwctdmperfcurrenttable", CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable)), ("cpwCTDMPerfIntervalTable", ("cpwctdmperfintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable)), ("cpwCTDMPerf1DayIntervalTable", ("cpwctdmperf1dayintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cpwctdmobjects = CISCOIETFPWTDMMIB.Cpwctdmobjects()
         self.cpwctdmobjects.parent = self
@@ -127,10 +131,13 @@ class CISCOIETFPWTDMMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cpwctdmcfgindexnext = YLeaf(YType.uint32, "cpwCTDMCfgIndexNext")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cpwctdmcfgindexnext', YLeaf(YType.uint32, 'cpwCTDMCfgIndexNext')),
+            ])
+            self.cpwctdmcfgindexnext = None
             self._segment_path = lambda: "cpwCTDMObjects"
             self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
 
@@ -163,8 +170,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwCTDMEntry" : ("cpwctdmentry", CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwCTDMEntry", ("cpwctdmentry", CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry))])
+            self._leafs = OrderedDict()
 
             self.cpwctdmentry = YList(self)
             self._segment_path = lambda: "cpwCTDMTable"
@@ -189,7 +198,7 @@ class CISCOIETFPWTDMMIB(Entity):
             basicCesPsn(16), basicTdmIp(17),  tdmCasCesPsn(18),
             tdmCasTdmIp(19).
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -289,33 +298,36 @@ class CISCOIETFPWTDMMIB(Entity):
                 self.yang_parent_name = "cpwCTDMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwctdmrate = YLeaf(YType.int32, "cpwCTDMRate")
-
-                self.cpwctdmifindex = YLeaf(YType.int32, "cpwCTDMIfIndex")
-
-                self.cpwcgentdmcfgindex = YLeaf(YType.uint32, "cpwCGenTDMCfgIndex")
-
-                self.cpwcreltdmcfgindex = YLeaf(YType.uint32, "cpwCRelTDMCfgIndex")
-
-                self.cpwctdmconfigerror = YLeaf(YType.bits, "cpwCTDMConfigError")
-
-                self.cpwctdmtimeelapsed = YLeaf(YType.int32, "cpwCTDMTimeElapsed")
-
-                self.cpwctdmvalidintervals = YLeaf(YType.int32, "cpwCTDMValidIntervals")
-
-                self.cpwctdmvaliddayintervals = YLeaf(YType.int32, "cpwCTDMValidDayIntervals")
-
-                self.cpwctdmcurrentindications = YLeaf(YType.bits, "cpwCTDMCurrentIndications")
-
-                self.cpwctdmlatchedindications = YLeaf(YType.bits, "cpwCTDMLatchedIndications")
-
-                self.cpwctdmlastestimestamp = YLeaf(YType.uint32, "cpwCTDMLastEsTimeStamp")
-                self._segment_path = lambda: "cpwCTDMEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwctdmrate', YLeaf(YType.int32, 'cpwCTDMRate')),
+                    ('cpwctdmifindex', YLeaf(YType.int32, 'cpwCTDMIfIndex')),
+                    ('cpwcgentdmcfgindex', YLeaf(YType.uint32, 'cpwCGenTDMCfgIndex')),
+                    ('cpwcreltdmcfgindex', YLeaf(YType.uint32, 'cpwCRelTDMCfgIndex')),
+                    ('cpwctdmconfigerror', YLeaf(YType.bits, 'cpwCTDMConfigError')),
+                    ('cpwctdmtimeelapsed', YLeaf(YType.int32, 'cpwCTDMTimeElapsed')),
+                    ('cpwctdmvalidintervals', YLeaf(YType.int32, 'cpwCTDMValidIntervals')),
+                    ('cpwctdmvaliddayintervals', YLeaf(YType.int32, 'cpwCTDMValidDayIntervals')),
+                    ('cpwctdmcurrentindications', YLeaf(YType.bits, 'cpwCTDMCurrentIndications')),
+                    ('cpwctdmlatchedindications', YLeaf(YType.bits, 'cpwCTDMLatchedIndications')),
+                    ('cpwctdmlastestimestamp', YLeaf(YType.uint32, 'cpwCTDMLastEsTimeStamp')),
+                ])
+                self.cpwvcindex = None
+                self.cpwctdmrate = None
+                self.cpwctdmifindex = None
+                self.cpwcgentdmcfgindex = None
+                self.cpwcreltdmcfgindex = None
+                self.cpwctdmconfigerror = Bits()
+                self.cpwctdmtimeelapsed = None
+                self.cpwctdmvalidintervals = None
+                self.cpwctdmvaliddayintervals = None
+                self.cpwctdmcurrentindications = Bits()
+                self.cpwctdmlatchedindications = Bits()
+                self.cpwctdmlastestimestamp = None
+                self._segment_path = lambda: "cpwCTDMEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -346,8 +358,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwCTDMCfgEntry" : ("cpwctdmcfgentry", CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwCTDMCfgEntry", ("cpwctdmcfgentry", CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry))])
+            self._leafs = OrderedDict()
 
             self.cpwctdmcfgentry = YList(self)
             self._segment_path = lambda: "cpwCTDMCfgTable"
@@ -364,7 +378,7 @@ class CISCOIETFPWTDMMIB(Entity):
             Once an entry is created here it may be re\-used
             by many PWs.
             
-            .. attribute:: cpwctdmcfgindex  <key>
+            .. attribute:: cpwctdmcfgindex  (key)
             
             	Index to an entry in this table. The value is a copy of the assigned cpwCTDMCfgIndexNext
             	**type**\: int
@@ -513,47 +527,50 @@ class CISCOIETFPWTDMMIB(Entity):
                 self.yang_parent_name = "cpwCTDMCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwctdmcfgindex = YLeaf(YType.uint32, "cpwCTDMCfgIndex")
-
-                self.cpwctdmcfgconferr = YLeaf(YType.bits, "cpwCTDMCfgConfErr")
-
-                self.cpwctdmcfgpayloadsize = YLeaf(YType.uint32, "cpwCTDMCfgPayloadSize")
-
-                self.cpwctdmcfgpktreorder = YLeaf(YType.boolean, "cpwCTDMCfgPktReorder")
-
-                self.cpwctdmcfgrtphdrused = YLeaf(YType.boolean, "cpwCTDMCfgRtpHdrUsed")
-
-                self.cpwctdmcfgjtrbfrdepth = YLeaf(YType.uint32, "cpwCTDMCfgJtrBfrDepth")
-
-                self.cpwctdmcfgpayloadsuppression = YLeaf(YType.enumeration, "cpwCTDMCfgPayloadSuppression")
-
-                self.cpwctdmcfgconsecpktsinsynch = YLeaf(YType.uint32, "cpwCTDMCfgConsecPktsInSynch")
-
-                self.cpwctdmcfgconsecmisspktsoutsynch = YLeaf(YType.uint32, "cpwCTDMCfgConsecMissPktsOutSynch")
-
-                self.cpwctdmcfgsetup2synchtimeout = YLeaf(YType.uint32, "cpwCTDMCfgSetUp2SynchTimeOut")
-
-                self.cpwctdmcfgpktreplacepolicy = YLeaf(YType.enumeration, "cpwCTDMCfgPktReplacePolicy")
-
-                self.cpwctdmcfgavepktlosstimewindow = YLeaf(YType.int32, "cpwCTDMCfgAvePktLossTimeWindow")
-
-                self.cpwctdmcfgexcessivepktlossthreshold = YLeaf(YType.uint32, "cpwCTDMCfgExcessivePktLossThreshold")
-
-                self.cpwctdmcfgalarmthreshold = YLeaf(YType.uint32, "cpwCTDMCfgAlarmThreshold")
-
-                self.cpwctdmcfgclearalarmthreshold = YLeaf(YType.uint32, "cpwCTDMCfgClearAlarmThreshold")
-
-                self.cpwctdmcfgmissingpktstoses = YLeaf(YType.uint32, "cpwCTDMCfgMissingPktsToSes")
-
-                self.cpwctdmcfgtimestampmode = YLeaf(YType.enumeration, "cpwCTDMCfgTimestampMode")
-
-                self.cpwctdmcfgstoragetype = YLeaf(YType.enumeration, "cpwCTDMCfgStorageType")
-
-                self.cpwctdmcfgrowstatus = YLeaf(YType.enumeration, "cpwCTDMCfgRowStatus")
-                self._segment_path = lambda: "cpwCTDMCfgEntry" + "[cpwCTDMCfgIndex='" + self.cpwctdmcfgindex.get() + "']"
+                self.ylist_key_names = ['cpwctdmcfgindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwctdmcfgindex', YLeaf(YType.uint32, 'cpwCTDMCfgIndex')),
+                    ('cpwctdmcfgconferr', YLeaf(YType.bits, 'cpwCTDMCfgConfErr')),
+                    ('cpwctdmcfgpayloadsize', YLeaf(YType.uint32, 'cpwCTDMCfgPayloadSize')),
+                    ('cpwctdmcfgpktreorder', YLeaf(YType.boolean, 'cpwCTDMCfgPktReorder')),
+                    ('cpwctdmcfgrtphdrused', YLeaf(YType.boolean, 'cpwCTDMCfgRtpHdrUsed')),
+                    ('cpwctdmcfgjtrbfrdepth', YLeaf(YType.uint32, 'cpwCTDMCfgJtrBfrDepth')),
+                    ('cpwctdmcfgpayloadsuppression', YLeaf(YType.enumeration, 'cpwCTDMCfgPayloadSuppression')),
+                    ('cpwctdmcfgconsecpktsinsynch', YLeaf(YType.uint32, 'cpwCTDMCfgConsecPktsInSynch')),
+                    ('cpwctdmcfgconsecmisspktsoutsynch', YLeaf(YType.uint32, 'cpwCTDMCfgConsecMissPktsOutSynch')),
+                    ('cpwctdmcfgsetup2synchtimeout', YLeaf(YType.uint32, 'cpwCTDMCfgSetUp2SynchTimeOut')),
+                    ('cpwctdmcfgpktreplacepolicy', YLeaf(YType.enumeration, 'cpwCTDMCfgPktReplacePolicy')),
+                    ('cpwctdmcfgavepktlosstimewindow', YLeaf(YType.int32, 'cpwCTDMCfgAvePktLossTimeWindow')),
+                    ('cpwctdmcfgexcessivepktlossthreshold', YLeaf(YType.uint32, 'cpwCTDMCfgExcessivePktLossThreshold')),
+                    ('cpwctdmcfgalarmthreshold', YLeaf(YType.uint32, 'cpwCTDMCfgAlarmThreshold')),
+                    ('cpwctdmcfgclearalarmthreshold', YLeaf(YType.uint32, 'cpwCTDMCfgClearAlarmThreshold')),
+                    ('cpwctdmcfgmissingpktstoses', YLeaf(YType.uint32, 'cpwCTDMCfgMissingPktsToSes')),
+                    ('cpwctdmcfgtimestampmode', YLeaf(YType.enumeration, 'cpwCTDMCfgTimestampMode')),
+                    ('cpwctdmcfgstoragetype', YLeaf(YType.enumeration, 'cpwCTDMCfgStorageType')),
+                    ('cpwctdmcfgrowstatus', YLeaf(YType.enumeration, 'cpwCTDMCfgRowStatus')),
+                ])
+                self.cpwctdmcfgindex = None
+                self.cpwctdmcfgconferr = Bits()
+                self.cpwctdmcfgpayloadsize = None
+                self.cpwctdmcfgpktreorder = None
+                self.cpwctdmcfgrtphdrused = None
+                self.cpwctdmcfgjtrbfrdepth = None
+                self.cpwctdmcfgpayloadsuppression = None
+                self.cpwctdmcfgconsecpktsinsynch = None
+                self.cpwctdmcfgconsecmisspktsoutsynch = None
+                self.cpwctdmcfgsetup2synchtimeout = None
+                self.cpwctdmcfgpktreplacepolicy = None
+                self.cpwctdmcfgavepktlosstimewindow = None
+                self.cpwctdmcfgexcessivepktlossthreshold = None
+                self.cpwctdmcfgalarmthreshold = None
+                self.cpwctdmcfgclearalarmthreshold = None
+                self.cpwctdmcfgmissingpktstoses = None
+                self.cpwctdmcfgtimestampmode = None
+                self.cpwctdmcfgstoragetype = None
+                self.cpwctdmcfgrowstatus = None
+                self._segment_path = lambda: "cpwCTDMCfgEntry" + "[cpwCTDMCfgIndex='" + str(self.cpwctdmcfgindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -561,7 +578,7 @@ class CISCOIETFPWTDMMIB(Entity):
 
             class Cpwctdmcfgpayloadsuppression(Enum):
                 """
-                Cpwctdmcfgpayloadsuppression
+                Cpwctdmcfgpayloadsuppression (Enum Class)
 
                 This object indicates whether the Payload suppression
 
@@ -586,7 +603,7 @@ class CISCOIETFPWTDMMIB(Entity):
 
             class Cpwctdmcfgpktreplacepolicy(Enum):
                 """
-                Cpwctdmcfgpktreplacepolicy
+                Cpwctdmcfgpktreplacepolicy (Enum Class)
 
                 This parameter determines the value to be played when CE
 
@@ -619,7 +636,7 @@ class CISCOIETFPWTDMMIB(Entity):
 
             class Cpwctdmcfgtimestampmode(Enum):
                 """
-                Cpwctdmcfgtimestampmode
+                Cpwctdmcfgtimestampmode (Enum Class)
 
                 Timestamp generation MAY be used in one of the following
 
@@ -692,8 +709,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwCTDMPerfCurrentEntry" : ("cpwctdmperfcurrententry", CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwCTDMPerfCurrentEntry", ("cpwctdmperfcurrententry", CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry))])
+            self._leafs = OrderedDict()
 
             self.cpwctdmperfcurrententry = YList(self)
             self._segment_path = lambda: "cpwCTDMPerfCurrentTable"
@@ -711,7 +730,7 @@ class CISCOIETFPWTDMMIB(Entity):
             cpwCTDMPerfInterval table and the counts in this entry
             are reset to zero.
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -811,29 +830,32 @@ class CISCOIETFPWTDMMIB(Entity):
                 self.yang_parent_name = "cpwCTDMPerfCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwctdmperfcurrentmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMissingPkts")
-
-                self.cpwctdmperfcurrentpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerfCurrentPktsReOrder")
-
-                self.cpwctdmperfcurrentjtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerfCurrentJtrBfrUnderruns")
-
-                self.cpwctdmperfcurrentmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMisOrderDropped")
-
-                self.cpwctdmperfcurrentmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMalformedPkt")
-
-                self.cpwctdmperfcurrentess = YLeaf(YType.uint32, "cpwCTDMPerfCurrentESs")
-
-                self.cpwctdmperfcurrentsess = YLeaf(YType.uint32, "cpwCTDMPerfCurrentSESs")
-
-                self.cpwctdmperfcurrentuass = YLeaf(YType.uint32, "cpwCTDMPerfCurrentUASs")
-
-                self.cpwctdmperfcurrentfc = YLeaf(YType.uint32, "cpwCTDMPerfCurrentFC")
-                self._segment_path = lambda: "cpwCTDMPerfCurrentEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwctdmperfcurrentmissingpkts', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentMissingPkts')),
+                    ('cpwctdmperfcurrentpktsreorder', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentPktsReOrder')),
+                    ('cpwctdmperfcurrentjtrbfrunderruns', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentJtrBfrUnderruns')),
+                    ('cpwctdmperfcurrentmisorderdropped', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentMisOrderDropped')),
+                    ('cpwctdmperfcurrentmalformedpkt', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentMalformedPkt')),
+                    ('cpwctdmperfcurrentess', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentESs')),
+                    ('cpwctdmperfcurrentsess', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentSESs')),
+                    ('cpwctdmperfcurrentuass', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentUASs')),
+                    ('cpwctdmperfcurrentfc', YLeaf(YType.uint32, 'cpwCTDMPerfCurrentFC')),
+                ])
+                self.cpwvcindex = None
+                self.cpwctdmperfcurrentmissingpkts = None
+                self.cpwctdmperfcurrentpktsreorder = None
+                self.cpwctdmperfcurrentjtrbfrunderruns = None
+                self.cpwctdmperfcurrentmisorderdropped = None
+                self.cpwctdmperfcurrentmalformedpkt = None
+                self.cpwctdmperfcurrentess = None
+                self.cpwctdmperfcurrentsess = None
+                self.cpwctdmperfcurrentuass = None
+                self.cpwctdmperfcurrentfc = None
+                self._segment_path = lambda: "cpwCTDMPerfCurrentEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -867,8 +889,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwCTDMPerfIntervalEntry" : ("cpwctdmperfintervalentry", CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwCTDMPerfIntervalEntry", ("cpwctdmperfintervalentry", CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry))])
+            self._leafs = OrderedDict()
 
             self.cpwctdmperfintervalentry = YList(self)
             self._segment_path = lambda: "cpwCTDMPerfIntervalTable"
@@ -886,7 +910,7 @@ class CISCOIETFPWTDMMIB(Entity):
             entry here. The Current entry, then resets its counts
             to zero for the next current 15 minute interval.
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -895,7 +919,7 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
             
-            .. attribute:: cpwctdmperfintervalnumber  <key>
+            .. attribute:: cpwctdmperfintervalnumber  (key)
             
             	This object indicates a number (normally between 1 and 96 to cover a 24 hour period) which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1. The minimum range of N is 1 through 4.The default range is 1 through 32. The maximum value of N is 1 through 96
             	**type**\: int
@@ -1005,35 +1029,38 @@ class CISCOIETFPWTDMMIB(Entity):
                 self.yang_parent_name = "cpwCTDMPerfIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwctdmperfintervalnumber = YLeaf(YType.uint32, "cpwCTDMPerfIntervalNumber")
-
-                self.cpwctdmperfintervalvaliddata = YLeaf(YType.boolean, "cpwCTDMPerfIntervalValidData")
-
-                self.cpwctdmperfintervalduration = YLeaf(YType.uint32, "cpwCTDMPerfIntervalDuration")
-
-                self.cpwctdmperfintervalmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMissingPkts")
-
-                self.cpwctdmperfintervalpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerfIntervalPktsReOrder")
-
-                self.cpwctdmperfintervaljtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerfIntervalJtrBfrUnderruns")
-
-                self.cpwctdmperfintervalmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMisOrderDropped")
-
-                self.cpwctdmperfintervalmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMalformedPkt")
-
-                self.cpwctdmperfintervaless = YLeaf(YType.uint32, "cpwCTDMPerfIntervalESs")
-
-                self.cpwctdmperfintervalsess = YLeaf(YType.uint32, "cpwCTDMPerfIntervalSESs")
-
-                self.cpwctdmperfintervaluass = YLeaf(YType.uint32, "cpwCTDMPerfIntervalUASs")
-
-                self.cpwctdmperfintervalfc = YLeaf(YType.uint32, "cpwCTDMPerfIntervalFC")
-                self._segment_path = lambda: "cpwCTDMPerfIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwCTDMPerfIntervalNumber='" + self.cpwctdmperfintervalnumber.get() + "']"
+                self.ylist_key_names = ['cpwvcindex','cpwctdmperfintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwctdmperfintervalnumber', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalNumber')),
+                    ('cpwctdmperfintervalvaliddata', YLeaf(YType.boolean, 'cpwCTDMPerfIntervalValidData')),
+                    ('cpwctdmperfintervalduration', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalDuration')),
+                    ('cpwctdmperfintervalmissingpkts', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalMissingPkts')),
+                    ('cpwctdmperfintervalpktsreorder', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalPktsReOrder')),
+                    ('cpwctdmperfintervaljtrbfrunderruns', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalJtrBfrUnderruns')),
+                    ('cpwctdmperfintervalmisorderdropped', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalMisOrderDropped')),
+                    ('cpwctdmperfintervalmalformedpkt', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalMalformedPkt')),
+                    ('cpwctdmperfintervaless', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalESs')),
+                    ('cpwctdmperfintervalsess', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalSESs')),
+                    ('cpwctdmperfintervaluass', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalUASs')),
+                    ('cpwctdmperfintervalfc', YLeaf(YType.uint32, 'cpwCTDMPerfIntervalFC')),
+                ])
+                self.cpwvcindex = None
+                self.cpwctdmperfintervalnumber = None
+                self.cpwctdmperfintervalvaliddata = None
+                self.cpwctdmperfintervalduration = None
+                self.cpwctdmperfintervalmissingpkts = None
+                self.cpwctdmperfintervalpktsreorder = None
+                self.cpwctdmperfintervaljtrbfrunderruns = None
+                self.cpwctdmperfintervalmisorderdropped = None
+                self.cpwctdmperfintervalmalformedpkt = None
+                self.cpwctdmperfintervaless = None
+                self.cpwctdmperfintervalsess = None
+                self.cpwctdmperfintervaluass = None
+                self.cpwctdmperfintervalfc = None
+                self._segment_path = lambda: "cpwCTDMPerfIntervalEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']" + "[cpwCTDMPerfIntervalNumber='" + str(self.cpwctdmperfintervalnumber) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1067,8 +1094,10 @@ class CISCOIETFPWTDMMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwCTDMPerf1DayIntervalEntry" : ("cpwctdmperf1dayintervalentry", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwCTDMPerf1DayIntervalEntry", ("cpwctdmperf1dayintervalentry", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry))])
+            self._leafs = OrderedDict()
 
             self.cpwctdmperf1dayintervalentry = YList(self)
             self._segment_path = lambda: "cpwCTDMPerf1DayIntervalTable"
@@ -1083,7 +1112,7 @@ class CISCOIETFPWTDMMIB(Entity):
             An entry is created in this table by the agent
             for every entry in the cpwCTDMTable table.
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -1092,7 +1121,7 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
             
-            .. attribute:: cpwctdmperf1dayintervalnumber  <key>
+            .. attribute:: cpwctdmperf1dayintervalnumber  (key)
             
             	The number of interval, where 1 indicates current day measured period and 2 and above indicate previous days respectively
             	**type**\: int
@@ -1204,35 +1233,38 @@ class CISCOIETFPWTDMMIB(Entity):
                 self.yang_parent_name = "cpwCTDMPerf1DayIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwctdmperf1dayintervalnumber = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalNumber")
-
-                self.cpwctdmperf1dayintervalvaliddata = YLeaf(YType.boolean, "cpwCTDMPerf1DayIntervalValidData")
-
-                self.cpwctdmperf1dayintervalduration = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalDuration")
-
-                self.cpwctdmperf1dayintervalmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMissingPkts")
-
-                self.cpwctdmperf1dayintervalpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalPktsReOrder")
-
-                self.cpwctdmperf1dayintervaljtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalJtrBfrUnderruns")
-
-                self.cpwctdmperf1dayintervalmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMisOrderDropped")
-
-                self.cpwctdmperf1dayintervalmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMalformedPkt")
-
-                self.cpwctdmperf1dayintervaless = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalESs")
-
-                self.cpwctdmperf1dayintervalsess = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalSESs")
-
-                self.cpwctdmperf1dayintervaluass = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalUASs")
-
-                self.cpwctdmperf1dayintervalfc = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalFC")
-                self._segment_path = lambda: "cpwCTDMPerf1DayIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwCTDMPerf1DayIntervalNumber='" + self.cpwctdmperf1dayintervalnumber.get() + "']"
+                self.ylist_key_names = ['cpwvcindex','cpwctdmperf1dayintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwctdmperf1dayintervalnumber', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalNumber')),
+                    ('cpwctdmperf1dayintervalvaliddata', YLeaf(YType.boolean, 'cpwCTDMPerf1DayIntervalValidData')),
+                    ('cpwctdmperf1dayintervalduration', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalDuration')),
+                    ('cpwctdmperf1dayintervalmissingpkts', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalMissingPkts')),
+                    ('cpwctdmperf1dayintervalpktsreorder', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalPktsReOrder')),
+                    ('cpwctdmperf1dayintervaljtrbfrunderruns', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalJtrBfrUnderruns')),
+                    ('cpwctdmperf1dayintervalmisorderdropped', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalMisOrderDropped')),
+                    ('cpwctdmperf1dayintervalmalformedpkt', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalMalformedPkt')),
+                    ('cpwctdmperf1dayintervaless', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalESs')),
+                    ('cpwctdmperf1dayintervalsess', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalSESs')),
+                    ('cpwctdmperf1dayintervaluass', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalUASs')),
+                    ('cpwctdmperf1dayintervalfc', YLeaf(YType.uint32, 'cpwCTDMPerf1DayIntervalFC')),
+                ])
+                self.cpwvcindex = None
+                self.cpwctdmperf1dayintervalnumber = None
+                self.cpwctdmperf1dayintervalvaliddata = None
+                self.cpwctdmperf1dayintervalduration = None
+                self.cpwctdmperf1dayintervalmissingpkts = None
+                self.cpwctdmperf1dayintervalpktsreorder = None
+                self.cpwctdmperf1dayintervaljtrbfrunderruns = None
+                self.cpwctdmperf1dayintervalmisorderdropped = None
+                self.cpwctdmperf1dayintervalmalformedpkt = None
+                self.cpwctdmperf1dayintervaless = None
+                self.cpwctdmperf1dayintervalsess = None
+                self.cpwctdmperf1dayintervaluass = None
+                self.cpwctdmperf1dayintervalfc = None
+                self._segment_path = lambda: "cpwCTDMPerf1DayIntervalEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']" + "[cpwCTDMPerf1DayIntervalNumber='" + str(self.cpwctdmperf1dayintervalnumber) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerf1DayIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

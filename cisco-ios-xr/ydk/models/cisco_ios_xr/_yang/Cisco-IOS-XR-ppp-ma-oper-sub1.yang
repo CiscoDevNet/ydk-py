@@ -1,58 +1,54 @@
 submodule Cisco-IOS-XR-ppp-ma-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-ppp-ma-oper {
     prefix Cisco-IOS-XR-ppp-ma-oper;
   }
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
 
   include Cisco-IOS-XR-ppp-ma-oper-sub2 {
     revision-date 2015-11-09;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ppp-ma package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
-
   grouping PPP-OPER-SUMMARY-LCP-AUTH-PHASES {
-    description "Summary of sessions in each LCP/Auth Phase";
+    description
+      "Summary of sessions in each LCP/Auth Phase";
     leaf lcp-not-negotiated {
       type uint32;
-      description "Number of sessions with LCP not negotiated";
+      description
+        "Number of sessions with LCP not negotiated";
     }
     leaf authenticating {
       type uint32;
-      description "Number of sessions authenticating";
+      description
+        "Number of sessions authenticating";
     }
     leaf line-held-down {
       type uint32;
       description
         "Number of sessions negotiated but with the line
-        held down";
+         held down";
     }
     leaf up-local-term {
       type uint32;
@@ -61,105 +57,124 @@ submodule Cisco-IOS-XR-ppp-ma-oper-sub1 {
     }
     leaf up-l2-fwded {
       type uint32;
-      description "Number of L2 forwarded sessions brought up";
+      description
+        "Number of L2 forwarded sessions brought up";
     }
     leaf up-tunneled {
       type uint32;
-      description "Number of VPDN tunneled sessions brought up";
+      description
+        "Number of VPDN tunneled sessions brought up";
     }
   }
 
   grouping PPP-OPER-SUMMARY-FSM-STATES-NCP {
-    description "Summary of FSM States for a given NCP";
+    description
+      "Summary of FSM States for a given NCP";
     leaf ncp-identifier {
       type Ncp-ident;
-      description "NCP Identifier";
+      description
+        "NCP Identifier";
     }
     leaf total {
       type uint32;
-      description "Total number of FSMs running for this NCP";
+      description
+        "Total number of FSMs running for this NCP";
     }
     leaf-list count {
       type uint32;
       max-elements "10";
-      description "Number of FSMs in each State";
+      description
+        "Number of FSMs in each State";
     }
   }
 
   grouping PPP-OPER-SUMMARY-FSM-STATES-LCP {
-    description "Summary of FSM States for LCP";
+    description
+      "Summary of FSM States for LCP";
     leaf total {
       type uint32;
-      description "Total number of LCP FSMs running";
+      description
+        "Total number of LCP FSMs running";
     }
     leaf-list count {
       type uint32;
       max-elements "10";
-      description "Number of FSMs in each State";
+      description
+        "Number of FSMs in each State";
     }
   }
 
   grouping PPP-OPER-SUMMARY-FSM-STATES {
-    description "Summary of sessions in each FSM State";
-
+    description
+      "Summary of sessions in each FSM State";
     container lcpfsm-states {
-      description "Array of per-LCP FSM States";
+      description
+        "Array of per-LCP FSM States";
       uses PPP-OPER-SUMMARY-FSM-STATES-LCP;
     }
-
     list ncpfsm-states-array {
-      description "Array of per-NCP FSM States";
+      description
+        "Array of per-NCP FSM States";
       uses PPP-OPER-SUMMARY-FSM-STATES-NCP;
     }
   }
 
   grouping PPP-OPER-SUMMARY-INTFS {
-    description "Interfaces running PPP";
+    description
+      "Interfaces running PPP";
     leaf pos-count {
       type uint32;
-      description "POS Count";
+      description
+        "POS Count";
     }
     leaf serial-count {
       type uint32;
-      description "Serial Count";
+      description
+        "Serial Count";
     }
     leaf pppoe-count {
       type uint32;
-      description "PPPoE Count";
+      description
+        "PPPoE Count";
     }
     leaf multilink-bundle-count {
       type uint32;
-      description "Multilink Bundle Count";
+      description
+        "Multilink Bundle Count";
     }
     leaf gcc0-count {
       type uint32;
-      description "GCC0 Count";
+      description
+        "GCC0 Count";
     }
     leaf gcc1-count {
       type uint32;
-      description "GCC1 Count";
+      description
+        "GCC1 Count";
     }
     leaf total {
       type uint32;
-      description "Total Count";
+      description
+        "Total Count";
     }
   }
 
   grouping PPP-OPER-SUMMARY {
-    description "PPP Summary";
-
+    description
+      "PPP Summary";
     container intfs {
-      description "Interfaces running PPP";
+      description
+        "Interfaces running PPP";
       uses PPP-OPER-SUMMARY-INTFS;
     }
-
     container fsm-states {
-      description "FSM States";
+      description
+        "FSM States";
       uses PPP-OPER-SUMMARY-FSM-STATES;
     }
-
     container lcp-auth-phases {
-      description "LCP/Auth Phases";
+      description
+        "LCP/Auth Phases";
       uses PPP-OPER-SUMMARY-LCP-AUTH-PHASES;
     }
   }

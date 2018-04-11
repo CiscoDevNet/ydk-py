@@ -6,15 +6,17 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CdpAdvVersion(Enum):
     """
-    CdpAdvVersion
+    CdpAdvVersion (Enum Class)
 
     CDP advertized version information
 
@@ -35,7 +37,7 @@ class CdpAdvVersion(Enum):
 
 class CdpDuplex(Enum):
     """
-    CdpDuplex
+    CdpDuplex (Enum Class)
 
     CDP duplex modes
 
@@ -64,7 +66,7 @@ class CdpDuplex(Enum):
 
 class CdpEnableDisable(Enum):
     """
-    CdpEnableDisable
+    CdpEnableDisable (Enum Class)
 
     CDP type enable or disable
 
@@ -81,7 +83,7 @@ class CdpEnableDisable(Enum):
 
 class CdpUnidirectionalMode(Enum):
     """
-    CdpUnidirectionalMode
+    CdpUnidirectionalMode (Enum Class)
 
     CDP unidirectional modes
 
@@ -106,7 +108,7 @@ class CdpUnidirectionalMode(Enum):
 
 class CdpYesNo(Enum):
     """
-    CdpYesNo
+    CdpYesNo (Enum Class)
 
     CDP type yes or no
 
@@ -146,8 +148,10 @@ class CdpNeighborDetails(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-cdp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"cdp-neighbor-detail" : ("cdp_neighbor_detail", CdpNeighborDetails.CdpNeighborDetail)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("cdp-neighbor-detail", ("cdp_neighbor_detail", CdpNeighborDetails.CdpNeighborDetail))])
+        self._leafs = OrderedDict()
 
         self.cdp_neighbor_detail = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details"
@@ -160,7 +164,7 @@ class CdpNeighborDetails(Entity):
         """
         List of CDP neighbor details
         
-        .. attribute:: device_id  <key>
+        .. attribute:: device_id  (key)
         
         	Device number of this device, Used as a key in the device list
         	**type**\: int
@@ -345,54 +349,57 @@ class CdpNeighborDetails(Entity):
             self.yang_parent_name = "cdp-neighbor-details"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"hello-message" : ("hello_message", CdpNeighborDetails.CdpNeighborDetail.HelloMessage), "power-request" : ("power_request", CdpNeighborDetails.CdpNeighborDetail.PowerRequest), "power-available" : ("power_available", CdpNeighborDetails.CdpNeighborDetail.PowerAvailable), "spare-pair" : ("spare_pair", CdpNeighborDetails.CdpNeighborDetail.SparePair)}
-            self._child_list_classes = {}
-
-            self.device_id = YLeaf(YType.uint32, "device-id")
-
-            self.device_name = YLeaf(YType.str, "device-name")
-
-            self.local_intf_name = YLeaf(YType.str, "local-intf-name")
-
-            self.port_id = YLeaf(YType.str, "port-id")
-
-            self.capability = YLeaf(YType.str, "capability")
-
-            self.platform_name = YLeaf(YType.str, "platform-name")
-
-            self.version = YLeaf(YType.str, "version")
-
-            self.duplex = YLeaf(YType.enumeration, "duplex")
-
-            self.adv_version = YLeaf(YType.enumeration, "adv-version")
-
-            self.vty_mgmt_domain = YLeaf(YType.str, "vty-mgmt-domain")
-
-            self.native_vlan = YLeaf(YType.uint16, "native-vlan")
-
-            self.vvid_tag = YLeaf(YType.uint8, "vvid-tag")
-
-            self.vvid = YLeaf(YType.uint16, "vvid")
-
-            self.power = YLeaf(YType.uint32, "power")
-
-            self.unidirectional_mode = YLeaf(YType.enumeration, "unidirectional-mode")
-
-            self.mgmt_address = YLeaf(YType.str, "mgmt-address")
-
-            self.ip_address = YLeaf(YType.str, "ip-address")
-
-            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-
-            self.clns_address = YLeaf(YType.str, "clns-address")
-
-            self.decnet_addr = YLeaf(YType.str, "decnet-addr")
-
-            self.novell_addr = YLeaf(YType.str, "novell-addr")
-
-            self.second_port_status = YLeaf(YType.str, "second-port-status")
-
-            self.table_id = YLeaf(YType.uint16, "table-id")
+            self.ylist_key_names = ['device_id']
+            self._child_container_classes = OrderedDict([("hello-message", ("hello_message", CdpNeighborDetails.CdpNeighborDetail.HelloMessage)), ("power-request", ("power_request", CdpNeighborDetails.CdpNeighborDetail.PowerRequest)), ("power-available", ("power_available", CdpNeighborDetails.CdpNeighborDetail.PowerAvailable)), ("spare-pair", ("spare_pair", CdpNeighborDetails.CdpNeighborDetail.SparePair))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('device_id', YLeaf(YType.uint32, 'device-id')),
+                ('device_name', YLeaf(YType.str, 'device-name')),
+                ('local_intf_name', YLeaf(YType.str, 'local-intf-name')),
+                ('port_id', YLeaf(YType.str, 'port-id')),
+                ('capability', YLeaf(YType.str, 'capability')),
+                ('platform_name', YLeaf(YType.str, 'platform-name')),
+                ('version', YLeaf(YType.str, 'version')),
+                ('duplex', YLeaf(YType.enumeration, 'duplex')),
+                ('adv_version', YLeaf(YType.enumeration, 'adv-version')),
+                ('vty_mgmt_domain', YLeaf(YType.str, 'vty-mgmt-domain')),
+                ('native_vlan', YLeaf(YType.uint16, 'native-vlan')),
+                ('vvid_tag', YLeaf(YType.uint8, 'vvid-tag')),
+                ('vvid', YLeaf(YType.uint16, 'vvid')),
+                ('power', YLeaf(YType.uint32, 'power')),
+                ('unidirectional_mode', YLeaf(YType.enumeration, 'unidirectional-mode')),
+                ('mgmt_address', YLeaf(YType.str, 'mgmt-address')),
+                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                ('clns_address', YLeaf(YType.str, 'clns-address')),
+                ('decnet_addr', YLeaf(YType.str, 'decnet-addr')),
+                ('novell_addr', YLeaf(YType.str, 'novell-addr')),
+                ('second_port_status', YLeaf(YType.str, 'second-port-status')),
+                ('table_id', YLeaf(YType.uint16, 'table-id')),
+            ])
+            self.device_id = None
+            self.device_name = None
+            self.local_intf_name = None
+            self.port_id = None
+            self.capability = None
+            self.platform_name = None
+            self.version = None
+            self.duplex = None
+            self.adv_version = None
+            self.vty_mgmt_domain = None
+            self.native_vlan = None
+            self.vvid_tag = None
+            self.vvid = None
+            self.power = None
+            self.unidirectional_mode = None
+            self.mgmt_address = None
+            self.ip_address = None
+            self.ipv6_address = None
+            self.clns_address = None
+            self.decnet_addr = None
+            self.novell_addr = None
+            self.second_port_status = None
+            self.table_id = None
 
             self.hello_message = CdpNeighborDetails.CdpNeighborDetail.HelloMessage()
             self.hello_message.parent = self
@@ -413,7 +420,7 @@ class CdpNeighborDetails(Entity):
             self.spare_pair.parent = self
             self._children_name_map["spare_pair"] = "spare-pair"
             self._children_yang_names.add("spare-pair")
-            self._segment_path = lambda: "cdp-neighbor-detail" + "[device-id='" + self.device_id.get() + "']"
+            self._segment_path = lambda: "cdp-neighbor-detail" + "[device-id='" + str(self.device_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -460,16 +467,19 @@ class CdpNeighborDetails(Entity):
                 self.yang_parent_name = "cdp-neighbor-detail"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.oui = YLeaf(YType.str, "oui")
-
-                self.protocol_id = YLeaf(YType.str, "protocol-id")
-
-                self.payload_value = YLeaf(YType.str, "payload-value")
-
-                self.payload_len = YLeaf(YType.uint16, "payload-len")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('oui', YLeaf(YType.str, 'oui')),
+                    ('protocol_id', YLeaf(YType.str, 'protocol-id')),
+                    ('payload_value', YLeaf(YType.str, 'payload-value')),
+                    ('payload_len', YLeaf(YType.uint16, 'payload-len')),
+                ])
+                self.oui = None
+                self.protocol_id = None
+                self.payload_value = None
+                self.payload_len = None
                 self._segment_path = lambda: "hello-message"
 
             def __setattr__(self, name, value):
@@ -513,14 +523,17 @@ class CdpNeighborDetails(Entity):
                 self.yang_parent_name = "cdp-neighbor-detail"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.power_request_id = YLeaf(YType.uint16, "power-request-id")
-
-                self.power_man_id = YLeaf(YType.uint16, "power-man-id")
-
-                self.power_request_level = YLeaf(YType.str, "power-request-level")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('power_request_id', YLeaf(YType.uint16, 'power-request-id')),
+                    ('power_man_id', YLeaf(YType.uint16, 'power-man-id')),
+                    ('power_request_level', YLeaf(YType.str, 'power-request-level')),
+                ])
+                self.power_request_id = None
+                self.power_man_id = None
+                self.power_request_level = None
                 self._segment_path = lambda: "power-request"
 
             def __setattr__(self, name, value):
@@ -573,16 +586,19 @@ class CdpNeighborDetails(Entity):
                 self.yang_parent_name = "cdp-neighbor-detail"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.power_request_id = YLeaf(YType.uint16, "power-request-id")
-
-                self.power_man_id = YLeaf(YType.uint16, "power-man-id")
-
-                self.power_available = YLeaf(YType.uint32, "power-available")
-
-                self.power_man_level = YLeaf(YType.uint32, "power-man-level")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('power_request_id', YLeaf(YType.uint16, 'power-request-id')),
+                    ('power_man_id', YLeaf(YType.uint16, 'power-man-id')),
+                    ('power_available', YLeaf(YType.uint32, 'power-available')),
+                    ('power_man_level', YLeaf(YType.uint32, 'power-man-level')),
+                ])
+                self.power_request_id = None
+                self.power_man_id = None
+                self.power_available = None
+                self.power_man_level = None
                 self._segment_path = lambda: "power-available"
 
             def __setattr__(self, name, value):
@@ -635,16 +651,19 @@ class CdpNeighborDetails(Entity):
                 self.yang_parent_name = "cdp-neighbor-detail"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.spare_pair_poe = YLeaf(YType.enumeration, "spare-pair-poe")
-
-                self.spare_pair_detection_required = YLeaf(YType.enumeration, "spare-pair-detection-required")
-
-                self.spare_pair_pd_config = YLeaf(YType.enumeration, "spare-pair-pd-config")
-
-                self.spare_pair_pse_operational = YLeaf(YType.enumeration, "spare-pair-pse-operational")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('spare_pair_poe', YLeaf(YType.enumeration, 'spare-pair-poe')),
+                    ('spare_pair_detection_required', YLeaf(YType.enumeration, 'spare-pair-detection-required')),
+                    ('spare_pair_pd_config', YLeaf(YType.enumeration, 'spare-pair-pd-config')),
+                    ('spare_pair_pse_operational', YLeaf(YType.enumeration, 'spare-pair-pse-operational')),
+                ])
+                self.spare_pair_poe = None
+                self.spare_pair_detection_required = None
+                self.spare_pair_pd_config = None
+                self.spare_pair_pse_operational = None
                 self._segment_path = lambda: "spare-pair"
 
             def __setattr__(self, name, value):

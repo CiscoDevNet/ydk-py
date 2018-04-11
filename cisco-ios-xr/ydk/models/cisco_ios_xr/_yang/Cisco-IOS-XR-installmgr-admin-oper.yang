@@ -1,138 +1,142 @@
 module Cisco-IOS-XR-installmgr-admin-oper {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-installmgr-admin-oper";
+  prefix installmgr-admin-oper;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-installmgr-admin-oper";
-
-
-  prefix "installmgr-admin-oper";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   include Cisco-IOS-XR-installmgr-admin-oper-sub3 {
     revision-date 2015-11-09;
   }
-
   include Cisco-IOS-XR-installmgr-admin-oper-sub2 {
     revision-date 2015-11-09;
   }
-
   include Cisco-IOS-XR-installmgr-admin-oper-sub1 {
     revision-date 2015-11-09;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR installmgr package
      admin-plane operational data.
-
+     
      This module contains definitions
      for the following management objects:
        install: Information of software packages and install
          operations
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ism-card-type-family {
     type enumeration {
-      enum ndsc-active-rp {
+      enum "ndsc-active-rp" {
         value 1;
-        description "Active NDSC RPs";
+        description
+          "Active NDSC RPs";
       }
-      enum ndsc-standby-rp {
+      enum "ndsc-standby-rp" {
         value 2;
-        description "Standby NDSC RPs";
+        description
+          "Standby NDSC RPs";
       }
-      enum active-drp {
+      enum "active-drp" {
         value 3;
-        description "Active DRP";
+        description
+          "Active DRP";
       }
-      enum standby-drp {
+      enum "standby-drp" {
         value 4;
-        description "Standby DRP";
+        description
+          "Standby DRP";
       }
-      enum dsc-active-rp {
+      enum "dsc-active-rp" {
         value 5;
-        description "Active dSC";
+        description
+          "Active dSC";
       }
-      enum dsc-standby-rp {
+      enum "dsc-standby-rp" {
         value 6;
-        description "Standby dSC";
+        description
+          "Standby dSC";
       }
-      enum active-sc {
+      enum "active-sc" {
         value 7;
-        description "Active non-root SC";
+        description
+          "Active non-root SC";
       }
-      enum standby-sc {
+      enum "standby-sc" {
         value 8;
-        description "Standby non-root SC";
+        description
+          "Standby non-root SC";
       }
-      enum root-active-sc {
+      enum "root-active-sc" {
         value 9;
-        description "Active root SC";
+        description
+          "Active root SC";
       }
-      enum root-standby-sc {
+      enum "root-standby-sc" {
         value 10;
-        description "Standby root SC";
+        description
+          "Standby root SC";
       }
-      enum lc {
+      enum "lc" {
         value 11;
-        description "Line card";
+        description
+          "Line card";
       }
-      enum sp {
+      enum "sp" {
         value 12;
-        description "Non-Fabric SP";
+        description
+          "Non-Fabric SP";
       }
-      enum fabric-sp {
+      enum "fabric-sp" {
         value 13;
-        description "Fabric SP";
+        description
+          "Fabric SP";
       }
-      enum spa {
+      enum "spa" {
         value 14;
-        description "SPA";
+        description
+          "SPA";
       }
     }
-    description "Ism card type family";
+    description
+      "Ism card type family";
   }
 
   grouping INVENTORY-TABLE {
     description
       "Common node of active, active, inactive, inactive
-      , committed, committed";
-
+       , committed, committed";
     container inventories {
-      description "Software inventory";
-
+      description
+        "Software inventory";
       list inventory {
         key "node-name";
-        description "Inventory information for specific node";
+        description
+          "Inventory information for specific node";
         leaf node-name {
           type xr:Node-id;
-          description "Node name";
+          description
+            "Node name";
         }
         uses INVENTORY;
       }
@@ -140,10 +144,11 @@ module Cisco-IOS-XR-installmgr-admin-oper {
   }
 
   grouping SUMMARY {
-    description "Common node of active, inactive, committed";
-
+    description
+      "Common node of active, inactive, committed";
     container summary {
-      description "Summarized inventory information";
+      description
+        "Summarized inventory information";
       uses INSTALL-INVENTORY-SUMMARY;
     }
   }
@@ -152,146 +157,155 @@ module Cisco-IOS-XR-installmgr-admin-oper {
     config false;
     description
       "Information of software packages and install
-      operations";
-
+       operations";
     container configuration-registers {
-      description "Configuration register (confreg) information";
-
+      description
+        "Configuration register (confreg) information";
       list configuration-register {
         key "node-name";
-        description "Configuration register for specific node";
+        description
+          "Configuration register for specific node";
         leaf node-name {
           type xr:Node-id;
-          description "Node name";
+          description
+            "Node name";
         }
         leaf config-register {
           type xr:Hex-integer;
           mandatory true;
-          description "Configuration register value";
+          description
+            "Configuration register value";
         }
       }
     }
-
     container request-statuses {
-      description "Install operation request status";
-
+      description
+        "Install operation request status";
       list request-status {
         key "request-id";
-        description "Request status Information";
+        description
+          "Request status Information";
         leaf request-id {
           type int32;
-          description "Install operation request ID";
+          description
+            "Install operation request ID";
         }
         uses INSTMGR-INSTALL-STATUS;
       }
     }
-
     container boot-variables {
-      description "Boot variable information";
-
+      description
+        "Boot variable information";
       list boot-variable {
         key "node-name";
-        description "Boot variable for specific node";
+        description
+          "Boot variable for specific node";
         leaf node-name {
           type xr:Node-id;
-          description "Node name";
+          description
+            "Node name";
         }
         leaf boot-variable {
           type string;
           mandatory true;
-          description "Boot variable value";
+          description
+            "Boot variable value";
         }
       }
     }
-
     container software {
       description
         "Software package,component and alias information";
-
       container alias-devices {
-        description "Package alias information";
-
+        description
+          "Package alias information";
         list alias-device {
           key "device-name";
           description
             "Package alias information for specific device";
-
           container aliases {
-            description "alias information";
-
+            description
+              "alias information";
             list alias {
               key "package-name";
-              description "Aliases for specific package";
+              description
+                "Aliases for specific package";
               leaf package-name {
                 type string;
-                description "Package Name";
+                description
+                  "Package Name";
               }
               leaf alias-names {
                 type string;
                 mandatory true;
-                description "Alias names";
+                description
+                  "Alias names";
               }
             }
           }
           leaf device-name {
             type xr:Cisco-ios-xr-string;
-            description "Device Name";
+            description
+              "Device Name";
           }
         }
       }
-
       container package-devices {
-        description "Package information";
-
+        description
+          "Package information";
         list package-device {
           key "device-name";
-          description "Package information for specific device";
-
+          description
+            "Package information for specific device";
           container packages {
-            description "Package information for specific package";
-
+            description
+              "Package information for specific package";
             list package {
               key "package-name";
-              description "Package information";
+              description
+                "Package information";
               leaf package-name {
                 type string;
-                description "Package Name";
+                description
+                  "Package Name";
               }
               uses INSTMGR-PKG-INFO;
             }
           }
           leaf device-name {
             type xr:Cisco-ios-xr-string;
-            description "Device Name";
+            description
+              "Device Name";
           }
         }
       }
-
       container component-devices {
-        description "Software component information";
-
+        description
+          "Software component information";
         list component-device {
           key "device-name";
-          description "Component information for specific device";
-
+          description
+            "Component information for specific device";
           container component-packages {
-            description "Software package information";
-
+            description
+              "Software package information";
             list component-package {
               key "package-name";
               description
                 "Component information for specific package";
               leaf package-name {
                 type string;
-                description "Package Name";
+                description
+                  "Package Name";
               }
-
               list component {
                 key "component-name";
-                description "Component information";
+                description
+                  "Component information";
                 leaf component-name {
                   type string;
-                  description "Component Name";
+                  description
+                    "Component Name";
                 }
                 uses INSTMGR-COMPONENT-INFO;
               }
@@ -299,113 +313,117 @@ module Cisco-IOS-XR-installmgr-admin-oper {
           }
           leaf device-name {
             type xr:Cisco-ios-xr-string;
-            description "Device Name";
+            description
+              "Device Name";
           }
         }
       }
     }
-
     container software-inventory {
-      description "Information of install operations";
-
+      description
+        "Information of install operations";
       container committed {
-        description "Committed inventory information";
+        description
+          "Committed inventory information";
         uses SUMMARY;
         uses INVENTORY-TABLE;
       }
-
       container inactive {
-        description "Inactive inventory information";
+        description
+          "Inactive inventory information";
         uses SUMMARY;
         uses INVENTORY-TABLE;
       }
-
       container requests {
-        description "Install operation requests";
-
+        description
+          "Install operation requests";
         container requests {
-          description "Install operation request history";
-
+          description
+            "Install operation request history";
           list request {
             key "request-id";
-            description "Install operation request information";
-
+            description
+              "Install operation request information";
             container inventories {
               description
                 "Inventory information of install operation
-                request";
-
+                 request";
               list inventory {
                 key "node-name";
-                description "Inventory information";
+                description
+                  "Inventory information";
                 leaf node-name {
                   type xr:Node-id;
-                  description "Node name";
+                  description
+                    "Node name";
                 }
                 uses INVENTORY;
               }
             }
             leaf request-id {
               type int32;
-              description "Install operation request ID";
+              description
+                "Install operation request ID";
             }
           }
         }
       }
-
       container active {
-        description "Active inventory information";
+        description
+          "Active inventory information";
         uses SUMMARY;
         uses INVENTORY-TABLE;
       }
     }
-
     container issu {
-      description "Information of install ISSU operations";
-
+      description
+        "Information of install ISSU operations";
       container card-inventories {
-        description "ISSU manager card inventory table";
-
+        description
+          "ISSU manager card inventory table";
         list card-inventory {
           key "card-type-id";
           description
             "ISSU manager inventory summary of the same
-            card type";
+             card type";
           leaf card-type-id {
             type Ism-card-type-family;
-            description "ISSU manager card type ID";
+            description
+              "ISSU manager card type ID";
           }
           uses ISM-CARD-INVENTORY-SUMMARY;
         }
       }
-
       container stage {
-        description "Summarized ISSU stage information";
+        description
+          "Summarized ISSU stage information";
         uses INSTALL-ISSU-STAGE;
       }
     }
-
     container boot-image {
-      description "System Boot Image";
+      description
+        "System Boot Image";
       uses BOOT-IMG;
     }
-
     container logs {
-      description "Install operation log";
-
+      description
+        "Install operation log";
       list log {
         key "request-id";
-        description "Log information";
+        description
+          "Log information";
         leaf request-id {
           type int32;
-          description "Install operation request ID";
+          description
+            "Install operation request ID";
         }
         uses INSTALL-LOG-ENTRY-4;
       }
     }
     leaf log-size {
       type int32;
-      description "Install operation log history size";
+      description
+        "Install operation log history size";
     }
   }
 }

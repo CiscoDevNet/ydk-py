@@ -1,126 +1,138 @@
 module Cisco-IOS-XR-tty-management-datatypes {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-datatypes";
+  prefix tty-management-datatypes;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-tty-management-datatypes";
-
-
-  prefix "tty-management-datatypes";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of generally useful
      derived YANG data types.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-01-07" {
+  revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
   }
 
   typedef Tty-pager {
     type enumeration {
-      enum more {
+      enum "more" {
         value 1;
-        description "More paging Utility";
+        description
+          "More paging Utility";
       }
-      enum less {
+      enum "less" {
         value 2;
-        description "Less paging Utility";
+        description
+          "Less paging Utility";
       }
-      enum none {
+      enum "none" {
         value 3;
-        description "No Paging Utility";
+        description
+          "No Paging Utility";
       }
     }
-    description "Tty pager";
+    description
+      "Tty pager";
   }
+
   typedef Tty-escape-char {
     type union {
       type enumeration {
-        enum break {
+        enum "break" {
           value 257;
-          description "Cause escape on BREAK";
+          description
+            "Cause escape on BREAK";
         }
-        enum default {
+        enum "default" {
           value 30;
-          description "Use default escape character";
+          description
+            "Use default escape character";
         }
-        enum none {
+        enum "none" {
           value 256;
-          description "Disable escape entirely";
+          description
+            "Disable escape entirely";
         }
       }
       type uint32 {
         range "0..257";
       }
     }
-    description "Tty escape char";
+    description
+      "Tty escape char";
   }
+
   typedef Tty-transport-protocol-select {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "No protocols";
+        description
+          "No protocols";
       }
-      enum all {
+      enum "all" {
         value 1;
-        description "All protocols";
+        description
+          "All protocols";
       }
-      enum some {
+      enum "some" {
         value 2;
-        description "Some Protocol";
+        description
+          "Some Protocol";
       }
     }
-    description "Tty transport protocol select";
+    description
+      "Tty transport protocol select";
   }
+
   typedef Tty-session-timeout-direction {
     type enumeration {
-      enum in {
+      enum "in" {
         value 1;
-        description "Input traffic";
+        description
+          "Input traffic";
       }
-      enum in-out {
+      enum "in-out" {
         value 3;
-        description "In & Output traffic";
+        description
+          "In & Output traffic";
       }
     }
-    description "Tty session timeout direction";
+    description
+      "Tty session timeout direction";
   }
+
   typedef Tty-transport-protocol {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "No protocols";
+        description
+          "No protocols";
       }
-      enum telnet {
+      enum "telnet" {
         value 1;
-        description "TCP/IP Telnet protocol";
+        description
+          "TCP/IP Telnet protocol";
       }
-      enum ssh {
+      enum "ssh" {
         value 3;
-        description "Unix ssh protocol";
+        description
+          "Unix ssh protocol";
       }
     }
-    description "Tty transport protocol";
+    description
+      "Tty transport protocol";
   }
 }

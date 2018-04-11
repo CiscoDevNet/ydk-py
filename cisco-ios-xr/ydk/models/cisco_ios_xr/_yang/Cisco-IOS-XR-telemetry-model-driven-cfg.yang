@@ -1,288 +1,326 @@
 module Cisco-IOS-XR-telemetry-model-driven-cfg {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-telemetry-model-driven-cfg";
+  prefix telemetry-model-driven-cfg;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-telemetry-model-driven-cfg";
-
-
-  prefix "telemetry-model-driven-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR telemetry-model-driven package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        telemetry-model-driven: Model Driven Telemetry configuration
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-09-26 {
+    description
+      "Added tcp-send-timeout to model";
+  }
+  revision 2017-08-23 {
+    description
+      "Updated version for max-containers-per-path";
+  }
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2017-02-09" {
+  revision 2017-02-09 {
     description
       "Added DSCP";
   }
-
-  revision "2017-01-30" {
+  revision 2017-01-30 {
     description
       "Updated version for source-interface/vrf";
   }
-
-  revision "2016-10-20" {
+  revision 2016-10-20 {
     description
       "Updated version for hierarchy-destinations";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Proto-type {
     type enumeration {
-      enum grpc {
+      enum "grpc" {
         value 1;
-        description "GRPC";
+        description
+          "GRPC";
       }
-      enum tcp {
+      enum "tcp" {
         value 2;
-        description "tcp";
+        description
+          "tcp";
       }
-      enum udp {
+      enum "udp" {
         value 3;
-        description "udp";
+        description
+          "udp";
       }
     }
-    description "Proto type";
+    description
+      "Proto type";
   }
+
   typedef Encode-type {
     type enumeration {
-      enum gpb {
+      enum "gpb" {
         value 2;
-        description "GPB";
+        description
+          "GPB";
       }
-      enum self-describing-gpb {
+      enum "self-describing-gpb" {
         value 3;
-        description "SELF DESCRIBING GPB";
+        description
+          "SELF DESCRIBING GPB";
       }
-      enum json {
+      enum "json" {
         value 4;
-        description "JSON";
+        description
+          "JSON";
       }
     }
-    description "Encode type";
+    description
+      "Encode type";
   }
+
   typedef Mdt-dscp-value {
     type enumeration {
-      enum default {
+      enum "default" {
         value 0;
-        description "Applicable to DSCP: bits 000000";
+        description
+          "Applicable to DSCP: bits 000000";
       }
-      enum cs1 {
+      enum "cs1" {
         value 8;
-        description "Applicable to DSCP: bits 001000";
+        description
+          "Applicable to DSCP: bits 001000";
       }
-      enum af11 {
+      enum "af11" {
         value 10;
-        description "Applicable to DSCP: bits 001010";
+        description
+          "Applicable to DSCP: bits 001010";
       }
-      enum af12 {
+      enum "af12" {
         value 12;
-        description "Applicable to DSCP: bits 001100";
+        description
+          "Applicable to DSCP: bits 001100";
       }
-      enum af13 {
+      enum "af13" {
         value 14;
-        description "Applicable to DSCP: bits 001110";
+        description
+          "Applicable to DSCP: bits 001110";
       }
-      enum cs2 {
+      enum "cs2" {
         value 16;
-        description "Applicable to DSCP: bits 010000";
+        description
+          "Applicable to DSCP: bits 010000";
       }
-      enum af21 {
+      enum "af21" {
         value 18;
-        description "Applicable to DSCP: bits 010010";
+        description
+          "Applicable to DSCP: bits 010010";
       }
-      enum af22 {
+      enum "af22" {
         value 20;
-        description "Applicable to DSCP: bits 010100";
+        description
+          "Applicable to DSCP: bits 010100";
       }
-      enum af23 {
+      enum "af23" {
         value 22;
-        description "Applicable to DSCP: bits 010110";
+        description
+          "Applicable to DSCP: bits 010110";
       }
-      enum cs3 {
+      enum "cs3" {
         value 24;
-        description "Applicable to DSCP: bits 011000";
+        description
+          "Applicable to DSCP: bits 011000";
       }
-      enum af31 {
+      enum "af31" {
         value 26;
-        description "Applicable to DSCP: bits 011010";
+        description
+          "Applicable to DSCP: bits 011010";
       }
-      enum af32 {
+      enum "af32" {
         value 28;
-        description "Applicable to DSCP: bits 011100";
+        description
+          "Applicable to DSCP: bits 011100";
       }
-      enum af33 {
+      enum "af33" {
         value 30;
-        description "Applicable to DSCP: bits 011110";
+        description
+          "Applicable to DSCP: bits 011110";
       }
-      enum cs4 {
+      enum "cs4" {
         value 32;
-        description "Applicable to DSCP: bits 100000";
+        description
+          "Applicable to DSCP: bits 100000";
       }
-      enum af41 {
+      enum "af41" {
         value 34;
-        description "Applicable to DSCP: bits 100010";
+        description
+          "Applicable to DSCP: bits 100010";
       }
-      enum af42 {
+      enum "af42" {
         value 36;
-        description "Applicable to DSCP: bits 100100";
+        description
+          "Applicable to DSCP: bits 100100";
       }
-      enum af43 {
+      enum "af43" {
         value 38;
-        description "Applicable to DSCP: bits 100110";
+        description
+          "Applicable to DSCP: bits 100110";
       }
-      enum cs5 {
+      enum "cs5" {
         value 40;
-        description "Applicable to DSCP: bits 101000";
+        description
+          "Applicable to DSCP: bits 101000";
       }
-      enum ef {
+      enum "ef" {
         value 46;
-        description "Applicable to DSCP: bits 101110";
+        description
+          "Applicable to DSCP: bits 101110";
       }
-      enum cs6 {
+      enum "cs6" {
         value 48;
-        description "Applicable to DSCP: bits 110000";
+        description
+          "Applicable to DSCP: bits 110000";
       }
-      enum cs7 {
+      enum "cs7" {
         value 56;
-        description "Applicable to DSCP: bits 111000";
+        description
+          "Applicable to DSCP: bits 111000";
       }
     }
-    description "Mdt dscp value";
+    description
+      "Mdt dscp value";
   }
 
   grouping ENCODING {
-    description "Common node of ipv6-destination, ipv4-destination";
+    description
+      "Common node of ipv6-destination, ipv4-destination";
     leaf encoding {
       type Encode-type;
       description
         "Encoding used to transmit telemetry data to the
-        collector";
+         collector";
     }
   }
 
   grouping PROTOCOL {
-    description "Common node of ipv6-destination, ipv4-destination";
-
+    description
+      "Common node of ipv6-destination, ipv4-destination";
     container protocol {
       presence "Indicates a protocol node is configured.";
       description
         "Transport Protocol used to transmit telemetry
-        data to the collector";
+         data to the collector";
       leaf protocol {
         type Proto-type;
         mandatory true;
-        description "protocol";
+        description
+          "protocol";
       }
       leaf tls-hostname {
         type string;
-        description "tls hostname";
+        description
+          "tls hostname";
       }
       leaf no-tls {
         type int32;
         default "0";
-        description "no tls";
+        description
+          "no tls";
       }
       leaf packetsize {
         type uint32 {
           range "484..65507";
         }
         default "1472";
-        description "udp packetsize";
+        description
+          "udp packetsize";
       }
     }
   }
 
   container telemetry-model-driven {
-    description "Model Driven Telemetry configuration";
-
+    description
+      "Model Driven Telemetry configuration";
     container sensor-groups {
-      description "Sensor group configuration";
-
+      description
+        "Sensor group configuration";
       list sensor-group {
         key "sensor-group-identifier";
-        description "Sensor group configuration";
-
+        description
+          "Sensor group configuration";
         container sensor-paths {
-          description "Sensor path configuration";
-
+          description
+            "Sensor path configuration";
           list sensor-path {
             key "telemetry-sensor-path";
-            description "Sensor path configuration";
+            description
+              "Sensor path configuration";
             leaf telemetry-sensor-path {
               type string;
-              description "Sensor Path";
+              description
+                "Sensor Path";
             }
           }
         }
         leaf sensor-group-identifier {
           type xr:Cisco-ios-xr-string;
-          description "The identifier for this group";
+          description
+            "The identifier for this group";
         }
       }
     }
-
     container subscriptions {
-      description "Streaming Telemetry Subscription";
-
+      description
+        "Streaming Telemetry Subscription";
       list subscription {
         key "subscription-identifier";
-        description "Streaming Telemetry Subscription";
-
+        description
+          "Streaming Telemetry Subscription";
         container sensor-profiles {
-          description "Associate Sensor Groups with Subscription";
-
+          description
+            "Associate Sensor Groups with Subscription";
           list sensor-profile {
             key "sensorgroupid";
-            description "Associate Sensor Group with Subscription";
+            description
+              "Associate Sensor Group with Subscription";
             leaf strict-timer {
               type empty;
-              description "use strict timer";
+              description
+                "use strict timer";
             }
             leaf sample-interval {
               type uint32 {
                 range "0..4294967295";
               }
               units "millisecond";
-              description "Sample interval in milliseconds";
+              description
+                "Sample interval in milliseconds";
             }
             leaf sensorgroupid {
               type xr:Cisco-ios-xr-string;
@@ -291,11 +329,9 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
             }
           }
         }
-
         container destination-profiles {
           description
             "Associate Destination Groups with Subscription";
-
           list destination-profile {
             key "destination-id";
             description
@@ -304,66 +340,72 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
               type xr:Cisco-ios-xr-string;
               description
                 "Destination Id to associate with
-                Subscription";
+                 Subscription";
             }
           }
         }
         leaf source-qos-marking {
           type Mdt-dscp-value;
-          description "Outgoing DSCP value";
+          description
+            "Outgoing DSCP value";
         }
         leaf source-interface {
           type xr:Interface-name;
           description
             "Source address to use for streaming telemetry
-            information";
+             information";
         }
         leaf subscription-identifier {
           type xr:Cisco-ios-xr-string;
-          description "Subscription identifier string";
+          description
+            "Subscription identifier string";
         }
       }
     }
-
     container destination-groups {
-      description "Destination Group configuration";
-
+      description
+        "Destination Group configuration";
       list destination-group {
         key "destination-id";
-        description "Destination Group";
-
+        description
+          "Destination Group";
         container ipv6-destinations {
-          description "Destination address configuration";
-
+          description
+            "Destination address configuration";
           list ipv6-destination {
             key "ipv6-address destination-port";
-            description "destination IP address";
+            description
+              "destination IP address";
             leaf ipv6-address {
               type inet:ipv6-address-no-zone;
-              description "Destination IPv6 address";
+              description
+                "Destination IPv6 address";
             }
             leaf destination-port {
               type xr:Cisco-ios-xr-port-number;
-              description "destination port";
+              description
+                "destination port";
             }
             uses ENCODING;
             uses PROTOCOL;
           }
         }
-
         container ipv4-destinations {
-          description "Destination address configuration";
-
+          description
+            "Destination address configuration";
           list ipv4-destination {
             key "ipv4-address destination-port";
-            description "destination IP address";
+            description
+              "destination IP address";
             leaf ipv4-address {
               type inet:ipv4-address-no-zone;
-              description "Destination IPv4 address";
+              description
+                "Destination IPv4 address";
             }
             leaf destination-port {
               type xr:Cisco-ios-xr-port-number;
-              description "destination port";
+              description
+                "destination port";
             }
             uses ENCODING;
             uses PROTOCOL;
@@ -373,17 +415,43 @@ module Cisco-IOS-XR-telemetry-model-driven-cfg {
           type xr:Cisco-ios-xr-string {
             length "1..32";
           }
-          description "Vrf for the destination group";
+          description
+            "Vrf for the destination group";
         }
         leaf destination-id {
           type xr:Cisco-ios-xr-string;
-          description "destination group id string";
+          description
+            "destination group id string";
         }
       }
     }
     leaf enable {
       type empty;
-      description "Enable Model Driven Telemetry";
+      description
+        "Enable Model Driven Telemetry";
+    }
+    leaf max-sensor-paths {
+      type uint32 {
+        range "0..4000";
+      }
+      description
+        "Maximum allowed sensor paths, default: 1000";
+    }
+    leaf max-containers-per-path {
+      type uint32 {
+        range "0..1024";
+      }
+      description
+        "Maximum containers allowed per path, 0 disables
+         the check";
+    }
+    leaf tcp-send-timeout {
+      type uint32 {
+        range "0..30";
+      }
+      description
+        "TCP send timeout value, default:30 sec,0 will
+         disable the timeout";
     }
   }
 }

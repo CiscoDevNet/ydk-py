@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class EtherCtrlTransportMode(Enum):
     """
-    EtherCtrlTransportMode
+    EtherCtrlTransportMode (Enum Class)
 
     Ether ctrl transport mode
 
@@ -46,7 +48,7 @@ class EtherCtrlTransportMode(Enum):
 
 class PermitPluggable(Enum):
     """
-    PermitPluggable
+    PermitPluggable (Enum Class)
 
     Permit pluggable
 
@@ -61,7 +63,7 @@ class PermitPluggable(Enum):
 
 class PermitPluggablePid(Enum):
     """
-    PermitPluggablePid
+    PermitPluggablePid (Enum Class)
 
     Permit pluggable pid
 

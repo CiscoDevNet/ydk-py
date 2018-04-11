@@ -12,9 +12,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -43,8 +45,10 @@ class RedundancyGroupManager(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-rgmgr-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"controllers" : ("controllers", RedundancyGroupManager.Controllers)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("controllers", ("controllers", RedundancyGroupManager.Controllers))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.controllers = RedundancyGroupManager.Controllers()
         self.controllers.parent = self
@@ -76,8 +80,10 @@ class RedundancyGroupManager(Entity):
             self.yang_parent_name = "redundancy-group-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"controller" : ("controller", RedundancyGroupManager.Controllers.Controller)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("controller", ("controller", RedundancyGroupManager.Controllers.Controller))])
+            self._leafs = OrderedDict()
 
             self.controller = YList(self)
             self._segment_path = lambda: "controllers"
@@ -91,7 +97,7 @@ class RedundancyGroupManager(Entity):
             """
             Display redundancy group by controller name
             
-            .. attribute:: controller_name  <key>
+            .. attribute:: controller_name  (key)
             
             	Controller name
             	**type**\: str
@@ -161,25 +167,28 @@ class RedundancyGroupManager(Entity):
                 self.yang_parent_name = "controllers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.controller_name = YLeaf(YType.str, "controller-name")
-
-                self.multi_router_aps_group_number = YLeaf(YType.str, "multi-router-aps-group-number")
-
-                self.controller_name_xr = YLeaf(YType.str, "controller-name-xr")
-
-                self.controller_handle = YLeaf(YType.str, "controller-handle")
-
-                self.backup_interface_name = YLeaf(YType.str, "backup-interface-name")
-
-                self.backup_interface_handle = YLeaf(YType.str, "backup-interface-handle")
-
-                self.backup_interface_next_hop_ip_address = YLeaf(YType.str, "backup-interface-next-hop-ip-address")
-
-                self.inter_chassis_group_state = YLeaf(YType.str, "inter-chassis-group-state")
-                self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
+                self.ylist_key_names = ['controller_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('controller_name', YLeaf(YType.str, 'controller-name')),
+                    ('multi_router_aps_group_number', YLeaf(YType.str, 'multi-router-aps-group-number')),
+                    ('controller_name_xr', YLeaf(YType.str, 'controller-name-xr')),
+                    ('controller_handle', YLeaf(YType.str, 'controller-handle')),
+                    ('backup_interface_name', YLeaf(YType.str, 'backup-interface-name')),
+                    ('backup_interface_handle', YLeaf(YType.str, 'backup-interface-handle')),
+                    ('backup_interface_next_hop_ip_address', YLeaf(YType.str, 'backup-interface-next-hop-ip-address')),
+                    ('inter_chassis_group_state', YLeaf(YType.str, 'inter-chassis-group-state')),
+                ])
+                self.controller_name = None
+                self.multi_router_aps_group_number = None
+                self.controller_name_xr = None
+                self.controller_handle = None
+                self.backup_interface_name = None
+                self.backup_interface_handle = None
+                self.backup_interface_next_hop_ip_address = None
+                self.inter_chassis_group_state = None
+                self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager/controllers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

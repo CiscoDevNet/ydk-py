@@ -7,15 +7,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class SlaBucketsSizeUnitsEnum(Enum):
     """
-    SlaBucketsSizeUnitsEnum
+    SlaBucketsSizeUnitsEnum (Enum Class)
 
     Sla buckets size units enum
 
@@ -38,7 +40,7 @@ class SlaBucketsSizeUnitsEnum(Enum):
 
 class SlaBurstIntervalUnitsEnum(Enum):
     """
-    SlaBurstIntervalUnitsEnum
+    SlaBurstIntervalUnitsEnum (Enum Class)
 
     Sla burst interval units enum
 
@@ -85,7 +87,7 @@ class SlaBurstIntervalUnitsEnum(Enum):
 
 class SlaOnDemandProbeDurationUnitsEnum(Enum):
     """
-    SlaOnDemandProbeDurationUnitsEnum
+    SlaOnDemandProbeDurationUnitsEnum (Enum Class)
 
     Sla on demand probe duration units enum
 
@@ -118,7 +120,7 @@ class SlaOnDemandProbeDurationUnitsEnum(Enum):
 
 class SlaOnDemandRepeatIntervalUnitsEnum(Enum):
     """
-    SlaOnDemandRepeatIntervalUnitsEnum
+    SlaOnDemandRepeatIntervalUnitsEnum (Enum Class)
 
     Sla on demand repeat interval units enum
 
@@ -151,7 +153,7 @@ class SlaOnDemandRepeatIntervalUnitsEnum(Enum):
 
 class SlaOnDemandStartMonthEnum(Enum):
     """
-    SlaOnDemandStartMonthEnum
+    SlaOnDemandStartMonthEnum (Enum Class)
 
     Sla on demand start month enum
 
@@ -232,7 +234,7 @@ class SlaOnDemandStartMonthEnum(Enum):
 
 class SlaOnDemandStartTimeRelativeUnitsEnum(Enum):
     """
-    SlaOnDemandStartTimeRelativeUnitsEnum
+    SlaOnDemandStartTimeRelativeUnitsEnum (Enum Class)
 
     Sla on demand start time relative units enum
 
@@ -259,7 +261,7 @@ class SlaOnDemandStartTimeRelativeUnitsEnum(Enum):
 
 class SlaOnDemandStartTimeTypesEnum(Enum):
     """
-    SlaOnDemandStartTimeTypesEnum
+    SlaOnDemandStartTimeTypesEnum (Enum Class)
 
     Sla on demand start time types enum
 
@@ -286,7 +288,7 @@ class SlaOnDemandStartTimeTypesEnum(Enum):
 
 class SlaPacketIntervalUnitsEnum(Enum):
     """
-    SlaPacketIntervalUnitsEnum
+    SlaPacketIntervalUnitsEnum (Enum Class)
 
     Sla packet interval units enum
 
@@ -327,7 +329,7 @@ class SlaPacketIntervalUnitsEnum(Enum):
 
 class SlaPaddingPattern(Enum):
     """
-    SlaPaddingPattern
+    SlaPaddingPattern (Enum Class)
 
     Sla padding pattern
 
@@ -352,7 +354,7 @@ class SlaPaddingPattern(Enum):
 
 class SlaProbeDurationUnitsEnum(Enum):
     """
-    SlaProbeDurationUnitsEnum
+    SlaProbeDurationUnitsEnum (Enum Class)
 
     Sla probe duration units enum
 
@@ -397,7 +399,7 @@ class SlaProbeDurationUnitsEnum(Enum):
 
 class SlaProbeIntervalDayEnum(Enum):
     """
-    SlaProbeIntervalDayEnum
+    SlaProbeIntervalDayEnum (Enum Class)
 
     Sla probe interval day enum
 
@@ -448,7 +450,7 @@ class SlaProbeIntervalDayEnum(Enum):
 
 class SlaProbeIntervalUnitsEnum(Enum):
     """
-    SlaProbeIntervalUnitsEnum
+    SlaProbeIntervalUnitsEnum (Enum Class)
 
     Sla probe interval units enum
 
@@ -485,7 +487,7 @@ class SlaProbeIntervalUnitsEnum(Enum):
 
 class SlaSend(Enum):
     """
-    SlaSend
+    SlaSend (Enum Class)
 
     Sla send
 
@@ -506,7 +508,7 @@ class SlaSend(Enum):
 
 class SlaStatisticTypeEnum(Enum):
     """
-    SlaStatisticTypeEnum
+    SlaStatisticTypeEnum (Enum Class)
 
     Sla statistic type enum
 

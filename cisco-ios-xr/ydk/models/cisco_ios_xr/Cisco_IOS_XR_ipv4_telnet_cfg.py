@@ -12,9 +12,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -43,8 +45,10 @@ class Ipv6Telnet(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-telnet-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"client" : ("client", Ipv6Telnet.Client)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("client", ("client", Ipv6Telnet.Client))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.client = Ipv6Telnet.Client()
         self.client.parent = self
@@ -78,10 +82,13 @@ class Ipv6Telnet(Entity):
             self.yang_parent_name = "ipv6-telnet"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('source_interface', YLeaf(YType.str, 'source-interface')),
+            ])
+            self.source_interface = None
             self._segment_path = lambda: "client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet/%s" % self._segment_path()
 
@@ -116,8 +123,10 @@ class Ipv4Telnet(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-telnet-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"client" : ("client", Ipv4Telnet.Client)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("client", ("client", Ipv4Telnet.Client))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.client = Ipv4Telnet.Client()
         self.client.parent = self
@@ -151,10 +160,13 @@ class Ipv4Telnet(Entity):
             self.yang_parent_name = "ipv4-telnet"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('source_interface', YLeaf(YType.str, 'source-interface')),
+            ])
+            self.source_interface = None
             self._segment_path = lambda: "client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet/%s" % self._segment_path()
 

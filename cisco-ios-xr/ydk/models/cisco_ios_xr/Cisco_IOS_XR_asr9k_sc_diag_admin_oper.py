@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class DiagNode(Enum):
     """
-    DiagNode
+    DiagNode (Enum Class)
 
     Node types
 
@@ -41,7 +43,7 @@ class DiagNode(Enum):
 
 class DiagProcessor(Enum):
     """
-    DiagProcessor
+    DiagProcessor (Enum Class)
 
     Processor types
 
@@ -56,7 +58,7 @@ class DiagProcessor(Enum):
 
 class DiagSlot(Enum):
     """
-    DiagSlot
+    DiagSlot (Enum Class)
 
     Slot types
 
@@ -83,7 +85,7 @@ class DiagSlot(Enum):
 
 class NodeState(Enum):
     """
-    NodeState
+    NodeState (Enum Class)
 
     Node state detail
 
@@ -421,8 +423,10 @@ class Diag(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-sc-diag-admin-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"racks" : ("racks", Diag.Racks)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("racks", ("racks", Diag.Racks))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.racks = Diag.Racks()
         self.racks.parent = self
@@ -454,8 +458,10 @@ class Diag(Entity):
             self.yang_parent_name = "diag"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rack" : ("rack", Diag.Racks.Rack)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rack", ("rack", Diag.Racks.Rack))])
+            self._leafs = OrderedDict()
 
             self.rack = YList(self)
             self._segment_path = lambda: "racks"
@@ -469,7 +475,7 @@ class Diag(Entity):
             """
             Diag operational data for a particular rack
             
-            .. attribute:: rack_name  <key>
+            .. attribute:: rack_name  (key)
             
             	Rack name
             	**type**\: int
@@ -515,10 +521,13 @@ class Diag(Entity):
                 self.yang_parent_name = "racks"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"fan-traies" : ("fan_traies", Diag.Racks.Rack.FanTraies), "power-supplies" : ("power_supplies", Diag.Racks.Rack.PowerSupplies), "slots" : ("slots", Diag.Racks.Rack.Slots), "chassis" : ("chassis", Diag.Racks.Rack.Chassis), "summary" : ("summary", Diag.Racks.Rack.Summary)}
-                self._child_list_classes = {}
-
-                self.rack_name = YLeaf(YType.int32, "rack-name")
+                self.ylist_key_names = ['rack_name']
+                self._child_container_classes = OrderedDict([("fan-traies", ("fan_traies", Diag.Racks.Rack.FanTraies)), ("power-supplies", ("power_supplies", Diag.Racks.Rack.PowerSupplies)), ("slots", ("slots", Diag.Racks.Rack.Slots)), ("chassis", ("chassis", Diag.Racks.Rack.Chassis)), ("summary", ("summary", Diag.Racks.Rack.Summary))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rack_name', YLeaf(YType.int32, 'rack-name')),
+                ])
+                self.rack_name = None
 
                 self.fan_traies = Diag.Racks.Rack.FanTraies()
                 self.fan_traies.parent = self
@@ -544,7 +553,7 @@ class Diag(Entity):
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
                 self._children_yang_names.add("summary")
-                self._segment_path = lambda: "rack" + "[rack-name='" + self.rack_name.get() + "']"
+                self._segment_path = lambda: "rack" + "[rack-name='" + str(self.rack_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-sc-diag-admin-oper:diag/racks/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -574,8 +583,10 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"fan-tray" : ("fan_tray", Diag.Racks.Rack.FanTraies.FanTray)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("fan-tray", ("fan_tray", Diag.Racks.Rack.FanTraies.FanTray))])
+                    self._leafs = OrderedDict()
 
                     self.fan_tray = YList(self)
                     self._segment_path = lambda: "fan-traies"
@@ -588,7 +599,7 @@ class Diag(Entity):
                     """
                     Fan tray operational data
                     
-                    .. attribute:: fan_tray_name  <key>
+                    .. attribute:: fan_tray_name  (key)
                     
                     	Fan tray name
                     	**type**\: str
@@ -614,16 +625,19 @@ class Diag(Entity):
                         self.yang_parent_name = "fan-traies"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"detail" : ("detail", Diag.Racks.Rack.FanTraies.FanTray.Detail)}
-                        self._child_list_classes = {}
-
-                        self.fan_tray_name = YLeaf(YType.str, "fan-tray-name")
+                        self.ylist_key_names = ['fan_tray_name']
+                        self._child_container_classes = OrderedDict([("detail", ("detail", Diag.Racks.Rack.FanTraies.FanTray.Detail))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('fan_tray_name', YLeaf(YType.str, 'fan-tray-name')),
+                        ])
+                        self.fan_tray_name = None
 
                         self.detail = Diag.Racks.Rack.FanTraies.FanTray.Detail()
                         self.detail.parent = self
                         self._children_name_map["detail"] = "detail"
                         self._children_yang_names.add("detail")
-                        self._segment_path = lambda: "fan-tray" + "[fan-tray-name='" + self.fan_tray_name.get() + "']"
+                        self._segment_path = lambda: "fan-tray" + "[fan-tray-name='" + str(self.fan_tray_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray, ['fan_tray_name'], name, value)
@@ -657,8 +671,10 @@ class Diag(Entity):
                             self.yang_parent_name = "fan-tray"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"node" : ("node", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node), "spa" : ("spa", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("node", ("node", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node)), ("spa", ("spa", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.node = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node()
                             self.node.parent = self
@@ -782,36 +798,39 @@ class Diag(Entity):
                                 self.yang_parent_name = "detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pld" : ("pld", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.Pld), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision), "cbc-active-partition" : ("cbc_active_partition", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.CbcActivePartition), "cbc-inactive-partition" : ("cbc_inactive_partition", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.CbcInactivePartition)}
-                                self._child_list_classes = {}
-
-                                self.description = YLeaf(YType.str, "description")
-
-                                self.serial_number = YLeaf(YType.str, "serial-number")
-
-                                self.tan = YLeaf(YType.str, "tan")
-
-                                self.pid = YLeaf(YType.str, "pid")
-
-                                self.vid = YLeaf(YType.str, "vid")
-
-                                self.chip_hardware_revision = YLeaf(YType.str, "chip-hardware-revision")
-
-                                self.new_deviation_number = YLeaf(YType.uint32, "new-deviation-number")
-
-                                self.clei = YLeaf(YType.str, "clei")
-
-                                self.board_state = YLeaf(YType.enumeration, "board-state")
-
-                                self.pld_motherboard = YLeaf(YType.str, "pld-motherboard")
-
-                                self.pld_power = YLeaf(YType.str, "pld-power")
-
-                                self.monlib = YLeaf(YType.str, "monlib")
-
-                                self.rommon = YLeaf(YType.str, "rommon")
-
-                                self.cpu0 = YLeaf(YType.enumeration, "cpu0")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pld", ("pld", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.Pld)), ("hardware-revision", ("hardware_revision", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision)), ("cbc-active-partition", ("cbc_active_partition", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.CbcActivePartition)), ("cbc-inactive-partition", ("cbc_inactive_partition", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.CbcInactivePartition))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('description', YLeaf(YType.str, 'description')),
+                                    ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                    ('tan', YLeaf(YType.str, 'tan')),
+                                    ('pid', YLeaf(YType.str, 'pid')),
+                                    ('vid', YLeaf(YType.str, 'vid')),
+                                    ('chip_hardware_revision', YLeaf(YType.str, 'chip-hardware-revision')),
+                                    ('new_deviation_number', YLeaf(YType.uint32, 'new-deviation-number')),
+                                    ('clei', YLeaf(YType.str, 'clei')),
+                                    ('board_state', YLeaf(YType.enumeration, 'board-state')),
+                                    ('pld_motherboard', YLeaf(YType.str, 'pld-motherboard')),
+                                    ('pld_power', YLeaf(YType.str, 'pld-power')),
+                                    ('monlib', YLeaf(YType.str, 'monlib')),
+                                    ('rommon', YLeaf(YType.str, 'rommon')),
+                                    ('cpu0', YLeaf(YType.enumeration, 'cpu0')),
+                                ])
+                                self.description = None
+                                self.serial_number = None
+                                self.tan = None
+                                self.pid = None
+                                self.vid = None
+                                self.chip_hardware_revision = None
+                                self.new_deviation_number = None
+                                self.clei = None
+                                self.board_state = None
+                                self.pld_motherboard = None
+                                self.pld_power = None
+                                self.monlib = None
+                                self.rommon = None
+                                self.cpu0 = None
 
                                 self.pld = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.Pld()
                                 self.pld.parent = self
@@ -877,14 +896,17 @@ class Diag(Entity):
                                     self.yang_parent_name = "node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.uint32, "type")
-
-                                    self.processor_higher_version = YLeaf(YType.uint32, "processor-higher-version")
-
-                                    self.processor_lower_version = YLeaf(YType.uint32, "processor-lower-version")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.uint32, 'type')),
+                                        ('processor_higher_version', YLeaf(YType.uint32, 'processor-higher-version')),
+                                        ('processor_lower_version', YLeaf(YType.uint32, 'processor-lower-version')),
+                                    ])
+                                    self.type = None
+                                    self.processor_higher_version = None
+                                    self.processor_lower_version = None
                                     self._segment_path = lambda: "pld"
 
                                 def __setattr__(self, name, value):
@@ -898,7 +920,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_>`
                                 
                                 
 
@@ -914,8 +936,10 @@ class Diag(Entity):
                                     self.yang_parent_name = "node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("hardware-revision", ("hardware_revision", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_))])
+                                    self._leafs = OrderedDict()
 
                                     self.hardware_revision = YList(self)
                                     self._segment_path = lambda: "hardware-revision"
@@ -924,34 +948,34 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision(Entity):
+                                class HardwareRevision_(Entity):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
@@ -971,47 +995,50 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision, self).__init__()
+                                        super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SsdRev)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("hw-rev", ("hw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev)), ("fw-rev", ("fw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev)), ("sw-rev", ("sw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev)), ("dimm-rev", ("dimm_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev)), ("ssd-rev", ("ssd_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_description', YLeaf(YType.str, 'node-description')),
+                                            ('version', YLeaf(YType.str, 'version')),
+                                        ])
+                                        self.node_description = None
+                                        self.version = None
 
-                                        self.node_description = YLeaf(YType.str, "node-description")
-
-                                        self.version = YLeaf(YType.str, "version")
-
-                                        self.hw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.HwRev()
+                                        self.hw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev()
                                         self.hw_rev.parent = self
                                         self._children_name_map["hw_rev"] = "hw-rev"
                                         self._children_yang_names.add("hw-rev")
 
-                                        self.fw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.FwRev()
+                                        self.fw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev()
                                         self.fw_rev.parent = self
                                         self._children_name_map["fw_rev"] = "fw-rev"
                                         self._children_yang_names.add("fw-rev")
 
-                                        self.sw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SwRev()
+                                        self.sw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev()
                                         self.sw_rev.parent = self
                                         self._children_name_map["sw_rev"] = "sw-rev"
                                         self._children_yang_names.add("sw-rev")
 
-                                        self.dimm_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.DimmRev()
+                                        self.dimm_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev()
                                         self.dimm_rev.parent = self
                                         self._children_name_map["dimm_rev"] = "dimm-rev"
                                         self._children_yang_names.add("dimm-rev")
 
-                                        self.ssd_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SsdRev()
+                                        self.ssd_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev()
                                         self.ssd_rev.parent = self
                                         self._children_name_map["ssd_rev"] = "ssd-rev"
                                         self._children_yang_names.add("ssd-rev")
                                         self._segment_path = lambda: "hardware-revision"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
                                     class HwRev(Entity):
@@ -1040,22 +1067,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "hw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class FwRev(Entity):
@@ -1084,22 +1114,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "fw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class SwRev(Entity):
@@ -1128,22 +1161,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "sw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class DimmRev(Entity):
@@ -1184,26 +1220,29 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.size = YLeaf(YType.uint32, "size")
-
-                                            self.speed = YLeaf(YType.uint32, "speed")
-
-                                            self.locator = YLeaf(YType.str, "locator")
-
-                                            self.cas = YLeaf(YType.uint32, "cas")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('size', YLeaf(YType.uint32, 'size')),
+                                                ('speed', YLeaf(YType.uint32, 'speed')),
+                                                ('locator', YLeaf(YType.str, 'locator')),
+                                                ('cas', YLeaf(YType.uint32, 'cas')),
+                                            ])
+                                            self.size = None
+                                            self.speed = None
+                                            self.locator = None
+                                            self.cas = None
                                             self._segment_path = lambda: "dimm-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
 
                                     class SsdRev(Entity):
@@ -1233,24 +1272,27 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.number = YLeaf(YType.str, "number")
-
-                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('number', YLeaf(YType.str, 'number')),
+                                                ('fw_rev', YLeaf(YType.str, 'fw-rev')),
+                                                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ])
+                                            self.number = None
+                                            self.fw_rev = None
+                                            self.serial_number = None
                                             self._segment_path = lambda: "ssd-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
                             class CbcActivePartition(Entity):
@@ -1285,12 +1327,15 @@ class Diag(Entity):
                                     self.yang_parent_name = "node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                    ])
+                                    self.major_revision = None
+                                    self.minor_revision = None
                                     self._segment_path = lambda: "cbc-active-partition"
 
                                 def __setattr__(self, name, value):
@@ -1329,12 +1374,15 @@ class Diag(Entity):
                                     self.yang_parent_name = "node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                    ])
+                                    self.major_revision = None
+                                    self.minor_revision = None
                                     self._segment_path = lambda: "cbc-inactive-partition"
 
                                 def __setattr__(self, name, value):
@@ -1411,24 +1459,27 @@ class Diag(Entity):
                                 self.yang_parent_name = "detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"main" : ("main", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.Main), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision)}
-                                self._child_list_classes = {}
-
-                                self.node = YLeaf(YType.str, "node")
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.pca_unit_number = YLeaf(YType.str, "pca-unit-number")
-
-                                self.pca_revision = YLeaf(YType.str, "pca-revision")
-
-                                self.pid = YLeaf(YType.str, "pid")
-
-                                self.vid = YLeaf(YType.str, "vid")
-
-                                self.clei = YLeaf(YType.str, "clei")
-
-                                self.node_state = YLeaf(YType.enumeration, "node-state")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("main", ("main", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.Main)), ("hardware-revision", ("hardware_revision", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', YLeaf(YType.str, 'node')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('pca_unit_number', YLeaf(YType.str, 'pca-unit-number')),
+                                    ('pca_revision', YLeaf(YType.str, 'pca-revision')),
+                                    ('pid', YLeaf(YType.str, 'pid')),
+                                    ('vid', YLeaf(YType.str, 'vid')),
+                                    ('clei', YLeaf(YType.str, 'clei')),
+                                    ('node_state', YLeaf(YType.enumeration, 'node-state')),
+                                ])
+                                self.node = None
+                                self.name = None
+                                self.pca_unit_number = None
+                                self.pca_revision = None
+                                self.pid = None
+                                self.vid = None
+                                self.clei = None
+                                self.node_state = None
 
                                 self.main = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.Main()
                                 self.main.parent = self
@@ -1492,18 +1543,21 @@ class Diag(Entity):
                                     self.yang_parent_name = "spa"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.board_type = YLeaf(YType.uint32, "board-type")
-
-                                    self.tan = YLeaf(YType.str, "tan")
-
-                                    self.tan_revision = YLeaf(YType.str, "tan-revision")
-
-                                    self.deviation_number = YLeaf(YType.uint32, "deviation-number")
-
-                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('board_type', YLeaf(YType.uint32, 'board-type')),
+                                        ('tan', YLeaf(YType.str, 'tan')),
+                                        ('tan_revision', YLeaf(YType.str, 'tan-revision')),
+                                        ('deviation_number', YLeaf(YType.uint32, 'deviation-number')),
+                                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                    ])
+                                    self.board_type = None
+                                    self.tan = None
+                                    self.tan_revision = None
+                                    self.deviation_number = None
+                                    self.serial_number = None
                                     self._segment_path = lambda: "main"
 
                                 def __setattr__(self, name, value):
@@ -1517,7 +1571,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_>`
                                 
                                 
 
@@ -1533,8 +1587,10 @@ class Diag(Entity):
                                     self.yang_parent_name = "spa"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("hardware-revision", ("hardware_revision", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_))])
+                                    self._leafs = OrderedDict()
 
                                     self.hardware_revision = YList(self)
                                     self._segment_path = lambda: "hardware-revision"
@@ -1543,34 +1599,34 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision(Entity):
+                                class HardwareRevision_(Entity):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
@@ -1590,47 +1646,50 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision, self).__init__()
+                                        super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("hw-rev", ("hw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev)), ("fw-rev", ("fw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev)), ("sw-rev", ("sw_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev)), ("dimm-rev", ("dimm_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev)), ("ssd-rev", ("ssd_rev", Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_description', YLeaf(YType.str, 'node-description')),
+                                            ('version', YLeaf(YType.str, 'version')),
+                                        ])
+                                        self.node_description = None
+                                        self.version = None
 
-                                        self.node_description = YLeaf(YType.str, "node-description")
-
-                                        self.version = YLeaf(YType.str, "version")
-
-                                        self.hw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.HwRev()
+                                        self.hw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev()
                                         self.hw_rev.parent = self
                                         self._children_name_map["hw_rev"] = "hw-rev"
                                         self._children_yang_names.add("hw-rev")
 
-                                        self.fw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.FwRev()
+                                        self.fw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev()
                                         self.fw_rev.parent = self
                                         self._children_name_map["fw_rev"] = "fw-rev"
                                         self._children_yang_names.add("fw-rev")
 
-                                        self.sw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SwRev()
+                                        self.sw_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev()
                                         self.sw_rev.parent = self
                                         self._children_name_map["sw_rev"] = "sw-rev"
                                         self._children_yang_names.add("sw-rev")
 
-                                        self.dimm_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev()
+                                        self.dimm_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev()
                                         self.dimm_rev.parent = self
                                         self._children_name_map["dimm_rev"] = "dimm-rev"
                                         self._children_yang_names.add("dimm-rev")
 
-                                        self.ssd_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev()
+                                        self.ssd_rev = Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev()
                                         self.ssd_rev.parent = self
                                         self._children_name_map["ssd_rev"] = "ssd-rev"
                                         self._children_yang_names.add("ssd-rev")
                                         self._segment_path = lambda: "hardware-revision"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
                                     class HwRev(Entity):
@@ -1659,22 +1718,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "hw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class FwRev(Entity):
@@ -1703,22 +1765,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "fw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class SwRev(Entity):
@@ -1747,22 +1812,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "sw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class DimmRev(Entity):
@@ -1803,26 +1871,29 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.size = YLeaf(YType.uint32, "size")
-
-                                            self.speed = YLeaf(YType.uint32, "speed")
-
-                                            self.locator = YLeaf(YType.str, "locator")
-
-                                            self.cas = YLeaf(YType.uint32, "cas")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('size', YLeaf(YType.uint32, 'size')),
+                                                ('speed', YLeaf(YType.uint32, 'speed')),
+                                                ('locator', YLeaf(YType.str, 'locator')),
+                                                ('cas', YLeaf(YType.uint32, 'cas')),
+                                            ])
+                                            self.size = None
+                                            self.speed = None
+                                            self.locator = None
+                                            self.cas = None
                                             self._segment_path = lambda: "dimm-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
 
                                     class SsdRev(Entity):
@@ -1852,24 +1923,27 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                            super(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.number = YLeaf(YType.str, "number")
-
-                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('number', YLeaf(YType.str, 'number')),
+                                                ('fw_rev', YLeaf(YType.str, 'fw-rev')),
+                                                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ])
+                                            self.number = None
+                                            self.fw_rev = None
+                                            self.serial_number = None
                                             self._segment_path = lambda: "ssd-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
             class PowerSupplies(Entity):
@@ -1895,8 +1969,10 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"power-supply" : ("power_supply", Diag.Racks.Rack.PowerSupplies.PowerSupply)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("power-supply", ("power_supply", Diag.Racks.Rack.PowerSupplies.PowerSupply))])
+                    self._leafs = OrderedDict()
 
                     self.power_supply = YList(self)
                     self._segment_path = lambda: "power-supplies"
@@ -1909,7 +1985,7 @@ class Diag(Entity):
                     """
                     Power supply operational data
                     
-                    .. attribute:: power_supply_name  <key>
+                    .. attribute:: power_supply_name  (key)
                     
                     	Power supply name
                     	**type**\: str
@@ -1935,16 +2011,19 @@ class Diag(Entity):
                         self.yang_parent_name = "power-supplies"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"detail" : ("detail", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail)}
-                        self._child_list_classes = {}
-
-                        self.power_supply_name = YLeaf(YType.str, "power-supply-name")
+                        self.ylist_key_names = ['power_supply_name']
+                        self._child_container_classes = OrderedDict([("detail", ("detail", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('power_supply_name', YLeaf(YType.str, 'power-supply-name')),
+                        ])
+                        self.power_supply_name = None
 
                         self.detail = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail()
                         self.detail.parent = self
                         self._children_name_map["detail"] = "detail"
                         self._children_yang_names.add("detail")
-                        self._segment_path = lambda: "power-supply" + "[power-supply-name='" + self.power_supply_name.get() + "']"
+                        self._segment_path = lambda: "power-supply" + "[power-supply-name='" + str(self.power_supply_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply, ['power_supply_name'], name, value)
@@ -1978,8 +2057,10 @@ class Diag(Entity):
                             self.yang_parent_name = "power-supply"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"node" : ("node", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node), "spa" : ("spa", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("node", ("node", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node)), ("spa", ("spa", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.node = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node()
                             self.node.parent = self
@@ -2103,36 +2184,39 @@ class Diag(Entity):
                                 self.yang_parent_name = "detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pld" : ("pld", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision), "cbc-active-partition" : ("cbc_active_partition", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcActivePartition), "cbc-inactive-partition" : ("cbc_inactive_partition", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcInactivePartition)}
-                                self._child_list_classes = {}
-
-                                self.description = YLeaf(YType.str, "description")
-
-                                self.serial_number = YLeaf(YType.str, "serial-number")
-
-                                self.tan = YLeaf(YType.str, "tan")
-
-                                self.pid = YLeaf(YType.str, "pid")
-
-                                self.vid = YLeaf(YType.str, "vid")
-
-                                self.chip_hardware_revision = YLeaf(YType.str, "chip-hardware-revision")
-
-                                self.new_deviation_number = YLeaf(YType.uint32, "new-deviation-number")
-
-                                self.clei = YLeaf(YType.str, "clei")
-
-                                self.board_state = YLeaf(YType.enumeration, "board-state")
-
-                                self.pld_motherboard = YLeaf(YType.str, "pld-motherboard")
-
-                                self.pld_power = YLeaf(YType.str, "pld-power")
-
-                                self.monlib = YLeaf(YType.str, "monlib")
-
-                                self.rommon = YLeaf(YType.str, "rommon")
-
-                                self.cpu0 = YLeaf(YType.enumeration, "cpu0")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pld", ("pld", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld)), ("hardware-revision", ("hardware_revision", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision)), ("cbc-active-partition", ("cbc_active_partition", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcActivePartition)), ("cbc-inactive-partition", ("cbc_inactive_partition", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.CbcInactivePartition))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('description', YLeaf(YType.str, 'description')),
+                                    ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                    ('tan', YLeaf(YType.str, 'tan')),
+                                    ('pid', YLeaf(YType.str, 'pid')),
+                                    ('vid', YLeaf(YType.str, 'vid')),
+                                    ('chip_hardware_revision', YLeaf(YType.str, 'chip-hardware-revision')),
+                                    ('new_deviation_number', YLeaf(YType.uint32, 'new-deviation-number')),
+                                    ('clei', YLeaf(YType.str, 'clei')),
+                                    ('board_state', YLeaf(YType.enumeration, 'board-state')),
+                                    ('pld_motherboard', YLeaf(YType.str, 'pld-motherboard')),
+                                    ('pld_power', YLeaf(YType.str, 'pld-power')),
+                                    ('monlib', YLeaf(YType.str, 'monlib')),
+                                    ('rommon', YLeaf(YType.str, 'rommon')),
+                                    ('cpu0', YLeaf(YType.enumeration, 'cpu0')),
+                                ])
+                                self.description = None
+                                self.serial_number = None
+                                self.tan = None
+                                self.pid = None
+                                self.vid = None
+                                self.chip_hardware_revision = None
+                                self.new_deviation_number = None
+                                self.clei = None
+                                self.board_state = None
+                                self.pld_motherboard = None
+                                self.pld_power = None
+                                self.monlib = None
+                                self.rommon = None
+                                self.cpu0 = None
 
                                 self.pld = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.Pld()
                                 self.pld.parent = self
@@ -2198,14 +2282,17 @@ class Diag(Entity):
                                     self.yang_parent_name = "node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.uint32, "type")
-
-                                    self.processor_higher_version = YLeaf(YType.uint32, "processor-higher-version")
-
-                                    self.processor_lower_version = YLeaf(YType.uint32, "processor-lower-version")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.uint32, 'type')),
+                                        ('processor_higher_version', YLeaf(YType.uint32, 'processor-higher-version')),
+                                        ('processor_lower_version', YLeaf(YType.uint32, 'processor-lower-version')),
+                                    ])
+                                    self.type = None
+                                    self.processor_higher_version = None
+                                    self.processor_lower_version = None
                                     self._segment_path = lambda: "pld"
 
                                 def __setattr__(self, name, value):
@@ -2219,7 +2306,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_>`
                                 
                                 
 
@@ -2235,8 +2322,10 @@ class Diag(Entity):
                                     self.yang_parent_name = "node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("hardware-revision", ("hardware_revision", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_))])
+                                    self._leafs = OrderedDict()
 
                                     self.hardware_revision = YList(self)
                                     self._segment_path = lambda: "hardware-revision"
@@ -2245,34 +2334,34 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision(Entity):
+                                class HardwareRevision_(Entity):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
@@ -2292,47 +2381,50 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision, self).__init__()
+                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SsdRev)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("hw-rev", ("hw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev)), ("fw-rev", ("fw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev)), ("sw-rev", ("sw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev)), ("dimm-rev", ("dimm_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev)), ("ssd-rev", ("ssd_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_description', YLeaf(YType.str, 'node-description')),
+                                            ('version', YLeaf(YType.str, 'version')),
+                                        ])
+                                        self.node_description = None
+                                        self.version = None
 
-                                        self.node_description = YLeaf(YType.str, "node-description")
-
-                                        self.version = YLeaf(YType.str, "version")
-
-                                        self.hw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.HwRev()
+                                        self.hw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev()
                                         self.hw_rev.parent = self
                                         self._children_name_map["hw_rev"] = "hw-rev"
                                         self._children_yang_names.add("hw-rev")
 
-                                        self.fw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.FwRev()
+                                        self.fw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev()
                                         self.fw_rev.parent = self
                                         self._children_name_map["fw_rev"] = "fw-rev"
                                         self._children_yang_names.add("fw-rev")
 
-                                        self.sw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SwRev()
+                                        self.sw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev()
                                         self.sw_rev.parent = self
                                         self._children_name_map["sw_rev"] = "sw-rev"
                                         self._children_yang_names.add("sw-rev")
 
-                                        self.dimm_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.DimmRev()
+                                        self.dimm_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev()
                                         self.dimm_rev.parent = self
                                         self._children_name_map["dimm_rev"] = "dimm-rev"
                                         self._children_yang_names.add("dimm-rev")
 
-                                        self.ssd_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SsdRev()
+                                        self.ssd_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev()
                                         self.ssd_rev.parent = self
                                         self._children_name_map["ssd_rev"] = "ssd-rev"
                                         self._children_yang_names.add("ssd-rev")
                                         self._segment_path = lambda: "hardware-revision"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
                                     class HwRev(Entity):
@@ -2361,22 +2453,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "hw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class FwRev(Entity):
@@ -2405,22 +2500,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "fw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class SwRev(Entity):
@@ -2449,22 +2547,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "sw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class DimmRev(Entity):
@@ -2505,26 +2606,29 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.size = YLeaf(YType.uint32, "size")
-
-                                            self.speed = YLeaf(YType.uint32, "speed")
-
-                                            self.locator = YLeaf(YType.str, "locator")
-
-                                            self.cas = YLeaf(YType.uint32, "cas")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('size', YLeaf(YType.uint32, 'size')),
+                                                ('speed', YLeaf(YType.uint32, 'speed')),
+                                                ('locator', YLeaf(YType.str, 'locator')),
+                                                ('cas', YLeaf(YType.uint32, 'cas')),
+                                            ])
+                                            self.size = None
+                                            self.speed = None
+                                            self.locator = None
+                                            self.cas = None
                                             self._segment_path = lambda: "dimm-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
 
                                     class SsdRev(Entity):
@@ -2554,24 +2658,27 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.number = YLeaf(YType.str, "number")
-
-                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('number', YLeaf(YType.str, 'number')),
+                                                ('fw_rev', YLeaf(YType.str, 'fw-rev')),
+                                                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ])
+                                            self.number = None
+                                            self.fw_rev = None
+                                            self.serial_number = None
                                             self._segment_path = lambda: "ssd-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
                             class CbcActivePartition(Entity):
@@ -2606,12 +2713,15 @@ class Diag(Entity):
                                     self.yang_parent_name = "node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                    ])
+                                    self.major_revision = None
+                                    self.minor_revision = None
                                     self._segment_path = lambda: "cbc-active-partition"
 
                                 def __setattr__(self, name, value):
@@ -2650,12 +2760,15 @@ class Diag(Entity):
                                     self.yang_parent_name = "node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                    ])
+                                    self.major_revision = None
+                                    self.minor_revision = None
                                     self._segment_path = lambda: "cbc-inactive-partition"
 
                                 def __setattr__(self, name, value):
@@ -2732,24 +2845,27 @@ class Diag(Entity):
                                 self.yang_parent_name = "detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"main" : ("main", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision)}
-                                self._child_list_classes = {}
-
-                                self.node = YLeaf(YType.str, "node")
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.pca_unit_number = YLeaf(YType.str, "pca-unit-number")
-
-                                self.pca_revision = YLeaf(YType.str, "pca-revision")
-
-                                self.pid = YLeaf(YType.str, "pid")
-
-                                self.vid = YLeaf(YType.str, "vid")
-
-                                self.clei = YLeaf(YType.str, "clei")
-
-                                self.node_state = YLeaf(YType.enumeration, "node-state")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("main", ("main", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main)), ("hardware-revision", ("hardware_revision", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', YLeaf(YType.str, 'node')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('pca_unit_number', YLeaf(YType.str, 'pca-unit-number')),
+                                    ('pca_revision', YLeaf(YType.str, 'pca-revision')),
+                                    ('pid', YLeaf(YType.str, 'pid')),
+                                    ('vid', YLeaf(YType.str, 'vid')),
+                                    ('clei', YLeaf(YType.str, 'clei')),
+                                    ('node_state', YLeaf(YType.enumeration, 'node-state')),
+                                ])
+                                self.node = None
+                                self.name = None
+                                self.pca_unit_number = None
+                                self.pca_revision = None
+                                self.pid = None
+                                self.vid = None
+                                self.clei = None
+                                self.node_state = None
 
                                 self.main = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.Main()
                                 self.main.parent = self
@@ -2813,18 +2929,21 @@ class Diag(Entity):
                                     self.yang_parent_name = "spa"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.board_type = YLeaf(YType.uint32, "board-type")
-
-                                    self.tan = YLeaf(YType.str, "tan")
-
-                                    self.tan_revision = YLeaf(YType.str, "tan-revision")
-
-                                    self.deviation_number = YLeaf(YType.uint32, "deviation-number")
-
-                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('board_type', YLeaf(YType.uint32, 'board-type')),
+                                        ('tan', YLeaf(YType.str, 'tan')),
+                                        ('tan_revision', YLeaf(YType.str, 'tan-revision')),
+                                        ('deviation_number', YLeaf(YType.uint32, 'deviation-number')),
+                                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                    ])
+                                    self.board_type = None
+                                    self.tan = None
+                                    self.tan_revision = None
+                                    self.deviation_number = None
+                                    self.serial_number = None
                                     self._segment_path = lambda: "main"
 
                                 def __setattr__(self, name, value):
@@ -2838,7 +2957,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_>`
                                 
                                 
 
@@ -2854,8 +2973,10 @@ class Diag(Entity):
                                     self.yang_parent_name = "spa"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("hardware-revision", ("hardware_revision", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_))])
+                                    self._leafs = OrderedDict()
 
                                     self.hardware_revision = YList(self)
                                     self._segment_path = lambda: "hardware-revision"
@@ -2864,34 +2985,34 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision(Entity):
+                                class HardwareRevision_(Entity):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
@@ -2911,47 +3032,50 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision, self).__init__()
+                                        super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("hw-rev", ("hw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev)), ("fw-rev", ("fw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev)), ("sw-rev", ("sw_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev)), ("dimm-rev", ("dimm_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev)), ("ssd-rev", ("ssd_rev", Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_description', YLeaf(YType.str, 'node-description')),
+                                            ('version', YLeaf(YType.str, 'version')),
+                                        ])
+                                        self.node_description = None
+                                        self.version = None
 
-                                        self.node_description = YLeaf(YType.str, "node-description")
-
-                                        self.version = YLeaf(YType.str, "version")
-
-                                        self.hw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.HwRev()
+                                        self.hw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev()
                                         self.hw_rev.parent = self
                                         self._children_name_map["hw_rev"] = "hw-rev"
                                         self._children_yang_names.add("hw-rev")
 
-                                        self.fw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.FwRev()
+                                        self.fw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev()
                                         self.fw_rev.parent = self
                                         self._children_name_map["fw_rev"] = "fw-rev"
                                         self._children_yang_names.add("fw-rev")
 
-                                        self.sw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SwRev()
+                                        self.sw_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev()
                                         self.sw_rev.parent = self
                                         self._children_name_map["sw_rev"] = "sw-rev"
                                         self._children_yang_names.add("sw-rev")
 
-                                        self.dimm_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev()
+                                        self.dimm_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev()
                                         self.dimm_rev.parent = self
                                         self._children_name_map["dimm_rev"] = "dimm-rev"
                                         self._children_yang_names.add("dimm-rev")
 
-                                        self.ssd_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev()
+                                        self.ssd_rev = Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev()
                                         self.ssd_rev.parent = self
                                         self._children_name_map["ssd_rev"] = "ssd-rev"
                                         self._children_yang_names.add("ssd-rev")
                                         self._segment_path = lambda: "hardware-revision"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
                                     class HwRev(Entity):
@@ -2980,22 +3104,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "hw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class FwRev(Entity):
@@ -3024,22 +3151,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "fw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class SwRev(Entity):
@@ -3068,22 +3198,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "sw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class DimmRev(Entity):
@@ -3124,26 +3257,29 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.size = YLeaf(YType.uint32, "size")
-
-                                            self.speed = YLeaf(YType.uint32, "speed")
-
-                                            self.locator = YLeaf(YType.str, "locator")
-
-                                            self.cas = YLeaf(YType.uint32, "cas")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('size', YLeaf(YType.uint32, 'size')),
+                                                ('speed', YLeaf(YType.uint32, 'speed')),
+                                                ('locator', YLeaf(YType.str, 'locator')),
+                                                ('cas', YLeaf(YType.uint32, 'cas')),
+                                            ])
+                                            self.size = None
+                                            self.speed = None
+                                            self.locator = None
+                                            self.cas = None
                                             self._segment_path = lambda: "dimm-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
 
                                     class SsdRev(Entity):
@@ -3173,24 +3309,27 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                            super(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.number = YLeaf(YType.str, "number")
-
-                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('number', YLeaf(YType.str, 'number')),
+                                                ('fw_rev', YLeaf(YType.str, 'fw-rev')),
+                                                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ])
+                                            self.number = None
+                                            self.fw_rev = None
+                                            self.serial_number = None
                                             self._segment_path = lambda: "ssd-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.PowerSupplies.PowerSupply.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
             class Slots(Entity):
@@ -3216,8 +3355,10 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"slot" : ("slot", Diag.Racks.Rack.Slots.Slot)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("slot", ("slot", Diag.Racks.Rack.Slots.Slot))])
+                    self._leafs = OrderedDict()
 
                     self.slot = YList(self)
                     self._segment_path = lambda: "slots"
@@ -3230,7 +3371,7 @@ class Diag(Entity):
                     """
                     Diag operational data for a particular slot
                     
-                    .. attribute:: slot_name  <key>
+                    .. attribute:: slot_name  (key)
                     
                     	Slot name
                     	**type**\: str
@@ -3261,10 +3402,13 @@ class Diag(Entity):
                         self.yang_parent_name = "slots"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"detail" : ("detail", Diag.Racks.Rack.Slots.Slot.Detail), "instances" : ("instances", Diag.Racks.Rack.Slots.Slot.Instances)}
-                        self._child_list_classes = {}
-
-                        self.slot_name = YLeaf(YType.str, "slot-name")
+                        self.ylist_key_names = ['slot_name']
+                        self._child_container_classes = OrderedDict([("detail", ("detail", Diag.Racks.Rack.Slots.Slot.Detail)), ("instances", ("instances", Diag.Racks.Rack.Slots.Slot.Instances))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('slot_name', YLeaf(YType.str, 'slot-name')),
+                        ])
+                        self.slot_name = None
 
                         self.detail = Diag.Racks.Rack.Slots.Slot.Detail()
                         self.detail.parent = self
@@ -3275,7 +3419,7 @@ class Diag(Entity):
                         self.instances.parent = self
                         self._children_name_map["instances"] = "instances"
                         self._children_yang_names.add("instances")
-                        self._segment_path = lambda: "slot" + "[slot-name='" + self.slot_name.get() + "']"
+                        self._segment_path = lambda: "slot" + "[slot-name='" + str(self.slot_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot, ['slot_name'], name, value)
@@ -3309,8 +3453,10 @@ class Diag(Entity):
                             self.yang_parent_name = "slot"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"node-detail" : ("node_detail", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail), "spa-detail" : ("spa_detail", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("node-detail", ("node_detail", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail)), ("spa-detail", ("spa_detail", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail))])
+                            self._leafs = OrderedDict()
 
                             self.node_detail = YList(self)
                             self.spa_detail = YList(self)
@@ -3430,36 +3576,39 @@ class Diag(Entity):
                                 self.yang_parent_name = "detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pld" : ("pld", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision), "cbc-active-partition" : ("cbc_active_partition", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition), "cbc-inactive-partition" : ("cbc_inactive_partition", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition)}
-                                self._child_list_classes = {}
-
-                                self.description = YLeaf(YType.str, "description")
-
-                                self.serial_number = YLeaf(YType.str, "serial-number")
-
-                                self.tan = YLeaf(YType.str, "tan")
-
-                                self.pid = YLeaf(YType.str, "pid")
-
-                                self.vid = YLeaf(YType.str, "vid")
-
-                                self.chip_hardware_revision = YLeaf(YType.str, "chip-hardware-revision")
-
-                                self.new_deviation_number = YLeaf(YType.uint32, "new-deviation-number")
-
-                                self.clei = YLeaf(YType.str, "clei")
-
-                                self.board_state = YLeaf(YType.enumeration, "board-state")
-
-                                self.pld_motherboard = YLeaf(YType.str, "pld-motherboard")
-
-                                self.pld_power = YLeaf(YType.str, "pld-power")
-
-                                self.monlib = YLeaf(YType.str, "monlib")
-
-                                self.rommon = YLeaf(YType.str, "rommon")
-
-                                self.cpu0 = YLeaf(YType.enumeration, "cpu0")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pld", ("pld", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld)), ("hardware-revision", ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision)), ("cbc-active-partition", ("cbc_active_partition", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcActivePartition)), ("cbc-inactive-partition", ("cbc_inactive_partition", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.CbcInactivePartition))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('description', YLeaf(YType.str, 'description')),
+                                    ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                    ('tan', YLeaf(YType.str, 'tan')),
+                                    ('pid', YLeaf(YType.str, 'pid')),
+                                    ('vid', YLeaf(YType.str, 'vid')),
+                                    ('chip_hardware_revision', YLeaf(YType.str, 'chip-hardware-revision')),
+                                    ('new_deviation_number', YLeaf(YType.uint32, 'new-deviation-number')),
+                                    ('clei', YLeaf(YType.str, 'clei')),
+                                    ('board_state', YLeaf(YType.enumeration, 'board-state')),
+                                    ('pld_motherboard', YLeaf(YType.str, 'pld-motherboard')),
+                                    ('pld_power', YLeaf(YType.str, 'pld-power')),
+                                    ('monlib', YLeaf(YType.str, 'monlib')),
+                                    ('rommon', YLeaf(YType.str, 'rommon')),
+                                    ('cpu0', YLeaf(YType.enumeration, 'cpu0')),
+                                ])
+                                self.description = None
+                                self.serial_number = None
+                                self.tan = None
+                                self.pid = None
+                                self.vid = None
+                                self.chip_hardware_revision = None
+                                self.new_deviation_number = None
+                                self.clei = None
+                                self.board_state = None
+                                self.pld_motherboard = None
+                                self.pld_power = None
+                                self.monlib = None
+                                self.rommon = None
+                                self.cpu0 = None
 
                                 self.pld = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.Pld()
                                 self.pld.parent = self
@@ -3525,14 +3674,17 @@ class Diag(Entity):
                                     self.yang_parent_name = "node-detail"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.uint32, "type")
-
-                                    self.processor_higher_version = YLeaf(YType.uint32, "processor-higher-version")
-
-                                    self.processor_lower_version = YLeaf(YType.uint32, "processor-lower-version")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.uint32, 'type')),
+                                        ('processor_higher_version', YLeaf(YType.uint32, 'processor-higher-version')),
+                                        ('processor_lower_version', YLeaf(YType.uint32, 'processor-lower-version')),
+                                    ])
+                                    self.type = None
+                                    self.processor_higher_version = None
+                                    self.processor_lower_version = None
                                     self._segment_path = lambda: "pld"
 
                                 def __setattr__(self, name, value):
@@ -3546,7 +3698,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_>`
                                 
                                 
 
@@ -3562,8 +3714,10 @@ class Diag(Entity):
                                     self.yang_parent_name = "node-detail"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("hardware-revision", ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_))])
+                                    self._leafs = OrderedDict()
 
                                     self.hardware_revision = YList(self)
                                     self._segment_path = lambda: "hardware-revision"
@@ -3572,34 +3726,34 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision(Entity):
+                                class HardwareRevision_(Entity):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
@@ -3619,47 +3773,50 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision, self).__init__()
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("hw-rev", ("hw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev)), ("fw-rev", ("fw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev)), ("sw-rev", ("sw_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev)), ("dimm-rev", ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev)), ("ssd-rev", ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_description', YLeaf(YType.str, 'node-description')),
+                                            ('version', YLeaf(YType.str, 'version')),
+                                        ])
+                                        self.node_description = None
+                                        self.version = None
 
-                                        self.node_description = YLeaf(YType.str, "node-description")
-
-                                        self.version = YLeaf(YType.str, "version")
-
-                                        self.hw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev()
+                                        self.hw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev()
                                         self.hw_rev.parent = self
                                         self._children_name_map["hw_rev"] = "hw-rev"
                                         self._children_yang_names.add("hw-rev")
 
-                                        self.fw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev()
+                                        self.fw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev()
                                         self.fw_rev.parent = self
                                         self._children_name_map["fw_rev"] = "fw-rev"
                                         self._children_yang_names.add("fw-rev")
 
-                                        self.sw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev()
+                                        self.sw_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev()
                                         self.sw_rev.parent = self
                                         self._children_name_map["sw_rev"] = "sw-rev"
                                         self._children_yang_names.add("sw-rev")
 
-                                        self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev()
+                                        self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev()
                                         self.dimm_rev.parent = self
                                         self._children_name_map["dimm_rev"] = "dimm-rev"
                                         self._children_yang_names.add("dimm-rev")
 
-                                        self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev()
+                                        self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev()
                                         self.ssd_rev.parent = self
                                         self._children_name_map["ssd_rev"] = "ssd-rev"
                                         self._children_yang_names.add("ssd-rev")
                                         self._segment_path = lambda: "hardware-revision"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
                                     class HwRev(Entity):
@@ -3688,22 +3845,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "hw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class FwRev(Entity):
@@ -3732,22 +3892,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "fw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class SwRev(Entity):
@@ -3776,22 +3939,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "sw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class DimmRev(Entity):
@@ -3832,26 +3998,29 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.size = YLeaf(YType.uint32, "size")
-
-                                            self.speed = YLeaf(YType.uint32, "speed")
-
-                                            self.locator = YLeaf(YType.str, "locator")
-
-                                            self.cas = YLeaf(YType.uint32, "cas")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('size', YLeaf(YType.uint32, 'size')),
+                                                ('speed', YLeaf(YType.uint32, 'speed')),
+                                                ('locator', YLeaf(YType.str, 'locator')),
+                                                ('cas', YLeaf(YType.uint32, 'cas')),
+                                            ])
+                                            self.size = None
+                                            self.speed = None
+                                            self.locator = None
+                                            self.cas = None
                                             self._segment_path = lambda: "dimm-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
 
                                     class SsdRev(Entity):
@@ -3881,24 +4050,27 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.number = YLeaf(YType.str, "number")
-
-                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('number', YLeaf(YType.str, 'number')),
+                                                ('fw_rev', YLeaf(YType.str, 'fw-rev')),
+                                                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ])
+                                            self.number = None
+                                            self.fw_rev = None
+                                            self.serial_number = None
                                             self._segment_path = lambda: "ssd-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.NodeDetail.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
                             class CbcActivePartition(Entity):
@@ -3933,12 +4105,15 @@ class Diag(Entity):
                                     self.yang_parent_name = "node-detail"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                    ])
+                                    self.major_revision = None
+                                    self.minor_revision = None
                                     self._segment_path = lambda: "cbc-active-partition"
 
                                 def __setattr__(self, name, value):
@@ -3977,12 +4152,15 @@ class Diag(Entity):
                                     self.yang_parent_name = "node-detail"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                    ])
+                                    self.major_revision = None
+                                    self.minor_revision = None
                                     self._segment_path = lambda: "cbc-inactive-partition"
 
                                 def __setattr__(self, name, value):
@@ -4059,24 +4237,27 @@ class Diag(Entity):
                                 self.yang_parent_name = "detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"main" : ("main", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision)}
-                                self._child_list_classes = {}
-
-                                self.node = YLeaf(YType.str, "node")
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.pca_unit_number = YLeaf(YType.str, "pca-unit-number")
-
-                                self.pca_revision = YLeaf(YType.str, "pca-revision")
-
-                                self.pid = YLeaf(YType.str, "pid")
-
-                                self.vid = YLeaf(YType.str, "vid")
-
-                                self.clei = YLeaf(YType.str, "clei")
-
-                                self.node_state = YLeaf(YType.enumeration, "node-state")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("main", ("main", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main)), ("hardware-revision", ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('node', YLeaf(YType.str, 'node')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('pca_unit_number', YLeaf(YType.str, 'pca-unit-number')),
+                                    ('pca_revision', YLeaf(YType.str, 'pca-revision')),
+                                    ('pid', YLeaf(YType.str, 'pid')),
+                                    ('vid', YLeaf(YType.str, 'vid')),
+                                    ('clei', YLeaf(YType.str, 'clei')),
+                                    ('node_state', YLeaf(YType.enumeration, 'node-state')),
+                                ])
+                                self.node = None
+                                self.name = None
+                                self.pca_unit_number = None
+                                self.pca_revision = None
+                                self.pid = None
+                                self.vid = None
+                                self.clei = None
+                                self.node_state = None
 
                                 self.main = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.Main()
                                 self.main.parent = self
@@ -4140,18 +4321,21 @@ class Diag(Entity):
                                     self.yang_parent_name = "spa-detail"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.board_type = YLeaf(YType.uint32, "board-type")
-
-                                    self.tan = YLeaf(YType.str, "tan")
-
-                                    self.tan_revision = YLeaf(YType.str, "tan-revision")
-
-                                    self.deviation_number = YLeaf(YType.uint32, "deviation-number")
-
-                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('board_type', YLeaf(YType.uint32, 'board-type')),
+                                        ('tan', YLeaf(YType.str, 'tan')),
+                                        ('tan_revision', YLeaf(YType.str, 'tan-revision')),
+                                        ('deviation_number', YLeaf(YType.uint32, 'deviation-number')),
+                                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                    ])
+                                    self.board_type = None
+                                    self.tan = None
+                                    self.tan_revision = None
+                                    self.deviation_number = None
+                                    self.serial_number = None
                                     self._segment_path = lambda: "main"
 
                                 def __setattr__(self, name, value):
@@ -4165,7 +4349,7 @@ class Diag(Entity):
                                 .. attribute:: hardware_revision
                                 
                                 	Board FPGA/CPLD/ASIC hardware revision
-                                	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision>`
+                                	**type**\: list of  		 :py:class:`HardwareRevision_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_>`
                                 
                                 
 
@@ -4181,8 +4365,10 @@ class Diag(Entity):
                                     self.yang_parent_name = "spa-detail"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("hardware-revision", ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_))])
+                                    self._leafs = OrderedDict()
 
                                     self.hardware_revision = YList(self)
                                     self._segment_path = lambda: "hardware-revision"
@@ -4191,34 +4377,34 @@ class Diag(Entity):
                                     self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision, [], name, value)
 
 
-                                class HardwareRevision(Entity):
+                                class HardwareRevision_(Entity):
                                     """
                                     Board FPGA/CPLD/ASIC hardware revision
                                     
                                     .. attribute:: hw_rev
                                     
                                     	Hardware version
-                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev>`
+                                    	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev>`
                                     
                                     .. attribute:: fw_rev
                                     
                                     	Firmware version
-                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev>`
+                                    	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev>`
                                     
                                     .. attribute:: sw_rev
                                     
                                     	Software version
-                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev>`
+                                    	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev>`
                                     
                                     .. attribute:: dimm_rev
                                     
                                     	DIMM version information
-                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev>`
+                                    	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev>`
                                     
                                     .. attribute:: ssd_rev
                                     
                                     	SSD version information
-                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev>`
+                                    	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev>`
                                     
                                     .. attribute:: node_description
                                     
@@ -4238,47 +4424,50 @@ class Diag(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision, self).__init__()
+                                        super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_, self).__init__()
 
                                         self.yang_name = "hardware-revision"
                                         self.yang_parent_name = "hardware-revision"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("hw-rev", ("hw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev)), ("fw-rev", ("fw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev)), ("sw-rev", ("sw_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev)), ("dimm-rev", ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev)), ("ssd-rev", ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_description', YLeaf(YType.str, 'node-description')),
+                                            ('version', YLeaf(YType.str, 'version')),
+                                        ])
+                                        self.node_description = None
+                                        self.version = None
 
-                                        self.node_description = YLeaf(YType.str, "node-description")
-
-                                        self.version = YLeaf(YType.str, "version")
-
-                                        self.hw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev()
+                                        self.hw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev()
                                         self.hw_rev.parent = self
                                         self._children_name_map["hw_rev"] = "hw-rev"
                                         self._children_yang_names.add("hw-rev")
 
-                                        self.fw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev()
+                                        self.fw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev()
                                         self.fw_rev.parent = self
                                         self._children_name_map["fw_rev"] = "fw-rev"
                                         self._children_yang_names.add("fw-rev")
 
-                                        self.sw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev()
+                                        self.sw_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev()
                                         self.sw_rev.parent = self
                                         self._children_name_map["sw_rev"] = "sw-rev"
                                         self._children_yang_names.add("sw-rev")
 
-                                        self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev()
+                                        self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev()
                                         self.dimm_rev.parent = self
                                         self._children_name_map["dimm_rev"] = "dimm-rev"
                                         self._children_yang_names.add("dimm-rev")
 
-                                        self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev()
+                                        self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev()
                                         self.ssd_rev.parent = self
                                         self._children_name_map["ssd_rev"] = "ssd-rev"
                                         self._children_yang_names.add("ssd-rev")
                                         self._segment_path = lambda: "hardware-revision"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
                                     class HwRev(Entity):
@@ -4307,22 +4496,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                             self.yang_name = "hw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "hw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class FwRev(Entity):
@@ -4351,22 +4543,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                             self.yang_name = "fw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "fw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class SwRev(Entity):
@@ -4395,22 +4590,25 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                             self.yang_name = "sw-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "sw-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                     class DimmRev(Entity):
@@ -4451,26 +4649,29 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                             self.yang_name = "dimm-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.size = YLeaf(YType.uint32, "size")
-
-                                            self.speed = YLeaf(YType.uint32, "speed")
-
-                                            self.locator = YLeaf(YType.str, "locator")
-
-                                            self.cas = YLeaf(YType.uint32, "cas")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('size', YLeaf(YType.uint32, 'size')),
+                                                ('speed', YLeaf(YType.uint32, 'speed')),
+                                                ('locator', YLeaf(YType.str, 'locator')),
+                                                ('cas', YLeaf(YType.uint32, 'cas')),
+                                            ])
+                                            self.size = None
+                                            self.speed = None
+                                            self.locator = None
+                                            self.cas = None
                                             self._segment_path = lambda: "dimm-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
 
                                     class SsdRev(Entity):
@@ -4500,24 +4701,27 @@ class Diag(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                            super(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                             self.yang_name = "ssd-rev"
                                             self.yang_parent_name = "hardware-revision"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.number = YLeaf(YType.str, "number")
-
-                                            self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('number', YLeaf(YType.str, 'number')),
+                                                ('fw_rev', YLeaf(YType.str, 'fw-rev')),
+                                                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ])
+                                            self.number = None
+                                            self.fw_rev = None
+                                            self.serial_number = None
                                             self._segment_path = lambda: "ssd-rev"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Detail.SpaDetail.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
                     class Instances(Entity):
@@ -4544,8 +4748,10 @@ class Diag(Entity):
                             self.yang_parent_name = "slot"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"instance" : ("instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("instance", ("instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance))])
+                            self._leafs = OrderedDict()
 
                             self.instance = YList(self)
                             self._segment_path = lambda: "instances"
@@ -4559,7 +4765,7 @@ class Diag(Entity):
                             Diag operational data for a particular
                             instance
                             
-                            .. attribute:: instance_name  <key>
+                            .. attribute:: instance_name  (key)
                             
                             	Instance name
                             	**type**\: str
@@ -4585,16 +4791,19 @@ class Diag(Entity):
                                 self.yang_parent_name = "instances"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"detail" : ("detail", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail)}
-                                self._child_list_classes = {}
-
-                                self.instance_name = YLeaf(YType.str, "instance-name")
+                                self.ylist_key_names = ['instance_name']
+                                self._child_container_classes = OrderedDict([("detail", ("detail", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instance_name', YLeaf(YType.str, 'instance-name')),
+                                ])
+                                self.instance_name = None
 
                                 self.detail = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail()
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
                                 self._children_yang_names.add("detail")
-                                self._segment_path = lambda: "instance" + "[instance-name='" + self.instance_name.get() + "']"
+                                self._segment_path = lambda: "instance" + "[instance-name='" + str(self.instance_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance, ['instance_name'], name, value)
@@ -4628,8 +4837,10 @@ class Diag(Entity):
                                     self.yang_parent_name = "instance"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"node" : ("node", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node), "spa" : ("spa", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("node", ("node", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node)), ("spa", ("spa", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.node = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node()
                                     self.node.parent = self
@@ -4753,36 +4964,39 @@ class Diag(Entity):
                                         self.yang_parent_name = "detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"pld" : ("pld", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision), "cbc-active-partition" : ("cbc_active_partition", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition), "cbc-inactive-partition" : ("cbc_inactive_partition", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition)}
-                                        self._child_list_classes = {}
-
-                                        self.description = YLeaf(YType.str, "description")
-
-                                        self.serial_number = YLeaf(YType.str, "serial-number")
-
-                                        self.tan = YLeaf(YType.str, "tan")
-
-                                        self.pid = YLeaf(YType.str, "pid")
-
-                                        self.vid = YLeaf(YType.str, "vid")
-
-                                        self.chip_hardware_revision = YLeaf(YType.str, "chip-hardware-revision")
-
-                                        self.new_deviation_number = YLeaf(YType.uint32, "new-deviation-number")
-
-                                        self.clei = YLeaf(YType.str, "clei")
-
-                                        self.board_state = YLeaf(YType.enumeration, "board-state")
-
-                                        self.pld_motherboard = YLeaf(YType.str, "pld-motherboard")
-
-                                        self.pld_power = YLeaf(YType.str, "pld-power")
-
-                                        self.monlib = YLeaf(YType.str, "monlib")
-
-                                        self.rommon = YLeaf(YType.str, "rommon")
-
-                                        self.cpu0 = YLeaf(YType.enumeration, "cpu0")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("pld", ("pld", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld)), ("hardware-revision", ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision)), ("cbc-active-partition", ("cbc_active_partition", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcActivePartition)), ("cbc-inactive-partition", ("cbc_inactive_partition", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.CbcInactivePartition))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('description', YLeaf(YType.str, 'description')),
+                                            ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ('tan', YLeaf(YType.str, 'tan')),
+                                            ('pid', YLeaf(YType.str, 'pid')),
+                                            ('vid', YLeaf(YType.str, 'vid')),
+                                            ('chip_hardware_revision', YLeaf(YType.str, 'chip-hardware-revision')),
+                                            ('new_deviation_number', YLeaf(YType.uint32, 'new-deviation-number')),
+                                            ('clei', YLeaf(YType.str, 'clei')),
+                                            ('board_state', YLeaf(YType.enumeration, 'board-state')),
+                                            ('pld_motherboard', YLeaf(YType.str, 'pld-motherboard')),
+                                            ('pld_power', YLeaf(YType.str, 'pld-power')),
+                                            ('monlib', YLeaf(YType.str, 'monlib')),
+                                            ('rommon', YLeaf(YType.str, 'rommon')),
+                                            ('cpu0', YLeaf(YType.enumeration, 'cpu0')),
+                                        ])
+                                        self.description = None
+                                        self.serial_number = None
+                                        self.tan = None
+                                        self.pid = None
+                                        self.vid = None
+                                        self.chip_hardware_revision = None
+                                        self.new_deviation_number = None
+                                        self.clei = None
+                                        self.board_state = None
+                                        self.pld_motherboard = None
+                                        self.pld_power = None
+                                        self.monlib = None
+                                        self.rommon = None
+                                        self.cpu0 = None
 
                                         self.pld = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.Pld()
                                         self.pld.parent = self
@@ -4848,14 +5062,17 @@ class Diag(Entity):
                                             self.yang_parent_name = "node"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.type = YLeaf(YType.uint32, "type")
-
-                                            self.processor_higher_version = YLeaf(YType.uint32, "processor-higher-version")
-
-                                            self.processor_lower_version = YLeaf(YType.uint32, "processor-lower-version")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.uint32, 'type')),
+                                                ('processor_higher_version', YLeaf(YType.uint32, 'processor-higher-version')),
+                                                ('processor_lower_version', YLeaf(YType.uint32, 'processor-lower-version')),
+                                            ])
+                                            self.type = None
+                                            self.processor_higher_version = None
+                                            self.processor_lower_version = None
                                             self._segment_path = lambda: "pld"
 
                                         def __setattr__(self, name, value):
@@ -4869,7 +5086,7 @@ class Diag(Entity):
                                         .. attribute:: hardware_revision
                                         
                                         	Board FPGA/CPLD/ASIC hardware revision
-                                        	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision>`
+                                        	**type**\: list of  		 :py:class:`HardwareRevision_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_>`
                                         
                                         
 
@@ -4885,8 +5102,10 @@ class Diag(Entity):
                                             self.yang_parent_name = "node"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("hardware-revision", ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_))])
+                                            self._leafs = OrderedDict()
 
                                             self.hardware_revision = YList(self)
                                             self._segment_path = lambda: "hardware-revision"
@@ -4895,34 +5114,34 @@ class Diag(Entity):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision, [], name, value)
 
 
-                                        class HardwareRevision(Entity):
+                                        class HardwareRevision_(Entity):
                                             """
                                             Board FPGA/CPLD/ASIC hardware revision
                                             
                                             .. attribute:: hw_rev
                                             
                                             	Hardware version
-                                            	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev>`
+                                            	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev>`
                                             
                                             .. attribute:: fw_rev
                                             
                                             	Firmware version
-                                            	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev>`
+                                            	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev>`
                                             
                                             .. attribute:: sw_rev
                                             
                                             	Software version
-                                            	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev>`
+                                            	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev>`
                                             
                                             .. attribute:: dimm_rev
                                             
                                             	DIMM version information
-                                            	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev>`
+                                            	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev>`
                                             
                                             .. attribute:: ssd_rev
                                             
                                             	SSD version information
-                                            	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev>`
+                                            	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev>`
                                             
                                             .. attribute:: node_description
                                             
@@ -4942,47 +5161,50 @@ class Diag(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision, self).__init__()
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_, self).__init__()
 
                                                 self.yang_name = "hardware-revision"
                                                 self.yang_parent_name = "hardware-revision"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("hw-rev", ("hw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev)), ("fw-rev", ("fw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev)), ("sw-rev", ("sw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev)), ("dimm-rev", ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev)), ("ssd-rev", ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('node_description', YLeaf(YType.str, 'node-description')),
+                                                    ('version', YLeaf(YType.str, 'version')),
+                                                ])
+                                                self.node_description = None
+                                                self.version = None
 
-                                                self.node_description = YLeaf(YType.str, "node-description")
-
-                                                self.version = YLeaf(YType.str, "version")
-
-                                                self.hw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev()
+                                                self.hw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev()
                                                 self.hw_rev.parent = self
                                                 self._children_name_map["hw_rev"] = "hw-rev"
                                                 self._children_yang_names.add("hw-rev")
 
-                                                self.fw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev()
+                                                self.fw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev()
                                                 self.fw_rev.parent = self
                                                 self._children_name_map["fw_rev"] = "fw-rev"
                                                 self._children_yang_names.add("fw-rev")
 
-                                                self.sw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev()
+                                                self.sw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev()
                                                 self.sw_rev.parent = self
                                                 self._children_name_map["sw_rev"] = "sw-rev"
                                                 self._children_yang_names.add("sw-rev")
 
-                                                self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev()
+                                                self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev()
                                                 self.dimm_rev.parent = self
                                                 self._children_name_map["dimm_rev"] = "dimm-rev"
                                                 self._children_yang_names.add("dimm-rev")
 
-                                                self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev()
+                                                self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev()
                                                 self.ssd_rev.parent = self
                                                 self._children_name_map["ssd_rev"] = "ssd-rev"
                                                 self._children_yang_names.add("ssd-rev")
                                                 self._segment_path = lambda: "hardware-revision"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+                                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
                                             class HwRev(Entity):
@@ -5011,22 +5233,25 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                                     self.yang_name = "hw-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                                    ])
+                                                    self.major_revision = None
+                                                    self.minor_revision = None
                                                     self._segment_path = lambda: "hw-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                             class FwRev(Entity):
@@ -5055,22 +5280,25 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                                     self.yang_name = "fw-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                                    ])
+                                                    self.major_revision = None
+                                                    self.minor_revision = None
                                                     self._segment_path = lambda: "fw-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                             class SwRev(Entity):
@@ -5099,22 +5327,25 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                                     self.yang_name = "sw-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                                    ])
+                                                    self.major_revision = None
+                                                    self.minor_revision = None
                                                     self._segment_path = lambda: "sw-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                             class DimmRev(Entity):
@@ -5155,26 +5386,29 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                                     self.yang_name = "dimm-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.size = YLeaf(YType.uint32, "size")
-
-                                                    self.speed = YLeaf(YType.uint32, "speed")
-
-                                                    self.locator = YLeaf(YType.str, "locator")
-
-                                                    self.cas = YLeaf(YType.uint32, "cas")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('size', YLeaf(YType.uint32, 'size')),
+                                                        ('speed', YLeaf(YType.uint32, 'speed')),
+                                                        ('locator', YLeaf(YType.str, 'locator')),
+                                                        ('cas', YLeaf(YType.uint32, 'cas')),
+                                                    ])
+                                                    self.size = None
+                                                    self.speed = None
+                                                    self.locator = None
+                                                    self.cas = None
                                                     self._segment_path = lambda: "dimm-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
 
                                             class SsdRev(Entity):
@@ -5204,24 +5438,27 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                                     self.yang_name = "ssd-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.number = YLeaf(YType.str, "number")
-
-                                                    self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('number', YLeaf(YType.str, 'number')),
+                                                        ('fw_rev', YLeaf(YType.str, 'fw-rev')),
+                                                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                                    ])
+                                                    self.number = None
+                                                    self.fw_rev = None
+                                                    self.serial_number = None
                                                     self._segment_path = lambda: "ssd-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Node.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
                                     class CbcActivePartition(Entity):
@@ -5256,12 +5493,15 @@ class Diag(Entity):
                                             self.yang_parent_name = "node"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "cbc-active-partition"
 
                                         def __setattr__(self, name, value):
@@ -5300,12 +5540,15 @@ class Diag(Entity):
                                             self.yang_parent_name = "node"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                            self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                            ])
+                                            self.major_revision = None
+                                            self.minor_revision = None
                                             self._segment_path = lambda: "cbc-inactive-partition"
 
                                         def __setattr__(self, name, value):
@@ -5382,24 +5625,27 @@ class Diag(Entity):
                                         self.yang_parent_name = "detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"main" : ("main", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main), "hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision)}
-                                        self._child_list_classes = {}
-
-                                        self.node = YLeaf(YType.str, "node")
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.pca_unit_number = YLeaf(YType.str, "pca-unit-number")
-
-                                        self.pca_revision = YLeaf(YType.str, "pca-revision")
-
-                                        self.pid = YLeaf(YType.str, "pid")
-
-                                        self.vid = YLeaf(YType.str, "vid")
-
-                                        self.clei = YLeaf(YType.str, "clei")
-
-                                        self.node_state = YLeaf(YType.enumeration, "node-state")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("main", ("main", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main)), ("hardware-revision", ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node', YLeaf(YType.str, 'node')),
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('pca_unit_number', YLeaf(YType.str, 'pca-unit-number')),
+                                            ('pca_revision', YLeaf(YType.str, 'pca-revision')),
+                                            ('pid', YLeaf(YType.str, 'pid')),
+                                            ('vid', YLeaf(YType.str, 'vid')),
+                                            ('clei', YLeaf(YType.str, 'clei')),
+                                            ('node_state', YLeaf(YType.enumeration, 'node-state')),
+                                        ])
+                                        self.node = None
+                                        self.name = None
+                                        self.pca_unit_number = None
+                                        self.pca_revision = None
+                                        self.pid = None
+                                        self.vid = None
+                                        self.clei = None
+                                        self.node_state = None
 
                                         self.main = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.Main()
                                         self.main.parent = self
@@ -5463,18 +5709,21 @@ class Diag(Entity):
                                             self.yang_parent_name = "spa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.board_type = YLeaf(YType.uint32, "board-type")
-
-                                            self.tan = YLeaf(YType.str, "tan")
-
-                                            self.tan_revision = YLeaf(YType.str, "tan-revision")
-
-                                            self.deviation_number = YLeaf(YType.uint32, "deviation-number")
-
-                                            self.serial_number = YLeaf(YType.str, "serial-number")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('board_type', YLeaf(YType.uint32, 'board-type')),
+                                                ('tan', YLeaf(YType.str, 'tan')),
+                                                ('tan_revision', YLeaf(YType.str, 'tan-revision')),
+                                                ('deviation_number', YLeaf(YType.uint32, 'deviation-number')),
+                                                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ])
+                                            self.board_type = None
+                                            self.tan = None
+                                            self.tan_revision = None
+                                            self.deviation_number = None
+                                            self.serial_number = None
                                             self._segment_path = lambda: "main"
 
                                         def __setattr__(self, name, value):
@@ -5488,7 +5737,7 @@ class Diag(Entity):
                                         .. attribute:: hardware_revision
                                         
                                         	Board FPGA/CPLD/ASIC hardware revision
-                                        	**type**\: list of  		 :py:class:`HardwareRevision <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision>`
+                                        	**type**\: list of  		 :py:class:`HardwareRevision_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_>`
                                         
                                         
 
@@ -5504,8 +5753,10 @@ class Diag(Entity):
                                             self.yang_parent_name = "spa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"hardware-revision" : ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("hardware-revision", ("hardware_revision", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_))])
+                                            self._leafs = OrderedDict()
 
                                             self.hardware_revision = YList(self)
                                             self._segment_path = lambda: "hardware-revision"
@@ -5514,34 +5765,34 @@ class Diag(Entity):
                                             self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision, [], name, value)
 
 
-                                        class HardwareRevision(Entity):
+                                        class HardwareRevision_(Entity):
                                             """
                                             Board FPGA/CPLD/ASIC hardware revision
                                             
                                             .. attribute:: hw_rev
                                             
                                             	Hardware version
-                                            	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev>`
+                                            	**type**\:  :py:class:`HwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev>`
                                             
                                             .. attribute:: fw_rev
                                             
                                             	Firmware version
-                                            	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev>`
+                                            	**type**\:  :py:class:`FwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev>`
                                             
                                             .. attribute:: sw_rev
                                             
                                             	Software version
-                                            	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev>`
+                                            	**type**\:  :py:class:`SwRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev>`
                                             
                                             .. attribute:: dimm_rev
                                             
                                             	DIMM version information
-                                            	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev>`
+                                            	**type**\:  :py:class:`DimmRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev>`
                                             
                                             .. attribute:: ssd_rev
                                             
                                             	SSD version information
-                                            	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev>`
+                                            	**type**\:  :py:class:`SsdRev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev>`
                                             
                                             .. attribute:: node_description
                                             
@@ -5561,47 +5812,50 @@ class Diag(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision, self).__init__()
+                                                super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_, self).__init__()
 
                                                 self.yang_name = "hardware-revision"
                                                 self.yang_parent_name = "hardware-revision"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"hw-rev" : ("hw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev), "fw-rev" : ("fw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev), "sw-rev" : ("sw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev), "dimm-rev" : ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev), "ssd-rev" : ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("hw-rev", ("hw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev)), ("fw-rev", ("fw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev)), ("sw-rev", ("sw_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev)), ("dimm-rev", ("dimm_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev)), ("ssd-rev", ("ssd_rev", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('node_description', YLeaf(YType.str, 'node-description')),
+                                                    ('version', YLeaf(YType.str, 'version')),
+                                                ])
+                                                self.node_description = None
+                                                self.version = None
 
-                                                self.node_description = YLeaf(YType.str, "node-description")
-
-                                                self.version = YLeaf(YType.str, "version")
-
-                                                self.hw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev()
+                                                self.hw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev()
                                                 self.hw_rev.parent = self
                                                 self._children_name_map["hw_rev"] = "hw-rev"
                                                 self._children_yang_names.add("hw-rev")
 
-                                                self.fw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev()
+                                                self.fw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev()
                                                 self.fw_rev.parent = self
                                                 self._children_name_map["fw_rev"] = "fw-rev"
                                                 self._children_yang_names.add("fw-rev")
 
-                                                self.sw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev()
+                                                self.sw_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev()
                                                 self.sw_rev.parent = self
                                                 self._children_name_map["sw_rev"] = "sw-rev"
                                                 self._children_yang_names.add("sw-rev")
 
-                                                self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev()
+                                                self.dimm_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev()
                                                 self.dimm_rev.parent = self
                                                 self._children_name_map["dimm_rev"] = "dimm-rev"
                                                 self._children_yang_names.add("dimm-rev")
 
-                                                self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev()
+                                                self.ssd_rev = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev()
                                                 self.ssd_rev.parent = self
                                                 self._children_name_map["ssd_rev"] = "ssd-rev"
                                                 self._children_yang_names.add("ssd-rev")
                                                 self._segment_path = lambda: "hardware-revision"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision, ['node_description', 'version'], name, value)
+                                                self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_, ['node_description', 'version'], name, value)
 
 
                                             class HwRev(Entity):
@@ -5630,22 +5884,25 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, self).__init__()
 
                                                     self.yang_name = "hw-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                                    ])
+                                                    self.major_revision = None
+                                                    self.minor_revision = None
                                                     self._segment_path = lambda: "hw-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.HwRev, ['major_revision', 'minor_revision'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.HwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                             class FwRev(Entity):
@@ -5674,22 +5931,25 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, self).__init__()
 
                                                     self.yang_name = "fw-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                                    ])
+                                                    self.major_revision = None
+                                                    self.minor_revision = None
                                                     self._segment_path = lambda: "fw-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.FwRev, ['major_revision', 'minor_revision'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.FwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                             class SwRev(Entity):
@@ -5718,22 +5978,25 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, self).__init__()
 
                                                     self.yang_name = "sw-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.major_revision = YLeaf(YType.uint32, "major-revision")
-
-                                                    self.minor_revision = YLeaf(YType.uint32, "minor-revision")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('major_revision', YLeaf(YType.uint32, 'major-revision')),
+                                                        ('minor_revision', YLeaf(YType.uint32, 'minor-revision')),
+                                                    ])
+                                                    self.major_revision = None
+                                                    self.minor_revision = None
                                                     self._segment_path = lambda: "sw-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SwRev, ['major_revision', 'minor_revision'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SwRev, ['major_revision', 'minor_revision'], name, value)
 
 
                                             class DimmRev(Entity):
@@ -5774,26 +6037,29 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, self).__init__()
 
                                                     self.yang_name = "dimm-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.size = YLeaf(YType.uint32, "size")
-
-                                                    self.speed = YLeaf(YType.uint32, "speed")
-
-                                                    self.locator = YLeaf(YType.str, "locator")
-
-                                                    self.cas = YLeaf(YType.uint32, "cas")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('size', YLeaf(YType.uint32, 'size')),
+                                                        ('speed', YLeaf(YType.uint32, 'speed')),
+                                                        ('locator', YLeaf(YType.str, 'locator')),
+                                                        ('cas', YLeaf(YType.uint32, 'cas')),
+                                                    ])
+                                                    self.size = None
+                                                    self.speed = None
+                                                    self.locator = None
+                                                    self.cas = None
                                                     self._segment_path = lambda: "dimm-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.DimmRev, ['size', 'speed', 'locator', 'cas'], name, value)
 
 
                                             class SsdRev(Entity):
@@ -5823,24 +6089,27 @@ class Diag(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, self).__init__()
+                                                    super(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, self).__init__()
 
                                                     self.yang_name = "ssd-rev"
                                                     self.yang_parent_name = "hardware-revision"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.number = YLeaf(YType.str, "number")
-
-                                                    self.fw_rev = YLeaf(YType.str, "fw-rev")
-
-                                                    self.serial_number = YLeaf(YType.str, "serial-number")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('number', YLeaf(YType.str, 'number')),
+                                                        ('fw_rev', YLeaf(YType.str, 'fw-rev')),
+                                                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                                    ])
+                                                    self.number = None
+                                                    self.fw_rev = None
+                                                    self.serial_number = None
                                                     self._segment_path = lambda: "ssd-rev"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
+                                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.Spa.HardwareRevision.HardwareRevision_.SsdRev, ['number', 'fw_rev', 'serial_number'], name, value)
 
 
             class Chassis(Entity):
@@ -5891,20 +6160,23 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.serial_number = YLeaf(YType.str, "serial-number")
-
-                    self.pid = YLeaf(YType.str, "pid")
-
-                    self.vid = YLeaf(YType.str, "vid")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.clei = YLeaf(YType.str, "clei")
-
-                    self.tan = YLeaf(YType.str, "tan")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                        ('pid', YLeaf(YType.str, 'pid')),
+                        ('vid', YLeaf(YType.str, 'vid')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('clei', YLeaf(YType.str, 'clei')),
+                        ('tan', YLeaf(YType.str, 'tan')),
+                    ])
+                    self.serial_number = None
+                    self.pid = None
+                    self.vid = None
+                    self.description = None
+                    self.clei = None
+                    self.tan = None
                     self._segment_path = lambda: "chassis"
 
                 def __setattr__(self, name, value):
@@ -5918,7 +6190,7 @@ class Diag(Entity):
                 .. attribute:: summary
                 
                 	Summary data
-                	**type**\: list of  		 :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Summary.Summary>`
+                	**type**\: list of  		 :py:class:`Summary_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper.Diag.Racks.Rack.Summary.Summary_>`
                 
                 
 
@@ -5934,8 +6206,10 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"summary" : ("summary", Diag.Racks.Rack.Summary.Summary)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("summary", ("summary", Diag.Racks.Rack.Summary.Summary_))])
+                    self._leafs = OrderedDict()
 
                     self.summary = YList(self)
                     self._segment_path = lambda: "summary"
@@ -5944,7 +6218,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Racks.Rack.Summary, [], name, value)
 
 
-                class Summary(Entity):
+                class Summary_(Entity):
                     """
                     Summary data
                     
@@ -5978,26 +6252,29 @@ class Diag(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Diag.Racks.Rack.Summary.Summary, self).__init__()
+                        super(Diag.Racks.Rack.Summary.Summary_, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.slot_type = YLeaf(YType.enumeration, "slot-type")
-
-                        self.description = YLeaf(YType.str, "description")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('node', YLeaf(YType.str, 'node')),
+                            ('slot_type', YLeaf(YType.enumeration, 'slot-type')),
+                            ('description', YLeaf(YType.str, 'description')),
+                        ])
+                        self.type = None
+                        self.node = None
+                        self.slot_type = None
+                        self.description = None
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Diag.Racks.Rack.Summary.Summary, ['type', 'node', 'slot_type', 'description'], name, value)
+                        self._perform_setattr(Diag.Racks.Rack.Summary.Summary_, ['type', 'node', 'slot_type', 'description'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Diag()

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class ClockModes(Enum):
     """
-    ClockModes
+    ClockModes (Enum Class)
 
     Different clock modes
 
@@ -70,7 +72,7 @@ class ClockModes(Enum):
 
 class Direct(Enum):
     """
-    Direct
+    Direct (Enum Class)
 
     Direction status
 
@@ -97,7 +99,7 @@ class Direct(Enum):
 
 class InterfaceState(Enum):
     """
-    InterfaceState
+    InterfaceState (Enum Class)
 
     Interface state
 
@@ -124,7 +126,7 @@ class InterfaceState(Enum):
 
 class NodeState(Enum):
     """
-    NodeState
+    NodeState (Enum Class)
 
     Different modes of a node
 
@@ -145,7 +147,7 @@ class NodeState(Enum):
 
 class QlOption1(Enum):
     """
-    QlOption1
+    QlOption1 (Enum Class)
 
     Quality level options
 
@@ -178,7 +180,7 @@ class QlOption1(Enum):
 
 class Smode1(Enum):
     """
-    Smode1
+    Smode1 (Enum Class)
 
     First mode type
 
@@ -217,7 +219,7 @@ class Smode1(Enum):
 
 class Smode2(Enum):
     """
-    Smode2
+    Smode2 (Enum Class)
 
     Second mode type
 
@@ -250,7 +252,7 @@ class Smode2(Enum):
 
 class Source(Enum):
     """
-    Source
+    Source (Enum Class)
 
     Syncc source type
 
@@ -289,7 +291,7 @@ class Source(Enum):
 
 class SourceStateName(Enum):
     """
-    SourceStateName
+    SourceStateName (Enum Class)
 
     Syncc source state name
 
@@ -334,7 +336,7 @@ class SourceStateName(Enum):
 
 class SynccStates(Enum):
     """
-    SynccStates
+    SynccStates (Enum Class)
 
     Different syncc states
 
@@ -390,8 +392,10 @@ class TimingController(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-syncc-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", TimingController.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", TimingController.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = TimingController.Nodes()
         self.nodes.parent = self
@@ -423,8 +427,10 @@ class TimingController(Entity):
             self.yang_parent_name = "timing-controller"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", TimingController.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", TimingController.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -438,7 +444,7 @@ class TimingController(Entity):
             """
             Syncc operational data for a single node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node Name
             	**type**\: str
@@ -474,10 +480,13 @@ class TimingController(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"state" : ("state", TimingController.Nodes.Node.State), "clock" : ("clock", TimingController.Nodes.Node.Clock), "timing-source" : ("timing_source", TimingController.Nodes.Node.TimingSource)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("state", ("state", TimingController.Nodes.Node.State)), ("clock", ("clock", TimingController.Nodes.Node.Clock)), ("timing-source", ("timing_source", TimingController.Nodes.Node.TimingSource))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.state = TimingController.Nodes.Node.State()
                 self.state.parent = self
@@ -493,7 +502,7 @@ class TimingController(Entity):
                 self.timing_source.parent = self
                 self._children_name_map["timing_source"] = "timing-source"
                 self._children_yang_names.add("timing-source")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -523,8 +532,10 @@ class TimingController(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"syncc-instance" : ("syncc_instance", TimingController.Nodes.Node.State.SynccInstance)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("syncc-instance", ("syncc_instance", TimingController.Nodes.Node.State.SynccInstance))])
+                    self._leafs = OrderedDict()
 
                     self.syncc_instance = YList(self)
                     self._segment_path = lambda: "state"
@@ -666,42 +677,45 @@ class TimingController(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.controller_state = YLeaf(YType.enumeration, "controller-state")
-
-                        self.syncc_node_state = YLeaf(YType.enumeration, "syncc-node-state")
-
-                        self.verbose_level = YLeaf(YType.uint32, "verbose-level")
-
-                        self.initial_count = YLeaf(YType.uint32, "initial-count")
-
-                        self.shutdown_count = YLeaf(YType.uint32, "shutdown-count")
-
-                        self.set_input_count = YLeaf(YType.uint32, "set-input-count")
-
-                        self.set_capability_count = YLeaf(YType.uint32, "set-capability-count")
-
-                        self.get_clock_count = YLeaf(YType.uint32, "get-clock-count")
-
-                        self.set_clock_out_count = YLeaf(YType.uint32, "set-clock-out-count")
-
-                        self.sync_enable_count = YLeaf(YType.uint32, "sync-enable-count")
-
-                        self.sync_disable_count = YLeaf(YType.uint32, "sync-disable-count")
-
-                        self.capability_count = YLeaf(YType.uint32, "capability-count")
-
-                        self.set_quality_level_count = YLeaf(YType.uint32, "set-quality-level-count")
-
-                        self.input_notification = YLeaf(YType.uint32, "input-notification")
-
-                        self.capability_notification = YLeaf(YType.uint32, "capability-notification")
-
-                        self.status_notification = YLeaf(YType.uint32, "status-notification")
-
-                        self.resync_notification = YLeaf(YType.uint32, "resync-notification")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('controller_state', YLeaf(YType.enumeration, 'controller-state')),
+                            ('syncc_node_state', YLeaf(YType.enumeration, 'syncc-node-state')),
+                            ('verbose_level', YLeaf(YType.uint32, 'verbose-level')),
+                            ('initial_count', YLeaf(YType.uint32, 'initial-count')),
+                            ('shutdown_count', YLeaf(YType.uint32, 'shutdown-count')),
+                            ('set_input_count', YLeaf(YType.uint32, 'set-input-count')),
+                            ('set_capability_count', YLeaf(YType.uint32, 'set-capability-count')),
+                            ('get_clock_count', YLeaf(YType.uint32, 'get-clock-count')),
+                            ('set_clock_out_count', YLeaf(YType.uint32, 'set-clock-out-count')),
+                            ('sync_enable_count', YLeaf(YType.uint32, 'sync-enable-count')),
+                            ('sync_disable_count', YLeaf(YType.uint32, 'sync-disable-count')),
+                            ('capability_count', YLeaf(YType.uint32, 'capability-count')),
+                            ('set_quality_level_count', YLeaf(YType.uint32, 'set-quality-level-count')),
+                            ('input_notification', YLeaf(YType.uint32, 'input-notification')),
+                            ('capability_notification', YLeaf(YType.uint32, 'capability-notification')),
+                            ('status_notification', YLeaf(YType.uint32, 'status-notification')),
+                            ('resync_notification', YLeaf(YType.uint32, 'resync-notification')),
+                        ])
+                        self.controller_state = None
+                        self.syncc_node_state = None
+                        self.verbose_level = None
+                        self.initial_count = None
+                        self.shutdown_count = None
+                        self.set_input_count = None
+                        self.set_capability_count = None
+                        self.get_clock_count = None
+                        self.set_clock_out_count = None
+                        self.sync_enable_count = None
+                        self.sync_disable_count = None
+                        self.capability_count = None
+                        self.set_quality_level_count = None
+                        self.input_notification = None
+                        self.capability_notification = None
+                        self.status_notification = None
+                        self.resync_notification = None
                         self._segment_path = lambda: "syncc-instance"
 
                     def __setattr__(self, name, value):
@@ -731,8 +745,10 @@ class TimingController(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"syncc-instance" : ("syncc_instance", TimingController.Nodes.Node.Clock.SynccInstance)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("syncc-instance", ("syncc_instance", TimingController.Nodes.Node.Clock.SynccInstance))])
+                    self._leafs = OrderedDict()
 
                     self.syncc_instance = YList(self)
                     self._segment_path = lambda: "clock"
@@ -748,7 +764,7 @@ class TimingController(Entity):
                     .. attribute:: clock
                     
                     	Clock table for an RP
-                    	**type**\: list of  		 :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock.SynccInstance.Clock>`
+                    	**type**\: list of  		 :py:class:`Clock_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock.SynccInstance.Clock_>`
                     
                     
 
@@ -764,8 +780,10 @@ class TimingController(Entity):
                         self.yang_parent_name = "clock"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"clock" : ("clock", TimingController.Nodes.Node.Clock.SynccInstance.Clock)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("clock", ("clock", TimingController.Nodes.Node.Clock.SynccInstance.Clock_))])
+                        self._leafs = OrderedDict()
 
                         self.clock = YList(self)
                         self._segment_path = lambda: "syncc-instance"
@@ -774,7 +792,7 @@ class TimingController(Entity):
                         self._perform_setattr(TimingController.Nodes.Node.Clock.SynccInstance, [], name, value)
 
 
-                    class Clock(Entity):
+                    class Clock_(Entity):
                         """
                         Clock table for an RP
                         
@@ -1066,114 +1084,117 @@ class TimingController(Entity):
                         _revision = '2016-06-08'
 
                         def __init__(self):
-                            super(TimingController.Nodes.Node.Clock.SynccInstance.Clock, self).__init__()
+                            super(TimingController.Nodes.Node.Clock.SynccInstance.Clock_, self).__init__()
 
                             self.yang_name = "clock"
                             self.yang_parent_name = "syncc-instance"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_configured_port0 = YLeaf(YType.boolean, "is-configured-port0")
-
-                            self.is_configured_port1 = YLeaf(YType.boolean, "is-configured-port1")
-
-                            self.is_configured_port2 = YLeaf(YType.boolean, "is-configured-port2")
-
-                            self.is_configured_port3 = YLeaf(YType.boolean, "is-configured-port3")
-
-                            self.mode_port0 = YLeaf(YType.enumeration, "mode-port0")
-
-                            self.mode_port1 = YLeaf(YType.enumeration, "mode-port1")
-
-                            self.mode_port2 = YLeaf(YType.enumeration, "mode-port2")
-
-                            self.mode_port3 = YLeaf(YType.enumeration, "mode-port3")
-
-                            self.submode1_port0 = YLeaf(YType.enumeration, "submode1-port0")
-
-                            self.submode1_port1 = YLeaf(YType.enumeration, "submode1-port1")
-
-                            self.submode1_port2 = YLeaf(YType.enumeration, "submode1-port2")
-
-                            self.submode1_port3 = YLeaf(YType.enumeration, "submode1-port3")
-
-                            self.submode2_port0 = YLeaf(YType.enumeration, "submode2-port0")
-
-                            self.submode2_port1 = YLeaf(YType.enumeration, "submode2-port1")
-
-                            self.submode2_port2 = YLeaf(YType.enumeration, "submode2-port2")
-
-                            self.submode2_port3 = YLeaf(YType.enumeration, "submode2-port3")
-
-                            self.submode3_port0 = YLeaf(YType.uint32, "submode3-port0")
-
-                            self.submode3_port1 = YLeaf(YType.uint32, "submode3-port1")
-
-                            self.submode3_port2 = YLeaf(YType.uint32, "submode3-port2")
-
-                            self.submode3_port3 = YLeaf(YType.uint32, "submode3-port3")
-
-                            self.shutdown_port0 = YLeaf(YType.uint32, "shutdown-port0")
-
-                            self.shutdown_port1 = YLeaf(YType.uint32, "shutdown-port1")
-
-                            self.shutdown_port2 = YLeaf(YType.uint32, "shutdown-port2")
-
-                            self.shutdown_port3 = YLeaf(YType.uint32, "shutdown-port3")
-
-                            self.direction_port0 = YLeaf(YType.enumeration, "direction-port0")
-
-                            self.direction_port1 = YLeaf(YType.enumeration, "direction-port1")
-
-                            self.direction_port2 = YLeaf(YType.enumeration, "direction-port2")
-
-                            self.direction_port3 = YLeaf(YType.enumeration, "direction-port3")
-
-                            self.baudrate_port0 = YLeaf(YType.uint32, "baudrate-port0")
-
-                            self.baudrate_port1 = YLeaf(YType.uint32, "baudrate-port1")
-
-                            self.baudrate_port2 = YLeaf(YType.uint32, "baudrate-port2")
-
-                            self.baudrate_port3 = YLeaf(YType.uint32, "baudrate-port3")
-
-                            self.quality_option_port0 = YLeaf(YType.enumeration, "quality-option-port0")
-
-                            self.quality_option_port1 = YLeaf(YType.enumeration, "quality-option-port1")
-
-                            self.quality_option_port2 = YLeaf(YType.enumeration, "quality-option-port2")
-
-                            self.quality_option_port3 = YLeaf(YType.enumeration, "quality-option-port3")
-
-                            self.transmit_ssm_port0 = YLeaf(YType.uint32, "transmit-ssm-port0")
-
-                            self.transmit_ssm_port1 = YLeaf(YType.uint32, "transmit-ssm-port1")
-
-                            self.transmit_ssm_port2 = YLeaf(YType.uint32, "transmit-ssm-port2")
-
-                            self.transmit_ssm_port3 = YLeaf(YType.uint32, "transmit-ssm-port3")
-
-                            self.recieve_ssm_port0 = YLeaf(YType.uint32, "recieve-ssm-port0")
-
-                            self.recieve_ssm_port1 = YLeaf(YType.uint32, "recieve-ssm-port1")
-
-                            self.recieve_ssm_port2 = YLeaf(YType.uint32, "recieve-ssm-port2")
-
-                            self.recieve_ssm_port3 = YLeaf(YType.uint32, "recieve-ssm-port3")
-
-                            self.interface_state_port0 = YLeaf(YType.enumeration, "interface-state-port0")
-
-                            self.interface_state_port1 = YLeaf(YType.enumeration, "interface-state-port1")
-
-                            self.interface_state_port2 = YLeaf(YType.enumeration, "interface-state-port2")
-
-                            self.interface_state_port3 = YLeaf(YType.enumeration, "interface-state-port3")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_configured_port0', YLeaf(YType.boolean, 'is-configured-port0')),
+                                ('is_configured_port1', YLeaf(YType.boolean, 'is-configured-port1')),
+                                ('is_configured_port2', YLeaf(YType.boolean, 'is-configured-port2')),
+                                ('is_configured_port3', YLeaf(YType.boolean, 'is-configured-port3')),
+                                ('mode_port0', YLeaf(YType.enumeration, 'mode-port0')),
+                                ('mode_port1', YLeaf(YType.enumeration, 'mode-port1')),
+                                ('mode_port2', YLeaf(YType.enumeration, 'mode-port2')),
+                                ('mode_port3', YLeaf(YType.enumeration, 'mode-port3')),
+                                ('submode1_port0', YLeaf(YType.enumeration, 'submode1-port0')),
+                                ('submode1_port1', YLeaf(YType.enumeration, 'submode1-port1')),
+                                ('submode1_port2', YLeaf(YType.enumeration, 'submode1-port2')),
+                                ('submode1_port3', YLeaf(YType.enumeration, 'submode1-port3')),
+                                ('submode2_port0', YLeaf(YType.enumeration, 'submode2-port0')),
+                                ('submode2_port1', YLeaf(YType.enumeration, 'submode2-port1')),
+                                ('submode2_port2', YLeaf(YType.enumeration, 'submode2-port2')),
+                                ('submode2_port3', YLeaf(YType.enumeration, 'submode2-port3')),
+                                ('submode3_port0', YLeaf(YType.uint32, 'submode3-port0')),
+                                ('submode3_port1', YLeaf(YType.uint32, 'submode3-port1')),
+                                ('submode3_port2', YLeaf(YType.uint32, 'submode3-port2')),
+                                ('submode3_port3', YLeaf(YType.uint32, 'submode3-port3')),
+                                ('shutdown_port0', YLeaf(YType.uint32, 'shutdown-port0')),
+                                ('shutdown_port1', YLeaf(YType.uint32, 'shutdown-port1')),
+                                ('shutdown_port2', YLeaf(YType.uint32, 'shutdown-port2')),
+                                ('shutdown_port3', YLeaf(YType.uint32, 'shutdown-port3')),
+                                ('direction_port0', YLeaf(YType.enumeration, 'direction-port0')),
+                                ('direction_port1', YLeaf(YType.enumeration, 'direction-port1')),
+                                ('direction_port2', YLeaf(YType.enumeration, 'direction-port2')),
+                                ('direction_port3', YLeaf(YType.enumeration, 'direction-port3')),
+                                ('baudrate_port0', YLeaf(YType.uint32, 'baudrate-port0')),
+                                ('baudrate_port1', YLeaf(YType.uint32, 'baudrate-port1')),
+                                ('baudrate_port2', YLeaf(YType.uint32, 'baudrate-port2')),
+                                ('baudrate_port3', YLeaf(YType.uint32, 'baudrate-port3')),
+                                ('quality_option_port0', YLeaf(YType.enumeration, 'quality-option-port0')),
+                                ('quality_option_port1', YLeaf(YType.enumeration, 'quality-option-port1')),
+                                ('quality_option_port2', YLeaf(YType.enumeration, 'quality-option-port2')),
+                                ('quality_option_port3', YLeaf(YType.enumeration, 'quality-option-port3')),
+                                ('transmit_ssm_port0', YLeaf(YType.uint32, 'transmit-ssm-port0')),
+                                ('transmit_ssm_port1', YLeaf(YType.uint32, 'transmit-ssm-port1')),
+                                ('transmit_ssm_port2', YLeaf(YType.uint32, 'transmit-ssm-port2')),
+                                ('transmit_ssm_port3', YLeaf(YType.uint32, 'transmit-ssm-port3')),
+                                ('recieve_ssm_port0', YLeaf(YType.uint32, 'recieve-ssm-port0')),
+                                ('recieve_ssm_port1', YLeaf(YType.uint32, 'recieve-ssm-port1')),
+                                ('recieve_ssm_port2', YLeaf(YType.uint32, 'recieve-ssm-port2')),
+                                ('recieve_ssm_port3', YLeaf(YType.uint32, 'recieve-ssm-port3')),
+                                ('interface_state_port0', YLeaf(YType.enumeration, 'interface-state-port0')),
+                                ('interface_state_port1', YLeaf(YType.enumeration, 'interface-state-port1')),
+                                ('interface_state_port2', YLeaf(YType.enumeration, 'interface-state-port2')),
+                                ('interface_state_port3', YLeaf(YType.enumeration, 'interface-state-port3')),
+                            ])
+                            self.is_configured_port0 = None
+                            self.is_configured_port1 = None
+                            self.is_configured_port2 = None
+                            self.is_configured_port3 = None
+                            self.mode_port0 = None
+                            self.mode_port1 = None
+                            self.mode_port2 = None
+                            self.mode_port3 = None
+                            self.submode1_port0 = None
+                            self.submode1_port1 = None
+                            self.submode1_port2 = None
+                            self.submode1_port3 = None
+                            self.submode2_port0 = None
+                            self.submode2_port1 = None
+                            self.submode2_port2 = None
+                            self.submode2_port3 = None
+                            self.submode3_port0 = None
+                            self.submode3_port1 = None
+                            self.submode3_port2 = None
+                            self.submode3_port3 = None
+                            self.shutdown_port0 = None
+                            self.shutdown_port1 = None
+                            self.shutdown_port2 = None
+                            self.shutdown_port3 = None
+                            self.direction_port0 = None
+                            self.direction_port1 = None
+                            self.direction_port2 = None
+                            self.direction_port3 = None
+                            self.baudrate_port0 = None
+                            self.baudrate_port1 = None
+                            self.baudrate_port2 = None
+                            self.baudrate_port3 = None
+                            self.quality_option_port0 = None
+                            self.quality_option_port1 = None
+                            self.quality_option_port2 = None
+                            self.quality_option_port3 = None
+                            self.transmit_ssm_port0 = None
+                            self.transmit_ssm_port1 = None
+                            self.transmit_ssm_port2 = None
+                            self.transmit_ssm_port3 = None
+                            self.recieve_ssm_port0 = None
+                            self.recieve_ssm_port1 = None
+                            self.recieve_ssm_port2 = None
+                            self.recieve_ssm_port3 = None
+                            self.interface_state_port0 = None
+                            self.interface_state_port1 = None
+                            self.interface_state_port2 = None
+                            self.interface_state_port3 = None
                             self._segment_path = lambda: "clock"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TimingController.Nodes.Node.Clock.SynccInstance.Clock, ['is_configured_port0', 'is_configured_port1', 'is_configured_port2', 'is_configured_port3', 'mode_port0', 'mode_port1', 'mode_port2', 'mode_port3', 'submode1_port0', 'submode1_port1', 'submode1_port2', 'submode1_port3', 'submode2_port0', 'submode2_port1', 'submode2_port2', 'submode2_port3', 'submode3_port0', 'submode3_port1', 'submode3_port2', 'submode3_port3', 'shutdown_port0', 'shutdown_port1', 'shutdown_port2', 'shutdown_port3', 'direction_port0', 'direction_port1', 'direction_port2', 'direction_port3', 'baudrate_port0', 'baudrate_port1', 'baudrate_port2', 'baudrate_port3', 'quality_option_port0', 'quality_option_port1', 'quality_option_port2', 'quality_option_port3', 'transmit_ssm_port0', 'transmit_ssm_port1', 'transmit_ssm_port2', 'transmit_ssm_port3', 'recieve_ssm_port0', 'recieve_ssm_port1', 'recieve_ssm_port2', 'recieve_ssm_port3', 'interface_state_port0', 'interface_state_port1', 'interface_state_port2', 'interface_state_port3'], name, value)
+                            self._perform_setattr(TimingController.Nodes.Node.Clock.SynccInstance.Clock_, ['is_configured_port0', 'is_configured_port1', 'is_configured_port2', 'is_configured_port3', 'mode_port0', 'mode_port1', 'mode_port2', 'mode_port3', 'submode1_port0', 'submode1_port1', 'submode1_port2', 'submode1_port3', 'submode2_port0', 'submode2_port1', 'submode2_port2', 'submode2_port3', 'submode3_port0', 'submode3_port1', 'submode3_port2', 'submode3_port3', 'shutdown_port0', 'shutdown_port1', 'shutdown_port2', 'shutdown_port3', 'direction_port0', 'direction_port1', 'direction_port2', 'direction_port3', 'baudrate_port0', 'baudrate_port1', 'baudrate_port2', 'baudrate_port3', 'quality_option_port0', 'quality_option_port1', 'quality_option_port2', 'quality_option_port3', 'transmit_ssm_port0', 'transmit_ssm_port1', 'transmit_ssm_port2', 'transmit_ssm_port3', 'recieve_ssm_port0', 'recieve_ssm_port1', 'recieve_ssm_port2', 'recieve_ssm_port3', 'interface_state_port0', 'interface_state_port1', 'interface_state_port2', 'interface_state_port3'], name, value)
 
 
             class TimingSource(Entity):
@@ -1199,8 +1220,10 @@ class TimingController(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"syncc-instance" : ("syncc_instance", TimingController.Nodes.Node.TimingSource.SynccInstance)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("syncc-instance", ("syncc_instance", TimingController.Nodes.Node.TimingSource.SynccInstance))])
+                    self._leafs = OrderedDict()
 
                     self.syncc_instance = YList(self)
                     self._segment_path = lambda: "timing-source"
@@ -1242,8 +1265,10 @@ class TimingController(Entity):
                         self.yang_parent_name = "timing-source"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"timing-status-t0" : ("timing_status_t0", TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT0), "timing-status-t4" : ("timing_status_t4", TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT4), "timing-status1588" : ("timing_status1588", TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatus1588)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("timing-status-t0", ("timing_status_t0", TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT0)), ("timing-status-t4", ("timing_status_t4", TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT4)), ("timing-status1588", ("timing_status1588", TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatus1588))])
+                        self._leafs = OrderedDict()
 
                         self.timing_status_t0 = YList(self)
                         self.timing_status_t4 = YList(self)
@@ -1336,28 +1361,31 @@ class TimingController(Entity):
                             self.yang_parent_name = "syncc-instance"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.input = YLeaf(YType.uint8, "input")
-
-                            self.slot = YLeaf(YType.uint8, "slot")
-
-                            self.port = YLeaf(YType.uint8, "port")
-
-                            self.clock_source = YLeaf(YType.enumeration, "clock-source")
-
-                            self.rank = YLeaf(YType.uint8, "rank")
-
-                            self.quality_level_option = YLeaf(YType.uint8, "quality-level-option")
-
-                            self.quality_level_value = YLeaf(YType.uint8, "quality-level-value")
-
-                            self.user_priority = YLeaf(YType.uint8, "user-priority")
-
-                            self.clock_state = YLeaf(YType.enumeration, "clock-state")
-
-                            self.is_select = YLeaf(YType.boolean, "is-select")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('input', YLeaf(YType.uint8, 'input')),
+                                ('slot', YLeaf(YType.uint8, 'slot')),
+                                ('port', YLeaf(YType.uint8, 'port')),
+                                ('clock_source', YLeaf(YType.enumeration, 'clock-source')),
+                                ('rank', YLeaf(YType.uint8, 'rank')),
+                                ('quality_level_option', YLeaf(YType.uint8, 'quality-level-option')),
+                                ('quality_level_value', YLeaf(YType.uint8, 'quality-level-value')),
+                                ('user_priority', YLeaf(YType.uint8, 'user-priority')),
+                                ('clock_state', YLeaf(YType.enumeration, 'clock-state')),
+                                ('is_select', YLeaf(YType.boolean, 'is-select')),
+                            ])
+                            self.input = None
+                            self.slot = None
+                            self.port = None
+                            self.clock_source = None
+                            self.rank = None
+                            self.quality_level_option = None
+                            self.quality_level_value = None
+                            self.user_priority = None
+                            self.clock_state = None
+                            self.is_select = None
                             self._segment_path = lambda: "timing-status-t0"
 
                         def __setattr__(self, name, value):
@@ -1446,28 +1474,31 @@ class TimingController(Entity):
                             self.yang_parent_name = "syncc-instance"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.input = YLeaf(YType.uint8, "input")
-
-                            self.slot = YLeaf(YType.uint8, "slot")
-
-                            self.port = YLeaf(YType.uint8, "port")
-
-                            self.clock_source = YLeaf(YType.enumeration, "clock-source")
-
-                            self.rank = YLeaf(YType.uint8, "rank")
-
-                            self.quality_level_option = YLeaf(YType.uint8, "quality-level-option")
-
-                            self.quality_level_value = YLeaf(YType.uint8, "quality-level-value")
-
-                            self.user_priority = YLeaf(YType.uint8, "user-priority")
-
-                            self.clock_state = YLeaf(YType.enumeration, "clock-state")
-
-                            self.is_select = YLeaf(YType.boolean, "is-select")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('input', YLeaf(YType.uint8, 'input')),
+                                ('slot', YLeaf(YType.uint8, 'slot')),
+                                ('port', YLeaf(YType.uint8, 'port')),
+                                ('clock_source', YLeaf(YType.enumeration, 'clock-source')),
+                                ('rank', YLeaf(YType.uint8, 'rank')),
+                                ('quality_level_option', YLeaf(YType.uint8, 'quality-level-option')),
+                                ('quality_level_value', YLeaf(YType.uint8, 'quality-level-value')),
+                                ('user_priority', YLeaf(YType.uint8, 'user-priority')),
+                                ('clock_state', YLeaf(YType.enumeration, 'clock-state')),
+                                ('is_select', YLeaf(YType.boolean, 'is-select')),
+                            ])
+                            self.input = None
+                            self.slot = None
+                            self.port = None
+                            self.clock_source = None
+                            self.rank = None
+                            self.quality_level_option = None
+                            self.quality_level_value = None
+                            self.user_priority = None
+                            self.clock_state = None
+                            self.is_select = None
                             self._segment_path = lambda: "timing-status-t4"
 
                         def __setattr__(self, name, value):
@@ -1556,28 +1587,31 @@ class TimingController(Entity):
                             self.yang_parent_name = "syncc-instance"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.input = YLeaf(YType.uint8, "input")
-
-                            self.slot = YLeaf(YType.uint8, "slot")
-
-                            self.port = YLeaf(YType.uint8, "port")
-
-                            self.clock_source = YLeaf(YType.enumeration, "clock-source")
-
-                            self.rank = YLeaf(YType.uint8, "rank")
-
-                            self.quality_level_option = YLeaf(YType.uint8, "quality-level-option")
-
-                            self.quality_level_value = YLeaf(YType.uint8, "quality-level-value")
-
-                            self.user_priority = YLeaf(YType.uint8, "user-priority")
-
-                            self.clock_state = YLeaf(YType.enumeration, "clock-state")
-
-                            self.is_select = YLeaf(YType.boolean, "is-select")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('input', YLeaf(YType.uint8, 'input')),
+                                ('slot', YLeaf(YType.uint8, 'slot')),
+                                ('port', YLeaf(YType.uint8, 'port')),
+                                ('clock_source', YLeaf(YType.enumeration, 'clock-source')),
+                                ('rank', YLeaf(YType.uint8, 'rank')),
+                                ('quality_level_option', YLeaf(YType.uint8, 'quality-level-option')),
+                                ('quality_level_value', YLeaf(YType.uint8, 'quality-level-value')),
+                                ('user_priority', YLeaf(YType.uint8, 'user-priority')),
+                                ('clock_state', YLeaf(YType.enumeration, 'clock-state')),
+                                ('is_select', YLeaf(YType.boolean, 'is-select')),
+                            ])
+                            self.input = None
+                            self.slot = None
+                            self.port = None
+                            self.clock_source = None
+                            self.rank = None
+                            self.quality_level_option = None
+                            self.quality_level_value = None
+                            self.user_priority = None
+                            self.clock_state = None
+                            self.is_select = None
                             self._segment_path = lambda: "timing-status1588"
 
                         def __setattr__(self, name, value):

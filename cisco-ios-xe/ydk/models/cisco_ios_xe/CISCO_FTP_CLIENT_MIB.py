@@ -4,9 +4,11 @@ The MIB module for invoking Internet File Transfer Protocol
 (FTP) operations for network management purposes.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -40,8 +42,10 @@ class CISCOFTPCLIENTMIB(Entity):
         self.yang_parent_name = "CISCO-FTP-CLIENT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cfcRequest" : ("cfcrequest", CISCOFTPCLIENTMIB.Cfcrequest), "cfcRequestTable" : ("cfcrequesttable", CISCOFTPCLIENTMIB.Cfcrequesttable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cfcRequest", ("cfcrequest", CISCOFTPCLIENTMIB.Cfcrequest)), ("cfcRequestTable", ("cfcrequesttable", CISCOFTPCLIENTMIB.Cfcrequesttable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cfcrequest = CISCOFTPCLIENTMIB.Cfcrequest()
         self.cfcrequest.parent = self
@@ -101,16 +105,19 @@ class CISCOFTPCLIENTMIB(Entity):
             self.yang_parent_name = "CISCO-FTP-CLIENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cfcrequestmaximum = YLeaf(YType.uint32, "cfcRequestMaximum")
-
-            self.cfcrequests = YLeaf(YType.uint32, "cfcRequests")
-
-            self.cfcrequestshigh = YLeaf(YType.uint32, "cfcRequestsHigh")
-
-            self.cfcrequestsbumped = YLeaf(YType.uint32, "cfcRequestsBumped")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cfcrequestmaximum', YLeaf(YType.uint32, 'cfcRequestMaximum')),
+                ('cfcrequests', YLeaf(YType.uint32, 'cfcRequests')),
+                ('cfcrequestshigh', YLeaf(YType.uint32, 'cfcRequestsHigh')),
+                ('cfcrequestsbumped', YLeaf(YType.uint32, 'cfcRequestsBumped')),
+            ])
+            self.cfcrequestmaximum = None
+            self.cfcrequests = None
+            self.cfcrequestshigh = None
+            self.cfcrequestsbumped = None
             self._segment_path = lambda: "cfcRequest"
             self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/%s" % self._segment_path()
 
@@ -141,8 +148,10 @@ class CISCOFTPCLIENTMIB(Entity):
             self.yang_parent_name = "CISCO-FTP-CLIENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cfcRequestEntry" : ("cfcrequestentry", CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cfcRequestEntry", ("cfcrequestentry", CISCOFTPCLIENTMIB.Cfcrequesttable.Cfcrequestentry))])
+            self._leafs = OrderedDict()
 
             self.cfcrequestentry = YList(self)
             self._segment_path = lambda: "cfcRequestTable"
@@ -170,7 +179,7 @@ class CISCOFTPCLIENTMIB(Entity):
             Entries may not be created without explicitly setting
             cfcRequestEntryStatus to either 'createAndGo' or 'createAndWait'.
             
-            .. attribute:: cfcrequestindex  <key>
+            .. attribute:: cfcrequestindex  (key)
             
             	An arbitrary integer to uniquely identify this entry.  To create an entry a management application should pick a random number
             	**type**\: int
@@ -258,33 +267,36 @@ class CISCOFTPCLIENTMIB(Entity):
                 self.yang_parent_name = "cfcRequestTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cfcrequestindex = YLeaf(YType.uint32, "cfcRequestIndex")
-
-                self.cfcrequestoperation = YLeaf(YType.enumeration, "cfcRequestOperation")
-
-                self.cfcrequestlocalfile = YLeaf(YType.str, "cfcRequestLocalFile")
-
-                self.cfcrequestremotefile = YLeaf(YType.str, "cfcRequestRemoteFile")
-
-                self.cfcrequestserver = YLeaf(YType.str, "cfcRequestServer")
-
-                self.cfcrequestuser = YLeaf(YType.str, "cfcRequestUser")
-
-                self.cfcrequestpassword = YLeaf(YType.str, "cfcRequestPassword")
-
-                self.cfcrequestresult = YLeaf(YType.enumeration, "cfcRequestResult")
-
-                self.cfcrequestcompletiontime = YLeaf(YType.uint32, "cfcRequestCompletionTime")
-
-                self.cfcrequeststop = YLeaf(YType.enumeration, "cfcRequestStop")
-
-                self.cfcrequestoperationstate = YLeaf(YType.enumeration, "cfcRequestOperationState")
-
-                self.cfcrequestentrystatus = YLeaf(YType.enumeration, "cfcRequestEntryStatus")
-                self._segment_path = lambda: "cfcRequestEntry" + "[cfcRequestIndex='" + self.cfcrequestindex.get() + "']"
+                self.ylist_key_names = ['cfcrequestindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cfcrequestindex', YLeaf(YType.uint32, 'cfcRequestIndex')),
+                    ('cfcrequestoperation', YLeaf(YType.enumeration, 'cfcRequestOperation')),
+                    ('cfcrequestlocalfile', YLeaf(YType.str, 'cfcRequestLocalFile')),
+                    ('cfcrequestremotefile', YLeaf(YType.str, 'cfcRequestRemoteFile')),
+                    ('cfcrequestserver', YLeaf(YType.str, 'cfcRequestServer')),
+                    ('cfcrequestuser', YLeaf(YType.str, 'cfcRequestUser')),
+                    ('cfcrequestpassword', YLeaf(YType.str, 'cfcRequestPassword')),
+                    ('cfcrequestresult', YLeaf(YType.enumeration, 'cfcRequestResult')),
+                    ('cfcrequestcompletiontime', YLeaf(YType.uint32, 'cfcRequestCompletionTime')),
+                    ('cfcrequeststop', YLeaf(YType.enumeration, 'cfcRequestStop')),
+                    ('cfcrequestoperationstate', YLeaf(YType.enumeration, 'cfcRequestOperationState')),
+                    ('cfcrequestentrystatus', YLeaf(YType.enumeration, 'cfcRequestEntryStatus')),
+                ])
+                self.cfcrequestindex = None
+                self.cfcrequestoperation = None
+                self.cfcrequestlocalfile = None
+                self.cfcrequestremotefile = None
+                self.cfcrequestserver = None
+                self.cfcrequestuser = None
+                self.cfcrequestpassword = None
+                self.cfcrequestresult = None
+                self.cfcrequestcompletiontime = None
+                self.cfcrequeststop = None
+                self.cfcrequestoperationstate = None
+                self.cfcrequestentrystatus = None
+                self._segment_path = lambda: "cfcRequestEntry" + "[cfcRequestIndex='" + str(self.cfcrequestindex) + "']"
                 self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/cfcRequestTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -292,7 +304,7 @@ class CISCOFTPCLIENTMIB(Entity):
 
             class Cfcrequestoperation(Enum):
                 """
-                Cfcrequestoperation
+                Cfcrequestoperation (Enum Class)
 
                 The FTP operation to be performed.
 
@@ -309,7 +321,7 @@ class CISCOFTPCLIENTMIB(Entity):
 
             class Cfcrequestoperationstate(Enum):
                 """
-                Cfcrequestoperationstate
+                Cfcrequestoperationstate (Enum Class)
 
                 The operational state of the file transfer.  To short\-terminate
 
@@ -332,7 +344,7 @@ class CISCOFTPCLIENTMIB(Entity):
 
             class Cfcrequestresult(Enum):
                 """
-                Cfcrequestresult
+                Cfcrequestresult (Enum Class)
 
                 The result of the FTP operation.
 
@@ -381,7 +393,7 @@ class CISCOFTPCLIENTMIB(Entity):
 
             class Cfcrequeststop(Enum):
                 """
-                Cfcrequeststop
+                Cfcrequeststop (Enum Class)
 
                 The action control to stop a running request.  Setting this to
 

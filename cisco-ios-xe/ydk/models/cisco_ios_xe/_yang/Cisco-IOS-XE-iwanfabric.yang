@@ -36,6 +36,20 @@ module Cisco-IOS-XE-iwanfabric {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -397,6 +411,10 @@ module Cisco-IOS-XE-iwanfabric {
     uses config-iwanfabric-interface-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-iwanfabric-interface-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
     uses config-iwanfabric-interface-grouping;
   }
@@ -405,11 +423,15 @@ module Cisco-IOS-XE-iwanfabric {
     uses config-iwanfabric-interface-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-iwanfabric-interface-grouping;
   }
 
   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-iwanfabric-interface-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-iwanfabric-interface-grouping;
   }
 }

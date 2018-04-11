@@ -5,15 +5,17 @@ policy. It can be imported by modules that make use of BGP
 attributes
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class BgpOriginAttrType(Enum):
     """
-    BgpOriginAttrType
+    BgpOriginAttrType (Enum Class)
 
     Type definition for standard BGP origin attribute
 
@@ -40,7 +42,7 @@ class BgpOriginAttrType(Enum):
 
 class BgpSessionDirection(Enum):
     """
-    BgpSessionDirection
+    BgpSessionDirection (Enum Class)
 
     Type to describe the direction of NLRI transmission
 
@@ -61,7 +63,7 @@ class BgpSessionDirection(Enum):
 
 class CommunityType(Enum):
     """
-    CommunityType
+    CommunityType (Enum Class)
 
     type describing variations of community attributes\:
 
@@ -100,7 +102,7 @@ class CommunityType(Enum):
 
 class PeerType(Enum):
     """
-    PeerType
+    PeerType (Enum Class)
 
     labels a peer or peer group as explicitly internal or
 

@@ -7,15 +7,17 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class Afi(Enum):
     """
-    Afi
+    Afi (Enum Class)
 
     .. data:: all = 0
 
@@ -52,7 +54,7 @@ class Afi(Enum):
 
 class AfiSafiType(Enum):
     """
-    AfiSafiType
+    AfiSafiType (Enum Class)
 
     .. data:: all_all = 0
 
@@ -235,7 +237,7 @@ class AfiSafiType(Enum):
 
 class InstanceName(Enum):
     """
-    InstanceName
+    InstanceName (Enum Class)
 
     .. data:: all = 0
 
@@ -246,7 +248,7 @@ class InstanceName(Enum):
 
 class Ipv4Safi(Enum):
     """
-    Ipv4Safi
+    Ipv4Safi (Enum Class)
 
     .. data:: all = 0
 
@@ -293,9 +295,9 @@ class Ipv4Safi(Enum):
     unicast = Enum.YLeaf(9, "unicast")
 
 
-class Ipv4Safi(Enum):
+class Ipv4Safi_(Enum):
     """
-    Ipv4Safi
+    Ipv4Safi\_ (Enum Class)
 
     .. data:: all = 0
 
@@ -344,7 +346,7 @@ class Ipv4Safi(Enum):
 
 class Ipv6Safi(Enum):
     """
-    Ipv6Safi
+    Ipv6Safi (Enum Class)
 
     .. data:: all = 0
 
@@ -379,9 +381,9 @@ class Ipv6Safi(Enum):
     unicast = Enum.YLeaf(6, "unicast")
 
 
-class Ipv6Safi(Enum):
+class Ipv6Safi_(Enum):
     """
-    Ipv6Safi
+    Ipv6Safi\_ (Enum Class)
 
     .. data:: all = 0
 
@@ -418,7 +420,7 @@ class Ipv6Safi(Enum):
 
 class L2VpnSafi(Enum):
     """
-    L2VpnSafi
+    L2VpnSafi (Enum Class)
 
     .. data:: evpn = 0
 
@@ -439,9 +441,9 @@ class L2VpnSafi(Enum):
     vpws = Enum.YLeaf(3, "vpws")
 
 
-class L2VpnSafi(Enum):
+class L2VpnSafi_(Enum):
     """
-    L2VpnSafi
+    L2VpnSafi\_ (Enum Class)
 
     .. data:: evpn = 0
 
@@ -464,7 +466,7 @@ class L2VpnSafi(Enum):
 
 class LinkStateSafi(Enum):
     """
-    LinkStateSafi
+    LinkStateSafi (Enum Class)
 
     .. data:: link_state = 0
 
@@ -473,9 +475,9 @@ class LinkStateSafi(Enum):
     link_state = Enum.YLeaf(0, "link-state")
 
 
-class LinkStateSafi(Enum):
+class LinkStateSafi_(Enum):
     """
-    LinkStateSafi
+    LinkStateSafi\_ (Enum Class)
 
     .. data:: link_state = 0
 
@@ -486,7 +488,7 @@ class LinkStateSafi(Enum):
 
 class Vpnv4Safi(Enum):
     """
-    Vpnv4Safi
+    Vpnv4Safi (Enum Class)
 
     .. data:: flowspec = 0
 
@@ -503,9 +505,9 @@ class Vpnv4Safi(Enum):
     unicast = Enum.YLeaf(2, "unicast")
 
 
-class Vpnv4Safi(Enum):
+class Vpnv4Safi_(Enum):
     """
-    Vpnv4Safi
+    Vpnv4Safi\_ (Enum Class)
 
     .. data:: flowspec = 0
 
@@ -524,7 +526,7 @@ class Vpnv4Safi(Enum):
 
 class Vpnv6Safi(Enum):
     """
-    Vpnv6Safi
+    Vpnv6Safi (Enum Class)
 
     .. data:: flowspec = 0
 
@@ -541,9 +543,9 @@ class Vpnv6Safi(Enum):
     unicast = Enum.YLeaf(2, "unicast")
 
 
-class Vpnv6Safi(Enum):
+class Vpnv6Safi_(Enum):
     """
-    Vpnv6Safi
+    Vpnv6Safi\_ (Enum Class)
 
     .. data:: flowspec = 0
 
@@ -562,7 +564,7 @@ class Vpnv6Safi(Enum):
 
 class VrfName(Enum):
     """
-    VrfName
+    VrfName (Enum Class)
 
     .. data:: all = 0
 
@@ -593,8 +595,10 @@ class ClearBgpAllGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-all-graceful"
 
     def clone_ptr(self):
@@ -621,8 +625,10 @@ class ClearBgpAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-all"
 
     def clone_ptr(self):
@@ -655,8 +661,10 @@ class ClearBgpIpAddrGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpIpAddrGraceful.Input()
         self.input.parent = self
@@ -698,10 +706,13 @@ class ClearBgpIpAddrGraceful(Entity):
             self.yang_parent_name = "clear-bgp-ip-addr-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr-graceful/%s" % self._segment_path()
 
@@ -738,8 +749,10 @@ class ClearBgpIpAddrLongLivedStale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpIpAddrLongLivedStale.Input()
         self.input.parent = self
@@ -781,10 +794,13 @@ class ClearBgpIpAddrLongLivedStale(Entity):
             self.yang_parent_name = "clear-bgp-ip-addr-long-lived-stale"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr-long-lived-stale/%s" % self._segment_path()
 
@@ -820,8 +836,10 @@ class ClearBgpIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpIpAddr.Input()
         self.input.parent = self
@@ -863,10 +881,13 @@ class ClearBgpIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr/%s" % self._segment_path()
 
@@ -905,8 +926,10 @@ class ClearBgpAfiSafiAllSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiAllSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -940,10 +963,13 @@ class ClearBgpAfiSafiAllSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-all-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -981,8 +1007,10 @@ class ClearBgpAfiSafiAllSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiAllSoftIn.Input()
         self.input.parent = self
@@ -1016,10 +1044,13 @@ class ClearBgpAfiSafiAllSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-all-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-in/%s" % self._segment_path()
 
@@ -1057,8 +1088,10 @@ class ClearBgpAfiSafiAllSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiAllSoftOut.Input()
         self.input.parent = self
@@ -1092,10 +1125,13 @@ class ClearBgpAfiSafiAllSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-all-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-out/%s" % self._segment_path()
 
@@ -1132,8 +1168,10 @@ class ClearBgpAfiSafiAllSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiAllSoft.Input()
         self.input.parent = self
@@ -1167,10 +1205,13 @@ class ClearBgpAfiSafiAllSoft(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-all-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft/%s" % self._segment_path()
 
@@ -1206,8 +1247,10 @@ class ClearBgpAfiSafiIpAddrLongLivedStale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiIpAddrLongLivedStale.Input()
         self.input.parent = self
@@ -1256,12 +1299,15 @@ class ClearBgpAfiSafiIpAddrLongLivedStale(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-ip-addr-long-lived-stale"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-long-lived-stale/%s" % self._segment_path()
 
@@ -1299,8 +1345,10 @@ class ClearBgpAfiSafiIpAddrSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiIpAddrSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -1349,12 +1397,15 @@ class ClearBgpAfiSafiIpAddrSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-ip-addr-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -1391,8 +1442,10 @@ class ClearBgpAfiSafiIpAddrSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiIpAddrSoftIn.Input()
         self.input.parent = self
@@ -1441,12 +1494,15 @@ class ClearBgpAfiSafiIpAddrSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-ip-addr-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-in/%s" % self._segment_path()
 
@@ -1483,8 +1539,10 @@ class ClearBgpAfiSafiIpAddrSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiIpAddrSoftOut.Input()
         self.input.parent = self
@@ -1533,12 +1591,15 @@ class ClearBgpAfiSafiIpAddrSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-ip-addr-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-out/%s" % self._segment_path()
 
@@ -1574,8 +1635,10 @@ class ClearBgpAfiSafiIpAddrSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiIpAddrSoft.Input()
         self.input.parent = self
@@ -1624,12 +1687,15 @@ class ClearBgpAfiSafiIpAddrSoft(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-ip-addr-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft/%s" % self._segment_path()
 
@@ -1668,8 +1734,10 @@ class ClearBgpAfiSafiAsSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiAsSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -1722,12 +1790,15 @@ class ClearBgpAfiSafiAsSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-as-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -1765,8 +1836,10 @@ class ClearBgpAfiSafiAsSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiAsSoftIn.Input()
         self.input.parent = self
@@ -1819,12 +1892,15 @@ class ClearBgpAfiSafiAsSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-as-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-in/%s" % self._segment_path()
 
@@ -1862,8 +1938,10 @@ class ClearBgpAfiSafiAsSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiAsSoftOut.Input()
         self.input.parent = self
@@ -1916,12 +1994,15 @@ class ClearBgpAfiSafiAsSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-as-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-out/%s" % self._segment_path()
 
@@ -1958,8 +2039,10 @@ class ClearBgpAfiSafiAsSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiAsSoft.Input()
         self.input.parent = self
@@ -2012,12 +2095,15 @@ class ClearBgpAfiSafiAsSoft(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-as-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft/%s" % self._segment_path()
 
@@ -2053,8 +2139,10 @@ class ClearBgpAfiSafiDampeningIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiDampeningIpPrefix.Input()
         self.input.parent = self
@@ -2103,12 +2191,15 @@ class ClearBgpAfiSafiDampeningIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-dampening-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ip-prefix/%s" % self._segment_path()
 
@@ -2144,8 +2235,10 @@ class ClearBgpAfiSafiDampening(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiDampening.Input()
         self.input.parent = self
@@ -2179,10 +2272,13 @@ class ClearBgpAfiSafiDampening(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-dampening"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening/%s" % self._segment_path()
 
@@ -2221,8 +2317,10 @@ class ClearBgpAfiSafiExternalSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiExternalSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -2256,10 +2354,13 @@ class ClearBgpAfiSafiExternalSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-external-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -2297,8 +2398,10 @@ class ClearBgpAfiSafiExternalSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiExternalSoftIn.Input()
         self.input.parent = self
@@ -2332,10 +2435,13 @@ class ClearBgpAfiSafiExternalSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-external-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-in/%s" % self._segment_path()
 
@@ -2373,8 +2479,10 @@ class ClearBgpAfiSafiExternalSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiExternalSoftOut.Input()
         self.input.parent = self
@@ -2408,10 +2516,13 @@ class ClearBgpAfiSafiExternalSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-external-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-out/%s" % self._segment_path()
 
@@ -2448,8 +2559,10 @@ class ClearBgpAfiSafiExternalSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiExternalSoft.Input()
         self.input.parent = self
@@ -2483,10 +2596,13 @@ class ClearBgpAfiSafiExternalSoft(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-external-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft/%s" % self._segment_path()
 
@@ -2522,8 +2638,10 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.Input()
         self.input.parent = self
@@ -2581,14 +2699,17 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-flap-statistics-ip-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -2624,8 +2745,10 @@ class ClearBgpAfiSafiFlapStatisticsIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiFlapStatisticsIpAddr.Input()
         self.input.parent = self
@@ -2674,12 +2797,15 @@ class ClearBgpAfiSafiFlapStatisticsIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-flap-statistics-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-addr/%s" % self._segment_path()
 
@@ -2715,8 +2841,10 @@ class ClearBgpAfiSafiFlapStatisticsIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiFlapStatisticsIpPrefix.Input()
         self.input.parent = self
@@ -2765,12 +2893,15 @@ class ClearBgpAfiSafiFlapStatisticsIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-flap-statistics-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-prefix/%s" % self._segment_path()
 
@@ -2807,8 +2938,10 @@ class ClearBgpAfiSafiFlapStatisticsRegexp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiFlapStatisticsRegexp.Input()
         self.input.parent = self
@@ -2849,12 +2982,15 @@ class ClearBgpAfiSafiFlapStatisticsRegexp(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-flap-statistics-regexp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.regexp_pattern = YLeaf(YType.str, "regexp-pattern")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('regexp_pattern', YLeaf(YType.str, 'regexp-pattern')),
+            ])
+            self.afi_safi_name = None
+            self.regexp_pattern = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-regexp/%s" % self._segment_path()
 
@@ -2891,8 +3027,10 @@ class ClearBgpAfiSafiFlapStatisticsRoutePolicy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiFlapStatisticsRoutePolicy.Input()
         self.input.parent = self
@@ -2933,12 +3071,15 @@ class ClearBgpAfiSafiFlapStatisticsRoutePolicy(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-flap-statistics-route-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.route_policy_name = YLeaf(YType.str, "route-policy-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+            ])
+            self.afi_safi_name = None
+            self.route_policy_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-route-policy/%s" % self._segment_path()
 
@@ -2974,8 +3115,10 @@ class ClearBgpAfiSafiFlapStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiFlapStatistics.Input()
         self.input.parent = self
@@ -3009,10 +3152,13 @@ class ClearBgpAfiSafiFlapStatistics(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-flap-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics/%s" % self._segment_path()
 
@@ -3049,8 +3195,10 @@ class ClearBgpAfiSafiNexthopPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiNexthopPerformanceStatistics.Input()
         self.input.parent = self
@@ -3084,10 +3232,13 @@ class ClearBgpAfiSafiNexthopPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-nexthop-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-nexthop-performance-statistics/%s" % self._segment_path()
 
@@ -3124,8 +3275,10 @@ class ClearBgpAfiSafiNexthopRegistrationIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiNexthopRegistrationIpAddr.Input()
         self.input.parent = self
@@ -3174,12 +3327,15 @@ class ClearBgpAfiSafiNexthopRegistrationIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-nexthop-registration-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-nexthop-registration-ip-addr/%s" % self._segment_path()
 
@@ -3215,8 +3371,10 @@ class ClearBgpAfiSafiSelfOriginated(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiSelfOriginated.Input()
         self.input.parent = self
@@ -3250,10 +3408,13 @@ class ClearBgpAfiSafiSelfOriginated(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-self-originated"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-self-originated/%s" % self._segment_path()
 
@@ -3289,8 +3450,10 @@ class ClearBgpAfiSafiShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiShutdown.Input()
         self.input.parent = self
@@ -3324,10 +3487,13 @@ class ClearBgpAfiSafiShutdown(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-shutdown"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-shutdown/%s" % self._segment_path()
 
@@ -3366,8 +3532,10 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.Input()
         self.input.parent = self
@@ -3401,10 +3569,13 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-address-family-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-address-family-update-parent/%s" % self._segment_path()
 
@@ -3442,8 +3613,10 @@ class ClearBgpAfiSafiUpdateOutqAddressFamily(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqAddressFamily.Input()
         self.input.parent = self
@@ -3477,10 +3650,13 @@ class ClearBgpAfiSafiUpdateOutqAddressFamily(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-address-family"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-address-family/%s" % self._segment_path()
 
@@ -3520,8 +3696,10 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input()
         self.input.parent = self
@@ -3570,12 +3748,15 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent/%s" % self._segment_path()
 
@@ -3614,8 +3795,10 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.Input()
         self.input.parent = self
@@ -3664,12 +3847,15 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh/%s" % self._segment_path()
 
@@ -3708,8 +3894,10 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input()
         self.input.parent = self
@@ -3758,12 +3946,15 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-neighbor-ip-addr-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-update-parent/%s" % self._segment_path()
 
@@ -3801,8 +3992,10 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqNeighborIpAddr.Input()
         self.input.parent = self
@@ -3851,12 +4044,15 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-neighbor-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr/%s" % self._segment_path()
 
@@ -3896,8 +4092,10 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -3949,14 +4147,17 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-update-group-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.afi_safi_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-update-parent/%s" % self._segment_path()
 
@@ -3995,8 +4196,10 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.Input()
         self.input.parent = self
@@ -4048,14 +4251,17 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-update-group-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.afi_safi_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group/%s" % self._segment_path()
 
@@ -4095,8 +4301,10 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(En
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -4148,14 +4356,17 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(En
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.afi_safi_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent/%s" % self._segment_path()
 
@@ -4194,8 +4405,10 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input()
         self.input.parent = self
@@ -4247,14 +4460,17 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.afi_safi_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group/%s" % self._segment_path()
 
@@ -4293,8 +4509,10 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.Input()
         self.input.parent = self
@@ -4337,12 +4555,15 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-update-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.afi_safi_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-update-parent/%s" % self._segment_path()
 
@@ -4380,8 +4601,10 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiUpdateOutqUpdateGroup.Input()
         self.input.parent = self
@@ -4424,12 +4647,15 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroup(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-update-outq-update-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.afi_safi_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group/%s" % self._segment_path()
 
@@ -4466,8 +4692,10 @@ class ClearBgpAsGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAsGraceful.Input()
         self.input.parent = self
@@ -4513,10 +4741,13 @@ class ClearBgpAsGraceful(Entity):
             self.yang_parent_name = "clear-bgp-as-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-as-graceful/%s" % self._segment_path()
 
@@ -4552,8 +4783,10 @@ class ClearBgpAs(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAs.Input()
         self.input.parent = self
@@ -4599,10 +4832,13 @@ class ClearBgpAs(Entity):
             self.yang_parent_name = "clear-bgp-as"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-as/%s" % self._segment_path()
 
@@ -4638,8 +4874,10 @@ class ClearBgpBestpathIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -4696,12 +4934,15 @@ class ClearBgpBestpathIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -4737,8 +4978,10 @@ class ClearBgpBestpathIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathIpAddr.Input()
         self.input.parent = self
@@ -4780,10 +5023,13 @@ class ClearBgpBestpathIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-addr/%s" % self._segment_path()
 
@@ -4819,8 +5065,10 @@ class ClearBgpBestpathIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathIpPrefix.Input()
         self.input.parent = self
@@ -4862,10 +5110,13 @@ class ClearBgpBestpathIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-prefix/%s" % self._segment_path()
 
@@ -4901,8 +5152,10 @@ class ClearBgpBestpathAfiSafiIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -4966,14 +5219,17 @@ class ClearBgpBestpathAfiSafiIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -5009,8 +5265,10 @@ class ClearBgpBestpathAfiSafiIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpAddr.Input()
         self.input.parent = self
@@ -5059,12 +5317,15 @@ class ClearBgpBestpathAfiSafiIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-addr/%s" % self._segment_path()
 
@@ -5100,8 +5361,10 @@ class ClearBgpBestpathAfiSafiIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpPrefix.Input()
         self.input.parent = self
@@ -5150,12 +5413,15 @@ class ClearBgpBestpathAfiSafiIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-prefix/%s" % self._segment_path()
 
@@ -5192,8 +5458,10 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -5264,16 +5532,19 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -5310,8 +5581,10 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiBridgeDomainIpAddr.Input()
         self.input.parent = self
@@ -5367,14 +5640,17 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr/%s" % self._segment_path()
 
@@ -5411,8 +5687,10 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiBridgeDomainIpPrefix.Input()
         self.input.parent = self
@@ -5468,14 +5746,17 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-bridge-domain-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-prefix/%s" % self._segment_path()
 
@@ -5512,8 +5793,10 @@ class ClearBgpBestpathAfiSafiRdIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -5600,16 +5883,19 @@ class ClearBgpBestpathAfiSafiRdIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -5646,8 +5932,10 @@ class ClearBgpBestpathAfiSafiRdIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpAddr.Input()
         self.input.parent = self
@@ -5719,14 +6007,17 @@ class ClearBgpBestpathAfiSafiRdIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-addr/%s" % self._segment_path()
 
@@ -5763,8 +6054,10 @@ class ClearBgpBestpathAfiSafiRdIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpPrefix.Input()
         self.input.parent = self
@@ -5836,14 +6129,17 @@ class ClearBgpBestpathAfiSafiRdIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-prefix/%s" % self._segment_path()
 
@@ -5879,8 +6175,10 @@ class ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -5932,14 +6230,17 @@ class ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -5975,8 +6276,10 @@ class ClearBgpBestpathAfiSafiIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpv4Addr.Input()
         self.input.parent = self
@@ -6019,12 +6322,15 @@ class ClearBgpBestpathAfiSafiIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-addr/%s" % self._segment_path()
 
@@ -6060,8 +6366,10 @@ class ClearBgpBestpathAfiSafiIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpv4Prefix.Input()
         self.input.parent = self
@@ -6104,12 +6412,15 @@ class ClearBgpBestpathAfiSafiIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-prefix/%s" % self._segment_path()
 
@@ -6146,8 +6457,10 @@ class ClearBgpBestpathAfiSafiRdIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpv4Addr.Input()
         self.input.parent = self
@@ -6213,14 +6526,17 @@ class ClearBgpBestpathAfiSafiRdIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-addr/%s" % self._segment_path()
 
@@ -6257,8 +6573,10 @@ class ClearBgpBestpathAfiSafiVrfIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiVrfIpv4Addr.Input()
         self.input.parent = self
@@ -6308,14 +6626,17 @@ class ClearBgpBestpathAfiSafiVrfIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-vrf-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-addr/%s" % self._segment_path()
 
@@ -6351,8 +6672,10 @@ class ClearBgpBestpathAfiSafiNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiNetwork.Input()
         self.input.parent = self
@@ -6393,12 +6716,15 @@ class ClearBgpBestpathAfiSafiNetwork(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.afi_safi_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-network/%s" % self._segment_path()
 
@@ -6435,8 +6761,10 @@ class ClearBgpBestpathAfiSafiRdNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdNetwork.Input()
         self.input.parent = self
@@ -6500,14 +6828,17 @@ class ClearBgpBestpathAfiSafiRdNetwork(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-network/%s" % self._segment_path()
 
@@ -6544,8 +6875,10 @@ class ClearBgpBestpathAfiSafiVrfNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiVrfNetwork.Input()
         self.input.parent = self
@@ -6593,14 +6926,17 @@ class ClearBgpBestpathAfiSafiVrfNetwork(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-vrf-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-network/%s" % self._segment_path()
 
@@ -6636,8 +6972,10 @@ class ClearBgpBestpathAfiSafiRtConstraintNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRtConstraintNetwork.Input()
         self.input.parent = self
@@ -6678,12 +7016,15 @@ class ClearBgpBestpathAfiSafiRtConstraintNetwork(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rt-constraint-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rt_constraint_network = YLeaf(YType.str, "rt-constraint-network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rt_constraint_network', YLeaf(YType.str, 'rt-constraint-network')),
+            ])
+            self.afi_safi_name = None
+            self.rt_constraint_network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rt-constraint-network/%s" % self._segment_path()
 
@@ -6719,8 +7060,10 @@ class ClearBgpBestpathAfiSafiIpv4TunnelNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpv4TunnelNetwork.Input()
         self.input.parent = self
@@ -6761,12 +7104,15 @@ class ClearBgpBestpathAfiSafiIpv4TunnelNetwork(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ipv4-tunnel-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_tunnel_network = YLeaf(YType.str, "ipv4-tunnel-network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_tunnel_network', YLeaf(YType.str, 'ipv4-tunnel-network')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_tunnel_network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-tunnel-network/%s" % self._segment_path()
 
@@ -6802,8 +7148,10 @@ class ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -6855,14 +7203,17 @@ class ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -6898,8 +7249,10 @@ class ClearBgpBestpathAfiSafiIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpv6Addr.Input()
         self.input.parent = self
@@ -6942,12 +7295,15 @@ class ClearBgpBestpathAfiSafiIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-addr/%s" % self._segment_path()
 
@@ -6983,8 +7339,10 @@ class ClearBgpBestpathAfiSafiIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiIpv6Prefix.Input()
         self.input.parent = self
@@ -7027,12 +7385,15 @@ class ClearBgpBestpathAfiSafiIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-prefix/%s" % self._segment_path()
 
@@ -7069,8 +7430,10 @@ class ClearBgpBestpathAfiSafiRd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRd.Input()
         self.input.parent = self
@@ -7127,12 +7490,15 @@ class ClearBgpBestpathAfiSafiRd(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd/%s" % self._segment_path()
 
@@ -7169,8 +7535,10 @@ class ClearBgpBestpathAfiSafiVrf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiVrf.Input()
         self.input.parent = self
@@ -7211,12 +7579,15 @@ class ClearBgpBestpathAfiSafiVrf(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-vrf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf/%s" % self._segment_path()
 
@@ -7252,8 +7623,10 @@ class ClearBgpBestpathAfiSafi(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafi.Input()
         self.input.parent = self
@@ -7287,10 +7660,13 @@ class ClearBgpBestpathAfiSafi(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi/%s" % self._segment_path()
 
@@ -7326,8 +7702,10 @@ class ClearBgpBestpathAfiSafiSrPolicyPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiSrPolicyPrefix.Input()
         self.input.parent = self
@@ -7368,12 +7746,15 @@ class ClearBgpBestpathAfiSafiSrPolicyPrefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-sr-policy-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.sr_policy_prefix = YLeaf(YType.str, "sr-policy-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('sr_policy_prefix', YLeaf(YType.str, 'sr-policy-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.sr_policy_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-sr-policy-prefix/%s" % self._segment_path()
 
@@ -7410,8 +7791,10 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.Input()
         self.input.parent = self
@@ -7461,14 +7844,17 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-bridge-domain-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ipv4-prefix/%s" % self._segment_path()
 
@@ -7505,8 +7891,10 @@ class ClearBgpBestpathAfiSafiRdIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpv4Prefix.Input()
         self.input.parent = self
@@ -7572,14 +7960,17 @@ class ClearBgpBestpathAfiSafiRdIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-prefix/%s" % self._segment_path()
 
@@ -7616,8 +8007,10 @@ class ClearBgpBestpathAfiSafiMp2MpIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiMp2MpIpv4Prefix.Input()
         self.input.parent = self
@@ -7667,14 +8060,17 @@ class ClearBgpBestpathAfiSafiMp2MpIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-mp2mp-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.mp2mp = YLeaf(YType.str, "mp2mp")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('mp2mp', YLeaf(YType.str, 'mp2mp')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.mp2mp = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-mp2mp-ipv4-prefix/%s" % self._segment_path()
 
@@ -7711,8 +8107,10 @@ class ClearBgpBestpathAfiSafiVrfIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiVrfIpv4Prefix.Input()
         self.input.parent = self
@@ -7762,14 +8160,17 @@ class ClearBgpBestpathAfiSafiVrfIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-vrf-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-prefix/%s" % self._segment_path()
 
@@ -7806,8 +8207,10 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -7882,16 +8285,19 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -7928,8 +8334,10 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -7988,16 +8396,19 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -8034,8 +8445,10 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -8110,16 +8523,19 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -8156,8 +8572,10 @@ class ClearBgpBestpathAfiSafiRdIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpv6Addr.Input()
         self.input.parent = self
@@ -8223,14 +8641,17 @@ class ClearBgpBestpathAfiSafiRdIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-addr/%s" % self._segment_path()
 
@@ -8267,8 +8688,10 @@ class ClearBgpBestpathAfiSafiRdIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiRdIpv6Prefix.Input()
         self.input.parent = self
@@ -8334,14 +8757,17 @@ class ClearBgpBestpathAfiSafiRdIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-rd-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-prefix/%s" % self._segment_path()
 
@@ -8378,8 +8804,10 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -8438,16 +8866,19 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -8484,8 +8915,10 @@ class ClearBgpBestpathAfiSafiVrfIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiVrfIpv6Addr.Input()
         self.input.parent = self
@@ -8535,14 +8968,17 @@ class ClearBgpBestpathAfiSafiVrfIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-vrf-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-addr/%s" % self._segment_path()
 
@@ -8579,8 +9015,10 @@ class ClearBgpBestpathAfiSafiVrfIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathAfiSafiVrfIpv6Prefix.Input()
         self.input.parent = self
@@ -8630,14 +9068,17 @@ class ClearBgpBestpathAfiSafiVrfIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-afi-safi-vrf-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-prefix/%s" % self._segment_path()
 
@@ -8674,8 +9115,10 @@ class ClearBgpBestpathVrfIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -8743,14 +9186,17 @@ class ClearBgpBestpathVrfIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -8787,8 +9233,10 @@ class ClearBgpBestpathVrfIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfIpAddr.Input()
         self.input.parent = self
@@ -8841,12 +9289,15 @@ class ClearBgpBestpathVrfIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-addr/%s" % self._segment_path()
 
@@ -8883,8 +9334,10 @@ class ClearBgpBestpathVrfIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfIpPrefix.Input()
         self.input.parent = self
@@ -8937,12 +9390,15 @@ class ClearBgpBestpathVrfIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.vrf_all = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-prefix/%s" % self._segment_path()
 
@@ -8979,8 +9435,10 @@ class ClearBgpBestpathVrfAfiSafiIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiIpv4Prefix.Input()
         self.input.parent = self
@@ -9034,14 +9492,17 @@ class ClearBgpBestpathVrfAfiSafiIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-prefix/%s" % self._segment_path()
 
@@ -9078,8 +9539,10 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -9142,16 +9605,19 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -9188,8 +9654,10 @@ class ClearBgpBestpathVrfAfiSafiIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiIpv4Addr.Input()
         self.input.parent = self
@@ -9243,14 +9711,17 @@ class ClearBgpBestpathVrfAfiSafiIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-addr/%s" % self._segment_path()
 
@@ -9287,8 +9758,10 @@ class ClearBgpBestpathVrfAfiSafiNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiNetwork.Input()
         self.input.parent = self
@@ -9340,14 +9813,17 @@ class ClearBgpBestpathVrfAfiSafiNetwork(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-network/%s" % self._segment_path()
 
@@ -9385,8 +9861,10 @@ class ClearBgpBestpathVrfAfiSafiRdNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiRdNetwork.Input()
         self.input.parent = self
@@ -9461,16 +9939,19 @@ class ClearBgpBestpathVrfAfiSafiRdNetwork(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-rd-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-rd-network/%s" % self._segment_path()
 
@@ -9508,8 +9989,10 @@ class ClearBgpBestpathVrfAfiSafiVrfNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiVrfNetwork.Input()
         self.input.parent = self
@@ -9568,16 +10051,19 @@ class ClearBgpBestpathVrfAfiSafiVrfNetwork(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-vrf-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-vrf-network/%s" % self._segment_path()
 
@@ -9614,8 +10100,10 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -9678,16 +10166,19 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -9724,8 +10215,10 @@ class ClearBgpBestpathVrfAfiSafiIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiIpv6Addr.Input()
         self.input.parent = self
@@ -9779,14 +10272,17 @@ class ClearBgpBestpathVrfAfiSafiIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-addr/%s" % self._segment_path()
 
@@ -9823,8 +10319,10 @@ class ClearBgpBestpathVrfAfiSafiIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiIpv6Prefix.Input()
         self.input.parent = self
@@ -9878,14 +10376,17 @@ class ClearBgpBestpathVrfAfiSafiIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-prefix/%s" % self._segment_path()
 
@@ -9923,8 +10424,10 @@ class ClearBgpBestpathVrfAfiSafiRd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiRd.Input()
         self.input.parent = self
@@ -9992,14 +10495,17 @@ class ClearBgpBestpathVrfAfiSafiRd(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-rd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.rd = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-rd/%s" % self._segment_path()
 
@@ -10037,8 +10543,10 @@ class ClearBgpBestpathVrfAfiSafiVrf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafiVrf.Input()
         self.input.parent = self
@@ -10090,14 +10598,17 @@ class ClearBgpBestpathVrfAfiSafiVrf(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi-vrf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.vrf_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-vrf/%s" % self._segment_path()
 
@@ -10134,8 +10645,10 @@ class ClearBgpBestpathVrfAfiSafi(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpBestpathVrfAfiSafi.Input()
         self.input.parent = self
@@ -10180,12 +10693,15 @@ class ClearBgpBestpathVrfAfiSafi(Entity):
             self.yang_parent_name = "clear-bgp-bestpath-vrf-afi-safi"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi/%s" % self._segment_path()
 
@@ -10217,8 +10733,10 @@ class ClearBgpExternalGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-external-graceful"
 
     def clone_ptr(self):
@@ -10245,8 +10763,10 @@ class ClearBgpExternal(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-external"
 
     def clone_ptr(self):
@@ -10280,8 +10800,10 @@ class ClearBgpInstanceAllGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAllGraceful.Input()
         self.input.parent = self
@@ -10319,10 +10841,13 @@ class ClearBgpInstanceAllGraceful(Entity):
             self.yang_parent_name = "clear-bgp-instance-all-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-all-graceful/%s" % self._segment_path()
 
@@ -10359,8 +10884,10 @@ class ClearBgpInstanceAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAll.Input()
         self.input.parent = self
@@ -10398,10 +10925,13 @@ class ClearBgpInstanceAll(Entity):
             self.yang_parent_name = "clear-bgp-instance-all"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-all/%s" % self._segment_path()
 
@@ -10438,8 +10968,10 @@ class ClearBgpInstanceIpAddrGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceIpAddrGraceful.Input()
         self.input.parent = self
@@ -10492,12 +11024,15 @@ class ClearBgpInstanceIpAddrGraceful(Entity):
             self.yang_parent_name = "clear-bgp-instance-ip-addr-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr-graceful/%s" % self._segment_path()
 
@@ -10534,8 +11069,10 @@ class ClearBgpInstanceIpAddrLongLivedStale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceIpAddrLongLivedStale.Input()
         self.input.parent = self
@@ -10588,12 +11125,15 @@ class ClearBgpInstanceIpAddrLongLivedStale(Entity):
             self.yang_parent_name = "clear-bgp-instance-ip-addr-long-lived-stale"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr-long-lived-stale/%s" % self._segment_path()
 
@@ -10629,8 +11169,10 @@ class ClearBgpInstanceIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceIpAddr.Input()
         self.input.parent = self
@@ -10683,12 +11225,15 @@ class ClearBgpInstanceIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr/%s" % self._segment_path()
 
@@ -10728,8 +11273,10 @@ class ClearBgpInstanceAfiSafiAllSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiAllSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -10774,12 +11321,15 @@ class ClearBgpInstanceAfiSafiAllSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-all-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -10818,8 +11368,10 @@ class ClearBgpInstanceAfiSafiAllSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiAllSoftIn.Input()
         self.input.parent = self
@@ -10864,12 +11416,15 @@ class ClearBgpInstanceAfiSafiAllSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-all-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-in/%s" % self._segment_path()
 
@@ -10908,8 +11463,10 @@ class ClearBgpInstanceAfiSafiAllSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiAllSoftOut.Input()
         self.input.parent = self
@@ -10954,12 +11511,15 @@ class ClearBgpInstanceAfiSafiAllSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-all-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-out/%s" % self._segment_path()
 
@@ -10997,8 +11557,10 @@ class ClearBgpInstanceAfiSafiAllSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiAllSoft.Input()
         self.input.parent = self
@@ -11043,12 +11605,15 @@ class ClearBgpInstanceAfiSafiAllSoft(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-all-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft/%s" % self._segment_path()
 
@@ -11085,8 +11650,10 @@ class ClearBgpInstanceAfiSafiIpAddrLongLivedStale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiIpAddrLongLivedStale.Input()
         self.input.parent = self
@@ -11146,14 +11713,17 @@ class ClearBgpInstanceAfiSafiIpAddrLongLivedStale(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-ip-addr-long-lived-stale"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-long-lived-stale/%s" % self._segment_path()
 
@@ -11192,8 +11762,10 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -11253,14 +11825,17 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-ip-addr-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -11298,8 +11873,10 @@ class ClearBgpInstanceAfiSafiIpAddrSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiIpAddrSoftIn.Input()
         self.input.parent = self
@@ -11359,14 +11936,17 @@ class ClearBgpInstanceAfiSafiIpAddrSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-ip-addr-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-in/%s" % self._segment_path()
 
@@ -11404,8 +11984,10 @@ class ClearBgpInstanceAfiSafiIpAddrSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiIpAddrSoftOut.Input()
         self.input.parent = self
@@ -11465,14 +12047,17 @@ class ClearBgpInstanceAfiSafiIpAddrSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-ip-addr-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-out/%s" % self._segment_path()
 
@@ -11509,8 +12094,10 @@ class ClearBgpInstanceAfiSafiIpAddrSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiIpAddrSoft.Input()
         self.input.parent = self
@@ -11570,14 +12157,17 @@ class ClearBgpInstanceAfiSafiIpAddrSoft(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-ip-addr-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft/%s" % self._segment_path()
 
@@ -11617,8 +12207,10 @@ class ClearBgpInstanceAfiSafiAsSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiAsSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -11682,14 +12274,17 @@ class ClearBgpInstanceAfiSafiAsSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-as-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -11728,8 +12323,10 @@ class ClearBgpInstanceAfiSafiAsSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiAsSoftIn.Input()
         self.input.parent = self
@@ -11793,14 +12390,17 @@ class ClearBgpInstanceAfiSafiAsSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-as-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-in/%s" % self._segment_path()
 
@@ -11839,8 +12439,10 @@ class ClearBgpInstanceAfiSafiAsSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiAsSoftOut.Input()
         self.input.parent = self
@@ -11904,14 +12506,17 @@ class ClearBgpInstanceAfiSafiAsSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-as-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-out/%s" % self._segment_path()
 
@@ -11949,8 +12554,10 @@ class ClearBgpInstanceAfiSafiAsSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiAsSoft.Input()
         self.input.parent = self
@@ -12014,14 +12621,17 @@ class ClearBgpInstanceAfiSafiAsSoft(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-as-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft/%s" % self._segment_path()
 
@@ -12058,8 +12668,10 @@ class ClearBgpInstanceAfiSafiDampeningIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiDampeningIpPrefix.Input()
         self.input.parent = self
@@ -12119,14 +12731,17 @@ class ClearBgpInstanceAfiSafiDampeningIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-dampening-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ip-prefix/%s" % self._segment_path()
 
@@ -12163,8 +12778,10 @@ class ClearBgpInstanceAfiSafiDampening(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiDampening.Input()
         self.input.parent = self
@@ -12209,12 +12826,15 @@ class ClearBgpInstanceAfiSafiDampening(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-dampening"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening/%s" % self._segment_path()
 
@@ -12254,8 +12874,10 @@ class ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -12300,12 +12922,15 @@ class ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-external-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -12344,8 +12969,10 @@ class ClearBgpInstanceAfiSafiExternalSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiExternalSoftIn.Input()
         self.input.parent = self
@@ -12390,12 +13017,15 @@ class ClearBgpInstanceAfiSafiExternalSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-external-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-in/%s" % self._segment_path()
 
@@ -12434,8 +13064,10 @@ class ClearBgpInstanceAfiSafiExternalSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiExternalSoftOut.Input()
         self.input.parent = self
@@ -12480,12 +13112,15 @@ class ClearBgpInstanceAfiSafiExternalSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-external-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-out/%s" % self._segment_path()
 
@@ -12523,8 +13158,10 @@ class ClearBgpInstanceAfiSafiExternalSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiExternalSoft.Input()
         self.input.parent = self
@@ -12569,12 +13206,15 @@ class ClearBgpInstanceAfiSafiExternalSoft(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-external-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft/%s" % self._segment_path()
 
@@ -12611,8 +13251,10 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.Input()
         self.input.parent = self
@@ -12681,16 +13323,19 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-flap-statistics-ip-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -12727,8 +13372,10 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiFlapStatisticsIpAddr.Input()
         self.input.parent = self
@@ -12788,14 +13435,17 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-flap-statistics-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-addr/%s" % self._segment_path()
 
@@ -12832,8 +13482,10 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix.Input()
         self.input.parent = self
@@ -12893,14 +13545,17 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-flap-statistics-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-prefix/%s" % self._segment_path()
 
@@ -12938,8 +13593,10 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRegexp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiFlapStatisticsRegexp.Input()
         self.input.parent = self
@@ -12991,14 +13648,17 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRegexp(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-flap-statistics-regexp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.regexp_pattern = YLeaf(YType.str, "regexp-pattern")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('regexp_pattern', YLeaf(YType.str, 'regexp-pattern')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.regexp_pattern = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-regexp/%s" % self._segment_path()
 
@@ -13036,8 +13696,10 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.Input()
         self.input.parent = self
@@ -13089,14 +13751,17 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-flap-statistics-route-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.route_policy_name = YLeaf(YType.str, "route-policy-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.route_policy_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-route-policy/%s" % self._segment_path()
 
@@ -13133,8 +13798,10 @@ class ClearBgpInstanceAfiSafiFlapStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiFlapStatistics.Input()
         self.input.parent = self
@@ -13179,12 +13846,15 @@ class ClearBgpInstanceAfiSafiFlapStatistics(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-flap-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics/%s" % self._segment_path()
 
@@ -13222,8 +13892,10 @@ class ClearBgpInstanceAfiSafiNexthopPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiNexthopPerformanceStatistics.Input()
         self.input.parent = self
@@ -13268,12 +13940,15 @@ class ClearBgpInstanceAfiSafiNexthopPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-nexthop-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-nexthop-performance-statistics/%s" % self._segment_path()
 
@@ -13311,8 +13986,10 @@ class ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr.Input()
         self.input.parent = self
@@ -13372,14 +14049,17 @@ class ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-nexthop-registration-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-nexthop-registration-ip-addr/%s" % self._segment_path()
 
@@ -13416,8 +14096,10 @@ class ClearBgpInstanceAfiSafiSelfOriginated(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiSelfOriginated.Input()
         self.input.parent = self
@@ -13462,12 +14144,15 @@ class ClearBgpInstanceAfiSafiSelfOriginated(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-self-originated"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-self-originated/%s" % self._segment_path()
 
@@ -13504,8 +14189,10 @@ class ClearBgpInstanceAfiSafiShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiShutdown.Input()
         self.input.parent = self
@@ -13550,12 +14237,15 @@ class ClearBgpInstanceAfiSafiShutdown(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-shutdown"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-shutdown/%s" % self._segment_path()
 
@@ -13595,8 +14285,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.Input()
         self.input.parent = self
@@ -13641,12 +14333,15 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-address-family-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-address-family-update-parent/%s" % self._segment_path()
 
@@ -13685,8 +14380,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamily(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqAddressFamily.Input()
         self.input.parent = self
@@ -13731,12 +14428,15 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamily(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-address-family"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-address-family/%s" % self._segment_path()
 
@@ -13777,8 +14477,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity)
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input()
         self.input.parent = self
@@ -13838,14 +14540,17 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity)
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent/%s" % self._segment_path()
 
@@ -13885,8 +14590,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.Input()
         self.input.parent = self
@@ -13946,14 +14653,17 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh/%s" % self._segment_path()
 
@@ -13993,8 +14703,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input()
         self.input.parent = self
@@ -14054,14 +14766,17 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-update-parent/%s" % self._segment_path()
 
@@ -14100,8 +14815,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.Input()
         self.input.parent = self
@@ -14161,14 +14878,17 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr/%s" % self._segment_path()
 
@@ -14209,8 +14929,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -14273,16 +14995,19 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-update-parent/%s" % self._segment_path()
 
@@ -14322,8 +15047,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.Input()
         self.input.parent = self
@@ -14386,16 +15113,19 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-update-group-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group/%s" % self._segment_path()
 
@@ -14436,8 +15166,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -14500,16 +15232,19 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent/%s" % self._segment_path()
 
@@ -14549,8 +15284,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input()
         self.input.parent = self
@@ -14613,16 +15350,19 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group/%s" % self._segment_path()
 
@@ -14662,8 +15402,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.Input()
         self.input.parent = self
@@ -14717,14 +15459,17 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-update-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-update-parent/%s" % self._segment_path()
 
@@ -14763,8 +15508,10 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup.Input()
         self.input.parent = self
@@ -14818,14 +15565,17 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-update-outq-update-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group/%s" % self._segment_path()
 
@@ -14863,8 +15613,10 @@ class ClearBgpInstanceAsGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAsGraceful.Input()
         self.input.parent = self
@@ -14921,12 +15673,15 @@ class ClearBgpInstanceAsGraceful(Entity):
             self.yang_parent_name = "clear-bgp-instance-as-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-as-graceful/%s" % self._segment_path()
 
@@ -14963,8 +15718,10 @@ class ClearBgpInstanceAs(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAs.Input()
         self.input.parent = self
@@ -15021,12 +15778,15 @@ class ClearBgpInstanceAs(Entity):
             self.yang_parent_name = "clear-bgp-instance-as"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-as/%s" % self._segment_path()
 
@@ -15063,8 +15823,10 @@ class ClearBgpInstanceBestpathIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -15132,14 +15894,17 @@ class ClearBgpInstanceBestpathIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -15176,8 +15941,10 @@ class ClearBgpInstanceBestpathIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathIpAddr.Input()
         self.input.parent = self
@@ -15230,12 +15997,15 @@ class ClearBgpInstanceBestpathIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-addr/%s" % self._segment_path()
 
@@ -15272,8 +16042,10 @@ class ClearBgpInstanceBestpathIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathIpPrefix.Input()
         self.input.parent = self
@@ -15326,12 +16098,15 @@ class ClearBgpInstanceBestpathIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-prefix/%s" % self._segment_path()
 
@@ -15368,8 +16143,10 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -15444,16 +16221,19 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -15490,8 +16270,10 @@ class ClearBgpInstanceBestpathAfiSafiIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpAddr.Input()
         self.input.parent = self
@@ -15551,14 +16333,17 @@ class ClearBgpInstanceBestpathAfiSafiIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-addr/%s" % self._segment_path()
 
@@ -15595,8 +16380,10 @@ class ClearBgpInstanceBestpathAfiSafiIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpPrefix.Input()
         self.input.parent = self
@@ -15656,14 +16443,17 @@ class ClearBgpInstanceBestpathAfiSafiIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-prefix/%s" % self._segment_path()
 
@@ -15701,8 +16491,10 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -15784,18 +16576,21 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -15833,8 +16628,10 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.Input()
         self.input.parent = self
@@ -15901,16 +16698,19 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr/%s" % self._segment_path()
 
@@ -15948,8 +16748,10 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.Input()
         self.input.parent = self
@@ -16016,16 +16818,19 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-prefix/%s" % self._segment_path()
 
@@ -16063,8 +16868,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -16162,18 +16969,21 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -16211,8 +17021,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpAddr.Input()
         self.input.parent = self
@@ -16295,16 +17107,19 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-addr/%s" % self._segment_path()
 
@@ -16342,8 +17157,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpPrefix.Input()
         self.input.parent = self
@@ -16426,16 +17243,19 @@ class ClearBgpInstanceBestpathAfiSafiRdIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-prefix/%s" % self._segment_path()
 
@@ -16472,8 +17292,10 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -16536,16 +17358,19 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -16582,8 +17407,10 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpv4Addr.Input()
         self.input.parent = self
@@ -16637,14 +17464,17 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-addr/%s" % self._segment_path()
 
@@ -16681,8 +17511,10 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpv4Prefix.Input()
         self.input.parent = self
@@ -16736,14 +17568,17 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-prefix/%s" % self._segment_path()
 
@@ -16781,8 +17616,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpv4Addr.Input()
         self.input.parent = self
@@ -16859,16 +17696,19 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr/%s" % self._segment_path()
 
@@ -16906,8 +17746,10 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr.Input()
         self.input.parent = self
@@ -16968,16 +17810,19 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr/%s" % self._segment_path()
 
@@ -17014,8 +17859,10 @@ class ClearBgpInstanceBestpathAfiSafiNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiNetwork.Input()
         self.input.parent = self
@@ -17067,14 +17914,17 @@ class ClearBgpInstanceBestpathAfiSafiNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-network/%s" % self._segment_path()
 
@@ -17112,8 +17962,10 @@ class ClearBgpInstanceBestpathAfiSafiRdNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdNetwork.Input()
         self.input.parent = self
@@ -17188,16 +18040,19 @@ class ClearBgpInstanceBestpathAfiSafiRdNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-network/%s" % self._segment_path()
 
@@ -17235,8 +18090,10 @@ class ClearBgpInstanceBestpathAfiSafiVrfNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiVrfNetwork.Input()
         self.input.parent = self
@@ -17295,16 +18152,19 @@ class ClearBgpInstanceBestpathAfiSafiVrfNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-vrf-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-network/%s" % self._segment_path()
 
@@ -17341,8 +18201,10 @@ class ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork.Input()
         self.input.parent = self
@@ -17394,14 +18256,17 @@ class ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rt-constraint-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rt_constraint_network = YLeaf(YType.str, "rt-constraint-network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rt_constraint_network', YLeaf(YType.str, 'rt-constraint-network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rt_constraint_network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rt-constraint-network/%s" % self._segment_path()
 
@@ -17438,8 +18303,10 @@ class ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.Input()
         self.input.parent = self
@@ -17491,14 +18358,17 @@ class ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ipv4-tunnel-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_tunnel_network = YLeaf(YType.str, "ipv4-tunnel-network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_tunnel_network', YLeaf(YType.str, 'ipv4-tunnel-network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_tunnel_network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-tunnel-network/%s" % self._segment_path()
 
@@ -17535,8 +18405,10 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -17599,16 +18471,19 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -17645,8 +18520,10 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpv6Addr.Input()
         self.input.parent = self
@@ -17700,14 +18577,17 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-addr/%s" % self._segment_path()
 
@@ -17744,8 +18624,10 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiIpv6Prefix.Input()
         self.input.parent = self
@@ -17799,14 +18681,17 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-prefix/%s" % self._segment_path()
 
@@ -17844,8 +18729,10 @@ class ClearBgpInstanceBestpathAfiSafiRd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRd.Input()
         self.input.parent = self
@@ -17913,14 +18800,17 @@ class ClearBgpInstanceBestpathAfiSafiRd(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd/%s" % self._segment_path()
 
@@ -17958,8 +18848,10 @@ class ClearBgpInstanceBestpathAfiSafiVrf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiVrf.Input()
         self.input.parent = self
@@ -18011,14 +18903,17 @@ class ClearBgpInstanceBestpathAfiSafiVrf(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-vrf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf/%s" % self._segment_path()
 
@@ -18055,8 +18950,10 @@ class ClearBgpInstanceBestpathAfiSafi(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafi.Input()
         self.input.parent = self
@@ -18101,12 +18998,15 @@ class ClearBgpInstanceBestpathAfiSafi(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi/%s" % self._segment_path()
 
@@ -18143,8 +19043,10 @@ class ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix.Input()
         self.input.parent = self
@@ -18196,14 +19098,17 @@ class ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-sr-policy-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.sr_policy_prefix = YLeaf(YType.str, "sr-policy-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('sr_policy_prefix', YLeaf(YType.str, 'sr-policy-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.sr_policy_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-sr-policy-prefix/%s" % self._segment_path()
 
@@ -18241,8 +19146,10 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.Input()
         self.input.parent = self
@@ -18303,16 +19210,19 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-bridge-domain-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ipv4-prefix/%s" % self._segment_path()
 
@@ -18350,8 +19260,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix.Input()
         self.input.parent = self
@@ -18428,16 +19340,19 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-prefix/%s" % self._segment_path()
 
@@ -18475,8 +19390,10 @@ class ClearBgpInstanceBestpathAfiSafiMp2MpIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiMp2MpIpv4Prefix.Input()
         self.input.parent = self
@@ -18537,16 +19454,19 @@ class ClearBgpInstanceBestpathAfiSafiMp2MpIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-mp2mp-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.mp2mp = YLeaf(YType.str, "mp2mp")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('mp2mp', YLeaf(YType.str, 'mp2mp')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.mp2mp = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-mp2mp-ipv4-prefix/%s" % self._segment_path()
 
@@ -18584,8 +19504,10 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.Input()
         self.input.parent = self
@@ -18646,16 +19568,19 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-prefix/%s" % self._segment_path()
 
@@ -18693,8 +19618,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -18780,18 +19707,21 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -18829,8 +19759,10 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -18900,18 +19832,21 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -18949,8 +19884,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -19036,18 +19973,21 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -19085,8 +20025,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpv6Addr.Input()
         self.input.parent = self
@@ -19163,16 +20105,19 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr/%s" % self._segment_path()
 
@@ -19210,8 +20155,10 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix.Input()
         self.input.parent = self
@@ -19288,16 +20235,19 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-rd-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-prefix/%s" % self._segment_path()
 
@@ -19335,8 +20285,10 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -19406,18 +20358,21 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -19455,8 +20410,10 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr.Input()
         self.input.parent = self
@@ -19517,16 +20474,19 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr/%s" % self._segment_path()
 
@@ -19564,8 +20524,10 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.Input()
         self.input.parent = self
@@ -19626,16 +20588,19 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-prefix/%s" % self._segment_path()
 
@@ -19673,8 +20638,10 @@ class ClearBgpInstanceBestpathVrfIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -19753,16 +20720,19 @@ class ClearBgpInstanceBestpathVrfIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -19800,8 +20770,10 @@ class ClearBgpInstanceBestpathVrfIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfIpAddr.Input()
         self.input.parent = self
@@ -19865,14 +20837,17 @@ class ClearBgpInstanceBestpathVrfIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-addr/%s" % self._segment_path()
 
@@ -19910,8 +20885,10 @@ class ClearBgpInstanceBestpathVrfIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfIpPrefix.Input()
         self.input.parent = self
@@ -19975,14 +20952,17 @@ class ClearBgpInstanceBestpathVrfIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-prefix/%s" % self._segment_path()
 
@@ -20020,8 +21000,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.Input()
         self.input.parent = self
@@ -20086,16 +21068,19 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-prefix/%s" % self._segment_path()
 
@@ -20133,8 +21118,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -20208,18 +21195,21 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -20257,8 +21247,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr.Input()
         self.input.parent = self
@@ -20323,16 +21315,19 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr/%s" % self._segment_path()
 
@@ -20370,8 +21365,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiNetwork.Input()
         self.input.parent = self
@@ -20434,16 +21431,19 @@ class ClearBgpInstanceBestpathVrfAfiSafiNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-network/%s" % self._segment_path()
 
@@ -20482,8 +21482,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiRdNetwork.Input()
         self.input.parent = self
@@ -20569,18 +21571,21 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-rd-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-rd-network/%s" % self._segment_path()
 
@@ -20619,8 +21624,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork.Input()
         self.input.parent = self
@@ -20690,18 +21697,21 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-vrf-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-vrf-network/%s" % self._segment_path()
 
@@ -20739,8 +21749,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -20814,18 +21826,21 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -20863,8 +21878,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr.Input()
         self.input.parent = self
@@ -20929,16 +21946,19 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr/%s" % self._segment_path()
 
@@ -20976,8 +21996,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.Input()
         self.input.parent = self
@@ -21042,16 +22064,19 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-prefix/%s" % self._segment_path()
 
@@ -21090,8 +22115,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiRd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiRd.Input()
         self.input.parent = self
@@ -21170,16 +22197,19 @@ class ClearBgpInstanceBestpathVrfAfiSafiRd(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-rd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.rd = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-rd/%s" % self._segment_path()
 
@@ -21218,8 +22248,10 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafiVrf.Input()
         self.input.parent = self
@@ -21282,16 +22314,19 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrf(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi-vrf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.vrf_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-vrf/%s" % self._segment_path()
 
@@ -21329,8 +22364,10 @@ class ClearBgpInstanceBestpathVrfAfiSafi(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceBestpathVrfAfiSafi.Input()
         self.input.parent = self
@@ -21386,14 +22423,17 @@ class ClearBgpInstanceBestpathVrfAfiSafi(Entity):
             self.yang_parent_name = "clear-bgp-instance-bestpath-vrf-afi-safi"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi/%s" % self._segment_path()
 
@@ -21431,8 +22471,10 @@ class ClearBgpInstanceExternalGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceExternalGraceful.Input()
         self.input.parent = self
@@ -21470,10 +22512,13 @@ class ClearBgpInstanceExternalGraceful(Entity):
             self.yang_parent_name = "clear-bgp-instance-external-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-external-graceful/%s" % self._segment_path()
 
@@ -21510,8 +22555,10 @@ class ClearBgpInstanceExternal(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceExternal.Input()
         self.input.parent = self
@@ -21549,10 +22596,13 @@ class ClearBgpInstanceExternal(Entity):
             self.yang_parent_name = "clear-bgp-instance-external"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-external/%s" % self._segment_path()
 
@@ -21589,8 +22639,10 @@ class ClearBgpInstanceAfiSafiDampeningIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiDampeningIpv4Prefix.Input()
         self.input.parent = self
@@ -21644,14 +22696,17 @@ class ClearBgpInstanceAfiSafiDampeningIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-dampening-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ipv4-prefix/%s" % self._segment_path()
 
@@ -21688,8 +22743,10 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.Input()
         self.input.parent = self
@@ -21743,14 +22800,17 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-flap-statistics-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ipv4-prefix/%s" % self._segment_path()
 
@@ -21787,8 +22847,10 @@ class ClearBgpInstanceAfiSafiDampeningIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiDampeningIpv6Prefix.Input()
         self.input.parent = self
@@ -21842,14 +22904,17 @@ class ClearBgpInstanceAfiSafiDampeningIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-dampening-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ipv6-prefix/%s" % self._segment_path()
 
@@ -21886,8 +22951,10 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.Input()
         self.input.parent = self
@@ -21941,14 +23008,17 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-afi-safi-flap-statistics-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ipv6-prefix/%s" % self._segment_path()
 
@@ -21986,8 +23056,10 @@ class ClearBgpInstanceNexthopPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceNexthopPerformanceStatistics.Input()
         self.input.parent = self
@@ -22025,10 +23097,13 @@ class ClearBgpInstanceNexthopPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-instance-nexthop-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-nexthop-performance-statistics/%s" % self._segment_path()
 
@@ -22066,8 +23141,10 @@ class ClearBgpInstanceNexthopRegistrationIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceNexthopRegistrationIpAddr.Input()
         self.input.parent = self
@@ -22120,12 +23197,15 @@ class ClearBgpInstanceNexthopRegistrationIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-nexthop-registration-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-nexthop-registration-ip-addr/%s" % self._segment_path()
 
@@ -22163,8 +23243,10 @@ class ClearBgpInstancePeerDropsAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstancePeerDropsAll.Input()
         self.input.parent = self
@@ -22202,10 +23284,13 @@ class ClearBgpInstancePeerDropsAll(Entity):
             self.yang_parent_name = "clear-bgp-instance-peer-drops-all"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-peer-drops-all/%s" % self._segment_path()
 
@@ -22242,8 +23327,10 @@ class ClearBgpInstancePeerDropsIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstancePeerDropsIpAddr.Input()
         self.input.parent = self
@@ -22296,12 +23383,15 @@ class ClearBgpInstancePeerDropsIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-peer-drops-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-peer-drops-ip-addr/%s" % self._segment_path()
 
@@ -22338,8 +23428,10 @@ class ClearBgpInstancePerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstancePerformanceStatistics.Input()
         self.input.parent = self
@@ -22377,10 +23469,13 @@ class ClearBgpInstancePerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-instance-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-performance-statistics/%s" % self._segment_path()
 
@@ -22420,8 +23515,10 @@ class ClearBgpInstanceRpkiServerAllSerialQuery(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceRpkiServerAllSerialQuery.Input()
         self.input.parent = self
@@ -22459,10 +23556,13 @@ class ClearBgpInstanceRpkiServerAllSerialQuery(Entity):
             self.yang_parent_name = "clear-bgp-instance-rpki-server-all-serial-query"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-all-serial-query/%s" % self._segment_path()
 
@@ -22501,8 +23601,10 @@ class ClearBgpInstanceRpkiServerAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceRpkiServerAll.Input()
         self.input.parent = self
@@ -22540,10 +23642,13 @@ class ClearBgpInstanceRpkiServerAll(Entity):
             self.yang_parent_name = "clear-bgp-instance-rpki-server-all"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-all/%s" % self._segment_path()
 
@@ -22581,8 +23686,10 @@ class ClearBgpInstanceRpkiServerRpkiServer(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceRpkiServerRpkiServer.Input()
         self.input.parent = self
@@ -22627,12 +23734,15 @@ class ClearBgpInstanceRpkiServerRpkiServer(Entity):
             self.yang_parent_name = "clear-bgp-instance-rpki-server-rpki-server"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.rpki_server = YLeaf(YType.str, "rpki-server")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('rpki_server', YLeaf(YType.str, 'rpki-server')),
+            ])
+            self.instance_name = None
+            self.rpki_server = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-rpki-server/%s" % self._segment_path()
 
@@ -22671,8 +23781,10 @@ class ClearBgpInstanceRpkiValidationIpv4(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceRpkiValidationIpv4.Input()
         self.input.parent = self
@@ -22710,10 +23822,13 @@ class ClearBgpInstanceRpkiValidationIpv4(Entity):
             self.yang_parent_name = "clear-bgp-instance-rpki-validation-ipv4"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation-ipv4/%s" % self._segment_path()
 
@@ -22752,8 +23867,10 @@ class ClearBgpInstanceRpkiValidationIpv6(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceRpkiValidationIpv6.Input()
         self.input.parent = self
@@ -22791,10 +23908,13 @@ class ClearBgpInstanceRpkiValidationIpv6(Entity):
             self.yang_parent_name = "clear-bgp-instance-rpki-validation-ipv6"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation-ipv6/%s" % self._segment_path()
 
@@ -22832,8 +23952,10 @@ class ClearBgpInstanceRpkiValidation(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceRpkiValidation.Input()
         self.input.parent = self
@@ -22871,10 +23993,13 @@ class ClearBgpInstanceRpkiValidation(Entity):
             self.yang_parent_name = "clear-bgp-instance-rpki-validation"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation/%s" % self._segment_path()
 
@@ -22911,8 +24036,10 @@ class ClearBgpInstanceShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceShutdown.Input()
         self.input.parent = self
@@ -22950,10 +24077,13 @@ class ClearBgpInstanceShutdown(Entity):
             self.yang_parent_name = "clear-bgp-instance-shutdown"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-shutdown/%s" % self._segment_path()
 
@@ -22993,8 +24123,10 @@ class ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent.Input()
         self.input.parent = self
@@ -23032,10 +24164,13 @@ class ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-address-family-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-address-family-update-parent/%s" % self._segment_path()
 
@@ -23074,8 +24209,10 @@ class ClearBgpInstanceUpdateOutqAddressFamily(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqAddressFamily.Input()
         self.input.parent = self
@@ -23113,10 +24250,13 @@ class ClearBgpInstanceUpdateOutqAddressFamily(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-address-family"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-address-family/%s" % self._segment_path()
 
@@ -23157,8 +24297,10 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.Input()
         self.input.parent = self
@@ -23211,12 +24353,15 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-neighbor-ip-addr-refresh-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-refresh-update-parent/%s" % self._segment_path()
 
@@ -23256,8 +24401,10 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh.Input()
         self.input.parent = self
@@ -23310,12 +24457,15 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-neighbor-ip-addr-refresh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-refresh/%s" % self._segment_path()
 
@@ -23355,8 +24505,10 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.Input()
         self.input.parent = self
@@ -23409,12 +24561,15 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-neighbor-ip-addr-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-update-parent/%s" % self._segment_path()
 
@@ -23453,8 +24608,10 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqNeighborIpAddr.Input()
         self.input.parent = self
@@ -23507,12 +24664,15 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-neighbor-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr/%s" % self._segment_path()
 
@@ -23551,8 +24711,10 @@ class ClearBgpInstanceUpdateOutqProcess(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqProcess.Input()
         self.input.parent = self
@@ -23590,10 +24752,13 @@ class ClearBgpInstanceUpdateOutqProcess(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-process"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+            ])
+            self.instance_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-process/%s" % self._segment_path()
 
@@ -23634,8 +24799,10 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -23691,14 +24858,17 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-update-group-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.instance_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-update-parent/%s" % self._segment_path()
 
@@ -23738,8 +24908,10 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqUpdateGroupSubGroup.Input()
         self.input.parent = self
@@ -23795,14 +24967,17 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-update-group-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.instance_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group/%s" % self._segment_path()
 
@@ -23843,8 +25018,10 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(E
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -23900,14 +25077,17 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(E
             self.yang_parent_name = "clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.instance_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group-update-parent/%s" % self._segment_path()
 
@@ -23947,8 +25127,10 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input()
         self.input.parent = self
@@ -24004,14 +25186,17 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.instance_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group/%s" % self._segment_path()
 
@@ -24051,8 +25236,10 @@ class ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent.Input()
         self.input.parent = self
@@ -24099,12 +25286,15 @@ class ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-update-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.instance_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-update-parent/%s" % self._segment_path()
 
@@ -24143,8 +25333,10 @@ class ClearBgpInstanceUpdateOutqUpdateGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceUpdateOutqUpdateGroup.Input()
         self.input.parent = self
@@ -24191,12 +25383,15 @@ class ClearBgpInstanceUpdateOutqUpdateGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-update-outq-update-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.instance_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group/%s" % self._segment_path()
 
@@ -24233,8 +25428,10 @@ class ClearBgpInstanceVersionIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -24302,14 +25499,17 @@ class ClearBgpInstanceVersionIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -24346,8 +25546,10 @@ class ClearBgpInstanceVersionIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionIpAddr.Input()
         self.input.parent = self
@@ -24400,12 +25602,15 @@ class ClearBgpInstanceVersionIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-addr/%s" % self._segment_path()
 
@@ -24442,8 +25647,10 @@ class ClearBgpInstanceVersionIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionIpPrefix.Input()
         self.input.parent = self
@@ -24496,12 +25703,15 @@ class ClearBgpInstanceVersionIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-prefix/%s" % self._segment_path()
 
@@ -24538,8 +25748,10 @@ class ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -24614,16 +25826,19 @@ class ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -24660,8 +25875,10 @@ class ClearBgpInstanceVersionAfiSafiIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpAddr.Input()
         self.input.parent = self
@@ -24721,14 +25938,17 @@ class ClearBgpInstanceVersionAfiSafiIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-addr/%s" % self._segment_path()
 
@@ -24765,8 +25985,10 @@ class ClearBgpInstanceVersionAfiSafiIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpPrefix.Input()
         self.input.parent = self
@@ -24826,14 +26048,17 @@ class ClearBgpInstanceVersionAfiSafiIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-prefix/%s" % self._segment_path()
 
@@ -24871,8 +26096,10 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -24954,18 +26181,21 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -25003,8 +26233,10 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.Input()
         self.input.parent = self
@@ -25071,16 +26303,19 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr/%s" % self._segment_path()
 
@@ -25118,8 +26353,10 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.Input()
         self.input.parent = self
@@ -25186,16 +26423,19 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-bridge-domain-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-prefix/%s" % self._segment_path()
 
@@ -25233,8 +26473,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -25332,18 +26574,21 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -25381,8 +26626,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpAddr.Input()
         self.input.parent = self
@@ -25465,16 +26712,19 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-addr/%s" % self._segment_path()
 
@@ -25512,8 +26762,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpPrefix.Input()
         self.input.parent = self
@@ -25596,16 +26848,19 @@ class ClearBgpInstanceVersionAfiSafiRdIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-prefix/%s" % self._segment_path()
 
@@ -25642,8 +26897,10 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -25706,16 +26963,19 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -25752,8 +27012,10 @@ class ClearBgpInstanceVersionAfiSafiIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpv4Addr.Input()
         self.input.parent = self
@@ -25807,14 +27069,17 @@ class ClearBgpInstanceVersionAfiSafiIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-addr/%s" % self._segment_path()
 
@@ -25851,8 +27116,10 @@ class ClearBgpInstanceVersionAfiSafiIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpv4Prefix.Input()
         self.input.parent = self
@@ -25906,14 +27173,17 @@ class ClearBgpInstanceVersionAfiSafiIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-prefix/%s" % self._segment_path()
 
@@ -25951,8 +27221,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpv4Addr.Input()
         self.input.parent = self
@@ -26029,16 +27301,19 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-addr/%s" % self._segment_path()
 
@@ -26076,8 +27351,10 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiVrfIpv4Addr.Input()
         self.input.parent = self
@@ -26138,16 +27415,19 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-vrf-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-addr/%s" % self._segment_path()
 
@@ -26184,8 +27464,10 @@ class ClearBgpInstanceVersionAfiSafiNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiNetwork.Input()
         self.input.parent = self
@@ -26237,14 +27519,17 @@ class ClearBgpInstanceVersionAfiSafiNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-network/%s" % self._segment_path()
 
@@ -26282,8 +27567,10 @@ class ClearBgpInstanceVersionAfiSafiRdNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdNetwork.Input()
         self.input.parent = self
@@ -26358,16 +27645,19 @@ class ClearBgpInstanceVersionAfiSafiRdNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-network/%s" % self._segment_path()
 
@@ -26405,8 +27695,10 @@ class ClearBgpInstanceVersionAfiSafiVrfNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiVrfNetwork.Input()
         self.input.parent = self
@@ -26465,16 +27757,19 @@ class ClearBgpInstanceVersionAfiSafiVrfNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-vrf-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-network/%s" % self._segment_path()
 
@@ -26511,8 +27806,10 @@ class ClearBgpInstanceVersionAfiSafiRtConstraintNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRtConstraintNetwork.Input()
         self.input.parent = self
@@ -26564,14 +27861,17 @@ class ClearBgpInstanceVersionAfiSafiRtConstraintNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rt-constraint-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rt_constraint_network = YLeaf(YType.str, "rt-constraint-network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rt_constraint_network', YLeaf(YType.str, 'rt-constraint-network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rt_constraint_network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rt-constraint-network/%s" % self._segment_path()
 
@@ -26608,8 +27908,10 @@ class ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.Input()
         self.input.parent = self
@@ -26661,14 +27963,17 @@ class ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ipv4-tunnel-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_tunnel_network = YLeaf(YType.str, "ipv4-tunnel-network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_tunnel_network', YLeaf(YType.str, 'ipv4-tunnel-network')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv4_tunnel_network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-tunnel-network/%s" % self._segment_path()
 
@@ -26705,8 +28010,10 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -26769,16 +28076,19 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -26815,8 +28125,10 @@ class ClearBgpInstanceVersionAfiSafiIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpv6Addr.Input()
         self.input.parent = self
@@ -26870,14 +28182,17 @@ class ClearBgpInstanceVersionAfiSafiIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-addr/%s" % self._segment_path()
 
@@ -26914,8 +28229,10 @@ class ClearBgpInstanceVersionAfiSafiIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiIpv6Prefix.Input()
         self.input.parent = self
@@ -26969,14 +28286,17 @@ class ClearBgpInstanceVersionAfiSafiIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-prefix/%s" % self._segment_path()
 
@@ -27014,8 +28334,10 @@ class ClearBgpInstanceVersionAfiSafiRd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRd.Input()
         self.input.parent = self
@@ -27083,14 +28405,17 @@ class ClearBgpInstanceVersionAfiSafiRd(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd/%s" % self._segment_path()
 
@@ -27128,8 +28453,10 @@ class ClearBgpInstanceVersionAfiSafiVrf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiVrf.Input()
         self.input.parent = self
@@ -27181,14 +28508,17 @@ class ClearBgpInstanceVersionAfiSafiVrf(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-vrf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf/%s" % self._segment_path()
 
@@ -27225,8 +28555,10 @@ class ClearBgpInstanceVersionAfiSafi(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafi.Input()
         self.input.parent = self
@@ -27271,12 +28603,15 @@ class ClearBgpInstanceVersionAfiSafi(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi/%s" % self._segment_path()
 
@@ -27313,8 +28648,10 @@ class ClearBgpInstanceVersionAfiSafiSrPolicyPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiSrPolicyPrefix.Input()
         self.input.parent = self
@@ -27366,14 +28703,17 @@ class ClearBgpInstanceVersionAfiSafiSrPolicyPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-sr-policy-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.sr_policy_prefix = YLeaf(YType.str, "sr-policy-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('sr_policy_prefix', YLeaf(YType.str, 'sr-policy-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.sr_policy_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-sr-policy-prefix/%s" % self._segment_path()
 
@@ -27411,8 +28751,10 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.Input()
         self.input.parent = self
@@ -27473,16 +28815,19 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-bridge-domain-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ipv4-prefix/%s" % self._segment_path()
 
@@ -27520,8 +28865,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpv4Prefix.Input()
         self.input.parent = self
@@ -27598,16 +28945,19 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-prefix/%s" % self._segment_path()
 
@@ -27645,8 +28995,10 @@ class ClearBgpInstanceVersionAfiSafiMp2MpIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiMp2MpIpv4Prefix.Input()
         self.input.parent = self
@@ -27707,16 +29059,19 @@ class ClearBgpInstanceVersionAfiSafiMp2MpIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-mp2mp-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.mp2mp = YLeaf(YType.str, "mp2mp")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('mp2mp', YLeaf(YType.str, 'mp2mp')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.mp2mp = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-mp2mp-ipv4-prefix/%s" % self._segment_path()
 
@@ -27754,8 +29109,10 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix.Input()
         self.input.parent = self
@@ -27816,16 +29173,19 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-vrf-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-prefix/%s" % self._segment_path()
 
@@ -27863,8 +29223,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -27950,18 +29312,21 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -27999,8 +29364,10 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -28070,18 +29437,21 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-vrf-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -28119,8 +29489,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -28206,18 +29578,21 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -28255,8 +29630,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpv6Addr.Input()
         self.input.parent = self
@@ -28333,16 +29710,19 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-addr/%s" % self._segment_path()
 
@@ -28380,8 +29760,10 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiRdIpv6Prefix.Input()
         self.input.parent = self
@@ -28458,16 +29840,19 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-rd-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-prefix/%s" % self._segment_path()
 
@@ -28505,8 +29890,10 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -28576,18 +29963,21 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-vrf-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -28625,8 +30015,10 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiVrfIpv6Addr.Input()
         self.input.parent = self
@@ -28687,16 +30079,19 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-vrf-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-addr/%s" % self._segment_path()
 
@@ -28734,8 +30129,10 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix.Input()
         self.input.parent = self
@@ -28796,16 +30193,19 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-afi-safi-vrf-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-prefix/%s" % self._segment_path()
 
@@ -28843,8 +30243,10 @@ class ClearBgpInstanceVersionVrfIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -28923,16 +30325,19 @@ class ClearBgpInstanceVersionVrfIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -28970,8 +30375,10 @@ class ClearBgpInstanceVersionVrfIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfIpAddr.Input()
         self.input.parent = self
@@ -29035,14 +30442,17 @@ class ClearBgpInstanceVersionVrfIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-addr/%s" % self._segment_path()
 
@@ -29080,8 +30490,10 @@ class ClearBgpInstanceVersionVrfIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfIpPrefix.Input()
         self.input.parent = self
@@ -29145,14 +30557,17 @@ class ClearBgpInstanceVersionVrfIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-prefix/%s" % self._segment_path()
 
@@ -29190,8 +30605,10 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix.Input()
         self.input.parent = self
@@ -29256,16 +30673,19 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-prefix/%s" % self._segment_path()
 
@@ -29303,8 +30723,10 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -29378,18 +30800,21 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -29427,8 +30852,10 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiIpv4Addr.Input()
         self.input.parent = self
@@ -29493,16 +30920,19 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-addr/%s" % self._segment_path()
 
@@ -29540,8 +30970,10 @@ class ClearBgpInstanceVersionVrfAfiSafiNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiNetwork.Input()
         self.input.parent = self
@@ -29604,16 +31036,19 @@ class ClearBgpInstanceVersionVrfAfiSafiNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-network/%s" % self._segment_path()
 
@@ -29652,8 +31087,10 @@ class ClearBgpInstanceVersionVrfAfiSafiRdNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiRdNetwork.Input()
         self.input.parent = self
@@ -29739,18 +31176,21 @@ class ClearBgpInstanceVersionVrfAfiSafiRdNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-rd-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-rd-network/%s" % self._segment_path()
 
@@ -29789,8 +31229,10 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiVrfNetwork.Input()
         self.input.parent = self
@@ -29860,18 +31302,21 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfNetwork(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-vrf-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-vrf-network/%s" % self._segment_path()
 
@@ -29909,8 +31354,10 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -29984,18 +31431,21 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -30033,8 +31483,10 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiIpv6Addr.Input()
         self.input.parent = self
@@ -30099,16 +31551,19 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-addr/%s" % self._segment_path()
 
@@ -30146,8 +31601,10 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix.Input()
         self.input.parent = self
@@ -30212,16 +31669,19 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-prefix/%s" % self._segment_path()
 
@@ -30260,8 +31720,10 @@ class ClearBgpInstanceVersionVrfAfiSafiRd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiRd.Input()
         self.input.parent = self
@@ -30340,16 +31802,19 @@ class ClearBgpInstanceVersionVrfAfiSafiRd(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-rd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.rd = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-rd/%s" % self._segment_path()
 
@@ -30388,8 +31853,10 @@ class ClearBgpInstanceVersionVrfAfiSafiVrf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafiVrf.Input()
         self.input.parent = self
@@ -30452,16 +31919,19 @@ class ClearBgpInstanceVersionVrfAfiSafiVrf(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi-vrf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.vrf_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-vrf/%s" % self._segment_path()
 
@@ -30499,8 +31969,10 @@ class ClearBgpInstanceVersionVrfAfiSafi(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVersionVrfAfiSafi.Input()
         self.input.parent = self
@@ -30556,14 +32028,17 @@ class ClearBgpInstanceVersionVrfAfiSafi(Entity):
             self.yang_parent_name = "clear-bgp-instance-version-vrf-afi-safi"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi/%s" % self._segment_path()
 
@@ -30602,8 +32077,10 @@ class ClearBgpInstanceVrfAllGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAllGraceful.Input()
         self.input.parent = self
@@ -30652,12 +32129,15 @@ class ClearBgpInstanceVrfAllGraceful(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-all-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-all-graceful/%s" % self._segment_path()
 
@@ -30695,8 +32175,10 @@ class ClearBgpInstanceVrfAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAll.Input()
         self.input.parent = self
@@ -30745,12 +32227,15 @@ class ClearBgpInstanceVrfAll(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-all"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-all/%s" % self._segment_path()
 
@@ -30788,8 +32273,10 @@ class ClearBgpInstanceVrfIpAddrGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfIpAddrGraceful.Input()
         self.input.parent = self
@@ -30853,14 +32340,17 @@ class ClearBgpInstanceVrfIpAddrGraceful(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-ip-addr-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr-graceful/%s" % self._segment_path()
 
@@ -30898,8 +32388,10 @@ class ClearBgpInstanceVrfIpAddrLongLivedStale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfIpAddrLongLivedStale.Input()
         self.input.parent = self
@@ -30963,14 +32455,17 @@ class ClearBgpInstanceVrfIpAddrLongLivedStale(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-ip-addr-long-lived-stale"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr-long-lived-stale/%s" % self._segment_path()
 
@@ -31007,8 +32502,10 @@ class ClearBgpInstanceVrfIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfIpAddr.Input()
         self.input.parent = self
@@ -31072,14 +32569,17 @@ class ClearBgpInstanceVrfIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr/%s" % self._segment_path()
 
@@ -31118,8 +32618,10 @@ class ClearBgpInstanceVrfAsGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAsGraceful.Input()
         self.input.parent = self
@@ -31187,14 +32689,17 @@ class ClearBgpInstanceVrfAsGraceful(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-as-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-as-graceful/%s" % self._segment_path()
 
@@ -31232,8 +32737,10 @@ class ClearBgpInstanceVrfAs(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAs.Input()
         self.input.parent = self
@@ -31301,14 +32808,17 @@ class ClearBgpInstanceVrfAs(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-as"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-as/%s" % self._segment_path()
 
@@ -31347,8 +32857,10 @@ class ClearBgpInstanceVrfExternalGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfExternalGraceful.Input()
         self.input.parent = self
@@ -31397,12 +32909,15 @@ class ClearBgpInstanceVrfExternalGraceful(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-external-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-external-graceful/%s" % self._segment_path()
 
@@ -31440,8 +32955,10 @@ class ClearBgpInstanceVrfExternal(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfExternal.Input()
         self.input.parent = self
@@ -31490,12 +33007,15 @@ class ClearBgpInstanceVrfExternal(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-external"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-external/%s" % self._segment_path()
 
@@ -31536,8 +33056,10 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -31593,14 +33115,17 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-all-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -31640,8 +33165,10 @@ class ClearBgpInstanceVrfAfiSafiAllSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiAllSoftIn.Input()
         self.input.parent = self
@@ -31697,14 +33224,17 @@ class ClearBgpInstanceVrfAfiSafiAllSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-all-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-in/%s" % self._segment_path()
 
@@ -31744,8 +33274,10 @@ class ClearBgpInstanceVrfAfiSafiAllSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiAllSoftOut.Input()
         self.input.parent = self
@@ -31801,14 +33333,17 @@ class ClearBgpInstanceVrfAfiSafiAllSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-all-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-out/%s" % self._segment_path()
 
@@ -31847,8 +33382,10 @@ class ClearBgpInstanceVrfAfiSafiAllSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiAllSoft.Input()
         self.input.parent = self
@@ -31904,14 +33441,17 @@ class ClearBgpInstanceVrfAfiSafiAllSoft(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-all-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft/%s" % self._segment_path()
 
@@ -31949,8 +33489,10 @@ class ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.Input()
         self.input.parent = self
@@ -32021,16 +33563,19 @@ class ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-ip-addr-long-lived-stale"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-long-lived-stale/%s" % self._segment_path()
 
@@ -32070,8 +33615,10 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -32142,16 +33689,19 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -32190,8 +33740,10 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiIpAddrSoftIn.Input()
         self.input.parent = self
@@ -32262,16 +33814,19 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in/%s" % self._segment_path()
 
@@ -32310,8 +33865,10 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiIpAddrSoftOut.Input()
         self.input.parent = self
@@ -32382,16 +33939,19 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-ip-addr-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-out/%s" % self._segment_path()
 
@@ -32429,8 +33989,10 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiIpAddrSoft.Input()
         self.input.parent = self
@@ -32501,16 +34063,19 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoft(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-ip-addr-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft/%s" % self._segment_path()
 
@@ -32551,8 +34116,10 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -32627,16 +34194,19 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-as-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -32676,8 +34246,10 @@ class ClearBgpInstanceVrfAfiSafiAsSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiAsSoftIn.Input()
         self.input.parent = self
@@ -32752,16 +34324,19 @@ class ClearBgpInstanceVrfAfiSafiAsSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-as-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-in/%s" % self._segment_path()
 
@@ -32801,8 +34376,10 @@ class ClearBgpInstanceVrfAfiSafiAsSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiAsSoftOut.Input()
         self.input.parent = self
@@ -32877,16 +34454,19 @@ class ClearBgpInstanceVrfAfiSafiAsSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-as-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-out/%s" % self._segment_path()
 
@@ -32925,8 +34505,10 @@ class ClearBgpInstanceVrfAfiSafiAsSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiAsSoft.Input()
         self.input.parent = self
@@ -33001,16 +34583,19 @@ class ClearBgpInstanceVrfAfiSafiAsSoft(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-as-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft/%s" % self._segment_path()
 
@@ -33048,8 +34633,10 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.Input()
         self.input.parent = self
@@ -33114,16 +34701,19 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-dampening-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening-ipv4-prefix/%s" % self._segment_path()
 
@@ -33161,8 +34751,10 @@ class ClearBgpInstanceVrfAfiSafiDampening(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiDampening.Input()
         self.input.parent = self
@@ -33218,14 +34810,17 @@ class ClearBgpInstanceVrfAfiSafiDampening(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-dampening"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening/%s" % self._segment_path()
 
@@ -33266,8 +34861,10 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -33323,14 +34920,17 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-external-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -33370,8 +34970,10 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiExternalSoftIn.Input()
         self.input.parent = self
@@ -33427,14 +35029,17 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-external-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-in/%s" % self._segment_path()
 
@@ -33474,8 +35079,10 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiExternalSoftOut.Input()
         self.input.parent = self
@@ -33531,14 +35138,17 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-external-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-out/%s" % self._segment_path()
 
@@ -33577,8 +35187,10 @@ class ClearBgpInstanceVrfAfiSafiExternalSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiExternalSoft.Input()
         self.input.parent = self
@@ -33634,14 +35246,17 @@ class ClearBgpInstanceVrfAfiSafiExternalSoft(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-external-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft/%s" % self._segment_path()
 
@@ -33679,8 +35294,10 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.Input()
         self.input.parent = self
@@ -33760,18 +35377,21 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -33809,8 +35429,10 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.Input()
         self.input.parent = self
@@ -33881,16 +35503,19 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr/%s" % self._segment_path()
 
@@ -33928,8 +35553,10 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.Input()
         self.input.parent = self
@@ -33994,16 +35621,19 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv4-prefix/%s" % self._segment_path()
 
@@ -34042,8 +35672,10 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.Input()
         self.input.parent = self
@@ -34106,16 +35738,19 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-flap-statistics-regexp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.regexp_pattern = YLeaf(YType.str, "regexp-pattern")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('regexp_pattern', YLeaf(YType.str, 'regexp-pattern')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.regexp_pattern = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-regexp/%s" % self._segment_path()
 
@@ -34154,8 +35789,10 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.Input()
         self.input.parent = self
@@ -34218,16 +35855,19 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-flap-statistics-route-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.route_policy_name = YLeaf(YType.str, "route-policy-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.route_policy_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-route-policy/%s" % self._segment_path()
 
@@ -34265,8 +35905,10 @@ class ClearBgpInstanceVrfAfiSafiFlapStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiFlapStatistics.Input()
         self.input.parent = self
@@ -34322,14 +35964,17 @@ class ClearBgpInstanceVrfAfiSafiFlapStatistics(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-flap-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics/%s" % self._segment_path()
 
@@ -34368,8 +36013,10 @@ class ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.Input()
         self.input.parent = self
@@ -34425,14 +36072,17 @@ class ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-nexthop-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-nexthop-performance-statistics/%s" % self._segment_path()
 
@@ -34471,8 +36121,10 @@ class ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.Input()
         self.input.parent = self
@@ -34543,16 +36195,19 @@ class ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-nexthop-registration-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-nexthop-registration-ip-addr/%s" % self._segment_path()
 
@@ -34590,8 +36245,10 @@ class ClearBgpInstanceVrfAfiSafiSelfOriginated(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiSelfOriginated.Input()
         self.input.parent = self
@@ -34647,14 +36304,17 @@ class ClearBgpInstanceVrfAfiSafiSelfOriginated(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-self-originated"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-self-originated/%s" % self._segment_path()
 
@@ -34692,8 +36352,10 @@ class ClearBgpInstanceVrfAfiSafiShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiShutdown.Input()
         self.input.parent = self
@@ -34749,14 +36411,17 @@ class ClearBgpInstanceVrfAfiSafiShutdown(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-shutdown"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-shutdown/%s" % self._segment_path()
 
@@ -34797,8 +36462,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.Input()
         self.input.parent = self
@@ -34854,14 +36521,17 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-address-family-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-address-family-update-parent/%s" % self._segment_path()
 
@@ -34901,8 +36571,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.Input()
         self.input.parent = self
@@ -34958,14 +36630,17 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-address-family"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-address-family/%s" % self._segment_path()
 
@@ -35007,8 +36682,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Enti
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input()
         self.input.parent = self
@@ -35079,16 +36756,19 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Enti
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent/%s" % self._segment_path()
 
@@ -35129,8 +36809,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.Input()
         self.input.parent = self
@@ -35201,16 +36883,19 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh/%s" % self._segment_path()
 
@@ -35251,8 +36936,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input()
         self.input.parent = self
@@ -35323,16 +37010,19 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent/%s" % self._segment_path()
 
@@ -35372,8 +37062,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.Input()
         self.input.parent = self
@@ -35444,16 +37136,19 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr/%s" % self._segment_path()
 
@@ -35495,8 +37190,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -35570,18 +37267,21 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-update-parent/%s" % self._segment_path()
 
@@ -35622,8 +37322,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.Input()
         self.input.parent = self
@@ -35697,18 +37399,21 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group/%s" % self._segment_path()
 
@@ -35750,8 +37455,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -35825,18 +37532,21 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent/%s" % self._segment_path()
 
@@ -35877,8 +37587,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Ent
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input()
         self.input.parent = self
@@ -35952,18 +37664,21 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Ent
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group/%s" % self._segment_path()
 
@@ -36004,8 +37719,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.Input()
         self.input.parent = self
@@ -36070,16 +37787,19 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-update-parent/%s" % self._segment_path()
 
@@ -36119,8 +37839,10 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.Input()
         self.input.parent = self
@@ -36185,16 +37907,19 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group/%s" % self._segment_path()
 
@@ -36232,8 +37957,10 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.Input()
         self.input.parent = self
@@ -36298,16 +38025,19 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-dampening-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening-ipv6-prefix/%s" % self._segment_path()
 
@@ -36345,8 +38075,10 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.Input()
         self.input.parent = self
@@ -36411,16 +38143,19 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv6-prefix/%s" % self._segment_path()
 
@@ -36459,8 +38194,10 @@ class ClearBgpInstanceVrfNexthopPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfNexthopPerformanceStatistics.Input()
         self.input.parent = self
@@ -36509,12 +38246,15 @@ class ClearBgpInstanceVrfNexthopPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-nexthop-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-nexthop-performance-statistics/%s" % self._segment_path()
 
@@ -36553,8 +38293,10 @@ class ClearBgpInstanceVrfNexthopRegistrationIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfNexthopRegistrationIpAddr.Input()
         self.input.parent = self
@@ -36618,14 +38360,17 @@ class ClearBgpInstanceVrfNexthopRegistrationIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-nexthop-registration-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-nexthop-registration-ip-addr/%s" % self._segment_path()
 
@@ -36664,8 +38409,10 @@ class ClearBgpInstanceVrfPeerDropsAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfPeerDropsAll.Input()
         self.input.parent = self
@@ -36714,12 +38461,15 @@ class ClearBgpInstanceVrfPeerDropsAll(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-peer-drops-all"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-peer-drops-all/%s" % self._segment_path()
 
@@ -36757,8 +38507,10 @@ class ClearBgpInstanceVrfPeerDropsIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfPeerDropsIpAddr.Input()
         self.input.parent = self
@@ -36822,14 +38574,17 @@ class ClearBgpInstanceVrfPeerDropsIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-peer-drops-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-peer-drops-ip-addr/%s" % self._segment_path()
 
@@ -36867,8 +38622,10 @@ class ClearBgpInstanceVrfPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfPerformanceStatistics.Input()
         self.input.parent = self
@@ -36917,12 +38674,15 @@ class ClearBgpInstanceVrfPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-performance-statistics/%s" % self._segment_path()
 
@@ -36960,8 +38720,10 @@ class ClearBgpInstanceVrfShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfShutdown.Input()
         self.input.parent = self
@@ -37010,12 +38772,15 @@ class ClearBgpInstanceVrfShutdown(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-shutdown"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-shutdown/%s" % self._segment_path()
 
@@ -37056,8 +38821,10 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.Input()
         self.input.parent = self
@@ -37106,12 +38873,15 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-address-family-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-address-family-update-parent/%s" % self._segment_path()
 
@@ -37151,8 +38921,10 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamily(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqAddressFamily.Input()
         self.input.parent = self
@@ -37201,12 +38973,15 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamily(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-address-family"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-address-family/%s" % self._segment_path()
 
@@ -37248,8 +39023,10 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.Input()
         self.input.parent = self
@@ -37313,14 +39090,17 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh-update-parent/%s" % self._segment_path()
 
@@ -37361,8 +39141,10 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.Input()
         self.input.parent = self
@@ -37426,14 +39208,17 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh/%s" % self._segment_path()
 
@@ -37474,8 +39259,10 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.Input()
         self.input.parent = self
@@ -37539,14 +39326,17 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-update-parent/%s" % self._segment_path()
 
@@ -37586,8 +39376,10 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqNeighborIpAddr.Input()
         self.input.parent = self
@@ -37651,14 +39443,17 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-neighbor-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr/%s" % self._segment_path()
 
@@ -37700,8 +39495,10 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -37768,16 +39565,19 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-update-group-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-update-parent/%s" % self._segment_path()
 
@@ -37818,8 +39618,10 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.Input()
         self.input.parent = self
@@ -37886,16 +39688,19 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-update-group-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group/%s" % self._segment_path()
 
@@ -37937,8 +39742,10 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParen
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -38005,16 +39812,19 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParen
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent/%s" % self._segment_path()
 
@@ -38055,8 +39865,10 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input()
         self.input.parent = self
@@ -38123,16 +39935,19 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group/%s" % self._segment_path()
 
@@ -38173,8 +39988,10 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.Input()
         self.input.parent = self
@@ -38232,14 +40049,17 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-update-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-update-parent/%s" % self._segment_path()
 
@@ -38279,8 +40099,10 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpInstanceVrfUpdateOutqUpdateGroup.Input()
         self.input.parent = self
@@ -38338,14 +40160,17 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroup(Entity):
             self.yang_parent_name = "clear-bgp-instance-vrf-update-outq-update-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.instance_name = YLeaf(YType.str, "instance-name")
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('instance_name', YLeaf(YType.str, 'instance-name')),
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.instance_name = None
+            self.vrf_all = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group/%s" % self._segment_path()
 
@@ -38381,8 +40206,10 @@ class ClearBgpAfiSafiDampeningIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiDampeningIpv4Prefix.Input()
         self.input.parent = self
@@ -38425,12 +40252,15 @@ class ClearBgpAfiSafiDampeningIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-dampening-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ipv4-prefix/%s" % self._segment_path()
 
@@ -38466,8 +40296,10 @@ class ClearBgpAfiSafiFlapStatisticsIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiFlapStatisticsIpv4Prefix.Input()
         self.input.parent = self
@@ -38510,12 +40342,15 @@ class ClearBgpAfiSafiFlapStatisticsIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-flap-statistics-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ipv4-prefix/%s" % self._segment_path()
 
@@ -38551,8 +40386,10 @@ class ClearBgpAfiSafiDampeningIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiDampeningIpv6Prefix.Input()
         self.input.parent = self
@@ -38595,12 +40432,15 @@ class ClearBgpAfiSafiDampeningIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-dampening-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ipv6-prefix/%s" % self._segment_path()
 
@@ -38636,8 +40476,10 @@ class ClearBgpAfiSafiFlapStatisticsIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpAfiSafiFlapStatisticsIpv6Prefix.Input()
         self.input.parent = self
@@ -38680,12 +40522,15 @@ class ClearBgpAfiSafiFlapStatisticsIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-afi-safi-flap-statistics-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ipv6-prefix/%s" % self._segment_path()
 
@@ -38717,8 +40562,10 @@ class ClearBgpNexthopPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-nexthop-performance-statistics"
 
     def clone_ptr(self):
@@ -38751,8 +40598,10 @@ class ClearBgpNexthopRegistrationIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpNexthopRegistrationIpAddr.Input()
         self.input.parent = self
@@ -38794,10 +40643,13 @@ class ClearBgpNexthopRegistrationIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-nexthop-registration-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-nexthop-registration-ip-addr/%s" % self._segment_path()
 
@@ -38829,8 +40681,10 @@ class ClearBgpPeerDropsAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-peer-drops-all"
 
     def clone_ptr(self):
@@ -38862,8 +40716,10 @@ class ClearBgpPeerDropsIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpPeerDropsIpAddr.Input()
         self.input.parent = self
@@ -38905,10 +40761,13 @@ class ClearBgpPeerDropsIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-peer-drops-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-peer-drops-ip-addr/%s" % self._segment_path()
 
@@ -38939,8 +40798,10 @@ class ClearBgpPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-performance-statistics"
 
     def clone_ptr(self):
@@ -38970,8 +40831,10 @@ class ClearBgpRpkiServerAllSerialQuery(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-server-all-serial-query"
 
     def clone_ptr(self):
@@ -39000,8 +40863,10 @@ class ClearBgpRpkiServerAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-server-all"
 
     def clone_ptr(self):
@@ -39034,8 +40899,10 @@ class ClearBgpRpkiServerRpkiServer(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpRpkiServerRpkiServer.Input()
         self.input.parent = self
@@ -39069,10 +40936,13 @@ class ClearBgpRpkiServerRpkiServer(Entity):
             self.yang_parent_name = "clear-bgp-rpki-server-rpki-server"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.rpki_server = YLeaf(YType.str, "rpki-server")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('rpki_server', YLeaf(YType.str, 'rpki-server')),
+            ])
+            self.rpki_server = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-server-rpki-server/%s" % self._segment_path()
 
@@ -39105,8 +40975,10 @@ class ClearBgpRpkiValidationIpv4(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-validation-ipv4"
 
     def clone_ptr(self):
@@ -39135,8 +41007,10 @@ class ClearBgpRpkiValidationIpv6(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-validation-ipv6"
 
     def clone_ptr(self):
@@ -39164,8 +41038,10 @@ class ClearBgpRpkiValidation(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-validation"
 
     def clone_ptr(self):
@@ -39192,8 +41068,10 @@ class ClearBgpShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-shutdown"
 
     def clone_ptr(self):
@@ -39223,8 +41101,10 @@ class ClearBgpUpdateOutqAddressFamilyUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-address-family-update-parent"
 
     def clone_ptr(self):
@@ -39253,8 +41133,10 @@ class ClearBgpUpdateOutqAddressFamily(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-address-family"
 
     def clone_ptr(self):
@@ -39290,8 +41172,10 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.Input()
         self.input.parent = self
@@ -39333,10 +41217,13 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-neighbor-ip-addr-refresh-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-refresh-update-parent/%s" % self._segment_path()
 
@@ -39375,8 +41262,10 @@ class ClearBgpUpdateOutqNeighborIpAddrRefresh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqNeighborIpAddrRefresh.Input()
         self.input.parent = self
@@ -39418,10 +41307,13 @@ class ClearBgpUpdateOutqNeighborIpAddrRefresh(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-neighbor-ip-addr-refresh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-refresh/%s" % self._segment_path()
 
@@ -39460,8 +41352,10 @@ class ClearBgpUpdateOutqNeighborIpAddrUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqNeighborIpAddrUpdateParent.Input()
         self.input.parent = self
@@ -39503,10 +41397,13 @@ class ClearBgpUpdateOutqNeighborIpAddrUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-neighbor-ip-addr-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-update-parent/%s" % self._segment_path()
 
@@ -39544,8 +41441,10 @@ class ClearBgpUpdateOutqNeighborIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqNeighborIpAddr.Input()
         self.input.parent = self
@@ -39587,10 +41486,13 @@ class ClearBgpUpdateOutqNeighborIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-neighbor-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr/%s" % self._segment_path()
 
@@ -39623,8 +41525,10 @@ class ClearBgpUpdateOutqProcess(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-process"
 
     def clone_ptr(self):
@@ -39660,8 +41564,10 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -39706,12 +41612,15 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-update-group-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-update-parent/%s" % self._segment_path()
 
@@ -39750,8 +41659,10 @@ class ClearBgpUpdateOutqUpdateGroupSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqUpdateGroupSubGroup.Input()
         self.input.parent = self
@@ -39796,12 +41707,15 @@ class ClearBgpUpdateOutqUpdateGroupSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-update-group-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group/%s" % self._segment_path()
 
@@ -39841,8 +41755,10 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -39887,12 +41803,15 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-refresh-sub-group-update-parent/%s" % self._segment_path()
 
@@ -39931,8 +41850,10 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input()
         self.input.parent = self
@@ -39977,12 +41898,15 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-update-group-sub-group-refresh-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-refresh-sub-group/%s" % self._segment_path()
 
@@ -40021,8 +41945,10 @@ class ClearBgpUpdateOutqUpdateGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqUpdateGroupUpdateParent.Input()
         self.input.parent = self
@@ -40058,10 +41984,13 @@ class ClearBgpUpdateOutqUpdateGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-update-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-update-parent/%s" % self._segment_path()
 
@@ -40099,8 +42028,10 @@ class ClearBgpUpdateOutqUpdateGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpUpdateOutqUpdateGroup.Input()
         self.input.parent = self
@@ -40136,10 +42067,13 @@ class ClearBgpUpdateOutqUpdateGroup(Entity):
             self.yang_parent_name = "clear-bgp-update-outq-update-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group/%s" % self._segment_path()
 
@@ -40175,8 +42109,10 @@ class ClearBgpVersionIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -40233,12 +42169,15 @@ class ClearBgpVersionIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-version-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -40274,8 +42213,10 @@ class ClearBgpVersionIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionIpAddr.Input()
         self.input.parent = self
@@ -40317,10 +42258,13 @@ class ClearBgpVersionIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-version-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-addr/%s" % self._segment_path()
 
@@ -40356,8 +42300,10 @@ class ClearBgpVersionIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionIpPrefix.Input()
         self.input.parent = self
@@ -40399,10 +42345,13 @@ class ClearBgpVersionIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-version-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-prefix/%s" % self._segment_path()
 
@@ -40438,8 +42387,10 @@ class ClearBgpVersionAfiSafiIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -40503,14 +42454,17 @@ class ClearBgpVersionAfiSafiIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -40546,8 +42500,10 @@ class ClearBgpVersionAfiSafiIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpAddr.Input()
         self.input.parent = self
@@ -40596,12 +42552,15 @@ class ClearBgpVersionAfiSafiIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-addr/%s" % self._segment_path()
 
@@ -40637,8 +42596,10 @@ class ClearBgpVersionAfiSafiIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpPrefix.Input()
         self.input.parent = self
@@ -40687,12 +42648,15 @@ class ClearBgpVersionAfiSafiIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-prefix/%s" % self._segment_path()
 
@@ -40729,8 +42693,10 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -40801,16 +42767,19 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-bridge-domain-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -40847,8 +42816,10 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiBridgeDomainIpAddr.Input()
         self.input.parent = self
@@ -40904,14 +42875,17 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-bridge-domain-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-addr/%s" % self._segment_path()
 
@@ -40948,8 +42922,10 @@ class ClearBgpVersionAfiSafiBridgeDomainIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiBridgeDomainIpPrefix.Input()
         self.input.parent = self
@@ -41005,14 +42981,17 @@ class ClearBgpVersionAfiSafiBridgeDomainIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-bridge-domain-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-prefix/%s" % self._segment_path()
 
@@ -41049,8 +43028,10 @@ class ClearBgpVersionAfiSafiRdIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -41137,16 +43118,19 @@ class ClearBgpVersionAfiSafiRdIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -41183,8 +43167,10 @@ class ClearBgpVersionAfiSafiRdIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpAddr.Input()
         self.input.parent = self
@@ -41256,14 +43242,17 @@ class ClearBgpVersionAfiSafiRdIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-addr/%s" % self._segment_path()
 
@@ -41300,8 +43289,10 @@ class ClearBgpVersionAfiSafiRdIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpPrefix.Input()
         self.input.parent = self
@@ -41373,14 +43364,17 @@ class ClearBgpVersionAfiSafiRdIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-prefix/%s" % self._segment_path()
 
@@ -41416,8 +43410,10 @@ class ClearBgpVersionAfiSafiIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -41469,14 +43465,17 @@ class ClearBgpVersionAfiSafiIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -41512,8 +43511,10 @@ class ClearBgpVersionAfiSafiIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpv4Addr.Input()
         self.input.parent = self
@@ -41556,12 +43557,15 @@ class ClearBgpVersionAfiSafiIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-addr/%s" % self._segment_path()
 
@@ -41597,8 +43601,10 @@ class ClearBgpVersionAfiSafiIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpv4Prefix.Input()
         self.input.parent = self
@@ -41641,12 +43647,15 @@ class ClearBgpVersionAfiSafiIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-prefix/%s" % self._segment_path()
 
@@ -41683,8 +43692,10 @@ class ClearBgpVersionAfiSafiRdIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpv4Addr.Input()
         self.input.parent = self
@@ -41750,14 +43761,17 @@ class ClearBgpVersionAfiSafiRdIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-addr/%s" % self._segment_path()
 
@@ -41794,8 +43808,10 @@ class ClearBgpVersionAfiSafiVrfIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiVrfIpv4Addr.Input()
         self.input.parent = self
@@ -41845,14 +43861,17 @@ class ClearBgpVersionAfiSafiVrfIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-vrf-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-addr/%s" % self._segment_path()
 
@@ -41888,8 +43907,10 @@ class ClearBgpVersionAfiSafiNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiNetwork.Input()
         self.input.parent = self
@@ -41930,12 +43951,15 @@ class ClearBgpVersionAfiSafiNetwork(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.afi_safi_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-network/%s" % self._segment_path()
 
@@ -41972,8 +43996,10 @@ class ClearBgpVersionAfiSafiRdNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdNetwork.Input()
         self.input.parent = self
@@ -42037,14 +44063,17 @@ class ClearBgpVersionAfiSafiRdNetwork(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-network/%s" % self._segment_path()
 
@@ -42081,8 +44110,10 @@ class ClearBgpVersionAfiSafiVrfNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiVrfNetwork.Input()
         self.input.parent = self
@@ -42130,14 +44161,17 @@ class ClearBgpVersionAfiSafiVrfNetwork(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-vrf-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-network/%s" % self._segment_path()
 
@@ -42173,8 +44207,10 @@ class ClearBgpVersionAfiSafiRtConstraintNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRtConstraintNetwork.Input()
         self.input.parent = self
@@ -42215,12 +44251,15 @@ class ClearBgpVersionAfiSafiRtConstraintNetwork(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rt-constraint-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rt_constraint_network = YLeaf(YType.str, "rt-constraint-network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rt_constraint_network', YLeaf(YType.str, 'rt-constraint-network')),
+            ])
+            self.afi_safi_name = None
+            self.rt_constraint_network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rt-constraint-network/%s" % self._segment_path()
 
@@ -42256,8 +44295,10 @@ class ClearBgpVersionAfiSafiIpv4TunnelNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpv4TunnelNetwork.Input()
         self.input.parent = self
@@ -42298,12 +44339,15 @@ class ClearBgpVersionAfiSafiIpv4TunnelNetwork(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ipv4-tunnel-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_tunnel_network = YLeaf(YType.str, "ipv4-tunnel-network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_tunnel_network', YLeaf(YType.str, 'ipv4-tunnel-network')),
+            ])
+            self.afi_safi_name = None
+            self.ipv4_tunnel_network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-tunnel-network/%s" % self._segment_path()
 
@@ -42339,8 +44383,10 @@ class ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -42392,14 +44438,17 @@ class ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -42435,8 +44484,10 @@ class ClearBgpVersionAfiSafiIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpv6Addr.Input()
         self.input.parent = self
@@ -42479,12 +44530,15 @@ class ClearBgpVersionAfiSafiIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.afi_safi_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-addr/%s" % self._segment_path()
 
@@ -42520,8 +44574,10 @@ class ClearBgpVersionAfiSafiIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiIpv6Prefix.Input()
         self.input.parent = self
@@ -42564,12 +44620,15 @@ class ClearBgpVersionAfiSafiIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-prefix/%s" % self._segment_path()
 
@@ -42606,8 +44665,10 @@ class ClearBgpVersionAfiSafiRd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRd.Input()
         self.input.parent = self
@@ -42664,12 +44725,15 @@ class ClearBgpVersionAfiSafiRd(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd/%s" % self._segment_path()
 
@@ -42706,8 +44770,10 @@ class ClearBgpVersionAfiSafiVrf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiVrf.Input()
         self.input.parent = self
@@ -42748,12 +44814,15 @@ class ClearBgpVersionAfiSafiVrf(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-vrf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf/%s" % self._segment_path()
 
@@ -42789,8 +44858,10 @@ class ClearBgpVersionAfiSafi(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafi.Input()
         self.input.parent = self
@@ -42824,10 +44895,13 @@ class ClearBgpVersionAfiSafi(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi/%s" % self._segment_path()
 
@@ -42863,8 +44937,10 @@ class ClearBgpVersionAfiSafiSrPolicyPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiSrPolicyPrefix.Input()
         self.input.parent = self
@@ -42905,12 +44981,15 @@ class ClearBgpVersionAfiSafiSrPolicyPrefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-sr-policy-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.sr_policy_prefix = YLeaf(YType.str, "sr-policy-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('sr_policy_prefix', YLeaf(YType.str, 'sr-policy-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.sr_policy_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-sr-policy-prefix/%s" % self._segment_path()
 
@@ -42947,8 +45026,10 @@ class ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix.Input()
         self.input.parent = self
@@ -42998,14 +45079,17 @@ class ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-bridge-domain-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.bridge_domain_name = YLeaf(YType.str, "bridge-domain-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('bridge_domain_name', YLeaf(YType.str, 'bridge-domain-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.bridge_domain_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ipv4-prefix/%s" % self._segment_path()
 
@@ -43042,8 +45126,10 @@ class ClearBgpVersionAfiSafiRdIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpv4Prefix.Input()
         self.input.parent = self
@@ -43109,14 +45195,17 @@ class ClearBgpVersionAfiSafiRdIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-prefix/%s" % self._segment_path()
 
@@ -43153,8 +45242,10 @@ class ClearBgpVersionAfiSafiMp2MpIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiMp2MpIpv4Prefix.Input()
         self.input.parent = self
@@ -43204,14 +45295,17 @@ class ClearBgpVersionAfiSafiMp2MpIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-mp2mp-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.mp2mp = YLeaf(YType.str, "mp2mp")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('mp2mp', YLeaf(YType.str, 'mp2mp')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.mp2mp = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-mp2mp-ipv4-prefix/%s" % self._segment_path()
 
@@ -43248,8 +45342,10 @@ class ClearBgpVersionAfiSafiVrfIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiVrfIpv4Prefix.Input()
         self.input.parent = self
@@ -43299,14 +45395,17 @@ class ClearBgpVersionAfiSafiVrfIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-vrf-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-prefix/%s" % self._segment_path()
 
@@ -43343,8 +45442,10 @@ class ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -43419,16 +45520,19 @@ class ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -43465,8 +45569,10 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -43525,16 +45631,19 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-vrf-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -43571,8 +45680,10 @@ class ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -43647,16 +45758,19 @@ class ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -43693,8 +45807,10 @@ class ClearBgpVersionAfiSafiRdIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpv6Addr.Input()
         self.input.parent = self
@@ -43760,14 +45876,17 @@ class ClearBgpVersionAfiSafiRdIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-addr/%s" % self._segment_path()
 
@@ -43804,8 +45923,10 @@ class ClearBgpVersionAfiSafiRdIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiRdIpv6Prefix.Input()
         self.input.parent = self
@@ -43871,14 +45992,17 @@ class ClearBgpVersionAfiSafiRdIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-rd-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.rd = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-prefix/%s" % self._segment_path()
 
@@ -43915,8 +46039,10 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -43975,16 +46101,19 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-vrf-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -44021,8 +46150,10 @@ class ClearBgpVersionAfiSafiVrfIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiVrfIpv6Addr.Input()
         self.input.parent = self
@@ -44072,14 +46203,17 @@ class ClearBgpVersionAfiSafiVrfIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-vrf-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-addr/%s" % self._segment_path()
 
@@ -44116,8 +46250,10 @@ class ClearBgpVersionAfiSafiVrfIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionAfiSafiVrfIpv6Prefix.Input()
         self.input.parent = self
@@ -44167,14 +46303,17 @@ class ClearBgpVersionAfiSafiVrfIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-afi-safi-vrf-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-prefix/%s" % self._segment_path()
 
@@ -44211,8 +46350,10 @@ class ClearBgpVersionVrfIpAddrIpNetmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfIpAddrIpNetmask.Input()
         self.input.parent = self
@@ -44280,14 +46421,17 @@ class ClearBgpVersionVrfIpAddrIpNetmask(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-ip-addr-ip-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ip_netmask = YLeaf(YType.str, "ip-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
+            self.ip_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-addr-ip-netmask/%s" % self._segment_path()
 
@@ -44324,8 +46468,10 @@ class ClearBgpVersionVrfIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfIpAddr.Input()
         self.input.parent = self
@@ -44378,12 +46524,15 @@ class ClearBgpVersionVrfIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-addr/%s" % self._segment_path()
 
@@ -44420,8 +46569,10 @@ class ClearBgpVersionVrfIpPrefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfIpPrefix.Input()
         self.input.parent = self
@@ -44474,12 +46625,15 @@ class ClearBgpVersionVrfIpPrefix(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-ip-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+            ])
+            self.vrf_all = None
+            self.ip_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-prefix/%s" % self._segment_path()
 
@@ -44516,8 +46670,10 @@ class ClearBgpVersionVrfAfiSafiIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiIpv4Prefix.Input()
         self.input.parent = self
@@ -44571,14 +46727,17 @@ class ClearBgpVersionVrfAfiSafiIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-prefix/%s" % self._segment_path()
 
@@ -44615,8 +46774,10 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.Input()
         self.input.parent = self
@@ -44679,16 +46840,19 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-ipv4-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -44725,8 +46889,10 @@ class ClearBgpVersionVrfAfiSafiIpv4Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiIpv4Addr.Input()
         self.input.parent = self
@@ -44780,14 +46946,17 @@ class ClearBgpVersionVrfAfiSafiIpv4Addr(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-ipv4-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_addr = YLeaf(YType.str, "ipv4-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-addr/%s" % self._segment_path()
 
@@ -44824,8 +46993,10 @@ class ClearBgpVersionVrfAfiSafiNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiNetwork.Input()
         self.input.parent = self
@@ -44877,14 +47048,17 @@ class ClearBgpVersionVrfAfiSafiNetwork(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-network/%s" % self._segment_path()
 
@@ -44922,8 +47096,10 @@ class ClearBgpVersionVrfAfiSafiRdNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiRdNetwork.Input()
         self.input.parent = self
@@ -44998,16 +47174,19 @@ class ClearBgpVersionVrfAfiSafiRdNetwork(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-rd-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.rd = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-rd-network/%s" % self._segment_path()
 
@@ -45045,8 +47224,10 @@ class ClearBgpVersionVrfAfiSafiVrfNetwork(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiVrfNetwork.Input()
         self.input.parent = self
@@ -45105,16 +47286,19 @@ class ClearBgpVersionVrfAfiSafiVrfNetwork(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-vrf-network"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-            self.network = YLeaf(YType.str, "network")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('network', YLeaf(YType.str, 'network')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.vrf_name = None
+            self.network = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-vrf-network/%s" % self._segment_path()
 
@@ -45151,8 +47335,10 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.Input()
         self.input.parent = self
@@ -45215,16 +47401,19 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-ipv6-addr-ipv6-netmask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
-
-            self.ipv6_netmask = YLeaf(YType.str, "ipv6-netmask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+                ('ipv6_netmask', YLeaf(YType.str, 'ipv6-netmask')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
+            self.ipv6_netmask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-addr-ipv6-netmask/%s" % self._segment_path()
 
@@ -45261,8 +47450,10 @@ class ClearBgpVersionVrfAfiSafiIpv6Addr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiIpv6Addr.Input()
         self.input.parent = self
@@ -45316,14 +47507,17 @@ class ClearBgpVersionVrfAfiSafiIpv6Addr(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-ipv6-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_addr = YLeaf(YType.str, "ipv6-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-addr/%s" % self._segment_path()
 
@@ -45360,8 +47554,10 @@ class ClearBgpVersionVrfAfiSafiIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiIpv6Prefix.Input()
         self.input.parent = self
@@ -45415,14 +47611,17 @@ class ClearBgpVersionVrfAfiSafiIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-prefix/%s" % self._segment_path()
 
@@ -45460,8 +47659,10 @@ class ClearBgpVersionVrfAfiSafiRd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiRd.Input()
         self.input.parent = self
@@ -45529,14 +47730,17 @@ class ClearBgpVersionVrfAfiSafiRd(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-rd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.rd = YLeaf(YType.str, "rd")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('rd', YLeaf(YType.str, 'rd')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.rd = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-rd/%s" % self._segment_path()
 
@@ -45574,8 +47778,10 @@ class ClearBgpVersionVrfAfiSafiVrf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafiVrf.Input()
         self.input.parent = self
@@ -45627,14 +47833,17 @@ class ClearBgpVersionVrfAfiSafiVrf(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi-vrf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.vrf_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-vrf/%s" % self._segment_path()
 
@@ -45671,8 +47880,10 @@ class ClearBgpVersionVrfAfiSafi(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVersionVrfAfiSafi.Input()
         self.input.parent = self
@@ -45717,12 +47928,15 @@ class ClearBgpVersionVrfAfiSafi(Entity):
             self.yang_parent_name = "clear-bgp-version-vrf-afi-safi"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi/%s" % self._segment_path()
 
@@ -45760,8 +47974,10 @@ class ClearBgpVrfAllGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAllGraceful.Input()
         self.input.parent = self
@@ -45799,10 +48015,13 @@ class ClearBgpVrfAllGraceful(Entity):
             self.yang_parent_name = "clear-bgp-vrf-all-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-all-graceful/%s" % self._segment_path()
 
@@ -45839,8 +48058,10 @@ class ClearBgpVrfAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAll.Input()
         self.input.parent = self
@@ -45878,10 +48099,13 @@ class ClearBgpVrfAll(Entity):
             self.yang_parent_name = "clear-bgp-vrf-all"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-all/%s" % self._segment_path()
 
@@ -45918,8 +48142,10 @@ class ClearBgpVrfIpAddrGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfIpAddrGraceful.Input()
         self.input.parent = self
@@ -45972,12 +48198,15 @@ class ClearBgpVrfIpAddrGraceful(Entity):
             self.yang_parent_name = "clear-bgp-vrf-ip-addr-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr-graceful/%s" % self._segment_path()
 
@@ -46014,8 +48243,10 @@ class ClearBgpVrfIpAddrLongLivedStale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfIpAddrLongLivedStale.Input()
         self.input.parent = self
@@ -46068,12 +48299,15 @@ class ClearBgpVrfIpAddrLongLivedStale(Entity):
             self.yang_parent_name = "clear-bgp-vrf-ip-addr-long-lived-stale"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr-long-lived-stale/%s" % self._segment_path()
 
@@ -46109,8 +48343,10 @@ class ClearBgpVrfIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfIpAddr.Input()
         self.input.parent = self
@@ -46163,12 +48399,15 @@ class ClearBgpVrfIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-vrf-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr/%s" % self._segment_path()
 
@@ -46206,8 +48445,10 @@ class ClearBgpVrfAsGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAsGraceful.Input()
         self.input.parent = self
@@ -46264,12 +48505,15 @@ class ClearBgpVrfAsGraceful(Entity):
             self.yang_parent_name = "clear-bgp-vrf-as-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.vrf_all = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-as-graceful/%s" % self._segment_path()
 
@@ -46306,8 +48550,10 @@ class ClearBgpVrfAs(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAs.Input()
         self.input.parent = self
@@ -46364,12 +48610,15 @@ class ClearBgpVrfAs(Entity):
             self.yang_parent_name = "clear-bgp-vrf-as"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.vrf_all = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-as/%s" % self._segment_path()
 
@@ -46407,8 +48656,10 @@ class ClearBgpVrfExternalGraceful(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfExternalGraceful.Input()
         self.input.parent = self
@@ -46446,10 +48697,13 @@ class ClearBgpVrfExternalGraceful(Entity):
             self.yang_parent_name = "clear-bgp-vrf-external-graceful"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-external-graceful/%s" % self._segment_path()
 
@@ -46486,8 +48740,10 @@ class ClearBgpVrfExternal(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfExternal.Input()
         self.input.parent = self
@@ -46525,10 +48781,13 @@ class ClearBgpVrfExternal(Entity):
             self.yang_parent_name = "clear-bgp-vrf-external"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-external/%s" % self._segment_path()
 
@@ -46568,8 +48827,10 @@ class ClearBgpVrfAfiSafiAllSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiAllSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -46614,12 +48875,15 @@ class ClearBgpVrfAfiSafiAllSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-all-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -46658,8 +48922,10 @@ class ClearBgpVrfAfiSafiAllSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiAllSoftIn.Input()
         self.input.parent = self
@@ -46704,12 +48970,15 @@ class ClearBgpVrfAfiSafiAllSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-all-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-in/%s" % self._segment_path()
 
@@ -46748,8 +49017,10 @@ class ClearBgpVrfAfiSafiAllSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiAllSoftOut.Input()
         self.input.parent = self
@@ -46794,12 +49065,15 @@ class ClearBgpVrfAfiSafiAllSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-all-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-out/%s" % self._segment_path()
 
@@ -46837,8 +49111,10 @@ class ClearBgpVrfAfiSafiAllSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiAllSoft.Input()
         self.input.parent = self
@@ -46883,12 +49159,15 @@ class ClearBgpVrfAfiSafiAllSoft(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-all-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft/%s" % self._segment_path()
 
@@ -46925,8 +49204,10 @@ class ClearBgpVrfAfiSafiIpAddrLongLivedStale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiIpAddrLongLivedStale.Input()
         self.input.parent = self
@@ -46986,14 +49267,17 @@ class ClearBgpVrfAfiSafiIpAddrLongLivedStale(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-ip-addr-long-lived-stale"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-long-lived-stale/%s" % self._segment_path()
 
@@ -47032,8 +49316,10 @@ class ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -47093,14 +49379,17 @@ class ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-ip-addr-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -47138,8 +49427,10 @@ class ClearBgpVrfAfiSafiIpAddrSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiIpAddrSoftIn.Input()
         self.input.parent = self
@@ -47199,14 +49490,17 @@ class ClearBgpVrfAfiSafiIpAddrSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-ip-addr-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-in/%s" % self._segment_path()
 
@@ -47244,8 +49538,10 @@ class ClearBgpVrfAfiSafiIpAddrSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiIpAddrSoftOut.Input()
         self.input.parent = self
@@ -47305,14 +49601,17 @@ class ClearBgpVrfAfiSafiIpAddrSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-ip-addr-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-out/%s" % self._segment_path()
 
@@ -47349,8 +49648,10 @@ class ClearBgpVrfAfiSafiIpAddrSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiIpAddrSoft.Input()
         self.input.parent = self
@@ -47410,14 +49711,17 @@ class ClearBgpVrfAfiSafiIpAddrSoft(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-ip-addr-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft/%s" % self._segment_path()
 
@@ -47457,8 +49761,10 @@ class ClearBgpVrfAfiSafiAsSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiAsSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -47522,14 +49828,17 @@ class ClearBgpVrfAfiSafiAsSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-as-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -47568,8 +49877,10 @@ class ClearBgpVrfAfiSafiAsSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiAsSoftIn.Input()
         self.input.parent = self
@@ -47633,14 +49944,17 @@ class ClearBgpVrfAfiSafiAsSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-as-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-in/%s" % self._segment_path()
 
@@ -47679,8 +49993,10 @@ class ClearBgpVrfAfiSafiAsSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiAsSoftOut.Input()
         self.input.parent = self
@@ -47744,14 +50060,17 @@ class ClearBgpVrfAfiSafiAsSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-as-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-out/%s" % self._segment_path()
 
@@ -47789,8 +50108,10 @@ class ClearBgpVrfAfiSafiAsSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiAsSoft.Input()
         self.input.parent = self
@@ -47854,14 +50175,17 @@ class ClearBgpVrfAfiSafiAsSoft(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-as-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.as_number = YLeaf(YType.str, "as-number")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('as_number', YLeaf(YType.str, 'as-number')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.as_number = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft/%s" % self._segment_path()
 
@@ -47898,8 +50222,10 @@ class ClearBgpVrfAfiSafiDampeningIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiDampeningIpv4Prefix.Input()
         self.input.parent = self
@@ -47953,14 +50279,17 @@ class ClearBgpVrfAfiSafiDampeningIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-dampening-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening-ipv4-prefix/%s" % self._segment_path()
 
@@ -47997,8 +50326,10 @@ class ClearBgpVrfAfiSafiDampening(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiDampening.Input()
         self.input.parent = self
@@ -48043,12 +50374,15 @@ class ClearBgpVrfAfiSafiDampening(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-dampening"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening/%s" % self._segment_path()
 
@@ -48088,8 +50422,10 @@ class ClearBgpVrfAfiSafiExternalSoftInPrefixFilter(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiExternalSoftInPrefixFilter.Input()
         self.input.parent = self
@@ -48134,12 +50470,15 @@ class ClearBgpVrfAfiSafiExternalSoftInPrefixFilter(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-external-soft-in-prefix-filter"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-in-prefix-filter/%s" % self._segment_path()
 
@@ -48178,8 +50517,10 @@ class ClearBgpVrfAfiSafiExternalSoftIn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiExternalSoftIn.Input()
         self.input.parent = self
@@ -48224,12 +50565,15 @@ class ClearBgpVrfAfiSafiExternalSoftIn(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-external-soft-in"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-in/%s" % self._segment_path()
 
@@ -48268,8 +50612,10 @@ class ClearBgpVrfAfiSafiExternalSoftOut(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiExternalSoftOut.Input()
         self.input.parent = self
@@ -48314,12 +50660,15 @@ class ClearBgpVrfAfiSafiExternalSoftOut(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-external-soft-out"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-out/%s" % self._segment_path()
 
@@ -48357,8 +50706,10 @@ class ClearBgpVrfAfiSafiExternalSoft(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiExternalSoft.Input()
         self.input.parent = self
@@ -48403,12 +50754,15 @@ class ClearBgpVrfAfiSafiExternalSoft(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-external-soft"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft/%s" % self._segment_path()
 
@@ -48445,8 +50799,10 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.Input()
         self.input.parent = self
@@ -48515,16 +50871,19 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-            self.ipv4_mask = YLeaf(YType.str, "ipv4-mask")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                ('ipv4_mask', YLeaf(YType.str, 'ipv4-mask')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
+            self.ipv4_mask = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask/%s" % self._segment_path()
 
@@ -48561,8 +50920,10 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiFlapStatisticsIpAddr.Input()
         self.input.parent = self
@@ -48622,14 +50983,17 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-flap-statistics-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ip-addr/%s" % self._segment_path()
 
@@ -48666,8 +51030,10 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.Input()
         self.input.parent = self
@@ -48721,14 +51087,17 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-flap-statistics-ipv4-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv4_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ipv4-prefix/%s" % self._segment_path()
 
@@ -48766,8 +51135,10 @@ class ClearBgpVrfAfiSafiFlapStatisticsRegexp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiFlapStatisticsRegexp.Input()
         self.input.parent = self
@@ -48819,14 +51190,17 @@ class ClearBgpVrfAfiSafiFlapStatisticsRegexp(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-flap-statistics-regexp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.regexp_pattern = YLeaf(YType.str, "regexp-pattern")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('regexp_pattern', YLeaf(YType.str, 'regexp-pattern')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.regexp_pattern = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-regexp/%s" % self._segment_path()
 
@@ -48864,8 +51238,10 @@ class ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy.Input()
         self.input.parent = self
@@ -48917,14 +51293,17 @@ class ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-flap-statistics-route-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.route_policy_name = YLeaf(YType.str, "route-policy-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.route_policy_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-route-policy/%s" % self._segment_path()
 
@@ -48961,8 +51340,10 @@ class ClearBgpVrfAfiSafiFlapStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiFlapStatistics.Input()
         self.input.parent = self
@@ -49007,12 +51388,15 @@ class ClearBgpVrfAfiSafiFlapStatistics(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-flap-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics/%s" % self._segment_path()
 
@@ -49050,8 +51434,10 @@ class ClearBgpVrfAfiSafiNexthopPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiNexthopPerformanceStatistics.Input()
         self.input.parent = self
@@ -49096,12 +51482,15 @@ class ClearBgpVrfAfiSafiNexthopPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-nexthop-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-nexthop-performance-statistics/%s" % self._segment_path()
 
@@ -49139,8 +51528,10 @@ class ClearBgpVrfAfiSafiNexthopRegistrationIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiNexthopRegistrationIpAddr.Input()
         self.input.parent = self
@@ -49200,14 +51591,17 @@ class ClearBgpVrfAfiSafiNexthopRegistrationIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-nexthop-registration-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-nexthop-registration-ip-addr/%s" % self._segment_path()
 
@@ -49244,8 +51638,10 @@ class ClearBgpVrfAfiSafiSelfOriginated(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiSelfOriginated.Input()
         self.input.parent = self
@@ -49290,12 +51686,15 @@ class ClearBgpVrfAfiSafiSelfOriginated(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-self-originated"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-self-originated/%s" % self._segment_path()
 
@@ -49332,8 +51731,10 @@ class ClearBgpVrfAfiSafiShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiShutdown.Input()
         self.input.parent = self
@@ -49378,12 +51779,15 @@ class ClearBgpVrfAfiSafiShutdown(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-shutdown"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-shutdown/%s" % self._segment_path()
 
@@ -49423,8 +51827,10 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.Input()
         self.input.parent = self
@@ -49469,12 +51875,15 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-address-family-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-address-family-update-parent/%s" % self._segment_path()
 
@@ -49513,8 +51922,10 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamily(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqAddressFamily.Input()
         self.input.parent = self
@@ -49559,12 +51970,15 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamily(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-address-family"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-address-family/%s" % self._segment_path()
 
@@ -49605,8 +52019,10 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input()
         self.input.parent = self
@@ -49666,14 +52082,17 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent/%s" % self._segment_path()
 
@@ -49713,8 +52132,10 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.Input()
         self.input.parent = self
@@ -49774,14 +52195,17 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh/%s" % self._segment_path()
 
@@ -49821,8 +52245,10 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input()
         self.input.parent = self
@@ -49882,14 +52308,17 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent/%s" % self._segment_path()
 
@@ -49928,8 +52357,10 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.Input()
         self.input.parent = self
@@ -49989,14 +52420,17 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr/%s" % self._segment_path()
 
@@ -50037,8 +52471,10 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -50101,16 +52537,19 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-update-parent/%s" % self._segment_path()
 
@@ -50150,8 +52589,10 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.Input()
         self.input.parent = self
@@ -50214,16 +52655,19 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group/%s" % self._segment_path()
 
@@ -50264,8 +52708,10 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -50328,16 +52774,19 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent/%s" % self._segment_path()
 
@@ -50377,8 +52826,10 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input()
         self.input.parent = self
@@ -50441,16 +52892,19 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group/%s" % self._segment_path()
 
@@ -50490,8 +52944,10 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.Input()
         self.input.parent = self
@@ -50545,14 +53001,17 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-update-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-update-parent/%s" % self._segment_path()
 
@@ -50591,8 +53050,10 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiUpdateOutqUpdateGroup.Input()
         self.input.parent = self
@@ -50646,14 +53107,17 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroup(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-update-outq-update-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group/%s" % self._segment_path()
 
@@ -50690,8 +53154,10 @@ class ClearBgpVrfAfiSafiDampeningIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiDampeningIpv6Prefix.Input()
         self.input.parent = self
@@ -50745,14 +53211,17 @@ class ClearBgpVrfAfiSafiDampeningIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-dampening-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening-ipv6-prefix/%s" % self._segment_path()
 
@@ -50789,8 +53258,10 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.Input()
         self.input.parent = self
@@ -50844,14 +53315,17 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
             self.yang_parent_name = "clear-bgp-vrf-afi-safi-flap-statistics-ipv6-prefix"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.afi_safi_name = YLeaf(YType.enumeration, "afi-safi-name")
-
-            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('afi_safi_name', YLeaf(YType.enumeration, 'afi-safi-name')),
+                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+            ])
+            self.vrf_all = None
+            self.afi_safi_name = None
+            self.ipv6_prefix = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ipv6-prefix/%s" % self._segment_path()
 
@@ -50889,8 +53363,10 @@ class ClearBgpVrfNexthopPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfNexthopPerformanceStatistics.Input()
         self.input.parent = self
@@ -50928,10 +53404,13 @@ class ClearBgpVrfNexthopPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-vrf-nexthop-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-nexthop-performance-statistics/%s" % self._segment_path()
 
@@ -50969,8 +53448,10 @@ class ClearBgpVrfNexthopRegistrationIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfNexthopRegistrationIpAddr.Input()
         self.input.parent = self
@@ -51023,12 +53504,15 @@ class ClearBgpVrfNexthopRegistrationIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-vrf-nexthop-registration-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-nexthop-registration-ip-addr/%s" % self._segment_path()
 
@@ -51066,8 +53550,10 @@ class ClearBgpVrfPeerDropsAll(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfPeerDropsAll.Input()
         self.input.parent = self
@@ -51105,10 +53591,13 @@ class ClearBgpVrfPeerDropsAll(Entity):
             self.yang_parent_name = "clear-bgp-vrf-peer-drops-all"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-peer-drops-all/%s" % self._segment_path()
 
@@ -51145,8 +53634,10 @@ class ClearBgpVrfPeerDropsIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfPeerDropsIpAddr.Input()
         self.input.parent = self
@@ -51199,12 +53690,15 @@ class ClearBgpVrfPeerDropsIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-vrf-peer-drops-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-peer-drops-ip-addr/%s" % self._segment_path()
 
@@ -51241,8 +53735,10 @@ class ClearBgpVrfPerformanceStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfPerformanceStatistics.Input()
         self.input.parent = self
@@ -51280,10 +53776,13 @@ class ClearBgpVrfPerformanceStatistics(Entity):
             self.yang_parent_name = "clear-bgp-vrf-performance-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-performance-statistics/%s" % self._segment_path()
 
@@ -51320,8 +53819,10 @@ class ClearBgpVrfShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfShutdown.Input()
         self.input.parent = self
@@ -51359,10 +53860,13 @@ class ClearBgpVrfShutdown(Entity):
             self.yang_parent_name = "clear-bgp-vrf-shutdown"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-shutdown/%s" % self._segment_path()
 
@@ -51402,8 +53906,10 @@ class ClearBgpVrfUpdateOutqAddressFamilyUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqAddressFamilyUpdateParent.Input()
         self.input.parent = self
@@ -51441,10 +53947,13 @@ class ClearBgpVrfUpdateOutqAddressFamilyUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-address-family-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-address-family-update-parent/%s" % self._segment_path()
 
@@ -51483,8 +53992,10 @@ class ClearBgpVrfUpdateOutqAddressFamily(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqAddressFamily.Input()
         self.input.parent = self
@@ -51522,10 +54033,13 @@ class ClearBgpVrfUpdateOutqAddressFamily(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-address-family"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+            ])
+            self.vrf_all = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-address-family/%s" % self._segment_path()
 
@@ -51566,8 +54080,10 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.Input()
         self.input.parent = self
@@ -51620,12 +54136,15 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh-update-parent/%s" % self._segment_path()
 
@@ -51665,8 +54184,10 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefresh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqNeighborIpAddrRefresh.Input()
         self.input.parent = self
@@ -51719,12 +54240,15 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefresh(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh/%s" % self._segment_path()
 
@@ -51764,8 +54288,10 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.Input()
         self.input.parent = self
@@ -51818,12 +54344,15 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-neighbor-ip-addr-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-update-parent/%s" % self._segment_path()
 
@@ -51862,8 +54391,10 @@ class ClearBgpVrfUpdateOutqNeighborIpAddr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqNeighborIpAddr.Input()
         self.input.parent = self
@@ -51916,12 +54447,15 @@ class ClearBgpVrfUpdateOutqNeighborIpAddr(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-neighbor-ip-addr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.ip_addr = YLeaf(YType.str, "ip-addr")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+            ])
+            self.vrf_all = None
+            self.ip_addr = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr/%s" % self._segment_path()
 
@@ -51962,8 +54496,10 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -52019,14 +54555,17 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-update-group-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.vrf_all = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-update-parent/%s" % self._segment_path()
 
@@ -52066,8 +54605,10 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqUpdateGroupSubGroup.Input()
         self.input.parent = self
@@ -52123,14 +54664,17 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-update-group-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.sub_group = YLeaf(YType.str, "sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('sub_group', YLeaf(YType.str, 'sub-group')),
+            ])
+            self.vrf_all = None
+            self.update_group = None
+            self.sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group/%s" % self._segment_path()
 
@@ -52171,8 +54715,10 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input()
         self.input.parent = self
@@ -52228,14 +54774,17 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity
             self.yang_parent_name = "clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.vrf_all = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent/%s" % self._segment_path()
 
@@ -52275,8 +54824,10 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input()
         self.input.parent = self
@@ -52332,14 +54883,17 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
-
-            self.refresh_sub_group = YLeaf(YType.str, "refresh-sub-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+                ('refresh_sub_group', YLeaf(YType.str, 'refresh-sub-group')),
+            ])
+            self.vrf_all = None
+            self.update_group = None
+            self.refresh_sub_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group/%s" % self._segment_path()
 
@@ -52379,8 +54933,10 @@ class ClearBgpVrfUpdateOutqUpdateGroupUpdateParent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqUpdateGroupUpdateParent.Input()
         self.input.parent = self
@@ -52427,12 +54983,15 @@ class ClearBgpVrfUpdateOutqUpdateGroupUpdateParent(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-update-group-update-parent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.vrf_all = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-update-parent/%s" % self._segment_path()
 
@@ -52471,8 +55030,10 @@ class ClearBgpVrfUpdateOutqUpdateGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-bgp-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ClearBgpVrfUpdateOutqUpdateGroup.Input()
         self.input.parent = self
@@ -52519,12 +55080,15 @@ class ClearBgpVrfUpdateOutqUpdateGroup(Entity):
             self.yang_parent_name = "clear-bgp-vrf-update-outq-update-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vrf_all = YLeaf(YType.str, "vrf-all")
-
-            self.update_group = YLeaf(YType.str, "update-group")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_all', YLeaf(YType.str, 'vrf-all')),
+                ('update_group', YLeaf(YType.str, 'update-group')),
+            ])
+            self.vrf_all = None
+            self.update_group = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group/%s" % self._segment_path()
 

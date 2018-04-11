@@ -18,9 +18,11 @@ VXML \- Voice XML
 URL  \- Uniform Resource Locator  
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -54,8 +56,10 @@ class CISCOVOICEDNISMIB(Entity):
         self.yang_parent_name = "CISCO-VOICE-DNIS-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cvDnisMappingTable" : ("cvdnismappingtable", CISCOVOICEDNISMIB.Cvdnismappingtable), "cvDnisNodeTable" : ("cvdnisnodetable", CISCOVOICEDNISMIB.Cvdnisnodetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cvDnisMappingTable", ("cvdnismappingtable", CISCOVOICEDNISMIB.Cvdnismappingtable)), ("cvDnisNodeTable", ("cvdnisnodetable", CISCOVOICEDNISMIB.Cvdnisnodetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cvdnismappingtable = CISCOVOICEDNISMIB.Cvdnismappingtable()
         self.cvdnismappingtable.parent = self
@@ -94,8 +98,10 @@ class CISCOVOICEDNISMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DNIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvDnisMappingEntry" : ("cvdnismappingentry", CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvDnisMappingEntry", ("cvdnismappingentry", CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry))])
+            self._leafs = OrderedDict()
 
             self.cvdnismappingentry = YList(self)
             self._segment_path = lambda: "cvDnisMappingTable"
@@ -135,7 +141,7 @@ class CISCOVOICEDNISMIB(Entity):
             Deleting an entry deletes all the related entries in
             cvDnisNodeTable. 
             
-            .. attribute:: cvdnismappingname  <key>
+            .. attribute:: cvdnismappingname  (key)
             
             	The name which uniquely identifies a DNIS mapping. 
             	**type**\: str
@@ -176,19 +182,22 @@ class CISCOVOICEDNISMIB(Entity):
                 self.yang_parent_name = "cvDnisMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvdnismappingname = YLeaf(YType.str, "cvDnisMappingName")
-
-                self.cvdnismappingurl = YLeaf(YType.str, "cvDnisMappingUrl")
-
-                self.cvdnismappingrefresh = YLeaf(YType.enumeration, "cvDnisMappingRefresh")
-
-                self.cvdnismappingurlaccesserror = YLeaf(YType.str, "cvDnisMappingUrlAccessError")
-
-                self.cvdnismappingstatus = YLeaf(YType.enumeration, "cvDnisMappingStatus")
-                self._segment_path = lambda: "cvDnisMappingEntry" + "[cvDnisMappingName='" + self.cvdnismappingname.get() + "']"
+                self.ylist_key_names = ['cvdnismappingname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvdnismappingname', YLeaf(YType.str, 'cvDnisMappingName')),
+                    ('cvdnismappingurl', YLeaf(YType.str, 'cvDnisMappingUrl')),
+                    ('cvdnismappingrefresh', YLeaf(YType.enumeration, 'cvDnisMappingRefresh')),
+                    ('cvdnismappingurlaccesserror', YLeaf(YType.str, 'cvDnisMappingUrlAccessError')),
+                    ('cvdnismappingstatus', YLeaf(YType.enumeration, 'cvDnisMappingStatus')),
+                ])
+                self.cvdnismappingname = None
+                self.cvdnismappingurl = None
+                self.cvdnismappingrefresh = None
+                self.cvdnismappingurlaccesserror = None
+                self.cvdnismappingstatus = None
+                self._segment_path = lambda: "cvDnisMappingEntry" + "[cvDnisMappingName='" + str(self.cvdnismappingname) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -196,7 +205,7 @@ class CISCOVOICEDNISMIB(Entity):
 
             class Cvdnismappingrefresh(Enum):
                 """
-                Cvdnismappingrefresh
+                Cvdnismappingrefresh (Enum Class)
 
                 Whenever there is a need to re\-read the contents of the
 
@@ -262,8 +271,10 @@ class CISCOVOICEDNISMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DNIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvDnisNodeEntry" : ("cvdnisnodeentry", CISCOVOICEDNISMIB.Cvdnisnodetable.Cvdnisnodeentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvDnisNodeEntry", ("cvdnisnodeentry", CISCOVOICEDNISMIB.Cvdnisnodetable.Cvdnisnodeentry))])
+            self._leafs = OrderedDict()
 
             self.cvdnisnodeentry = YList(self)
             self._segment_path = lambda: "cvDnisNodeTable"
@@ -286,7 +297,7 @@ class CISCOVOICEDNISMIB(Entity):
             corresponding to this entry's map name, then this row
             will have read permission only.
             
-            .. attribute:: cvdnismappingname  <key>
+            .. attribute:: cvdnismappingname  (key)
             
             	
             	**type**\: str
@@ -295,7 +306,7 @@ class CISCOVOICEDNISMIB(Entity):
             
             	**refers to**\:  :py:class:`cvdnismappingname <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CISCOVOICEDNISMIB.Cvdnismappingtable.Cvdnismappingentry>`
             
-            .. attribute:: cvdnisnumber  <key>
+            .. attribute:: cvdnisnumber  (key)
             
             	The individual DNIS name. It is unique within a DNIS mapping
             	**type**\: str
@@ -329,19 +340,22 @@ class CISCOVOICEDNISMIB(Entity):
                 self.yang_parent_name = "cvDnisNodeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvdnismappingname = YLeaf(YType.str, "cvDnisMappingName")
-
-                self.cvdnisnumber = YLeaf(YType.str, "cvDnisNumber")
-
-                self.cvdnisnodeurl = YLeaf(YType.str, "cvDnisNodeUrl")
-
-                self.cvdnisnodemodifiable = YLeaf(YType.boolean, "cvDnisNodeModifiable")
-
-                self.cvdnisnodestatus = YLeaf(YType.enumeration, "cvDnisNodeStatus")
-                self._segment_path = lambda: "cvDnisNodeEntry" + "[cvDnisMappingName='" + self.cvdnismappingname.get() + "']" + "[cvDnisNumber='" + self.cvdnisnumber.get() + "']"
+                self.ylist_key_names = ['cvdnismappingname','cvdnisnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvdnismappingname', YLeaf(YType.str, 'cvDnisMappingName')),
+                    ('cvdnisnumber', YLeaf(YType.str, 'cvDnisNumber')),
+                    ('cvdnisnodeurl', YLeaf(YType.str, 'cvDnisNodeUrl')),
+                    ('cvdnisnodemodifiable', YLeaf(YType.boolean, 'cvDnisNodeModifiable')),
+                    ('cvdnisnodestatus', YLeaf(YType.enumeration, 'cvDnisNodeStatus')),
+                ])
+                self.cvdnismappingname = None
+                self.cvdnisnumber = None
+                self.cvdnisnodeurl = None
+                self.cvdnisnodemodifiable = None
+                self.cvdnisnodestatus = None
+                self._segment_path = lambda: "cvDnisNodeEntry" + "[cvDnisMappingName='" + str(self.cvdnismappingname) + "']" + "[cvDnisNumber='" + str(self.cvdnisnumber) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisNodeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

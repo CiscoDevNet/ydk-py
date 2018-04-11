@@ -6,47 +6,57 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class SensorUnitsType(Enum):
     """
-    SensorUnitsType
+    SensorUnitsType (Enum Class)
 
     Units used by various sensors
 
-    .. data:: Watts = 0
+    .. data:: watts = 0
 
-    .. data:: Celsius = 1
+    .. data:: celsius = 1
 
-    .. data:: milliVolts = 2
+    .. data:: millivolts = 2
 
-    .. data:: Amperes = 3
+    .. data:: amperes = 3
 
-    .. data:: Volts_DC = 4
+    .. data:: volts_dc = 4
 
-    .. data:: Volts_AC = 5
+    .. data:: volts_ac = 5
 
-    .. data:: milliAmperes = 6
+    .. data:: milliamperes = 6
+
+    .. data:: unknown = 7
+
+    .. data:: revolutions_per_minute = 8
 
     """
 
-    Watts = Enum.YLeaf(0, "Watts")
+    watts = Enum.YLeaf(0, "watts")
 
-    Celsius = Enum.YLeaf(1, "Celsius")
+    celsius = Enum.YLeaf(1, "celsius")
 
-    milliVolts = Enum.YLeaf(2, "milliVolts")
+    millivolts = Enum.YLeaf(2, "millivolts")
 
-    Amperes = Enum.YLeaf(3, "Amperes")
+    amperes = Enum.YLeaf(3, "amperes")
 
-    Volts_DC = Enum.YLeaf(4, "Volts-DC")
+    volts_dc = Enum.YLeaf(4, "volts-dc")
 
-    Volts_AC = Enum.YLeaf(5, "Volts-AC")
+    volts_ac = Enum.YLeaf(5, "volts-ac")
 
-    milliAmperes = Enum.YLeaf(6, "milliAmperes")
+    milliamperes = Enum.YLeaf(6, "milliamperes")
+
+    unknown = Enum.YLeaf(7, "unknown")
+
+    revolutions_per_minute = Enum.YLeaf(8, "revolutions-per-minute")
 
 
 
@@ -64,7 +74,7 @@ class EnvironmentSensors(Entity):
     """
 
     _prefix = 'environment-ios-xe-oper'
-    _revision = '2017-02-07'
+    _revision = '2017-11-27'
 
     def __init__(self):
         super(EnvironmentSensors, self).__init__()
@@ -74,8 +84,10 @@ class EnvironmentSensors(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-environment-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"environment-sensor" : ("environment_sensor", EnvironmentSensors.EnvironmentSensor)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("environment-sensor", ("environment_sensor", EnvironmentSensors.EnvironmentSensor))])
+        self._leafs = OrderedDict()
 
         self.environment_sensor = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-environment-oper:environment-sensors"
@@ -88,12 +100,12 @@ class EnvironmentSensors(Entity):
         """
         The list of components on the device chasis
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	Name of the sensor component. This includes all physical components of the chasis \- both fixed and pluggable
         	**type**\: str
         
-        .. attribute:: location  <key>
+        .. attribute:: location  (key)
         
         	Sensor location
         	**type**\: str
@@ -115,12 +127,40 @@ class EnvironmentSensors(Entity):
         	Units corresponding to the current\-reading value
         	**type**\:  :py:class:`SensorUnitsType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper.SensorUnitsType>`
         
+        .. attribute:: low_critical_threshold
+        
+        	Alarm threshold under which a critical alarm will be signaled
+        	**type**\: int
+        
+        	**range:** \-2147483648..2147483647
+        
+        .. attribute:: low_normal_threshold
+        
+        	No alarm above this threshold
+        	**type**\: int
+        
+        	**range:** \-2147483648..2147483647
+        
+        .. attribute:: high_normal_threshold
+        
+        	No alarm below this threshold
+        	**type**\: int
+        
+        	**range:** \-2147483648..2147483647
+        
+        .. attribute:: high_critical_threshold
+        
+        	Alarm threshold over which a critical  alarm will be signaled
+        	**type**\: int
+        
+        	**range:** \-2147483648..2147483647
+        
         
 
         """
 
         _prefix = 'environment-ios-xe-oper'
-        _revision = '2017-02-07'
+        _revision = '2017-11-27'
 
         def __init__(self):
             super(EnvironmentSensors.EnvironmentSensor, self).__init__()
@@ -129,23 +169,34 @@ class EnvironmentSensors(Entity):
             self.yang_parent_name = "environment-sensors"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.location = YLeaf(YType.str, "location")
-
-            self.state = YLeaf(YType.str, "state")
-
-            self.current_reading = YLeaf(YType.uint32, "current-reading")
-
-            self.sensor_units = YLeaf(YType.enumeration, "sensor-units")
-            self._segment_path = lambda: "environment-sensor" + "[name='" + self.name.get() + "']" + "[location='" + self.location.get() + "']"
+            self.ylist_key_names = ['name','location']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('location', YLeaf(YType.str, 'location')),
+                ('state', YLeaf(YType.str, 'state')),
+                ('current_reading', YLeaf(YType.uint32, 'current-reading')),
+                ('sensor_units', YLeaf(YType.enumeration, 'sensor-units')),
+                ('low_critical_threshold', YLeaf(YType.int32, 'low-critical-threshold')),
+                ('low_normal_threshold', YLeaf(YType.int32, 'low-normal-threshold')),
+                ('high_normal_threshold', YLeaf(YType.int32, 'high-normal-threshold')),
+                ('high_critical_threshold', YLeaf(YType.int32, 'high-critical-threshold')),
+            ])
+            self.name = None
+            self.location = None
+            self.state = None
+            self.current_reading = None
+            self.sensor_units = None
+            self.low_critical_threshold = None
+            self.low_normal_threshold = None
+            self.high_normal_threshold = None
+            self.high_critical_threshold = None
+            self._segment_path = lambda: "environment-sensor" + "[name='" + str(self.name) + "']" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-environment-oper:environment-sensors/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EnvironmentSensors.EnvironmentSensor, ['name', 'location', 'state', 'current_reading', 'sensor_units'], name, value)
+            self._perform_setattr(EnvironmentSensors.EnvironmentSensor, ['name', 'location', 'state', 'current_reading', 'sensor_units', 'low_critical_threshold', 'low_normal_threshold', 'high_normal_threshold', 'high_critical_threshold'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EnvironmentSensors()

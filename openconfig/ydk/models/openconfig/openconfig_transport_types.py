@@ -4,15 +4,17 @@ This module contains general type definitions and identities
 for optical transport models.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AdminStateType(Enum):
     """
-    AdminStateType
+    AdminStateType (Enum Class)
 
     Administrative state modes for
 
@@ -41,7 +43,7 @@ class AdminStateType(Enum):
 
 class LoopbackModeType(Enum):
     """
-    LoopbackModeType
+    LoopbackModeType (Enum Class)
 
     Loopback modes for transponder logical channels
 

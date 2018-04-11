@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class DpmProtoHostState(Enum):
     """
-    DpmProtoHostState
+    DpmProtoHostState (Enum Class)
 
     Dpm proto host state
 
@@ -46,7 +48,7 @@ class DpmProtoHostState(Enum):
 
 class DpmProtoState(Enum):
     """
-    DpmProtoState
+    DpmProtoState (Enum Class)
 
     Dpm proto state
 
@@ -97,7 +99,7 @@ class DpmProtoState(Enum):
 
 class IcpeCpmChanFsmState(Enum):
     """
-    IcpeCpmChanFsmState
+    IcpeCpmChanFsmState (Enum Class)
 
     Icpe cpm chan fsm state
 
@@ -142,7 +144,7 @@ class IcpeCpmChanFsmState(Enum):
 
 class IcpeCpmChannelResyncState(Enum):
     """
-    IcpeCpmChannelResyncState
+    IcpeCpmChannelResyncState (Enum Class)
 
     Icpe cpm channel resync state
 
@@ -175,7 +177,7 @@ class IcpeCpmChannelResyncState(Enum):
 
 class IcpeCpmControlFsmState(Enum):
     """
-    IcpeCpmControlFsmState
+    IcpeCpmControlFsmState (Enum Class)
 
     Icpe cpm control fsm state
 

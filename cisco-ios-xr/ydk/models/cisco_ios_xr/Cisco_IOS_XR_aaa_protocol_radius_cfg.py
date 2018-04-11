@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AaaAction(Enum):
     """
-    AaaAction
+    AaaAction (Enum Class)
 
     Aaa action
 
@@ -41,7 +43,7 @@ class AaaAction(Enum):
 
 class AaaAuthentication(Enum):
     """
-    AaaAuthentication
+    AaaAuthentication (Enum Class)
 
     Aaa authentication
 
@@ -68,7 +70,7 @@ class AaaAuthentication(Enum):
 
 class AaaConfig(Enum):
     """
-    AaaConfig
+    AaaConfig (Enum Class)
 
     Aaa config
 
@@ -89,7 +91,7 @@ class AaaConfig(Enum):
 
 class AaaDirection(Enum):
     """
-    AaaDirection
+    AaaDirection (Enum Class)
 
     Aaa direction
 
@@ -110,7 +112,7 @@ class AaaDirection(Enum):
 
 class AaaDscpValue(Enum):
     """
-    AaaDscpValue
+    AaaDscpValue (Enum Class)
 
     Aaa dscp value
 
@@ -245,7 +247,7 @@ class AaaDscpValue(Enum):
 
 class AaaSelectKey(Enum):
     """
-    AaaSelectKey
+    AaaSelectKey (Enum Class)
 
     Aaa select key
 

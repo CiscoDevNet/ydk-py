@@ -61,15 +61,17 @@ For a detailed discussion, please refer to the IETF
 draft draft\-ietf\-ipsec\-flow\-monitoring\-mib\-00.txt.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AuthAlgo(Enum):
     """
-    AuthAlgo
+    AuthAlgo (Enum Class)
 
     The authentication algorithm used by a
 
@@ -92,7 +94,7 @@ class AuthAlgo(Enum):
 
 class CompAlgo(Enum):
     """
-    CompAlgo
+    CompAlgo (Enum Class)
 
     The compression algorithm used by a
 
@@ -111,7 +113,7 @@ class CompAlgo(Enum):
 
 class DiffHellmanGrp(Enum):
     """
-    DiffHellmanGrp
+    DiffHellmanGrp (Enum Class)
 
     The Diffie Hellman Group used in negotiations.
 
@@ -132,7 +134,7 @@ class DiffHellmanGrp(Enum):
 
 class EncapMode(Enum):
     """
-    EncapMode
+    EncapMode (Enum Class)
 
     The encapsulation mode used by an IPsec Phase\-2
 
@@ -151,7 +153,7 @@ class EncapMode(Enum):
 
 class EncryptAlgo(Enum):
     """
-    EncryptAlgo
+    EncryptAlgo (Enum Class)
 
     The encryption algorithm used in negotiations.
 
@@ -172,7 +174,7 @@ class EncryptAlgo(Enum):
 
 class EndPtType(Enum):
     """
-    EndPtType
+    EndPtType (Enum Class)
 
     The type of identity use to specify an IPsec End Point.
 
@@ -193,7 +195,7 @@ class EndPtType(Enum):
 
 class IkeAuthMethod(Enum):
     """
-    IkeAuthMethod
+    IkeAuthMethod (Enum Class)
 
     The authentication method used in IPsec Phase\-1 IKE
 
@@ -224,7 +226,7 @@ class IkeAuthMethod(Enum):
 
 class IkeHashAlgo(Enum):
     """
-    IkeHashAlgo
+    IkeHashAlgo (Enum Class)
 
     The hash algorithm used in IPsec Phase\-1
 
@@ -247,7 +249,7 @@ class IkeHashAlgo(Enum):
 
 class IkeNegoMode(Enum):
     """
-    IkeNegoMode
+    IkeNegoMode (Enum Class)
 
     The IPsec Phase\-1 IKE negotiation mode.
 
@@ -264,7 +266,7 @@ class IkeNegoMode(Enum):
 
 class IkePeerType(Enum):
     """
-    IkePeerType
+    IkePeerType (Enum Class)
 
     The type of IPsec Phase\-1 IKE peer identity.
 
@@ -287,7 +289,7 @@ class IkePeerType(Enum):
 
 class KeyType(Enum):
     """
-    KeyType
+    KeyType (Enum Class)
 
     The type of key used by an IPsec Phase\-2 Tunnel.
 
@@ -304,7 +306,7 @@ class KeyType(Enum):
 
 class TrapStatus(Enum):
     """
-    TrapStatus
+    TrapStatus (Enum Class)
 
     The administrative status for sending a TRAP.
 
@@ -321,7 +323,7 @@ class TrapStatus(Enum):
 
 class TunnelStatus(Enum):
     """
-    TunnelStatus
+    TunnelStatus (Enum Class)
 
     The status of a Tunnel.  Objects of this type may
 
@@ -457,8 +459,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
         self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cipSecLevels" : ("cipseclevels", CISCOIPSECFLOWMONITORMIB.Cipseclevels), "cikeGlobalStats" : ("cikeglobalstats", CISCOIPSECFLOWMONITORMIB.Cikeglobalstats), "cipSecGlobalStats" : ("cipsecglobalstats", CISCOIPSECFLOWMONITORMIB.Cipsecglobalstats), "cipSecHistGlobalCntl" : ("cipsechistglobalcntl", CISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl), "cipSecFailGlobalCntl" : ("cipsecfailglobalcntl", CISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl), "cipSecTrapCntl" : ("cipsectrapcntl", CISCOIPSECFLOWMONITORMIB.Cipsectrapcntl), "cikePeerTable" : ("cikepeertable", CISCOIPSECFLOWMONITORMIB.Cikepeertable), "cikeTunnelTable" : ("ciketunneltable", CISCOIPSECFLOWMONITORMIB.Ciketunneltable), "cikePeerCorrTable" : ("cikepeercorrtable", CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable), "cikePhase1GWStatsTable" : ("cikephase1gwstatstable", CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable), "cipSecTunnelTable" : ("cipsectunneltable", CISCOIPSECFLOWMONITORMIB.Cipsectunneltable), "cipSecEndPtTable" : ("cipsecendpttable", CISCOIPSECFLOWMONITORMIB.Cipsecendpttable), "cipSecSpiTable" : ("cipsecspitable", CISCOIPSECFLOWMONITORMIB.Cipsecspitable), "cipSecPhase2GWStatsTable" : ("cipsecphase2gwstatstable", CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable), "cikeTunnelHistTable" : ("ciketunnelhisttable", CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable), "cipSecTunnelHistTable" : ("cipsectunnelhisttable", CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable), "cipSecEndPtHistTable" : ("cipsecendpthisttable", CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable), "cikeFailTable" : ("cikefailtable", CISCOIPSECFLOWMONITORMIB.Cikefailtable), "cipSecFailTable" : ("cipsecfailtable", CISCOIPSECFLOWMONITORMIB.Cipsecfailtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cipSecLevels", ("cipseclevels", CISCOIPSECFLOWMONITORMIB.Cipseclevels)), ("cikeGlobalStats", ("cikeglobalstats", CISCOIPSECFLOWMONITORMIB.Cikeglobalstats)), ("cipSecGlobalStats", ("cipsecglobalstats", CISCOIPSECFLOWMONITORMIB.Cipsecglobalstats)), ("cipSecHistGlobalCntl", ("cipsechistglobalcntl", CISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl)), ("cipSecFailGlobalCntl", ("cipsecfailglobalcntl", CISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl)), ("cipSecTrapCntl", ("cipsectrapcntl", CISCOIPSECFLOWMONITORMIB.Cipsectrapcntl)), ("cikePeerTable", ("cikepeertable", CISCOIPSECFLOWMONITORMIB.Cikepeertable)), ("cikeTunnelTable", ("ciketunneltable", CISCOIPSECFLOWMONITORMIB.Ciketunneltable)), ("cikePeerCorrTable", ("cikepeercorrtable", CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable)), ("cikePhase1GWStatsTable", ("cikephase1gwstatstable", CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable)), ("cipSecTunnelTable", ("cipsectunneltable", CISCOIPSECFLOWMONITORMIB.Cipsectunneltable)), ("cipSecEndPtTable", ("cipsecendpttable", CISCOIPSECFLOWMONITORMIB.Cipsecendpttable)), ("cipSecSpiTable", ("cipsecspitable", CISCOIPSECFLOWMONITORMIB.Cipsecspitable)), ("cipSecPhase2GWStatsTable", ("cipsecphase2gwstatstable", CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable)), ("cikeTunnelHistTable", ("ciketunnelhisttable", CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable)), ("cipSecTunnelHistTable", ("cipsectunnelhisttable", CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable)), ("cipSecEndPtHistTable", ("cipsecendpthisttable", CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable)), ("cikeFailTable", ("cikefailtable", CISCOIPSECFLOWMONITORMIB.Cikefailtable)), ("cipSecFailTable", ("cipsecfailtable", CISCOIPSECFLOWMONITORMIB.Cipsecfailtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cipseclevels = CISCOIPSECFLOWMONITORMIB.Cipseclevels()
         self.cipseclevels.parent = self
@@ -582,10 +586,13 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsecmiblevel = YLeaf(YType.int32, "cipSecMibLevel")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipsecmiblevel', YLeaf(YType.int32, 'cipSecMibLevel')),
+            ])
+            self.cipsecmiblevel = None
             self._segment_path = lambda: "cipSecLevels"
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
@@ -843,60 +850,63 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cikeglobalactivetunnels = YLeaf(YType.uint32, "cikeGlobalActiveTunnels")
-
-            self.cikeglobalprevioustunnels = YLeaf(YType.uint32, "cikeGlobalPreviousTunnels")
-
-            self.cikeglobalinoctets = YLeaf(YType.uint32, "cikeGlobalInOctets")
-
-            self.cikeglobalinpkts = YLeaf(YType.uint32, "cikeGlobalInPkts")
-
-            self.cikeglobalindroppkts = YLeaf(YType.uint32, "cikeGlobalInDropPkts")
-
-            self.cikeglobalinnotifys = YLeaf(YType.uint32, "cikeGlobalInNotifys")
-
-            self.cikeglobalinp2exchgs = YLeaf(YType.uint32, "cikeGlobalInP2Exchgs")
-
-            self.cikeglobalinp2exchginvalids = YLeaf(YType.uint32, "cikeGlobalInP2ExchgInvalids")
-
-            self.cikeglobalinp2exchgrejects = YLeaf(YType.uint32, "cikeGlobalInP2ExchgRejects")
-
-            self.cikeglobalinp2sadelrequests = YLeaf(YType.uint32, "cikeGlobalInP2SaDelRequests")
-
-            self.cikeglobaloutoctets = YLeaf(YType.uint32, "cikeGlobalOutOctets")
-
-            self.cikeglobaloutpkts = YLeaf(YType.uint32, "cikeGlobalOutPkts")
-
-            self.cikeglobaloutdroppkts = YLeaf(YType.uint32, "cikeGlobalOutDropPkts")
-
-            self.cikeglobaloutnotifys = YLeaf(YType.uint32, "cikeGlobalOutNotifys")
-
-            self.cikeglobaloutp2exchgs = YLeaf(YType.uint32, "cikeGlobalOutP2Exchgs")
-
-            self.cikeglobaloutp2exchginvalids = YLeaf(YType.uint32, "cikeGlobalOutP2ExchgInvalids")
-
-            self.cikeglobaloutp2exchgrejects = YLeaf(YType.uint32, "cikeGlobalOutP2ExchgRejects")
-
-            self.cikeglobaloutp2sadelrequests = YLeaf(YType.uint32, "cikeGlobalOutP2SaDelRequests")
-
-            self.cikeglobalinittunnels = YLeaf(YType.uint32, "cikeGlobalInitTunnels")
-
-            self.cikeglobalinittunnelfails = YLeaf(YType.uint32, "cikeGlobalInitTunnelFails")
-
-            self.cikeglobalresptunnelfails = YLeaf(YType.uint32, "cikeGlobalRespTunnelFails")
-
-            self.cikeglobalsyscapfails = YLeaf(YType.uint32, "cikeGlobalSysCapFails")
-
-            self.cikeglobalauthfails = YLeaf(YType.uint32, "cikeGlobalAuthFails")
-
-            self.cikeglobaldecryptfails = YLeaf(YType.uint32, "cikeGlobalDecryptFails")
-
-            self.cikeglobalhashvalidfails = YLeaf(YType.uint32, "cikeGlobalHashValidFails")
-
-            self.cikeglobalnosafails = YLeaf(YType.uint32, "cikeGlobalNoSaFails")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cikeglobalactivetunnels', YLeaf(YType.uint32, 'cikeGlobalActiveTunnels')),
+                ('cikeglobalprevioustunnels', YLeaf(YType.uint32, 'cikeGlobalPreviousTunnels')),
+                ('cikeglobalinoctets', YLeaf(YType.uint32, 'cikeGlobalInOctets')),
+                ('cikeglobalinpkts', YLeaf(YType.uint32, 'cikeGlobalInPkts')),
+                ('cikeglobalindroppkts', YLeaf(YType.uint32, 'cikeGlobalInDropPkts')),
+                ('cikeglobalinnotifys', YLeaf(YType.uint32, 'cikeGlobalInNotifys')),
+                ('cikeglobalinp2exchgs', YLeaf(YType.uint32, 'cikeGlobalInP2Exchgs')),
+                ('cikeglobalinp2exchginvalids', YLeaf(YType.uint32, 'cikeGlobalInP2ExchgInvalids')),
+                ('cikeglobalinp2exchgrejects', YLeaf(YType.uint32, 'cikeGlobalInP2ExchgRejects')),
+                ('cikeglobalinp2sadelrequests', YLeaf(YType.uint32, 'cikeGlobalInP2SaDelRequests')),
+                ('cikeglobaloutoctets', YLeaf(YType.uint32, 'cikeGlobalOutOctets')),
+                ('cikeglobaloutpkts', YLeaf(YType.uint32, 'cikeGlobalOutPkts')),
+                ('cikeglobaloutdroppkts', YLeaf(YType.uint32, 'cikeGlobalOutDropPkts')),
+                ('cikeglobaloutnotifys', YLeaf(YType.uint32, 'cikeGlobalOutNotifys')),
+                ('cikeglobaloutp2exchgs', YLeaf(YType.uint32, 'cikeGlobalOutP2Exchgs')),
+                ('cikeglobaloutp2exchginvalids', YLeaf(YType.uint32, 'cikeGlobalOutP2ExchgInvalids')),
+                ('cikeglobaloutp2exchgrejects', YLeaf(YType.uint32, 'cikeGlobalOutP2ExchgRejects')),
+                ('cikeglobaloutp2sadelrequests', YLeaf(YType.uint32, 'cikeGlobalOutP2SaDelRequests')),
+                ('cikeglobalinittunnels', YLeaf(YType.uint32, 'cikeGlobalInitTunnels')),
+                ('cikeglobalinittunnelfails', YLeaf(YType.uint32, 'cikeGlobalInitTunnelFails')),
+                ('cikeglobalresptunnelfails', YLeaf(YType.uint32, 'cikeGlobalRespTunnelFails')),
+                ('cikeglobalsyscapfails', YLeaf(YType.uint32, 'cikeGlobalSysCapFails')),
+                ('cikeglobalauthfails', YLeaf(YType.uint32, 'cikeGlobalAuthFails')),
+                ('cikeglobaldecryptfails', YLeaf(YType.uint32, 'cikeGlobalDecryptFails')),
+                ('cikeglobalhashvalidfails', YLeaf(YType.uint32, 'cikeGlobalHashValidFails')),
+                ('cikeglobalnosafails', YLeaf(YType.uint32, 'cikeGlobalNoSaFails')),
+            ])
+            self.cikeglobalactivetunnels = None
+            self.cikeglobalprevioustunnels = None
+            self.cikeglobalinoctets = None
+            self.cikeglobalinpkts = None
+            self.cikeglobalindroppkts = None
+            self.cikeglobalinnotifys = None
+            self.cikeglobalinp2exchgs = None
+            self.cikeglobalinp2exchginvalids = None
+            self.cikeglobalinp2exchgrejects = None
+            self.cikeglobalinp2sadelrequests = None
+            self.cikeglobaloutoctets = None
+            self.cikeglobaloutpkts = None
+            self.cikeglobaloutdroppkts = None
+            self.cikeglobaloutnotifys = None
+            self.cikeglobaloutp2exchgs = None
+            self.cikeglobaloutp2exchginvalids = None
+            self.cikeglobaloutp2exchgrejects = None
+            self.cikeglobaloutp2sadelrequests = None
+            self.cikeglobalinittunnels = None
+            self.cikeglobalinittunnelfails = None
+            self.cikeglobalresptunnelfails = None
+            self.cikeglobalsyscapfails = None
+            self.cikeglobalauthfails = None
+            self.cikeglobaldecryptfails = None
+            self.cikeglobalhashvalidfails = None
+            self.cikeglobalnosafails = None
             self._segment_path = lambda: "cikeGlobalStats"
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
@@ -1184,68 +1194,71 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsecglobalactivetunnels = YLeaf(YType.uint32, "cipSecGlobalActiveTunnels")
-
-            self.cipsecglobalprevioustunnels = YLeaf(YType.uint32, "cipSecGlobalPreviousTunnels")
-
-            self.cipsecglobalinoctets = YLeaf(YType.uint32, "cipSecGlobalInOctets")
-
-            self.cipsecglobalhcinoctets = YLeaf(YType.uint64, "cipSecGlobalHcInOctets")
-
-            self.cipsecglobalinoctwraps = YLeaf(YType.uint32, "cipSecGlobalInOctWraps")
-
-            self.cipsecglobalindecompoctets = YLeaf(YType.uint32, "cipSecGlobalInDecompOctets")
-
-            self.cipsecglobalhcindecompoctets = YLeaf(YType.uint64, "cipSecGlobalHcInDecompOctets")
-
-            self.cipsecglobalindecompoctwraps = YLeaf(YType.uint32, "cipSecGlobalInDecompOctWraps")
-
-            self.cipsecglobalinpkts = YLeaf(YType.uint32, "cipSecGlobalInPkts")
-
-            self.cipsecglobalindrops = YLeaf(YType.uint32, "cipSecGlobalInDrops")
-
-            self.cipsecglobalinreplaydrops = YLeaf(YType.uint32, "cipSecGlobalInReplayDrops")
-
-            self.cipsecglobalinauths = YLeaf(YType.uint32, "cipSecGlobalInAuths")
-
-            self.cipsecglobalinauthfails = YLeaf(YType.uint32, "cipSecGlobalInAuthFails")
-
-            self.cipsecglobalindecrypts = YLeaf(YType.uint32, "cipSecGlobalInDecrypts")
-
-            self.cipsecglobalindecryptfails = YLeaf(YType.uint32, "cipSecGlobalInDecryptFails")
-
-            self.cipsecglobaloutoctets = YLeaf(YType.uint32, "cipSecGlobalOutOctets")
-
-            self.cipsecglobalhcoutoctets = YLeaf(YType.uint64, "cipSecGlobalHcOutOctets")
-
-            self.cipsecglobaloutoctwraps = YLeaf(YType.uint32, "cipSecGlobalOutOctWraps")
-
-            self.cipsecglobaloutuncompoctets = YLeaf(YType.uint32, "cipSecGlobalOutUncompOctets")
-
-            self.cipsecglobalhcoutuncompoctets = YLeaf(YType.uint64, "cipSecGlobalHcOutUncompOctets")
-
-            self.cipsecglobaloutuncompoctwraps = YLeaf(YType.uint32, "cipSecGlobalOutUncompOctWraps")
-
-            self.cipsecglobaloutpkts = YLeaf(YType.uint32, "cipSecGlobalOutPkts")
-
-            self.cipsecglobaloutdrops = YLeaf(YType.uint32, "cipSecGlobalOutDrops")
-
-            self.cipsecglobaloutauths = YLeaf(YType.uint32, "cipSecGlobalOutAuths")
-
-            self.cipsecglobaloutauthfails = YLeaf(YType.uint32, "cipSecGlobalOutAuthFails")
-
-            self.cipsecglobaloutencrypts = YLeaf(YType.uint32, "cipSecGlobalOutEncrypts")
-
-            self.cipsecglobaloutencryptfails = YLeaf(YType.uint32, "cipSecGlobalOutEncryptFails")
-
-            self.cipsecglobalprotocolusefails = YLeaf(YType.uint32, "cipSecGlobalProtocolUseFails")
-
-            self.cipsecglobalnosafails = YLeaf(YType.uint32, "cipSecGlobalNoSaFails")
-
-            self.cipsecglobalsyscapfails = YLeaf(YType.uint32, "cipSecGlobalSysCapFails")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipsecglobalactivetunnels', YLeaf(YType.uint32, 'cipSecGlobalActiveTunnels')),
+                ('cipsecglobalprevioustunnels', YLeaf(YType.uint32, 'cipSecGlobalPreviousTunnels')),
+                ('cipsecglobalinoctets', YLeaf(YType.uint32, 'cipSecGlobalInOctets')),
+                ('cipsecglobalhcinoctets', YLeaf(YType.uint64, 'cipSecGlobalHcInOctets')),
+                ('cipsecglobalinoctwraps', YLeaf(YType.uint32, 'cipSecGlobalInOctWraps')),
+                ('cipsecglobalindecompoctets', YLeaf(YType.uint32, 'cipSecGlobalInDecompOctets')),
+                ('cipsecglobalhcindecompoctets', YLeaf(YType.uint64, 'cipSecGlobalHcInDecompOctets')),
+                ('cipsecglobalindecompoctwraps', YLeaf(YType.uint32, 'cipSecGlobalInDecompOctWraps')),
+                ('cipsecglobalinpkts', YLeaf(YType.uint32, 'cipSecGlobalInPkts')),
+                ('cipsecglobalindrops', YLeaf(YType.uint32, 'cipSecGlobalInDrops')),
+                ('cipsecglobalinreplaydrops', YLeaf(YType.uint32, 'cipSecGlobalInReplayDrops')),
+                ('cipsecglobalinauths', YLeaf(YType.uint32, 'cipSecGlobalInAuths')),
+                ('cipsecglobalinauthfails', YLeaf(YType.uint32, 'cipSecGlobalInAuthFails')),
+                ('cipsecglobalindecrypts', YLeaf(YType.uint32, 'cipSecGlobalInDecrypts')),
+                ('cipsecglobalindecryptfails', YLeaf(YType.uint32, 'cipSecGlobalInDecryptFails')),
+                ('cipsecglobaloutoctets', YLeaf(YType.uint32, 'cipSecGlobalOutOctets')),
+                ('cipsecglobalhcoutoctets', YLeaf(YType.uint64, 'cipSecGlobalHcOutOctets')),
+                ('cipsecglobaloutoctwraps', YLeaf(YType.uint32, 'cipSecGlobalOutOctWraps')),
+                ('cipsecglobaloutuncompoctets', YLeaf(YType.uint32, 'cipSecGlobalOutUncompOctets')),
+                ('cipsecglobalhcoutuncompoctets', YLeaf(YType.uint64, 'cipSecGlobalHcOutUncompOctets')),
+                ('cipsecglobaloutuncompoctwraps', YLeaf(YType.uint32, 'cipSecGlobalOutUncompOctWraps')),
+                ('cipsecglobaloutpkts', YLeaf(YType.uint32, 'cipSecGlobalOutPkts')),
+                ('cipsecglobaloutdrops', YLeaf(YType.uint32, 'cipSecGlobalOutDrops')),
+                ('cipsecglobaloutauths', YLeaf(YType.uint32, 'cipSecGlobalOutAuths')),
+                ('cipsecglobaloutauthfails', YLeaf(YType.uint32, 'cipSecGlobalOutAuthFails')),
+                ('cipsecglobaloutencrypts', YLeaf(YType.uint32, 'cipSecGlobalOutEncrypts')),
+                ('cipsecglobaloutencryptfails', YLeaf(YType.uint32, 'cipSecGlobalOutEncryptFails')),
+                ('cipsecglobalprotocolusefails', YLeaf(YType.uint32, 'cipSecGlobalProtocolUseFails')),
+                ('cipsecglobalnosafails', YLeaf(YType.uint32, 'cipSecGlobalNoSaFails')),
+                ('cipsecglobalsyscapfails', YLeaf(YType.uint32, 'cipSecGlobalSysCapFails')),
+            ])
+            self.cipsecglobalactivetunnels = None
+            self.cipsecglobalprevioustunnels = None
+            self.cipsecglobalinoctets = None
+            self.cipsecglobalhcinoctets = None
+            self.cipsecglobalinoctwraps = None
+            self.cipsecglobalindecompoctets = None
+            self.cipsecglobalhcindecompoctets = None
+            self.cipsecglobalindecompoctwraps = None
+            self.cipsecglobalinpkts = None
+            self.cipsecglobalindrops = None
+            self.cipsecglobalinreplaydrops = None
+            self.cipsecglobalinauths = None
+            self.cipsecglobalinauthfails = None
+            self.cipsecglobalindecrypts = None
+            self.cipsecglobalindecryptfails = None
+            self.cipsecglobaloutoctets = None
+            self.cipsecglobalhcoutoctets = None
+            self.cipsecglobaloutoctwraps = None
+            self.cipsecglobaloutuncompoctets = None
+            self.cipsecglobalhcoutuncompoctets = None
+            self.cipsecglobaloutuncompoctwraps = None
+            self.cipsecglobaloutpkts = None
+            self.cipsecglobaloutdrops = None
+            self.cipsecglobaloutauths = None
+            self.cipsecglobaloutauthfails = None
+            self.cipsecglobaloutencrypts = None
+            self.cipsecglobaloutencryptfails = None
+            self.cipsecglobalprotocolusefails = None
+            self.cipsecglobalnosafails = None
+            self.cipsecglobalsyscapfails = None
             self._segment_path = lambda: "cipSecGlobalStats"
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
@@ -1283,12 +1296,15 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsechisttablesize = YLeaf(YType.int32, "cipSecHistTableSize")
-
-            self.cipsechistcheckpoint = YLeaf(YType.enumeration, "cipSecHistCheckPoint")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipsechisttablesize', YLeaf(YType.int32, 'cipSecHistTableSize')),
+                ('cipsechistcheckpoint', YLeaf(YType.enumeration, 'cipSecHistCheckPoint')),
+            ])
+            self.cipsechisttablesize = None
+            self.cipsechistcheckpoint = None
             self._segment_path = lambda: "cipSecHistGlobalCntl"
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
@@ -1297,7 +1313,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
         class Cipsechistcheckpoint(Enum):
             """
-            Cipsechistcheckpoint
+            Cipsechistcheckpoint (Enum Class)
 
             The current state of check point processing.
 
@@ -1364,10 +1380,13 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsecfailtablesize = YLeaf(YType.int32, "cipSecFailTableSize")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipsecfailtablesize', YLeaf(YType.int32, 'cipSecFailTableSize')),
+            ])
+            self.cipsecfailtablesize = None
             self._segment_path = lambda: "cipSecFailGlobalCntl"
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
@@ -1458,34 +1477,37 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsectrapcntliketunnelstart = YLeaf(YType.enumeration, "cipSecTrapCntlIkeTunnelStart")
-
-            self.cipsectrapcntliketunnelstop = YLeaf(YType.enumeration, "cipSecTrapCntlIkeTunnelStop")
-
-            self.cipsectrapcntlikesysfailure = YLeaf(YType.enumeration, "cipSecTrapCntlIkeSysFailure")
-
-            self.cipsectrapcntlikecertcrlfailure = YLeaf(YType.enumeration, "cipSecTrapCntlIkeCertCrlFailure")
-
-            self.cipsectrapcntlikeprotocolfail = YLeaf(YType.enumeration, "cipSecTrapCntlIkeProtocolFail")
-
-            self.cipsectrapcntlikenosa = YLeaf(YType.enumeration, "cipSecTrapCntlIkeNoSa")
-
-            self.cipsectrapcntlipsectunnelstart = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecTunnelStart")
-
-            self.cipsectrapcntlipsectunnelstop = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecTunnelStop")
-
-            self.cipsectrapcntlipsecsysfailure = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecSysFailure")
-
-            self.cipsectrapcntlipsecsetupfailure = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecSetUpFailure")
-
-            self.cipsectrapcntlipsecearlytunterm = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecEarlyTunTerm")
-
-            self.cipsectrapcntlipsecprotocolfail = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecProtocolFail")
-
-            self.cipsectrapcntlipsecnosa = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecNoSa")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipsectrapcntliketunnelstart', YLeaf(YType.enumeration, 'cipSecTrapCntlIkeTunnelStart')),
+                ('cipsectrapcntliketunnelstop', YLeaf(YType.enumeration, 'cipSecTrapCntlIkeTunnelStop')),
+                ('cipsectrapcntlikesysfailure', YLeaf(YType.enumeration, 'cipSecTrapCntlIkeSysFailure')),
+                ('cipsectrapcntlikecertcrlfailure', YLeaf(YType.enumeration, 'cipSecTrapCntlIkeCertCrlFailure')),
+                ('cipsectrapcntlikeprotocolfail', YLeaf(YType.enumeration, 'cipSecTrapCntlIkeProtocolFail')),
+                ('cipsectrapcntlikenosa', YLeaf(YType.enumeration, 'cipSecTrapCntlIkeNoSa')),
+                ('cipsectrapcntlipsectunnelstart', YLeaf(YType.enumeration, 'cipSecTrapCntlIpSecTunnelStart')),
+                ('cipsectrapcntlipsectunnelstop', YLeaf(YType.enumeration, 'cipSecTrapCntlIpSecTunnelStop')),
+                ('cipsectrapcntlipsecsysfailure', YLeaf(YType.enumeration, 'cipSecTrapCntlIpSecSysFailure')),
+                ('cipsectrapcntlipsecsetupfailure', YLeaf(YType.enumeration, 'cipSecTrapCntlIpSecSetUpFailure')),
+                ('cipsectrapcntlipsecearlytunterm', YLeaf(YType.enumeration, 'cipSecTrapCntlIpSecEarlyTunTerm')),
+                ('cipsectrapcntlipsecprotocolfail', YLeaf(YType.enumeration, 'cipSecTrapCntlIpSecProtocolFail')),
+                ('cipsectrapcntlipsecnosa', YLeaf(YType.enumeration, 'cipSecTrapCntlIpSecNoSa')),
+            ])
+            self.cipsectrapcntliketunnelstart = None
+            self.cipsectrapcntliketunnelstop = None
+            self.cipsectrapcntlikesysfailure = None
+            self.cipsectrapcntlikecertcrlfailure = None
+            self.cipsectrapcntlikeprotocolfail = None
+            self.cipsectrapcntlikenosa = None
+            self.cipsectrapcntlipsectunnelstart = None
+            self.cipsectrapcntlipsectunnelstop = None
+            self.cipsectrapcntlipsecsysfailure = None
+            self.cipsectrapcntlipsecsetupfailure = None
+            self.cipsectrapcntlipsecearlytunterm = None
+            self.cipsectrapcntlipsecprotocolfail = None
+            self.cipsectrapcntlipsecnosa = None
             self._segment_path = lambda: "cipSecTrapCntl"
             self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self._segment_path()
 
@@ -1522,8 +1544,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cikePeerEntry" : ("cikepeerentry", CISCOIPSECFLOWMONITORMIB.Cikepeertable.Cikepeerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cikePeerEntry", ("cikepeerentry", CISCOIPSECFLOWMONITORMIB.Cikepeertable.Cikepeerentry))])
+            self._leafs = OrderedDict()
 
             self.cikepeerentry = YList(self)
             self._segment_path = lambda: "cikePeerTable"
@@ -1538,27 +1562,27 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             Each entry contains the attributes associated
             with an IPsec Phase\-1 IKE peer association.
             
-            .. attribute:: cikepeerlocaltype  <key>
+            .. attribute:: cikepeerlocaltype  (key)
             
             	The type of local peer identity.  The local peer may be identified by\: 1. an IP address, or 2. a host name
             	**type**\:  :py:class:`IkePeerType <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkePeerType>`
             
-            .. attribute:: cikepeerlocalvalue  <key>
+            .. attribute:: cikepeerlocalvalue  (key)
             
             	The value of the local peer identity.  If the local peer type is an IP Address, then this is the IP Address used to identify the local peer.  If the local peer type is a host name, then this is the host name used to identify the local peer
             	**type**\: str
             
-            .. attribute:: cikepeerremotetype  <key>
+            .. attribute:: cikepeerremotetype  (key)
             
             	The type of remote peer identity.  The remote peer may be identified by\: 1. an IP address, or 2. a host name
             	**type**\:  :py:class:`IkePeerType <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkePeerType>`
             
-            .. attribute:: cikepeerremotevalue  <key>
+            .. attribute:: cikepeerremotevalue  (key)
             
             	The value of the remote peer identity.  If the remote peer type is an IP Address, then this is the IP Address used to identify the remote peer.  If the remote peer type is a host name, then this is the host name used to identify the remote peer
             	**type**\: str
             
-            .. attribute:: cikepeerintindex  <key>
+            .. attribute:: cikepeerintindex  (key)
             
             	The internal index of the local\-remote peer association.  This internal index is used  to uniquely identify multiple associations between  the local and remote peer
             	**type**\: int
@@ -1607,27 +1631,30 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cikePeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cikepeerlocaltype = YLeaf(YType.enumeration, "cikePeerLocalType")
-
-                self.cikepeerlocalvalue = YLeaf(YType.str, "cikePeerLocalValue")
-
-                self.cikepeerremotetype = YLeaf(YType.enumeration, "cikePeerRemoteType")
-
-                self.cikepeerremotevalue = YLeaf(YType.str, "cikePeerRemoteValue")
-
-                self.cikepeerintindex = YLeaf(YType.int32, "cikePeerIntIndex")
-
-                self.cikepeerlocaladdr = YLeaf(YType.str, "cikePeerLocalAddr")
-
-                self.cikepeerremoteaddr = YLeaf(YType.str, "cikePeerRemoteAddr")
-
-                self.cikepeeractivetime = YLeaf(YType.int32, "cikePeerActiveTime")
-
-                self.cikepeeractivetunnelindex = YLeaf(YType.int32, "cikePeerActiveTunnelIndex")
-                self._segment_path = lambda: "cikePeerEntry" + "[cikePeerLocalType='" + self.cikepeerlocaltype.get() + "']" + "[cikePeerLocalValue='" + self.cikepeerlocalvalue.get() + "']" + "[cikePeerRemoteType='" + self.cikepeerremotetype.get() + "']" + "[cikePeerRemoteValue='" + self.cikepeerremotevalue.get() + "']" + "[cikePeerIntIndex='" + self.cikepeerintindex.get() + "']"
+                self.ylist_key_names = ['cikepeerlocaltype','cikepeerlocalvalue','cikepeerremotetype','cikepeerremotevalue','cikepeerintindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cikepeerlocaltype', YLeaf(YType.enumeration, 'cikePeerLocalType')),
+                    ('cikepeerlocalvalue', YLeaf(YType.str, 'cikePeerLocalValue')),
+                    ('cikepeerremotetype', YLeaf(YType.enumeration, 'cikePeerRemoteType')),
+                    ('cikepeerremotevalue', YLeaf(YType.str, 'cikePeerRemoteValue')),
+                    ('cikepeerintindex', YLeaf(YType.int32, 'cikePeerIntIndex')),
+                    ('cikepeerlocaladdr', YLeaf(YType.str, 'cikePeerLocalAddr')),
+                    ('cikepeerremoteaddr', YLeaf(YType.str, 'cikePeerRemoteAddr')),
+                    ('cikepeeractivetime', YLeaf(YType.int32, 'cikePeerActiveTime')),
+                    ('cikepeeractivetunnelindex', YLeaf(YType.int32, 'cikePeerActiveTunnelIndex')),
+                ])
+                self.cikepeerlocaltype = None
+                self.cikepeerlocalvalue = None
+                self.cikepeerremotetype = None
+                self.cikepeerremotevalue = None
+                self.cikepeerintindex = None
+                self.cikepeerlocaladdr = None
+                self.cikepeerremoteaddr = None
+                self.cikepeeractivetime = None
+                self.cikepeeractivetunnelindex = None
+                self._segment_path = lambda: "cikePeerEntry" + "[cikePeerLocalType='" + str(self.cikepeerlocaltype) + "']" + "[cikePeerLocalValue='" + str(self.cikepeerlocalvalue) + "']" + "[cikePeerRemoteType='" + str(self.cikepeerremotetype) + "']" + "[cikePeerRemoteValue='" + str(self.cikepeerremotevalue) + "']" + "[cikePeerIntIndex='" + str(self.cikepeerintindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1659,8 +1686,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cikeTunnelEntry" : ("ciketunnelentry", CISCOIPSECFLOWMONITORMIB.Ciketunneltable.Ciketunnelentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cikeTunnelEntry", ("ciketunnelentry", CISCOIPSECFLOWMONITORMIB.Ciketunneltable.Ciketunnelentry))])
+            self._leafs = OrderedDict()
 
             self.ciketunnelentry = YList(self)
             self._segment_path = lambda: "cikeTunnelTable"
@@ -1675,7 +1704,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             Each entry contains the attributes associated with
             an active IPsec Phase\-1 IKE Tunnel.
             
-            .. attribute:: ciketunindex  <key>
+            .. attribute:: ciketunindex  (key)
             
             	The index of the IPsec Phase\-1 IKE Tunnel Table. The value of the index is a number which begins  at one and is incremented with each tunnel that  is created. The value of this object will  wrap at 2,147,483,647
             	**type**\: int
@@ -1948,79 +1977,82 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cikeTunnelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciketunindex = YLeaf(YType.int32, "cikeTunIndex")
-
-                self.ciketunlocaltype = YLeaf(YType.enumeration, "cikeTunLocalType")
-
-                self.ciketunlocalvalue = YLeaf(YType.str, "cikeTunLocalValue")
-
-                self.ciketunlocaladdr = YLeaf(YType.str, "cikeTunLocalAddr")
-
-                self.ciketunlocalname = YLeaf(YType.str, "cikeTunLocalName")
-
-                self.ciketunremotetype = YLeaf(YType.enumeration, "cikeTunRemoteType")
-
-                self.ciketunremotevalue = YLeaf(YType.str, "cikeTunRemoteValue")
-
-                self.ciketunremoteaddr = YLeaf(YType.str, "cikeTunRemoteAddr")
-
-                self.ciketunremotename = YLeaf(YType.str, "cikeTunRemoteName")
-
-                self.ciketunnegomode = YLeaf(YType.enumeration, "cikeTunNegoMode")
-
-                self.ciketundiffhellmangrp = YLeaf(YType.enumeration, "cikeTunDiffHellmanGrp")
-
-                self.ciketunencryptalgo = YLeaf(YType.enumeration, "cikeTunEncryptAlgo")
-
-                self.ciketunhashalgo = YLeaf(YType.enumeration, "cikeTunHashAlgo")
-
-                self.ciketunauthmethod = YLeaf(YType.enumeration, "cikeTunAuthMethod")
-
-                self.ciketunlifetime = YLeaf(YType.int32, "cikeTunLifeTime")
-
-                self.ciketunactivetime = YLeaf(YType.int32, "cikeTunActiveTime")
-
-                self.ciketunsarefreshthreshold = YLeaf(YType.int32, "cikeTunSaRefreshThreshold")
-
-                self.ciketuntotalrefreshes = YLeaf(YType.uint32, "cikeTunTotalRefreshes")
-
-                self.ciketuninoctets = YLeaf(YType.uint32, "cikeTunInOctets")
-
-                self.ciketuninpkts = YLeaf(YType.uint32, "cikeTunInPkts")
-
-                self.ciketunindroppkts = YLeaf(YType.uint32, "cikeTunInDropPkts")
-
-                self.ciketuninnotifys = YLeaf(YType.uint32, "cikeTunInNotifys")
-
-                self.ciketuninp2exchgs = YLeaf(YType.uint32, "cikeTunInP2Exchgs")
-
-                self.ciketuninp2exchginvalids = YLeaf(YType.uint32, "cikeTunInP2ExchgInvalids")
-
-                self.ciketuninp2exchgrejects = YLeaf(YType.uint32, "cikeTunInP2ExchgRejects")
-
-                self.ciketuninp2sadelrequests = YLeaf(YType.uint32, "cikeTunInP2SaDelRequests")
-
-                self.ciketunoutoctets = YLeaf(YType.uint32, "cikeTunOutOctets")
-
-                self.ciketunoutpkts = YLeaf(YType.uint32, "cikeTunOutPkts")
-
-                self.ciketunoutdroppkts = YLeaf(YType.uint32, "cikeTunOutDropPkts")
-
-                self.ciketunoutnotifys = YLeaf(YType.uint32, "cikeTunOutNotifys")
-
-                self.ciketunoutp2exchgs = YLeaf(YType.uint32, "cikeTunOutP2Exchgs")
-
-                self.ciketunoutp2exchginvalids = YLeaf(YType.uint32, "cikeTunOutP2ExchgInvalids")
-
-                self.ciketunoutp2exchgrejects = YLeaf(YType.uint32, "cikeTunOutP2ExchgRejects")
-
-                self.ciketunoutp2sadelrequests = YLeaf(YType.uint32, "cikeTunOutP2SaDelRequests")
-
-                self.ciketunstatus = YLeaf(YType.enumeration, "cikeTunStatus")
-                self._segment_path = lambda: "cikeTunnelEntry" + "[cikeTunIndex='" + self.ciketunindex.get() + "']"
+                self.ylist_key_names = ['ciketunindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciketunindex', YLeaf(YType.int32, 'cikeTunIndex')),
+                    ('ciketunlocaltype', YLeaf(YType.enumeration, 'cikeTunLocalType')),
+                    ('ciketunlocalvalue', YLeaf(YType.str, 'cikeTunLocalValue')),
+                    ('ciketunlocaladdr', YLeaf(YType.str, 'cikeTunLocalAddr')),
+                    ('ciketunlocalname', YLeaf(YType.str, 'cikeTunLocalName')),
+                    ('ciketunremotetype', YLeaf(YType.enumeration, 'cikeTunRemoteType')),
+                    ('ciketunremotevalue', YLeaf(YType.str, 'cikeTunRemoteValue')),
+                    ('ciketunremoteaddr', YLeaf(YType.str, 'cikeTunRemoteAddr')),
+                    ('ciketunremotename', YLeaf(YType.str, 'cikeTunRemoteName')),
+                    ('ciketunnegomode', YLeaf(YType.enumeration, 'cikeTunNegoMode')),
+                    ('ciketundiffhellmangrp', YLeaf(YType.enumeration, 'cikeTunDiffHellmanGrp')),
+                    ('ciketunencryptalgo', YLeaf(YType.enumeration, 'cikeTunEncryptAlgo')),
+                    ('ciketunhashalgo', YLeaf(YType.enumeration, 'cikeTunHashAlgo')),
+                    ('ciketunauthmethod', YLeaf(YType.enumeration, 'cikeTunAuthMethod')),
+                    ('ciketunlifetime', YLeaf(YType.int32, 'cikeTunLifeTime')),
+                    ('ciketunactivetime', YLeaf(YType.int32, 'cikeTunActiveTime')),
+                    ('ciketunsarefreshthreshold', YLeaf(YType.int32, 'cikeTunSaRefreshThreshold')),
+                    ('ciketuntotalrefreshes', YLeaf(YType.uint32, 'cikeTunTotalRefreshes')),
+                    ('ciketuninoctets', YLeaf(YType.uint32, 'cikeTunInOctets')),
+                    ('ciketuninpkts', YLeaf(YType.uint32, 'cikeTunInPkts')),
+                    ('ciketunindroppkts', YLeaf(YType.uint32, 'cikeTunInDropPkts')),
+                    ('ciketuninnotifys', YLeaf(YType.uint32, 'cikeTunInNotifys')),
+                    ('ciketuninp2exchgs', YLeaf(YType.uint32, 'cikeTunInP2Exchgs')),
+                    ('ciketuninp2exchginvalids', YLeaf(YType.uint32, 'cikeTunInP2ExchgInvalids')),
+                    ('ciketuninp2exchgrejects', YLeaf(YType.uint32, 'cikeTunInP2ExchgRejects')),
+                    ('ciketuninp2sadelrequests', YLeaf(YType.uint32, 'cikeTunInP2SaDelRequests')),
+                    ('ciketunoutoctets', YLeaf(YType.uint32, 'cikeTunOutOctets')),
+                    ('ciketunoutpkts', YLeaf(YType.uint32, 'cikeTunOutPkts')),
+                    ('ciketunoutdroppkts', YLeaf(YType.uint32, 'cikeTunOutDropPkts')),
+                    ('ciketunoutnotifys', YLeaf(YType.uint32, 'cikeTunOutNotifys')),
+                    ('ciketunoutp2exchgs', YLeaf(YType.uint32, 'cikeTunOutP2Exchgs')),
+                    ('ciketunoutp2exchginvalids', YLeaf(YType.uint32, 'cikeTunOutP2ExchgInvalids')),
+                    ('ciketunoutp2exchgrejects', YLeaf(YType.uint32, 'cikeTunOutP2ExchgRejects')),
+                    ('ciketunoutp2sadelrequests', YLeaf(YType.uint32, 'cikeTunOutP2SaDelRequests')),
+                    ('ciketunstatus', YLeaf(YType.enumeration, 'cikeTunStatus')),
+                ])
+                self.ciketunindex = None
+                self.ciketunlocaltype = None
+                self.ciketunlocalvalue = None
+                self.ciketunlocaladdr = None
+                self.ciketunlocalname = None
+                self.ciketunremotetype = None
+                self.ciketunremotevalue = None
+                self.ciketunremoteaddr = None
+                self.ciketunremotename = None
+                self.ciketunnegomode = None
+                self.ciketundiffhellmangrp = None
+                self.ciketunencryptalgo = None
+                self.ciketunhashalgo = None
+                self.ciketunauthmethod = None
+                self.ciketunlifetime = None
+                self.ciketunactivetime = None
+                self.ciketunsarefreshthreshold = None
+                self.ciketuntotalrefreshes = None
+                self.ciketuninoctets = None
+                self.ciketuninpkts = None
+                self.ciketunindroppkts = None
+                self.ciketuninnotifys = None
+                self.ciketuninp2exchgs = None
+                self.ciketuninp2exchginvalids = None
+                self.ciketuninp2exchgrejects = None
+                self.ciketuninp2sadelrequests = None
+                self.ciketunoutoctets = None
+                self.ciketunoutpkts = None
+                self.ciketunoutdroppkts = None
+                self.ciketunoutnotifys = None
+                self.ciketunoutp2exchgs = None
+                self.ciketunoutp2exchginvalids = None
+                self.ciketunoutp2exchgrejects = None
+                self.ciketunoutp2sadelrequests = None
+                self.ciketunstatus = None
+                self._segment_path = lambda: "cikeTunnelEntry" + "[cikeTunIndex='" + str(self.ciketunindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeTunnelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2054,8 +2086,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cikePeerCorrEntry" : ("cikepeercorrentry", CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable.Cikepeercorrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cikePeerCorrEntry", ("cikepeercorrentry", CISCOIPSECFLOWMONITORMIB.Cikepeercorrtable.Cikepeercorrentry))])
+            self._leafs = OrderedDict()
 
             self.cikepeercorrentry = YList(self)
             self._segment_path = lambda: "cikePeerCorrTable"
@@ -2071,34 +2105,34 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             IPsec Phase\-1 IKE Peer Association to IPsec
             Phase\-2 Tunnel Correlation.
             
-            .. attribute:: cikepeercorrlocaltype  <key>
+            .. attribute:: cikepeercorrlocaltype  (key)
             
             	The type of local peer identity. The local peer may be identified by\: 1. an IP address, or 2. a host name
             	**type**\:  :py:class:`IkePeerType <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkePeerType>`
             
-            .. attribute:: cikepeercorrlocalvalue  <key>
+            .. attribute:: cikepeercorrlocalvalue  (key)
             
             	The value of the local peer identity.  If the local peer type is an IP Address, then this is the IP Address used to identify the local peer.  If the local peer type is a host name, then this is the host name used to identify the local peer
             	**type**\: str
             
-            .. attribute:: cikepeercorrremotetype  <key>
+            .. attribute:: cikepeercorrremotetype  (key)
             
             	The type of remote peer identity. The remote peer may be identified by\: 1. an IP address, or 2. a host name
             	**type**\:  :py:class:`IkePeerType <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkePeerType>`
             
-            .. attribute:: cikepeercorrremotevalue  <key>
+            .. attribute:: cikepeercorrremotevalue  (key)
             
             	The value of the remote peer identity.  If the remote peer type is an IP Address, then this is the IP Address used to identify the remote peer.  If the remote peer type is a host name, then this is the host name used to identify the remote peer
             	**type**\: str
             
-            .. attribute:: cikepeercorrintindex  <key>
+            .. attribute:: cikepeercorrintindex  (key)
             
             	The internal index of the local\-remote peer association.  This internal index is  used to uniquely identify multiple associations  between the local and remote peer
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: cikepeercorrseqnum  <key>
+            .. attribute:: cikepeercorrseqnum  (key)
             
             	The sequence number of the local\-remote peer association.  This sequence number is  used to uniquely identify multiple instances  of an unique association between  the local and remote peer
             	**type**\: int
@@ -2126,23 +2160,26 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cikePeerCorrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cikepeercorrlocaltype = YLeaf(YType.enumeration, "cikePeerCorrLocalType")
-
-                self.cikepeercorrlocalvalue = YLeaf(YType.str, "cikePeerCorrLocalValue")
-
-                self.cikepeercorrremotetype = YLeaf(YType.enumeration, "cikePeerCorrRemoteType")
-
-                self.cikepeercorrremotevalue = YLeaf(YType.str, "cikePeerCorrRemoteValue")
-
-                self.cikepeercorrintindex = YLeaf(YType.int32, "cikePeerCorrIntIndex")
-
-                self.cikepeercorrseqnum = YLeaf(YType.int32, "cikePeerCorrSeqNum")
-
-                self.cikepeercorripsectunindex = YLeaf(YType.int32, "cikePeerCorrIpSecTunIndex")
-                self._segment_path = lambda: "cikePeerCorrEntry" + "[cikePeerCorrLocalType='" + self.cikepeercorrlocaltype.get() + "']" + "[cikePeerCorrLocalValue='" + self.cikepeercorrlocalvalue.get() + "']" + "[cikePeerCorrRemoteType='" + self.cikepeercorrremotetype.get() + "']" + "[cikePeerCorrRemoteValue='" + self.cikepeercorrremotevalue.get() + "']" + "[cikePeerCorrIntIndex='" + self.cikepeercorrintindex.get() + "']" + "[cikePeerCorrSeqNum='" + self.cikepeercorrseqnum.get() + "']"
+                self.ylist_key_names = ['cikepeercorrlocaltype','cikepeercorrlocalvalue','cikepeercorrremotetype','cikepeercorrremotevalue','cikepeercorrintindex','cikepeercorrseqnum']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cikepeercorrlocaltype', YLeaf(YType.enumeration, 'cikePeerCorrLocalType')),
+                    ('cikepeercorrlocalvalue', YLeaf(YType.str, 'cikePeerCorrLocalValue')),
+                    ('cikepeercorrremotetype', YLeaf(YType.enumeration, 'cikePeerCorrRemoteType')),
+                    ('cikepeercorrremotevalue', YLeaf(YType.str, 'cikePeerCorrRemoteValue')),
+                    ('cikepeercorrintindex', YLeaf(YType.int32, 'cikePeerCorrIntIndex')),
+                    ('cikepeercorrseqnum', YLeaf(YType.int32, 'cikePeerCorrSeqNum')),
+                    ('cikepeercorripsectunindex', YLeaf(YType.int32, 'cikePeerCorrIpSecTunIndex')),
+                ])
+                self.cikepeercorrlocaltype = None
+                self.cikepeercorrlocalvalue = None
+                self.cikepeercorrremotetype = None
+                self.cikepeercorrremotevalue = None
+                self.cikepeercorrintindex = None
+                self.cikepeercorrseqnum = None
+                self.cikepeercorripsectunindex = None
+                self._segment_path = lambda: "cikePeerCorrEntry" + "[cikePeerCorrLocalType='" + str(self.cikepeercorrlocaltype) + "']" + "[cikePeerCorrLocalValue='" + str(self.cikepeercorrlocalvalue) + "']" + "[cikePeerCorrRemoteType='" + str(self.cikepeercorrremotetype) + "']" + "[cikePeerCorrRemoteValue='" + str(self.cikepeercorrremotevalue) + "']" + "[cikePeerCorrIntIndex='" + str(self.cikepeercorrintindex) + "']" + "[cikePeerCorrSeqNum='" + str(self.cikepeercorrseqnum) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePeerCorrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2174,8 +2211,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cikePhase1GWStatsEntry" : ("cikephase1gwstatsentry", CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable.Cikephase1Gwstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cikePhase1GWStatsEntry", ("cikephase1gwstatsentry", CISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable.Cikephase1Gwstatsentry))])
+            self._leafs = OrderedDict()
 
             self.cikephase1gwstatsentry = YList(self)
             self._segment_path = lambda: "cikePhase1GWStatsTable"
@@ -2193,7 +2232,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             There is only one entry for each gateway. The entry 
             is created when a gateway up and cannot be deleted.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -2448,63 +2487,66 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cikePhase1GWStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cikephase1gwactivetunnels = YLeaf(YType.uint32, "cikePhase1GWActiveTunnels")
-
-                self.cikephase1gwprevioustunnels = YLeaf(YType.uint32, "cikePhase1GWPreviousTunnels")
-
-                self.cikephase1gwinoctets = YLeaf(YType.uint32, "cikePhase1GWInOctets")
-
-                self.cikephase1gwinpkts = YLeaf(YType.uint32, "cikePhase1GWInPkts")
-
-                self.cikephase1gwindroppkts = YLeaf(YType.uint32, "cikePhase1GWInDropPkts")
-
-                self.cikephase1gwinnotifys = YLeaf(YType.uint32, "cikePhase1GWInNotifys")
-
-                self.cikephase1gwinp2exchgs = YLeaf(YType.uint32, "cikePhase1GWInP2Exchgs")
-
-                self.cikephase1gwinp2exchginvalids = YLeaf(YType.uint32, "cikePhase1GWInP2ExchgInvalids")
-
-                self.cikephase1gwinp2exchgrejects = YLeaf(YType.uint32, "cikePhase1GWInP2ExchgRejects")
-
-                self.cikephase1gwinp2sadelrequests = YLeaf(YType.uint32, "cikePhase1GWInP2SaDelRequests")
-
-                self.cikephase1gwoutoctets = YLeaf(YType.uint32, "cikePhase1GWOutOctets")
-
-                self.cikephase1gwoutpkts = YLeaf(YType.uint32, "cikePhase1GWOutPkts")
-
-                self.cikephase1gwoutdroppkts = YLeaf(YType.uint32, "cikePhase1GWOutDropPkts")
-
-                self.cikephase1gwoutnotifys = YLeaf(YType.uint32, "cikePhase1GWOutNotifys")
-
-                self.cikephase1gwoutp2exchgs = YLeaf(YType.uint32, "cikePhase1GWOutP2Exchgs")
-
-                self.cikephase1gwoutp2exchginvalids = YLeaf(YType.uint32, "cikePhase1GWOutP2ExchgInvalids")
-
-                self.cikephase1gwoutp2exchgrejects = YLeaf(YType.uint32, "cikePhase1GWOutP2ExchgRejects")
-
-                self.cikephase1gwoutp2sadelrequests = YLeaf(YType.uint32, "cikePhase1GWOutP2SaDelRequests")
-
-                self.cikephase1gwinittunnels = YLeaf(YType.uint32, "cikePhase1GWInitTunnels")
-
-                self.cikephase1gwinittunnelfails = YLeaf(YType.uint32, "cikePhase1GWInitTunnelFails")
-
-                self.cikephase1gwresptunnelfails = YLeaf(YType.uint32, "cikePhase1GWRespTunnelFails")
-
-                self.cikephase1gwsyscapfails = YLeaf(YType.uint32, "cikePhase1GWSysCapFails")
-
-                self.cikephase1gwauthfails = YLeaf(YType.uint32, "cikePhase1GWAuthFails")
-
-                self.cikephase1gwdecryptfails = YLeaf(YType.uint32, "cikePhase1GWDecryptFails")
-
-                self.cikephase1gwhashvalidfails = YLeaf(YType.uint32, "cikePhase1GWHashValidFails")
-
-                self.cikephase1gwnosafails = YLeaf(YType.uint32, "cikePhase1GWNoSaFails")
-                self._segment_path = lambda: "cikePhase1GWStatsEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cikephase1gwactivetunnels', YLeaf(YType.uint32, 'cikePhase1GWActiveTunnels')),
+                    ('cikephase1gwprevioustunnels', YLeaf(YType.uint32, 'cikePhase1GWPreviousTunnels')),
+                    ('cikephase1gwinoctets', YLeaf(YType.uint32, 'cikePhase1GWInOctets')),
+                    ('cikephase1gwinpkts', YLeaf(YType.uint32, 'cikePhase1GWInPkts')),
+                    ('cikephase1gwindroppkts', YLeaf(YType.uint32, 'cikePhase1GWInDropPkts')),
+                    ('cikephase1gwinnotifys', YLeaf(YType.uint32, 'cikePhase1GWInNotifys')),
+                    ('cikephase1gwinp2exchgs', YLeaf(YType.uint32, 'cikePhase1GWInP2Exchgs')),
+                    ('cikephase1gwinp2exchginvalids', YLeaf(YType.uint32, 'cikePhase1GWInP2ExchgInvalids')),
+                    ('cikephase1gwinp2exchgrejects', YLeaf(YType.uint32, 'cikePhase1GWInP2ExchgRejects')),
+                    ('cikephase1gwinp2sadelrequests', YLeaf(YType.uint32, 'cikePhase1GWInP2SaDelRequests')),
+                    ('cikephase1gwoutoctets', YLeaf(YType.uint32, 'cikePhase1GWOutOctets')),
+                    ('cikephase1gwoutpkts', YLeaf(YType.uint32, 'cikePhase1GWOutPkts')),
+                    ('cikephase1gwoutdroppkts', YLeaf(YType.uint32, 'cikePhase1GWOutDropPkts')),
+                    ('cikephase1gwoutnotifys', YLeaf(YType.uint32, 'cikePhase1GWOutNotifys')),
+                    ('cikephase1gwoutp2exchgs', YLeaf(YType.uint32, 'cikePhase1GWOutP2Exchgs')),
+                    ('cikephase1gwoutp2exchginvalids', YLeaf(YType.uint32, 'cikePhase1GWOutP2ExchgInvalids')),
+                    ('cikephase1gwoutp2exchgrejects', YLeaf(YType.uint32, 'cikePhase1GWOutP2ExchgRejects')),
+                    ('cikephase1gwoutp2sadelrequests', YLeaf(YType.uint32, 'cikePhase1GWOutP2SaDelRequests')),
+                    ('cikephase1gwinittunnels', YLeaf(YType.uint32, 'cikePhase1GWInitTunnels')),
+                    ('cikephase1gwinittunnelfails', YLeaf(YType.uint32, 'cikePhase1GWInitTunnelFails')),
+                    ('cikephase1gwresptunnelfails', YLeaf(YType.uint32, 'cikePhase1GWRespTunnelFails')),
+                    ('cikephase1gwsyscapfails', YLeaf(YType.uint32, 'cikePhase1GWSysCapFails')),
+                    ('cikephase1gwauthfails', YLeaf(YType.uint32, 'cikePhase1GWAuthFails')),
+                    ('cikephase1gwdecryptfails', YLeaf(YType.uint32, 'cikePhase1GWDecryptFails')),
+                    ('cikephase1gwhashvalidfails', YLeaf(YType.uint32, 'cikePhase1GWHashValidFails')),
+                    ('cikephase1gwnosafails', YLeaf(YType.uint32, 'cikePhase1GWNoSaFails')),
+                ])
+                self.cmgwindex = None
+                self.cikephase1gwactivetunnels = None
+                self.cikephase1gwprevioustunnels = None
+                self.cikephase1gwinoctets = None
+                self.cikephase1gwinpkts = None
+                self.cikephase1gwindroppkts = None
+                self.cikephase1gwinnotifys = None
+                self.cikephase1gwinp2exchgs = None
+                self.cikephase1gwinp2exchginvalids = None
+                self.cikephase1gwinp2exchgrejects = None
+                self.cikephase1gwinp2sadelrequests = None
+                self.cikephase1gwoutoctets = None
+                self.cikephase1gwoutpkts = None
+                self.cikephase1gwoutdroppkts = None
+                self.cikephase1gwoutnotifys = None
+                self.cikephase1gwoutp2exchgs = None
+                self.cikephase1gwoutp2exchginvalids = None
+                self.cikephase1gwoutp2exchgrejects = None
+                self.cikephase1gwoutp2sadelrequests = None
+                self.cikephase1gwinittunnels = None
+                self.cikephase1gwinittunnelfails = None
+                self.cikephase1gwresptunnelfails = None
+                self.cikephase1gwsyscapfails = None
+                self.cikephase1gwauthfails = None
+                self.cikephase1gwdecryptfails = None
+                self.cikephase1gwhashvalidfails = None
+                self.cikephase1gwnosafails = None
+                self._segment_path = lambda: "cikePhase1GWStatsEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePhase1GWStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2536,8 +2578,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipSecTunnelEntry" : ("cipsectunnelentry", CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipSecTunnelEntry", ("cipsectunnelentry", CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry))])
+            self._leafs = OrderedDict()
 
             self.cipsectunnelentry = YList(self)
             self._segment_path = lambda: "cipSecTunnelTable"
@@ -2552,7 +2596,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             Each entry contains the attributes
             associated with an active IPsec Phase\-2 Tunnel.
             
-            .. attribute:: cipsectunindex  <key>
+            .. attribute:: cipsectunindex  (key)
             
             	The index of the IPsec Phase\-2 Tunnel Table. The value of the index is a number which begins  at one and is incremented with each tunnel that  is created. The value of this object will wrap  at 2,147,483,647
             	**type**\: int
@@ -2951,111 +2995,114 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cipSecTunnelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsectunindex = YLeaf(YType.int32, "cipSecTunIndex")
-
-                self.cipsectuniketunnelindex = YLeaf(YType.int32, "cipSecTunIkeTunnelIndex")
-
-                self.cipsectuniketunnelalive = YLeaf(YType.boolean, "cipSecTunIkeTunnelAlive")
-
-                self.cipsectunlocaladdr = YLeaf(YType.str, "cipSecTunLocalAddr")
-
-                self.cipsectunremoteaddr = YLeaf(YType.str, "cipSecTunRemoteAddr")
-
-                self.cipsectunkeytype = YLeaf(YType.enumeration, "cipSecTunKeyType")
-
-                self.cipsectunencapmode = YLeaf(YType.enumeration, "cipSecTunEncapMode")
-
-                self.cipsectunlifesize = YLeaf(YType.int32, "cipSecTunLifeSize")
-
-                self.cipsectunlifetime = YLeaf(YType.int32, "cipSecTunLifeTime")
-
-                self.cipsectunactivetime = YLeaf(YType.int32, "cipSecTunActiveTime")
-
-                self.cipsectunsalifesizethreshold = YLeaf(YType.int32, "cipSecTunSaLifeSizeThreshold")
-
-                self.cipsectunsalifetimethreshold = YLeaf(YType.int32, "cipSecTunSaLifeTimeThreshold")
-
-                self.cipsectuntotalrefreshes = YLeaf(YType.uint32, "cipSecTunTotalRefreshes")
-
-                self.cipsectunexpiredsainstances = YLeaf(YType.uint32, "cipSecTunExpiredSaInstances")
-
-                self.cipsectuncurrentsainstances = YLeaf(YType.uint32, "cipSecTunCurrentSaInstances")
-
-                self.cipsectuninsadiffhellmangrp = YLeaf(YType.enumeration, "cipSecTunInSaDiffHellmanGrp")
-
-                self.cipsectuninsaencryptalgo = YLeaf(YType.enumeration, "cipSecTunInSaEncryptAlgo")
-
-                self.cipsectuninsaahauthalgo = YLeaf(YType.enumeration, "cipSecTunInSaAhAuthAlgo")
-
-                self.cipsectuninsaespauthalgo = YLeaf(YType.enumeration, "cipSecTunInSaEspAuthAlgo")
-
-                self.cipsectuninsadecompalgo = YLeaf(YType.enumeration, "cipSecTunInSaDecompAlgo")
-
-                self.cipsectunoutsadiffhellmangrp = YLeaf(YType.enumeration, "cipSecTunOutSaDiffHellmanGrp")
-
-                self.cipsectunoutsaencryptalgo = YLeaf(YType.enumeration, "cipSecTunOutSaEncryptAlgo")
-
-                self.cipsectunoutsaahauthalgo = YLeaf(YType.enumeration, "cipSecTunOutSaAhAuthAlgo")
-
-                self.cipsectunoutsaespauthalgo = YLeaf(YType.enumeration, "cipSecTunOutSaEspAuthAlgo")
-
-                self.cipsectunoutsacompalgo = YLeaf(YType.enumeration, "cipSecTunOutSaCompAlgo")
-
-                self.cipsectuninoctets = YLeaf(YType.uint32, "cipSecTunInOctets")
-
-                self.cipsectunhcinoctets = YLeaf(YType.uint64, "cipSecTunHcInOctets")
-
-                self.cipsectuninoctwraps = YLeaf(YType.uint32, "cipSecTunInOctWraps")
-
-                self.cipsectunindecompoctets = YLeaf(YType.uint32, "cipSecTunInDecompOctets")
-
-                self.cipsectunhcindecompoctets = YLeaf(YType.uint64, "cipSecTunHcInDecompOctets")
-
-                self.cipsectunindecompoctwraps = YLeaf(YType.uint32, "cipSecTunInDecompOctWraps")
-
-                self.cipsectuninpkts = YLeaf(YType.uint32, "cipSecTunInPkts")
-
-                self.cipsectunindroppkts = YLeaf(YType.uint32, "cipSecTunInDropPkts")
-
-                self.cipsectuninreplaydroppkts = YLeaf(YType.uint32, "cipSecTunInReplayDropPkts")
-
-                self.cipsectuninauths = YLeaf(YType.uint32, "cipSecTunInAuths")
-
-                self.cipsectuninauthfails = YLeaf(YType.uint32, "cipSecTunInAuthFails")
-
-                self.cipsectunindecrypts = YLeaf(YType.uint32, "cipSecTunInDecrypts")
-
-                self.cipsectunindecryptfails = YLeaf(YType.uint32, "cipSecTunInDecryptFails")
-
-                self.cipsectunoutoctets = YLeaf(YType.uint32, "cipSecTunOutOctets")
-
-                self.cipsectunhcoutoctets = YLeaf(YType.uint64, "cipSecTunHcOutOctets")
-
-                self.cipsectunoutoctwraps = YLeaf(YType.uint32, "cipSecTunOutOctWraps")
-
-                self.cipsectunoutuncompoctets = YLeaf(YType.uint32, "cipSecTunOutUncompOctets")
-
-                self.cipsectunhcoutuncompoctets = YLeaf(YType.uint64, "cipSecTunHcOutUncompOctets")
-
-                self.cipsectunoutuncompoctwraps = YLeaf(YType.uint32, "cipSecTunOutUncompOctWraps")
-
-                self.cipsectunoutpkts = YLeaf(YType.uint32, "cipSecTunOutPkts")
-
-                self.cipsectunoutdroppkts = YLeaf(YType.uint32, "cipSecTunOutDropPkts")
-
-                self.cipsectunoutauths = YLeaf(YType.uint32, "cipSecTunOutAuths")
-
-                self.cipsectunoutauthfails = YLeaf(YType.uint32, "cipSecTunOutAuthFails")
-
-                self.cipsectunoutencrypts = YLeaf(YType.uint32, "cipSecTunOutEncrypts")
-
-                self.cipsectunoutencryptfails = YLeaf(YType.uint32, "cipSecTunOutEncryptFails")
-
-                self.cipsectunstatus = YLeaf(YType.enumeration, "cipSecTunStatus")
-                self._segment_path = lambda: "cipSecTunnelEntry" + "[cipSecTunIndex='" + self.cipsectunindex.get() + "']"
+                self.ylist_key_names = ['cipsectunindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsectunindex', YLeaf(YType.int32, 'cipSecTunIndex')),
+                    ('cipsectuniketunnelindex', YLeaf(YType.int32, 'cipSecTunIkeTunnelIndex')),
+                    ('cipsectuniketunnelalive', YLeaf(YType.boolean, 'cipSecTunIkeTunnelAlive')),
+                    ('cipsectunlocaladdr', YLeaf(YType.str, 'cipSecTunLocalAddr')),
+                    ('cipsectunremoteaddr', YLeaf(YType.str, 'cipSecTunRemoteAddr')),
+                    ('cipsectunkeytype', YLeaf(YType.enumeration, 'cipSecTunKeyType')),
+                    ('cipsectunencapmode', YLeaf(YType.enumeration, 'cipSecTunEncapMode')),
+                    ('cipsectunlifesize', YLeaf(YType.int32, 'cipSecTunLifeSize')),
+                    ('cipsectunlifetime', YLeaf(YType.int32, 'cipSecTunLifeTime')),
+                    ('cipsectunactivetime', YLeaf(YType.int32, 'cipSecTunActiveTime')),
+                    ('cipsectunsalifesizethreshold', YLeaf(YType.int32, 'cipSecTunSaLifeSizeThreshold')),
+                    ('cipsectunsalifetimethreshold', YLeaf(YType.int32, 'cipSecTunSaLifeTimeThreshold')),
+                    ('cipsectuntotalrefreshes', YLeaf(YType.uint32, 'cipSecTunTotalRefreshes')),
+                    ('cipsectunexpiredsainstances', YLeaf(YType.uint32, 'cipSecTunExpiredSaInstances')),
+                    ('cipsectuncurrentsainstances', YLeaf(YType.uint32, 'cipSecTunCurrentSaInstances')),
+                    ('cipsectuninsadiffhellmangrp', YLeaf(YType.enumeration, 'cipSecTunInSaDiffHellmanGrp')),
+                    ('cipsectuninsaencryptalgo', YLeaf(YType.enumeration, 'cipSecTunInSaEncryptAlgo')),
+                    ('cipsectuninsaahauthalgo', YLeaf(YType.enumeration, 'cipSecTunInSaAhAuthAlgo')),
+                    ('cipsectuninsaespauthalgo', YLeaf(YType.enumeration, 'cipSecTunInSaEspAuthAlgo')),
+                    ('cipsectuninsadecompalgo', YLeaf(YType.enumeration, 'cipSecTunInSaDecompAlgo')),
+                    ('cipsectunoutsadiffhellmangrp', YLeaf(YType.enumeration, 'cipSecTunOutSaDiffHellmanGrp')),
+                    ('cipsectunoutsaencryptalgo', YLeaf(YType.enumeration, 'cipSecTunOutSaEncryptAlgo')),
+                    ('cipsectunoutsaahauthalgo', YLeaf(YType.enumeration, 'cipSecTunOutSaAhAuthAlgo')),
+                    ('cipsectunoutsaespauthalgo', YLeaf(YType.enumeration, 'cipSecTunOutSaEspAuthAlgo')),
+                    ('cipsectunoutsacompalgo', YLeaf(YType.enumeration, 'cipSecTunOutSaCompAlgo')),
+                    ('cipsectuninoctets', YLeaf(YType.uint32, 'cipSecTunInOctets')),
+                    ('cipsectunhcinoctets', YLeaf(YType.uint64, 'cipSecTunHcInOctets')),
+                    ('cipsectuninoctwraps', YLeaf(YType.uint32, 'cipSecTunInOctWraps')),
+                    ('cipsectunindecompoctets', YLeaf(YType.uint32, 'cipSecTunInDecompOctets')),
+                    ('cipsectunhcindecompoctets', YLeaf(YType.uint64, 'cipSecTunHcInDecompOctets')),
+                    ('cipsectunindecompoctwraps', YLeaf(YType.uint32, 'cipSecTunInDecompOctWraps')),
+                    ('cipsectuninpkts', YLeaf(YType.uint32, 'cipSecTunInPkts')),
+                    ('cipsectunindroppkts', YLeaf(YType.uint32, 'cipSecTunInDropPkts')),
+                    ('cipsectuninreplaydroppkts', YLeaf(YType.uint32, 'cipSecTunInReplayDropPkts')),
+                    ('cipsectuninauths', YLeaf(YType.uint32, 'cipSecTunInAuths')),
+                    ('cipsectuninauthfails', YLeaf(YType.uint32, 'cipSecTunInAuthFails')),
+                    ('cipsectunindecrypts', YLeaf(YType.uint32, 'cipSecTunInDecrypts')),
+                    ('cipsectunindecryptfails', YLeaf(YType.uint32, 'cipSecTunInDecryptFails')),
+                    ('cipsectunoutoctets', YLeaf(YType.uint32, 'cipSecTunOutOctets')),
+                    ('cipsectunhcoutoctets', YLeaf(YType.uint64, 'cipSecTunHcOutOctets')),
+                    ('cipsectunoutoctwraps', YLeaf(YType.uint32, 'cipSecTunOutOctWraps')),
+                    ('cipsectunoutuncompoctets', YLeaf(YType.uint32, 'cipSecTunOutUncompOctets')),
+                    ('cipsectunhcoutuncompoctets', YLeaf(YType.uint64, 'cipSecTunHcOutUncompOctets')),
+                    ('cipsectunoutuncompoctwraps', YLeaf(YType.uint32, 'cipSecTunOutUncompOctWraps')),
+                    ('cipsectunoutpkts', YLeaf(YType.uint32, 'cipSecTunOutPkts')),
+                    ('cipsectunoutdroppkts', YLeaf(YType.uint32, 'cipSecTunOutDropPkts')),
+                    ('cipsectunoutauths', YLeaf(YType.uint32, 'cipSecTunOutAuths')),
+                    ('cipsectunoutauthfails', YLeaf(YType.uint32, 'cipSecTunOutAuthFails')),
+                    ('cipsectunoutencrypts', YLeaf(YType.uint32, 'cipSecTunOutEncrypts')),
+                    ('cipsectunoutencryptfails', YLeaf(YType.uint32, 'cipSecTunOutEncryptFails')),
+                    ('cipsectunstatus', YLeaf(YType.enumeration, 'cipSecTunStatus')),
+                ])
+                self.cipsectunindex = None
+                self.cipsectuniketunnelindex = None
+                self.cipsectuniketunnelalive = None
+                self.cipsectunlocaladdr = None
+                self.cipsectunremoteaddr = None
+                self.cipsectunkeytype = None
+                self.cipsectunencapmode = None
+                self.cipsectunlifesize = None
+                self.cipsectunlifetime = None
+                self.cipsectunactivetime = None
+                self.cipsectunsalifesizethreshold = None
+                self.cipsectunsalifetimethreshold = None
+                self.cipsectuntotalrefreshes = None
+                self.cipsectunexpiredsainstances = None
+                self.cipsectuncurrentsainstances = None
+                self.cipsectuninsadiffhellmangrp = None
+                self.cipsectuninsaencryptalgo = None
+                self.cipsectuninsaahauthalgo = None
+                self.cipsectuninsaespauthalgo = None
+                self.cipsectuninsadecompalgo = None
+                self.cipsectunoutsadiffhellmangrp = None
+                self.cipsectunoutsaencryptalgo = None
+                self.cipsectunoutsaahauthalgo = None
+                self.cipsectunoutsaespauthalgo = None
+                self.cipsectunoutsacompalgo = None
+                self.cipsectuninoctets = None
+                self.cipsectunhcinoctets = None
+                self.cipsectuninoctwraps = None
+                self.cipsectunindecompoctets = None
+                self.cipsectunhcindecompoctets = None
+                self.cipsectunindecompoctwraps = None
+                self.cipsectuninpkts = None
+                self.cipsectunindroppkts = None
+                self.cipsectuninreplaydroppkts = None
+                self.cipsectuninauths = None
+                self.cipsectuninauthfails = None
+                self.cipsectunindecrypts = None
+                self.cipsectunindecryptfails = None
+                self.cipsectunoutoctets = None
+                self.cipsectunhcoutoctets = None
+                self.cipsectunoutoctwraps = None
+                self.cipsectunoutuncompoctets = None
+                self.cipsectunhcoutuncompoctets = None
+                self.cipsectunoutuncompoctwraps = None
+                self.cipsectunoutpkts = None
+                self.cipsectunoutdroppkts = None
+                self.cipsectunoutauths = None
+                self.cipsectunoutauthfails = None
+                self.cipsectunoutencrypts = None
+                self.cipsectunoutencryptfails = None
+                self.cipsectunstatus = None
+                self._segment_path = lambda: "cipSecTunnelEntry" + "[cipSecTunIndex='" + str(self.cipsectunindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecTunnelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3088,8 +3135,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipSecEndPtEntry" : ("cipsecendptentry", CISCOIPSECFLOWMONITORMIB.Cipsecendpttable.Cipsecendptentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipSecEndPtEntry", ("cipsecendptentry", CISCOIPSECFLOWMONITORMIB.Cipsecendpttable.Cipsecendptentry))])
+            self._leafs = OrderedDict()
 
             self.cipsecendptentry = YList(self)
             self._segment_path = lambda: "cipSecEndPtTable"
@@ -3103,7 +3152,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             """
             An IPsec Phase\-2 Tunnel Endpoint entry.
             
-            .. attribute:: cipsectunindex  <key>
+            .. attribute:: cipsectunindex  (key)
             
             	
             	**type**\: int
@@ -3112,7 +3161,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             
             	**refers to**\:  :py:class:`cipsectunindex <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry>`
             
-            .. attribute:: cipsecendptindex  <key>
+            .. attribute:: cipsecendptindex  (key)
             
             	The number of the Endpoint associated with the IPsec Phase\-2 Tunnel Table.  The value of this index is a number which begins at one and  is incremented with each Endpoint associated  with an IPsec Phase\-2 Tunnel. The value of this object will wrap at 2,147,483,647
             	**type**\: int
@@ -3209,37 +3258,40 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cipSecEndPtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsectunindex = YLeaf(YType.str, "cipSecTunIndex")
-
-                self.cipsecendptindex = YLeaf(YType.int32, "cipSecEndPtIndex")
-
-                self.cipsecendptlocalname = YLeaf(YType.str, "cipSecEndPtLocalName")
-
-                self.cipsecendptlocaltype = YLeaf(YType.enumeration, "cipSecEndPtLocalType")
-
-                self.cipsecendptlocaladdr1 = YLeaf(YType.str, "cipSecEndPtLocalAddr1")
-
-                self.cipsecendptlocaladdr2 = YLeaf(YType.str, "cipSecEndPtLocalAddr2")
-
-                self.cipsecendptlocalprotocol = YLeaf(YType.int32, "cipSecEndPtLocalProtocol")
-
-                self.cipsecendptlocalport = YLeaf(YType.int32, "cipSecEndPtLocalPort")
-
-                self.cipsecendptremotename = YLeaf(YType.str, "cipSecEndPtRemoteName")
-
-                self.cipsecendptremotetype = YLeaf(YType.enumeration, "cipSecEndPtRemoteType")
-
-                self.cipsecendptremoteaddr1 = YLeaf(YType.str, "cipSecEndPtRemoteAddr1")
-
-                self.cipsecendptremoteaddr2 = YLeaf(YType.str, "cipSecEndPtRemoteAddr2")
-
-                self.cipsecendptremoteprotocol = YLeaf(YType.int32, "cipSecEndPtRemoteProtocol")
-
-                self.cipsecendptremoteport = YLeaf(YType.int32, "cipSecEndPtRemotePort")
-                self._segment_path = lambda: "cipSecEndPtEntry" + "[cipSecTunIndex='" + self.cipsectunindex.get() + "']" + "[cipSecEndPtIndex='" + self.cipsecendptindex.get() + "']"
+                self.ylist_key_names = ['cipsectunindex','cipsecendptindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsectunindex', YLeaf(YType.str, 'cipSecTunIndex')),
+                    ('cipsecendptindex', YLeaf(YType.int32, 'cipSecEndPtIndex')),
+                    ('cipsecendptlocalname', YLeaf(YType.str, 'cipSecEndPtLocalName')),
+                    ('cipsecendptlocaltype', YLeaf(YType.enumeration, 'cipSecEndPtLocalType')),
+                    ('cipsecendptlocaladdr1', YLeaf(YType.str, 'cipSecEndPtLocalAddr1')),
+                    ('cipsecendptlocaladdr2', YLeaf(YType.str, 'cipSecEndPtLocalAddr2')),
+                    ('cipsecendptlocalprotocol', YLeaf(YType.int32, 'cipSecEndPtLocalProtocol')),
+                    ('cipsecendptlocalport', YLeaf(YType.int32, 'cipSecEndPtLocalPort')),
+                    ('cipsecendptremotename', YLeaf(YType.str, 'cipSecEndPtRemoteName')),
+                    ('cipsecendptremotetype', YLeaf(YType.enumeration, 'cipSecEndPtRemoteType')),
+                    ('cipsecendptremoteaddr1', YLeaf(YType.str, 'cipSecEndPtRemoteAddr1')),
+                    ('cipsecendptremoteaddr2', YLeaf(YType.str, 'cipSecEndPtRemoteAddr2')),
+                    ('cipsecendptremoteprotocol', YLeaf(YType.int32, 'cipSecEndPtRemoteProtocol')),
+                    ('cipsecendptremoteport', YLeaf(YType.int32, 'cipSecEndPtRemotePort')),
+                ])
+                self.cipsectunindex = None
+                self.cipsecendptindex = None
+                self.cipsecendptlocalname = None
+                self.cipsecendptlocaltype = None
+                self.cipsecendptlocaladdr1 = None
+                self.cipsecendptlocaladdr2 = None
+                self.cipsecendptlocalprotocol = None
+                self.cipsecendptlocalport = None
+                self.cipsecendptremotename = None
+                self.cipsecendptremotetype = None
+                self.cipsecendptremoteaddr1 = None
+                self.cipsecendptremoteaddr2 = None
+                self.cipsecendptremoteprotocol = None
+                self.cipsecendptremoteport = None
+                self._segment_path = lambda: "cipSecEndPtEntry" + "[cipSecTunIndex='" + str(self.cipsectunindex) + "']" + "[cipSecEndPtIndex='" + str(self.cipsecendptindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecEndPtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3272,8 +3324,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipSecSpiEntry" : ("cipsecspientry", CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipSecSpiEntry", ("cipsecspientry", CISCOIPSECFLOWMONITORMIB.Cipsecspitable.Cipsecspientry))])
+            self._leafs = OrderedDict()
 
             self.cipsecspientry = YList(self)
             self._segment_path = lambda: "cipSecSpiTable"
@@ -3289,7 +3343,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             active and expiring IPsec Phase\-2 
             security associations.
             
-            .. attribute:: cipsectunindex  <key>
+            .. attribute:: cipsectunindex  (key)
             
             	
             	**type**\: int
@@ -3298,7 +3352,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             
             	**refers to**\:  :py:class:`cipsectunindex <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CISCOIPSECFLOWMONITORMIB.Cipsectunneltable.Cipsectunnelentry>`
             
-            .. attribute:: cipsecspiindex  <key>
+            .. attribute:: cipsecspiindex  (key)
             
             	The number of the SPI associated with the Phase\-2 Tunnel Table.  The value of this  index is a number which begins at one and is  incremented with each SPI associated with an  IPsec Phase\-2 Tunnel.  The value of this  object will wrap at 2,147,483,647
             	**type**\: int
@@ -3341,21 +3395,24 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cipSecSpiTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsectunindex = YLeaf(YType.str, "cipSecTunIndex")
-
-                self.cipsecspiindex = YLeaf(YType.int32, "cipSecSpiIndex")
-
-                self.cipsecspidirection = YLeaf(YType.enumeration, "cipSecSpiDirection")
-
-                self.cipsecspivalue = YLeaf(YType.uint32, "cipSecSpiValue")
-
-                self.cipsecspiprotocol = YLeaf(YType.enumeration, "cipSecSpiProtocol")
-
-                self.cipsecspistatus = YLeaf(YType.enumeration, "cipSecSpiStatus")
-                self._segment_path = lambda: "cipSecSpiEntry" + "[cipSecTunIndex='" + self.cipsectunindex.get() + "']" + "[cipSecSpiIndex='" + self.cipsecspiindex.get() + "']"
+                self.ylist_key_names = ['cipsectunindex','cipsecspiindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsectunindex', YLeaf(YType.str, 'cipSecTunIndex')),
+                    ('cipsecspiindex', YLeaf(YType.int32, 'cipSecSpiIndex')),
+                    ('cipsecspidirection', YLeaf(YType.enumeration, 'cipSecSpiDirection')),
+                    ('cipsecspivalue', YLeaf(YType.uint32, 'cipSecSpiValue')),
+                    ('cipsecspiprotocol', YLeaf(YType.enumeration, 'cipSecSpiProtocol')),
+                    ('cipsecspistatus', YLeaf(YType.enumeration, 'cipSecSpiStatus')),
+                ])
+                self.cipsectunindex = None
+                self.cipsecspiindex = None
+                self.cipsecspidirection = None
+                self.cipsecspivalue = None
+                self.cipsecspiprotocol = None
+                self.cipsecspistatus = None
+                self._segment_path = lambda: "cipSecSpiEntry" + "[cipSecTunIndex='" + str(self.cipsectunindex) + "']" + "[cipSecSpiIndex='" + str(self.cipsecspiindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecSpiTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3363,7 +3420,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
             class Cipsecspidirection(Enum):
                 """
-                Cipsecspidirection
+                Cipsecspidirection (Enum Class)
 
                 The direction of the SPI.
 
@@ -3380,7 +3437,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
             class Cipsecspiprotocol(Enum):
                 """
-                Cipsecspiprotocol
+                Cipsecspiprotocol (Enum Class)
 
                 The protocol of the SPI.
 
@@ -3401,7 +3458,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
             class Cipsecspistatus(Enum):
                 """
-                Cipsecspistatus
+                Cipsecspistatus (Enum Class)
 
                 The status of the SPI.
 
@@ -3442,8 +3499,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipSecPhase2GWStatsEntry" : ("cipsecphase2gwstatsentry", CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipSecPhase2GWStatsEntry", ("cipsecphase2gwstatsentry", CISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry))])
+            self._leafs = OrderedDict()
 
             self.cipsecphase2gwstatsentry = YList(self)
             self._segment_path = lambda: "cipSecPhase2GWStatsTable"
@@ -3461,7 +3520,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             There is only one entry for each gateway. The entry 
             is created when a gateway up and cannot be deleted.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -3716,63 +3775,66 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cipSecPhase2GWStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cipsecphase2gwactivetunnels = YLeaf(YType.uint32, "cipSecPhase2GWActiveTunnels")
-
-                self.cipsecphase2gwprevioustunnels = YLeaf(YType.uint32, "cipSecPhase2GWPreviousTunnels")
-
-                self.cipsecphase2gwinoctets = YLeaf(YType.uint32, "cipSecPhase2GWInOctets")
-
-                self.cipsecphase2gwinoctwraps = YLeaf(YType.uint32, "cipSecPhase2GWInOctWraps")
-
-                self.cipsecphase2gwindecompoctets = YLeaf(YType.uint32, "cipSecPhase2GWInDecompOctets")
-
-                self.cipsecphase2gwindecompoctwraps = YLeaf(YType.uint32, "cipSecPhase2GWInDecompOctWraps")
-
-                self.cipsecphase2gwinpkts = YLeaf(YType.uint32, "cipSecPhase2GWInPkts")
-
-                self.cipsecphase2gwindrops = YLeaf(YType.uint32, "cipSecPhase2GWInDrops")
-
-                self.cipsecphase2gwinreplaydrops = YLeaf(YType.uint32, "cipSecPhase2GWInReplayDrops")
-
-                self.cipsecphase2gwinauths = YLeaf(YType.uint32, "cipSecPhase2GWInAuths")
-
-                self.cipsecphase2gwinauthfails = YLeaf(YType.uint32, "cipSecPhase2GWInAuthFails")
-
-                self.cipsecphase2gwindecrypts = YLeaf(YType.uint32, "cipSecPhase2GWInDecrypts")
-
-                self.cipsecphase2gwindecryptfails = YLeaf(YType.uint32, "cipSecPhase2GWInDecryptFails")
-
-                self.cipsecphase2gwoutoctets = YLeaf(YType.uint32, "cipSecPhase2GWOutOctets")
-
-                self.cipsecphase2gwoutoctwraps = YLeaf(YType.uint32, "cipSecPhase2GWOutOctWraps")
-
-                self.cipsecphase2gwoutuncompoctets = YLeaf(YType.uint32, "cipSecPhase2GWOutUncompOctets")
-
-                self.cipsecphase2gwoutuncompoctwraps = YLeaf(YType.uint32, "cipSecPhase2GWOutUncompOctWraps")
-
-                self.cipsecphase2gwoutpkts = YLeaf(YType.uint32, "cipSecPhase2GWOutPkts")
-
-                self.cipsecphase2gwoutdrops = YLeaf(YType.uint32, "cipSecPhase2GWOutDrops")
-
-                self.cipsecphase2gwoutauths = YLeaf(YType.uint32, "cipSecPhase2GWOutAuths")
-
-                self.cipsecphase2gwoutauthfails = YLeaf(YType.uint32, "cipSecPhase2GWOutAuthFails")
-
-                self.cipsecphase2gwoutencrypts = YLeaf(YType.uint32, "cipSecPhase2GWOutEncrypts")
-
-                self.cipsecphase2gwoutencryptfails = YLeaf(YType.uint32, "cipSecPhase2GWOutEncryptFails")
-
-                self.cipsecphase2gwprotocolusefails = YLeaf(YType.uint32, "cipSecPhase2GWProtocolUseFails")
-
-                self.cipsecphase2gwnosafails = YLeaf(YType.uint32, "cipSecPhase2GWNoSaFails")
-
-                self.cipsecphase2gwsyscapfails = YLeaf(YType.uint32, "cipSecPhase2GWSysCapFails")
-                self._segment_path = lambda: "cipSecPhase2GWStatsEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cipsecphase2gwactivetunnels', YLeaf(YType.uint32, 'cipSecPhase2GWActiveTunnels')),
+                    ('cipsecphase2gwprevioustunnels', YLeaf(YType.uint32, 'cipSecPhase2GWPreviousTunnels')),
+                    ('cipsecphase2gwinoctets', YLeaf(YType.uint32, 'cipSecPhase2GWInOctets')),
+                    ('cipsecphase2gwinoctwraps', YLeaf(YType.uint32, 'cipSecPhase2GWInOctWraps')),
+                    ('cipsecphase2gwindecompoctets', YLeaf(YType.uint32, 'cipSecPhase2GWInDecompOctets')),
+                    ('cipsecphase2gwindecompoctwraps', YLeaf(YType.uint32, 'cipSecPhase2GWInDecompOctWraps')),
+                    ('cipsecphase2gwinpkts', YLeaf(YType.uint32, 'cipSecPhase2GWInPkts')),
+                    ('cipsecphase2gwindrops', YLeaf(YType.uint32, 'cipSecPhase2GWInDrops')),
+                    ('cipsecphase2gwinreplaydrops', YLeaf(YType.uint32, 'cipSecPhase2GWInReplayDrops')),
+                    ('cipsecphase2gwinauths', YLeaf(YType.uint32, 'cipSecPhase2GWInAuths')),
+                    ('cipsecphase2gwinauthfails', YLeaf(YType.uint32, 'cipSecPhase2GWInAuthFails')),
+                    ('cipsecphase2gwindecrypts', YLeaf(YType.uint32, 'cipSecPhase2GWInDecrypts')),
+                    ('cipsecphase2gwindecryptfails', YLeaf(YType.uint32, 'cipSecPhase2GWInDecryptFails')),
+                    ('cipsecphase2gwoutoctets', YLeaf(YType.uint32, 'cipSecPhase2GWOutOctets')),
+                    ('cipsecphase2gwoutoctwraps', YLeaf(YType.uint32, 'cipSecPhase2GWOutOctWraps')),
+                    ('cipsecphase2gwoutuncompoctets', YLeaf(YType.uint32, 'cipSecPhase2GWOutUncompOctets')),
+                    ('cipsecphase2gwoutuncompoctwraps', YLeaf(YType.uint32, 'cipSecPhase2GWOutUncompOctWraps')),
+                    ('cipsecphase2gwoutpkts', YLeaf(YType.uint32, 'cipSecPhase2GWOutPkts')),
+                    ('cipsecphase2gwoutdrops', YLeaf(YType.uint32, 'cipSecPhase2GWOutDrops')),
+                    ('cipsecphase2gwoutauths', YLeaf(YType.uint32, 'cipSecPhase2GWOutAuths')),
+                    ('cipsecphase2gwoutauthfails', YLeaf(YType.uint32, 'cipSecPhase2GWOutAuthFails')),
+                    ('cipsecphase2gwoutencrypts', YLeaf(YType.uint32, 'cipSecPhase2GWOutEncrypts')),
+                    ('cipsecphase2gwoutencryptfails', YLeaf(YType.uint32, 'cipSecPhase2GWOutEncryptFails')),
+                    ('cipsecphase2gwprotocolusefails', YLeaf(YType.uint32, 'cipSecPhase2GWProtocolUseFails')),
+                    ('cipsecphase2gwnosafails', YLeaf(YType.uint32, 'cipSecPhase2GWNoSaFails')),
+                    ('cipsecphase2gwsyscapfails', YLeaf(YType.uint32, 'cipSecPhase2GWSysCapFails')),
+                ])
+                self.cmgwindex = None
+                self.cipsecphase2gwactivetunnels = None
+                self.cipsecphase2gwprevioustunnels = None
+                self.cipsecphase2gwinoctets = None
+                self.cipsecphase2gwinoctwraps = None
+                self.cipsecphase2gwindecompoctets = None
+                self.cipsecphase2gwindecompoctwraps = None
+                self.cipsecphase2gwinpkts = None
+                self.cipsecphase2gwindrops = None
+                self.cipsecphase2gwinreplaydrops = None
+                self.cipsecphase2gwinauths = None
+                self.cipsecphase2gwinauthfails = None
+                self.cipsecphase2gwindecrypts = None
+                self.cipsecphase2gwindecryptfails = None
+                self.cipsecphase2gwoutoctets = None
+                self.cipsecphase2gwoutoctwraps = None
+                self.cipsecphase2gwoutuncompoctets = None
+                self.cipsecphase2gwoutuncompoctwraps = None
+                self.cipsecphase2gwoutpkts = None
+                self.cipsecphase2gwoutdrops = None
+                self.cipsecphase2gwoutauths = None
+                self.cipsecphase2gwoutauthfails = None
+                self.cipsecphase2gwoutencrypts = None
+                self.cipsecphase2gwoutencryptfails = None
+                self.cipsecphase2gwprotocolusefails = None
+                self.cipsecphase2gwnosafails = None
+                self.cipsecphase2gwsyscapfails = None
+                self._segment_path = lambda: "cipSecPhase2GWStatsEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecPhase2GWStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3806,8 +3868,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cikeTunnelHistEntry" : ("ciketunnelhistentry", CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable.Ciketunnelhistentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cikeTunnelHistEntry", ("ciketunnelhistentry", CISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable.Ciketunnelhistentry))])
+            self._leafs = OrderedDict()
 
             self.ciketunnelhistentry = YList(self)
             self._segment_path = lambda: "cikeTunnelHistTable"
@@ -3823,7 +3887,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             associated with a previously active IPsec 
             Phase\-1 IKE Tunnel.
             
-            .. attribute:: ciketunhistindex  <key>
+            .. attribute:: ciketunhistindex  (key)
             
             	The index of the IPsec Phase\-1 IKE Tunnel History Table.  The value of the index is a number which  begins at one and is incremented with each  tunnel that ends. The value of this object  will wrap at 2,147,483,647
             	**type**\: int
@@ -4115,85 +4179,88 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cikeTunnelHistTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciketunhistindex = YLeaf(YType.int32, "cikeTunHistIndex")
-
-                self.ciketunhisttermreason = YLeaf(YType.enumeration, "cikeTunHistTermReason")
-
-                self.ciketunhistactiveindex = YLeaf(YType.int32, "cikeTunHistActiveIndex")
-
-                self.ciketunhistpeerlocaltype = YLeaf(YType.enumeration, "cikeTunHistPeerLocalType")
-
-                self.ciketunhistpeerlocalvalue = YLeaf(YType.str, "cikeTunHistPeerLocalValue")
-
-                self.ciketunhistpeerintindex = YLeaf(YType.int32, "cikeTunHistPeerIntIndex")
-
-                self.ciketunhistpeerremotetype = YLeaf(YType.enumeration, "cikeTunHistPeerRemoteType")
-
-                self.ciketunhistpeerremotevalue = YLeaf(YType.str, "cikeTunHistPeerRemoteValue")
-
-                self.ciketunhistlocaladdr = YLeaf(YType.str, "cikeTunHistLocalAddr")
-
-                self.ciketunhistlocalname = YLeaf(YType.str, "cikeTunHistLocalName")
-
-                self.ciketunhistremoteaddr = YLeaf(YType.str, "cikeTunHistRemoteAddr")
-
-                self.ciketunhistremotename = YLeaf(YType.str, "cikeTunHistRemoteName")
-
-                self.ciketunhistnegomode = YLeaf(YType.enumeration, "cikeTunHistNegoMode")
-
-                self.ciketunhistdiffhellmangrp = YLeaf(YType.enumeration, "cikeTunHistDiffHellmanGrp")
-
-                self.ciketunhistencryptalgo = YLeaf(YType.enumeration, "cikeTunHistEncryptAlgo")
-
-                self.ciketunhisthashalgo = YLeaf(YType.enumeration, "cikeTunHistHashAlgo")
-
-                self.ciketunhistauthmethod = YLeaf(YType.enumeration, "cikeTunHistAuthMethod")
-
-                self.ciketunhistlifetime = YLeaf(YType.int32, "cikeTunHistLifeTime")
-
-                self.ciketunhiststarttime = YLeaf(YType.uint32, "cikeTunHistStartTime")
-
-                self.ciketunhistactivetime = YLeaf(YType.int32, "cikeTunHistActiveTime")
-
-                self.ciketunhisttotalrefreshes = YLeaf(YType.uint32, "cikeTunHistTotalRefreshes")
-
-                self.ciketunhisttotalsas = YLeaf(YType.uint32, "cikeTunHistTotalSas")
-
-                self.ciketunhistinoctets = YLeaf(YType.uint32, "cikeTunHistInOctets")
-
-                self.ciketunhistinpkts = YLeaf(YType.uint32, "cikeTunHistInPkts")
-
-                self.ciketunhistindroppkts = YLeaf(YType.uint32, "cikeTunHistInDropPkts")
-
-                self.ciketunhistinnotifys = YLeaf(YType.uint32, "cikeTunHistInNotifys")
-
-                self.ciketunhistinp2exchgs = YLeaf(YType.uint32, "cikeTunHistInP2Exchgs")
-
-                self.ciketunhistinp2exchginvalids = YLeaf(YType.uint32, "cikeTunHistInP2ExchgInvalids")
-
-                self.ciketunhistinp2exchgrejects = YLeaf(YType.uint32, "cikeTunHistInP2ExchgRejects")
-
-                self.ciketunhistinp2sadelrequests = YLeaf(YType.uint32, "cikeTunHistInP2SaDelRequests")
-
-                self.ciketunhistoutoctets = YLeaf(YType.uint32, "cikeTunHistOutOctets")
-
-                self.ciketunhistoutpkts = YLeaf(YType.uint32, "cikeTunHistOutPkts")
-
-                self.ciketunhistoutdroppkts = YLeaf(YType.uint32, "cikeTunHistOutDropPkts")
-
-                self.ciketunhistoutnotifys = YLeaf(YType.uint32, "cikeTunHistOutNotifys")
-
-                self.ciketunhistoutp2exchgs = YLeaf(YType.uint32, "cikeTunHistOutP2Exchgs")
-
-                self.ciketunhistoutp2exchginvalids = YLeaf(YType.uint32, "cikeTunHistOutP2ExchgInvalids")
-
-                self.ciketunhistoutp2exchgrejects = YLeaf(YType.uint32, "cikeTunHistOutP2ExchgRejects")
-
-                self.ciketunhistoutp2sadelrequests = YLeaf(YType.uint32, "cikeTunHistOutP2SaDelRequests")
-                self._segment_path = lambda: "cikeTunnelHistEntry" + "[cikeTunHistIndex='" + self.ciketunhistindex.get() + "']"
+                self.ylist_key_names = ['ciketunhistindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciketunhistindex', YLeaf(YType.int32, 'cikeTunHistIndex')),
+                    ('ciketunhisttermreason', YLeaf(YType.enumeration, 'cikeTunHistTermReason')),
+                    ('ciketunhistactiveindex', YLeaf(YType.int32, 'cikeTunHistActiveIndex')),
+                    ('ciketunhistpeerlocaltype', YLeaf(YType.enumeration, 'cikeTunHistPeerLocalType')),
+                    ('ciketunhistpeerlocalvalue', YLeaf(YType.str, 'cikeTunHistPeerLocalValue')),
+                    ('ciketunhistpeerintindex', YLeaf(YType.int32, 'cikeTunHistPeerIntIndex')),
+                    ('ciketunhistpeerremotetype', YLeaf(YType.enumeration, 'cikeTunHistPeerRemoteType')),
+                    ('ciketunhistpeerremotevalue', YLeaf(YType.str, 'cikeTunHistPeerRemoteValue')),
+                    ('ciketunhistlocaladdr', YLeaf(YType.str, 'cikeTunHistLocalAddr')),
+                    ('ciketunhistlocalname', YLeaf(YType.str, 'cikeTunHistLocalName')),
+                    ('ciketunhistremoteaddr', YLeaf(YType.str, 'cikeTunHistRemoteAddr')),
+                    ('ciketunhistremotename', YLeaf(YType.str, 'cikeTunHistRemoteName')),
+                    ('ciketunhistnegomode', YLeaf(YType.enumeration, 'cikeTunHistNegoMode')),
+                    ('ciketunhistdiffhellmangrp', YLeaf(YType.enumeration, 'cikeTunHistDiffHellmanGrp')),
+                    ('ciketunhistencryptalgo', YLeaf(YType.enumeration, 'cikeTunHistEncryptAlgo')),
+                    ('ciketunhisthashalgo', YLeaf(YType.enumeration, 'cikeTunHistHashAlgo')),
+                    ('ciketunhistauthmethod', YLeaf(YType.enumeration, 'cikeTunHistAuthMethod')),
+                    ('ciketunhistlifetime', YLeaf(YType.int32, 'cikeTunHistLifeTime')),
+                    ('ciketunhiststarttime', YLeaf(YType.uint32, 'cikeTunHistStartTime')),
+                    ('ciketunhistactivetime', YLeaf(YType.int32, 'cikeTunHistActiveTime')),
+                    ('ciketunhisttotalrefreshes', YLeaf(YType.uint32, 'cikeTunHistTotalRefreshes')),
+                    ('ciketunhisttotalsas', YLeaf(YType.uint32, 'cikeTunHistTotalSas')),
+                    ('ciketunhistinoctets', YLeaf(YType.uint32, 'cikeTunHistInOctets')),
+                    ('ciketunhistinpkts', YLeaf(YType.uint32, 'cikeTunHistInPkts')),
+                    ('ciketunhistindroppkts', YLeaf(YType.uint32, 'cikeTunHistInDropPkts')),
+                    ('ciketunhistinnotifys', YLeaf(YType.uint32, 'cikeTunHistInNotifys')),
+                    ('ciketunhistinp2exchgs', YLeaf(YType.uint32, 'cikeTunHistInP2Exchgs')),
+                    ('ciketunhistinp2exchginvalids', YLeaf(YType.uint32, 'cikeTunHistInP2ExchgInvalids')),
+                    ('ciketunhistinp2exchgrejects', YLeaf(YType.uint32, 'cikeTunHistInP2ExchgRejects')),
+                    ('ciketunhistinp2sadelrequests', YLeaf(YType.uint32, 'cikeTunHistInP2SaDelRequests')),
+                    ('ciketunhistoutoctets', YLeaf(YType.uint32, 'cikeTunHistOutOctets')),
+                    ('ciketunhistoutpkts', YLeaf(YType.uint32, 'cikeTunHistOutPkts')),
+                    ('ciketunhistoutdroppkts', YLeaf(YType.uint32, 'cikeTunHistOutDropPkts')),
+                    ('ciketunhistoutnotifys', YLeaf(YType.uint32, 'cikeTunHistOutNotifys')),
+                    ('ciketunhistoutp2exchgs', YLeaf(YType.uint32, 'cikeTunHistOutP2Exchgs')),
+                    ('ciketunhistoutp2exchginvalids', YLeaf(YType.uint32, 'cikeTunHistOutP2ExchgInvalids')),
+                    ('ciketunhistoutp2exchgrejects', YLeaf(YType.uint32, 'cikeTunHistOutP2ExchgRejects')),
+                    ('ciketunhistoutp2sadelrequests', YLeaf(YType.uint32, 'cikeTunHistOutP2SaDelRequests')),
+                ])
+                self.ciketunhistindex = None
+                self.ciketunhisttermreason = None
+                self.ciketunhistactiveindex = None
+                self.ciketunhistpeerlocaltype = None
+                self.ciketunhistpeerlocalvalue = None
+                self.ciketunhistpeerintindex = None
+                self.ciketunhistpeerremotetype = None
+                self.ciketunhistpeerremotevalue = None
+                self.ciketunhistlocaladdr = None
+                self.ciketunhistlocalname = None
+                self.ciketunhistremoteaddr = None
+                self.ciketunhistremotename = None
+                self.ciketunhistnegomode = None
+                self.ciketunhistdiffhellmangrp = None
+                self.ciketunhistencryptalgo = None
+                self.ciketunhisthashalgo = None
+                self.ciketunhistauthmethod = None
+                self.ciketunhistlifetime = None
+                self.ciketunhiststarttime = None
+                self.ciketunhistactivetime = None
+                self.ciketunhisttotalrefreshes = None
+                self.ciketunhisttotalsas = None
+                self.ciketunhistinoctets = None
+                self.ciketunhistinpkts = None
+                self.ciketunhistindroppkts = None
+                self.ciketunhistinnotifys = None
+                self.ciketunhistinp2exchgs = None
+                self.ciketunhistinp2exchginvalids = None
+                self.ciketunhistinp2exchgrejects = None
+                self.ciketunhistinp2sadelrequests = None
+                self.ciketunhistoutoctets = None
+                self.ciketunhistoutpkts = None
+                self.ciketunhistoutdroppkts = None
+                self.ciketunhistoutnotifys = None
+                self.ciketunhistoutp2exchgs = None
+                self.ciketunhistoutp2exchginvalids = None
+                self.ciketunhistoutp2exchgrejects = None
+                self.ciketunhistoutp2sadelrequests = None
+                self._segment_path = lambda: "cikeTunnelHistEntry" + "[cikeTunHistIndex='" + str(self.ciketunhistindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeTunnelHistTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4201,7 +4268,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
             class Ciketunhisttermreason(Enum):
                 """
-                Ciketunhisttermreason
+                Ciketunhisttermreason (Enum Class)
 
                 The reason the IPsec Phase\-1 IKE Tunnel was terminated.
 
@@ -4281,8 +4348,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipSecTunnelHistEntry" : ("cipsectunnelhistentry", CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable.Cipsectunnelhistentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipSecTunnelHistEntry", ("cipsectunnelhistentry", CISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable.Cipsectunnelhistentry))])
+            self._leafs = OrderedDict()
 
             self.cipsectunnelhistentry = YList(self)
             self._segment_path = lambda: "cipSecTunnelHistTable"
@@ -4297,7 +4366,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             Each entry contains the attributes associated with
             a previously active IPsec Phase\-2 Tunnel.
             
-            .. attribute:: cipsectunhistindex  <key>
+            .. attribute:: cipsectunhistindex  (key)
             
             	The index of the IPsec Phase\-2 Tunnel History Table. The value of the index is a number which  begins at one and is incremented with each tunnel  that ends. The value of this object will wrap at 2,147,483,647
             	**type**\: int
@@ -4680,107 +4749,110 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cipSecTunnelHistTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsectunhistindex = YLeaf(YType.int32, "cipSecTunHistIndex")
-
-                self.cipsectunhisttermreason = YLeaf(YType.enumeration, "cipSecTunHistTermReason")
-
-                self.cipsectunhistactiveindex = YLeaf(YType.int32, "cipSecTunHistActiveIndex")
-
-                self.cipsectunhistiketunnelindex = YLeaf(YType.int32, "cipSecTunHistIkeTunnelIndex")
-
-                self.cipsectunhistlocaladdr = YLeaf(YType.str, "cipSecTunHistLocalAddr")
-
-                self.cipsectunhistremoteaddr = YLeaf(YType.str, "cipSecTunHistRemoteAddr")
-
-                self.cipsectunhistkeytype = YLeaf(YType.enumeration, "cipSecTunHistKeyType")
-
-                self.cipsectunhistencapmode = YLeaf(YType.enumeration, "cipSecTunHistEncapMode")
-
-                self.cipsectunhistlifesize = YLeaf(YType.int32, "cipSecTunHistLifeSize")
-
-                self.cipsectunhistlifetime = YLeaf(YType.int32, "cipSecTunHistLifeTime")
-
-                self.cipsectunhiststarttime = YLeaf(YType.uint32, "cipSecTunHistStartTime")
-
-                self.cipsectunhistactivetime = YLeaf(YType.int32, "cipSecTunHistActiveTime")
-
-                self.cipsectunhisttotalrefreshes = YLeaf(YType.uint32, "cipSecTunHistTotalRefreshes")
-
-                self.cipsectunhisttotalsas = YLeaf(YType.uint32, "cipSecTunHistTotalSas")
-
-                self.cipsectunhistinsadiffhellmangrp = YLeaf(YType.enumeration, "cipSecTunHistInSaDiffHellmanGrp")
-
-                self.cipsectunhistinsaencryptalgo = YLeaf(YType.enumeration, "cipSecTunHistInSaEncryptAlgo")
-
-                self.cipsectunhistinsaahauthalgo = YLeaf(YType.enumeration, "cipSecTunHistInSaAhAuthAlgo")
-
-                self.cipsectunhistinsaespauthalgo = YLeaf(YType.enumeration, "cipSecTunHistInSaEspAuthAlgo")
-
-                self.cipsectunhistinsadecompalgo = YLeaf(YType.enumeration, "cipSecTunHistInSaDecompAlgo")
-
-                self.cipsectunhistoutsadiffhellmangrp = YLeaf(YType.enumeration, "cipSecTunHistOutSaDiffHellmanGrp")
-
-                self.cipsectunhistoutsaencryptalgo = YLeaf(YType.enumeration, "cipSecTunHistOutSaEncryptAlgo")
-
-                self.cipsectunhistoutsaahauthalgo = YLeaf(YType.enumeration, "cipSecTunHistOutSaAhAuthAlgo")
-
-                self.cipsectunhistoutsaespauthalgo = YLeaf(YType.enumeration, "cipSecTunHistOutSaEspAuthAlgo")
-
-                self.cipsectunhistoutsacompalgo = YLeaf(YType.enumeration, "cipSecTunHistOutSaCompAlgo")
-
-                self.cipsectunhistinoctets = YLeaf(YType.uint32, "cipSecTunHistInOctets")
-
-                self.cipsectunhisthcinoctets = YLeaf(YType.uint64, "cipSecTunHistHcInOctets")
-
-                self.cipsectunhistinoctwraps = YLeaf(YType.uint32, "cipSecTunHistInOctWraps")
-
-                self.cipsectunhistindecompoctets = YLeaf(YType.uint32, "cipSecTunHistInDecompOctets")
-
-                self.cipsectunhisthcindecompoctets = YLeaf(YType.uint64, "cipSecTunHistHcInDecompOctets")
-
-                self.cipsectunhistindecompoctwraps = YLeaf(YType.uint32, "cipSecTunHistInDecompOctWraps")
-
-                self.cipsectunhistinpkts = YLeaf(YType.uint32, "cipSecTunHistInPkts")
-
-                self.cipsectunhistindroppkts = YLeaf(YType.uint32, "cipSecTunHistInDropPkts")
-
-                self.cipsectunhistinreplaydroppkts = YLeaf(YType.uint32, "cipSecTunHistInReplayDropPkts")
-
-                self.cipsectunhistinauths = YLeaf(YType.uint32, "cipSecTunHistInAuths")
-
-                self.cipsectunhistinauthfails = YLeaf(YType.uint32, "cipSecTunHistInAuthFails")
-
-                self.cipsectunhistindecrypts = YLeaf(YType.uint32, "cipSecTunHistInDecrypts")
-
-                self.cipsectunhistindecryptfails = YLeaf(YType.uint32, "cipSecTunHistInDecryptFails")
-
-                self.cipsectunhistoutoctets = YLeaf(YType.uint32, "cipSecTunHistOutOctets")
-
-                self.cipsectunhisthcoutoctets = YLeaf(YType.uint64, "cipSecTunHistHcOutOctets")
-
-                self.cipsectunhistoutoctwraps = YLeaf(YType.uint32, "cipSecTunHistOutOctWraps")
-
-                self.cipsectunhistoutuncompoctets = YLeaf(YType.uint32, "cipSecTunHistOutUncompOctets")
-
-                self.cipsectunhisthcoutuncompoctets = YLeaf(YType.uint64, "cipSecTunHistHcOutUncompOctets")
-
-                self.cipsectunhistoutuncompoctwraps = YLeaf(YType.uint32, "cipSecTunHistOutUncompOctWraps")
-
-                self.cipsectunhistoutpkts = YLeaf(YType.uint32, "cipSecTunHistOutPkts")
-
-                self.cipsectunhistoutdroppkts = YLeaf(YType.uint32, "cipSecTunHistOutDropPkts")
-
-                self.cipsectunhistoutauths = YLeaf(YType.uint32, "cipSecTunHistOutAuths")
-
-                self.cipsectunhistoutauthfails = YLeaf(YType.uint32, "cipSecTunHistOutAuthFails")
-
-                self.cipsectunhistoutencrypts = YLeaf(YType.uint32, "cipSecTunHistOutEncrypts")
-
-                self.cipsectunhistoutencryptfails = YLeaf(YType.uint32, "cipSecTunHistOutEncryptFails")
-                self._segment_path = lambda: "cipSecTunnelHistEntry" + "[cipSecTunHistIndex='" + self.cipsectunhistindex.get() + "']"
+                self.ylist_key_names = ['cipsectunhistindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsectunhistindex', YLeaf(YType.int32, 'cipSecTunHistIndex')),
+                    ('cipsectunhisttermreason', YLeaf(YType.enumeration, 'cipSecTunHistTermReason')),
+                    ('cipsectunhistactiveindex', YLeaf(YType.int32, 'cipSecTunHistActiveIndex')),
+                    ('cipsectunhistiketunnelindex', YLeaf(YType.int32, 'cipSecTunHistIkeTunnelIndex')),
+                    ('cipsectunhistlocaladdr', YLeaf(YType.str, 'cipSecTunHistLocalAddr')),
+                    ('cipsectunhistremoteaddr', YLeaf(YType.str, 'cipSecTunHistRemoteAddr')),
+                    ('cipsectunhistkeytype', YLeaf(YType.enumeration, 'cipSecTunHistKeyType')),
+                    ('cipsectunhistencapmode', YLeaf(YType.enumeration, 'cipSecTunHistEncapMode')),
+                    ('cipsectunhistlifesize', YLeaf(YType.int32, 'cipSecTunHistLifeSize')),
+                    ('cipsectunhistlifetime', YLeaf(YType.int32, 'cipSecTunHistLifeTime')),
+                    ('cipsectunhiststarttime', YLeaf(YType.uint32, 'cipSecTunHistStartTime')),
+                    ('cipsectunhistactivetime', YLeaf(YType.int32, 'cipSecTunHistActiveTime')),
+                    ('cipsectunhisttotalrefreshes', YLeaf(YType.uint32, 'cipSecTunHistTotalRefreshes')),
+                    ('cipsectunhisttotalsas', YLeaf(YType.uint32, 'cipSecTunHistTotalSas')),
+                    ('cipsectunhistinsadiffhellmangrp', YLeaf(YType.enumeration, 'cipSecTunHistInSaDiffHellmanGrp')),
+                    ('cipsectunhistinsaencryptalgo', YLeaf(YType.enumeration, 'cipSecTunHistInSaEncryptAlgo')),
+                    ('cipsectunhistinsaahauthalgo', YLeaf(YType.enumeration, 'cipSecTunHistInSaAhAuthAlgo')),
+                    ('cipsectunhistinsaespauthalgo', YLeaf(YType.enumeration, 'cipSecTunHistInSaEspAuthAlgo')),
+                    ('cipsectunhistinsadecompalgo', YLeaf(YType.enumeration, 'cipSecTunHistInSaDecompAlgo')),
+                    ('cipsectunhistoutsadiffhellmangrp', YLeaf(YType.enumeration, 'cipSecTunHistOutSaDiffHellmanGrp')),
+                    ('cipsectunhistoutsaencryptalgo', YLeaf(YType.enumeration, 'cipSecTunHistOutSaEncryptAlgo')),
+                    ('cipsectunhistoutsaahauthalgo', YLeaf(YType.enumeration, 'cipSecTunHistOutSaAhAuthAlgo')),
+                    ('cipsectunhistoutsaespauthalgo', YLeaf(YType.enumeration, 'cipSecTunHistOutSaEspAuthAlgo')),
+                    ('cipsectunhistoutsacompalgo', YLeaf(YType.enumeration, 'cipSecTunHistOutSaCompAlgo')),
+                    ('cipsectunhistinoctets', YLeaf(YType.uint32, 'cipSecTunHistInOctets')),
+                    ('cipsectunhisthcinoctets', YLeaf(YType.uint64, 'cipSecTunHistHcInOctets')),
+                    ('cipsectunhistinoctwraps', YLeaf(YType.uint32, 'cipSecTunHistInOctWraps')),
+                    ('cipsectunhistindecompoctets', YLeaf(YType.uint32, 'cipSecTunHistInDecompOctets')),
+                    ('cipsectunhisthcindecompoctets', YLeaf(YType.uint64, 'cipSecTunHistHcInDecompOctets')),
+                    ('cipsectunhistindecompoctwraps', YLeaf(YType.uint32, 'cipSecTunHistInDecompOctWraps')),
+                    ('cipsectunhistinpkts', YLeaf(YType.uint32, 'cipSecTunHistInPkts')),
+                    ('cipsectunhistindroppkts', YLeaf(YType.uint32, 'cipSecTunHistInDropPkts')),
+                    ('cipsectunhistinreplaydroppkts', YLeaf(YType.uint32, 'cipSecTunHistInReplayDropPkts')),
+                    ('cipsectunhistinauths', YLeaf(YType.uint32, 'cipSecTunHistInAuths')),
+                    ('cipsectunhistinauthfails', YLeaf(YType.uint32, 'cipSecTunHistInAuthFails')),
+                    ('cipsectunhistindecrypts', YLeaf(YType.uint32, 'cipSecTunHistInDecrypts')),
+                    ('cipsectunhistindecryptfails', YLeaf(YType.uint32, 'cipSecTunHistInDecryptFails')),
+                    ('cipsectunhistoutoctets', YLeaf(YType.uint32, 'cipSecTunHistOutOctets')),
+                    ('cipsectunhisthcoutoctets', YLeaf(YType.uint64, 'cipSecTunHistHcOutOctets')),
+                    ('cipsectunhistoutoctwraps', YLeaf(YType.uint32, 'cipSecTunHistOutOctWraps')),
+                    ('cipsectunhistoutuncompoctets', YLeaf(YType.uint32, 'cipSecTunHistOutUncompOctets')),
+                    ('cipsectunhisthcoutuncompoctets', YLeaf(YType.uint64, 'cipSecTunHistHcOutUncompOctets')),
+                    ('cipsectunhistoutuncompoctwraps', YLeaf(YType.uint32, 'cipSecTunHistOutUncompOctWraps')),
+                    ('cipsectunhistoutpkts', YLeaf(YType.uint32, 'cipSecTunHistOutPkts')),
+                    ('cipsectunhistoutdroppkts', YLeaf(YType.uint32, 'cipSecTunHistOutDropPkts')),
+                    ('cipsectunhistoutauths', YLeaf(YType.uint32, 'cipSecTunHistOutAuths')),
+                    ('cipsectunhistoutauthfails', YLeaf(YType.uint32, 'cipSecTunHistOutAuthFails')),
+                    ('cipsectunhistoutencrypts', YLeaf(YType.uint32, 'cipSecTunHistOutEncrypts')),
+                    ('cipsectunhistoutencryptfails', YLeaf(YType.uint32, 'cipSecTunHistOutEncryptFails')),
+                ])
+                self.cipsectunhistindex = None
+                self.cipsectunhisttermreason = None
+                self.cipsectunhistactiveindex = None
+                self.cipsectunhistiketunnelindex = None
+                self.cipsectunhistlocaladdr = None
+                self.cipsectunhistremoteaddr = None
+                self.cipsectunhistkeytype = None
+                self.cipsectunhistencapmode = None
+                self.cipsectunhistlifesize = None
+                self.cipsectunhistlifetime = None
+                self.cipsectunhiststarttime = None
+                self.cipsectunhistactivetime = None
+                self.cipsectunhisttotalrefreshes = None
+                self.cipsectunhisttotalsas = None
+                self.cipsectunhistinsadiffhellmangrp = None
+                self.cipsectunhistinsaencryptalgo = None
+                self.cipsectunhistinsaahauthalgo = None
+                self.cipsectunhistinsaespauthalgo = None
+                self.cipsectunhistinsadecompalgo = None
+                self.cipsectunhistoutsadiffhellmangrp = None
+                self.cipsectunhistoutsaencryptalgo = None
+                self.cipsectunhistoutsaahauthalgo = None
+                self.cipsectunhistoutsaespauthalgo = None
+                self.cipsectunhistoutsacompalgo = None
+                self.cipsectunhistinoctets = None
+                self.cipsectunhisthcinoctets = None
+                self.cipsectunhistinoctwraps = None
+                self.cipsectunhistindecompoctets = None
+                self.cipsectunhisthcindecompoctets = None
+                self.cipsectunhistindecompoctwraps = None
+                self.cipsectunhistinpkts = None
+                self.cipsectunhistindroppkts = None
+                self.cipsectunhistinreplaydroppkts = None
+                self.cipsectunhistinauths = None
+                self.cipsectunhistinauthfails = None
+                self.cipsectunhistindecrypts = None
+                self.cipsectunhistindecryptfails = None
+                self.cipsectunhistoutoctets = None
+                self.cipsectunhisthcoutoctets = None
+                self.cipsectunhistoutoctwraps = None
+                self.cipsectunhistoutuncompoctets = None
+                self.cipsectunhisthcoutuncompoctets = None
+                self.cipsectunhistoutuncompoctwraps = None
+                self.cipsectunhistoutpkts = None
+                self.cipsectunhistoutdroppkts = None
+                self.cipsectunhistoutauths = None
+                self.cipsectunhistoutauthfails = None
+                self.cipsectunhistoutencrypts = None
+                self.cipsectunhistoutencryptfails = None
+                self._segment_path = lambda: "cipSecTunnelHistEntry" + "[cipSecTunHistIndex='" + str(self.cipsectunhistindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecTunnelHistTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4788,7 +4860,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
             class Cipsectunhisttermreason(Enum):
                 """
-                Cipsectunhisttermreason
+                Cipsectunhisttermreason (Enum Class)
 
                 The reason the IPsec Phase\-2 Tunnel was terminated.
 
@@ -4868,8 +4940,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipSecEndPtHistEntry" : ("cipsecendpthistentry", CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable.Cipsecendpthistentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipSecEndPtHistEntry", ("cipsecendpthistentry", CISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable.Cipsecendpthistentry))])
+            self._leafs = OrderedDict()
 
             self.cipsecendpthistentry = YList(self)
             self._segment_path = lambda: "cipSecEndPtHistTable"
@@ -4884,7 +4958,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             Each entry contains the attributes associated with
             a previously active IPsec Phase\-2 Tunnel Endpoint.
             
-            .. attribute:: cipsecendpthistindex  <key>
+            .. attribute:: cipsecendpthistindex  (key)
             
             	The number of the previously active Endpoint associated  with a IPsec Phase\-2 Tunnel Table.  The value   of this index is a number which begins at   one and is incremented with each Endpoint   associated with an IPsec Phase\-2 Tunnel.  The value of this object will wrap at 2,147,483,647
             	**type**\: int
@@ -4995,39 +5069,42 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cipSecEndPtHistTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsecendpthistindex = YLeaf(YType.int32, "cipSecEndPtHistIndex")
-
-                self.cipsecendpthisttunindex = YLeaf(YType.int32, "cipSecEndPtHistTunIndex")
-
-                self.cipsecendpthistactiveindex = YLeaf(YType.int32, "cipSecEndPtHistActiveIndex")
-
-                self.cipsecendpthistlocalname = YLeaf(YType.str, "cipSecEndPtHistLocalName")
-
-                self.cipsecendpthistlocaltype = YLeaf(YType.enumeration, "cipSecEndPtHistLocalType")
-
-                self.cipsecendpthistlocaladdr1 = YLeaf(YType.str, "cipSecEndPtHistLocalAddr1")
-
-                self.cipsecendpthistlocaladdr2 = YLeaf(YType.str, "cipSecEndPtHistLocalAddr2")
-
-                self.cipsecendpthistlocalprotocol = YLeaf(YType.int32, "cipSecEndPtHistLocalProtocol")
-
-                self.cipsecendpthistlocalport = YLeaf(YType.int32, "cipSecEndPtHistLocalPort")
-
-                self.cipsecendpthistremotename = YLeaf(YType.str, "cipSecEndPtHistRemoteName")
-
-                self.cipsecendpthistremotetype = YLeaf(YType.enumeration, "cipSecEndPtHistRemoteType")
-
-                self.cipsecendpthistremoteaddr1 = YLeaf(YType.str, "cipSecEndPtHistRemoteAddr1")
-
-                self.cipsecendpthistremoteaddr2 = YLeaf(YType.str, "cipSecEndPtHistRemoteAddr2")
-
-                self.cipsecendpthistremoteprotocol = YLeaf(YType.int32, "cipSecEndPtHistRemoteProtocol")
-
-                self.cipsecendpthistremoteport = YLeaf(YType.int32, "cipSecEndPtHistRemotePort")
-                self._segment_path = lambda: "cipSecEndPtHistEntry" + "[cipSecEndPtHistIndex='" + self.cipsecendpthistindex.get() + "']"
+                self.ylist_key_names = ['cipsecendpthistindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsecendpthistindex', YLeaf(YType.int32, 'cipSecEndPtHistIndex')),
+                    ('cipsecendpthisttunindex', YLeaf(YType.int32, 'cipSecEndPtHistTunIndex')),
+                    ('cipsecendpthistactiveindex', YLeaf(YType.int32, 'cipSecEndPtHistActiveIndex')),
+                    ('cipsecendpthistlocalname', YLeaf(YType.str, 'cipSecEndPtHistLocalName')),
+                    ('cipsecendpthistlocaltype', YLeaf(YType.enumeration, 'cipSecEndPtHistLocalType')),
+                    ('cipsecendpthistlocaladdr1', YLeaf(YType.str, 'cipSecEndPtHistLocalAddr1')),
+                    ('cipsecendpthistlocaladdr2', YLeaf(YType.str, 'cipSecEndPtHistLocalAddr2')),
+                    ('cipsecendpthistlocalprotocol', YLeaf(YType.int32, 'cipSecEndPtHistLocalProtocol')),
+                    ('cipsecendpthistlocalport', YLeaf(YType.int32, 'cipSecEndPtHistLocalPort')),
+                    ('cipsecendpthistremotename', YLeaf(YType.str, 'cipSecEndPtHistRemoteName')),
+                    ('cipsecendpthistremotetype', YLeaf(YType.enumeration, 'cipSecEndPtHistRemoteType')),
+                    ('cipsecendpthistremoteaddr1', YLeaf(YType.str, 'cipSecEndPtHistRemoteAddr1')),
+                    ('cipsecendpthistremoteaddr2', YLeaf(YType.str, 'cipSecEndPtHistRemoteAddr2')),
+                    ('cipsecendpthistremoteprotocol', YLeaf(YType.int32, 'cipSecEndPtHistRemoteProtocol')),
+                    ('cipsecendpthistremoteport', YLeaf(YType.int32, 'cipSecEndPtHistRemotePort')),
+                ])
+                self.cipsecendpthistindex = None
+                self.cipsecendpthisttunindex = None
+                self.cipsecendpthistactiveindex = None
+                self.cipsecendpthistlocalname = None
+                self.cipsecendpthistlocaltype = None
+                self.cipsecendpthistlocaladdr1 = None
+                self.cipsecendpthistlocaladdr2 = None
+                self.cipsecendpthistlocalprotocol = None
+                self.cipsecendpthistlocalport = None
+                self.cipsecendpthistremotename = None
+                self.cipsecendpthistremotetype = None
+                self.cipsecendpthistremoteaddr1 = None
+                self.cipsecendpthistremoteaddr2 = None
+                self.cipsecendpthistremoteprotocol = None
+                self.cipsecendpthistremoteport = None
+                self._segment_path = lambda: "cipSecEndPtHistEntry" + "[cipSecEndPtHistIndex='" + str(self.cipsecendpthistindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecEndPtHistTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5061,8 +5138,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cikeFailEntry" : ("cikefailentry", CISCOIPSECFLOWMONITORMIB.Cikefailtable.Cikefailentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cikeFailEntry", ("cikefailentry", CISCOIPSECFLOWMONITORMIB.Cikefailtable.Cikefailentry))])
+            self._leafs = OrderedDict()
 
             self.cikefailentry = YList(self)
             self._segment_path = lambda: "cikeFailTable"
@@ -5078,7 +5157,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             with
              an IPsec Phase\-1 failure.
             
-            .. attribute:: cikefailindex  <key>
+            .. attribute:: cikefailindex  (key)
             
             	The IPsec Phase\-1 Failure Table index. The value of the index is a number which  begins at one and is incremented with each  IPsec Phase\-1 failure. The value of this object will wrap at 2,147,483,647
             	**type**\: int
@@ -5145,27 +5224,30 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cikeFailTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cikefailindex = YLeaf(YType.int32, "cikeFailIndex")
-
-                self.cikefailreason = YLeaf(YType.enumeration, "cikeFailReason")
-
-                self.cikefailtime = YLeaf(YType.uint32, "cikeFailTime")
-
-                self.cikefaillocaltype = YLeaf(YType.enumeration, "cikeFailLocalType")
-
-                self.cikefaillocalvalue = YLeaf(YType.str, "cikeFailLocalValue")
-
-                self.cikefailremotetype = YLeaf(YType.enumeration, "cikeFailRemoteType")
-
-                self.cikefailremotevalue = YLeaf(YType.str, "cikeFailRemoteValue")
-
-                self.cikefaillocaladdr = YLeaf(YType.str, "cikeFailLocalAddr")
-
-                self.cikefailremoteaddr = YLeaf(YType.str, "cikeFailRemoteAddr")
-                self._segment_path = lambda: "cikeFailEntry" + "[cikeFailIndex='" + self.cikefailindex.get() + "']"
+                self.ylist_key_names = ['cikefailindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cikefailindex', YLeaf(YType.int32, 'cikeFailIndex')),
+                    ('cikefailreason', YLeaf(YType.enumeration, 'cikeFailReason')),
+                    ('cikefailtime', YLeaf(YType.uint32, 'cikeFailTime')),
+                    ('cikefaillocaltype', YLeaf(YType.enumeration, 'cikeFailLocalType')),
+                    ('cikefaillocalvalue', YLeaf(YType.str, 'cikeFailLocalValue')),
+                    ('cikefailremotetype', YLeaf(YType.enumeration, 'cikeFailRemoteType')),
+                    ('cikefailremotevalue', YLeaf(YType.str, 'cikeFailRemoteValue')),
+                    ('cikefaillocaladdr', YLeaf(YType.str, 'cikeFailLocalAddr')),
+                    ('cikefailremoteaddr', YLeaf(YType.str, 'cikeFailRemoteAddr')),
+                ])
+                self.cikefailindex = None
+                self.cikefailreason = None
+                self.cikefailtime = None
+                self.cikefaillocaltype = None
+                self.cikefaillocalvalue = None
+                self.cikefailremotetype = None
+                self.cikefailremotevalue = None
+                self.cikefaillocaladdr = None
+                self.cikefailremoteaddr = None
+                self._segment_path = lambda: "cikeFailEntry" + "[cikeFailIndex='" + str(self.cikefailindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeFailTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5173,7 +5255,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
             class Cikefailreason(Enum):
                 """
-                Cikefailreason
+                Cikefailreason (Enum Class)
 
                 The reason for the failure.  Possible reasons include\:
 
@@ -5310,8 +5392,10 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipSecFailEntry" : ("cipsecfailentry", CISCOIPSECFLOWMONITORMIB.Cipsecfailtable.Cipsecfailentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipSecFailEntry", ("cipsecfailentry", CISCOIPSECFLOWMONITORMIB.Cipsecfailtable.Cipsecfailentry))])
+            self._leafs = OrderedDict()
 
             self.cipsecfailentry = YList(self)
             self._segment_path = lambda: "cipSecFailTable"
@@ -5326,7 +5410,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
             Each entry contains the attributes associated with
             an IPsec Phase\-1 failure.
             
-            .. attribute:: cipsecfailindex  <key>
+            .. attribute:: cipsecfailindex  (key)
             
             	The IPsec Phase\-2 Failure Table index. The value of the index is a number which  begins at one and is incremented with each  IPsec Phase\-1 failure. The value of this object will wrap at 2,147,483,647
             	**type**\: int
@@ -5387,23 +5471,26 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
                 self.yang_parent_name = "cipSecFailTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsecfailindex = YLeaf(YType.int32, "cipSecFailIndex")
-
-                self.cipsecfailreason = YLeaf(YType.enumeration, "cipSecFailReason")
-
-                self.cipsecfailtime = YLeaf(YType.uint32, "cipSecFailTime")
-
-                self.cipsecfailtunnelindex = YLeaf(YType.int32, "cipSecFailTunnelIndex")
-
-                self.cipsecfailsaspi = YLeaf(YType.int32, "cipSecFailSaSpi")
-
-                self.cipsecfailpktsrcaddr = YLeaf(YType.str, "cipSecFailPktSrcAddr")
-
-                self.cipsecfailpktdstaddr = YLeaf(YType.str, "cipSecFailPktDstAddr")
-                self._segment_path = lambda: "cipSecFailEntry" + "[cipSecFailIndex='" + self.cipsecfailindex.get() + "']"
+                self.ylist_key_names = ['cipsecfailindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsecfailindex', YLeaf(YType.int32, 'cipSecFailIndex')),
+                    ('cipsecfailreason', YLeaf(YType.enumeration, 'cipSecFailReason')),
+                    ('cipsecfailtime', YLeaf(YType.uint32, 'cipSecFailTime')),
+                    ('cipsecfailtunnelindex', YLeaf(YType.int32, 'cipSecFailTunnelIndex')),
+                    ('cipsecfailsaspi', YLeaf(YType.int32, 'cipSecFailSaSpi')),
+                    ('cipsecfailpktsrcaddr', YLeaf(YType.str, 'cipSecFailPktSrcAddr')),
+                    ('cipsecfailpktdstaddr', YLeaf(YType.str, 'cipSecFailPktDstAddr')),
+                ])
+                self.cipsecfailindex = None
+                self.cipsecfailreason = None
+                self.cipsecfailtime = None
+                self.cipsecfailtunnelindex = None
+                self.cipsecfailsaspi = None
+                self.cipsecfailpktsrcaddr = None
+                self.cipsecfailpktdstaddr = None
+                self._segment_path = lambda: "cipSecFailEntry" + "[cipSecFailIndex='" + str(self.cipsecfailindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecFailTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5411,7 +5498,7 @@ class CISCOIPSECFLOWMONITORMIB(Entity):
 
             class Cipsecfailreason(Enum):
                 """
-                Cipsecfailreason
+                Cipsecfailreason (Enum Class)
 
                 The reason for the failure.  Possible reasons
 

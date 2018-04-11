@@ -9,9 +9,11 @@ Virtual Circuit (VC) emulation. VC\-specific MIBs (such as
 this) contain config and stats for specific VC types.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -40,8 +42,10 @@ class CISCOIETFPWATMMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-PW-ATM-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpwVcAtmTable" : ("cpwvcatmtable", CISCOIETFPWATMMIB.Cpwvcatmtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cpwVcAtmTable", ("cpwvcatmtable", CISCOIETFPWATMMIB.Cpwvcatmtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cpwvcatmtable = CISCOIETFPWATMMIB.Cpwvcatmtable()
         self.cpwvcatmtable.parent = self
@@ -74,8 +78,10 @@ class CISCOIETFPWATMMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-ATM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcAtmEntry" : ("cpwvcatmentry", CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcAtmEntry", ("cpwvcatmentry", CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcatmentry = YList(self)
             self._segment_path = lambda: "cpwVcAtmTable"
@@ -91,7 +97,7 @@ class CISCOIETFPWATMMIB(Entity):
             that needs to be adapted and carried over PSN. This table
             is indexed by CpwVcIndex in CISCO\-IETF\-PW\-MIB.
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -265,57 +271,60 @@ class CISCOIETFPWATMMIB(Entity):
                 self.yang_parent_name = "cpwVcAtmTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwatmif = YLeaf(YType.int32, "cpwAtmIf")
-
-                self.cpwatmvpi = YLeaf(YType.int32, "cpwAtmVpi")
-
-                self.cpwatmvci = YLeaf(YType.int32, "cpwAtmVci")
-
-                self.cpwatmclpqosmapping = YLeaf(YType.boolean, "cpwAtmClpQosMapping")
-
-                self.cpwatmrowstatus = YLeaf(YType.enumeration, "cpwAtmRowStatus")
-
-                self.cpwatmoamcellsupported = YLeaf(YType.boolean, "cpwAtmOamCellSupported")
-
-                self.cpwatmqosscalingfactor = YLeaf(YType.int32, "cpwAtmQosScalingFactor")
-
-                self.cpwatmcellpacking = YLeaf(YType.boolean, "cpwAtmCellPacking")
-
-                self.cpwatmmncp = YLeaf(YType.int32, "cpwAtmMncp")
-
-                self.cpwatmpeermncp = YLeaf(YType.int32, "cpwAtmPeerMncp")
-
-                self.cpwatmencap = YLeaf(YType.enumeration, "cpwAtmEncap")
-
-                self.cpwatmmcpttimeout = YLeaf(YType.int32, "cpwAtmMcptTimeout")
-
-                self.cpwatmcellsreceived = YLeaf(YType.uint32, "cpwAtmCellsReceived")
-
-                self.cpwatmcellssent = YLeaf(YType.uint32, "cpwAtmCellsSent")
-
-                self.cpwatmcellsrejected = YLeaf(YType.uint32, "cpwAtmCellsRejected")
-
-                self.cpwatmcellstagged = YLeaf(YType.uint32, "cpwAtmCellsTagged")
-
-                self.cpwatmhccellsreceived = YLeaf(YType.uint64, "cpwAtmHCCellsReceived")
-
-                self.cpwatmhccellsrejected = YLeaf(YType.uint64, "cpwAtmHCCellsRejected")
-
-                self.cpwatmhccellstagged = YLeaf(YType.uint64, "cpwAtmHCCellsTagged")
-
-                self.cpwatmavgcellspacked = YLeaf(YType.uint32, "cpwAtmAvgCellsPacked")
-
-                self.cpwatmpktsreceived = YLeaf(YType.uint32, "cpwAtmPktsReceived")
-
-                self.cpwatmpktssent = YLeaf(YType.uint32, "cpwAtmPktsSent")
-
-                self.cpwatmpktsrejected = YLeaf(YType.uint32, "cpwAtmPktsRejected")
-                self._segment_path = lambda: "cpwVcAtmEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwatmif', YLeaf(YType.int32, 'cpwAtmIf')),
+                    ('cpwatmvpi', YLeaf(YType.int32, 'cpwAtmVpi')),
+                    ('cpwatmvci', YLeaf(YType.int32, 'cpwAtmVci')),
+                    ('cpwatmclpqosmapping', YLeaf(YType.boolean, 'cpwAtmClpQosMapping')),
+                    ('cpwatmrowstatus', YLeaf(YType.enumeration, 'cpwAtmRowStatus')),
+                    ('cpwatmoamcellsupported', YLeaf(YType.boolean, 'cpwAtmOamCellSupported')),
+                    ('cpwatmqosscalingfactor', YLeaf(YType.int32, 'cpwAtmQosScalingFactor')),
+                    ('cpwatmcellpacking', YLeaf(YType.boolean, 'cpwAtmCellPacking')),
+                    ('cpwatmmncp', YLeaf(YType.int32, 'cpwAtmMncp')),
+                    ('cpwatmpeermncp', YLeaf(YType.int32, 'cpwAtmPeerMncp')),
+                    ('cpwatmencap', YLeaf(YType.enumeration, 'cpwAtmEncap')),
+                    ('cpwatmmcpttimeout', YLeaf(YType.int32, 'cpwAtmMcptTimeout')),
+                    ('cpwatmcellsreceived', YLeaf(YType.uint32, 'cpwAtmCellsReceived')),
+                    ('cpwatmcellssent', YLeaf(YType.uint32, 'cpwAtmCellsSent')),
+                    ('cpwatmcellsrejected', YLeaf(YType.uint32, 'cpwAtmCellsRejected')),
+                    ('cpwatmcellstagged', YLeaf(YType.uint32, 'cpwAtmCellsTagged')),
+                    ('cpwatmhccellsreceived', YLeaf(YType.uint64, 'cpwAtmHCCellsReceived')),
+                    ('cpwatmhccellsrejected', YLeaf(YType.uint64, 'cpwAtmHCCellsRejected')),
+                    ('cpwatmhccellstagged', YLeaf(YType.uint64, 'cpwAtmHCCellsTagged')),
+                    ('cpwatmavgcellspacked', YLeaf(YType.uint32, 'cpwAtmAvgCellsPacked')),
+                    ('cpwatmpktsreceived', YLeaf(YType.uint32, 'cpwAtmPktsReceived')),
+                    ('cpwatmpktssent', YLeaf(YType.uint32, 'cpwAtmPktsSent')),
+                    ('cpwatmpktsrejected', YLeaf(YType.uint32, 'cpwAtmPktsRejected')),
+                ])
+                self.cpwvcindex = None
+                self.cpwatmif = None
+                self.cpwatmvpi = None
+                self.cpwatmvci = None
+                self.cpwatmclpqosmapping = None
+                self.cpwatmrowstatus = None
+                self.cpwatmoamcellsupported = None
+                self.cpwatmqosscalingfactor = None
+                self.cpwatmcellpacking = None
+                self.cpwatmmncp = None
+                self.cpwatmpeermncp = None
+                self.cpwatmencap = None
+                self.cpwatmmcpttimeout = None
+                self.cpwatmcellsreceived = None
+                self.cpwatmcellssent = None
+                self.cpwatmcellsrejected = None
+                self.cpwatmcellstagged = None
+                self.cpwatmhccellsreceived = None
+                self.cpwatmhccellsrejected = None
+                self.cpwatmhccellstagged = None
+                self.cpwatmavgcellspacked = None
+                self.cpwatmpktsreceived = None
+                self.cpwatmpktssent = None
+                self.cpwatmpktsrejected = None
+                self._segment_path = lambda: "cpwVcAtmEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB/cpwVcAtmTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -323,7 +332,7 @@ class CISCOIETFPWATMMIB(Entity):
 
             class Cpwatmencap(Enum):
                 """
-                Cpwatmencap
+                Cpwatmencap (Enum Class)
 
                 This object indicates if the packet going on the pseudowire
 

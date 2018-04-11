@@ -19,8 +19,8 @@
 """
 
 
-class YPYError(Exception):
-    """Base class for YPY Errors.
+class YError(Exception):
+    """Base class for Y Errors.
     The subclasses give a specialized view of the error that has occurred.
     """
     def __init__(self, error_msg):
@@ -32,73 +32,73 @@ class YPYError(Exception):
     def __str__(self):
         return self.__repr__()
 
-class YPYCoreError(YPYError):
+class YCoreError(YError):
     """
     Exception for core error
     """
     def __init__(self, error_msg):
-        super(YPYCoreError, self).__init__(error_msg)
+        super(YCoreError, self).__init__(error_msg)
 
 
-class YPYCodecError(YPYError):
+class YCodecError(YError):
     """
     Exception for Codec Error
     """
     def __init__(self, error_msg):
-        super(YPYCodecError, self).__init__(error_msg)
+        super(YCodecError, self).__init__(error_msg)
 
-class YPYClientError(YPYError):
+class YClientError(YError):
     """
     Exception for Client Side Validation
     """
     def __init__(self, error_msg):
-        super(YPYClientError, self).__init__(error_msg)
+        super(YClientError, self).__init__(error_msg)
 
 
-class YPYServiceProviderError(YPYError):
+class YServiceProviderError(YError):
     """
     Exception for Provider Side Validation
     """
     def __init__(self, error_msg):
-        super(YPYServiceProviderError, self).__init__(error_msg)
+        super(YServiceProviderError, self).__init__(error_msg)
 
 
-class YPYServiceError(YPYError):
+class YServiceError(YError):
     """
     Exception for Service Side Validation
     """
     def __init__(self, error_msg):
-        super(YPYServiceError, self).__init__(error_msg)
+        super(YServiceError, self).__init__(error_msg)
 
 
-class YPYIllegalStateError(YPYError):
+class YIllegalStateError(YError):
     """Illegal State Error.
     Thrown when an operation/service is invoked on an object that is not
     in the right state. Use the error_msg for the error.
     """
     def __init__(self, error_msg):
-        super(YPYIllegalStateError, self).__init__(error_msg)
+        super(YIllegalStateError, self).__init__(error_msg)
 
 
-class YPYInvalidArgumentError(YPYError):
+class YInvalidArgumentError(YError):
     """Invalid Argument.
     Use the error_msg for the error.
     """
     def __init__(self, error_msg):
-        super(YPYInvalidArgumentError, self).__init__(error_msg)
+        super(YInvalidArgumentError, self).__init__(error_msg)
 
 
-class YPYOperationNotSupportedError(YPYError):
+class YOperationNotSupportedError(YError):
     """Operation Not Supported Error.
     Thrown when an yfilter is not supported.
     """
     def __init__(self, error_msg):
-        super(YPYOperationNotSupportedError, self).__init__(error_msg)
+        super(YOperationNotSupportedError, self).__init__(error_msg)
 
 
-class YPYModelError(YPYError):
+class YModelError(YError):
     """Model Error.
     Thrown when a model constraint is violated.
     """
     def __init__(self, error_msg):
-        super(YPYModelError, self).__init__(error_msg)
+        super(YModelError, self).__init__(error_msg)

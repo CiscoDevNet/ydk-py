@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -52,12 +54,15 @@ class MplsOam(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-mpls-oam-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"reply-mode" : ("reply_mode", MplsOam.ReplyMode)}
-        self._child_list_classes = {}
-
-        self.enable_oam = YLeaf(YType.empty, "enable-oam")
-
-        self.disable_vendor_extension = YLeaf(YType.empty, "disable-vendor-extension")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("reply-mode", ("reply_mode", MplsOam.ReplyMode))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('enable_oam', YLeaf(YType.empty, 'enable-oam')),
+            ('disable_vendor_extension', YLeaf(YType.empty, 'disable-vendor-extension')),
+        ])
+        self.enable_oam = None
+        self.disable_vendor_extension = None
 
         self.reply_mode = MplsOam.ReplyMode()
         self.reply_mode.parent = self
@@ -92,8 +97,10 @@ class MplsOam(Entity):
             self.yang_parent_name = "mpls-oam"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"control-channel" : ("control_channel", MplsOam.ReplyMode.ControlChannel)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("control-channel", ("control_channel", MplsOam.ReplyMode.ControlChannel))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.control_channel = MplsOam.ReplyMode.ControlChannel()
             self.control_channel.parent = self
@@ -126,10 +133,13 @@ class MplsOam(Entity):
                 self.yang_parent_name = "reply-mode"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.allow_reverse_lsp = YLeaf(YType.empty, "allow-reverse-lsp")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('allow_reverse_lsp', YLeaf(YType.empty, 'allow-reverse-lsp')),
+                ])
+                self.allow_reverse_lsp = None
                 self._segment_path = lambda: "control-channel"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/reply-mode/%s" % self._segment_path()
 

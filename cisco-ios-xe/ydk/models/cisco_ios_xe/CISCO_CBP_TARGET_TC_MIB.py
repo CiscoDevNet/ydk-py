@@ -7,15 +7,17 @@ or entity to which a class based policy is able to be
 associated.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CcbptPolicySourceType(Enum):
     """
-    CcbptPolicySourceType
+    CcbptPolicySourceType (Enum Class)
 
     This Textual Convention represents the types of sources of 
 
@@ -46,7 +48,7 @@ class CcbptPolicySourceType(Enum):
 
 class CcbptTargetDirection(Enum):
     """
-    CcbptTargetDirection
+    CcbptTargetDirection (Enum Class)
 
     A Textual Convention that represents a direction for a target.
 
@@ -87,7 +89,7 @@ class CcbptTargetDirection(Enum):
 
 class CcbptTargetType(Enum):
     """
-    CcbptTargetType
+    CcbptTargetType (Enum Class)
 
     A Textual Convention that represents a type of target.
 

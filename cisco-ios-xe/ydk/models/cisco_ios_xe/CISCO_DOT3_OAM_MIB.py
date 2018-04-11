@@ -66,9 +66,11 @@ The following reference is used throughout this MIB module\:
     Architecture', IEEE 802, June 2001.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -122,8 +124,10 @@ class CISCODOT3OAMMIB(Entity):
         self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cdot3OamTable" : ("cdot3oamtable", CISCODOT3OAMMIB.Cdot3Oamtable), "cdot3OamPeerTable" : ("cdot3oampeertable", CISCODOT3OAMMIB.Cdot3Oampeertable), "cdot3OamLoopbackTable" : ("cdot3oamloopbacktable", CISCODOT3OAMMIB.Cdot3Oamloopbacktable), "cdot3OamStatsTable" : ("cdot3oamstatstable", CISCODOT3OAMMIB.Cdot3Oamstatstable), "cdot3OamEventConfigTable" : ("cdot3oameventconfigtable", CISCODOT3OAMMIB.Cdot3Oameventconfigtable), "cdot3OamEventLogTable" : ("cdot3oameventlogtable", CISCODOT3OAMMIB.Cdot3Oameventlogtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cdot3OamTable", ("cdot3oamtable", CISCODOT3OAMMIB.Cdot3Oamtable)), ("cdot3OamPeerTable", ("cdot3oampeertable", CISCODOT3OAMMIB.Cdot3Oampeertable)), ("cdot3OamLoopbackTable", ("cdot3oamloopbacktable", CISCODOT3OAMMIB.Cdot3Oamloopbacktable)), ("cdot3OamStatsTable", ("cdot3oamstatstable", CISCODOT3OAMMIB.Cdot3Oamstatstable)), ("cdot3OamEventConfigTable", ("cdot3oameventconfigtable", CISCODOT3OAMMIB.Cdot3Oameventconfigtable)), ("cdot3OamEventLogTable", ("cdot3oameventlogtable", CISCODOT3OAMMIB.Cdot3Oameventlogtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cdot3oamtable = CISCODOT3OAMMIB.Cdot3Oamtable()
         self.cdot3oamtable.parent = self
@@ -183,8 +187,10 @@ class CISCODOT3OAMMIB(Entity):
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdot3OamEntry" : ("cdot3oamentry", CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdot3OamEntry", ("cdot3oamentry", CISCODOT3OAMMIB.Cdot3Oamtable.Cdot3Oamentry))])
+            self._leafs = OrderedDict()
 
             self.cdot3oamentry = YList(self)
             self._segment_path = lambda: "cdot3OamTable"
@@ -205,7 +211,7 @@ class CISCODOT3OAMMIB(Entity):
             A cdot3OamEntry is indexed in the cdot3OamTable by the ifIndex
             object of the Interfaces MIB.  
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -264,23 +270,26 @@ class CISCODOT3OAMMIB(Entity):
                 self.yang_parent_name = "cdot3OamTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cdot3oamadminstate = YLeaf(YType.enumeration, "cdot3OamAdminState")
-
-                self.cdot3oamoperstatus = YLeaf(YType.enumeration, "cdot3OamOperStatus")
-
-                self.cdot3oammode = YLeaf(YType.enumeration, "cdot3OamMode")
-
-                self.cdot3oammaxoampdusize = YLeaf(YType.uint32, "cdot3OamMaxOamPduSize")
-
-                self.cdot3oamconfigrevision = YLeaf(YType.uint32, "cdot3OamConfigRevision")
-
-                self.cdot3oamfunctionssupported = YLeaf(YType.bits, "cdot3OamFunctionsSupported")
-                self._segment_path = lambda: "cdot3OamEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cdot3oamadminstate', YLeaf(YType.enumeration, 'cdot3OamAdminState')),
+                    ('cdot3oamoperstatus', YLeaf(YType.enumeration, 'cdot3OamOperStatus')),
+                    ('cdot3oammode', YLeaf(YType.enumeration, 'cdot3OamMode')),
+                    ('cdot3oammaxoampdusize', YLeaf(YType.uint32, 'cdot3OamMaxOamPduSize')),
+                    ('cdot3oamconfigrevision', YLeaf(YType.uint32, 'cdot3OamConfigRevision')),
+                    ('cdot3oamfunctionssupported', YLeaf(YType.bits, 'cdot3OamFunctionsSupported')),
+                ])
+                self.ifindex = None
+                self.cdot3oamadminstate = None
+                self.cdot3oamoperstatus = None
+                self.cdot3oammode = None
+                self.cdot3oammaxoampdusize = None
+                self.cdot3oamconfigrevision = None
+                self.cdot3oamfunctionssupported = Bits()
+                self._segment_path = lambda: "cdot3OamEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -288,7 +297,7 @@ class CISCODOT3OAMMIB(Entity):
 
             class Cdot3Oamadminstate(Enum):
                 """
-                Cdot3Oamadminstate
+                Cdot3Oamadminstate (Enum Class)
 
                 This object is used to provision the default administrative
 
@@ -319,7 +328,7 @@ class CISCODOT3OAMMIB(Entity):
 
             class Cdot3Oammode(Enum):
                 """
-                Cdot3Oammode
+                Cdot3Oammode (Enum Class)
 
                 This object configures the mode of OAM operation for this
 
@@ -370,7 +379,7 @@ class CISCODOT3OAMMIB(Entity):
 
             class Cdot3Oamoperstatus(Enum):
                 """
-                Cdot3Oamoperstatus
+                Cdot3Oamoperstatus (Enum Class)
 
                 At initialization and failure conditions, two OAM entities on
 
@@ -556,8 +565,10 @@ class CISCODOT3OAMMIB(Entity):
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdot3OamPeerEntry" : ("cdot3oampeerentry", CISCODOT3OAMMIB.Cdot3Oampeertable.Cdot3Oampeerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdot3OamPeerEntry", ("cdot3oampeerentry", CISCODOT3OAMMIB.Cdot3Oampeertable.Cdot3Oampeerentry))])
+            self._leafs = OrderedDict()
 
             self.cdot3oampeerentry = YList(self)
             self._segment_path = lambda: "cdot3OamPeerTable"
@@ -580,7 +591,7 @@ class CISCODOT3OAMMIB(Entity):
             cdot3OamOperStatus is disabled(1), linkFault(2),
             passiveWait(3), activeSendLocal(4). or nonOperHalfDuplex(10)). 
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -650,25 +661,28 @@ class CISCODOT3OAMMIB(Entity):
                 self.yang_parent_name = "cdot3OamPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cdot3oampeermacaddress = YLeaf(YType.str, "cdot3OamPeerMacAddress")
-
-                self.cdot3oampeervendoroui = YLeaf(YType.str, "cdot3OamPeerVendorOui")
-
-                self.cdot3oampeervendorinfo = YLeaf(YType.uint32, "cdot3OamPeerVendorInfo")
-
-                self.cdot3oampeermode = YLeaf(YType.enumeration, "cdot3OamPeerMode")
-
-                self.cdot3oampeermaxoampdusize = YLeaf(YType.uint32, "cdot3OamPeerMaxOamPduSize")
-
-                self.cdot3oampeerconfigrevision = YLeaf(YType.uint32, "cdot3OamPeerConfigRevision")
-
-                self.cdot3oampeerfunctionssupported = YLeaf(YType.bits, "cdot3OamPeerFunctionsSupported")
-                self._segment_path = lambda: "cdot3OamPeerEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cdot3oampeermacaddress', YLeaf(YType.str, 'cdot3OamPeerMacAddress')),
+                    ('cdot3oampeervendoroui', YLeaf(YType.str, 'cdot3OamPeerVendorOui')),
+                    ('cdot3oampeervendorinfo', YLeaf(YType.uint32, 'cdot3OamPeerVendorInfo')),
+                    ('cdot3oampeermode', YLeaf(YType.enumeration, 'cdot3OamPeerMode')),
+                    ('cdot3oampeermaxoampdusize', YLeaf(YType.uint32, 'cdot3OamPeerMaxOamPduSize')),
+                    ('cdot3oampeerconfigrevision', YLeaf(YType.uint32, 'cdot3OamPeerConfigRevision')),
+                    ('cdot3oampeerfunctionssupported', YLeaf(YType.bits, 'cdot3OamPeerFunctionsSupported')),
+                ])
+                self.ifindex = None
+                self.cdot3oampeermacaddress = None
+                self.cdot3oampeervendoroui = None
+                self.cdot3oampeervendorinfo = None
+                self.cdot3oampeermode = None
+                self.cdot3oampeermaxoampdusize = None
+                self.cdot3oampeerconfigrevision = None
+                self.cdot3oampeerfunctionssupported = Bits()
+                self._segment_path = lambda: "cdot3OamPeerEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -676,7 +690,7 @@ class CISCODOT3OAMMIB(Entity):
 
             class Cdot3Oampeermode(Enum):
                 """
-                Cdot3Oampeermode
+                Cdot3Oampeermode (Enum Class)
 
                 The mode of the OAM peer as reflected in the latest
 
@@ -748,8 +762,10 @@ class CISCODOT3OAMMIB(Entity):
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdot3OamLoopbackEntry" : ("cdot3oamloopbackentry", CISCODOT3OAMMIB.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdot3OamLoopbackEntry", ("cdot3oamloopbackentry", CISCODOT3OAMMIB.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry))])
+            self._leafs = OrderedDict()
 
             self.cdot3oamloopbackentry = YList(self)
             self._segment_path = lambda: "cdot3OamLoopbackTable"
@@ -768,7 +784,7 @@ class CISCODOT3OAMMIB(Entity):
             interface can be determined from the cdot3OamLoopbackStatus
             object.  
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -801,15 +817,18 @@ class CISCODOT3OAMMIB(Entity):
                 self.yang_parent_name = "cdot3OamLoopbackTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cdot3oamloopbackstatus = YLeaf(YType.enumeration, "cdot3OamLoopbackStatus")
-
-                self.cdot3oamloopbackignorerx = YLeaf(YType.enumeration, "cdot3OamLoopbackIgnoreRx")
-                self._segment_path = lambda: "cdot3OamLoopbackEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cdot3oamloopbackstatus', YLeaf(YType.enumeration, 'cdot3OamLoopbackStatus')),
+                    ('cdot3oamloopbackignorerx', YLeaf(YType.enumeration, 'cdot3OamLoopbackIgnoreRx')),
+                ])
+                self.ifindex = None
+                self.cdot3oamloopbackstatus = None
+                self.cdot3oamloopbackignorerx = None
+                self._segment_path = lambda: "cdot3OamLoopbackEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamLoopbackTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -817,7 +836,7 @@ class CISCODOT3OAMMIB(Entity):
 
             class Cdot3Oamloopbackignorerx(Enum):
                 """
-                Cdot3Oamloopbackignorerx
+                Cdot3Oamloopbackignorerx (Enum Class)
 
                 Since OAM loopback is a disruptive operation (user traffic
 
@@ -846,7 +865,7 @@ class CISCODOT3OAMMIB(Entity):
 
             class Cdot3Oamloopbackstatus(Enum):
                 """
-                Cdot3Oamloopbackstatus
+                Cdot3Oamloopbackstatus (Enum Class)
 
                 The loopback status of the OAM entity.  This status is
 
@@ -996,8 +1015,10 @@ class CISCODOT3OAMMIB(Entity):
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdot3OamStatsEntry" : ("cdot3oamstatsentry", CISCODOT3OAMMIB.Cdot3Oamstatstable.Cdot3Oamstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdot3OamStatsEntry", ("cdot3oamstatsentry", CISCODOT3OAMMIB.Cdot3Oamstatstable.Cdot3Oamstatsentry))])
+            self._leafs = OrderedDict()
 
             self.cdot3oamstatsentry = YList(self)
             self._segment_path = lambda: "cdot3OamStatsTable"
@@ -1015,7 +1036,7 @@ class CISCODOT3OAMMIB(Entity):
             in the cdot3OamTable.  Counters are maintained across
             transitions in cdot3OamOperStatus.  
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1191,45 +1212,48 @@ class CISCODOT3OAMMIB(Entity):
                 self.yang_parent_name = "cdot3OamStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cdot3oaminformationtx = YLeaf(YType.uint32, "cdot3OamInformationTx")
-
-                self.cdot3oaminformationrx = YLeaf(YType.uint32, "cdot3OamInformationRx")
-
-                self.cdot3oamuniqueeventnotificationtx = YLeaf(YType.uint32, "cdot3OamUniqueEventNotificationTx")
-
-                self.cdot3oamuniqueeventnotificationrx = YLeaf(YType.uint32, "cdot3OamUniqueEventNotificationRx")
-
-                self.cdot3oamduplicateeventnotificationtx = YLeaf(YType.uint32, "cdot3OamDuplicateEventNotificationTx")
-
-                self.cdot3oamduplicateeventnotificationrx = YLeaf(YType.uint32, "cdot3OamDuplicateEventNotificationRx")
-
-                self.cdot3oamloopbackcontroltx = YLeaf(YType.uint32, "cdot3OamLoopbackControlTx")
-
-                self.cdot3oamloopbackcontrolrx = YLeaf(YType.uint32, "cdot3OamLoopbackControlRx")
-
-                self.cdot3oamvariablerequesttx = YLeaf(YType.uint32, "cdot3OamVariableRequestTx")
-
-                self.cdot3oamvariablerequestrx = YLeaf(YType.uint32, "cdot3OamVariableRequestRx")
-
-                self.cdot3oamvariableresponsetx = YLeaf(YType.uint32, "cdot3OamVariableResponseTx")
-
-                self.cdot3oamvariableresponserx = YLeaf(YType.uint32, "cdot3OamVariableResponseRx")
-
-                self.cdot3oamorgspecifictx = YLeaf(YType.uint32, "cdot3OamOrgSpecificTx")
-
-                self.cdot3oamorgspecificrx = YLeaf(YType.uint32, "cdot3OamOrgSpecificRx")
-
-                self.cdot3oamunsupportedcodestx = YLeaf(YType.uint32, "cdot3OamUnsupportedCodesTx")
-
-                self.cdot3oamunsupportedcodesrx = YLeaf(YType.uint32, "cdot3OamUnsupportedCodesRx")
-
-                self.cdot3oamframeslostduetooam = YLeaf(YType.uint32, "cdot3OamFramesLostDueToOam")
-                self._segment_path = lambda: "cdot3OamStatsEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cdot3oaminformationtx', YLeaf(YType.uint32, 'cdot3OamInformationTx')),
+                    ('cdot3oaminformationrx', YLeaf(YType.uint32, 'cdot3OamInformationRx')),
+                    ('cdot3oamuniqueeventnotificationtx', YLeaf(YType.uint32, 'cdot3OamUniqueEventNotificationTx')),
+                    ('cdot3oamuniqueeventnotificationrx', YLeaf(YType.uint32, 'cdot3OamUniqueEventNotificationRx')),
+                    ('cdot3oamduplicateeventnotificationtx', YLeaf(YType.uint32, 'cdot3OamDuplicateEventNotificationTx')),
+                    ('cdot3oamduplicateeventnotificationrx', YLeaf(YType.uint32, 'cdot3OamDuplicateEventNotificationRx')),
+                    ('cdot3oamloopbackcontroltx', YLeaf(YType.uint32, 'cdot3OamLoopbackControlTx')),
+                    ('cdot3oamloopbackcontrolrx', YLeaf(YType.uint32, 'cdot3OamLoopbackControlRx')),
+                    ('cdot3oamvariablerequesttx', YLeaf(YType.uint32, 'cdot3OamVariableRequestTx')),
+                    ('cdot3oamvariablerequestrx', YLeaf(YType.uint32, 'cdot3OamVariableRequestRx')),
+                    ('cdot3oamvariableresponsetx', YLeaf(YType.uint32, 'cdot3OamVariableResponseTx')),
+                    ('cdot3oamvariableresponserx', YLeaf(YType.uint32, 'cdot3OamVariableResponseRx')),
+                    ('cdot3oamorgspecifictx', YLeaf(YType.uint32, 'cdot3OamOrgSpecificTx')),
+                    ('cdot3oamorgspecificrx', YLeaf(YType.uint32, 'cdot3OamOrgSpecificRx')),
+                    ('cdot3oamunsupportedcodestx', YLeaf(YType.uint32, 'cdot3OamUnsupportedCodesTx')),
+                    ('cdot3oamunsupportedcodesrx', YLeaf(YType.uint32, 'cdot3OamUnsupportedCodesRx')),
+                    ('cdot3oamframeslostduetooam', YLeaf(YType.uint32, 'cdot3OamFramesLostDueToOam')),
+                ])
+                self.ifindex = None
+                self.cdot3oaminformationtx = None
+                self.cdot3oaminformationrx = None
+                self.cdot3oamuniqueeventnotificationtx = None
+                self.cdot3oamuniqueeventnotificationrx = None
+                self.cdot3oamduplicateeventnotificationtx = None
+                self.cdot3oamduplicateeventnotificationrx = None
+                self.cdot3oamloopbackcontroltx = None
+                self.cdot3oamloopbackcontrolrx = None
+                self.cdot3oamvariablerequesttx = None
+                self.cdot3oamvariablerequestrx = None
+                self.cdot3oamvariableresponsetx = None
+                self.cdot3oamvariableresponserx = None
+                self.cdot3oamorgspecifictx = None
+                self.cdot3oamorgspecificrx = None
+                self.cdot3oamunsupportedcodestx = None
+                self.cdot3oamunsupportedcodesrx = None
+                self.cdot3oamframeslostduetooam = None
+                self._segment_path = lambda: "cdot3OamStatsEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1289,8 +1313,10 @@ class CISCODOT3OAMMIB(Entity):
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdot3OamEventConfigEntry" : ("cdot3oameventconfigentry", CISCODOT3OAMMIB.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdot3OamEventConfigEntry", ("cdot3oameventconfigentry", CISCODOT3OAMMIB.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry))])
+            self._leafs = OrderedDict()
 
             self.cdot3oameventconfigentry = YList(self)
             self._segment_path = lambda: "cdot3OamEventConfigTable"
@@ -1312,7 +1338,7 @@ class CISCODOT3OAMMIB(Entity):
             sends Event Notification OAMPDUs to its OAM peer, and when
             certain event flags are set or cleared in OAMPDUs. 
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1455,43 +1481,46 @@ class CISCODOT3OAMMIB(Entity):
                 self.yang_parent_name = "cdot3OamEventConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cdot3oamerrsymperiodwindowhi = YLeaf(YType.uint32, "cdot3OamErrSymPeriodWindowHi")
-
-                self.cdot3oamerrsymperiodwindowlo = YLeaf(YType.uint32, "cdot3OamErrSymPeriodWindowLo")
-
-                self.cdot3oamerrsymperiodthresholdhi = YLeaf(YType.uint32, "cdot3OamErrSymPeriodThresholdHi")
-
-                self.cdot3oamerrsymperiodthresholdlo = YLeaf(YType.uint32, "cdot3OamErrSymPeriodThresholdLo")
-
-                self.cdot3oamerrsymperiodevnotifenable = YLeaf(YType.boolean, "cdot3OamErrSymPeriodEvNotifEnable")
-
-                self.cdot3oamerrframeperiodwindow = YLeaf(YType.uint32, "cdot3OamErrFramePeriodWindow")
-
-                self.cdot3oamerrframeperiodthreshold = YLeaf(YType.uint32, "cdot3OamErrFramePeriodThreshold")
-
-                self.cdot3oamerrframeperiodevnotifenable = YLeaf(YType.boolean, "cdot3OamErrFramePeriodEvNotifEnable")
-
-                self.cdot3oamerrframewindow = YLeaf(YType.uint32, "cdot3OamErrFrameWindow")
-
-                self.cdot3oamerrframethreshold = YLeaf(YType.uint32, "cdot3OamErrFrameThreshold")
-
-                self.cdot3oamerrframeevnotifenable = YLeaf(YType.boolean, "cdot3OamErrFrameEvNotifEnable")
-
-                self.cdot3oamerrframesecssummarywindow = YLeaf(YType.int32, "cdot3OamErrFrameSecsSummaryWindow")
-
-                self.cdot3oamerrframesecssummarythreshold = YLeaf(YType.int32, "cdot3OamErrFrameSecsSummaryThreshold")
-
-                self.cdot3oamerrframesecsevnotifenable = YLeaf(YType.boolean, "cdot3OamErrFrameSecsEvNotifEnable")
-
-                self.cdot3oamdyinggaspenable = YLeaf(YType.boolean, "cdot3OamDyingGaspEnable")
-
-                self.cdot3oamcriticaleventenable = YLeaf(YType.boolean, "cdot3OamCriticalEventEnable")
-                self._segment_path = lambda: "cdot3OamEventConfigEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cdot3oamerrsymperiodwindowhi', YLeaf(YType.uint32, 'cdot3OamErrSymPeriodWindowHi')),
+                    ('cdot3oamerrsymperiodwindowlo', YLeaf(YType.uint32, 'cdot3OamErrSymPeriodWindowLo')),
+                    ('cdot3oamerrsymperiodthresholdhi', YLeaf(YType.uint32, 'cdot3OamErrSymPeriodThresholdHi')),
+                    ('cdot3oamerrsymperiodthresholdlo', YLeaf(YType.uint32, 'cdot3OamErrSymPeriodThresholdLo')),
+                    ('cdot3oamerrsymperiodevnotifenable', YLeaf(YType.boolean, 'cdot3OamErrSymPeriodEvNotifEnable')),
+                    ('cdot3oamerrframeperiodwindow', YLeaf(YType.uint32, 'cdot3OamErrFramePeriodWindow')),
+                    ('cdot3oamerrframeperiodthreshold', YLeaf(YType.uint32, 'cdot3OamErrFramePeriodThreshold')),
+                    ('cdot3oamerrframeperiodevnotifenable', YLeaf(YType.boolean, 'cdot3OamErrFramePeriodEvNotifEnable')),
+                    ('cdot3oamerrframewindow', YLeaf(YType.uint32, 'cdot3OamErrFrameWindow')),
+                    ('cdot3oamerrframethreshold', YLeaf(YType.uint32, 'cdot3OamErrFrameThreshold')),
+                    ('cdot3oamerrframeevnotifenable', YLeaf(YType.boolean, 'cdot3OamErrFrameEvNotifEnable')),
+                    ('cdot3oamerrframesecssummarywindow', YLeaf(YType.int32, 'cdot3OamErrFrameSecsSummaryWindow')),
+                    ('cdot3oamerrframesecssummarythreshold', YLeaf(YType.int32, 'cdot3OamErrFrameSecsSummaryThreshold')),
+                    ('cdot3oamerrframesecsevnotifenable', YLeaf(YType.boolean, 'cdot3OamErrFrameSecsEvNotifEnable')),
+                    ('cdot3oamdyinggaspenable', YLeaf(YType.boolean, 'cdot3OamDyingGaspEnable')),
+                    ('cdot3oamcriticaleventenable', YLeaf(YType.boolean, 'cdot3OamCriticalEventEnable')),
+                ])
+                self.ifindex = None
+                self.cdot3oamerrsymperiodwindowhi = None
+                self.cdot3oamerrsymperiodwindowlo = None
+                self.cdot3oamerrsymperiodthresholdhi = None
+                self.cdot3oamerrsymperiodthresholdlo = None
+                self.cdot3oamerrsymperiodevnotifenable = None
+                self.cdot3oamerrframeperiodwindow = None
+                self.cdot3oamerrframeperiodthreshold = None
+                self.cdot3oamerrframeperiodevnotifenable = None
+                self.cdot3oamerrframewindow = None
+                self.cdot3oamerrframethreshold = None
+                self.cdot3oamerrframeevnotifenable = None
+                self.cdot3oamerrframesecssummarywindow = None
+                self.cdot3oamerrframesecssummarythreshold = None
+                self.cdot3oamerrframesecsevnotifenable = None
+                self.cdot3oamdyinggaspenable = None
+                self.cdot3oamcriticaleventenable = None
+                self._segment_path = lambda: "cdot3OamEventConfigEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamEventConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1540,8 +1569,10 @@ class CISCODOT3OAMMIB(Entity):
             self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdot3OamEventLogEntry" : ("cdot3oameventlogentry", CISCODOT3OAMMIB.Cdot3Oameventlogtable.Cdot3Oameventlogentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdot3OamEventLogEntry", ("cdot3oameventlogentry", CISCODOT3OAMMIB.Cdot3Oameventlogtable.Cdot3Oameventlogentry))])
+            self._leafs = OrderedDict()
 
             self.cdot3oameventlogentry = YList(self)
             self._segment_path = lambda: "cdot3OamEventLogTable"
@@ -1564,7 +1595,7 @@ class CISCODOT3OAMMIB(Entity):
             each new entry, and when the maximum value is reached the
             value restarts at zero.  
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1573,7 +1604,7 @@ class CISCODOT3OAMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: cdot3oameventlogindex  <key>
+            .. attribute:: cdot3oameventlogindex  (key)
             
             	An arbitrary integer for identifying individual events within the event log.  
             	**type**\: int
@@ -1669,35 +1700,38 @@ class CISCODOT3OAMMIB(Entity):
                 self.yang_parent_name = "cdot3OamEventLogTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cdot3oameventlogindex = YLeaf(YType.uint32, "cdot3OamEventLogIndex")
-
-                self.cdot3oameventlogtimestamp = YLeaf(YType.uint32, "cdot3OamEventLogTimestamp")
-
-                self.cdot3oameventlogoui = YLeaf(YType.str, "cdot3OamEventLogOui")
-
-                self.cdot3oameventlogtype = YLeaf(YType.uint32, "cdot3OamEventLogType")
-
-                self.cdot3oameventloglocation = YLeaf(YType.enumeration, "cdot3OamEventLogLocation")
-
-                self.cdot3oameventlogwindowhi = YLeaf(YType.uint32, "cdot3OamEventLogWindowHi")
-
-                self.cdot3oameventlogwindowlo = YLeaf(YType.uint32, "cdot3OamEventLogWindowLo")
-
-                self.cdot3oameventlogthresholdhi = YLeaf(YType.uint32, "cdot3OamEventLogThresholdHi")
-
-                self.cdot3oameventlogthresholdlo = YLeaf(YType.uint32, "cdot3OamEventLogThresholdLo")
-
-                self.cdot3oameventlogvalue = YLeaf(YType.uint64, "cdot3OamEventLogValue")
-
-                self.cdot3oameventlogrunningtotal = YLeaf(YType.uint64, "cdot3OamEventLogRunningTotal")
-
-                self.cdot3oameventlogeventtotal = YLeaf(YType.uint32, "cdot3OamEventLogEventTotal")
-                self._segment_path = lambda: "cdot3OamEventLogEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cdot3OamEventLogIndex='" + self.cdot3oameventlogindex.get() + "']"
+                self.ylist_key_names = ['ifindex','cdot3oameventlogindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cdot3oameventlogindex', YLeaf(YType.uint32, 'cdot3OamEventLogIndex')),
+                    ('cdot3oameventlogtimestamp', YLeaf(YType.uint32, 'cdot3OamEventLogTimestamp')),
+                    ('cdot3oameventlogoui', YLeaf(YType.str, 'cdot3OamEventLogOui')),
+                    ('cdot3oameventlogtype', YLeaf(YType.uint32, 'cdot3OamEventLogType')),
+                    ('cdot3oameventloglocation', YLeaf(YType.enumeration, 'cdot3OamEventLogLocation')),
+                    ('cdot3oameventlogwindowhi', YLeaf(YType.uint32, 'cdot3OamEventLogWindowHi')),
+                    ('cdot3oameventlogwindowlo', YLeaf(YType.uint32, 'cdot3OamEventLogWindowLo')),
+                    ('cdot3oameventlogthresholdhi', YLeaf(YType.uint32, 'cdot3OamEventLogThresholdHi')),
+                    ('cdot3oameventlogthresholdlo', YLeaf(YType.uint32, 'cdot3OamEventLogThresholdLo')),
+                    ('cdot3oameventlogvalue', YLeaf(YType.uint64, 'cdot3OamEventLogValue')),
+                    ('cdot3oameventlogrunningtotal', YLeaf(YType.uint64, 'cdot3OamEventLogRunningTotal')),
+                    ('cdot3oameventlogeventtotal', YLeaf(YType.uint32, 'cdot3OamEventLogEventTotal')),
+                ])
+                self.ifindex = None
+                self.cdot3oameventlogindex = None
+                self.cdot3oameventlogtimestamp = None
+                self.cdot3oameventlogoui = None
+                self.cdot3oameventlogtype = None
+                self.cdot3oameventloglocation = None
+                self.cdot3oameventlogwindowhi = None
+                self.cdot3oameventlogwindowlo = None
+                self.cdot3oameventlogthresholdhi = None
+                self.cdot3oameventlogthresholdlo = None
+                self.cdot3oameventlogvalue = None
+                self.cdot3oameventlogrunningtotal = None
+                self.cdot3oameventlogeventtotal = None
+                self._segment_path = lambda: "cdot3OamEventLogEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cdot3OamEventLogIndex='" + str(self.cdot3oameventlogindex) + "']"
                 self._absolute_path = lambda: "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamEventLogTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1705,7 +1739,7 @@ class CISCODOT3OAMMIB(Entity):
 
             class Cdot3Oameventloglocation(Enum):
                 """
-                Cdot3Oameventloglocation
+                Cdot3Oameventloglocation (Enum Class)
 
                 Whether this event occurred locally (local(1)), or was 
 

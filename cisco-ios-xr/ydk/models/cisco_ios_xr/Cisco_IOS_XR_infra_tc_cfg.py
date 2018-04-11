@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CollectIonInterval(Enum):
     """
-    CollectIonInterval
+    CollectIonInterval (Enum Class)
 
     Collect ion interval
 
@@ -101,7 +103,7 @@ class CollectIonInterval(Enum):
 
 class HistorySize(Enum):
     """
-    HistorySize
+    HistorySize (Enum Class)
 
     History size
 
@@ -116,7 +118,7 @@ class HistorySize(Enum):
 
 class HistoryTimeout(Enum):
     """
-    HistoryTimeout
+    HistoryTimeout (Enum Class)
 
     History timeout
 
@@ -164,10 +166,13 @@ class TrafficCollector(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-tc-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"external-interfaces" : ("external_interfaces", TrafficCollector.ExternalInterfaces), "statistics" : ("statistics", TrafficCollector.Statistics)}
-        self._child_list_classes = {}
-
-        self.enable_traffic_collector = YLeaf(YType.empty, "enable-traffic-collector")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("external-interfaces", ("external_interfaces", TrafficCollector.ExternalInterfaces)), ("statistics", ("statistics", TrafficCollector.Statistics))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('enable_traffic_collector', YLeaf(YType.empty, 'enable-traffic-collector')),
+        ])
+        self.enable_traffic_collector = None
 
         self.external_interfaces = TrafficCollector.ExternalInterfaces()
         self.external_interfaces.parent = self
@@ -207,8 +212,10 @@ class TrafficCollector(Entity):
             self.yang_parent_name = "traffic-collector"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"external-interface" : ("external_interface", TrafficCollector.ExternalInterfaces.ExternalInterface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("external-interface", ("external_interface", TrafficCollector.ExternalInterfaces.ExternalInterface))])
+            self._leafs = OrderedDict()
 
             self.external_interface = YList(self)
             self._segment_path = lambda: "external-interfaces"
@@ -222,7 +229,7 @@ class TrafficCollector(Entity):
             """
             Configure an external internface
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	Name of interface
             	**type**\: str
@@ -248,13 +255,16 @@ class TrafficCollector(Entity):
                 self.yang_parent_name = "external-interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.enable = YLeaf(YType.empty, "enable")
-                self._segment_path = lambda: "external-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.interface_name = None
+                self.enable = None
+                self._segment_path = lambda: "external-interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/external-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -311,16 +321,19 @@ class TrafficCollector(Entity):
             self.yang_parent_name = "traffic-collector"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.history_size = YLeaf(YType.str, "history-size")
-
-            self.collection_interval = YLeaf(YType.enumeration, "collection-interval")
-
-            self.enable_traffic_collector_statistics = YLeaf(YType.empty, "enable-traffic-collector-statistics")
-
-            self.history_timeout = YLeaf(YType.str, "history-timeout")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('history_size', YLeaf(YType.str, 'history-size')),
+                ('collection_interval', YLeaf(YType.enumeration, 'collection-interval')),
+                ('enable_traffic_collector_statistics', YLeaf(YType.empty, 'enable-traffic-collector-statistics')),
+                ('history_timeout', YLeaf(YType.str, 'history-timeout')),
+            ])
+            self.history_size = None
+            self.collection_interval = None
+            self.enable_traffic_collector_statistics = None
+            self.history_timeout = None
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/%s" % self._segment_path()
 

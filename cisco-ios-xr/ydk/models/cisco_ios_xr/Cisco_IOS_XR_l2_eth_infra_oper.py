@@ -13,15 +13,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class EfpPayloadEtype(Enum):
     """
-    EfpPayloadEtype
+    EfpPayloadEtype (Enum Class)
 
     Payload ethertype match
 
@@ -48,7 +50,7 @@ class EfpPayloadEtype(Enum):
 
 class EfpTagEtype(Enum):
     """
-    EfpTagEtype
+    EfpTagEtype (Enum Class)
 
     Tag ethertype
 
@@ -75,7 +77,7 @@ class EfpTagEtype(Enum):
 
 class EfpTagPriority(Enum):
     """
-    EfpTagPriority
+    EfpTagPriority (Enum Class)
 
     Priority
 
@@ -138,7 +140,7 @@ class EfpTagPriority(Enum):
 
 class EthCapsUcastMacMode(Enum):
     """
-    EthCapsUcastMacMode
+    EthCapsUcastMacMode (Enum Class)
 
     Eth caps ucast mac mode
 
@@ -159,7 +161,7 @@ class EthCapsUcastMacMode(Enum):
 
 class EthFiltering(Enum):
     """
-    EthFiltering
+    EthFiltering (Enum Class)
 
     Ethernet frame filtering
 
@@ -194,7 +196,7 @@ class EthFiltering(Enum):
 
 class ImStateEnum(Enum):
     """
-    ImStateEnum
+    ImStateEnum (Enum Class)
 
     Im state enum
 
@@ -317,7 +319,7 @@ class ImStateEnum(Enum):
 
 class VlanEncaps(Enum):
     """
-    VlanEncaps
+    VlanEncaps (Enum Class)
 
     VLAN encapsulation
 
@@ -386,7 +388,7 @@ class VlanEncaps(Enum):
 
 class VlanQinqOuterEtype(Enum):
     """
-    VlanQinqOuterEtype
+    VlanQinqOuterEtype (Enum Class)
 
     QinQ Outer Tag Ethertype
 
@@ -413,7 +415,7 @@ class VlanQinqOuterEtype(Enum):
 
 class VlanService(Enum):
     """
-    VlanService
+    VlanService (Enum Class)
 
     Layer 2 vs. Layer 3 Terminated Service
 
@@ -457,8 +459,10 @@ class MacAccounting(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"interfaces" : ("interfaces", MacAccounting.Interfaces)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", MacAccounting.Interfaces))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.interfaces = MacAccounting.Interfaces()
         self.interfaces.parent = self
@@ -491,8 +495,10 @@ class MacAccounting(Entity):
             self.yang_parent_name = "mac-accounting"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", MacAccounting.Interfaces.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", MacAccounting.Interfaces.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
@@ -508,7 +514,7 @@ class MacAccounting(Entity):
             interface configured with MAC accounting
             enabled
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The interface name
             	**type**\: str
@@ -544,10 +550,13 @@ class MacAccounting(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"state" : ("state", MacAccounting.Interfaces.Interface.State)}
-                self._child_list_classes = {"ingress-statistic" : ("ingress_statistic", MacAccounting.Interfaces.Interface.IngressStatistic), "egress-statistic" : ("egress_statistic", MacAccounting.Interfaces.Interface.EgressStatistic)}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([("state", ("state", MacAccounting.Interfaces.Interface.State))])
+                self._child_list_classes = OrderedDict([("ingress-statistic", ("ingress_statistic", MacAccounting.Interfaces.Interface.IngressStatistic)), ("egress-statistic", ("egress_statistic", MacAccounting.Interfaces.Interface.EgressStatistic))])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                ])
+                self.interface_name = None
 
                 self.state = MacAccounting.Interfaces.Interface.State()
                 self.state.parent = self
@@ -556,7 +565,7 @@ class MacAccounting(Entity):
 
                 self.ingress_statistic = YList(self)
                 self.egress_statistic = YList(self)
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -612,18 +621,21 @@ class MacAccounting(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.is_ingress_enabled = YLeaf(YType.boolean, "is-ingress-enabled")
-
-                    self.is_egress_enabled = YLeaf(YType.boolean, "is-egress-enabled")
-
-                    self.number_available_ingress = YLeaf(YType.uint32, "number-available-ingress")
-
-                    self.number_available_egress = YLeaf(YType.uint32, "number-available-egress")
-
-                    self.number_available_on_node = YLeaf(YType.uint32, "number-available-on-node")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('is_ingress_enabled', YLeaf(YType.boolean, 'is-ingress-enabled')),
+                        ('is_egress_enabled', YLeaf(YType.boolean, 'is-egress-enabled')),
+                        ('number_available_ingress', YLeaf(YType.uint32, 'number-available-ingress')),
+                        ('number_available_egress', YLeaf(YType.uint32, 'number-available-egress')),
+                        ('number_available_on_node', YLeaf(YType.uint32, 'number-available-on-node')),
+                    ])
+                    self.is_ingress_enabled = None
+                    self.is_egress_enabled = None
+                    self.number_available_ingress = None
+                    self.number_available_egress = None
+                    self.number_available_on_node = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -671,14 +683,17 @@ class MacAccounting(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.packets = YLeaf(YType.uint64, "packets")
-
-                    self.bytes = YLeaf(YType.uint64, "bytes")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                        ('packets', YLeaf(YType.uint64, 'packets')),
+                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                    ])
+                    self.mac_address = None
+                    self.packets = None
+                    self.bytes = None
                     self._segment_path = lambda: "ingress-statistic"
 
                 def __setattr__(self, name, value):
@@ -726,14 +741,17 @@ class MacAccounting(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.packets = YLeaf(YType.uint64, "packets")
-
-                    self.bytes = YLeaf(YType.uint64, "bytes")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                        ('packets', YLeaf(YType.uint64, 'packets')),
+                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                    ])
+                    self.mac_address = None
+                    self.packets = None
+                    self.bytes = None
                     self._segment_path = lambda: "egress-statistic"
 
                 def __setattr__(self, name, value):
@@ -767,8 +785,10 @@ class Vlan(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Vlan.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Vlan.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Vlan.Nodes()
         self.nodes.parent = self
@@ -800,8 +820,10 @@ class Vlan(Entity):
             self.yang_parent_name = "vlan"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Vlan.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Vlan.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -815,7 +837,7 @@ class Vlan(Entity):
             """
             The VLAN operational data for a particular node
             
-            .. attribute:: node_id  <key>
+            .. attribute:: node_id  (key)
             
             	The identifier for the node
             	**type**\: str
@@ -851,10 +873,13 @@ class Vlan(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"trunks" : ("trunks", Vlan.Nodes.Node.Trunks), "interfaces" : ("interfaces", Vlan.Nodes.Node.Interfaces), "tag-allocations" : ("tag_allocations", Vlan.Nodes.Node.TagAllocations)}
-                self._child_list_classes = {}
-
-                self.node_id = YLeaf(YType.str, "node-id")
+                self.ylist_key_names = ['node_id']
+                self._child_container_classes = OrderedDict([("trunks", ("trunks", Vlan.Nodes.Node.Trunks)), ("interfaces", ("interfaces", Vlan.Nodes.Node.Interfaces)), ("tag-allocations", ("tag_allocations", Vlan.Nodes.Node.TagAllocations))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_id', YLeaf(YType.str, 'node-id')),
+                ])
+                self.node_id = None
 
                 self.trunks = Vlan.Nodes.Node.Trunks()
                 self.trunks.parent = self
@@ -870,7 +895,7 @@ class Vlan(Entity):
                 self.tag_allocations.parent = self
                 self._children_name_map["tag_allocations"] = "tag-allocations"
                 self._children_yang_names.add("tag-allocations")
-                self._segment_path = lambda: "node" + "[node-id='" + self.node_id.get() + "']"
+                self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -900,8 +925,10 @@ class Vlan(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"trunk" : ("trunk", Vlan.Nodes.Node.Trunks.Trunk)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("trunk", ("trunk", Vlan.Nodes.Node.Trunks.Trunk))])
+                    self._leafs = OrderedDict()
 
                     self.trunk = YList(self)
                     self._segment_path = lambda: "trunks"
@@ -915,7 +942,7 @@ class Vlan(Entity):
                     Operational data for trunk interfaces
                     configured with VLANs
                     
-                    .. attribute:: interface  <key>
+                    .. attribute:: interface  (key)
                     
                     	The interface name
                     	**type**\: str
@@ -989,24 +1016,27 @@ class Vlan(Entity):
                         self.yang_parent_name = "trunks"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"layer2-sub-interfaces" : ("layer2_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces), "layer3-sub-interfaces" : ("layer3_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces)}
-                        self._child_list_classes = {}
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.interface_xr = YLeaf(YType.str, "interface-xr")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.mtu = YLeaf(YType.uint16, "mtu")
-
-                        self.qinq_outer_ether_type = YLeaf(YType.enumeration, "qinq-outer-ether-type")
-
-                        self.dot1ad_count = YLeaf(YType.uint32, "dot1ad-count")
-
-                        self.untagged_interface = YLeaf(YType.str, "untagged-interface")
-
-                        self.mac_filtering = YLeaf(YType.enumeration, "mac-filtering")
+                        self.ylist_key_names = ['interface']
+                        self._child_container_classes = OrderedDict([("layer2-sub-interfaces", ("layer2_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces)), ("layer3-sub-interfaces", ("layer3_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('interface_xr', YLeaf(YType.str, 'interface-xr')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('mtu', YLeaf(YType.uint16, 'mtu')),
+                            ('qinq_outer_ether_type', YLeaf(YType.enumeration, 'qinq-outer-ether-type')),
+                            ('dot1ad_count', YLeaf(YType.uint32, 'dot1ad-count')),
+                            ('untagged_interface', YLeaf(YType.str, 'untagged-interface')),
+                            ('mac_filtering', YLeaf(YType.enumeration, 'mac-filtering')),
+                        ])
+                        self.interface = None
+                        self.interface_xr = None
+                        self.state = None
+                        self.mtu = None
+                        self.qinq_outer_ether_type = None
+                        self.dot1ad_count = None
+                        self.untagged_interface = None
+                        self.mac_filtering = None
 
                         self.layer2_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces()
                         self.layer2_sub_interfaces.parent = self
@@ -1017,7 +1047,7 @@ class Vlan(Entity):
                         self.layer3_sub_interfaces.parent = self
                         self._children_name_map["layer3_sub_interfaces"] = "layer3-sub-interfaces"
                         self._children_yang_names.add("layer3-sub-interfaces")
-                        self._segment_path = lambda: "trunk" + "[interface='" + self.interface.get() + "']"
+                        self._segment_path = lambda: "trunk" + "[interface='" + str(self.interface) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', 'interface_xr', 'state', 'mtu', 'qinq_outer_ether_type', 'dot1ad_count', 'untagged_interface', 'mac_filtering'], name, value)
@@ -1081,18 +1111,21 @@ class Vlan(Entity):
                             self.yang_parent_name = "trunk"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-counters" : ("state_counters", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters)}
-                            self._child_list_classes = {}
-
-                            self.total_count = YLeaf(YType.uint32, "total-count")
-
-                            self.dot1q_count = YLeaf(YType.uint32, "dot1q-count")
-
-                            self.qin_q_count = YLeaf(YType.uint32, "qin-q-count")
-
-                            self.qin_any_count = YLeaf(YType.uint32, "qin-any-count")
-
-                            self.untagged_count = YLeaf(YType.uint32, "untagged-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("state-counters", ("state_counters", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('total_count', YLeaf(YType.uint32, 'total-count')),
+                                ('dot1q_count', YLeaf(YType.uint32, 'dot1q-count')),
+                                ('qin_q_count', YLeaf(YType.uint32, 'qin-q-count')),
+                                ('qin_any_count', YLeaf(YType.uint32, 'qin-any-count')),
+                                ('untagged_count', YLeaf(YType.uint32, 'untagged-count')),
+                            ])
+                            self.total_count = None
+                            self.dot1q_count = None
+                            self.qin_q_count = None
+                            self.qin_any_count = None
+                            self.untagged_count = None
 
                             self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters()
                             self.state_counters.parent = self
@@ -1144,14 +1177,17 @@ class Vlan(Entity):
                                 self.yang_parent_name = "layer2-sub-interfaces"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.up = YLeaf(YType.uint32, "up")
-
-                                self.down = YLeaf(YType.uint32, "down")
-
-                                self.admin_down = YLeaf(YType.uint32, "admin-down")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('up', YLeaf(YType.uint32, 'up')),
+                                    ('down', YLeaf(YType.uint32, 'down')),
+                                    ('admin_down', YLeaf(YType.uint32, 'admin-down')),
+                                ])
+                                self.up = None
+                                self.down = None
+                                self.admin_down = None
                                 self._segment_path = lambda: "state-counters"
 
                             def __setattr__(self, name, value):
@@ -1216,18 +1252,21 @@ class Vlan(Entity):
                             self.yang_parent_name = "trunk"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-counters" : ("state_counters", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters)}
-                            self._child_list_classes = {}
-
-                            self.total_count = YLeaf(YType.uint32, "total-count")
-
-                            self.dot1q_count = YLeaf(YType.uint32, "dot1q-count")
-
-                            self.qin_q_count = YLeaf(YType.uint32, "qin-q-count")
-
-                            self.untagged_count = YLeaf(YType.uint32, "untagged-count")
-
-                            self.native_vlan = YLeaf(YType.uint16, "native-vlan")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("state-counters", ("state_counters", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('total_count', YLeaf(YType.uint32, 'total-count')),
+                                ('dot1q_count', YLeaf(YType.uint32, 'dot1q-count')),
+                                ('qin_q_count', YLeaf(YType.uint32, 'qin-q-count')),
+                                ('untagged_count', YLeaf(YType.uint32, 'untagged-count')),
+                                ('native_vlan', YLeaf(YType.uint16, 'native-vlan')),
+                            ])
+                            self.total_count = None
+                            self.dot1q_count = None
+                            self.qin_q_count = None
+                            self.untagged_count = None
+                            self.native_vlan = None
 
                             self.state_counters = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters()
                             self.state_counters.parent = self
@@ -1279,14 +1318,17 @@ class Vlan(Entity):
                                 self.yang_parent_name = "layer3-sub-interfaces"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.up = YLeaf(YType.uint32, "up")
-
-                                self.down = YLeaf(YType.uint32, "down")
-
-                                self.admin_down = YLeaf(YType.uint32, "admin-down")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('up', YLeaf(YType.uint32, 'up')),
+                                    ('down', YLeaf(YType.uint32, 'down')),
+                                    ('admin_down', YLeaf(YType.uint32, 'admin-down')),
+                                ])
+                                self.up = None
+                                self.down = None
+                                self.admin_down = None
                                 self._segment_path = lambda: "state-counters"
 
                             def __setattr__(self, name, value):
@@ -1316,8 +1358,10 @@ class Vlan(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Vlan.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Vlan.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -1331,7 +1375,7 @@ class Vlan(Entity):
                     Operational data for a sub\-interface
                     configured with VLANs
                     
-                    .. attribute:: interface  <key>
+                    .. attribute:: interface  (key)
                     
                     	The interface name
                     	**type**\: str
@@ -1395,28 +1439,31 @@ class Vlan(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"encapsulation-details" : ("encapsulation_details", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails)}
-                        self._child_list_classes = {}
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.interface_xr = YLeaf(YType.str, "interface-xr")
-
-                        self.parent_interface = YLeaf(YType.str, "parent-interface")
-
-                        self.service = YLeaf(YType.enumeration, "service")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.mtu = YLeaf(YType.uint16, "mtu")
-
-                        self.switched_mtu = YLeaf(YType.uint16, "switched-mtu")
+                        self.ylist_key_names = ['interface']
+                        self._child_container_classes = OrderedDict([("encapsulation-details", ("encapsulation_details", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('interface_xr', YLeaf(YType.str, 'interface-xr')),
+                            ('parent_interface', YLeaf(YType.str, 'parent-interface')),
+                            ('service', YLeaf(YType.enumeration, 'service')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('mtu', YLeaf(YType.uint16, 'mtu')),
+                            ('switched_mtu', YLeaf(YType.uint16, 'switched-mtu')),
+                        ])
+                        self.interface = None
+                        self.interface_xr = None
+                        self.parent_interface = None
+                        self.service = None
+                        self.state = None
+                        self.mtu = None
+                        self.switched_mtu = None
 
                         self.encapsulation_details = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails()
                         self.encapsulation_details.parent = self
                         self._children_name_map["encapsulation_details"] = "encapsulation-details"
                         self._children_yang_names.add("encapsulation-details")
-                        self._segment_path = lambda: "interface" + "[interface='" + self.interface.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
@@ -1502,22 +1549,25 @@ class Vlan(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"stack" : ("stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack), "service-instance-details" : ("service_instance_details", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails), "dot1ad-dot1q-stack" : ("dot1ad_dot1q_stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack)}
-                            self._child_list_classes = {}
-
-                            self.vlan_encapsulation = YLeaf(YType.enumeration, "vlan-encapsulation")
-
-                            self.tag = YLeaf(YType.uint16, "tag")
-
-                            self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                            self.native_tag = YLeaf(YType.uint16, "native-tag")
-
-                            self.dot1ad_tag = YLeaf(YType.uint16, "dot1ad-tag")
-
-                            self.dot1ad_native_tag = YLeaf(YType.uint16, "dot1ad-native-tag")
-
-                            self.dot1ad_outer_tag = YLeaf(YType.uint16, "dot1ad-outer-tag")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("stack", ("stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack)), ("service-instance-details", ("service_instance_details", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails)), ("dot1ad-dot1q-stack", ("dot1ad_dot1q_stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vlan_encapsulation', YLeaf(YType.enumeration, 'vlan-encapsulation')),
+                                ('tag', YLeaf(YType.uint16, 'tag')),
+                                ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                ('native_tag', YLeaf(YType.uint16, 'native-tag')),
+                                ('dot1ad_tag', YLeaf(YType.uint16, 'dot1ad-tag')),
+                                ('dot1ad_native_tag', YLeaf(YType.uint16, 'dot1ad-native-tag')),
+                                ('dot1ad_outer_tag', YLeaf(YType.uint16, 'dot1ad-outer-tag')),
+                            ])
+                            self.vlan_encapsulation = None
+                            self.tag = None
+                            self.outer_tag = None
+                            self.native_tag = None
+                            self.dot1ad_tag = None
+                            self.dot1ad_native_tag = None
+                            self.dot1ad_outer_tag = None
 
                             self.stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack()
                             self.stack.parent = self
@@ -1571,12 +1621,15 @@ class Vlan(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                                self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                ])
+                                self.outer_tag = None
+                                self.second_tag = None
                                 self._segment_path = lambda: "stack"
 
                             def __setattr__(self, name, value):
@@ -1657,22 +1710,25 @@ class Vlan(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"local-traffic-stack" : ("local_traffic_stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)}
-                                self._child_list_classes = {"tags-to-match" : ("tags_to_match", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch), "pushe" : ("pushe", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe)}
-
-                                self.payload_ethertype = YLeaf(YType.enumeration, "payload-ethertype")
-
-                                self.tags_popped = YLeaf(YType.uint16, "tags-popped")
-
-                                self.is_exact_match = YLeaf(YType.boolean, "is-exact-match")
-
-                                self.is_native_vlan = YLeaf(YType.boolean, "is-native-vlan")
-
-                                self.is_native_preserving = YLeaf(YType.boolean, "is-native-preserving")
-
-                                self.source_mac_match = YLeaf(YType.str, "source-mac-match")
-
-                                self.destination_mac_match = YLeaf(YType.str, "destination-mac-match")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("local-traffic-stack", ("local_traffic_stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack))])
+                                self._child_list_classes = OrderedDict([("tags-to-match", ("tags_to_match", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)), ("pushe", ("pushe", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe))])
+                                self._leafs = OrderedDict([
+                                    ('payload_ethertype', YLeaf(YType.enumeration, 'payload-ethertype')),
+                                    ('tags_popped', YLeaf(YType.uint16, 'tags-popped')),
+                                    ('is_exact_match', YLeaf(YType.boolean, 'is-exact-match')),
+                                    ('is_native_vlan', YLeaf(YType.boolean, 'is-native-vlan')),
+                                    ('is_native_preserving', YLeaf(YType.boolean, 'is-native-preserving')),
+                                    ('source_mac_match', YLeaf(YType.str, 'source-mac-match')),
+                                    ('destination_mac_match', YLeaf(YType.str, 'destination-mac-match')),
+                                ])
+                                self.payload_ethertype = None
+                                self.tags_popped = None
+                                self.is_exact_match = None
+                                self.is_native_vlan = None
+                                self.is_native_preserving = None
+                                self.source_mac_match = None
+                                self.destination_mac_match = None
 
                                 self.local_traffic_stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
                                 self.local_traffic_stack.parent = self
@@ -1710,8 +1766,10 @@ class Vlan(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"local-traffic-tag" : ("local_traffic_tag", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("local-traffic-tag", ("local_traffic_tag", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag))])
+                                    self._leafs = OrderedDict()
 
                                     self.local_traffic_tag = YList(self)
                                     self._segment_path = lambda: "local-traffic-stack"
@@ -1750,12 +1808,15 @@ class Vlan(Entity):
                                         self.yang_parent_name = "local-traffic-stack"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                        self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                            ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                        ])
+                                        self.ethertype = None
+                                        self.vlan_id = None
                                         self._segment_path = lambda: "local-traffic-tag"
 
                                     def __setattr__(self, name, value):
@@ -1795,12 +1856,15 @@ class Vlan(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"vlan-range" : ("vlan_range", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange)}
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.priority = YLeaf(YType.enumeration, "priority")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("vlan-range", ("vlan_range", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange))])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                        ('priority', YLeaf(YType.enumeration, 'priority')),
+                                    ])
+                                    self.ethertype = None
+                                    self.priority = None
 
                                     self.vlan_range = YList(self)
                                     self._segment_path = lambda: "tags-to-match"
@@ -1841,12 +1905,15 @@ class Vlan(Entity):
                                         self.yang_parent_name = "tags-to-match"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.vlan_id_low = YLeaf(YType.uint16, "vlan-id-low")
-
-                                        self.vlan_id_high = YLeaf(YType.uint16, "vlan-id-high")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('vlan_id_low', YLeaf(YType.uint16, 'vlan-id-low')),
+                                            ('vlan_id_high', YLeaf(YType.uint16, 'vlan-id-high')),
+                                        ])
+                                        self.vlan_id_low = None
+                                        self.vlan_id_high = None
                                         self._segment_path = lambda: "vlan-range"
 
                                     def __setattr__(self, name, value):
@@ -1883,12 +1950,15 @@ class Vlan(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                        ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                    ])
+                                    self.ethertype = None
+                                    self.vlan_id = None
                                     self._segment_path = lambda: "pushe"
 
                                 def __setattr__(self, name, value):
@@ -1927,12 +1997,15 @@ class Vlan(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                                self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                ])
+                                self.outer_tag = None
+                                self.second_tag = None
                                 self._segment_path = lambda: "dot1ad-dot1q-stack"
 
                             def __setattr__(self, name, value):
@@ -1963,8 +2036,10 @@ class Vlan(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"tag-allocation" : ("tag_allocation", Vlan.Nodes.Node.TagAllocations.TagAllocation)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("tag-allocation", ("tag_allocation", Vlan.Nodes.Node.TagAllocations.TagAllocation))])
+                    self._leafs = OrderedDict()
 
                     self.tag_allocation = YList(self)
                     self._segment_path = lambda: "tag-allocations"
@@ -2060,26 +2135,29 @@ class Vlan(Entity):
                         self.yang_parent_name = "tag-allocations"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"encapsulation-details" : ("encapsulation_details", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails)}
-                        self._child_list_classes = {}
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.first_tag = YLeaf(YType.uint32, "first-tag")
-
-                        self.second_tag = YLeaf(YType.str, "second-tag")
-
-                        self.interface_xr = YLeaf(YType.str, "interface-xr")
-
-                        self.parent_interface = YLeaf(YType.str, "parent-interface")
-
-                        self.service = YLeaf(YType.enumeration, "service")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.mtu = YLeaf(YType.uint16, "mtu")
-
-                        self.switched_mtu = YLeaf(YType.uint16, "switched-mtu")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("encapsulation-details", ("encapsulation_details", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('first_tag', YLeaf(YType.uint32, 'first-tag')),
+                            ('second_tag', YLeaf(YType.str, 'second-tag')),
+                            ('interface_xr', YLeaf(YType.str, 'interface-xr')),
+                            ('parent_interface', YLeaf(YType.str, 'parent-interface')),
+                            ('service', YLeaf(YType.enumeration, 'service')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('mtu', YLeaf(YType.uint16, 'mtu')),
+                            ('switched_mtu', YLeaf(YType.uint16, 'switched-mtu')),
+                        ])
+                        self.interface = None
+                        self.first_tag = None
+                        self.second_tag = None
+                        self.interface_xr = None
+                        self.parent_interface = None
+                        self.service = None
+                        self.state = None
+                        self.mtu = None
+                        self.switched_mtu = None
 
                         self.encapsulation_details = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails()
                         self.encapsulation_details.parent = self
@@ -2171,22 +2249,25 @@ class Vlan(Entity):
                             self.yang_parent_name = "tag-allocation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"stack" : ("stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack), "service-instance-details" : ("service_instance_details", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails), "dot1ad-dot1q-stack" : ("dot1ad_dot1q_stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack)}
-                            self._child_list_classes = {}
-
-                            self.vlan_encapsulation = YLeaf(YType.enumeration, "vlan-encapsulation")
-
-                            self.tag = YLeaf(YType.uint16, "tag")
-
-                            self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                            self.native_tag = YLeaf(YType.uint16, "native-tag")
-
-                            self.dot1ad_tag = YLeaf(YType.uint16, "dot1ad-tag")
-
-                            self.dot1ad_native_tag = YLeaf(YType.uint16, "dot1ad-native-tag")
-
-                            self.dot1ad_outer_tag = YLeaf(YType.uint16, "dot1ad-outer-tag")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("stack", ("stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack)), ("service-instance-details", ("service_instance_details", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails)), ("dot1ad-dot1q-stack", ("dot1ad_dot1q_stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vlan_encapsulation', YLeaf(YType.enumeration, 'vlan-encapsulation')),
+                                ('tag', YLeaf(YType.uint16, 'tag')),
+                                ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                ('native_tag', YLeaf(YType.uint16, 'native-tag')),
+                                ('dot1ad_tag', YLeaf(YType.uint16, 'dot1ad-tag')),
+                                ('dot1ad_native_tag', YLeaf(YType.uint16, 'dot1ad-native-tag')),
+                                ('dot1ad_outer_tag', YLeaf(YType.uint16, 'dot1ad-outer-tag')),
+                            ])
+                            self.vlan_encapsulation = None
+                            self.tag = None
+                            self.outer_tag = None
+                            self.native_tag = None
+                            self.dot1ad_tag = None
+                            self.dot1ad_native_tag = None
+                            self.dot1ad_outer_tag = None
 
                             self.stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack()
                             self.stack.parent = self
@@ -2240,12 +2321,15 @@ class Vlan(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                                self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                ])
+                                self.outer_tag = None
+                                self.second_tag = None
                                 self._segment_path = lambda: "stack"
 
                             def __setattr__(self, name, value):
@@ -2326,22 +2410,25 @@ class Vlan(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"local-traffic-stack" : ("local_traffic_stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)}
-                                self._child_list_classes = {"tags-to-match" : ("tags_to_match", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch), "pushe" : ("pushe", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe)}
-
-                                self.payload_ethertype = YLeaf(YType.enumeration, "payload-ethertype")
-
-                                self.tags_popped = YLeaf(YType.uint16, "tags-popped")
-
-                                self.is_exact_match = YLeaf(YType.boolean, "is-exact-match")
-
-                                self.is_native_vlan = YLeaf(YType.boolean, "is-native-vlan")
-
-                                self.is_native_preserving = YLeaf(YType.boolean, "is-native-preserving")
-
-                                self.source_mac_match = YLeaf(YType.str, "source-mac-match")
-
-                                self.destination_mac_match = YLeaf(YType.str, "destination-mac-match")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("local-traffic-stack", ("local_traffic_stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack))])
+                                self._child_list_classes = OrderedDict([("tags-to-match", ("tags_to_match", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)), ("pushe", ("pushe", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe))])
+                                self._leafs = OrderedDict([
+                                    ('payload_ethertype', YLeaf(YType.enumeration, 'payload-ethertype')),
+                                    ('tags_popped', YLeaf(YType.uint16, 'tags-popped')),
+                                    ('is_exact_match', YLeaf(YType.boolean, 'is-exact-match')),
+                                    ('is_native_vlan', YLeaf(YType.boolean, 'is-native-vlan')),
+                                    ('is_native_preserving', YLeaf(YType.boolean, 'is-native-preserving')),
+                                    ('source_mac_match', YLeaf(YType.str, 'source-mac-match')),
+                                    ('destination_mac_match', YLeaf(YType.str, 'destination-mac-match')),
+                                ])
+                                self.payload_ethertype = None
+                                self.tags_popped = None
+                                self.is_exact_match = None
+                                self.is_native_vlan = None
+                                self.is_native_preserving = None
+                                self.source_mac_match = None
+                                self.destination_mac_match = None
 
                                 self.local_traffic_stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
                                 self.local_traffic_stack.parent = self
@@ -2379,8 +2466,10 @@ class Vlan(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"local-traffic-tag" : ("local_traffic_tag", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("local-traffic-tag", ("local_traffic_tag", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag))])
+                                    self._leafs = OrderedDict()
 
                                     self.local_traffic_tag = YList(self)
                                     self._segment_path = lambda: "local-traffic-stack"
@@ -2419,12 +2508,15 @@ class Vlan(Entity):
                                         self.yang_parent_name = "local-traffic-stack"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                        self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                            ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                        ])
+                                        self.ethertype = None
+                                        self.vlan_id = None
                                         self._segment_path = lambda: "local-traffic-tag"
 
                                     def __setattr__(self, name, value):
@@ -2464,12 +2556,15 @@ class Vlan(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"vlan-range" : ("vlan_range", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange)}
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.priority = YLeaf(YType.enumeration, "priority")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("vlan-range", ("vlan_range", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange))])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                        ('priority', YLeaf(YType.enumeration, 'priority')),
+                                    ])
+                                    self.ethertype = None
+                                    self.priority = None
 
                                     self.vlan_range = YList(self)
                                     self._segment_path = lambda: "tags-to-match"
@@ -2510,12 +2605,15 @@ class Vlan(Entity):
                                         self.yang_parent_name = "tags-to-match"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.vlan_id_low = YLeaf(YType.uint16, "vlan-id-low")
-
-                                        self.vlan_id_high = YLeaf(YType.uint16, "vlan-id-high")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('vlan_id_low', YLeaf(YType.uint16, 'vlan-id-low')),
+                                            ('vlan_id_high', YLeaf(YType.uint16, 'vlan-id-high')),
+                                        ])
+                                        self.vlan_id_low = None
+                                        self.vlan_id_high = None
                                         self._segment_path = lambda: "vlan-range"
 
                                     def __setattr__(self, name, value):
@@ -2552,12 +2650,15 @@ class Vlan(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                        ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                    ])
+                                    self.ethertype = None
+                                    self.vlan_id = None
                                     self._segment_path = lambda: "pushe"
 
                                 def __setattr__(self, name, value):
@@ -2596,12 +2697,15 @@ class Vlan(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                                self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                ])
+                                self.outer_tag = None
+                                self.second_tag = None
                                 self._segment_path = lambda: "dot1ad-dot1q-stack"
 
                             def __setattr__(self, name, value):
@@ -2635,8 +2739,10 @@ class EthernetEncapsulation(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", EthernetEncapsulation.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", EthernetEncapsulation.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = EthernetEncapsulation.Nodes()
         self.nodes.parent = self
@@ -2668,8 +2774,10 @@ class EthernetEncapsulation(Entity):
             self.yang_parent_name = "ethernet-encapsulation"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", EthernetEncapsulation.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", EthernetEncapsulation.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -2684,7 +2792,7 @@ class EthernetEncapsulation(Entity):
             The Ethernet encaps operational data for a
             particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	The identifier for the node
             	**type**\: str
@@ -2710,16 +2818,19 @@ class EthernetEncapsulation(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"unicast-mac-filters" : ("unicast_mac_filters", EthernetEncapsulation.Nodes.Node.UnicastMacFilters)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("unicast-mac-filters", ("unicast_mac_filters", EthernetEncapsulation.Nodes.Node.UnicastMacFilters))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.unicast_mac_filters = EthernetEncapsulation.Nodes.Node.UnicastMacFilters()
                 self.unicast_mac_filters.parent = self
                 self._children_name_map["unicast_mac_filters"] = "unicast-mac-filters"
                 self._children_yang_names.add("unicast-mac-filters")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2750,8 +2861,10 @@ class EthernetEncapsulation(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"unicast-mac-filter" : ("unicast_mac_filter", EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("unicast-mac-filter", ("unicast_mac_filter", EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter))])
+                    self._leafs = OrderedDict()
 
                     self.unicast_mac_filter = YList(self)
                     self._segment_path = lambda: "unicast-mac-filters"
@@ -2765,7 +2878,7 @@ class EthernetEncapsulation(Entity):
                     Operational data for interface with MAC
                     filters configured
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	The interface name
                     	**type**\: str
@@ -2791,13 +2904,16 @@ class EthernetEncapsulation(Entity):
                         self.yang_parent_name = "unicast-mac-filters"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"unicast-filter" : ("unicast_filter", EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("unicast-filter", ("unicast_filter", EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ])
+                        self.interface_name = None
 
                         self.unicast_filter = YList(self)
-                        self._segment_path = lambda: "unicast-mac-filter" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "unicast-mac-filter" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, ['interface_name'], name, value)
@@ -2833,12 +2949,15 @@ class EthernetEncapsulation(Entity):
                             self.yang_parent_name = "unicast-mac-filter"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.mode = YLeaf(YType.enumeration, "mode")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                            ])
+                            self.mac_address = None
+                            self.mode = None
                             self._segment_path = lambda: "unicast-filter"
 
                         def __setattr__(self, name, value):

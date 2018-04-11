@@ -7,9 +7,11 @@ version of this MIB module is part of RFC 3418;
 see the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -53,8 +55,10 @@ class SNMPv2MIB(Entity):
         self.yang_parent_name = "SNMPv2-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"system" : ("system", SNMPv2MIB.System), "snmp" : ("snmp", SNMPv2MIB.Snmp), "snmpSet" : ("snmpset", SNMPv2MIB.Snmpset), "sysORTable" : ("sysortable", SNMPv2MIB.Sysortable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("system", ("system", SNMPv2MIB.System)), ("snmp", ("snmp", SNMPv2MIB.Snmp)), ("snmpSet", ("snmpset", SNMPv2MIB.Snmpset)), ("sysORTable", ("sysortable", SNMPv2MIB.Sysortable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.system = SNMPv2MIB.System()
         self.system.parent = self
@@ -152,24 +156,27 @@ class SNMPv2MIB(Entity):
             self.yang_parent_name = "SNMPv2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.sysdescr = YLeaf(YType.str, "sysDescr")
-
-            self.sysobjectid = YLeaf(YType.str, "sysObjectID")
-
-            self.sysuptime = YLeaf(YType.uint32, "sysUpTime")
-
-            self.syscontact = YLeaf(YType.str, "sysContact")
-
-            self.sysname = YLeaf(YType.str, "sysName")
-
-            self.syslocation = YLeaf(YType.str, "sysLocation")
-
-            self.sysservices = YLeaf(YType.int32, "sysServices")
-
-            self.sysorlastchange = YLeaf(YType.uint32, "sysORLastChange")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('sysdescr', YLeaf(YType.str, 'sysDescr')),
+                ('sysobjectid', YLeaf(YType.str, 'sysObjectID')),
+                ('sysuptime', YLeaf(YType.uint32, 'sysUpTime')),
+                ('syscontact', YLeaf(YType.str, 'sysContact')),
+                ('sysname', YLeaf(YType.str, 'sysName')),
+                ('syslocation', YLeaf(YType.str, 'sysLocation')),
+                ('sysservices', YLeaf(YType.int32, 'sysServices')),
+                ('sysorlastchange', YLeaf(YType.uint32, 'sysORLastChange')),
+            ])
+            self.sysdescr = None
+            self.sysobjectid = None
+            self.sysuptime = None
+            self.syscontact = None
+            self.sysname = None
+            self.syslocation = None
+            self.sysservices = None
+            self.sysorlastchange = None
             self._segment_path = lambda: "system"
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
 
@@ -447,68 +454,71 @@ class SNMPv2MIB(Entity):
             self.yang_parent_name = "SNMPv2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.snmpinpkts = YLeaf(YType.uint32, "snmpInPkts")
-
-            self.snmpoutpkts = YLeaf(YType.uint32, "snmpOutPkts")
-
-            self.snmpinbadversions = YLeaf(YType.uint32, "snmpInBadVersions")
-
-            self.snmpinbadcommunitynames = YLeaf(YType.uint32, "snmpInBadCommunityNames")
-
-            self.snmpinbadcommunityuses = YLeaf(YType.uint32, "snmpInBadCommunityUses")
-
-            self.snmpinasnparseerrs = YLeaf(YType.uint32, "snmpInASNParseErrs")
-
-            self.snmpintoobigs = YLeaf(YType.uint32, "snmpInTooBigs")
-
-            self.snmpinnosuchnames = YLeaf(YType.uint32, "snmpInNoSuchNames")
-
-            self.snmpinbadvalues = YLeaf(YType.uint32, "snmpInBadValues")
-
-            self.snmpinreadonlys = YLeaf(YType.uint32, "snmpInReadOnlys")
-
-            self.snmpingenerrs = YLeaf(YType.uint32, "snmpInGenErrs")
-
-            self.snmpintotalreqvars = YLeaf(YType.uint32, "snmpInTotalReqVars")
-
-            self.snmpintotalsetvars = YLeaf(YType.uint32, "snmpInTotalSetVars")
-
-            self.snmpingetrequests = YLeaf(YType.uint32, "snmpInGetRequests")
-
-            self.snmpingetnexts = YLeaf(YType.uint32, "snmpInGetNexts")
-
-            self.snmpinsetrequests = YLeaf(YType.uint32, "snmpInSetRequests")
-
-            self.snmpingetresponses = YLeaf(YType.uint32, "snmpInGetResponses")
-
-            self.snmpintraps = YLeaf(YType.uint32, "snmpInTraps")
-
-            self.snmpouttoobigs = YLeaf(YType.uint32, "snmpOutTooBigs")
-
-            self.snmpoutnosuchnames = YLeaf(YType.uint32, "snmpOutNoSuchNames")
-
-            self.snmpoutbadvalues = YLeaf(YType.uint32, "snmpOutBadValues")
-
-            self.snmpoutgenerrs = YLeaf(YType.uint32, "snmpOutGenErrs")
-
-            self.snmpoutgetrequests = YLeaf(YType.uint32, "snmpOutGetRequests")
-
-            self.snmpoutgetnexts = YLeaf(YType.uint32, "snmpOutGetNexts")
-
-            self.snmpoutsetrequests = YLeaf(YType.uint32, "snmpOutSetRequests")
-
-            self.snmpoutgetresponses = YLeaf(YType.uint32, "snmpOutGetResponses")
-
-            self.snmpouttraps = YLeaf(YType.uint32, "snmpOutTraps")
-
-            self.snmpenableauthentraps = YLeaf(YType.enumeration, "snmpEnableAuthenTraps")
-
-            self.snmpsilentdrops = YLeaf(YType.uint32, "snmpSilentDrops")
-
-            self.snmpproxydrops = YLeaf(YType.uint32, "snmpProxyDrops")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('snmpinpkts', YLeaf(YType.uint32, 'snmpInPkts')),
+                ('snmpoutpkts', YLeaf(YType.uint32, 'snmpOutPkts')),
+                ('snmpinbadversions', YLeaf(YType.uint32, 'snmpInBadVersions')),
+                ('snmpinbadcommunitynames', YLeaf(YType.uint32, 'snmpInBadCommunityNames')),
+                ('snmpinbadcommunityuses', YLeaf(YType.uint32, 'snmpInBadCommunityUses')),
+                ('snmpinasnparseerrs', YLeaf(YType.uint32, 'snmpInASNParseErrs')),
+                ('snmpintoobigs', YLeaf(YType.uint32, 'snmpInTooBigs')),
+                ('snmpinnosuchnames', YLeaf(YType.uint32, 'snmpInNoSuchNames')),
+                ('snmpinbadvalues', YLeaf(YType.uint32, 'snmpInBadValues')),
+                ('snmpinreadonlys', YLeaf(YType.uint32, 'snmpInReadOnlys')),
+                ('snmpingenerrs', YLeaf(YType.uint32, 'snmpInGenErrs')),
+                ('snmpintotalreqvars', YLeaf(YType.uint32, 'snmpInTotalReqVars')),
+                ('snmpintotalsetvars', YLeaf(YType.uint32, 'snmpInTotalSetVars')),
+                ('snmpingetrequests', YLeaf(YType.uint32, 'snmpInGetRequests')),
+                ('snmpingetnexts', YLeaf(YType.uint32, 'snmpInGetNexts')),
+                ('snmpinsetrequests', YLeaf(YType.uint32, 'snmpInSetRequests')),
+                ('snmpingetresponses', YLeaf(YType.uint32, 'snmpInGetResponses')),
+                ('snmpintraps', YLeaf(YType.uint32, 'snmpInTraps')),
+                ('snmpouttoobigs', YLeaf(YType.uint32, 'snmpOutTooBigs')),
+                ('snmpoutnosuchnames', YLeaf(YType.uint32, 'snmpOutNoSuchNames')),
+                ('snmpoutbadvalues', YLeaf(YType.uint32, 'snmpOutBadValues')),
+                ('snmpoutgenerrs', YLeaf(YType.uint32, 'snmpOutGenErrs')),
+                ('snmpoutgetrequests', YLeaf(YType.uint32, 'snmpOutGetRequests')),
+                ('snmpoutgetnexts', YLeaf(YType.uint32, 'snmpOutGetNexts')),
+                ('snmpoutsetrequests', YLeaf(YType.uint32, 'snmpOutSetRequests')),
+                ('snmpoutgetresponses', YLeaf(YType.uint32, 'snmpOutGetResponses')),
+                ('snmpouttraps', YLeaf(YType.uint32, 'snmpOutTraps')),
+                ('snmpenableauthentraps', YLeaf(YType.enumeration, 'snmpEnableAuthenTraps')),
+                ('snmpsilentdrops', YLeaf(YType.uint32, 'snmpSilentDrops')),
+                ('snmpproxydrops', YLeaf(YType.uint32, 'snmpProxyDrops')),
+            ])
+            self.snmpinpkts = None
+            self.snmpoutpkts = None
+            self.snmpinbadversions = None
+            self.snmpinbadcommunitynames = None
+            self.snmpinbadcommunityuses = None
+            self.snmpinasnparseerrs = None
+            self.snmpintoobigs = None
+            self.snmpinnosuchnames = None
+            self.snmpinbadvalues = None
+            self.snmpinreadonlys = None
+            self.snmpingenerrs = None
+            self.snmpintotalreqvars = None
+            self.snmpintotalsetvars = None
+            self.snmpingetrequests = None
+            self.snmpingetnexts = None
+            self.snmpinsetrequests = None
+            self.snmpingetresponses = None
+            self.snmpintraps = None
+            self.snmpouttoobigs = None
+            self.snmpoutnosuchnames = None
+            self.snmpoutbadvalues = None
+            self.snmpoutgenerrs = None
+            self.snmpoutgetrequests = None
+            self.snmpoutgetnexts = None
+            self.snmpoutsetrequests = None
+            self.snmpoutgetresponses = None
+            self.snmpouttraps = None
+            self.snmpenableauthentraps = None
+            self.snmpsilentdrops = None
+            self.snmpproxydrops = None
             self._segment_path = lambda: "snmp"
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
 
@@ -517,7 +527,7 @@ class SNMPv2MIB(Entity):
 
         class Snmpenableauthentraps(Enum):
             """
-            Snmpenableauthentraps
+            Snmpenableauthentraps (Enum Class)
 
             Indicates whether the SNMP entity is permitted to
 
@@ -574,10 +584,13 @@ class SNMPv2MIB(Entity):
             self.yang_parent_name = "SNMPv2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.snmpsetserialno = YLeaf(YType.int32, "snmpSetSerialNo")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('snmpsetserialno', YLeaf(YType.int32, 'snmpSetSerialNo')),
+            ])
+            self.snmpsetserialno = None
             self._segment_path = lambda: "snmpSet"
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
 
@@ -613,8 +626,10 @@ class SNMPv2MIB(Entity):
             self.yang_parent_name = "SNMPv2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sysOREntry" : ("sysorentry", SNMPv2MIB.Sysortable.Sysorentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sysOREntry", ("sysorentry", SNMPv2MIB.Sysortable.Sysorentry))])
+            self._leafs = OrderedDict()
 
             self.sysorentry = YList(self)
             self._segment_path = lambda: "sysORTable"
@@ -628,7 +643,7 @@ class SNMPv2MIB(Entity):
             """
             An entry (conceptual row) in the sysORTable.
             
-            .. attribute:: sysorindex  <key>
+            .. attribute:: sysorindex  (key)
             
             	The auxiliary variable used for identifying instances of the columnar objects in the sysORTable
             	**type**\: int
@@ -668,17 +683,20 @@ class SNMPv2MIB(Entity):
                 self.yang_parent_name = "sysORTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.sysorindex = YLeaf(YType.int32, "sysORIndex")
-
-                self.sysorid = YLeaf(YType.str, "sysORID")
-
-                self.sysordescr = YLeaf(YType.str, "sysORDescr")
-
-                self.sysoruptime = YLeaf(YType.uint32, "sysORUpTime")
-                self._segment_path = lambda: "sysOREntry" + "[sysORIndex='" + self.sysorindex.get() + "']"
+                self.ylist_key_names = ['sysorindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('sysorindex', YLeaf(YType.int32, 'sysORIndex')),
+                    ('sysorid', YLeaf(YType.str, 'sysORID')),
+                    ('sysordescr', YLeaf(YType.str, 'sysORDescr')),
+                    ('sysoruptime', YLeaf(YType.uint32, 'sysORUpTime')),
+                ])
+                self.sysorindex = None
+                self.sysorid = None
+                self.sysordescr = None
+                self.sysoruptime = None
+                self._segment_path = lambda: "sysOREntry" + "[sysORIndex='" + str(self.sysorindex) + "']"
                 self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/sysORTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

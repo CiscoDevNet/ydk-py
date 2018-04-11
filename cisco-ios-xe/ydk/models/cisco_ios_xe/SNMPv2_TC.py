@@ -2,15 +2,17 @@
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class RowStatus(Enum):
     """
-    RowStatus
+    RowStatus (Enum Class)
 
     The RowStatus textual convention is used to manage the
 
@@ -793,7 +795,7 @@ class RowStatus(Enum):
 
 class StorageType(Enum):
     """
-    StorageType
+    StorageType (Enum Class)
 
     Describes the memory realization of a conceptual row.  A
 
@@ -848,7 +850,7 @@ class StorageType(Enum):
 
 class TruthValue(Enum):
     """
-    TruthValue
+    TruthValue (Enum Class)
 
     Represents a boolean value.
 

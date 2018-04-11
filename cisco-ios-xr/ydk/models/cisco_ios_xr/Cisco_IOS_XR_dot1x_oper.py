@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -52,8 +54,10 @@ class Dot1X(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-dot1x-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"statistics" : ("statistics", Dot1X.Statistics), "nodes" : ("nodes", Dot1X.Nodes), "session" : ("session", Dot1X.Session)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("statistics", ("statistics", Dot1X.Statistics)), ("nodes", ("nodes", Dot1X.Nodes)), ("session", ("session", Dot1X.Session))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.statistics = Dot1X.Statistics()
         self.statistics.parent = self
@@ -95,8 +99,10 @@ class Dot1X(Entity):
             self.yang_parent_name = "dot1x"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interface-statistics" : ("interface_statistics", Dot1X.Statistics.InterfaceStatistics)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("interface-statistics", ("interface_statistics", Dot1X.Statistics.InterfaceStatistics))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.interface_statistics = Dot1X.Statistics.InterfaceStatistics()
             self.interface_statistics.parent = self
@@ -129,8 +135,10 @@ class Dot1X(Entity):
                 self.yang_parent_name = "statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface-statistic" : ("interface_statistic", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface-statistic", ("interface_statistic", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic))])
+                self._leafs = OrderedDict()
 
                 self.interface_statistic = YList(self)
                 self._segment_path = lambda: "interface-statistics"
@@ -144,7 +152,7 @@ class Dot1X(Entity):
                 """
                 Dot1x Data for that Interface
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Interface Name
                 	**type**\: str
@@ -190,14 +198,17 @@ class Dot1X(Entity):
                     self.yang_parent_name = "interface-statistics"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"idb" : ("idb", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb), "auth" : ("auth", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth), "supp" : ("supp", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.pae = YLeaf(YType.str, "pae")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("idb", ("idb", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb)), ("auth", ("auth", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Auth)), ("supp", ("supp", Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Supp))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('pae', YLeaf(YType.str, 'pae')),
+                    ])
+                    self.name = None
+                    self.interface_name = None
+                    self.pae = None
 
                     self.idb = Dot1X.Statistics.InterfaceStatistics.InterfaceStatistic.Idb()
                     self.idb.parent = self
@@ -213,7 +224,7 @@ class Dot1X(Entity):
                     self.supp.parent = self
                     self._children_name_map["supp"] = "supp"
                     self._children_yang_names.add("supp")
-                    self._segment_path = lambda: "interface-statistic" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "interface-statistic" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/interface-statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -259,14 +270,17 @@ class Dot1X(Entity):
                         self.yang_parent_name = "interface-statistic"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rx_total = YLeaf(YType.uint32, "rx-total")
-
-                        self.tx_total = YLeaf(YType.uint32, "tx-total")
-
-                        self.no_rx_on_intf_down = YLeaf(YType.uint32, "no-rx-on-intf-down")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rx_total', YLeaf(YType.uint32, 'rx-total')),
+                            ('tx_total', YLeaf(YType.uint32, 'tx-total')),
+                            ('no_rx_on_intf_down', YLeaf(YType.uint32, 'no-rx-on-intf-down')),
+                        ])
+                        self.rx_total = None
+                        self.tx_total = None
+                        self.no_rx_on_intf_down = None
                         self._segment_path = lambda: "idb"
 
                     def __setattr__(self, name, value):
@@ -368,30 +382,33 @@ class Dot1X(Entity):
                         self.yang_parent_name = "interface-statistic"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rx_start = YLeaf(YType.uint32, "rx-start")
-
-                        self.rx_logoff = YLeaf(YType.uint32, "rx-logoff")
-
-                        self.rx_resp = YLeaf(YType.uint32, "rx-resp")
-
-                        self.rx_resp_id = YLeaf(YType.uint32, "rx-resp-id")
-
-                        self.rx_invalid = YLeaf(YType.uint32, "rx-invalid")
-
-                        self.rx_len_err = YLeaf(YType.uint32, "rx-len-err")
-
-                        self.rx_my_mac_err = YLeaf(YType.uint32, "rx-my-mac-err")
-
-                        self.rx_total = YLeaf(YType.uint32, "rx-total")
-
-                        self.tx_req = YLeaf(YType.uint32, "tx-req")
-
-                        self.tx_reqid = YLeaf(YType.uint32, "tx-reqid")
-
-                        self.tx_total = YLeaf(YType.uint32, "tx-total")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rx_start', YLeaf(YType.uint32, 'rx-start')),
+                            ('rx_logoff', YLeaf(YType.uint32, 'rx-logoff')),
+                            ('rx_resp', YLeaf(YType.uint32, 'rx-resp')),
+                            ('rx_resp_id', YLeaf(YType.uint32, 'rx-resp-id')),
+                            ('rx_invalid', YLeaf(YType.uint32, 'rx-invalid')),
+                            ('rx_len_err', YLeaf(YType.uint32, 'rx-len-err')),
+                            ('rx_my_mac_err', YLeaf(YType.uint32, 'rx-my-mac-err')),
+                            ('rx_total', YLeaf(YType.uint32, 'rx-total')),
+                            ('tx_req', YLeaf(YType.uint32, 'tx-req')),
+                            ('tx_reqid', YLeaf(YType.uint32, 'tx-reqid')),
+                            ('tx_total', YLeaf(YType.uint32, 'tx-total')),
+                        ])
+                        self.rx_start = None
+                        self.rx_logoff = None
+                        self.rx_resp = None
+                        self.rx_resp_id = None
+                        self.rx_invalid = None
+                        self.rx_len_err = None
+                        self.rx_my_mac_err = None
+                        self.rx_total = None
+                        self.tx_req = None
+                        self.tx_reqid = None
+                        self.tx_total = None
                         self._segment_path = lambda: "auth"
 
                     def __setattr__(self, name, value):
@@ -479,26 +496,29 @@ class Dot1X(Entity):
                         self.yang_parent_name = "interface-statistic"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rx_req = YLeaf(YType.uint32, "rx-req")
-
-                        self.rx_invalid = YLeaf(YType.uint32, "rx-invalid")
-
-                        self.rx_len_err = YLeaf(YType.uint32, "rx-len-err")
-
-                        self.rx_my_mac_err = YLeaf(YType.uint32, "rx-my-mac-err")
-
-                        self.rx_total = YLeaf(YType.uint32, "rx-total")
-
-                        self.tx_start = YLeaf(YType.uint32, "tx-start")
-
-                        self.tx_logoff = YLeaf(YType.uint32, "tx-logoff")
-
-                        self.tx_resp = YLeaf(YType.uint32, "tx-resp")
-
-                        self.tx_total = YLeaf(YType.uint32, "tx-total")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rx_req', YLeaf(YType.uint32, 'rx-req')),
+                            ('rx_invalid', YLeaf(YType.uint32, 'rx-invalid')),
+                            ('rx_len_err', YLeaf(YType.uint32, 'rx-len-err')),
+                            ('rx_my_mac_err', YLeaf(YType.uint32, 'rx-my-mac-err')),
+                            ('rx_total', YLeaf(YType.uint32, 'rx-total')),
+                            ('tx_start', YLeaf(YType.uint32, 'tx-start')),
+                            ('tx_logoff', YLeaf(YType.uint32, 'tx-logoff')),
+                            ('tx_resp', YLeaf(YType.uint32, 'tx-resp')),
+                            ('tx_total', YLeaf(YType.uint32, 'tx-total')),
+                        ])
+                        self.rx_req = None
+                        self.rx_invalid = None
+                        self.rx_len_err = None
+                        self.rx_my_mac_err = None
+                        self.rx_total = None
+                        self.tx_start = None
+                        self.tx_logoff = None
+                        self.tx_resp = None
+                        self.tx_total = None
                         self._segment_path = lambda: "supp"
 
                     def __setattr__(self, name, value):
@@ -528,8 +548,10 @@ class Dot1X(Entity):
             self.yang_parent_name = "dot1x"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Dot1X.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Dot1X.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -543,7 +565,7 @@ class Dot1X(Entity):
             """
             Dot1x operational data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	The node name
             	**type**\: str
@@ -574,10 +596,13 @@ class Dot1X(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"dot1x-defaults" : ("dot1x_defaults", Dot1X.Nodes.Node.Dot1XDefaults), "statistics" : ("statistics", Dot1X.Nodes.Node.Statistics)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("dot1x-defaults", ("dot1x_defaults", Dot1X.Nodes.Node.Dot1XDefaults)), ("statistics", ("statistics", Dot1X.Nodes.Node.Statistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.dot1x_defaults = Dot1X.Nodes.Node.Dot1XDefaults()
                 self.dot1x_defaults.parent = self
@@ -588,7 +613,7 @@ class Dot1X(Entity):
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
                 self._children_yang_names.add("statistics")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -630,10 +655,13 @@ class Dot1X(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"auth-timers" : ("auth_timers", Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers), "supp-timers" : ("supp_timers", Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers)}
-                    self._child_list_classes = {}
-
-                    self.version = YLeaf(YType.uint32, "version")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("auth-timers", ("auth_timers", Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers)), ("supp-timers", ("supp_timers", Dot1X.Nodes.Node.Dot1XDefaults.SuppTimers))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('version', YLeaf(YType.uint32, 'version')),
+                    ])
+                    self.version = None
 
                     self.auth_timers = Dot1X.Nodes.Node.Dot1XDefaults.AuthTimers()
                     self.auth_timers.parent = self
@@ -718,20 +746,23 @@ class Dot1X(Entity):
                         self.yang_parent_name = "dot1x-defaults"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.quiet_period = YLeaf(YType.uint32, "quiet-period")
-
-                        self.tx_period = YLeaf(YType.uint32, "tx-period")
-
-                        self.max_reauth_req = YLeaf(YType.uint32, "max-reauth-req")
-
-                        self.supp_timeout = YLeaf(YType.uint32, "supp-timeout")
-
-                        self.max_req = YLeaf(YType.uint32, "max-req")
-
-                        self.reauth_period = YLeaf(YType.uint32, "reauth-period")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('quiet_period', YLeaf(YType.uint32, 'quiet-period')),
+                            ('tx_period', YLeaf(YType.uint32, 'tx-period')),
+                            ('max_reauth_req', YLeaf(YType.uint32, 'max-reauth-req')),
+                            ('supp_timeout', YLeaf(YType.uint32, 'supp-timeout')),
+                            ('max_req', YLeaf(YType.uint32, 'max-req')),
+                            ('reauth_period', YLeaf(YType.uint32, 'reauth-period')),
+                        ])
+                        self.quiet_period = None
+                        self.tx_period = None
+                        self.max_reauth_req = None
+                        self.supp_timeout = None
+                        self.max_req = None
+                        self.reauth_period = None
                         self._segment_path = lambda: "auth-timers"
 
                     def __setattr__(self, name, value):
@@ -790,16 +821,19 @@ class Dot1X(Entity):
                         self.yang_parent_name = "dot1x-defaults"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.auth_period = YLeaf(YType.uint32, "auth-period")
-
-                        self.held_period = YLeaf(YType.uint32, "held-period")
-
-                        self.start_period = YLeaf(YType.uint32, "start-period")
-
-                        self.max_start = YLeaf(YType.uint32, "max-start")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('auth_period', YLeaf(YType.uint32, 'auth-period')),
+                            ('held_period', YLeaf(YType.uint32, 'held-period')),
+                            ('start_period', YLeaf(YType.uint32, 'start-period')),
+                            ('max_start', YLeaf(YType.uint32, 'max-start')),
+                        ])
+                        self.auth_period = None
+                        self.held_period = None
+                        self.start_period = None
+                        self.max_start = None
                         self._segment_path = lambda: "supp-timers"
 
                     def __setattr__(self, name, value):
@@ -834,8 +868,10 @@ class Dot1X(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"gl-stats" : ("gl_stats", Dot1X.Nodes.Node.Statistics.GlStats)}
-                    self._child_list_classes = {"if-stats" : ("if_stats", Dot1X.Nodes.Node.Statistics.IfStats)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("gl-stats", ("gl_stats", Dot1X.Nodes.Node.Statistics.GlStats))])
+                    self._child_list_classes = OrderedDict([("if-stats", ("if_stats", Dot1X.Nodes.Node.Statistics.IfStats))])
+                    self._leafs = OrderedDict()
 
                     self.gl_stats = Dot1X.Nodes.Node.Statistics.GlStats()
                     self.gl_stats.parent = self
@@ -888,14 +924,17 @@ class Dot1X(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tx_total = YLeaf(YType.uint32, "tx-total")
-
-                        self.rx_total = YLeaf(YType.uint32, "rx-total")
-
-                        self.rx_no_idb = YLeaf(YType.uint32, "rx-no-idb")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tx_total', YLeaf(YType.uint32, 'tx-total')),
+                            ('rx_total', YLeaf(YType.uint32, 'rx-total')),
+                            ('rx_no_idb', YLeaf(YType.uint32, 'rx-no-idb')),
+                        ])
+                        self.tx_total = None
+                        self.rx_total = None
+                        self.rx_no_idb = None
                         self._segment_path = lambda: "gl-stats"
 
                     def __setattr__(self, name, value):
@@ -945,12 +984,15 @@ class Dot1X(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"idb" : ("idb", Dot1X.Nodes.Node.Statistics.IfStats.Idb), "auth" : ("auth", Dot1X.Nodes.Node.Statistics.IfStats.Auth), "supp" : ("supp", Dot1X.Nodes.Node.Statistics.IfStats.Supp)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.pae = YLeaf(YType.str, "pae")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("idb", ("idb", Dot1X.Nodes.Node.Statistics.IfStats.Idb)), ("auth", ("auth", Dot1X.Nodes.Node.Statistics.IfStats.Auth)), ("supp", ("supp", Dot1X.Nodes.Node.Statistics.IfStats.Supp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('pae', YLeaf(YType.str, 'pae')),
+                        ])
+                        self.interface_name = None
+                        self.pae = None
 
                         self.idb = Dot1X.Nodes.Node.Statistics.IfStats.Idb()
                         self.idb.parent = self
@@ -1011,14 +1053,17 @@ class Dot1X(Entity):
                             self.yang_parent_name = "if-stats"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.rx_total = YLeaf(YType.uint32, "rx-total")
-
-                            self.tx_total = YLeaf(YType.uint32, "tx-total")
-
-                            self.no_rx_on_intf_down = YLeaf(YType.uint32, "no-rx-on-intf-down")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rx_total', YLeaf(YType.uint32, 'rx-total')),
+                                ('tx_total', YLeaf(YType.uint32, 'tx-total')),
+                                ('no_rx_on_intf_down', YLeaf(YType.uint32, 'no-rx-on-intf-down')),
+                            ])
+                            self.rx_total = None
+                            self.tx_total = None
+                            self.no_rx_on_intf_down = None
                             self._segment_path = lambda: "idb"
 
                         def __setattr__(self, name, value):
@@ -1120,30 +1165,33 @@ class Dot1X(Entity):
                             self.yang_parent_name = "if-stats"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.rx_start = YLeaf(YType.uint32, "rx-start")
-
-                            self.rx_logoff = YLeaf(YType.uint32, "rx-logoff")
-
-                            self.rx_resp = YLeaf(YType.uint32, "rx-resp")
-
-                            self.rx_resp_id = YLeaf(YType.uint32, "rx-resp-id")
-
-                            self.rx_invalid = YLeaf(YType.uint32, "rx-invalid")
-
-                            self.rx_len_err = YLeaf(YType.uint32, "rx-len-err")
-
-                            self.rx_my_mac_err = YLeaf(YType.uint32, "rx-my-mac-err")
-
-                            self.rx_total = YLeaf(YType.uint32, "rx-total")
-
-                            self.tx_req = YLeaf(YType.uint32, "tx-req")
-
-                            self.tx_reqid = YLeaf(YType.uint32, "tx-reqid")
-
-                            self.tx_total = YLeaf(YType.uint32, "tx-total")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rx_start', YLeaf(YType.uint32, 'rx-start')),
+                                ('rx_logoff', YLeaf(YType.uint32, 'rx-logoff')),
+                                ('rx_resp', YLeaf(YType.uint32, 'rx-resp')),
+                                ('rx_resp_id', YLeaf(YType.uint32, 'rx-resp-id')),
+                                ('rx_invalid', YLeaf(YType.uint32, 'rx-invalid')),
+                                ('rx_len_err', YLeaf(YType.uint32, 'rx-len-err')),
+                                ('rx_my_mac_err', YLeaf(YType.uint32, 'rx-my-mac-err')),
+                                ('rx_total', YLeaf(YType.uint32, 'rx-total')),
+                                ('tx_req', YLeaf(YType.uint32, 'tx-req')),
+                                ('tx_reqid', YLeaf(YType.uint32, 'tx-reqid')),
+                                ('tx_total', YLeaf(YType.uint32, 'tx-total')),
+                            ])
+                            self.rx_start = None
+                            self.rx_logoff = None
+                            self.rx_resp = None
+                            self.rx_resp_id = None
+                            self.rx_invalid = None
+                            self.rx_len_err = None
+                            self.rx_my_mac_err = None
+                            self.rx_total = None
+                            self.tx_req = None
+                            self.tx_reqid = None
+                            self.tx_total = None
                             self._segment_path = lambda: "auth"
 
                         def __setattr__(self, name, value):
@@ -1231,26 +1279,29 @@ class Dot1X(Entity):
                             self.yang_parent_name = "if-stats"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.rx_req = YLeaf(YType.uint32, "rx-req")
-
-                            self.rx_invalid = YLeaf(YType.uint32, "rx-invalid")
-
-                            self.rx_len_err = YLeaf(YType.uint32, "rx-len-err")
-
-                            self.rx_my_mac_err = YLeaf(YType.uint32, "rx-my-mac-err")
-
-                            self.rx_total = YLeaf(YType.uint32, "rx-total")
-
-                            self.tx_start = YLeaf(YType.uint32, "tx-start")
-
-                            self.tx_logoff = YLeaf(YType.uint32, "tx-logoff")
-
-                            self.tx_resp = YLeaf(YType.uint32, "tx-resp")
-
-                            self.tx_total = YLeaf(YType.uint32, "tx-total")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rx_req', YLeaf(YType.uint32, 'rx-req')),
+                                ('rx_invalid', YLeaf(YType.uint32, 'rx-invalid')),
+                                ('rx_len_err', YLeaf(YType.uint32, 'rx-len-err')),
+                                ('rx_my_mac_err', YLeaf(YType.uint32, 'rx-my-mac-err')),
+                                ('rx_total', YLeaf(YType.uint32, 'rx-total')),
+                                ('tx_start', YLeaf(YType.uint32, 'tx-start')),
+                                ('tx_logoff', YLeaf(YType.uint32, 'tx-logoff')),
+                                ('tx_resp', YLeaf(YType.uint32, 'tx-resp')),
+                                ('tx_total', YLeaf(YType.uint32, 'tx-total')),
+                            ])
+                            self.rx_req = None
+                            self.rx_invalid = None
+                            self.rx_len_err = None
+                            self.rx_my_mac_err = None
+                            self.rx_total = None
+                            self.tx_start = None
+                            self.tx_logoff = None
+                            self.tx_resp = None
+                            self.tx_total = None
                             self._segment_path = lambda: "supp"
 
                         def __setattr__(self, name, value):
@@ -1280,8 +1331,10 @@ class Dot1X(Entity):
             self.yang_parent_name = "dot1x"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interface-sessions" : ("interface_sessions", Dot1X.Session.InterfaceSessions)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("interface-sessions", ("interface_sessions", Dot1X.Session.InterfaceSessions))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.interface_sessions = Dot1X.Session.InterfaceSessions()
             self.interface_sessions.parent = self
@@ -1314,8 +1367,10 @@ class Dot1X(Entity):
                 self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface-session" : ("interface_session", Dot1X.Session.InterfaceSessions.InterfaceSession)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface-session", ("interface_session", Dot1X.Session.InterfaceSessions.InterfaceSession))])
+                self._leafs = OrderedDict()
 
                 self.interface_session = YList(self)
                 self._segment_path = lambda: "interface-sessions"
@@ -1329,7 +1384,7 @@ class Dot1X(Entity):
                 """
                 Dot1x Data for that Interface
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Interface Name
                 	**type**\: str
@@ -1385,20 +1440,23 @@ class Dot1X(Entity):
                     self.yang_parent_name = "interface-sessions"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"intf-info" : ("intf_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo), "mka-status-info" : ("mka_status_info", Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.interface_sname = YLeaf(YType.str, "interface-sname")
-
-                    self.if_handle = YLeaf(YType.str, "if-handle")
-
-                    self.mac = YLeaf(YType.str, "mac")
-
-                    self.ethertype = YLeaf(YType.str, "ethertype")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("intf-info", ("intf_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo)), ("mka-status-info", ("mka_status_info", Dot1X.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface_sname', YLeaf(YType.str, 'interface-sname')),
+                        ('if_handle', YLeaf(YType.str, 'if-handle')),
+                        ('mac', YLeaf(YType.str, 'mac')),
+                        ('ethertype', YLeaf(YType.str, 'ethertype')),
+                    ])
+                    self.name = None
+                    self.interface_name = None
+                    self.interface_sname = None
+                    self.if_handle = None
+                    self.mac = None
+                    self.ethertype = None
 
                     self.intf_info = Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo()
                     self.intf_info.parent = self
@@ -1409,7 +1467,7 @@ class Dot1X(Entity):
                     self.mka_status_info.parent = self
                     self._children_name_map["mka_status_info"] = "mka-status-info"
                     self._children_yang_names.add("mka-status-info")
-                    self._segment_path = lambda: "interface-session" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "interface-session" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1459,14 +1517,17 @@ class Dot1X(Entity):
                         self.yang_parent_name = "interface-session"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"auth-info" : ("auth_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo), "supp-info" : ("supp_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo)}
-                        self._child_list_classes = {}
-
-                        self.pae = YLeaf(YType.str, "pae")
-
-                        self.port_status = YLeaf(YType.str, "port-status")
-
-                        self.dot1x_profile = YLeaf(YType.str, "dot1x-profile")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("auth-info", ("auth_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo)), ("supp-info", ("supp_info", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pae', YLeaf(YType.str, 'pae')),
+                            ('port_status', YLeaf(YType.str, 'port-status')),
+                            ('dot1x_profile', YLeaf(YType.str, 'dot1x-profile')),
+                        ])
+                        self.pae = None
+                        self.port_status = None
+                        self.dot1x_profile = None
 
                         self.auth_info = Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo()
                         self.auth_info.parent = self
@@ -1516,12 +1577,15 @@ class Dot1X(Entity):
                             self.yang_parent_name = "intf-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"client" : ("client", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client)}
-
-                            self.reauth = YLeaf(YType.str, "reauth")
-
-                            self.config_dependency = YLeaf(YType.str, "config-dependency")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("client", ("client", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client))])
+                            self._leafs = OrderedDict([
+                                ('reauth', YLeaf(YType.str, 'reauth')),
+                                ('config_dependency', YLeaf(YType.str, 'config-dependency')),
+                            ])
+                            self.reauth = None
+                            self.config_dependency = None
 
                             self.client = YList(self)
                             self._segment_path = lambda: "auth-info"
@@ -1573,18 +1637,21 @@ class Dot1X(Entity):
                                 self.yang_parent_name = "auth-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac = YLeaf(YType.str, "mac")
-
-                                self.auth_sm_state = YLeaf(YType.str, "auth-sm-state")
-
-                                self.auth_bend_sm_state = YLeaf(YType.str, "auth-bend-sm-state")
-
-                                self.time_to_next_reauth = YLeaf(YType.str, "time-to-next-reauth")
-
-                                self.last_auth_time = YLeaf(YType.str, "last-auth-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mac', YLeaf(YType.str, 'mac')),
+                                    ('auth_sm_state', YLeaf(YType.str, 'auth-sm-state')),
+                                    ('auth_bend_sm_state', YLeaf(YType.str, 'auth-bend-sm-state')),
+                                    ('time_to_next_reauth', YLeaf(YType.str, 'time-to-next-reauth')),
+                                    ('last_auth_time', YLeaf(YType.str, 'last-auth-time')),
+                                ])
+                                self.mac = None
+                                self.auth_sm_state = None
+                                self.auth_bend_sm_state = None
+                                self.time_to_next_reauth = None
+                                self.last_auth_time = None
                                 self._segment_path = lambda: "client"
 
                             def __setattr__(self, name, value):
@@ -1624,12 +1691,15 @@ class Dot1X(Entity):
                             self.yang_parent_name = "intf-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"client" : ("client", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client)}
-
-                            self.eap_profile = YLeaf(YType.str, "eap-profile")
-
-                            self.config_dependency = YLeaf(YType.str, "config-dependency")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("client", ("client", Dot1X.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client))])
+                            self._leafs = OrderedDict([
+                                ('eap_profile', YLeaf(YType.str, 'eap-profile')),
+                                ('config_dependency', YLeaf(YType.str, 'config-dependency')),
+                            ])
+                            self.eap_profile = None
+                            self.config_dependency = None
 
                             self.client = YList(self)
                             self._segment_path = lambda: "supp-info"
@@ -1681,18 +1751,21 @@ class Dot1X(Entity):
                                 self.yang_parent_name = "supp-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac = YLeaf(YType.str, "mac")
-
-                                self.eap_method = YLeaf(YType.str, "eap-method")
-
-                                self.last_auth_time = YLeaf(YType.str, "last-auth-time")
-
-                                self.auth_sm_state = YLeaf(YType.str, "auth-sm-state")
-
-                                self.auth_bend_sm_state = YLeaf(YType.str, "auth-bend-sm-state")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mac', YLeaf(YType.str, 'mac')),
+                                    ('eap_method', YLeaf(YType.str, 'eap-method')),
+                                    ('last_auth_time', YLeaf(YType.str, 'last-auth-time')),
+                                    ('auth_sm_state', YLeaf(YType.str, 'auth-sm-state')),
+                                    ('auth_bend_sm_state', YLeaf(YType.str, 'auth-bend-sm-state')),
+                                ])
+                                self.mac = None
+                                self.eap_method = None
+                                self.last_auth_time = None
+                                self.auth_sm_state = None
+                                self.auth_bend_sm_state = None
                                 self._segment_path = lambda: "client"
 
                             def __setattr__(self, name, value):
@@ -1742,18 +1815,21 @@ class Dot1X(Entity):
                         self.yang_parent_name = "interface-session"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tie_break_role = YLeaf(YType.str, "tie-break-role")
-
-                        self.eap_based_macsec = YLeaf(YType.str, "eap-based-macsec")
-
-                        self.mka_start_time = YLeaf(YType.str, "mka-start-time")
-
-                        self.mka_stop_time = YLeaf(YType.str, "mka-stop-time")
-
-                        self.mka_response_time = YLeaf(YType.str, "mka-response-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tie_break_role', YLeaf(YType.str, 'tie-break-role')),
+                            ('eap_based_macsec', YLeaf(YType.str, 'eap-based-macsec')),
+                            ('mka_start_time', YLeaf(YType.str, 'mka-start-time')),
+                            ('mka_stop_time', YLeaf(YType.str, 'mka-stop-time')),
+                            ('mka_response_time', YLeaf(YType.str, 'mka-response-time')),
+                        ])
+                        self.tie_break_role = None
+                        self.eap_based_macsec = None
+                        self.mka_start_time = None
+                        self.mka_stop_time = None
+                        self.mka_response_time = None
                         self._segment_path = lambda: "mka-status-info"
 
                     def __setattr__(self, name, value):

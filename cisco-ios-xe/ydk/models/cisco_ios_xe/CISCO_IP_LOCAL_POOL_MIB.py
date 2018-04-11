@@ -29,9 +29,11 @@ that maintain statistics about the address usage of IP local
 pools.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -85,8 +87,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
         self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cIpLocalPoolConfig" : ("ciplocalpoolconfig", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig), "cIpLocalPoolConfigTable" : ("ciplocalpoolconfigtable", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable), "cIpLocalPoolGroupContainsTable" : ("ciplocalpoolgroupcontainstable", CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable), "cIpLocalPoolGroupTable" : ("ciplocalpoolgrouptable", CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable), "cIpLocalPoolStatsTable" : ("ciplocalpoolstatstable", CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable), "cIpLocalPoolAllocTable" : ("ciplocalpoolalloctable", CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cIpLocalPoolConfig", ("ciplocalpoolconfig", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig)), ("cIpLocalPoolConfigTable", ("ciplocalpoolconfigtable", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable)), ("cIpLocalPoolGroupContainsTable", ("ciplocalpoolgroupcontainstable", CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable)), ("cIpLocalPoolGroupTable", ("ciplocalpoolgrouptable", CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable)), ("cIpLocalPoolStatsTable", ("ciplocalpoolstatstable", CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable)), ("cIpLocalPoolAllocTable", ("ciplocalpoolalloctable", CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ciplocalpoolconfig = CISCOIPLOCALPOOLMIB.Ciplocalpoolconfig()
         self.ciplocalpoolconfig.parent = self
@@ -143,10 +147,13 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ciplocalpoolnotificationsenable = YLeaf(YType.boolean, "cIpLocalPoolNotificationsEnable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ciplocalpoolnotificationsenable', YLeaf(YType.boolean, 'cIpLocalPoolNotificationsEnable')),
+            ])
+            self.ciplocalpoolnotificationsenable = None
             self._segment_path = lambda: "cIpLocalPoolConfig"
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
 
@@ -189,8 +196,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cIpLocalPoolConfigEntry" : ("ciplocalpoolconfigentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cIpLocalPoolConfigEntry", ("ciplocalpoolconfigentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry))])
+            self._leafs = OrderedDict()
 
             self.ciplocalpoolconfigentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolConfigTable"
@@ -205,19 +214,19 @@ class CISCOIPLOCALPOOLMIB(Entity):
             Each entry provides information about a particular IP local
             pool, including the number of free and used addresses and its priority.
             
-            .. attribute:: ciplocalpoolname  <key>
+            .. attribute:: ciplocalpoolname  (key)
             
             	An arbitrary non\-empty string that uniquely identifies the IP local pool.  This name must be unique among all the local IP pools even when they belong to different pool groups
             	**type**\: str
             
             	**length:** 1..48
             
-            .. attribute:: ciplocalpooladdrtype  <key>
+            .. attribute:: ciplocalpooladdrtype  (key)
             
             	This object specifies the address type of cIpLocalPoolAddressLo and cIpLocalPoolAddressHi
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: ciplocalpooladdresslo  <key>
+            .. attribute:: ciplocalpooladdresslo  (key)
             
             	This object specifies the first IP address of the range of IP addresses contained by this pool entry.  The address type of this object is described by cIpLocalPoolAddrType.  This address must be less than or equal to the address in cIpLocalPoolAddressHi
             	**type**\: str
@@ -278,27 +287,30 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.yang_parent_name = "cIpLocalPoolConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciplocalpoolname = YLeaf(YType.str, "cIpLocalPoolName")
-
-                self.ciplocalpooladdrtype = YLeaf(YType.enumeration, "cIpLocalPoolAddrType")
-
-                self.ciplocalpooladdresslo = YLeaf(YType.str, "cIpLocalPoolAddressLo")
-
-                self.ciplocalpooladdresshi = YLeaf(YType.str, "cIpLocalPoolAddressHi")
-
-                self.ciplocalpoolfreeaddrs = YLeaf(YType.uint32, "cIpLocalPoolFreeAddrs")
-
-                self.ciplocalpoolinuseaddrs = YLeaf(YType.uint32, "cIpLocalPoolInUseAddrs")
-
-                self.ciplocalpoolgroupcontainedin = YLeaf(YType.str, "cIpLocalPoolGroupContainedIn")
-
-                self.ciplocalpoolrowstatus = YLeaf(YType.enumeration, "cIpLocalPoolRowStatus")
-
-                self.ciplocalpoolpriority = YLeaf(YType.uint32, "cIpLocalPoolPriority")
-                self._segment_path = lambda: "cIpLocalPoolConfigEntry" + "[cIpLocalPoolName='" + self.ciplocalpoolname.get() + "']" + "[cIpLocalPoolAddrType='" + self.ciplocalpooladdrtype.get() + "']" + "[cIpLocalPoolAddressLo='" + self.ciplocalpooladdresslo.get() + "']"
+                self.ylist_key_names = ['ciplocalpoolname','ciplocalpooladdrtype','ciplocalpooladdresslo']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
+                    ('ciplocalpooladdrtype', YLeaf(YType.enumeration, 'cIpLocalPoolAddrType')),
+                    ('ciplocalpooladdresslo', YLeaf(YType.str, 'cIpLocalPoolAddressLo')),
+                    ('ciplocalpooladdresshi', YLeaf(YType.str, 'cIpLocalPoolAddressHi')),
+                    ('ciplocalpoolfreeaddrs', YLeaf(YType.uint32, 'cIpLocalPoolFreeAddrs')),
+                    ('ciplocalpoolinuseaddrs', YLeaf(YType.uint32, 'cIpLocalPoolInUseAddrs')),
+                    ('ciplocalpoolgroupcontainedin', YLeaf(YType.str, 'cIpLocalPoolGroupContainedIn')),
+                    ('ciplocalpoolrowstatus', YLeaf(YType.enumeration, 'cIpLocalPoolRowStatus')),
+                    ('ciplocalpoolpriority', YLeaf(YType.uint32, 'cIpLocalPoolPriority')),
+                ])
+                self.ciplocalpoolname = None
+                self.ciplocalpooladdrtype = None
+                self.ciplocalpooladdresslo = None
+                self.ciplocalpooladdresshi = None
+                self.ciplocalpoolfreeaddrs = None
+                self.ciplocalpoolinuseaddrs = None
+                self.ciplocalpoolgroupcontainedin = None
+                self.ciplocalpoolrowstatus = None
+                self.ciplocalpoolpriority = None
+                self._segment_path = lambda: "cIpLocalPoolConfigEntry" + "[cIpLocalPoolName='" + str(self.ciplocalpoolname) + "']" + "[cIpLocalPoolAddrType='" + str(self.ciplocalpooladdrtype) + "']" + "[cIpLocalPoolAddressLo='" + str(self.ciplocalpooladdresslo) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -342,8 +354,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cIpLocalPoolGroupContainsEntry" : ("ciplocalpoolgroupcontainsentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cIpLocalPoolGroupContainsEntry", ("ciplocalpoolgroupcontainsentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry))])
+            self._leafs = OrderedDict()
 
             self.ciplocalpoolgroupcontainsentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolGroupContainsTable"
@@ -363,14 +377,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
             associated with one group.  An entry in this table describes
             such an association.
             
-            .. attribute:: ciplocalpoolgroupname  <key>
+            .. attribute:: ciplocalpoolgroupname  (key)
             
             	A unique group name that identifies the IP pool group.  The null string represents the base IP pool group
             	**type**\: str
             
             	**length:** 0..48
             
-            .. attribute:: ciplocalpoolchildindex  <key>
+            .. attribute:: ciplocalpoolchildindex  (key)
             
             	The value of cIpLocalPoolName for the contained IP local pool
             	**type**\: str
@@ -391,13 +405,16 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.yang_parent_name = "cIpLocalPoolGroupContainsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciplocalpoolgroupname = YLeaf(YType.str, "cIpLocalPoolGroupName")
-
-                self.ciplocalpoolchildindex = YLeaf(YType.str, "cIpLocalPoolChildIndex")
-                self._segment_path = lambda: "cIpLocalPoolGroupContainsEntry" + "[cIpLocalPoolGroupName='" + self.ciplocalpoolgroupname.get() + "']" + "[cIpLocalPoolChildIndex='" + self.ciplocalpoolchildindex.get() + "']"
+                self.ylist_key_names = ['ciplocalpoolgroupname','ciplocalpoolchildindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciplocalpoolgroupname', YLeaf(YType.str, 'cIpLocalPoolGroupName')),
+                    ('ciplocalpoolchildindex', YLeaf(YType.str, 'cIpLocalPoolChildIndex')),
+                ])
+                self.ciplocalpoolgroupname = None
+                self.ciplocalpoolchildindex = None
+                self._segment_path = lambda: "cIpLocalPoolGroupContainsEntry" + "[cIpLocalPoolGroupName='" + str(self.ciplocalpoolgroupname) + "']" + "[cIpLocalPoolChildIndex='" + str(self.ciplocalpoolchildindex) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupContainsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -437,8 +454,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cIpLocalPoolGroupEntry" : ("ciplocalpoolgroupentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cIpLocalPoolGroupEntry", ("ciplocalpoolgroupentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry))])
+            self._leafs = OrderedDict()
 
             self.ciplocalpoolgroupentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolGroupTable"
@@ -454,7 +473,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             group and the number of free and used addresses in an IP pool
             group.
             
-            .. attribute:: ciplocalpoolgroupname  <key>
+            .. attribute:: ciplocalpoolgroupname  (key)
             
             	
             	**type**\: str
@@ -491,15 +510,18 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.yang_parent_name = "cIpLocalPoolGroupTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciplocalpoolgroupname = YLeaf(YType.str, "cIpLocalPoolGroupName")
-
-                self.ciplocalpoolgroupfreeaddrs = YLeaf(YType.uint32, "cIpLocalPoolGroupFreeAddrs")
-
-                self.ciplocalpoolgroupinuseaddrs = YLeaf(YType.uint32, "cIpLocalPoolGroupInUseAddrs")
-                self._segment_path = lambda: "cIpLocalPoolGroupEntry" + "[cIpLocalPoolGroupName='" + self.ciplocalpoolgroupname.get() + "']"
+                self.ylist_key_names = ['ciplocalpoolgroupname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciplocalpoolgroupname', YLeaf(YType.str, 'cIpLocalPoolGroupName')),
+                    ('ciplocalpoolgroupfreeaddrs', YLeaf(YType.uint32, 'cIpLocalPoolGroupFreeAddrs')),
+                    ('ciplocalpoolgroupinuseaddrs', YLeaf(YType.uint32, 'cIpLocalPoolGroupInUseAddrs')),
+                ])
+                self.ciplocalpoolgroupname = None
+                self.ciplocalpoolgroupfreeaddrs = None
+                self.ciplocalpoolgroupinuseaddrs = None
+                self._segment_path = lambda: "cIpLocalPoolGroupEntry" + "[cIpLocalPoolGroupName='" + str(self.ciplocalpoolgroupname) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -539,8 +561,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cIpLocalPoolStatsEntry" : ("ciplocalpoolstatsentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable.Ciplocalpoolstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cIpLocalPoolStatsEntry", ("ciplocalpoolstatsentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable.Ciplocalpoolstatsentry))])
+            self._leafs = OrderedDict()
 
             self.ciplocalpoolstatsentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolStatsTable"
@@ -556,7 +580,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             IP local pool, and the total number of free and used addresses
             of all the ranges in an IP local pool.
             
-            .. attribute:: ciplocalpoolname  <key>
+            .. attribute:: ciplocalpoolname  (key)
             
             	
             	**type**\: str
@@ -628,25 +652,28 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.yang_parent_name = "cIpLocalPoolStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciplocalpoolname = YLeaf(YType.str, "cIpLocalPoolName")
-
-                self.ciplocalpoolstatfreeaddrs = YLeaf(YType.uint32, "cIpLocalPoolStatFreeAddrs")
-
-                self.ciplocalpoolstatinuseaddrs = YLeaf(YType.uint32, "cIpLocalPoolStatInUseAddrs")
-
-                self.ciplocalpoolstathiwaterusedaddrs = YLeaf(YType.uint32, "cIpLocalPoolStatHiWaterUsedAddrs")
-
-                self.ciplocalpoolstatinuseaddrthldlo = YLeaf(YType.uint32, "cIpLocalPoolStatInUseAddrThldLo")
-
-                self.ciplocalpoolstatinuseaddrthldhi = YLeaf(YType.uint32, "cIpLocalPoolStatInUseAddrThldHi")
-
-                self.ciplocalpoolpercentaddrthldlo = YLeaf(YType.uint32, "cIpLocalPoolPercentAddrThldLo")
-
-                self.ciplocalpoolpercentaddrthldhi = YLeaf(YType.uint32, "cIpLocalPoolPercentAddrThldHi")
-                self._segment_path = lambda: "cIpLocalPoolStatsEntry" + "[cIpLocalPoolName='" + self.ciplocalpoolname.get() + "']"
+                self.ylist_key_names = ['ciplocalpoolname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
+                    ('ciplocalpoolstatfreeaddrs', YLeaf(YType.uint32, 'cIpLocalPoolStatFreeAddrs')),
+                    ('ciplocalpoolstatinuseaddrs', YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrs')),
+                    ('ciplocalpoolstathiwaterusedaddrs', YLeaf(YType.uint32, 'cIpLocalPoolStatHiWaterUsedAddrs')),
+                    ('ciplocalpoolstatinuseaddrthldlo', YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrThldLo')),
+                    ('ciplocalpoolstatinuseaddrthldhi', YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrThldHi')),
+                    ('ciplocalpoolpercentaddrthldlo', YLeaf(YType.uint32, 'cIpLocalPoolPercentAddrThldLo')),
+                    ('ciplocalpoolpercentaddrthldhi', YLeaf(YType.uint32, 'cIpLocalPoolPercentAddrThldHi')),
+                ])
+                self.ciplocalpoolname = None
+                self.ciplocalpoolstatfreeaddrs = None
+                self.ciplocalpoolstatinuseaddrs = None
+                self.ciplocalpoolstathiwaterusedaddrs = None
+                self.ciplocalpoolstatinuseaddrthldlo = None
+                self.ciplocalpoolstatinuseaddrthldhi = None
+                self.ciplocalpoolpercentaddrthldlo = None
+                self.ciplocalpoolpercentaddrthldhi = None
+                self._segment_path = lambda: "cIpLocalPoolStatsEntry" + "[cIpLocalPoolName='" + str(self.ciplocalpoolname) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -689,8 +716,10 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cIpLocalPoolAllocEntry" : ("ciplocalpoolallocentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable.Ciplocalpoolallocentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cIpLocalPoolAllocEntry", ("ciplocalpoolallocentry", CISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable.Ciplocalpoolallocentry))])
+            self._leafs = OrderedDict()
 
             self.ciplocalpoolallocentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolAllocTable"
@@ -706,7 +735,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             addresses with the interface where the request was received, and
             the user that requested the address.
             
-            .. attribute:: ciplocalpoolname  <key>
+            .. attribute:: ciplocalpoolname  (key)
             
             	
             	**type**\: str
@@ -715,12 +744,12 @@ class CISCOIPLOCALPOOLMIB(Entity):
             
             	**refers to**\:  :py:class:`ciplocalpoolname <ydk.models.cisco_ios_xe.CISCO_IP_LOCAL_POOL_MIB.CISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry>`
             
-            .. attribute:: ciplocalpoolallocaddrtype  <key>
+            .. attribute:: ciplocalpoolallocaddrtype  (key)
             
             	This object specifies the address type of cIpLocalPoolAllocAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: ciplocalpoolallocaddr  <key>
+            .. attribute:: ciplocalpoolallocaddr  (key)
             
             	This object specifies the allocated IP address.  The address type of this object is described by cIpLocalPoolAllocAddrType
             	**type**\: str
@@ -753,19 +782,22 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.yang_parent_name = "cIpLocalPoolAllocTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciplocalpoolname = YLeaf(YType.str, "cIpLocalPoolName")
-
-                self.ciplocalpoolallocaddrtype = YLeaf(YType.enumeration, "cIpLocalPoolAllocAddrType")
-
-                self.ciplocalpoolallocaddr = YLeaf(YType.str, "cIpLocalPoolAllocAddr")
-
-                self.ciplocalpoolallocifindex = YLeaf(YType.int32, "cIpLocalPoolAllocIfIndex")
-
-                self.ciplocalpoolallocuser = YLeaf(YType.str, "cIpLocalPoolAllocUser")
-                self._segment_path = lambda: "cIpLocalPoolAllocEntry" + "[cIpLocalPoolName='" + self.ciplocalpoolname.get() + "']" + "[cIpLocalPoolAllocAddrType='" + self.ciplocalpoolallocaddrtype.get() + "']" + "[cIpLocalPoolAllocAddr='" + self.ciplocalpoolallocaddr.get() + "']"
+                self.ylist_key_names = ['ciplocalpoolname','ciplocalpoolallocaddrtype','ciplocalpoolallocaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
+                    ('ciplocalpoolallocaddrtype', YLeaf(YType.enumeration, 'cIpLocalPoolAllocAddrType')),
+                    ('ciplocalpoolallocaddr', YLeaf(YType.str, 'cIpLocalPoolAllocAddr')),
+                    ('ciplocalpoolallocifindex', YLeaf(YType.int32, 'cIpLocalPoolAllocIfIndex')),
+                    ('ciplocalpoolallocuser', YLeaf(YType.str, 'cIpLocalPoolAllocUser')),
+                ])
+                self.ciplocalpoolname = None
+                self.ciplocalpoolallocaddrtype = None
+                self.ciplocalpoolallocaddr = None
+                self.ciplocalpoolallocifindex = None
+                self.ciplocalpoolallocuser = None
+                self._segment_path = lambda: "cIpLocalPoolAllocEntry" + "[cIpLocalPoolName='" + str(self.ciplocalpoolname) + "']" + "[cIpLocalPoolAllocAddrType='" + str(self.ciplocalpoolallocaddrtype) + "']" + "[cIpLocalPoolAllocAddr='" + str(self.ciplocalpoolallocaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolAllocTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

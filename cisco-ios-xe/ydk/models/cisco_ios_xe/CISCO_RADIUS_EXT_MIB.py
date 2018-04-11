@@ -32,9 +32,11 @@ Authorization Client MIB, RFC\-4672, September 2006.
 Authorization Server MIB, RFC\-4673, September 2006.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -73,8 +75,10 @@ class CISCORADIUSEXTMIB(Entity):
         self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"creClientGlobal" : ("creclientglobal", CISCORADIUSEXTMIB.Creclientglobal), "creClientAuthentication" : ("creclientauthentication", CISCORADIUSEXTMIB.Creclientauthentication), "creClientAccounting" : ("creclientaccounting", CISCORADIUSEXTMIB.Creclientaccounting)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("creClientGlobal", ("creclientglobal", CISCORADIUSEXTMIB.Creclientglobal)), ("creClientAuthentication", ("creclientauthentication", CISCORADIUSEXTMIB.Creclientauthentication)), ("creClientAccounting", ("creclientaccounting", CISCORADIUSEXTMIB.Creclientaccounting))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.creclientglobal = CISCORADIUSEXTMIB.Creclientglobal()
         self.creclientglobal.parent = self
@@ -182,26 +186,29 @@ class CISCORADIUSEXTMIB(Entity):
             self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.creclienttotalmaxinqlength = YLeaf(YType.uint32, "creClientTotalMaxInQLength")
-
-            self.creclienttotalmaxwaitqlength = YLeaf(YType.uint32, "creClientTotalMaxWaitQLength")
-
-            self.creclienttotalmaxdoneqlength = YLeaf(YType.uint32, "creClientTotalMaxDoneQLength")
-
-            self.creclienttotalaccessrejects = YLeaf(YType.uint32, "creClientTotalAccessRejects")
-
-            self.creclienttotalaverageresponsedelay = YLeaf(YType.int32, "creClientTotalAverageResponseDelay")
-
-            self.creclientsourceportrangestart = YLeaf(YType.uint16, "creClientSourcePortRangeStart")
-
-            self.creclientsourceportrangeend = YLeaf(YType.uint16, "creClientSourcePortRangeEnd")
-
-            self.creclientlastusedsourceport = YLeaf(YType.uint16, "creClientLastUsedSourcePort")
-
-            self.creclientlastusedsourceid = YLeaf(YType.uint32, "creClientLastUsedSourceId")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('creclienttotalmaxinqlength', YLeaf(YType.uint32, 'creClientTotalMaxInQLength')),
+                ('creclienttotalmaxwaitqlength', YLeaf(YType.uint32, 'creClientTotalMaxWaitQLength')),
+                ('creclienttotalmaxdoneqlength', YLeaf(YType.uint32, 'creClientTotalMaxDoneQLength')),
+                ('creclienttotalaccessrejects', YLeaf(YType.uint32, 'creClientTotalAccessRejects')),
+                ('creclienttotalaverageresponsedelay', YLeaf(YType.int32, 'creClientTotalAverageResponseDelay')),
+                ('creclientsourceportrangestart', YLeaf(YType.uint16, 'creClientSourcePortRangeStart')),
+                ('creclientsourceportrangeend', YLeaf(YType.uint16, 'creClientSourcePortRangeEnd')),
+                ('creclientlastusedsourceport', YLeaf(YType.uint16, 'creClientLastUsedSourcePort')),
+                ('creclientlastusedsourceid', YLeaf(YType.uint32, 'creClientLastUsedSourceId')),
+            ])
+            self.creclienttotalmaxinqlength = None
+            self.creclienttotalmaxwaitqlength = None
+            self.creclienttotalmaxdoneqlength = None
+            self.creclienttotalaccessrejects = None
+            self.creclienttotalaverageresponsedelay = None
+            self.creclientsourceportrangestart = None
+            self.creclientsourceportrangeend = None
+            self.creclientlastusedsourceport = None
+            self.creclientlastusedsourceid = None
             self._segment_path = lambda: "creClientGlobal"
             self._absolute_path = lambda: "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self._segment_path()
 
@@ -338,34 +345,37 @@ class CISCORADIUSEXTMIB(Entity):
             self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.creauthclientbadauthenticators = YLeaf(YType.uint32, "creAuthClientBadAuthenticators")
-
-            self.creauthclientunknownresponses = YLeaf(YType.uint32, "creAuthClientUnknownResponses")
-
-            self.creauthclienttotalpacketswithresponses = YLeaf(YType.uint32, "creAuthClientTotalPacketsWithResponses")
-
-            self.creauthclientbufferallocfailures = YLeaf(YType.uint32, "creAuthClientBufferAllocFailures")
-
-            self.creauthclienttotalresponses = YLeaf(YType.uint32, "creAuthClientTotalResponses")
-
-            self.creauthclienttotalpacketswithoutresponses = YLeaf(YType.uint32, "creAuthClientTotalPacketsWithoutResponses")
-
-            self.creauthclientaverageresponsedelay = YLeaf(YType.int32, "creAuthClientAverageResponseDelay")
-
-            self.creauthclientmaxresponsedelay = YLeaf(YType.int32, "creAuthClientMaxResponseDelay")
-
-            self.creauthclientmaxbuffersize = YLeaf(YType.uint32, "creAuthClientMaxBufferSize")
-
-            self.creauthclienttimeouts = YLeaf(YType.uint32, "creAuthClientTimeouts")
-
-            self.creauthclientdupids = YLeaf(YType.uint32, "creAuthClientDupIDs")
-
-            self.creauthclientmalformedresponses = YLeaf(YType.uint32, "creAuthClientMalformedResponses")
-
-            self.creauthclientlastusedsourceid = YLeaf(YType.uint32, "creAuthClientLastUsedSourceId")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('creauthclientbadauthenticators', YLeaf(YType.uint32, 'creAuthClientBadAuthenticators')),
+                ('creauthclientunknownresponses', YLeaf(YType.uint32, 'creAuthClientUnknownResponses')),
+                ('creauthclienttotalpacketswithresponses', YLeaf(YType.uint32, 'creAuthClientTotalPacketsWithResponses')),
+                ('creauthclientbufferallocfailures', YLeaf(YType.uint32, 'creAuthClientBufferAllocFailures')),
+                ('creauthclienttotalresponses', YLeaf(YType.uint32, 'creAuthClientTotalResponses')),
+                ('creauthclienttotalpacketswithoutresponses', YLeaf(YType.uint32, 'creAuthClientTotalPacketsWithoutResponses')),
+                ('creauthclientaverageresponsedelay', YLeaf(YType.int32, 'creAuthClientAverageResponseDelay')),
+                ('creauthclientmaxresponsedelay', YLeaf(YType.int32, 'creAuthClientMaxResponseDelay')),
+                ('creauthclientmaxbuffersize', YLeaf(YType.uint32, 'creAuthClientMaxBufferSize')),
+                ('creauthclienttimeouts', YLeaf(YType.uint32, 'creAuthClientTimeouts')),
+                ('creauthclientdupids', YLeaf(YType.uint32, 'creAuthClientDupIDs')),
+                ('creauthclientmalformedresponses', YLeaf(YType.uint32, 'creAuthClientMalformedResponses')),
+                ('creauthclientlastusedsourceid', YLeaf(YType.uint32, 'creAuthClientLastUsedSourceId')),
+            ])
+            self.creauthclientbadauthenticators = None
+            self.creauthclientunknownresponses = None
+            self.creauthclienttotalpacketswithresponses = None
+            self.creauthclientbufferallocfailures = None
+            self.creauthclienttotalresponses = None
+            self.creauthclienttotalpacketswithoutresponses = None
+            self.creauthclientaverageresponsedelay = None
+            self.creauthclientmaxresponsedelay = None
+            self.creauthclientmaxbuffersize = None
+            self.creauthclienttimeouts = None
+            self.creauthclientdupids = None
+            self.creauthclientmalformedresponses = None
+            self.creauthclientlastusedsourceid = None
             self._segment_path = lambda: "creClientAuthentication"
             self._absolute_path = lambda: "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self._segment_path()
 
@@ -502,34 +512,37 @@ class CISCORADIUSEXTMIB(Entity):
             self.yang_parent_name = "CISCO-RADIUS-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.creacctclientbadauthenticators = YLeaf(YType.uint32, "creAcctClientBadAuthenticators")
-
-            self.creacctclientunknownresponses = YLeaf(YType.uint32, "creAcctClientUnknownResponses")
-
-            self.creacctclienttotalpacketswithresponses = YLeaf(YType.uint32, "creAcctClientTotalPacketsWithResponses")
-
-            self.creacctclientbufferallocfailures = YLeaf(YType.uint32, "creAcctClientBufferAllocFailures")
-
-            self.creacctclienttotalresponses = YLeaf(YType.uint32, "creAcctClientTotalResponses")
-
-            self.creacctclienttotalpacketswithoutresponses = YLeaf(YType.uint32, "creAcctClientTotalPacketsWithoutResponses")
-
-            self.creacctclientaverageresponsedelay = YLeaf(YType.int32, "creAcctClientAverageResponseDelay")
-
-            self.creacctclientmaxresponsedelay = YLeaf(YType.int32, "creAcctClientMaxResponseDelay")
-
-            self.creacctclientmaxbuffersize = YLeaf(YType.uint32, "creAcctClientMaxBufferSize")
-
-            self.creacctclienttimeouts = YLeaf(YType.uint32, "creAcctClientTimeouts")
-
-            self.creacctclientdupids = YLeaf(YType.uint32, "creAcctClientDupIDs")
-
-            self.creacctclientmalformedresponses = YLeaf(YType.uint32, "creAcctClientMalformedResponses")
-
-            self.creacctclientlastusedsourceid = YLeaf(YType.uint32, "creAcctClientLastUsedSourceId")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('creacctclientbadauthenticators', YLeaf(YType.uint32, 'creAcctClientBadAuthenticators')),
+                ('creacctclientunknownresponses', YLeaf(YType.uint32, 'creAcctClientUnknownResponses')),
+                ('creacctclienttotalpacketswithresponses', YLeaf(YType.uint32, 'creAcctClientTotalPacketsWithResponses')),
+                ('creacctclientbufferallocfailures', YLeaf(YType.uint32, 'creAcctClientBufferAllocFailures')),
+                ('creacctclienttotalresponses', YLeaf(YType.uint32, 'creAcctClientTotalResponses')),
+                ('creacctclienttotalpacketswithoutresponses', YLeaf(YType.uint32, 'creAcctClientTotalPacketsWithoutResponses')),
+                ('creacctclientaverageresponsedelay', YLeaf(YType.int32, 'creAcctClientAverageResponseDelay')),
+                ('creacctclientmaxresponsedelay', YLeaf(YType.int32, 'creAcctClientMaxResponseDelay')),
+                ('creacctclientmaxbuffersize', YLeaf(YType.uint32, 'creAcctClientMaxBufferSize')),
+                ('creacctclienttimeouts', YLeaf(YType.uint32, 'creAcctClientTimeouts')),
+                ('creacctclientdupids', YLeaf(YType.uint32, 'creAcctClientDupIDs')),
+                ('creacctclientmalformedresponses', YLeaf(YType.uint32, 'creAcctClientMalformedResponses')),
+                ('creacctclientlastusedsourceid', YLeaf(YType.uint32, 'creAcctClientLastUsedSourceId')),
+            ])
+            self.creacctclientbadauthenticators = None
+            self.creacctclientunknownresponses = None
+            self.creacctclienttotalpacketswithresponses = None
+            self.creacctclientbufferallocfailures = None
+            self.creacctclienttotalresponses = None
+            self.creacctclienttotalpacketswithoutresponses = None
+            self.creacctclientaverageresponsedelay = None
+            self.creacctclientmaxresponsedelay = None
+            self.creacctclientmaxbuffersize = None
+            self.creacctclienttimeouts = None
+            self.creacctclientdupids = None
+            self.creacctclientmalformedresponses = None
+            self.creacctclientlastusedsourceid = None
             self._segment_path = lambda: "creClientAccounting"
             self._absolute_path = lambda: "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/%s" % self._segment_path()
 

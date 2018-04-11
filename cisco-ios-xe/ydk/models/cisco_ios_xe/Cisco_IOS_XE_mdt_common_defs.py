@@ -6,15 +6,17 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class MdtSubFilterType(Enum):
     """
-    MdtSubFilterType
+    MdtSubFilterType (Enum Class)
 
     Types of subscription filters.
 
@@ -34,6 +36,12 @@ class MdtSubFilterType(Enum):
 
     	TDL-URI defining the data items of interest.
 
+    .. data:: sub_filter_type_tdl_transform = 3
+
+    	tdl-transform define transform scheme 
+
+    	to be subscribed.
+
     """
 
     sub_filter_type_none = Enum.YLeaf(0, "sub-filter-type-none")
@@ -42,10 +50,12 @@ class MdtSubFilterType(Enum):
 
     sub_filter_type_tdl_uri = Enum.YLeaf(2, "sub-filter-type-tdl-uri")
 
+    sub_filter_type_tdl_transform = Enum.YLeaf(3, "sub-filter-type-tdl-transform")
+
 
 class MdtSubUpdateTrigger(Enum):
     """
-    MdtSubUpdateTrigger
+    MdtSubUpdateTrigger (Enum Class)
 
     Types of subscription update triggers.
 

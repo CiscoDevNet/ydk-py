@@ -21,6 +21,12 @@ module confd_dyncfg {
     "This module defines the Tail-f ConfD configuration parameters
      that can be modified in runtime.";
 
+  revision 2017-09-15 {
+    description
+      "Released as part of ConfD-6.4.4.
+
+       Updated description for /confdConfig/logs/errorLog.";
+  }
   revision 2017-08-21 {
     description
       "Released as part of ConfD-6.4.3.
@@ -1732,9 +1738,10 @@ module confd_dyncfg {
         presence "";
         tailf:info
           "errorLog is an error log used for internal logging from the
-           ConfD daemon. It is used for troubleshooting the ConfD
-           daemon itself, and should normally be disabled. This log is
-           rotated by the ConfD daemon (see below).";
+           ConfD daemon. It is used for troubleshooting the ConfD daemon
+           itself, and it is recommended that it is enabled, in order to
+           capture information about problems that are difficult to
+           reproduce. This log is rotated by the ConfD daemon (see below).";
         leaf enabled {
           type boolean;
           default "false";
@@ -1983,6 +1990,18 @@ module confd_dyncfg {
              still be done with other mechanisms as configured for
              /confdConfig/aaa/authOrder. Default is PT10S, i.e. 10
              seconds.";
+        }
+      }
+      container rest {
+        presence "";
+        leaf authCacheTTL {
+          type xs:duration;
+          default "PT10S";
+          tailf:info
+            "The amount of time that REST API and RESTCONF locally caches
+             authentication credentials before querying the AAA server. Default
+             is PT10S, i.e. 10 seconds. Setting to PT0S, i.e. 0 seconds,
+             effectively disables the authentication cache.";
         }
       }
       container externalAuthentication {
@@ -2559,7 +2578,8 @@ module confd_dyncfg {
         tailf:info
           "addExtraTableSpacing is either 'true' or 'false'. If
            set to 'true' then an additional newline will be added
-           on each side of the table.";
+           on each side of the table. This configuration parameter
+           takes effect for both existing and new sessions.";
       }
       leaf suppressRangeKeyword {
         type boolean;
@@ -2773,7 +2793,8 @@ module confd_dyncfg {
         default "1000";
         tailf:info
           "Maximum number of possible alternatives to present when
-           doing rollback.";
+           doing rollback. This configuration parameter takes effect
+           for both existing and new sessions.";
       }
       leaf rollbackNumbering {
         type rollNumbering;
@@ -2782,7 +2803,8 @@ module confd_dyncfg {
           "rollbackNumbering is either 'fixed' or 'rolling'. If set
            to 'rolling' then rollback file '0' will always contain the
            last commit. When using 'fixed' each rollback will get
-           a unique increasing number.";
+           a unique increasing number. This configuration parameter
+           takes effect for both existing and new sessions.";
       }
       leaf rollbackNumberingInitial {
         type int64;
@@ -2790,7 +2812,8 @@ module confd_dyncfg {
         tailf:info
           "rollbackNumberingInitial is the starting point of the rollback
            numbering when the 'increasing' rollback numbering scheme is
-           used.";
+           used. This configuration parameter takes effect when ConfD
+           initially starts.";
       }
       leaf inconsistentDatabaseSuffix {
         type string;
@@ -2809,7 +2832,8 @@ module confd_dyncfg {
            configuration. The default value is shown inside a comment
            on the same line as the value. Showing default values can
            also be enabled in the CLI per session using the operational
-           mode command 'set show defaults true'.";
+           mode command 'set show defaults true'. This configuration
+           parameter takes effect only for new sessions.";
       }
       leaf reallocateOperTrans {
         type boolean;
@@ -2985,7 +3009,9 @@ module confd_dyncfg {
            not be displayed even when explicitly configured to have that
            value. When set to 'false' such leaves will be displayed if
            explicitly configured to have the value. This setting applies
-           to show commands, ie show running-config and show config.";
+           to show commands, ie show running-config and show config.
+           This configuration parameter takes effect for both existing
+           and new sessions.";
       }
       leaf trimDefaultSave {
         type boolean;
@@ -2996,21 +3022,24 @@ module confd_dyncfg {
            not be displayed even when explicitly configured to have that
            value. When set to 'false' such leaves will be displayed if
            explicitly configured to have the value. This setting applies
-           to the save command.";
+           to the save command. This configuration parameter takes effect
+           for both existing and new sessions.";
       }
       leaf banner {
         type string;
         default "";
         tailf:info
           "Banner shown to the user when the CLI is started. Default is
-           empty.";
+           empty. This configuration parameter takes effect only for
+           new sessions.";
       }
       leaf bannerFile {
         type string;
         default "";
         tailf:info
           "Banner file containing a banner shown to the user when the
-           CLI is started. Default is empty.";
+           CLI is started. Default is empty. This configuration parameter
+           takes effect only for new sessions.";
       }
       leaf prompt1 {
         type string;
@@ -3055,7 +3084,8 @@ module confd_dyncfg {
         tailf:info
           "Prompt used in operational mode in C style. The string may
            contain a number of backslash-escaped special characters
-           which are decoded as described above.";
+           which are decoded as described above. This configuration
+           parameter takes effect for both existing and new sessions.";
       }
       leaf cPrompt2 {
         type string;
@@ -3063,7 +3093,8 @@ module confd_dyncfg {
         tailf:info
           "Prompt used in configuration mode in C style. The string may
            contain a number of backslash-escaped special characters
-           which are decoded as described above.";
+           which are decoded as described above. This configuration
+           parameter takes effect for both existing and new sessions.";
       }
       leaf cStylePromptInJStyle {
         type boolean;
@@ -3078,7 +3109,8 @@ module confd_dyncfg {
         tailf:info
           "When the \\h token is used in a prompt the first part of
            the hostname up until the first occurance of the
-           promptHostnameDelimiter is used.";
+           promptHostnameDelimiter is used. This configuration
+           parameter takes effect for both existing and new sessions.";
       }
       leaf asyncPromptRefresh {
         type boolean;
@@ -3100,7 +3132,8 @@ module confd_dyncfg {
         default "PT30M";
         tailf:info
           "Maximum idle time before terminating a CLI session. Default
-           is PT30M, ie 30 minutes.";
+           is PT30M, ie 30 minutes. This configuration parameter takes
+           effect only for new sessions.";
       }
       leaf promptSessionsCLI {
         type boolean;
@@ -3162,14 +3195,17 @@ module confd_dyncfg {
           default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true' the CLI will
-             print a timestamp before the output of each command.";
+             print a timestamp before the output of each command. This
+             configuration parameter takes effect only for new sessions.";
         }
         leaf clock24 {
           type boolean;
           default "true";
           tailf:info
             "clock24 is either 'true' or 'false'. If 'true' the 24-hour
-             time notation wil be used when displaying hours.";
+             time notation wil be used when displaying hours. This
+             configuration parameter takes effect for both existing
+             and new sessions.";
         }
         leaf format {
           type string;
@@ -3219,7 +3255,10 @@ module confd_dyncfg {
              W is the field width and P is the padding character. If P is not
              specified, ' ' will be used as the padding character.
              Example, the format '\\d{l,4}\\m{l,5}\\D{l,3}\\H{r,2,0}:\\t{r,2,0}'
-             would translate into 'Wed Jun  3  08:35'.";
+             would translate into 'Wed Jun  3  08:35'.
+
+             This configuration parameter takes effect for both existing and
+             new sessions.";
         }
       }
       container autoWizard {
@@ -3227,14 +3266,16 @@ module confd_dyncfg {
         tailf:info
           "Default value for autowizard in the CLI. The user can always
            enable or disable the auto wizard in each session, this
-           controls the initial session value.";
+           controls the initial session value. This configuration
+           parameter takes effect only for new sessions.";
         leaf enabled {
           type boolean;
           default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true' the CLI
              will prompt the user for required attributes when a new
-             identifier is created.";
+             identifier is created. This configuration parameter
+             takes effect only for new sessions.";
         }
       }
       container ssh {
@@ -3301,7 +3342,8 @@ module confd_dyncfg {
            'true' then a message will be displayed in the CLI
            whenever a commit operation is performed in the system.
            This is always disabled in I-style, and in transactionless
-           mode.";
+           mode. This configuration parameter takes effect only for
+           new sessions.";
       }
       leaf commitMessageFormat {
         type string;
@@ -3311,7 +3353,9 @@ module confd_dyncfg {
            displayed in the CLI. The format
            string may contain the variables $(user), $(time), $(ctx),
            $(date), $(time12), $(time12ampm), $(time12hm), $(host),
-           $(hostname), and $(proto).";
+           $(hostname), and $(proto).
+           This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       container suppressCommitMessages {
         presence "";
@@ -3701,21 +3745,24 @@ module confd_dyncfg {
         type boolean;
         default "true";
         tailf:info
-          "Display tables in compact mode.";
+          "Display tables in compact mode. This configuration parameter
+           takes effect only for new sessions.";
       }
       leaf compactShow {
         type boolean;
         default "false";
         tailf:info
           "Use compact representation when showing the configuration in
-           C and I style CLIs.";
+           C and I style CLIs. This configuration parameter takes effect
+           for both existing and new sessions.";
       }
       leaf compactStatsShow {
         type boolean;
         default "false";
         tailf:info
           "Use compact representation when showing the operational data
-           in C and I style CLIs.";
+           in C and I style CLIs. This configuration parameter takes
+           effect for both existing and new sessions.";
       }
       leaf prettifyStatsName {
         type boolean;
@@ -3739,7 +3786,9 @@ module confd_dyncfg {
         tailf:info
           "commitActivityClock can be either 'true' or 'false'. If set to
            'true' then a |/-\\| style animation will be displayed if
-           the commit operation takes more than 200 ms to complete.";
+           the commit operation takes more than 200 ms to complete.
+           This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       leaf confirmUncommitedOnExit {
         type confirmUncommitedOnExitType;
@@ -3796,7 +3845,8 @@ module confd_dyncfg {
            config='false' data in the C and I style CLIs using the
            'show' command. If set to 'true' then the name of the
            container will not be repeated, instead all leaves will be
-           indented.";
+           indented. This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       leaf allowAbbrevCmds {
         type boolean;
@@ -3944,7 +3994,9 @@ module confd_dyncfg {
         tailf:info
           "compListCompact is either 'true' or 'false'. If 'true'
            then the CLI will display items with an associated info
-           text one per line, and all the rest in compact format.";
+           text one per line, and all the rest in compact format.
+           This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       leaf completionListLine {
         type boolean;
@@ -3955,7 +4007,9 @@ module confd_dyncfg {
            line. If set to 'false' one-line presentation will be
            used for itmes with info texts and compact for the rest.
            (if compListCompact above is set to 'true' there may be a
-           mix of the to formats in the same listing)";
+           mix of the to formats in the same listing)
+           This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       leaf infoOnMatch {
         type boolean;
@@ -4153,7 +4207,8 @@ module confd_dyncfg {
           "Some messages are not displayed in the CLI when a command
            executed, but are delayed until the current command execution
            has finished. The size of the queue of pending messages is
-           configured in messageQueueSize.";
+           configured in messageQueueSize. This configuration parameter
+           takes effect for both existing and new sessions.";
       }
       leaf promptEnumLimit {
         type uint64 {

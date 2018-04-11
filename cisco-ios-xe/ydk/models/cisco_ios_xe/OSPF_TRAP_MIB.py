@@ -9,9 +9,11 @@ RFC 4750;  see the RFC itself for full legal
 notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -40,8 +42,10 @@ class OSPFTRAPMIB(Entity):
         self.yang_parent_name = "OSPF-TRAP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ospfTrapControl" : ("ospftrapcontrol", OSPFTRAPMIB.Ospftrapcontrol)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ospfTrapControl", ("ospftrapcontrol", OSPFTRAPMIB.Ospftrapcontrol))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ospftrapcontrol = OSPFTRAPMIB.Ospftrapcontrol()
         self.ospftrapcontrol.parent = self
@@ -92,16 +96,19 @@ class OSPFTRAPMIB(Entity):
             self.yang_parent_name = "OSPF-TRAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ospfsettrap = YLeaf(YType.str, "ospfSetTrap")
-
-            self.ospfconfigerrortype = YLeaf(YType.enumeration, "ospfConfigErrorType")
-
-            self.ospfpackettype = YLeaf(YType.enumeration, "ospfPacketType")
-
-            self.ospfpacketsrc = YLeaf(YType.str, "ospfPacketSrc")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ospfsettrap', YLeaf(YType.str, 'ospfSetTrap')),
+                ('ospfconfigerrortype', YLeaf(YType.enumeration, 'ospfConfigErrorType')),
+                ('ospfpackettype', YLeaf(YType.enumeration, 'ospfPacketType')),
+                ('ospfpacketsrc', YLeaf(YType.str, 'ospfPacketSrc')),
+            ])
+            self.ospfsettrap = None
+            self.ospfconfigerrortype = None
+            self.ospfpackettype = None
+            self.ospfpacketsrc = None
             self._segment_path = lambda: "ospfTrapControl"
             self._absolute_path = lambda: "OSPF-TRAP-MIB:OSPF-TRAP-MIB/%s" % self._segment_path()
 
@@ -110,7 +117,7 @@ class OSPFTRAPMIB(Entity):
 
         class Ospfconfigerrortype(Enum):
             """
-            Ospfconfigerrortype
+            Ospfconfigerrortype (Enum Class)
 
             Potential types of configuration conflicts.
 
@@ -183,7 +190,7 @@ class OSPFTRAPMIB(Entity):
 
         class Ospfpackettype(Enum):
             """
-            Ospfpackettype
+            Ospfpackettype (Enum Class)
 
             OSPF packet types.  When the last value of a trap
 

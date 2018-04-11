@@ -149,15 +149,17 @@ Some of the key features of this MIB are\:
          or on demand.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CdcFileFormat(Enum):
     """
-    CdcFileFormat
+    CdcFileFormat (Enum Class)
 
     The file formats supported are\:
 
@@ -376,7 +378,7 @@ class CdcFileFormat(Enum):
 
 class CdcFileXferStatus(Enum):
     """
-    CdcFileXferStatus
+    CdcFileXferStatus (Enum Class)
 
     The status of a file transfer. The different values are given
 
@@ -506,8 +508,10 @@ class CISCODATACOLLECTIONMIB(Entity):
         self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cdcVFile" : ("cdcvfile", CISCODATACOLLECTIONMIB.Cdcvfile), "cdcVFileTable" : ("cdcvfiletable", CISCODATACOLLECTIONMIB.Cdcvfiletable), "cdcVFileMgmtTable" : ("cdcvfilemgmttable", CISCODATACOLLECTIONMIB.Cdcvfilemgmttable), "cdcDGTable" : ("cdcdgtable", CISCODATACOLLECTIONMIB.Cdcdgtable), "cdcDGBaseObjectTable" : ("cdcdgbaseobjecttable", CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable), "cdcDGInstanceTable" : ("cdcdginstancetable", CISCODATACOLLECTIONMIB.Cdcdginstancetable), "cdcFileXferConfTable" : ("cdcfilexferconftable", CISCODATACOLLECTIONMIB.Cdcfilexferconftable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cdcVFile", ("cdcvfile", CISCODATACOLLECTIONMIB.Cdcvfile)), ("cdcVFileTable", ("cdcvfiletable", CISCODATACOLLECTIONMIB.Cdcvfiletable)), ("cdcVFileMgmtTable", ("cdcvfilemgmttable", CISCODATACOLLECTIONMIB.Cdcvfilemgmttable)), ("cdcDGTable", ("cdcdgtable", CISCODATACOLLECTIONMIB.Cdcdgtable)), ("cdcDGBaseObjectTable", ("cdcdgbaseobjecttable", CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable)), ("cdcDGInstanceTable", ("cdcdginstancetable", CISCODATACOLLECTIONMIB.Cdcdginstancetable)), ("cdcFileXferConfTable", ("cdcfilexferconftable", CISCODATACOLLECTIONMIB.Cdcfilexferconftable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cdcvfile = CISCODATACOLLECTIONMIB.Cdcvfile()
         self.cdcvfile.parent = self
@@ -576,12 +580,15 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cdcvfilepersistentstorage = YLeaf(YType.boolean, "cdcVFilePersistentStorage")
-
-            self.cdcvfilemaxsizehitslimit = YLeaf(YType.uint32, "cdcVFileMaxSizeHitsLimit")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cdcvfilepersistentstorage', YLeaf(YType.boolean, 'cdcVFilePersistentStorage')),
+                ('cdcvfilemaxsizehitslimit', YLeaf(YType.uint32, 'cdcVFileMaxSizeHitsLimit')),
+            ])
+            self.cdcvfilepersistentstorage = None
+            self.cdcvfilemaxsizehitslimit = None
             self._segment_path = lambda: "cdcVFile"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
 
@@ -612,8 +619,10 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcVFileEntry" : ("cdcvfileentry", CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdcVFileEntry", ("cdcvfileentry", CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry))])
+            self._leafs = OrderedDict()
 
             self.cdcvfileentry = YList(self)
             self._segment_path = lambda: "cdcVFileTable"
@@ -640,7 +649,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             time of the entry. The activation time for each entry is
             maintained internally by the agent.
             
-            .. attribute:: cdcvfileindex  <key>
+            .. attribute:: cdcvfileindex  (key)
             
             	An arbitrary integer for uniquely identifying this entry. When creating a row, the application should pick a random number.   If the configuration in this entry is persisted across system/agent restarts then the same value of cdcVFileIndex must be assigned to this entry after the restart
             	**type**\: int
@@ -749,39 +758,42 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.yang_parent_name = "cdcVFileTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcvfileindex = YLeaf(YType.uint32, "cdcVFileIndex")
-
-                self.cdcvfilename = YLeaf(YType.str, "cdcVFileName")
-
-                self.cdcvfiledescription = YLeaf(YType.str, "cdcVFileDescription")
-
-                self.cdcvfilecommand = YLeaf(YType.enumeration, "cdcVFileCommand")
-
-                self.cdcvfilemaxsize = YLeaf(YType.uint32, "cdcVFileMaxSize")
-
-                self.cdcvfilecurrentsize = YLeaf(YType.uint32, "cdcVFileCurrentSize")
-
-                self.cdcvfileformat = YLeaf(YType.enumeration, "cdcVFileFormat")
-
-                self.cdcvfilecollectmode = YLeaf(YType.enumeration, "cdcVFileCollectMode")
-
-                self.cdcvfilecollectionperiod = YLeaf(YType.uint32, "cdcVFileCollectionPeriod")
-
-                self.cdcvfileretentionperiod = YLeaf(YType.uint32, "cdcVFileRetentionPeriod")
-
-                self.cdcvfileadminstatus = YLeaf(YType.enumeration, "cdcVFileAdminStatus")
-
-                self.cdcvfileoperstatus = YLeaf(YType.enumeration, "cdcVFileOperStatus")
-
-                self.cdcvfileerrorcode = YLeaf(YType.enumeration, "cdcVFileErrorCode")
-
-                self.cdcvfilecollectionerrorenable = YLeaf(YType.boolean, "cdcVFileCollectionErrorEnable")
-
-                self.cdcvfilerowstatus = YLeaf(YType.enumeration, "cdcVFileRowStatus")
-                self._segment_path = lambda: "cdcVFileEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']"
+                self.ylist_key_names = ['cdcvfileindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdcvfileindex', YLeaf(YType.uint32, 'cdcVFileIndex')),
+                    ('cdcvfilename', YLeaf(YType.str, 'cdcVFileName')),
+                    ('cdcvfiledescription', YLeaf(YType.str, 'cdcVFileDescription')),
+                    ('cdcvfilecommand', YLeaf(YType.enumeration, 'cdcVFileCommand')),
+                    ('cdcvfilemaxsize', YLeaf(YType.uint32, 'cdcVFileMaxSize')),
+                    ('cdcvfilecurrentsize', YLeaf(YType.uint32, 'cdcVFileCurrentSize')),
+                    ('cdcvfileformat', YLeaf(YType.enumeration, 'cdcVFileFormat')),
+                    ('cdcvfilecollectmode', YLeaf(YType.enumeration, 'cdcVFileCollectMode')),
+                    ('cdcvfilecollectionperiod', YLeaf(YType.uint32, 'cdcVFileCollectionPeriod')),
+                    ('cdcvfileretentionperiod', YLeaf(YType.uint32, 'cdcVFileRetentionPeriod')),
+                    ('cdcvfileadminstatus', YLeaf(YType.enumeration, 'cdcVFileAdminStatus')),
+                    ('cdcvfileoperstatus', YLeaf(YType.enumeration, 'cdcVFileOperStatus')),
+                    ('cdcvfileerrorcode', YLeaf(YType.enumeration, 'cdcVFileErrorCode')),
+                    ('cdcvfilecollectionerrorenable', YLeaf(YType.boolean, 'cdcVFileCollectionErrorEnable')),
+                    ('cdcvfilerowstatus', YLeaf(YType.enumeration, 'cdcVFileRowStatus')),
+                ])
+                self.cdcvfileindex = None
+                self.cdcvfilename = None
+                self.cdcvfiledescription = None
+                self.cdcvfilecommand = None
+                self.cdcvfilemaxsize = None
+                self.cdcvfilecurrentsize = None
+                self.cdcvfileformat = None
+                self.cdcvfilecollectmode = None
+                self.cdcvfilecollectionperiod = None
+                self.cdcvfileretentionperiod = None
+                self.cdcvfileadminstatus = None
+                self.cdcvfileoperstatus = None
+                self.cdcvfileerrorcode = None
+                self.cdcvfilecollectionerrorenable = None
+                self.cdcvfilerowstatus = None
+                self._segment_path = lambda: "cdcVFileEntry" + "[cdcVFileIndex='" + str(self.cdcvfileindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -789,7 +801,7 @@ class CISCODATACOLLECTIONMIB(Entity):
 
             class Cdcvfileadminstatus(Enum):
                 """
-                Cdcvfileadminstatus
+                Cdcvfileadminstatus (Enum Class)
 
                 A control object to indicate the administratively desired
 
@@ -820,7 +832,7 @@ class CISCODATACOLLECTIONMIB(Entity):
 
             class Cdcvfilecollectmode(Enum):
                 """
-                Cdcvfilecollectmode
+                Cdcvfilecollectmode (Enum Class)
 
                 Determines the mode of data collection.
 
@@ -867,7 +879,7 @@ class CISCODATACOLLECTIONMIB(Entity):
 
             class Cdcvfilecommand(Enum):
                 """
-                Cdcvfilecommand
+                Cdcvfilecommand (Enum Class)
 
                 An object for controlling collection of data.
 
@@ -918,7 +930,7 @@ class CISCODATACOLLECTIONMIB(Entity):
 
             class Cdcvfileerrorcode(Enum):
                 """
-                Cdcvfileerrorcode
+                Cdcvfileerrorcode (Enum Class)
 
                 A value indicating the type of error that has occurred during
 
@@ -1003,7 +1015,7 @@ class CISCODATACOLLECTIONMIB(Entity):
 
             class Cdcvfileoperstatus(Enum):
                 """
-                Cdcvfileoperstatus
+                Cdcvfileoperstatus (Enum Class)
 
                 A status object to indicate the operational state of
 
@@ -1074,8 +1086,10 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcVFileMgmtEntry" : ("cdcvfilemgmtentry", CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdcVFileMgmtEntry", ("cdcvfilemgmtentry", CISCODATACOLLECTIONMIB.Cdcvfilemgmttable.Cdcvfilemgmtentry))])
+            self._leafs = OrderedDict()
 
             self.cdcvfilemgmtentry = YList(self)
             self._segment_path = lambda: "cdcVFileMgmtTable"
@@ -1101,7 +1115,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             entry, like time to live etc. need not be maintained
             across restarts.
             
-            .. attribute:: cdcvfileindex  <key>
+            .. attribute:: cdcvfileindex  (key)
             
             	
             	**type**\: int
@@ -1110,7 +1124,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             
             	**refers to**\:  :py:class:`cdcvfileindex <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CISCODATACOLLECTIONMIB.Cdcvfiletable.Cdcvfileentry>`
             
-            .. attribute:: cdcvfilemgmtindex  <key>
+            .. attribute:: cdcvfilemgmtindex  (key)
             
             	This value is a running counter starting at 1, generated by the agent so that the combination of  cdcVFileIndex and cdcVFileMgmtIndex uniquely identifies a frozen VFile. The deleted file indicies do not get reused.  This object's value needs to be unique only across the set of frozen VFiles corresponding to a cdcVFileEntry (identified by cdcVFileIndex)
             	**type**\: int
@@ -1174,27 +1188,30 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.yang_parent_name = "cdcVFileMgmtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcvfileindex = YLeaf(YType.str, "cdcVFileIndex")
-
-                self.cdcvfilemgmtindex = YLeaf(YType.uint32, "cdcVFileMgmtIndex")
-
-                self.cdcvfilemgmtname = YLeaf(YType.str, "cdcVFileMgmtName")
-
-                self.cdcvfilemgmttimestamp = YLeaf(YType.str, "cdcVFileMgmtTimestamp")
-
-                self.cdcvfilemgmttimetolive = YLeaf(YType.uint32, "cdcVFileMgmtTimeToLive")
-
-                self.cdcvfilemgmtcommand = YLeaf(YType.enumeration, "cdcVFileMgmtCommand")
-
-                self.cdcvfilemgmtxferurl = YLeaf(YType.str, "cdcVFileMgmtXferURL")
-
-                self.cdcvfilemgmtlastxferstatus = YLeaf(YType.enumeration, "cdcVFileMgmtLastXferStatus")
-
-                self.cdcvfilemgmtlastxferurl = YLeaf(YType.str, "cdcVFileMgmtLastXferURL")
-                self._segment_path = lambda: "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']" + "[cdcVFileMgmtIndex='" + self.cdcvfilemgmtindex.get() + "']"
+                self.ylist_key_names = ['cdcvfileindex','cdcvfilemgmtindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdcvfileindex', YLeaf(YType.str, 'cdcVFileIndex')),
+                    ('cdcvfilemgmtindex', YLeaf(YType.uint32, 'cdcVFileMgmtIndex')),
+                    ('cdcvfilemgmtname', YLeaf(YType.str, 'cdcVFileMgmtName')),
+                    ('cdcvfilemgmttimestamp', YLeaf(YType.str, 'cdcVFileMgmtTimestamp')),
+                    ('cdcvfilemgmttimetolive', YLeaf(YType.uint32, 'cdcVFileMgmtTimeToLive')),
+                    ('cdcvfilemgmtcommand', YLeaf(YType.enumeration, 'cdcVFileMgmtCommand')),
+                    ('cdcvfilemgmtxferurl', YLeaf(YType.str, 'cdcVFileMgmtXferURL')),
+                    ('cdcvfilemgmtlastxferstatus', YLeaf(YType.enumeration, 'cdcVFileMgmtLastXferStatus')),
+                    ('cdcvfilemgmtlastxferurl', YLeaf(YType.str, 'cdcVFileMgmtLastXferURL')),
+                ])
+                self.cdcvfileindex = None
+                self.cdcvfilemgmtindex = None
+                self.cdcvfilemgmtname = None
+                self.cdcvfilemgmttimestamp = None
+                self.cdcvfilemgmttimetolive = None
+                self.cdcvfilemgmtcommand = None
+                self.cdcvfilemgmtxferurl = None
+                self.cdcvfilemgmtlastxferstatus = None
+                self.cdcvfilemgmtlastxferurl = None
+                self._segment_path = lambda: "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + str(self.cdcvfileindex) + "']" + "[cdcVFileMgmtIndex='" + str(self.cdcvfilemgmtindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileMgmtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1202,7 +1219,7 @@ class CISCODATACOLLECTIONMIB(Entity):
 
             class Cdcvfilemgmtcommand(Enum):
                 """
-                Cdcvfilemgmtcommand
+                Cdcvfilemgmtcommand (Enum Class)
 
                 A control to manage VFiles. 
 
@@ -1275,8 +1292,10 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcDGEntry" : ("cdcdgentry", CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdcDGEntry", ("cdcdgentry", CISCODATACOLLECTIONMIB.Cdcdgtable.Cdcdgentry))])
+            self._leafs = OrderedDict()
 
             self.cdcdgentry = YList(self)
             self._segment_path = lambda: "cdcDGTable"
@@ -1305,7 +1324,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             VFile of the associated cdcVFileEntry at periodic
             intervals (cdcDGPollPeriod).
             
-            .. attribute:: cdcdgindex  <key>
+            .. attribute:: cdcdgindex  (key)
             
             	An arbitrary integer used to uniquely identify this entry. When creating an entry, a management application should pick a random number
             	**type**\: int
@@ -1388,31 +1407,34 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.yang_parent_name = "cdcDGTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcdgindex = YLeaf(YType.uint32, "cdcDGIndex")
-
-                self.cdcdgcomment = YLeaf(YType.str, "cdcDGComment")
-
-                self.cdcdgtype = YLeaf(YType.enumeration, "cdcDGType")
-
-                self.cdcdgvfileindex = YLeaf(YType.uint32, "cdcDGVFileIndex")
-
-                self.cdcdgtargettag = YLeaf(YType.str, "cdcDGTargetTag")
-
-                self.cdcdgcontextname = YLeaf(YType.str, "cdcDGContextName")
-
-                self.cdcdgobject = YLeaf(YType.str, "cdcDGObject")
-
-                self.cdcdgobjectgrpindex = YLeaf(YType.uint32, "cdcDGObjectGrpIndex")
-
-                self.cdcdginstgrpindex = YLeaf(YType.uint32, "cdcDGInstGrpIndex")
-
-                self.cdcdgpollperiod = YLeaf(YType.uint32, "cdcDGPollPeriod")
-
-                self.cdcdgrowstatus = YLeaf(YType.enumeration, "cdcDGRowStatus")
-                self._segment_path = lambda: "cdcDGEntry" + "[cdcDGIndex='" + self.cdcdgindex.get() + "']"
+                self.ylist_key_names = ['cdcdgindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdcdgindex', YLeaf(YType.uint32, 'cdcDGIndex')),
+                    ('cdcdgcomment', YLeaf(YType.str, 'cdcDGComment')),
+                    ('cdcdgtype', YLeaf(YType.enumeration, 'cdcDGType')),
+                    ('cdcdgvfileindex', YLeaf(YType.uint32, 'cdcDGVFileIndex')),
+                    ('cdcdgtargettag', YLeaf(YType.str, 'cdcDGTargetTag')),
+                    ('cdcdgcontextname', YLeaf(YType.str, 'cdcDGContextName')),
+                    ('cdcdgobject', YLeaf(YType.str, 'cdcDGObject')),
+                    ('cdcdgobjectgrpindex', YLeaf(YType.uint32, 'cdcDGObjectGrpIndex')),
+                    ('cdcdginstgrpindex', YLeaf(YType.uint32, 'cdcDGInstGrpIndex')),
+                    ('cdcdgpollperiod', YLeaf(YType.uint32, 'cdcDGPollPeriod')),
+                    ('cdcdgrowstatus', YLeaf(YType.enumeration, 'cdcDGRowStatus')),
+                ])
+                self.cdcdgindex = None
+                self.cdcdgcomment = None
+                self.cdcdgtype = None
+                self.cdcdgvfileindex = None
+                self.cdcdgtargettag = None
+                self.cdcdgcontextname = None
+                self.cdcdgobject = None
+                self.cdcdgobjectgrpindex = None
+                self.cdcdginstgrpindex = None
+                self.cdcdgpollperiod = None
+                self.cdcdgrowstatus = None
+                self._segment_path = lambda: "cdcDGEntry" + "[cdcDGIndex='" + str(self.cdcdgindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1420,7 +1442,7 @@ class CISCODATACOLLECTIONMIB(Entity):
 
             class Cdcdgtype(Enum):
                 """
-                Cdcdgtype
+                Cdcdgtype (Enum Class)
 
                 Identifies the type of this data group.
 
@@ -1480,8 +1502,10 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcDGBaseObjectEntry" : ("cdcdgbaseobjectentry", CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdcDGBaseObjectEntry", ("cdcdgbaseobjectentry", CISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry))])
+            self._leafs = OrderedDict()
 
             self.cdcdgbaseobjectentry = YList(self)
             self._segment_path = lambda: "cdcDGBaseObjectTable"
@@ -1497,14 +1521,14 @@ class CISCODATACOLLECTIONMIB(Entity):
             {subtree, list} tuple. Each tuple identifies a set of 
             base objects for the associated data group.
             
-            .. attribute:: cdcdgbaseobjectgrpindex  <key>
+            .. attribute:: cdcdgbaseobjectgrpindex  (key)
             
             	This object's value when combined with the value of cdcDGBaseObjectIndex uniquely identifies an entry in this table. An application must use the same value (can  be randomly picked) for this object while creating a group of entries that collectively identifies the set of base objects for a data group
             	**type**\: int
             
             	**range:** 1..4294967295
             
-            .. attribute:: cdcdgbaseobjectindex  <key>
+            .. attribute:: cdcdgbaseobjectindex  (key)
             
             	This object's value when combined with the value of cdcDGBaseObjectGrpIndex uniquely identifies an entry in this table.  A managment application can assign incremental values starting from one, when creating each entry in a group of entries (as identified by the value of cdcDGBaseObjectGrpIndex)
             	**type**\: int
@@ -1544,19 +1568,22 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.yang_parent_name = "cdcDGBaseObjectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcdgbaseobjectgrpindex = YLeaf(YType.uint32, "cdcDGBaseObjectGrpIndex")
-
-                self.cdcdgbaseobjectindex = YLeaf(YType.uint32, "cdcDGBaseObjectIndex")
-
-                self.cdcdgbaseobjectsubtree = YLeaf(YType.str, "cdcDGBaseObjectSubtree")
-
-                self.cdcdgbaseobjectlist = YLeaf(YType.str, "cdcDGBaseObjectList")
-
-                self.cdcdgbaseobjectrowstatus = YLeaf(YType.enumeration, "cdcDGBaseObjectRowStatus")
-                self._segment_path = lambda: "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + self.cdcdgbaseobjectgrpindex.get() + "']" + "[cdcDGBaseObjectIndex='" + self.cdcdgbaseobjectindex.get() + "']"
+                self.ylist_key_names = ['cdcdgbaseobjectgrpindex','cdcdgbaseobjectindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdcdgbaseobjectgrpindex', YLeaf(YType.uint32, 'cdcDGBaseObjectGrpIndex')),
+                    ('cdcdgbaseobjectindex', YLeaf(YType.uint32, 'cdcDGBaseObjectIndex')),
+                    ('cdcdgbaseobjectsubtree', YLeaf(YType.str, 'cdcDGBaseObjectSubtree')),
+                    ('cdcdgbaseobjectlist', YLeaf(YType.str, 'cdcDGBaseObjectList')),
+                    ('cdcdgbaseobjectrowstatus', YLeaf(YType.enumeration, 'cdcDGBaseObjectRowStatus')),
+                ])
+                self.cdcdgbaseobjectgrpindex = None
+                self.cdcdgbaseobjectindex = None
+                self.cdcdgbaseobjectsubtree = None
+                self.cdcdgbaseobjectlist = None
+                self.cdcdgbaseobjectrowstatus = None
+                self._segment_path = lambda: "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + str(self.cdcdgbaseobjectgrpindex) + "']" + "[cdcDGBaseObjectIndex='" + str(self.cdcdgbaseobjectindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGBaseObjectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1590,8 +1617,10 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcDGInstanceEntry" : ("cdcdginstanceentry", CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdcDGInstanceEntry", ("cdcdginstanceentry", CISCODATACOLLECTIONMIB.Cdcdginstancetable.Cdcdginstanceentry))])
+            self._leafs = OrderedDict()
 
             self.cdcdginstanceentry = YList(self)
             self._segment_path = lambda: "cdcDGInstanceTable"
@@ -1607,14 +1636,14 @@ class CISCODATACOLLECTIONMIB(Entity):
             instances of the base objects that need to be fetched.
             An instance is represented by an OID fragment.
             
-            .. attribute:: cdcdginstancegrpindex  <key>
+            .. attribute:: cdcdginstancegrpindex  (key)
             
             	This object's value when combined with the value of cdcDGInstanceIndex uniquely identifies an entry in this table. An application must use the same value (can  be randomly picked) for this object while creating a group of entries that collectively identifies the set of instances for a data group
             	**type**\: int
             
             	**range:** 1..4294967295
             
-            .. attribute:: cdcdginstanceindex  <key>
+            .. attribute:: cdcdginstanceindex  (key)
             
             	This object's value when combined with the value of cdcDGInstanceGrpIndex uniquely identifies an entry in this table.  A managment application can assign incremental values starting from one, when creating each entry within a group of entries (as identified by the value of cdcDGInstanceGrpIndex)
             	**type**\: int
@@ -1673,25 +1702,28 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.yang_parent_name = "cdcDGInstanceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcdginstancegrpindex = YLeaf(YType.uint32, "cdcDGInstanceGrpIndex")
-
-                self.cdcdginstanceindex = YLeaf(YType.uint32, "cdcDGInstanceIndex")
-
-                self.cdcdginstancetype = YLeaf(YType.enumeration, "cdcDGInstanceType")
-
-                self.cdcdginstanceoid = YLeaf(YType.str, "cdcDGInstanceOid")
-
-                self.cdcdginstanceoidend = YLeaf(YType.str, "cdcDGInstanceOidEnd")
-
-                self.cdcdginstancenumrepititions = YLeaf(YType.uint32, "cdcDGInstanceNumRepititions")
-
-                self.cdcdginstanceotherptr = YLeaf(YType.str, "cdcDGInstanceOtherPtr")
-
-                self.cdcdginstancerowstatus = YLeaf(YType.enumeration, "cdcDGInstanceRowStatus")
-                self._segment_path = lambda: "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + self.cdcdginstancegrpindex.get() + "']" + "[cdcDGInstanceIndex='" + self.cdcdginstanceindex.get() + "']"
+                self.ylist_key_names = ['cdcdginstancegrpindex','cdcdginstanceindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdcdginstancegrpindex', YLeaf(YType.uint32, 'cdcDGInstanceGrpIndex')),
+                    ('cdcdginstanceindex', YLeaf(YType.uint32, 'cdcDGInstanceIndex')),
+                    ('cdcdginstancetype', YLeaf(YType.enumeration, 'cdcDGInstanceType')),
+                    ('cdcdginstanceoid', YLeaf(YType.str, 'cdcDGInstanceOid')),
+                    ('cdcdginstanceoidend', YLeaf(YType.str, 'cdcDGInstanceOidEnd')),
+                    ('cdcdginstancenumrepititions', YLeaf(YType.uint32, 'cdcDGInstanceNumRepititions')),
+                    ('cdcdginstanceotherptr', YLeaf(YType.str, 'cdcDGInstanceOtherPtr')),
+                    ('cdcdginstancerowstatus', YLeaf(YType.enumeration, 'cdcDGInstanceRowStatus')),
+                ])
+                self.cdcdginstancegrpindex = None
+                self.cdcdginstanceindex = None
+                self.cdcdginstancetype = None
+                self.cdcdginstanceoid = None
+                self.cdcdginstanceoidend = None
+                self.cdcdginstancenumrepititions = None
+                self.cdcdginstanceotherptr = None
+                self.cdcdginstancerowstatus = None
+                self._segment_path = lambda: "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + str(self.cdcdginstancegrpindex) + "']" + "[cdcDGInstanceIndex='" + str(self.cdcdginstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1699,7 +1731,7 @@ class CISCODATACOLLECTIONMIB(Entity):
 
             class Cdcdginstancetype(Enum):
                 """
-                Cdcdginstancetype
+                Cdcdginstancetype (Enum Class)
 
                 Specifies the way in which the instances are to be used while
 
@@ -1814,8 +1846,10 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdcFileXferConfEntry" : ("cdcfilexferconfentry", CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdcFileXferConfEntry", ("cdcfilexferconfentry", CISCODATACOLLECTIONMIB.Cdcfilexferconftable.Cdcfilexferconfentry))])
+            self._leafs = OrderedDict()
 
             self.cdcfilexferconfentry = YList(self)
             self._segment_path = lambda: "cdcFileXferConfTable"
@@ -1841,7 +1875,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             then the cycle is repeated again after a specified time
             period (value of cdcFileXferConfRetryPeriod) elapses.
             
-            .. attribute:: cdcvfileindex  <key>
+            .. attribute:: cdcvfileindex  (key)
             
             	
             	**type**\: int
@@ -1906,23 +1940,26 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.yang_parent_name = "cdcFileXferConfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdcvfileindex = YLeaf(YType.str, "cdcVFileIndex")
-
-                self.cdcfilexferconfpriurl = YLeaf(YType.str, "cdcFileXferConfPriUrl")
-
-                self.cdcfilexferconfsecurl = YLeaf(YType.str, "cdcFileXferConfSecUrl")
-
-                self.cdcfilexferconfretryperiod = YLeaf(YType.uint32, "cdcFileXferConfRetryPeriod")
-
-                self.cdcfilexferconfretrycount = YLeaf(YType.uint32, "cdcFileXferConfRetryCount")
-
-                self.cdcfilexferconfsuccessenable = YLeaf(YType.boolean, "cdcFileXferConfSuccessEnable")
-
-                self.cdcfilexferconffailureenable = YLeaf(YType.boolean, "cdcFileXferConfFailureEnable")
-                self._segment_path = lambda: "cdcFileXferConfEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']"
+                self.ylist_key_names = ['cdcvfileindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdcvfileindex', YLeaf(YType.str, 'cdcVFileIndex')),
+                    ('cdcfilexferconfpriurl', YLeaf(YType.str, 'cdcFileXferConfPriUrl')),
+                    ('cdcfilexferconfsecurl', YLeaf(YType.str, 'cdcFileXferConfSecUrl')),
+                    ('cdcfilexferconfretryperiod', YLeaf(YType.uint32, 'cdcFileXferConfRetryPeriod')),
+                    ('cdcfilexferconfretrycount', YLeaf(YType.uint32, 'cdcFileXferConfRetryCount')),
+                    ('cdcfilexferconfsuccessenable', YLeaf(YType.boolean, 'cdcFileXferConfSuccessEnable')),
+                    ('cdcfilexferconffailureenable', YLeaf(YType.boolean, 'cdcFileXferConfFailureEnable')),
+                ])
+                self.cdcvfileindex = None
+                self.cdcfilexferconfpriurl = None
+                self.cdcfilexferconfsecurl = None
+                self.cdcfilexferconfretryperiod = None
+                self.cdcfilexferconfretrycount = None
+                self.cdcfilexferconfsuccessenable = None
+                self.cdcfilexferconffailureenable = None
+                self._segment_path = lambda: "cdcFileXferConfEntry" + "[cdcVFileIndex='" + str(self.cdcvfileindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcFileXferConfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

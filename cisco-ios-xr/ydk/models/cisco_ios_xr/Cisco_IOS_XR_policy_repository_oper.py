@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AddressFamily(Enum):
     """
-    AddressFamily
+    AddressFamily (Enum Class)
 
     Address Family
 
@@ -64,7 +66,7 @@ class AddressFamily(Enum):
 
 class AttachPointDirection(Enum):
     """
-    AttachPointDirection
+    AttachPointDirection (Enum Class)
 
     Attach Point Direction
 
@@ -85,7 +87,7 @@ class AttachPointDirection(Enum):
 
 class Group(Enum):
     """
-    Group
+    Group (Enum Class)
 
     BGP Neighbor Group Type
 
@@ -124,7 +126,7 @@ class Group(Enum):
 
 class ObjectStatus(Enum):
     """
-    ObjectStatus
+    ObjectStatus (Enum Class)
 
     Whether an RPL object is used/referenced
 
@@ -153,7 +155,7 @@ class ObjectStatus(Enum):
 
 class SubAddressFamily(Enum):
     """
-    SubAddressFamily
+    SubAddressFamily (Enum Class)
 
     Sub Address Family
 
@@ -201,11 +203,15 @@ class SubAddressFamily(Enum):
 
     	VPN Multicast
 
-    .. data:: saf_none = 11
+    .. data:: evpn = 11
+
+    	EVPN
+
+    .. data:: saf_none = 12
 
     	No SAFI
 
-    .. data:: saf_unknown = 12
+    .. data:: saf_unknown = 13
 
     	Unknown
 
@@ -233,9 +239,11 @@ class SubAddressFamily(Enum):
 
     vpn_mcast = Enum.YLeaf(10, "vpn-mcast")
 
-    saf_none = Enum.YLeaf(11, "saf-none")
+    evpn = Enum.YLeaf(11, "evpn")
 
-    saf_unknown = Enum.YLeaf(12, "saf-unknown")
+    saf_none = Enum.YLeaf(12, "saf-none")
+
+    saf_unknown = Enum.YLeaf(13, "saf-unknown")
 
 
 
@@ -273,8 +281,10 @@ class RoutingPolicy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-policy-repository-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"limits" : ("limits", RoutingPolicy.Limits), "policies" : ("policies", RoutingPolicy.Policies), "sets" : ("sets", RoutingPolicy.Sets)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("limits", ("limits", RoutingPolicy.Limits)), ("policies", ("policies", RoutingPolicy.Policies)), ("sets", ("sets", RoutingPolicy.Sets))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.limits = RoutingPolicy.Limits()
         self.limits.parent = self
@@ -361,22 +371,25 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.maximum_lines_of_policy = YLeaf(YType.uint32, "maximum-lines-of-policy")
-
-            self.current_lines_of_policy_limit = YLeaf(YType.uint32, "current-lines-of-policy-limit")
-
-            self.current_lines_of_policy_used = YLeaf(YType.uint32, "current-lines-of-policy-used")
-
-            self.maximum_number_of_policies = YLeaf(YType.uint32, "maximum-number-of-policies")
-
-            self.current_number_of_policies_limit = YLeaf(YType.uint32, "current-number-of-policies-limit")
-
-            self.current_number_of_policies_used = YLeaf(YType.uint32, "current-number-of-policies-used")
-
-            self.compiled_policies_length = YLeaf(YType.uint32, "compiled-policies-length")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('maximum_lines_of_policy', YLeaf(YType.uint32, 'maximum-lines-of-policy')),
+                ('current_lines_of_policy_limit', YLeaf(YType.uint32, 'current-lines-of-policy-limit')),
+                ('current_lines_of_policy_used', YLeaf(YType.uint32, 'current-lines-of-policy-used')),
+                ('maximum_number_of_policies', YLeaf(YType.uint32, 'maximum-number-of-policies')),
+                ('current_number_of_policies_limit', YLeaf(YType.uint32, 'current-number-of-policies-limit')),
+                ('current_number_of_policies_used', YLeaf(YType.uint32, 'current-number-of-policies-used')),
+                ('compiled_policies_length', YLeaf(YType.uint32, 'compiled-policies-length')),
+            ])
+            self.maximum_lines_of_policy = None
+            self.current_lines_of_policy_limit = None
+            self.current_lines_of_policy_used = None
+            self.maximum_number_of_policies = None
+            self.current_number_of_policies_limit = None
+            self.current_number_of_policies_used = None
+            self.compiled_policies_length = None
             self._segment_path = lambda: "limits"
             self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/%s" % self._segment_path()
 
@@ -422,8 +435,10 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"route-policies" : ("route_policies", RoutingPolicy.Policies.RoutePolicies), "unused" : ("unused", RoutingPolicy.Policies.Unused), "inactive" : ("inactive", RoutingPolicy.Policies.Inactive), "active" : ("active", RoutingPolicy.Policies.Active)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("route-policies", ("route_policies", RoutingPolicy.Policies.RoutePolicies)), ("unused", ("unused", RoutingPolicy.Policies.Unused)), ("inactive", ("inactive", RoutingPolicy.Policies.Inactive)), ("active", ("active", RoutingPolicy.Policies.Active))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.route_policies = RoutingPolicy.Policies.RoutePolicies()
             self.route_policies.parent = self
@@ -471,8 +486,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"route-policy" : ("route_policy", RoutingPolicy.Policies.RoutePolicies.RoutePolicy)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("route-policy", ("route_policy", RoutingPolicy.Policies.RoutePolicies.RoutePolicy))])
+                self._leafs = OrderedDict()
 
                 self.route_policy = YList(self)
                 self._segment_path = lambda: "route-policies"
@@ -486,7 +503,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual policy
                 
-                .. attribute:: route_policy_name  <key>
+                .. attribute:: route_policy_name  (key)
                 
                 	Route policy name
                 	**type**\: str
@@ -522,10 +539,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "route-policies"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"policy-uses" : ("policy_uses", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses), "used-by" : ("used_by", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy), "attached" : ("attached", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached)}
-                    self._child_list_classes = {}
-
-                    self.route_policy_name = YLeaf(YType.str, "route-policy-name")
+                    self.ylist_key_names = ['route_policy_name']
+                    self._child_container_classes = OrderedDict([("policy-uses", ("policy_uses", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses)), ("used-by", ("used_by", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy)), ("attached", ("attached", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                    ])
+                    self.route_policy_name = None
 
                     self.policy_uses = RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses()
                     self.policy_uses.parent = self
@@ -541,7 +561,7 @@ class RoutingPolicy(Entity):
                     self.attached.parent = self
                     self._children_name_map["attached"] = "attached"
                     self._children_yang_names.add("attached")
-                    self._segment_path = lambda: "route-policy" + "[route-policy-name='" + self.route_policy_name.get() + "']"
+                    self._segment_path = lambda: "route-policy" + "[route-policy-name='" + str(self.route_policy_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/policies/route-policies/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -587,8 +607,10 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "route-policy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"directly-used-policies" : ("directly_used_policies", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies), "all-used-sets" : ("all_used_sets", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets), "directly-used-sets" : ("directly_used_sets", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets), "all-used-policies" : ("all_used_policies", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("directly-used-policies", ("directly_used_policies", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies)), ("all-used-sets", ("all_used_sets", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets)), ("directly-used-sets", ("directly_used_sets", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets)), ("all-used-policies", ("all_used_policies", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.directly_used_policies = RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies()
                         self.directly_used_policies.parent = self
@@ -635,10 +657,13 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "policy-uses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.object = YLeafList(YType.str, "object")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('object', YLeafList(YType.str, 'object')),
+                            ])
+                            self.object = []
                             self._segment_path = lambda: "directly-used-policies"
 
                         def __setattr__(self, name, value):
@@ -669,8 +694,10 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "policy-uses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"sets" : ("sets", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets))])
+                            self._leafs = OrderedDict()
 
                             self.sets = YList(self)
                             self._segment_path = lambda: "all-used-sets"
@@ -707,12 +734,15 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "all-used-sets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.set_domain = YLeaf(YType.str, "set-domain")
-
-                                self.set_name = YLeafList(YType.str, "set-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('set_domain', YLeaf(YType.str, 'set-domain')),
+                                    ('set_name', YLeafList(YType.str, 'set-name')),
+                                ])
+                                self.set_domain = None
+                                self.set_name = []
                                 self._segment_path = lambda: "sets"
 
                             def __setattr__(self, name, value):
@@ -742,8 +772,10 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "policy-uses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"sets" : ("sets", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets))])
+                            self._leafs = OrderedDict()
 
                             self.sets = YList(self)
                             self._segment_path = lambda: "directly-used-sets"
@@ -780,12 +812,15 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "directly-used-sets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.set_domain = YLeaf(YType.str, "set-domain")
-
-                                self.set_name = YLeafList(YType.str, "set-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('set_domain', YLeaf(YType.str, 'set-domain')),
+                                    ('set_name', YLeafList(YType.str, 'set-name')),
+                                ])
+                                self.set_domain = None
+                                self.set_name = []
                                 self._segment_path = lambda: "sets"
 
                             def __setattr__(self, name, value):
@@ -816,10 +851,13 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "policy-uses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.object = YLeafList(YType.str, "object")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('object', YLeafList(YType.str, 'object')),
+                            ])
+                            self.object = []
                             self._segment_path = lambda: "all-used-policies"
 
                         def __setattr__(self, name, value):
@@ -850,8 +888,10 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "route-policy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference))])
+                        self._leafs = OrderedDict()
 
                         self.reference = YList(self)
                         self._segment_path = lambda: "used-by"
@@ -894,14 +934,17 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "used-by"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                            self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                            self.status = YLeaf(YType.enumeration, "status")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                ('status', YLeaf(YType.enumeration, 'status')),
+                            ])
+                            self.route_policy_name = None
+                            self.used_directly = None
+                            self.status = None
                             self._segment_path = lambda: "reference"
 
                         def __setattr__(self, name, value):
@@ -932,8 +975,10 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "route-policy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding))])
+                        self._leafs = OrderedDict()
 
                         self.binding = YList(self)
                         self._segment_path = lambda: "attached"
@@ -1064,48 +1109,51 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "attached"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.protocol = YLeaf(YType.str, "protocol")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                            self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                            self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                            self.group_name = YLeaf(YType.str, "group-name")
-
-                            self.direction = YLeaf(YType.enumeration, "direction")
-
-                            self.group = YLeaf(YType.enumeration, "group")
-
-                            self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                            self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.instance = YLeaf(YType.str, "instance")
-
-                            self.area_id = YLeaf(YType.str, "area-id")
-
-                            self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                            self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                            self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                            self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                            self.attach_point = YLeaf(YType.str, "attach-point")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('protocol', YLeaf(YType.str, 'protocol')),
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                ('group_name', YLeaf(YType.str, 'group-name')),
+                                ('direction', YLeaf(YType.enumeration, 'direction')),
+                                ('group', YLeaf(YType.enumeration, 'group')),
+                                ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('instance', YLeaf(YType.str, 'instance')),
+                                ('area_id', YLeaf(YType.str, 'area-id')),
+                                ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                ('attach_point', YLeaf(YType.str, 'attach-point')),
+                            ])
+                            self.protocol = None
+                            self.vrf_name = None
+                            self.proto_instance = None
+                            self.af_name = None
+                            self.saf_name = None
+                            self.neighbor_address = None
+                            self.neighbor_af_name = None
+                            self.group_name = None
+                            self.direction = None
+                            self.group = None
+                            self.source_protocol = None
+                            self.aggregate_network_address = None
+                            self.interface_name = None
+                            self.instance = None
+                            self.area_id = None
+                            self.propogate_from = None
+                            self.propogate_to = None
+                            self.route_policy_name = None
+                            self.attached_policy = None
+                            self.attach_point = None
                             self._segment_path = lambda: "binding"
 
                         def __setattr__(self, name, value):
@@ -1136,10 +1184,13 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.object = YLeafList(YType.str, "object")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('object', YLeafList(YType.str, 'object')),
+                ])
+                self.object = []
                 self._segment_path = lambda: "unused"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/policies/%s" % self._segment_path()
 
@@ -1171,10 +1222,13 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.object = YLeafList(YType.str, "object")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('object', YLeafList(YType.str, 'object')),
+                ])
+                self.object = []
                 self._segment_path = lambda: "inactive"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/policies/%s" % self._segment_path()
 
@@ -1206,10 +1260,13 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.object = YLeafList(YType.str, "object")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('object', YLeafList(YType.str, 'object')),
+                ])
+                self.object = []
                 self._segment_path = lambda: "active"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/policies/%s" % self._segment_path()
 
@@ -1315,8 +1372,10 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"etag" : ("etag", RoutingPolicy.Sets.Etag), "ospf-area" : ("ospf_area", RoutingPolicy.Sets.OspfArea), "extended-community-opaque" : ("extended_community_opaque", RoutingPolicy.Sets.ExtendedCommunityOpaque), "extended-community-seg-nh" : ("extended_community_seg_nh", RoutingPolicy.Sets.ExtendedCommunitySegNh), "extended-community-soo" : ("extended_community_soo", RoutingPolicy.Sets.ExtendedCommunitySoo), "tag" : ("tag", RoutingPolicy.Sets.Tag), "prefix" : ("prefix", RoutingPolicy.Sets.Prefix), "community" : ("community", RoutingPolicy.Sets.Community), "as-path" : ("as_path", RoutingPolicy.Sets.AsPath), "large-community" : ("large_community", RoutingPolicy.Sets.LargeCommunity), "esi" : ("esi", RoutingPolicy.Sets.Esi), "extended-community-bandwidth" : ("extended_community_bandwidth", RoutingPolicy.Sets.ExtendedCommunityBandwidth), "extended-community-rt" : ("extended_community_rt", RoutingPolicy.Sets.ExtendedCommunityRt), "rd" : ("rd", RoutingPolicy.Sets.Rd), "mac" : ("mac", RoutingPolicy.Sets.Mac), "extended-community-cost" : ("extended_community_cost", RoutingPolicy.Sets.ExtendedCommunityCost)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("etag", ("etag", RoutingPolicy.Sets.Etag)), ("ospf-area", ("ospf_area", RoutingPolicy.Sets.OspfArea)), ("extended-community-opaque", ("extended_community_opaque", RoutingPolicy.Sets.ExtendedCommunityOpaque)), ("extended-community-seg-nh", ("extended_community_seg_nh", RoutingPolicy.Sets.ExtendedCommunitySegNh)), ("extended-community-soo", ("extended_community_soo", RoutingPolicy.Sets.ExtendedCommunitySoo)), ("tag", ("tag", RoutingPolicy.Sets.Tag)), ("prefix", ("prefix", RoutingPolicy.Sets.Prefix)), ("community", ("community", RoutingPolicy.Sets.Community)), ("as-path", ("as_path", RoutingPolicy.Sets.AsPath)), ("large-community", ("large_community", RoutingPolicy.Sets.LargeCommunity)), ("esi", ("esi", RoutingPolicy.Sets.Esi)), ("extended-community-bandwidth", ("extended_community_bandwidth", RoutingPolicy.Sets.ExtendedCommunityBandwidth)), ("extended-community-rt", ("extended_community_rt", RoutingPolicy.Sets.ExtendedCommunityRt)), ("rd", ("rd", RoutingPolicy.Sets.Rd)), ("mac", ("mac", RoutingPolicy.Sets.Mac)), ("extended-community-cost", ("extended_community_cost", RoutingPolicy.Sets.ExtendedCommunityCost))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.etag = RoutingPolicy.Sets.Etag()
             self.etag.parent = self
@@ -1408,7 +1467,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_>`
             
             .. attribute:: unused
             
@@ -1439,10 +1498,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.Etag.Sets), "unused" : ("unused", RoutingPolicy.Sets.Etag.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.Etag.Inactive), "active" : ("active", RoutingPolicy.Sets.Etag.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.Etag.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.Etag.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.Etag.Inactive)), ("active", ("active", RoutingPolicy.Sets.Etag.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.Etag.Sets()
+                self.sets = RoutingPolicy.Sets.Etag.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -1465,14 +1526,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set>`
                 
                 
 
@@ -1482,28 +1543,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Etag.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.Etag.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "etag"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.Etag.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.Etag.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/etag/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Etag.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -1513,12 +1576,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set.Attached>`
                     
                     
 
@@ -1528,31 +1591,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Etag.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.Etag.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.Etag.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.Etag.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.Etag.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.Etag.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.Etag.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Etag.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/etag/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.Etag.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -1563,7 +1629,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -1573,20 +1639,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Etag.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.Etag.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Etag.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -1617,24 +1685,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Etag.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Etag.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -1645,7 +1716,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -1655,20 +1726,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Etag.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.Etag.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.Etag.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Etag.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -1787,58 +1860,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Etag.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Etag.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -1865,10 +1941,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "etag"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/etag/%s" % self._segment_path()
 
@@ -1900,10 +1979,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "etag"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/etag/%s" % self._segment_path()
 
@@ -1935,10 +2017,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "etag"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/etag/%s" % self._segment_path()
 
@@ -1953,7 +2038,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_>`
             
             .. attribute:: unused
             
@@ -1984,10 +2069,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.OspfArea.Sets), "unused" : ("unused", RoutingPolicy.Sets.OspfArea.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.OspfArea.Inactive), "active" : ("active", RoutingPolicy.Sets.OspfArea.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.OspfArea.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.OspfArea.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.OspfArea.Inactive)), ("active", ("active", RoutingPolicy.Sets.OspfArea.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.OspfArea.Sets()
+                self.sets = RoutingPolicy.Sets.OspfArea.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -2010,14 +2097,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set>`
                 
                 
 
@@ -2027,28 +2114,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.OspfArea.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.OspfArea.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "ospf-area"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.OspfArea.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.OspfArea.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/ospf-area/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -2058,12 +2147,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached>`
                     
                     
 
@@ -2073,31 +2162,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.OspfArea.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.OspfArea.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.OspfArea.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.OspfArea.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/ospf-area/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -2108,7 +2200,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -2118,20 +2210,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -2162,24 +2256,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -2190,7 +2287,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -2200,20 +2297,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.OspfArea.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -2332,58 +2431,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -2410,10 +2512,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "ospf-area"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/ospf-area/%s" % self._segment_path()
 
@@ -2445,10 +2550,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "ospf-area"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/ospf-area/%s" % self._segment_path()
 
@@ -2480,10 +2588,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "ospf-area"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/ospf-area/%s" % self._segment_path()
 
@@ -2499,7 +2610,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_>`
             
             .. attribute:: unused
             
@@ -2530,10 +2641,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets), "unused" : ("unused", RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive), "active" : ("active", RoutingPolicy.Sets.ExtendedCommunityOpaque.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive)), ("active", ("active", RoutingPolicy.Sets.ExtendedCommunityOpaque.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -2556,14 +2669,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set>`
                 
                 
 
@@ -2573,28 +2686,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-opaque"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-opaque/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -2604,12 +2719,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached>`
                     
                     
 
@@ -2619,31 +2734,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-opaque/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -2654,7 +2772,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -2664,20 +2782,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -2708,24 +2828,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -2736,7 +2859,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -2746,20 +2869,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -2878,58 +3003,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -2956,10 +3084,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-opaque"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-opaque/%s" % self._segment_path()
 
@@ -2991,10 +3122,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-opaque"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-opaque/%s" % self._segment_path()
 
@@ -3026,10 +3160,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-opaque"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-opaque/%s" % self._segment_path()
 
@@ -3044,7 +3181,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_>`
             
             .. attribute:: unused
             
@@ -3075,10 +3212,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets), "unused" : ("unused", RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive), "active" : ("active", RoutingPolicy.Sets.ExtendedCommunitySegNh.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive)), ("active", ("active", RoutingPolicy.Sets.ExtendedCommunitySegNh.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -3101,14 +3240,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set>`
                 
                 
 
@@ -3118,28 +3257,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-seg-nh"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-seg-nh/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -3149,12 +3290,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached>`
                     
                     
 
@@ -3164,31 +3305,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-seg-nh/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -3199,7 +3343,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -3209,20 +3353,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -3253,24 +3399,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -3281,7 +3430,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -3291,20 +3440,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -3423,58 +3574,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -3501,10 +3655,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-seg-nh"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-seg-nh/%s" % self._segment_path()
 
@@ -3536,10 +3693,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-seg-nh"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-seg-nh/%s" % self._segment_path()
 
@@ -3571,10 +3731,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-seg-nh"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-seg-nh/%s" % self._segment_path()
 
@@ -3589,7 +3752,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_>`
             
             .. attribute:: unused
             
@@ -3620,10 +3783,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets), "unused" : ("unused", RoutingPolicy.Sets.ExtendedCommunitySoo.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive), "active" : ("active", RoutingPolicy.Sets.ExtendedCommunitySoo.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.ExtendedCommunitySoo.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive)), ("active", ("active", RoutingPolicy.Sets.ExtendedCommunitySoo.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -3646,14 +3811,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set>`
                 
                 
 
@@ -3663,28 +3828,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-soo"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-soo/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -3694,12 +3861,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached>`
                     
                     
 
@@ -3709,31 +3876,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-soo/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -3744,7 +3914,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -3754,20 +3924,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -3798,24 +3970,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -3826,7 +4001,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -3836,20 +4011,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -3968,58 +4145,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -4046,10 +4226,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-soo"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-soo/%s" % self._segment_path()
 
@@ -4081,10 +4264,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-soo"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-soo/%s" % self._segment_path()
 
@@ -4116,10 +4302,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-soo"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-soo/%s" % self._segment_path()
 
@@ -4134,7 +4323,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_>`
             
             .. attribute:: unused
             
@@ -4165,10 +4354,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.Tag.Sets), "unused" : ("unused", RoutingPolicy.Sets.Tag.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.Tag.Inactive), "active" : ("active", RoutingPolicy.Sets.Tag.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.Tag.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.Tag.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.Tag.Inactive)), ("active", ("active", RoutingPolicy.Sets.Tag.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.Tag.Sets()
+                self.sets = RoutingPolicy.Sets.Tag.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -4191,14 +4382,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set>`
                 
                 
 
@@ -4208,28 +4399,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Tag.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.Tag.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "tag"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.Tag.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.Tag.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/tag/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Tag.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -4239,12 +4432,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set.Attached>`
                     
                     
 
@@ -4254,31 +4447,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Tag.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.Tag.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.Tag.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.Tag.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.Tag.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.Tag.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.Tag.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Tag.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/tag/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.Tag.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -4289,7 +4485,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -4299,20 +4495,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Tag.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Tag.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -4343,24 +4541,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -4371,7 +4572,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -4381,20 +4582,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Tag.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.Tag.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Tag.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -4513,58 +4716,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -4591,10 +4797,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "tag"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/tag/%s" % self._segment_path()
 
@@ -4626,10 +4835,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "tag"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/tag/%s" % self._segment_path()
 
@@ -4661,10 +4873,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "tag"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/tag/%s" % self._segment_path()
 
@@ -4679,7 +4894,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_>`
             
             .. attribute:: unused
             
@@ -4710,10 +4925,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.Prefix.Sets), "unused" : ("unused", RoutingPolicy.Sets.Prefix.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.Prefix.Inactive), "active" : ("active", RoutingPolicy.Sets.Prefix.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.Prefix.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.Prefix.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.Prefix.Inactive)), ("active", ("active", RoutingPolicy.Sets.Prefix.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.Prefix.Sets()
+                self.sets = RoutingPolicy.Sets.Prefix.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -4736,14 +4953,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set>`
                 
                 
 
@@ -4753,28 +4970,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Prefix.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.Prefix.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "prefix"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.Prefix.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.Prefix.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/prefix/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -4784,12 +5003,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set.Attached>`
                     
                     
 
@@ -4799,31 +5018,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Prefix.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.Prefix.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.Prefix.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.Prefix.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.Prefix.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Prefix.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/prefix/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -4834,7 +5056,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -4844,20 +5066,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -4888,24 +5112,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -4916,7 +5143,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -4926,20 +5153,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Prefix.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -5058,58 +5287,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -5136,10 +5368,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "prefix"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/prefix/%s" % self._segment_path()
 
@@ -5171,10 +5406,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "prefix"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/prefix/%s" % self._segment_path()
 
@@ -5206,10 +5444,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "prefix"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/prefix/%s" % self._segment_path()
 
@@ -5224,7 +5465,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_>`
             
             .. attribute:: unused
             
@@ -5255,10 +5496,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.Community.Sets), "unused" : ("unused", RoutingPolicy.Sets.Community.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.Community.Inactive), "active" : ("active", RoutingPolicy.Sets.Community.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.Community.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.Community.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.Community.Inactive)), ("active", ("active", RoutingPolicy.Sets.Community.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.Community.Sets()
+                self.sets = RoutingPolicy.Sets.Community.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -5281,14 +5524,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set>`
                 
                 
 
@@ -5298,28 +5541,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Community.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.Community.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "community"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.Community.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.Community.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/community/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Community.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Community.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -5329,12 +5574,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set.Attached>`
                     
                     
 
@@ -5344,31 +5589,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Community.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.Community.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.Community.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.Community.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.Community.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.Community.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.Community.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Community.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.Community.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Community.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/community/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.Community.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -5379,7 +5627,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -5389,20 +5637,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Community.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Community.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -5433,24 +5683,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -5461,7 +5714,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -5471,20 +5724,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Community.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.Community.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Community.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -5603,58 +5858,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -5681,10 +5939,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "community"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/community/%s" % self._segment_path()
 
@@ -5716,10 +5977,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "community"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/community/%s" % self._segment_path()
 
@@ -5751,10 +6015,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "community"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/community/%s" % self._segment_path()
 
@@ -5769,7 +6036,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_>`
             
             .. attribute:: unused
             
@@ -5800,10 +6067,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.AsPath.Sets), "unused" : ("unused", RoutingPolicy.Sets.AsPath.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.AsPath.Inactive), "active" : ("active", RoutingPolicy.Sets.AsPath.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.AsPath.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.AsPath.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.AsPath.Inactive)), ("active", ("active", RoutingPolicy.Sets.AsPath.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.AsPath.Sets()
+                self.sets = RoutingPolicy.Sets.AsPath.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -5826,14 +6095,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set>`
                 
                 
 
@@ -5843,28 +6112,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.AsPath.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.AsPath.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "as-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.AsPath.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.AsPath.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/as-path/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -5874,12 +6145,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set.Attached>`
                     
                     
 
@@ -5889,31 +6160,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.AsPath.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.AsPath.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.AsPath.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.AsPath.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.AsPath.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.AsPath.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/as-path/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -5924,7 +6198,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -5934,20 +6208,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -5978,24 +6254,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -6006,7 +6285,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -6016,20 +6295,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.AsPath.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -6148,58 +6429,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -6226,10 +6510,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "as-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/as-path/%s" % self._segment_path()
 
@@ -6261,10 +6548,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "as-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/as-path/%s" % self._segment_path()
 
@@ -6296,10 +6586,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "as-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/as-path/%s" % self._segment_path()
 
@@ -6314,7 +6607,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets_>`
             
             .. attribute:: unused
             
@@ -6345,10 +6638,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.LargeCommunity.Sets), "unused" : ("unused", RoutingPolicy.Sets.LargeCommunity.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.LargeCommunity.Inactive), "active" : ("active", RoutingPolicy.Sets.LargeCommunity.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.LargeCommunity.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.LargeCommunity.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.LargeCommunity.Inactive)), ("active", ("active", RoutingPolicy.Sets.LargeCommunity.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.LargeCommunity.Sets()
+                self.sets = RoutingPolicy.Sets.LargeCommunity.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -6371,14 +6666,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets_.Set>`
                 
                 
 
@@ -6388,28 +6683,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.LargeCommunity.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.LargeCommunity.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "large-community"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.LargeCommunity.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.LargeCommunity.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/large-community/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -6419,12 +6716,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached>`
                     
                     
 
@@ -6434,31 +6731,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.LargeCommunity.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/large-community/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -6469,7 +6769,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -6479,20 +6779,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -6523,24 +6825,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -6551,7 +6856,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -6561,20 +6866,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -6693,58 +7000,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -6771,10 +7081,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "large-community"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/large-community/%s" % self._segment_path()
 
@@ -6806,10 +7119,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "large-community"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/large-community/%s" % self._segment_path()
 
@@ -6841,10 +7157,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "large-community"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/large-community/%s" % self._segment_path()
 
@@ -6859,7 +7178,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_>`
             
             .. attribute:: unused
             
@@ -6890,10 +7209,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.Esi.Sets), "unused" : ("unused", RoutingPolicy.Sets.Esi.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.Esi.Inactive), "active" : ("active", RoutingPolicy.Sets.Esi.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.Esi.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.Esi.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.Esi.Inactive)), ("active", ("active", RoutingPolicy.Sets.Esi.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.Esi.Sets()
+                self.sets = RoutingPolicy.Sets.Esi.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -6916,14 +7237,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set>`
                 
                 
 
@@ -6933,28 +7254,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Esi.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.Esi.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "esi"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.Esi.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.Esi.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/esi/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Esi.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -6964,12 +7287,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set.Attached>`
                     
                     
 
@@ -6979,31 +7302,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Esi.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.Esi.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.Esi.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.Esi.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.Esi.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.Esi.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.Esi.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Esi.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/esi/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.Esi.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -7014,7 +7340,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -7024,20 +7350,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Esi.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.Esi.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Esi.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -7068,24 +7396,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Esi.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Esi.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -7096,7 +7427,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -7106,20 +7437,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Esi.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.Esi.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.Esi.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Esi.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -7238,58 +7571,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Esi.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Esi.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -7316,10 +7652,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "esi"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/esi/%s" % self._segment_path()
 
@@ -7351,10 +7690,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "esi"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/esi/%s" % self._segment_path()
 
@@ -7386,10 +7728,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "esi"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/esi/%s" % self._segment_path()
 
@@ -7405,7 +7750,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_>`
             
             .. attribute:: unused
             
@@ -7431,10 +7776,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets), "unused" : ("unused", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -7452,14 +7799,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set>`
                 
                 
 
@@ -7469,28 +7816,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-bandwidth"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-bandwidth/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -7500,12 +7849,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached>`
                     
                     
 
@@ -7515,31 +7864,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-bandwidth/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -7550,7 +7902,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -7560,20 +7912,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -7604,24 +7958,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -7632,7 +7989,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -7642,20 +7999,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -7774,58 +8133,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -7852,10 +8214,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-bandwidth"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-bandwidth/%s" % self._segment_path()
 
@@ -7887,10 +8252,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-bandwidth"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-bandwidth/%s" % self._segment_path()
 
@@ -7905,7 +8273,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_>`
             
             .. attribute:: unused
             
@@ -7936,10 +8304,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.ExtendedCommunityRt.Sets), "unused" : ("unused", RoutingPolicy.Sets.ExtendedCommunityRt.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.ExtendedCommunityRt.Inactive), "active" : ("active", RoutingPolicy.Sets.ExtendedCommunityRt.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.ExtendedCommunityRt.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.ExtendedCommunityRt.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.ExtendedCommunityRt.Inactive)), ("active", ("active", RoutingPolicy.Sets.ExtendedCommunityRt.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.ExtendedCommunityRt.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunityRt.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -7962,14 +8332,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set>`
                 
                 
 
@@ -7979,28 +8349,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-rt"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-rt/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -8010,12 +8382,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached>`
                     
                     
 
@@ -8025,31 +8397,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-rt/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -8060,7 +8435,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -8070,20 +8445,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -8114,24 +8491,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -8142,7 +8522,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -8152,20 +8532,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -8284,58 +8666,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -8362,10 +8747,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-rt"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-rt/%s" % self._segment_path()
 
@@ -8397,10 +8785,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-rt"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-rt/%s" % self._segment_path()
 
@@ -8432,10 +8823,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-rt"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-rt/%s" % self._segment_path()
 
@@ -8450,7 +8844,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_>`
             
             .. attribute:: unused
             
@@ -8481,10 +8875,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.Rd.Sets), "unused" : ("unused", RoutingPolicy.Sets.Rd.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.Rd.Inactive), "active" : ("active", RoutingPolicy.Sets.Rd.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.Rd.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.Rd.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.Rd.Inactive)), ("active", ("active", RoutingPolicy.Sets.Rd.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.Rd.Sets()
+                self.sets = RoutingPolicy.Sets.Rd.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -8507,14 +8903,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set>`
                 
                 
 
@@ -8524,28 +8920,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Rd.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.Rd.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "rd"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.Rd.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.Rd.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/rd/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Rd.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -8555,12 +8953,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set.Attached>`
                     
                     
 
@@ -8570,31 +8968,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Rd.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.Rd.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.Rd.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.Rd.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.Rd.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.Rd.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.Rd.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Rd.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/rd/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.Rd.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -8605,7 +9006,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -8615,20 +9016,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Rd.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Rd.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -8659,24 +9062,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -8687,7 +9093,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -8697,20 +9103,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Rd.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.Rd.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Rd.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -8829,58 +9237,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -8907,10 +9318,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "rd"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/rd/%s" % self._segment_path()
 
@@ -8942,10 +9356,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "rd"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/rd/%s" % self._segment_path()
 
@@ -8977,10 +9394,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "rd"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/rd/%s" % self._segment_path()
 
@@ -8995,7 +9415,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_>`
             
             .. attribute:: unused
             
@@ -9026,10 +9446,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.Mac.Sets), "unused" : ("unused", RoutingPolicy.Sets.Mac.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.Mac.Inactive), "active" : ("active", RoutingPolicy.Sets.Mac.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.Mac.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.Mac.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.Mac.Inactive)), ("active", ("active", RoutingPolicy.Sets.Mac.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.Mac.Sets()
+                self.sets = RoutingPolicy.Sets.Mac.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -9052,14 +9474,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set>`
                 
                 
 
@@ -9069,28 +9491,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Mac.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.Mac.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "mac"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.Mac.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.Mac.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/mac/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.Mac.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -9100,12 +9524,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set.Attached>`
                     
                     
 
@@ -9115,31 +9539,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Mac.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.Mac.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.Mac.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.Mac.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.Mac.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.Mac.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.Mac.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Mac.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/mac/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.Mac.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -9150,7 +9577,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -9160,20 +9587,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Mac.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.Mac.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Mac.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -9204,24 +9633,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Mac.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Mac.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -9232,7 +9664,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -9242,20 +9674,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Mac.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.Mac.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.Mac.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.Mac.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -9374,58 +9808,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Mac.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.Mac.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -9452,10 +9889,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "mac"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/mac/%s" % self._segment_path()
 
@@ -9487,10 +9927,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "mac"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/mac/%s" % self._segment_path()
 
@@ -9522,10 +9965,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "mac"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/mac/%s" % self._segment_path()
 
@@ -9540,7 +9986,7 @@ class RoutingPolicy(Entity):
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets>`
+            	**type**\:  :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_>`
             
             .. attribute:: unused
             
@@ -9571,10 +10017,12 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sets" : ("sets", RoutingPolicy.Sets.ExtendedCommunityCost.Sets), "unused" : ("unused", RoutingPolicy.Sets.ExtendedCommunityCost.Unused), "inactive" : ("inactive", RoutingPolicy.Sets.ExtendedCommunityCost.Inactive), "active" : ("active", RoutingPolicy.Sets.ExtendedCommunityCost.Active)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sets", ("sets", RoutingPolicy.Sets.ExtendedCommunityCost.Sets_)), ("unused", ("unused", RoutingPolicy.Sets.ExtendedCommunityCost.Unused)), ("inactive", ("inactive", RoutingPolicy.Sets.ExtendedCommunityCost.Inactive)), ("active", ("active", RoutingPolicy.Sets.ExtendedCommunityCost.Active))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.sets = RoutingPolicy.Sets.ExtendedCommunityCost.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunityCost.Sets_()
                 self.sets.parent = self
                 self._children_name_map["sets"] = "sets"
                 self._children_yang_names.add("sets")
@@ -9597,14 +10045,14 @@ class RoutingPolicy(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/%s" % self._segment_path()
 
 
-            class Sets(Entity):
+            class Sets_(Entity):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set>`
+                	**type**\: list of  		 :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set>`
                 
                 
 
@@ -9614,28 +10062,30 @@ class RoutingPolicy(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets, self).__init__()
+                    super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-cost"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"set" : ("set", RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("set", ("set", RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set))])
+                    self._leafs = OrderedDict()
 
                     self.set = YList(self)
                     self._segment_path = lambda: "sets"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-cost/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets, [], name, value)
+                    self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_, [], name, value)
 
 
                 class Set(Entity):
                     """
                     Information about an individual set
                     
-                    .. attribute:: set_name  <key>
+                    .. attribute:: set_name  (key)
                     
                     	Set name
                     	**type**\: str
@@ -9645,12 +10095,12 @@ class RoutingPolicy(Entity):
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy>`
+                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy>`
                     
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached>`
+                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached>`
                     
                     
 
@@ -9660,31 +10110,34 @@ class RoutingPolicy(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set, self).__init__()
+                        super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"used-by" : ("used_by", RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy), "attached" : ("attached", RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['set_name']
+                        self._child_container_classes = OrderedDict([("used-by", ("used_by", RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy)), ("attached", ("attached", RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('set_name', YLeaf(YType.str, 'set-name')),
+                        ])
+                        self.set_name = None
 
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy()
                         self.used_by.parent = self
                         self._children_name_map["used_by"] = "used-by"
                         self._children_yang_names.add("used-by")
 
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached()
                         self.attached.parent = self
                         self._children_name_map["attached"] = "attached"
                         self._children_yang_names.add("attached")
-                        self._segment_path = lambda: "set" + "[set-name='" + self.set_name.get() + "']"
+                        self._segment_path = lambda: "set" + "[set-name='" + str(self.set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-cost/sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set, ['set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set, ['set_name'], name, value)
 
 
                     class UsedBy(Entity):
@@ -9695,7 +10148,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of  		 :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -9705,20 +10158,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"reference" : ("reference", RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("reference", ("reference", RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference))])
+                            self._leafs = OrderedDict()
 
                             self.reference = YList(self)
                             self._segment_path = lambda: "used-by"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy, [], name, value)
 
 
                         class Reference(Entity):
@@ -9749,24 +10204,27 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.used_directly = YLeaf(YType.boolean, "used-directly")
-
-                                self.status = YLeaf(YType.enumeration, "status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('used_directly', YLeaf(YType.boolean, 'used-directly')),
+                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                ])
+                                self.route_policy_name = None
+                                self.used_directly = None
+                                self.status = None
                                 self._segment_path = lambda: "reference"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
 
                     class Attached(Entity):
@@ -9777,7 +10235,7 @@ class RoutingPolicy(Entity):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding>`
+                        	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -9787,20 +10245,22 @@ class RoutingPolicy(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached, self).__init__()
+                            super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"binding" : ("binding", RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("binding", ("binding", RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding))])
+                            self._leafs = OrderedDict()
 
                             self.binding = YList(self)
                             self._segment_path = lambda: "attached"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached, [], name, value)
+                            self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached, [], name, value)
 
 
                         class Binding(Entity):
@@ -9919,58 +10379,61 @@ class RoutingPolicy(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding, self).__init__()
+                                super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.protocol = YLeaf(YType.str, "protocol")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.proto_instance = YLeaf(YType.str, "proto-instance")
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
-
-                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                self.neighbor_af_name = YLeaf(YType.enumeration, "neighbor-af-name")
-
-                                self.group_name = YLeaf(YType.str, "group-name")
-
-                                self.direction = YLeaf(YType.enumeration, "direction")
-
-                                self.group = YLeaf(YType.enumeration, "group")
-
-                                self.source_protocol = YLeaf(YType.str, "source-protocol")
-
-                                self.aggregate_network_address = YLeaf(YType.str, "aggregate-network-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.instance = YLeaf(YType.str, "instance")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.propogate_from = YLeaf(YType.int32, "propogate-from")
-
-                                self.propogate_to = YLeaf(YType.int32, "propogate-to")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.attached_policy = YLeaf(YType.str, "attached-policy")
-
-                                self.attach_point = YLeaf(YType.str, "attach-point")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('protocol', YLeaf(YType.str, 'protocol')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('proto_instance', YLeaf(YType.str, 'proto-instance')),
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                    ('neighbor_af_name', YLeaf(YType.enumeration, 'neighbor-af-name')),
+                                    ('group_name', YLeaf(YType.str, 'group-name')),
+                                    ('direction', YLeaf(YType.enumeration, 'direction')),
+                                    ('group', YLeaf(YType.enumeration, 'group')),
+                                    ('source_protocol', YLeaf(YType.str, 'source-protocol')),
+                                    ('aggregate_network_address', YLeaf(YType.str, 'aggregate-network-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('instance', YLeaf(YType.str, 'instance')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('propogate_from', YLeaf(YType.int32, 'propogate-from')),
+                                    ('propogate_to', YLeaf(YType.int32, 'propogate-to')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('attached_policy', YLeaf(YType.str, 'attached-policy')),
+                                    ('attach_point', YLeaf(YType.str, 'attach-point')),
+                                ])
+                                self.protocol = None
+                                self.vrf_name = None
+                                self.proto_instance = None
+                                self.af_name = None
+                                self.saf_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.group_name = None
+                                self.direction = None
+                                self.group = None
+                                self.source_protocol = None
+                                self.aggregate_network_address = None
+                                self.interface_name = None
+                                self.instance = None
+                                self.area_id = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.route_policy_name = None
+                                self.attached_policy = None
+                                self.attach_point = None
                                 self._segment_path = lambda: "binding"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
+                                self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
 
             class Unused(Entity):
@@ -9997,10 +10460,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-cost"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "unused"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-cost/%s" % self._segment_path()
 
@@ -10032,10 +10498,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-cost"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "inactive"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-cost/%s" % self._segment_path()
 
@@ -10067,10 +10536,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-cost"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object = YLeafList(YType.str, "object")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object', YLeafList(YType.str, 'object')),
+                    ])
+                    self.object = []
                     self._segment_path = lambda: "active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-oper:routing-policy/sets/extended-community-cost/%s" % self._segment_path()
 

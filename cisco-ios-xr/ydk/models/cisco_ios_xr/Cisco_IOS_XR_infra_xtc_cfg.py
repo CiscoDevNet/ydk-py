@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class PceDisjointPath(Enum):
     """
-    PceDisjointPath
+    PceDisjointPath (Enum Class)
 
     Pce disjoint path
 
@@ -35,6 +37,10 @@ class PceDisjointPath(Enum):
 
     	SRLG
 
+    .. data:: srlg_node = 4
+
+    	SRLG Node
+
     """
 
     link = Enum.YLeaf(1, "link")
@@ -43,10 +49,12 @@ class PceDisjointPath(Enum):
 
     srlg = Enum.YLeaf(3, "srlg")
 
+    srlg_node = Enum.YLeaf(4, "srlg-node")
+
 
 class PceExplicitPathHop(Enum):
     """
-    PceExplicitPathHop
+    PceExplicitPathHop (Enum Class)
 
     Pce explicit path hop
 
@@ -161,14 +169,17 @@ class Pce(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-xtc-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"pcc-addresses" : ("pcc_addresses", Pce.PccAddresses), "logging" : ("logging", Pce.Logging), "backoff" : ("backoff", Pce.Backoff), "state-syncs" : ("state_syncs", Pce.StateSyncs), "segment-routing" : ("segment_routing", Pce.SegmentRouting), "timers" : ("timers", Pce.Timers), "netconf" : ("netconf", Pce.Netconf), "disjoint-path" : ("disjoint_path", Pce.DisjointPath), "explicit-paths" : ("explicit_paths", Pce.ExplicitPaths)}
-        self._child_list_classes = {}
-
-        self.server_address = YLeaf(YType.str, "server-address")
-
-        self.password = YLeaf(YType.str, "password")
-
-        self.enable = YLeaf(YType.empty, "enable")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("pcc-addresses", ("pcc_addresses", Pce.PccAddresses)), ("logging", ("logging", Pce.Logging)), ("backoff", ("backoff", Pce.Backoff)), ("state-syncs", ("state_syncs", Pce.StateSyncs)), ("segment-routing", ("segment_routing", Pce.SegmentRouting)), ("timers", ("timers", Pce.Timers)), ("netconf", ("netconf", Pce.Netconf)), ("disjoint-path", ("disjoint_path", Pce.DisjointPath)), ("explicit-paths", ("explicit_paths", Pce.ExplicitPaths))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('server_address', YLeaf(YType.str, 'server-address')),
+            ('password', YLeaf(YType.str, 'password')),
+            ('enable', YLeaf(YType.empty, 'enable')),
+        ])
+        self.server_address = None
+        self.password = None
+        self.enable = None
 
         self.pcc_addresses = Pce.PccAddresses()
         self.pcc_addresses.parent = self
@@ -243,8 +254,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"pcc-address" : ("pcc_address", Pce.PccAddresses.PccAddress)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("pcc-address", ("pcc_address", Pce.PccAddresses.PccAddress))])
+            self._leafs = OrderedDict()
 
             self.pcc_address = YList(self)
             self._segment_path = lambda: "pcc-addresses"
@@ -258,7 +271,7 @@ class Pce(Entity):
             """
             Path computation client address
             
-            .. attribute:: address  <key>
+            .. attribute:: address  (key)
             
             	IPv4 address
             	**type**\: str
@@ -289,18 +302,21 @@ class Pce(Entity):
                 self.yang_parent_name = "pcc-addresses"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"lsp-names" : ("lsp_names", Pce.PccAddresses.PccAddress.LspNames)}
-                self._child_list_classes = {}
-
-                self.address = YLeaf(YType.str, "address")
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = ['address']
+                self._child_container_classes = OrderedDict([("lsp-names", ("lsp_names", Pce.PccAddresses.PccAddress.LspNames))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('address', YLeaf(YType.str, 'address')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.address = None
+                self.enable = None
 
                 self.lsp_names = Pce.PccAddresses.PccAddress.LspNames()
                 self.lsp_names.parent = self
                 self._children_name_map["lsp_names"] = "lsp-names"
                 self._children_yang_names.add("lsp-names")
-                self._segment_path = lambda: "pcc-address" + "[address='" + self.address.get() + "']"
+                self._segment_path = lambda: "pcc-address" + "[address='" + str(self.address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/pcc-addresses/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -330,8 +346,10 @@ class Pce(Entity):
                     self.yang_parent_name = "pcc-address"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-name" : ("lsp_name", Pce.PccAddresses.PccAddress.LspNames.LspName)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-name", ("lsp_name", Pce.PccAddresses.PccAddress.LspNames.LspName))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_name = YList(self)
                     self._segment_path = lambda: "lsp-names"
@@ -344,7 +362,7 @@ class Pce(Entity):
                     """
                     MPLS label switched path
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	LSP name
                     	**type**\: str
@@ -385,22 +403,25 @@ class Pce(Entity):
                         self.yang_parent_name = "lsp-names"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rsvp-te" : ("rsvp_te", Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe)}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.undelegate = YLeaf(YType.empty, "undelegate")
-
-                        self.explicit_path_name = YLeaf(YType.str, "explicit-path-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self.ylist_key_names = ['name']
+                        self._child_container_classes = OrderedDict([("rsvp-te", ("rsvp_te", Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('undelegate', YLeaf(YType.empty, 'undelegate')),
+                            ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                        ])
+                        self.name = None
+                        self.undelegate = None
+                        self.explicit_path_name = None
+                        self.enable = None
 
                         self.rsvp_te = Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe()
                         self.rsvp_te.parent = self
                         self._children_name_map["rsvp_te"] = "rsvp-te"
                         self._children_yang_names.add("rsvp-te")
-                        self._segment_path = lambda: "lsp-name" + "[name='" + self.name.get() + "']"
+                        self._segment_path = lambda: "lsp-name" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.PccAddresses.PccAddress.LspNames.LspName, ['name', 'undelegate', 'explicit_path_name', 'enable'], name, value)
@@ -455,14 +476,17 @@ class Pce(Entity):
                             self.yang_parent_name = "lsp-name"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"affinity" : ("affinity", Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity), "priority" : ("priority", Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority)}
-                            self._child_list_classes = {}
-
-                            self.fast_protect = YLeaf(YType.empty, "fast-protect")
-
-                            self.bandwidth = YLeaf(YType.int32, "bandwidth")
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("affinity", ("affinity", Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity)), ("priority", ("priority", Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('fast_protect', YLeaf(YType.empty, 'fast-protect')),
+                                ('bandwidth', YLeaf(YType.int32, 'bandwidth')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.fast_protect = None
+                            self.bandwidth = None
+                            self.enable = None
 
                             self.affinity = Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity()
                             self.affinity.parent = self
@@ -517,14 +541,17 @@ class Pce(Entity):
                                 self.yang_parent_name = "rsvp-te"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.include_any = YLeaf(YType.str, "include-any")
-
-                                self.include_all = YLeaf(YType.str, "include-all")
-
-                                self.exclude_any = YLeaf(YType.str, "exclude-any")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('include_any', YLeaf(YType.str, 'include-any')),
+                                    ('include_all', YLeaf(YType.str, 'include-all')),
+                                    ('exclude_any', YLeaf(YType.str, 'exclude-any')),
+                                ])
+                                self.include_any = None
+                                self.include_all = None
+                                self.exclude_any = None
                                 self._segment_path = lambda: "affinity"
 
                             def __setattr__(self, name, value):
@@ -569,13 +596,16 @@ class Pce(Entity):
                                 self.yang_parent_name = "rsvp-te"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.setup_priority = YLeaf(YType.uint32, "setup-priority")
-
-                                self.hold_priority = YLeaf(YType.uint32, "hold-priority")
+                                self._leafs = OrderedDict([
+                                    ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
+                                    ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                                ])
+                                self.setup_priority = None
+                                self.hold_priority = None
                                 self._segment_path = lambda: "priority"
 
                             def __setattr__(self, name, value):
@@ -589,6 +619,11 @@ class Pce(Entity):
         .. attribute:: no_path
         
         	Logging NO\-PATH configuration
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: pcerr
+        
+        	Logging of received PCErr messages
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: fallback
@@ -610,17 +645,22 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.no_path = YLeaf(YType.empty, "no-path")
-
-            self.fallback = YLeaf(YType.empty, "fallback")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('no_path', YLeaf(YType.empty, 'no-path')),
+                ('pcerr', YLeaf(YType.empty, 'pcerr')),
+                ('fallback', YLeaf(YType.empty, 'fallback')),
+            ])
+            self.no_path = None
+            self.pcerr = None
+            self.fallback = None
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Pce.Logging, ['no_path', 'fallback'], name, value)
+            self._perform_setattr(Pce.Logging, ['no_path', 'pcerr', 'fallback'], name, value)
 
 
     class Backoff(Entity):
@@ -668,14 +708,17 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ratio = YLeaf(YType.uint32, "ratio")
-
-            self.threshold = YLeaf(YType.uint32, "threshold")
-
-            self.difference = YLeaf(YType.uint32, "difference")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ratio', YLeaf(YType.uint32, 'ratio')),
+                ('threshold', YLeaf(YType.uint32, 'threshold')),
+                ('difference', YLeaf(YType.uint32, 'difference')),
+            ])
+            self.ratio = None
+            self.threshold = None
+            self.difference = None
             self._segment_path = lambda: "backoff"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/%s" % self._segment_path()
 
@@ -706,8 +749,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"state-sync" : ("state_sync", Pce.StateSyncs.StateSync)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("state-sync", ("state_sync", Pce.StateSyncs.StateSync))])
+            self._leafs = OrderedDict()
 
             self.state_sync = YList(self)
             self._segment_path = lambda: "state-syncs"
@@ -721,7 +766,7 @@ class Pce(Entity):
             """
             Standby PCE ipv4 address
             
-            .. attribute:: address  <key>
+            .. attribute:: address  (key)
             
             	IPv4 address
             	**type**\: str
@@ -742,11 +787,14 @@ class Pce(Entity):
                 self.yang_parent_name = "state-syncs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.address = YLeaf(YType.str, "address")
-                self._segment_path = lambda: "state-sync" + "[address='" + self.address.get() + "']"
+                self.ylist_key_names = ['address']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('address', YLeaf(YType.str, 'address')),
+                ])
+                self.address = None
+                self._segment_path = lambda: "state-sync" + "[address='" + str(self.address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/state-syncs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -781,12 +829,15 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.te_latency = YLeaf(YType.empty, "te-latency")
-
-            self.strict_sid_only = YLeaf(YType.empty, "strict-sid-only")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('te_latency', YLeaf(YType.empty, 'te-latency')),
+                ('strict_sid_only', YLeaf(YType.empty, 'strict-sid-only')),
+            ])
+            self.te_latency = None
+            self.strict_sid_only = None
             self._segment_path = lambda: "segment-routing"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/%s" % self._segment_path()
 
@@ -845,14 +896,17 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.reoptimization_timer = YLeaf(YType.uint32, "reoptimization-timer")
-
-            self.keepalive = YLeaf(YType.uint32, "keepalive")
-
-            self.minimum_peer_keepalive = YLeaf(YType.uint32, "minimum-peer-keepalive")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('reoptimization_timer', YLeaf(YType.uint32, 'reoptimization-timer')),
+                ('keepalive', YLeaf(YType.uint32, 'keepalive')),
+                ('minimum_peer_keepalive', YLeaf(YType.uint32, 'minimum-peer-keepalive')),
+            ])
+            self.reoptimization_timer = None
+            self.keepalive = None
+            self.minimum_peer_keepalive = None
             self._segment_path = lambda: "timers"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/%s" % self._segment_path()
 
@@ -883,8 +937,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"netconf-ssh" : ("netconf_ssh", Pce.Netconf.NetconfSsh)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("netconf-ssh", ("netconf_ssh", Pce.Netconf.NetconfSsh))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.netconf_ssh = Pce.Netconf.NetconfSsh()
             self.netconf_ssh.parent = self
@@ -924,12 +980,15 @@ class Pce(Entity):
                 self.yang_parent_name = "netconf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.netconf_ssh_password = YLeaf(YType.str, "netconf-ssh-password")
-
-                self.netconf_ssh_user = YLeaf(YType.str, "netconf-ssh-user")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('netconf_ssh_password', YLeaf(YType.str, 'netconf-ssh-password')),
+                    ('netconf_ssh_user', YLeaf(YType.str, 'netconf-ssh-user')),
+                ])
+                self.netconf_ssh_password = None
+                self.netconf_ssh_user = None
                 self._segment_path = lambda: "netconf-ssh"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/netconf/%s" % self._segment_path()
 
@@ -946,6 +1005,11 @@ class Pce(Entity):
         	Association configuration
         	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath.Groups>`
         
+        .. attribute:: enable
+        
+        	True only
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
         
 
         """
@@ -960,8 +1024,13 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"groups" : ("groups", Pce.DisjointPath.Groups)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("groups", ("groups", Pce.DisjointPath.Groups))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('enable', YLeaf(YType.empty, 'enable')),
+            ])
+            self.enable = None
 
             self.groups = Pce.DisjointPath.Groups()
             self.groups.parent = self
@@ -969,6 +1038,9 @@ class Pce(Entity):
             self._children_yang_names.add("groups")
             self._segment_path = lambda: "disjoint-path"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Pce.DisjointPath, ['enable'], name, value)
 
 
         class Groups(Entity):
@@ -994,8 +1066,10 @@ class Pce(Entity):
                 self.yang_parent_name = "disjoint-path"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"group" : ("group", Pce.DisjointPath.Groups.Group)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("group", ("group", Pce.DisjointPath.Groups.Group))])
+                self._leafs = OrderedDict()
 
                 self.group = YList(self)
                 self._segment_path = lambda: "groups"
@@ -1009,28 +1083,38 @@ class Pce(Entity):
                 """
                 Association Group Configuration
                 
-                .. attribute:: group_id  <key>
+                .. attribute:: group_id  (key)
                 
                 	Group ID
                 	**type**\: int
                 
                 	**range:** 1..65535
                 
-                .. attribute:: dp_type  <key>
+                .. attribute:: dp_type  (key)
                 
-                	Disjoiness type
+                	Disjointness type
                 	**type**\:  :py:class:`PceDisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceDisjointPath>`
                 
-                .. attribute:: sub_id  <key>
+                .. attribute:: sub_id  (key)
                 
                 	Sub group ID, 0 to unset
                 	**type**\: int
                 
                 	**range:** 0..65535
                 
+                .. attribute:: group_lsp_records
+                
+                	lsp pcc records container with in group
+                	**type**\:  :py:class:`GroupLspRecords <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath.Groups.Group.GroupLspRecords>`
+                
                 .. attribute:: strict
                 
                 	Disable Fallback
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: enable
+                
+                	True only
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
@@ -1047,21 +1131,130 @@ class Pce(Entity):
                     self.yang_parent_name = "groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = ['group_id','dp_type','sub_id']
+                    self._child_container_classes = OrderedDict([("group-lsp-records", ("group_lsp_records", Pce.DisjointPath.Groups.Group.GroupLspRecords))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('group_id', YLeaf(YType.uint32, 'group-id')),
+                        ('dp_type', YLeaf(YType.enumeration, 'dp-type')),
+                        ('sub_id', YLeaf(YType.uint32, 'sub-id')),
+                        ('strict', YLeaf(YType.empty, 'strict')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.group_id = None
+                    self.dp_type = None
+                    self.sub_id = None
+                    self.strict = None
+                    self.enable = None
 
-                    self.group_id = YLeaf(YType.uint32, "group-id")
-
-                    self.dp_type = YLeaf(YType.enumeration, "dp-type")
-
-                    self.sub_id = YLeaf(YType.uint32, "sub-id")
-
-                    self.strict = YLeaf(YType.empty, "strict")
-                    self._segment_path = lambda: "group" + "[group-id='" + self.group_id.get() + "']" + "[dp-type='" + self.dp_type.get() + "']" + "[sub-id='" + self.sub_id.get() + "']"
+                    self.group_lsp_records = Pce.DisjointPath.Groups.Group.GroupLspRecords()
+                    self.group_lsp_records.parent = self
+                    self._children_name_map["group_lsp_records"] = "group-lsp-records"
+                    self._children_yang_names.add("group-lsp-records")
+                    self._segment_path = lambda: "group" + "[group-id='" + str(self.group_id) + "']" + "[dp-type='" + str(self.dp_type) + "']" + "[sub-id='" + str(self.sub_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/disjoint-path/groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.DisjointPath.Groups.Group, ['group_id', 'dp_type', 'sub_id', 'strict'], name, value)
+                    self._perform_setattr(Pce.DisjointPath.Groups.Group, ['group_id', 'dp_type', 'sub_id', 'strict', 'enable'], name, value)
+
+
+                class GroupLspRecords(Entity):
+                    """
+                    lsp pcc records container with in group
+                    
+                    .. attribute:: group_lsp_record
+                    
+                    	LSP first/second PCC record tuple containingIpAddr, LspName, DisjPath
+                    	**type**\: list of  		 :py:class:`GroupLspRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-cfg'
+                    _revision = '2016-05-31'
+
+                    def __init__(self):
+                        super(Pce.DisjointPath.Groups.Group.GroupLspRecords, self).__init__()
+
+                        self.yang_name = "group-lsp-records"
+                        self.yang_parent_name = "group"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("group-lsp-record", ("group_lsp_record", Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord))])
+                        self._leafs = OrderedDict()
+
+                        self.group_lsp_record = YList(self)
+                        self._segment_path = lambda: "group-lsp-records"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pce.DisjointPath.Groups.Group.GroupLspRecords, [], name, value)
+
+
+                    class GroupLspRecord(Entity):
+                        """
+                        LSP first/second PCC record tuple
+                        containingIpAddr, LspName, DisjPath
+                        
+                        .. attribute:: lsp_id  (key)
+                        
+                        	Lsp id
+                        	**type**\: int
+                        
+                        	**range:** 1..2
+                        
+                        .. attribute:: ip_addr
+                        
+                        	IP address of PCC
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: lsp_name
+                        
+                        	Identifying name for LSP
+                        	**type**\: str
+                        
+                        .. attribute:: disj_path
+                        
+                        	Set LSP to follow shortest\-path
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-cfg'
+                        _revision = '2016-05-31'
+
+                        def __init__(self):
+                            super(Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord, self).__init__()
+
+                            self.yang_name = "group-lsp-record"
+                            self.yang_parent_name = "group-lsp-records"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['lsp_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('lsp_id', YLeaf(YType.uint32, 'lsp-id')),
+                                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                                ('lsp_name', YLeaf(YType.str, 'lsp-name')),
+                                ('disj_path', YLeaf(YType.int32, 'disj-path')),
+                            ])
+                            self.lsp_id = None
+                            self.ip_addr = None
+                            self.lsp_name = None
+                            self.disj_path = None
+                            self._segment_path = lambda: "group-lsp-record" + "[lsp-id='" + str(self.lsp_id) + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord, ['lsp_id', 'ip_addr', 'lsp_name', 'disj_path'], name, value)
 
 
     class ExplicitPaths(Entity):
@@ -1087,8 +1280,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"explicit-path" : ("explicit_path", Pce.ExplicitPaths.ExplicitPath)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("explicit-path", ("explicit_path", Pce.ExplicitPaths.ExplicitPath))])
+            self._leafs = OrderedDict()
 
             self.explicit_path = YList(self)
             self._segment_path = lambda: "explicit-paths"
@@ -1102,7 +1297,7 @@ class Pce(Entity):
             """
             Explicit\-path configuration
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Explicit\-path name
             	**type**\: str
@@ -1133,18 +1328,21 @@ class Pce(Entity):
                 self.yang_parent_name = "explicit-paths"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"path-hops" : ("path_hops", Pce.ExplicitPaths.ExplicitPath.PathHops)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("path-hops", ("path_hops", Pce.ExplicitPaths.ExplicitPath.PathHops))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.name = None
+                self.enable = None
 
                 self.path_hops = Pce.ExplicitPaths.ExplicitPath.PathHops()
                 self.path_hops.parent = self
                 self._children_name_map["path_hops"] = "path-hops"
                 self._children_yang_names.add("path-hops")
-                self._segment_path = lambda: "explicit-path" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "explicit-path" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-cfg:pce/explicit-paths/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1174,8 +1372,10 @@ class Pce(Entity):
                     self.yang_parent_name = "explicit-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"path-hop" : ("path_hop", Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("path-hop", ("path_hop", Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop))])
+                    self._leafs = OrderedDict()
 
                     self.path_hop = YList(self)
                     self._segment_path = lambda: "path-hops"
@@ -1188,7 +1388,7 @@ class Pce(Entity):
                     """
                     Explicit path hop configuration
                     
-                    .. attribute:: index  <key>
+                    .. attribute:: index  (key)
                     
                     	Hop Index
                     	**type**\: int
@@ -1241,19 +1441,22 @@ class Pce(Entity):
                         self.yang_parent_name = "path-hops"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.uint32, "index")
-
-                        self.hop_type = YLeaf(YType.enumeration, "hop-type")
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.remote_address = YLeaf(YType.str, "remote-address")
-
-                        self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-                        self._segment_path = lambda: "path-hop" + "[index='" + self.index.get() + "']"
+                        self.ylist_key_names = ['index']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('index', YLeaf(YType.uint32, 'index')),
+                            ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('remote_address', YLeaf(YType.str, 'remote-address')),
+                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                        ])
+                        self.index = None
+                        self.hop_type = None
+                        self.address = None
+                        self.remote_address = None
+                        self.mpls_label = None
+                        self._segment_path = lambda: "path-hop" + "[index='" + str(self.index) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop, ['index', 'hop_type', 'address', 'remote_address', 'mpls_label'], name, value)

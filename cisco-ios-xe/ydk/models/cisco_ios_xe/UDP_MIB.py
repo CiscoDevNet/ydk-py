@@ -6,9 +6,11 @@ version of this MIB module is part of RFC 4113;
 see the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -49,8 +51,10 @@ class UDPMIB(Entity):
         self.yang_parent_name = "UDP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"udp" : ("udp", UDPMIB.Udp), "udpTable" : ("udptable", UDPMIB.Udptable), "udpEndpointTable" : ("udpendpointtable", UDPMIB.Udpendpointtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("udp", ("udp", UDPMIB.Udp)), ("udpTable", ("udptable", UDPMIB.Udptable)), ("udpEndpointTable", ("udpendpointtable", UDPMIB.Udpendpointtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.udp = UDPMIB.Udp()
         self.udp.parent = self
@@ -129,20 +133,23 @@ class UDPMIB(Entity):
             self.yang_parent_name = "UDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.udpindatagrams = YLeaf(YType.uint32, "udpInDatagrams")
-
-            self.udpnoports = YLeaf(YType.uint32, "udpNoPorts")
-
-            self.udpinerrors = YLeaf(YType.uint32, "udpInErrors")
-
-            self.udpoutdatagrams = YLeaf(YType.uint32, "udpOutDatagrams")
-
-            self.udphcindatagrams = YLeaf(YType.uint64, "udpHCInDatagrams")
-
-            self.udphcoutdatagrams = YLeaf(YType.uint64, "udpHCOutDatagrams")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('udpindatagrams', YLeaf(YType.uint32, 'udpInDatagrams')),
+                ('udpnoports', YLeaf(YType.uint32, 'udpNoPorts')),
+                ('udpinerrors', YLeaf(YType.uint32, 'udpInErrors')),
+                ('udpoutdatagrams', YLeaf(YType.uint32, 'udpOutDatagrams')),
+                ('udphcindatagrams', YLeaf(YType.uint64, 'udpHCInDatagrams')),
+                ('udphcoutdatagrams', YLeaf(YType.uint64, 'udpHCOutDatagrams')),
+            ])
+            self.udpindatagrams = None
+            self.udpnoports = None
+            self.udpinerrors = None
+            self.udpoutdatagrams = None
+            self.udphcindatagrams = None
+            self.udphcoutdatagrams = None
             self._segment_path = lambda: "udp"
             self._absolute_path = lambda: "UDP-MIB:UDP-MIB/%s" % self._segment_path()
 
@@ -180,8 +187,10 @@ class UDPMIB(Entity):
             self.yang_parent_name = "UDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"udpEntry" : ("udpentry", UDPMIB.Udptable.Udpentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("udpEntry", ("udpentry", UDPMIB.Udptable.Udpentry))])
+            self._leafs = OrderedDict()
 
             self.udpentry = YList(self)
             self._segment_path = lambda: "udpTable"
@@ -195,7 +204,7 @@ class UDPMIB(Entity):
             """
             Information about a particular current UDP listener.
             
-            .. attribute:: udplocaladdress  <key>
+            .. attribute:: udplocaladdress  (key)
             
             	The local IP address for this UDP listener.  In the case of a UDP listener that is willing to accept datagrams for any IP interface associated with the node, the value 0.0.0.0 is used
             	**type**\: str
@@ -204,7 +213,7 @@ class UDPMIB(Entity):
             
             	**status**\: deprecated
             
-            .. attribute:: udplocalport  <key>
+            .. attribute:: udplocalport  (key)
             
             	The local port number for this UDP listener
             	**type**\: int
@@ -227,13 +236,16 @@ class UDPMIB(Entity):
                 self.yang_parent_name = "udpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.udplocaladdress = YLeaf(YType.str, "udpLocalAddress")
-
-                self.udplocalport = YLeaf(YType.int32, "udpLocalPort")
-                self._segment_path = lambda: "udpEntry" + "[udpLocalAddress='" + self.udplocaladdress.get() + "']" + "[udpLocalPort='" + self.udplocalport.get() + "']"
+                self.ylist_key_names = ['udplocaladdress','udplocalport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('udplocaladdress', YLeaf(YType.str, 'udpLocalAddress')),
+                    ('udplocalport', YLeaf(YType.int32, 'udpLocalPort')),
+                ])
+                self.udplocaladdress = None
+                self.udplocalport = None
+                self._segment_path = lambda: "udpEntry" + "[udpLocalAddress='" + str(self.udplocaladdress) + "']" + "[udpLocalPort='" + str(self.udplocalport) + "']"
                 self._absolute_path = lambda: "UDP-MIB:UDP-MIB/udpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -308,8 +320,10 @@ class UDPMIB(Entity):
             self.yang_parent_name = "UDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"udpEndpointEntry" : ("udpendpointentry", UDPMIB.Udpendpointtable.Udpendpointentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("udpEndpointEntry", ("udpendpointentry", UDPMIB.Udpendpointtable.Udpendpointentry))])
+            self._leafs = OrderedDict()
 
             self.udpendpointentry = YList(self)
             self._segment_path = lambda: "udpEndpointTable"
@@ -330,45 +344,45 @@ class UDPMIB(Entity):
             will have more than 128 sub\-identifiers and cannot be
             accessed using SNMPv1, SNMPv2c, or SNMPv3.
             
-            .. attribute:: udpendpointlocaladdresstype  <key>
+            .. attribute:: udpendpointlocaladdresstype  (key)
             
             	The address type of udpEndpointLocalAddress.  Only IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if datagrams for all local IP addresses are accepted
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: udpendpointlocaladdress  <key>
+            .. attribute:: udpendpointlocaladdress  (key)
             
             	The local IP address for this UDP endpoint.  The value of this object can be represented in three  possible ways, depending on the characteristics of the listening application\:  1. For an application that is willing to accept both    IPv4 and IPv6 datagrams, the value of this object    must be ''h (a zero\-length octet\-string), with    the value of the corresponding instance of the    udpEndpointLocalAddressType object being unknown(0).  2. For an application that is willing to accept only IPv4    or only IPv6 datagrams, the value of this object    must be '0.0.0.0' or '\:\:', respectively, while the    corresponding instance of the    udpEndpointLocalAddressType object represents the    appropriate address type.  3. For an application that is listening for data    destined only to a specific IP address, the value    of this object is the specific IP address for which    this node is receiving packets, with the    corresponding instance of the    udpEndpointLocalAddressType object representing the    appropriate address type.  As this object is used in the index for the udpEndpointTable, implementors of this table should be careful not to create entries that would result in OIDs with more than 128 subidentifiers; else the information cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: udpendpointlocalport  <key>
+            .. attribute:: udpendpointlocalport  (key)
             
             	The local port number for this UDP endpoint
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: udpendpointremoteaddresstype  <key>
+            .. attribute:: udpendpointremoteaddresstype  (key)
             
             	The address type of udpEndpointRemoteAddress.  Only IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if datagrams for all remote IP addresses are accepted.  Also, note that some combinations of  udpEndpointLocalAdressType and udpEndpointRemoteAddressType are not supported.  In particular, if the value of this object is not unknown(0), it is expected to always refer to the same IP version as udpEndpointLocalAddressType
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: udpendpointremoteaddress  <key>
+            .. attribute:: udpendpointremoteaddress  (key)
             
             	The remote IP address for this UDP endpoint.  If datagrams from any remote system are to be accepted, this value is ''h (a zero\-length octet\-string). Otherwise, it has the type described by udpEndpointRemoteAddressType and is the address of the remote system from which datagrams are to be accepted (or to which all datagrams will be sent).  As this object is used in the index for the udpEndpointTable, implementors of this table should be careful not to create entries that would result in OIDs with more than 128 subidentifiers; else the information cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: udpendpointremoteport  <key>
+            .. attribute:: udpendpointremoteport  (key)
             
             	The remote port number for this UDP endpoint.  If datagrams from any remote system are to be accepted, this value is zero
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: udpendpointinstance  <key>
+            .. attribute:: udpendpointinstance  (key)
             
             	The instance of this tuple.  This object is used to distinguish among multiple processes 'connected' to the same UDP endpoint.  For example, on a system implementing the BSD sockets interface, this would be used to support the SO\_REUSEADDR and SO\_REUSEPORT socket options
             	**type**\: int
@@ -396,25 +410,28 @@ class UDPMIB(Entity):
                 self.yang_parent_name = "udpEndpointTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.udpendpointlocaladdresstype = YLeaf(YType.enumeration, "udpEndpointLocalAddressType")
-
-                self.udpendpointlocaladdress = YLeaf(YType.str, "udpEndpointLocalAddress")
-
-                self.udpendpointlocalport = YLeaf(YType.uint16, "udpEndpointLocalPort")
-
-                self.udpendpointremoteaddresstype = YLeaf(YType.enumeration, "udpEndpointRemoteAddressType")
-
-                self.udpendpointremoteaddress = YLeaf(YType.str, "udpEndpointRemoteAddress")
-
-                self.udpendpointremoteport = YLeaf(YType.uint16, "udpEndpointRemotePort")
-
-                self.udpendpointinstance = YLeaf(YType.uint32, "udpEndpointInstance")
-
-                self.udpendpointprocess = YLeaf(YType.uint32, "udpEndpointProcess")
-                self._segment_path = lambda: "udpEndpointEntry" + "[udpEndpointLocalAddressType='" + self.udpendpointlocaladdresstype.get() + "']" + "[udpEndpointLocalAddress='" + self.udpendpointlocaladdress.get() + "']" + "[udpEndpointLocalPort='" + self.udpendpointlocalport.get() + "']" + "[udpEndpointRemoteAddressType='" + self.udpendpointremoteaddresstype.get() + "']" + "[udpEndpointRemoteAddress='" + self.udpendpointremoteaddress.get() + "']" + "[udpEndpointRemotePort='" + self.udpendpointremoteport.get() + "']" + "[udpEndpointInstance='" + self.udpendpointinstance.get() + "']"
+                self.ylist_key_names = ['udpendpointlocaladdresstype','udpendpointlocaladdress','udpendpointlocalport','udpendpointremoteaddresstype','udpendpointremoteaddress','udpendpointremoteport','udpendpointinstance']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('udpendpointlocaladdresstype', YLeaf(YType.enumeration, 'udpEndpointLocalAddressType')),
+                    ('udpendpointlocaladdress', YLeaf(YType.str, 'udpEndpointLocalAddress')),
+                    ('udpendpointlocalport', YLeaf(YType.uint16, 'udpEndpointLocalPort')),
+                    ('udpendpointremoteaddresstype', YLeaf(YType.enumeration, 'udpEndpointRemoteAddressType')),
+                    ('udpendpointremoteaddress', YLeaf(YType.str, 'udpEndpointRemoteAddress')),
+                    ('udpendpointremoteport', YLeaf(YType.uint16, 'udpEndpointRemotePort')),
+                    ('udpendpointinstance', YLeaf(YType.uint32, 'udpEndpointInstance')),
+                    ('udpendpointprocess', YLeaf(YType.uint32, 'udpEndpointProcess')),
+                ])
+                self.udpendpointlocaladdresstype = None
+                self.udpendpointlocaladdress = None
+                self.udpendpointlocalport = None
+                self.udpendpointremoteaddresstype = None
+                self.udpendpointremoteaddress = None
+                self.udpendpointremoteport = None
+                self.udpendpointinstance = None
+                self.udpendpointprocess = None
+                self._segment_path = lambda: "udpEndpointEntry" + "[udpEndpointLocalAddressType='" + str(self.udpendpointlocaladdresstype) + "']" + "[udpEndpointLocalAddress='" + str(self.udpendpointlocaladdress) + "']" + "[udpEndpointLocalPort='" + str(self.udpendpointlocalport) + "']" + "[udpEndpointRemoteAddressType='" + str(self.udpendpointremoteaddresstype) + "']" + "[udpEndpointRemoteAddress='" + str(self.udpendpointremoteaddress) + "']" + "[udpEndpointRemotePort='" + str(self.udpendpointremoteport) + "']" + "[udpEndpointInstance='" + str(self.udpendpointinstance) + "']"
                 self._absolute_path = lambda: "UDP-MIB:UDP-MIB/udpEndpointTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

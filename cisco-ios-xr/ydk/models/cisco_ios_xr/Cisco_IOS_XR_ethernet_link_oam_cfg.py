@@ -13,15 +13,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class EtherLinkOamEventActionEnum(Enum):
     """
-    EtherLinkOamEventActionEnum
+    EtherLinkOamEventActionEnum (Enum Class)
 
     Ether link oam event action enum
 
@@ -48,7 +50,7 @@ class EtherLinkOamEventActionEnum(Enum):
 
 class EtherLinkOamEventActionEnumEfd(Enum):
     """
-    EtherLinkOamEventActionEnumEfd
+    EtherLinkOamEventActionEnumEfd (Enum Class)
 
     Ether link oam event action enum efd
 
@@ -81,7 +83,7 @@ class EtherLinkOamEventActionEnumEfd(Enum):
 
 class EtherLinkOamEventActionPrimEnum(Enum):
     """
-    EtherLinkOamEventActionPrimEnum
+    EtherLinkOamEventActionPrimEnum (Enum Class)
 
     Ether link oam event action prim enum
 
@@ -102,7 +104,7 @@ class EtherLinkOamEventActionPrimEnum(Enum):
 
 class EtherLinkOamHelloIntervalEnum(Enum):
     """
-    EtherLinkOamHelloIntervalEnum
+    EtherLinkOamHelloIntervalEnum (Enum Class)
 
     Ether link oam hello interval enum
 
@@ -123,7 +125,7 @@ class EtherLinkOamHelloIntervalEnum(Enum):
 
 class EtherLinkOamModeEnum(Enum):
     """
-    EtherLinkOamModeEnum
+    EtherLinkOamModeEnum (Enum Class)
 
     Ether link oam mode enum
 
@@ -144,7 +146,7 @@ class EtherLinkOamModeEnum(Enum):
 
 class EtherLinkOamRequireModeEnum(Enum):
     """
-    EtherLinkOamRequireModeEnum
+    EtherLinkOamRequireModeEnum (Enum Class)
 
     Ether link oam require mode enum
 
@@ -171,7 +173,7 @@ class EtherLinkOamRequireModeEnum(Enum):
 
 class EtherLinkOamThresholdUnitsFramesEnum(Enum):
     """
-    EtherLinkOamThresholdUnitsFramesEnum
+    EtherLinkOamThresholdUnitsFramesEnum (Enum Class)
 
     Ether link oam threshold units frames enum
 
@@ -192,7 +194,7 @@ class EtherLinkOamThresholdUnitsFramesEnum(Enum):
 
 class EtherLinkOamThresholdUnitsSymbolsEnum(Enum):
     """
-    EtherLinkOamThresholdUnitsSymbolsEnum
+    EtherLinkOamThresholdUnitsSymbolsEnum (Enum Class)
 
     Ether link oam threshold units symbols enum
 
@@ -213,7 +215,7 @@ class EtherLinkOamThresholdUnitsSymbolsEnum(Enum):
 
 class EtherLinkOamThresholdWindowMultiplierEnum(Enum):
     """
-    EtherLinkOamThresholdWindowMultiplierEnum
+    EtherLinkOamThresholdWindowMultiplierEnum (Enum Class)
 
     Ether link oam threshold window multiplier enum
 
@@ -246,7 +248,7 @@ class EtherLinkOamThresholdWindowMultiplierEnum(Enum):
 
 class EtherLinkOamWindowUnitsFramesEnum(Enum):
     """
-    EtherLinkOamWindowUnitsFramesEnum
+    EtherLinkOamWindowUnitsFramesEnum (Enum Class)
 
     Ether link oam window units frames enum
 
@@ -267,7 +269,7 @@ class EtherLinkOamWindowUnitsFramesEnum(Enum):
 
 class EtherLinkOamWindowUnitsSymbolsEnum(Enum):
     """
-    EtherLinkOamWindowUnitsSymbolsEnum
+    EtherLinkOamWindowUnitsSymbolsEnum (Enum Class)
 
     Ether link oam window units symbols enum
 

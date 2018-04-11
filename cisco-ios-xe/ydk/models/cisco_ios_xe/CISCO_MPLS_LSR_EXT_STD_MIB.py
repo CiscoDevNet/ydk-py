@@ -9,9 +9,11 @@ This MIB module contains generic object definitions for
 MPLS LSR in transport networks.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -40,8 +42,10 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
         self.yang_parent_name = "CISCO-MPLS-LSR-EXT-STD-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cmplsXCExtTable" : ("cmplsxcexttable", CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cmplsXCExtTable", ("cmplsxcexttable", CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cmplsxcexttable = CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable()
         self.cmplsxcexttable.parent = self
@@ -75,8 +79,10 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             self.yang_parent_name = "CISCO-MPLS-LSR-EXT-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cmplsXCExtEntry" : ("cmplsxcextentry", CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable.Cmplsxcextentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cmplsXCExtEntry", ("cmplsxcextentry", CISCOMPLSLSREXTSTDMIB.Cmplsxcexttable.Cmplsxcextentry))])
+            self._leafs = OrderedDict()
 
             self.cmplsxcextentry = YList(self)
             self._segment_path = lambda: "cmplsXCExtTable"
@@ -95,7 +101,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             a network administrator via SNMP SET commands, or in
             response to signaling protocol events.
             
-            .. attribute:: mplsxcindex  <key>
+            .. attribute:: mplsxcindex  (key)
             
             	
             	**type**\: str
@@ -104,7 +110,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsxcindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry>`
             
-            .. attribute:: mplsxcinsegmentindex  <key>
+            .. attribute:: mplsxcinsegmentindex  (key)
             
             	
             	**type**\: str
@@ -113,7 +119,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsxcinsegmentindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry>`
             
-            .. attribute:: mplsxcoutsegmentindex  <key>
+            .. attribute:: mplsxcoutsegmentindex  (key)
             
             	
             	**type**\: str
@@ -150,19 +156,22 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
                 self.yang_parent_name = "cmplsXCExtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsxcindex = YLeaf(YType.str, "mplsXCIndex")
-
-                self.mplsxcinsegmentindex = YLeaf(YType.str, "mplsXCInSegmentIndex")
-
-                self.mplsxcoutsegmentindex = YLeaf(YType.str, "mplsXCOutSegmentIndex")
-
-                self.cmplsxcexttunnelpointer = YLeaf(YType.str, "cmplsXCExtTunnelPointer")
-
-                self.cmplsxcoppositedirxcptr = YLeaf(YType.str, "cmplsXCOppositeDirXCPtr")
-                self._segment_path = lambda: "cmplsXCExtEntry" + "[mplsXCIndex='" + self.mplsxcindex.get() + "']" + "[mplsXCInSegmentIndex='" + self.mplsxcinsegmentindex.get() + "']" + "[mplsXCOutSegmentIndex='" + self.mplsxcoutsegmentindex.get() + "']"
+                self.ylist_key_names = ['mplsxcindex','mplsxcinsegmentindex','mplsxcoutsegmentindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsxcindex', YLeaf(YType.str, 'mplsXCIndex')),
+                    ('mplsxcinsegmentindex', YLeaf(YType.str, 'mplsXCInSegmentIndex')),
+                    ('mplsxcoutsegmentindex', YLeaf(YType.str, 'mplsXCOutSegmentIndex')),
+                    ('cmplsxcexttunnelpointer', YLeaf(YType.str, 'cmplsXCExtTunnelPointer')),
+                    ('cmplsxcoppositedirxcptr', YLeaf(YType.str, 'cmplsXCOppositeDirXCPtr')),
+                ])
+                self.mplsxcindex = None
+                self.mplsxcinsegmentindex = None
+                self.mplsxcoutsegmentindex = None
+                self.cmplsxcexttunnelpointer = None
+                self.cmplsxcoppositedirxcptr = None
+                self._segment_path = lambda: "cmplsXCExtEntry" + "[mplsXCIndex='" + str(self.mplsxcindex) + "']" + "[mplsXCInSegmentIndex='" + str(self.mplsxcinsegmentindex) + "']" + "[mplsXCOutSegmentIndex='" + str(self.mplsxcoutsegmentindex) + "']"
                 self._absolute_path = lambda: "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/cmplsXCExtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

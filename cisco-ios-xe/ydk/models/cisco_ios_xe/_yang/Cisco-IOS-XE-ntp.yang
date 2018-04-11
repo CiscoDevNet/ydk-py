@@ -35,12 +35,35 @@ module Cisco-IOS-XE-ntp {
 
   description
     "Cisco XE Native Network Time Protocol (NTP) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-12-15 {
+     description
+       "Change order of union types in ntp/ip-address to put string last";
+  }
+
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Added Two and 40 GE support";
+  }
+
+  revision 2017-09-21 {
+    description
+      "Added interface ntp broadcast";
+  }
+  revision 2017-09-20 {
+    description
+      "Added interface ntp broadcast client";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -135,8 +158,8 @@ module Cisco-IOS-XE-ntp {
       leaf ip-address {
         type union {
           type inet:ipv4-address;
-          type string;
           type inet:ipv6-address;
+          type string;
         }
       }
       uses ntp-peer-server-attr-grouping;
@@ -369,10 +392,84 @@ module Cisco-IOS-XE-ntp {
     }
   }
 
+  grouping config-interface-ntp-grouping {
+    container ntp {
+      description
+        "Configure NTP";
+      leaf broadcast {
+        description
+          "Configure NTP broadcast service";
+        type empty;
+      }
+      container broadcast-option {
+        description
+          "Configure NTP broadcast service";
+        container broadcast {
+          leaf client {
+            description
+              "Listen to NTP broadcasts";
+            type empty;
+          }
+        }
+      }
+    }
+  }
+
   /////////////////////////////////////////////////////////
   // native / ntp
   /////////////////////////////////////////////////////////
   augment "/ios:native/ios:ntp" {
     uses config-ntp-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / interface *                                  
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:FastEthernet" {   
+    uses config-interface-ntp-grouping;            
+  }                                                        
+
+  augment "/ios:native/ios:interface/ios:GigabitEthernet" {
+    uses config-interface-ntp-grouping;            
+  }                                                        
+
+  augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-ntp-grouping;               
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-ntp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-ntp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-ntp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-ntp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-ntp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Loopback" {
+    uses config-interface-ntp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Tunnel" {
+    uses config-interface-ntp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Virtual-Template" {
+    uses config-interface-ntp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Vlan" {
+    uses config-interface-ntp-grouping;
   }
 }

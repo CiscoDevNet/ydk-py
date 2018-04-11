@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class PppoeEa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-pppoe-ea-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", PppoeEa.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", PppoeEa.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = PppoeEa.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class PppoeEa(Entity):
             self.yang_parent_name = "pppoe-ea"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", PppoeEa.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", PppoeEa.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class PppoeEa(Entity):
             """
             PPPOE\-EA operational data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -121,10 +127,13 @@ class PppoeEa(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"parent-interface-ids" : ("parent_interface_ids", PppoeEa.Nodes.Node.ParentInterfaceIds), "interface-ids" : ("interface_ids", PppoeEa.Nodes.Node.InterfaceIds)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("parent-interface-ids", ("parent_interface_ids", PppoeEa.Nodes.Node.ParentInterfaceIds)), ("interface-ids", ("interface_ids", PppoeEa.Nodes.Node.InterfaceIds))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.parent_interface_ids = PppoeEa.Nodes.Node.ParentInterfaceIds()
                 self.parent_interface_ids.parent = self
@@ -135,7 +144,7 @@ class PppoeEa(Entity):
                 self.interface_ids.parent = self
                 self._children_name_map["interface_ids"] = "interface-ids"
                 self._children_yang_names.add("interface-ids")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -165,8 +174,10 @@ class PppoeEa(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"parent-interface-id" : ("parent_interface_id", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("parent-interface-id", ("parent_interface_id", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId))])
+                    self._leafs = OrderedDict()
 
                     self.parent_interface_id = YList(self)
                     self._segment_path = lambda: "parent-interface-ids"
@@ -179,7 +190,7 @@ class PppoeEa(Entity):
                     """
                     PPPoE parent interface info
                     
-                    .. attribute:: parent_interface_name  <key>
+                    .. attribute:: parent_interface_name  (key)
                     
                     	Interface Name
                     	**type**\: str
@@ -217,20 +228,23 @@ class PppoeEa(Entity):
                         self.yang_parent_name = "parent-interface-ids"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"srgv-mac" : ("srgv_mac", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac)}
-                        self._child_list_classes = {}
-
-                        self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.is_in_sync = YLeaf(YType.boolean, "is-in-sync")
+                        self.ylist_key_names = ['parent_interface_name']
+                        self._child_container_classes = OrderedDict([("srgv-mac", ("srgv_mac", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('is_in_sync', YLeaf(YType.boolean, 'is-in-sync')),
+                        ])
+                        self.parent_interface_name = None
+                        self.interface = None
+                        self.is_in_sync = None
 
                         self.srgv_mac = PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac()
                         self.srgv_mac.parent = self
                         self._children_name_map["srgv_mac"] = "srgv-mac"
                         self._children_yang_names.add("srgv-mac")
-                        self._segment_path = lambda: "parent-interface-id" + "[parent-interface-name='" + self.parent_interface_name.get() + "']"
+                        self._segment_path = lambda: "parent-interface-id" + "[parent-interface-name='" + str(self.parent_interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, ['parent_interface_name', 'interface', 'is_in_sync'], name, value)
@@ -261,10 +275,13 @@ class PppoeEa(Entity):
                             self.yang_parent_name = "parent-interface-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.macaddr = YLeaf(YType.str, "macaddr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('macaddr', YLeaf(YType.str, 'macaddr')),
+                            ])
+                            self.macaddr = None
                             self._segment_path = lambda: "srgv-mac"
 
                         def __setattr__(self, name, value):
@@ -294,8 +311,10 @@ class PppoeEa(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface-id" : ("interface_id", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface-id", ("interface_id", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId))])
+                    self._leafs = OrderedDict()
 
                     self.interface_id = YList(self)
                     self._segment_path = lambda: "interface-ids"
@@ -308,7 +327,7 @@ class PppoeEa(Entity):
                     """
                     PPPoE interface info
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface Name
                     	**type**\: str
@@ -394,26 +413,29 @@ class PppoeEa(Entity):
                         self.yang_parent_name = "interface-ids"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"peer-mac" : ("peer_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac), "local-mac" : ("local_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac), "srgv-mac" : ("srgv_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.session_id = YLeaf(YType.uint16, "session-id")
-
-                        self.parent_interface = YLeaf(YType.str, "parent-interface")
-
-                        self.is_priority_set = YLeaf(YType.boolean, "is-priority-set")
-
-                        self.priority = YLeaf(YType.uint8, "priority")
-
-                        self.is_in_sync = YLeaf(YType.boolean, "is-in-sync")
-
-                        self.is_platform_created = YLeaf(YType.boolean, "is-platform-created")
-
-                        self.vlanid = YLeafList(YType.uint16, "vlanid")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("peer-mac", ("peer_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac)), ("local-mac", ("local_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac)), ("srgv-mac", ("srgv_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('session_id', YLeaf(YType.uint16, 'session-id')),
+                            ('parent_interface', YLeaf(YType.str, 'parent-interface')),
+                            ('is_priority_set', YLeaf(YType.boolean, 'is-priority-set')),
+                            ('priority', YLeaf(YType.uint8, 'priority')),
+                            ('is_in_sync', YLeaf(YType.boolean, 'is-in-sync')),
+                            ('is_platform_created', YLeaf(YType.boolean, 'is-platform-created')),
+                            ('vlanid', YLeafList(YType.uint16, 'vlanid')),
+                        ])
+                        self.interface_name = None
+                        self.interface = None
+                        self.session_id = None
+                        self.parent_interface = None
+                        self.is_priority_set = None
+                        self.priority = None
+                        self.is_in_sync = None
+                        self.is_platform_created = None
+                        self.vlanid = []
 
                         self.peer_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac()
                         self.peer_mac.parent = self
@@ -429,7 +451,7 @@ class PppoeEa(Entity):
                         self.srgv_mac.parent = self
                         self._children_name_map["srgv_mac"] = "srgv-mac"
                         self._children_yang_names.add("srgv-mac")
-                        self._segment_path = lambda: "interface-id" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface-id" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, ['interface_name', 'interface', 'session_id', 'parent_interface', 'is_priority_set', 'priority', 'is_in_sync', 'is_platform_created', 'vlanid'], name, value)
@@ -460,10 +482,13 @@ class PppoeEa(Entity):
                             self.yang_parent_name = "interface-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.macaddr = YLeaf(YType.str, "macaddr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('macaddr', YLeaf(YType.str, 'macaddr')),
+                            ])
+                            self.macaddr = None
                             self._segment_path = lambda: "peer-mac"
 
                         def __setattr__(self, name, value):
@@ -495,10 +520,13 @@ class PppoeEa(Entity):
                             self.yang_parent_name = "interface-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.macaddr = YLeaf(YType.str, "macaddr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('macaddr', YLeaf(YType.str, 'macaddr')),
+                            ])
+                            self.macaddr = None
                             self._segment_path = lambda: "local-mac"
 
                         def __setattr__(self, name, value):
@@ -530,10 +558,13 @@ class PppoeEa(Entity):
                             self.yang_parent_name = "interface-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.macaddr = YLeaf(YType.str, "macaddr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('macaddr', YLeaf(YType.str, 'macaddr')),
+                            ])
+                            self.macaddr = None
                             self._segment_path = lambda: "srgv-mac"
 
                         def __setattr__(self, name, value):

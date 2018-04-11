@@ -11,6 +11,10 @@ module Cisco-IOS-XE-template {
     prefix ios;
   }
 
+  import Cisco-IOS-XE-features {
+    prefix ios-features;
+  }
+
   organization
     "Cisco Systems, Inc.";
 
@@ -34,9 +38,333 @@ module Cisco-IOS-XE-template {
   // REVISION
   // =========================================================================
 
+  revision 2017-11-06 {
+    description
+      "Make some option switch platform dependent";
+  }
   revision 2017-02-13 {
     description
       "Initial Revision";
+  }
+
+  grouping template-grouping {
+      container service-policy {
+        description "Configure CPL Service Policy";
+        container input {
+          description "Assign policy-map to the input of an interface";
+          leaf policy-map-name {
+            description "policy-map name";
+            type string;
+          }
+        }
+        container output {
+          description "Assign policy-map to the output of an interface";
+          leaf policy-map-name {
+            description "policy-map name";
+            type string;
+          }
+        }
+      }
+      container switchport {
+        description "Set switching mode characteristics";
+        if-feature ios-features:switching-platform;
+        container mode {
+          description "Set trunking mode of the interface";
+          leaf trunk {
+            description "Set trunking mode to TRUNK unconditionally";
+            type empty;
+          }
+          leaf access {
+            description "Set trunking mode to ACCESS unconditionally";
+            type empty;
+          }
+        }
+        leaf nonegotiate {
+          description "Device will not engage in negotiation protocol on this interface";
+          type empty;
+        }
+        container block {
+          description "Disable forwarding of unknown uni/multi cast addresses";
+          leaf unicast {
+            description "Block unknown unicast addresses";
+            type empty;
+          }
+        }
+        container port-security {
+          description "Security related command";
+          presence true;
+          container aging {
+            description "Port-security aging commands";
+            leaf static {
+              description "Enable aging for configured secure addresses";
+                type empty;
+            }
+            leaf time {
+              description "Port-security aging time";              
+              type uint16 {
+                range "1..1440";
+              }              
+            }
+            container type {
+              description "Port-security aging type";
+              presence true;
+              leaf inactivity {
+                description "Aging based on inactivity time period";
+                type empty;
+              }
+            }
+          }
+          container maximum {
+            description "Max secure addresses";
+            list range {
+              key "range";
+              leaf range {
+                description "Maximum addresses";
+                type uint16 {
+                  range "1..3072";
+                }
+              }
+              container vlan {
+                description "Max secure addresses per vlan";
+                presence true;
+                leaf access {
+                  description "access vlan";
+                  type empty;
+                }
+              }
+            }
+          }
+          container violation {
+            description "Security violation mode";
+            leaf protect {
+              description "Security violation protect mode";
+              type empty;
+            }
+            leaf restrict {
+              description "Security violation restrict mode";
+              type empty;
+            }
+            leaf shutdown {
+              description "Security violation shutdown mode";
+              type empty;
+            }
+          }
+        }
+        container access {
+          description "Set access mode characteristics of the interface";
+          leaf vlan {
+            description "VLAN ID of the VLAN when this port is in access mode";
+            type uint16 {
+              range "1..4094";
+            }
+          }
+        }
+        container voice {
+          description "Voice appliance attributes";
+          leaf vlan {
+            description "Vlan for voice traffic";
+            type uint16 {
+              range "1..4094";
+            }
+          }
+        }
+      }
+      container spanning-tree {
+        description "Spanning Tree Subsystem";
+        presence true;
+        container bpduguard {
+          description "Don't accept BPDUs on this interface";
+          leaf enable {
+            description "Enable BPDU guard for this interface";
+              type empty;
+          }
+        }
+        leaf service-policy {
+          description "help";
+          type empty;
+        }
+        container portfast {
+          description "Portfast options for the interface";
+          presence true;
+          leaf disable {
+            description
+              "Disable portfast for this interface";
+            type empty;
+          }
+          leaf edge {
+            description
+              "Enable portfast edge on the interface";
+            type empty;
+          }
+          leaf network {
+            description
+              "Enable portfast network on the interface";
+            type empty;
+          }
+        }
+      }
+      container storm-control {
+        description "storm configuration";
+        if-feature ios-features:switching-platform;
+        container broadcast {
+          description "Broadcast address storm control";
+          container level {
+            description "Set storm suppression level on this interface";
+            container pps {
+              description "Enter suppression level in packets per second";
+              leaf threshold {              
+                description "Enter threshold";
+                type string;
+              }           
+            }
+            container bps {
+              description "Enter suppression level in bits per second";
+              leaf threshold {              
+                description "Enter threshold";
+                type decimal64 {
+                  fraction-digits 1;
+                  range "0.0..10000000000.0";
+                }
+              }
+              leaf b-unit{
+                type string;
+              }
+            }          
+            leaf threshold {            
+              description "Enter threshold";
+              type decimal64 {
+                fraction-digits 2;
+                range "0.00..100.00";
+              }            
+            }
+          }
+        }
+        container multicast {
+          description "Multicast address storm control";
+          container level {
+            description "Set storm suppression level on this interface";
+            container pps {
+              description "Enter suppression level in packets per second";
+              leaf threshold {              
+                description "Enter threshold";
+                type string;
+              }           
+            }
+            container bps {
+              description "Enter suppression level in bits per second";
+              leaf threshold {              
+                description "Enter threshold";
+                type decimal64 {
+                  fraction-digits 1;
+                  range "0.0..10000000000.0";
+                }
+              }
+              leaf b-unit{
+                type string;
+              }
+            }          
+            leaf threshold {            
+              description "Enter threshold";
+              type decimal64 {
+                fraction-digits 2;
+                range "0.00..100.00";
+              }            
+            }
+          }
+        }
+        container action {
+          description
+            "Action to take for storm-control";
+          leaf shutdown {
+            description
+              "Shutdown this interface if a storm occurs";
+            type empty;
+          }
+          leaf trap {
+            description
+              "Send SNMP trap if a storm occurs";
+            type empty;
+          }
+        }
+      }
+      leaf load-interval {
+        description "Load interval delay in seconds";
+        type uint16 {
+          range "30..600";
+        }
+      }
+      container ip {
+        description "IP template config";
+        container dhcp {
+          description "DHCP template config";
+          if-feature ios-features:switching-platform;
+          container snooping {
+            description "DHCP Snooping";
+            container limit {
+              description "DHCP Snooping limit";
+              leaf rate {
+                description "DHCP snooping rate limit";
+                type uint16 {
+                  range "1..2048";
+                }
+              }
+            }
+            leaf trust {
+              description "DHCP Snooping trust config";
+              type empty;
+            }
+          }
+        }
+      }
+  }
+
+  grouping config-template-sw-grouping {
+        container IP_CAMERA_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;       
+        }
+        container LAP_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;
+        }
+        container AP_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;
+        }
+        container DMP_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          presence true;
+          uses template-grouping;
+        }
+        container IP_PHONE_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          presence true;
+          uses template-grouping;          
+        }
+        container MSP_CAMERA_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;
+        }
+        container MSP_VC_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;
+        }
+        container PRINTER_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;
+        }
+        container ROUTER_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;
+        }
+        container SWITCH_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;
+        }
+        container TP_INTERFACE_TEMPLATE {
+          description "built-in modified";
+          uses template-grouping;
+        }
   }
 
   grouping template-error-disable-grouping {
@@ -196,6 +524,10 @@ module Cisco-IOS-XE-template {
           }
         }
       }
+      uses template-grouping;
+    }
+    uses config-template-sw-grouping {
+      if-feature ios-features:switching-platform;
     }
   }
 

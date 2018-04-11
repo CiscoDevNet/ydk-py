@@ -6,15 +6,17 @@ management information base (MIBs) modules for
 managing Cisco Express Forwarding (CEF).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CefAdjLinkType(Enum):
     """
-    CefAdjLinkType
+    CefAdjLinkType (Enum Class)
 
     Link type for the adjacency. The adjacency link type 
 
@@ -47,7 +49,7 @@ class CefAdjLinkType(Enum):
 
 class CefAdminStatus(Enum):
     """
-    CefAdminStatus
+    CefAdminStatus (Enum Class)
 
     Admin status of CEF. The admin status of CEF
 
@@ -68,7 +70,7 @@ class CefAdminStatus(Enum):
 
 class CefCCAction(Enum):
     """
-    CefCCAction
+    CefCCAction (Enum Class)
 
     The action to be performed for the consistency
 
@@ -111,7 +113,7 @@ class CefCCAction(Enum):
 
 class CefCCStatus(Enum):
     """
-    CefCCStatus
+    CefCCStatus (Enum Class)
 
     The status of consistency checker operation. 
 
@@ -152,7 +154,7 @@ class CefCCStatus(Enum):
 
 class CefCCType(Enum):
     """
-    CefCCType
+    CefCCType (Enum Class)
 
     Type of the consistency checker.
 
@@ -351,7 +353,7 @@ class CefCCType(Enum):
 
 class CefFailureReason(Enum):
     """
-    CefFailureReason
+    CefFailureReason (Enum Class)
 
     Reason of CEF Failure\:
 
@@ -416,7 +418,7 @@ class CefFailureReason(Enum):
 
 class CefForwardingElementSpecialType(Enum):
     """
-    CefForwardingElementSpecialType
+    CefForwardingElementSpecialType (Enum Class)
 
     Type of special forwarding element 
 
@@ -507,7 +509,7 @@ class CefForwardingElementSpecialType(Enum):
 
 class CefIpVersion(Enum):
     """
-    CefIpVersion
+    CefIpVersion (Enum Class)
 
     The version of CEF IP forwarding.
 
@@ -524,7 +526,7 @@ class CefIpVersion(Enum):
 
 class CefOperStatus(Enum):
     """
-    CefOperStatus
+    CefOperStatus (Enum Class)
 
     Operational status of CEF.
 
@@ -541,7 +543,7 @@ class CefOperStatus(Enum):
 
 class CefPathType(Enum):
     """
-    CefPathType
+    CefPathType (Enum Class)
 
     Type of the CEF Path.
 
@@ -610,7 +612,7 @@ class CefPathType(Enum):
 
 class CefPrefixSearchState(Enum):
     """
-    CefPrefixSearchState
+    CefPrefixSearchState (Enum Class)
 
     The state of prefix search operation. 
 

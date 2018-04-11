@@ -17,9 +17,11 @@ This version of this YANG module is part of RFC XXXX; see
 the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -53,8 +55,10 @@ class RestconfState(Entity):
         self.yang_parent_name = "ietf-restconf-monitoring"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"capabilities" : ("capabilities", RestconfState.Capabilities), "streams" : ("streams", RestconfState.Streams)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("capabilities", ("capabilities", RestconfState.Capabilities)), ("streams", ("streams", RestconfState.Streams))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.capabilities = RestconfState.Capabilities()
         self.capabilities.parent = self
@@ -91,10 +95,13 @@ class RestconfState(Entity):
             self.yang_parent_name = "restconf-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.capability = YLeafList(YType.str, "capability")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('capability', YLeafList(YType.str, 'capability')),
+            ])
+            self.capability = []
             self._segment_path = lambda: "capabilities"
             self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/%s" % self._segment_path()
 
@@ -126,8 +133,10 @@ class RestconfState(Entity):
             self.yang_parent_name = "restconf-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stream" : ("stream", RestconfState.Streams.Stream)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stream", ("stream", RestconfState.Streams.Stream))])
+            self._leafs = OrderedDict()
 
             self.stream = YList(self)
             self._segment_path = lambda: "streams"
@@ -142,7 +151,7 @@ class RestconfState(Entity):
             Each entry describes an event stream supported by
             the server.
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	The stream name
             	**type**\: str
@@ -185,19 +194,22 @@ class RestconfState(Entity):
                 self.yang_parent_name = "streams"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"access" : ("access", RestconfState.Streams.Stream.Access)}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.replay_support = YLeaf(YType.boolean, "replay-support")
-
-                self.replay_log_creation_time = YLeaf(YType.str, "replay-log-creation-time")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("access", ("access", RestconfState.Streams.Stream.Access))])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('description', YLeaf(YType.str, 'description')),
+                    ('replay_support', YLeaf(YType.boolean, 'replay-support')),
+                    ('replay_log_creation_time', YLeaf(YType.str, 'replay-log-creation-time')),
+                ])
+                self.name = None
+                self.description = None
+                self.replay_support = None
+                self.replay_log_creation_time = None
 
                 self.access = YList(self)
-                self._segment_path = lambda: "stream" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "stream" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/streams/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -212,9 +224,9 @@ class RestconfState(Entity):
                 for all event streams. This list identifies the
                 sub\-types supported for this stream.
                 
-                .. attribute:: encoding  <key>
+                .. attribute:: encoding  (key)
                 
-                	This is the secondary encoding format within the 'text/event\-stream' encoding used by all streams. The type 'xml' is supported for XML encoding.  The type 'json' is supported for JSON encoding
+                	This is the secondary encoding format within the 'text/event\-stream' encoding used by all streams. The type 'xml' is supported for XML encoding. The type 'json' is supported for JSON encoding
                 	**type**\: str
                 
                 .. attribute:: location
@@ -238,13 +250,16 @@ class RestconfState(Entity):
                     self.yang_parent_name = "stream"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.encoding = YLeaf(YType.str, "encoding")
-
-                    self.location = YLeaf(YType.str, "location")
-                    self._segment_path = lambda: "access" + "[encoding='" + self.encoding.get() + "']"
+                    self.ylist_key_names = ['encoding']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('encoding', YLeaf(YType.str, 'encoding')),
+                        ('location', YLeaf(YType.str, 'location')),
+                    ])
+                    self.encoding = None
+                    self.location = None
+                    self._segment_path = lambda: "access" + "[encoding='" + str(self.encoding) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RestconfState.Streams.Stream.Access, ['encoding', 'location'], name, value)

@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class SystemMessageSeverity(Enum):
     """
-    SystemMessageSeverity
+    SystemMessageSeverity (Enum Class)
 
     System message severity
 
@@ -106,8 +108,10 @@ class Logging(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-syslog-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"history" : ("history", Logging.History)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("history", ("history", Logging.History))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.history = Logging.History()
         self.history.parent = self
@@ -144,12 +148,15 @@ class Logging(Entity):
             self.yang_parent_name = "logging"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.properties = YLeaf(YType.str, "properties")
-
-            self.message = YLeaf(YType.str, "message")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('properties', YLeaf(YType.str, 'properties')),
+                ('message', YLeaf(YType.str, 'message')),
+            ])
+            self.properties = None
+            self.message = None
             self._segment_path = lambda: "history"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:logging/%s" % self._segment_path()
 
@@ -199,8 +206,10 @@ class Syslog(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-syslog-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"logging-files" : ("logging_files", Syslog.LoggingFiles), "an-remote-servers" : ("an_remote_servers", Syslog.AnRemoteServers), "messages" : ("messages", Syslog.Messages), "logging-statistics" : ("logging_statistics", Syslog.LoggingStatistics)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("logging-files", ("logging_files", Syslog.LoggingFiles)), ("an-remote-servers", ("an_remote_servers", Syslog.AnRemoteServers)), ("messages", ("messages", Syslog.Messages)), ("logging-statistics", ("logging_statistics", Syslog.LoggingStatistics))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.logging_files = Syslog.LoggingFiles()
         self.logging_files.parent = self
@@ -247,8 +256,10 @@ class Syslog(Entity):
             self.yang_parent_name = "syslog"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"file-log-detail" : ("file_log_detail", Syslog.LoggingFiles.FileLogDetail)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("file-log-detail", ("file_log_detail", Syslog.LoggingFiles.FileLogDetail))])
+            self._leafs = OrderedDict()
 
             self.file_log_detail = YList(self)
             self._segment_path = lambda: "logging-files"
@@ -286,12 +297,15 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-files"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.file_path = YLeaf(YType.str, "file-path")
-
-                self.file_name = YLeaf(YType.str, "file-name")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('file_path', YLeaf(YType.str, 'file-path')),
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                ])
+                self.file_path = None
+                self.file_name = None
                 self._segment_path = lambda: "file-log-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-files/%s" % self._segment_path()
 
@@ -322,8 +336,10 @@ class Syslog(Entity):
             self.yang_parent_name = "syslog"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"an-remote-log-server" : ("an_remote_log_server", Syslog.AnRemoteServers.AnRemoteLogServer)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("an-remote-log-server", ("an_remote_log_server", Syslog.AnRemoteServers.AnRemoteLogServer))])
+            self._leafs = OrderedDict()
 
             self.an_remote_log_server = YList(self)
             self._segment_path = lambda: "an-remote-servers"
@@ -371,16 +387,19 @@ class Syslog(Entity):
                 self.yang_parent_name = "an-remote-servers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ip_address = YLeaf(YType.str, "ip-address")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.vrf_severity = YLeaf(YType.str, "vrf-severity")
-
-                self.rh_discriminator = YLeaf(YType.str, "rh-discriminator")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ip_address', YLeaf(YType.str, 'ip-address')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_severity', YLeaf(YType.str, 'vrf-severity')),
+                    ('rh_discriminator', YLeaf(YType.str, 'rh-discriminator')),
+                ])
+                self.ip_address = None
+                self.vrf_name = None
+                self.vrf_severity = None
+                self.rh_discriminator = None
                 self._segment_path = lambda: "an-remote-log-server"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/an-remote-servers/%s" % self._segment_path()
 
@@ -411,8 +430,10 @@ class Syslog(Entity):
             self.yang_parent_name = "syslog"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"message" : ("message", Syslog.Messages.Message)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("message", ("message", Syslog.Messages.Message))])
+            self._leafs = OrderedDict()
 
             self.message = YList(self)
             self._segment_path = lambda: "messages"
@@ -426,7 +447,7 @@ class Syslog(Entity):
             """
             A system message
             
-            .. attribute:: message_id  <key>
+            .. attribute:: message_id  (key)
             
             	Message ID of the system message
             	**type**\: int
@@ -508,33 +529,36 @@ class Syslog(Entity):
                 self.yang_parent_name = "messages"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.message_id = YLeaf(YType.int32, "message-id")
-
-                self.card_type = YLeaf(YType.str, "card-type")
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.time_stamp = YLeaf(YType.uint64, "time-stamp")
-
-                self.time_of_day = YLeaf(YType.str, "time-of-day")
-
-                self.time_zone = YLeaf(YType.str, "time-zone")
-
-                self.process_name = YLeaf(YType.str, "process-name")
-
-                self.category = YLeaf(YType.str, "category")
-
-                self.group = YLeaf(YType.str, "group")
-
-                self.message_name = YLeaf(YType.str, "message-name")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-
-                self.text = YLeaf(YType.str, "text")
-                self._segment_path = lambda: "message" + "[message-id='" + self.message_id.get() + "']"
+                self.ylist_key_names = ['message_id']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('message_id', YLeaf(YType.int32, 'message-id')),
+                    ('card_type', YLeaf(YType.str, 'card-type')),
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
+                    ('time_of_day', YLeaf(YType.str, 'time-of-day')),
+                    ('time_zone', YLeaf(YType.str, 'time-zone')),
+                    ('process_name', YLeaf(YType.str, 'process-name')),
+                    ('category', YLeaf(YType.str, 'category')),
+                    ('group', YLeaf(YType.str, 'group')),
+                    ('message_name', YLeaf(YType.str, 'message-name')),
+                    ('severity', YLeaf(YType.enumeration, 'severity')),
+                    ('text', YLeaf(YType.str, 'text')),
+                ])
+                self.message_id = None
+                self.card_type = None
+                self.node_name = None
+                self.time_stamp = None
+                self.time_of_day = None
+                self.time_zone = None
+                self.process_name = None
+                self.category = None
+                self.group = None
+                self.message_name = None
+                self.severity = None
+                self.text = None
+                self._segment_path = lambda: "message" + "[message-id='" + str(self.message_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/messages/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -599,8 +623,10 @@ class Syslog(Entity):
             self.yang_parent_name = "syslog"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"logging-stats" : ("logging_stats", Syslog.LoggingStatistics.LoggingStats), "console-logging-stats" : ("console_logging_stats", Syslog.LoggingStatistics.ConsoleLoggingStats), "monitor-logging-stats" : ("monitor_logging_stats", Syslog.LoggingStatistics.MonitorLoggingStats), "trap-logging-stats" : ("trap_logging_stats", Syslog.LoggingStatistics.TrapLoggingStats), "buffer-logging-stats" : ("buffer_logging_stats", Syslog.LoggingStatistics.BufferLoggingStats)}
-            self._child_list_classes = {"remote-logging-stat" : ("remote_logging_stat", Syslog.LoggingStatistics.RemoteLoggingStat), "tls-remote-logging-stat" : ("tls_remote_logging_stat", Syslog.LoggingStatistics.TlsRemoteLoggingStat), "file-logging-stat" : ("file_logging_stat", Syslog.LoggingStatistics.FileLoggingStat)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("logging-stats", ("logging_stats", Syslog.LoggingStatistics.LoggingStats)), ("console-logging-stats", ("console_logging_stats", Syslog.LoggingStatistics.ConsoleLoggingStats)), ("monitor-logging-stats", ("monitor_logging_stats", Syslog.LoggingStatistics.MonitorLoggingStats)), ("trap-logging-stats", ("trap_logging_stats", Syslog.LoggingStatistics.TrapLoggingStats)), ("buffer-logging-stats", ("buffer_logging_stats", Syslog.LoggingStatistics.BufferLoggingStats))])
+            self._child_list_classes = OrderedDict([("remote-logging-stat", ("remote_logging_stat", Syslog.LoggingStatistics.RemoteLoggingStat)), ("tls-remote-logging-stat", ("tls_remote_logging_stat", Syslog.LoggingStatistics.TlsRemoteLoggingStat)), ("file-logging-stat", ("file_logging_stat", Syslog.LoggingStatistics.FileLoggingStat))])
+            self._leafs = OrderedDict()
 
             self.logging_stats = Syslog.LoggingStatistics.LoggingStats()
             self.logging_stats.parent = self
@@ -681,16 +707,19 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.drop_count = YLeaf(YType.uint32, "drop-count")
-
-                self.flush_count = YLeaf(YType.uint32, "flush-count")
-
-                self.overrun_count = YLeaf(YType.uint32, "overrun-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
+                    ('drop_count', YLeaf(YType.uint32, 'drop-count')),
+                    ('flush_count', YLeaf(YType.uint32, 'flush-count')),
+                    ('overrun_count', YLeaf(YType.uint32, 'overrun-count')),
+                ])
+                self.is_log_enabled = None
+                self.drop_count = None
+                self.flush_count = None
+                self.overrun_count = None
                 self._segment_path = lambda: "logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
 
@@ -742,16 +771,19 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
+                    ('severity', YLeaf(YType.enumeration, 'severity')),
+                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                    ('buffer_size', YLeaf(YType.uint32, 'buffer-size')),
+                ])
+                self.is_log_enabled = None
+                self.severity = None
+                self.message_count = None
+                self.buffer_size = None
                 self._segment_path = lambda: "console-logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
 
@@ -803,16 +835,19 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
+                    ('severity', YLeaf(YType.enumeration, 'severity')),
+                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                    ('buffer_size', YLeaf(YType.uint32, 'buffer-size')),
+                ])
+                self.is_log_enabled = None
+                self.severity = None
+                self.message_count = None
+                self.buffer_size = None
                 self._segment_path = lambda: "monitor-logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
 
@@ -864,16 +899,19 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
+                    ('severity', YLeaf(YType.enumeration, 'severity')),
+                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                    ('buffer_size', YLeaf(YType.uint32, 'buffer-size')),
+                ])
+                self.is_log_enabled = None
+                self.severity = None
+                self.message_count = None
+                self.buffer_size = None
                 self._segment_path = lambda: "trap-logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
 
@@ -925,16 +963,19 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
+                    ('severity', YLeaf(YType.enumeration, 'severity')),
+                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                    ('buffer_size', YLeaf(YType.uint32, 'buffer-size')),
+                ])
+                self.is_log_enabled = None
+                self.severity = None
+                self.message_count = None
+                self.buffer_size = None
                 self._segment_path = lambda: "buffer-logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
 
@@ -972,12 +1013,15 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.remote_host_name = YLeaf(YType.str, "remote-host-name")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('remote_host_name', YLeaf(YType.str, 'remote-host-name')),
+                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                ])
+                self.remote_host_name = None
+                self.message_count = None
                 self._segment_path = lambda: "remote-logging-stat"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
 
@@ -1015,12 +1059,15 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.remote_host_name = YLeaf(YType.str, "remote-host-name")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('remote_host_name', YLeaf(YType.str, 'remote-host-name')),
+                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                ])
+                self.remote_host_name = None
+                self.message_count = None
                 self._segment_path = lambda: "tls-remote-logging-stat"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
 
@@ -1058,12 +1105,15 @@ class Syslog(Entity):
                 self.yang_parent_name = "logging-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                ])
+                self.file_name = None
+                self.message_count = None
                 self._segment_path = lambda: "file-logging-stat"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
 

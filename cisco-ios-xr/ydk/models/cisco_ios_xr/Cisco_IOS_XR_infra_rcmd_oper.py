@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class RcmdBagEnableDisable(Enum):
     """
-    RcmdBagEnableDisable
+    RcmdBagEnableDisable (Enum Class)
 
     status enum
 
@@ -41,7 +43,7 @@ class RcmdBagEnableDisable(Enum):
 
 class RcmdBagEnblDsbl(Enum):
     """
-    RcmdBagEnblDsbl
+    RcmdBagEnblDsbl (Enum Class)
 
     status enum
 
@@ -62,7 +64,7 @@ class RcmdBagEnblDsbl(Enum):
 
 class RcmdBoolYesNo(Enum):
     """
-    RcmdBoolYesNo
+    RcmdBoolYesNo (Enum Class)
 
     Boolean enum
 
@@ -83,7 +85,7 @@ class RcmdBoolYesNo(Enum):
 
 class RcmdChange(Enum):
     """
-    RcmdChange
+    RcmdChange (Enum Class)
 
     Type of change
 
@@ -122,7 +124,7 @@ class RcmdChange(Enum):
 
 class RcmdIsisLvl(Enum):
     """
-    RcmdIsisLvl
+    RcmdIsisLvl (Enum Class)
 
     Type of an ISIS Level
 
@@ -143,7 +145,7 @@ class RcmdIsisLvl(Enum):
 
 class RcmdIsisSpf(Enum):
     """
-    RcmdIsisSpf
+    RcmdIsisSpf (Enum Class)
 
     Type of an ISIS SPF run
 
@@ -176,7 +178,7 @@ class RcmdIsisSpf(Enum):
 
 class RcmdLdpEvent(Enum):
     """
-    RcmdLdpEvent
+    RcmdLdpEvent (Enum Class)
 
     Type of LDP Event
 
@@ -197,7 +199,7 @@ class RcmdLdpEvent(Enum):
 
 class RcmdLinecardSpeed(Enum):
     """
-    RcmdLinecardSpeed
+    RcmdLinecardSpeed (Enum Class)
 
     Comparative speed of programming on linecard
 
@@ -224,7 +226,7 @@ class RcmdLinecardSpeed(Enum):
 
 class RcmdLsChange(Enum):
     """
-    RcmdLsChange
+    RcmdLsChange (Enum Class)
 
     Type of change
 
@@ -257,7 +259,7 @@ class RcmdLsChange(Enum):
 
 class RcmdLsa(Enum):
     """
-    RcmdLsa
+    RcmdLsa (Enum Class)
 
     Type of LSA
 
@@ -314,7 +316,7 @@ class RcmdLsa(Enum):
 
 class RcmdPriorityLevel(Enum):
     """
-    RcmdPriorityLevel
+    RcmdPriorityLevel (Enum Class)
 
     Level of priority
 
@@ -347,7 +349,7 @@ class RcmdPriorityLevel(Enum):
 
 class RcmdProtocolId(Enum):
     """
-    RcmdProtocolId
+    RcmdProtocolId (Enum Class)
 
     Protocol Info
 
@@ -374,7 +376,7 @@ class RcmdProtocolId(Enum):
 
 class RcmdShowCompId(Enum):
     """
-    RcmdShowCompId
+    RcmdShowCompId (Enum Class)
 
     Component Info
 
@@ -401,7 +403,7 @@ class RcmdShowCompId(Enum):
 
 class RcmdShowInstState(Enum):
     """
-    RcmdShowInstState
+    RcmdShowInstState (Enum Class)
 
     instance state
 
@@ -434,7 +436,7 @@ class RcmdShowInstState(Enum):
 
 class RcmdShowIntfEvent(Enum):
     """
-    RcmdShowIntfEvent
+    RcmdShowIntfEvent (Enum Class)
 
     Rcmd show intf event
 
@@ -521,7 +523,7 @@ class RcmdShowIntfEvent(Enum):
 
 class RcmdShowIpfrrLfa(Enum):
     """
-    RcmdShowIpfrrLfa
+    RcmdShowIpfrrLfa (Enum Class)
 
     IP Frr LFA Types
 
@@ -548,7 +550,7 @@ class RcmdShowIpfrrLfa(Enum):
 
 class RcmdShowLdpConvState(Enum):
     """
-    RcmdShowLdpConvState
+    RcmdShowLdpConvState (Enum Class)
 
     LDP Convergence States
 
@@ -587,7 +589,7 @@ class RcmdShowLdpConvState(Enum):
 
 class RcmdShowLdpNeighbourStatus(Enum):
     """
-    RcmdShowLdpNeighbourStatus
+    RcmdShowLdpNeighbourStatus (Enum Class)
 
     LDP Adjacency Session Status
 
@@ -608,7 +610,7 @@ class RcmdShowLdpNeighbourStatus(Enum):
 
 class RcmdShowLdpSessionState(Enum):
     """
-    RcmdShowLdpSessionState
+    RcmdShowLdpSessionState (Enum Class)
 
     LDP Session State
 
@@ -659,7 +661,7 @@ class RcmdShowLdpSessionState(Enum):
 
 class RcmdShowMem(Enum):
     """
-    RcmdShowMem
+    RcmdShowMem (Enum Class)
 
     RCMD Memory Manager type
 
@@ -704,7 +706,7 @@ class RcmdShowMem(Enum):
 
 class RcmdShowNode(Enum):
     """
-    RcmdShowNode
+    RcmdShowNode (Enum Class)
 
     Type of Node
 
@@ -731,7 +733,7 @@ class RcmdShowNode(Enum):
 
 class RcmdShowPrcsState(Enum):
     """
-    RcmdShowPrcsState
+    RcmdShowPrcsState (Enum Class)
 
     Post Processing Info
 
@@ -758,7 +760,7 @@ class RcmdShowPrcsState(Enum):
 
 class RcmdShowRoute(Enum):
     """
-    RcmdShowRoute
+    RcmdShowRoute (Enum Class)
 
     Route Types
 
@@ -857,7 +859,7 @@ class RcmdShowRoute(Enum):
 
 class RcmdShowRoutePathChange(Enum):
     """
-    RcmdShowRoutePathChange
+    RcmdShowRoutePathChange (Enum Class)
 
     Type of route change
 
@@ -878,7 +880,7 @@ class RcmdShowRoutePathChange(Enum):
 
 class RcmdSpfState(Enum):
     """
-    RcmdSpfState
+    RcmdSpfState (Enum Class)
 
     Type of an ISIS Level
 
@@ -970,8 +972,10 @@ class Rcmd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-rcmd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ospf" : ("ospf", Rcmd.Ospf), "server" : ("server", Rcmd.Server), "node" : ("node", Rcmd.Node), "isis" : ("isis", Rcmd.Isis), "memory" : ("memory", Rcmd.Memory), "ldp" : ("ldp", Rcmd.Ldp), "intf" : ("intf", Rcmd.Intf), "process" : ("process", Rcmd.Process)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ospf", ("ospf", Rcmd.Ospf)), ("server", ("server", Rcmd.Server)), ("node", ("node", Rcmd.Node)), ("isis", ("isis", Rcmd.Isis)), ("memory", ("memory", Rcmd.Memory)), ("ldp", ("ldp", Rcmd.Ldp)), ("intf", ("intf", Rcmd.Intf)), ("process", ("process", Rcmd.Process))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ospf = Rcmd.Ospf()
         self.ospf.parent = self
@@ -1038,8 +1042,10 @@ class Rcmd(Entity):
             self.yang_parent_name = "rcmd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"instances" : ("instances", Rcmd.Ospf.Instances)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("instances", ("instances", Rcmd.Ospf.Instances))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.instances = Rcmd.Ospf.Instances()
             self.instances.parent = self
@@ -1072,8 +1078,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "ospf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"instance" : ("instance", Rcmd.Ospf.Instances.Instance)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("instance", ("instance", Rcmd.Ospf.Instances.Instance))])
+                self._leafs = OrderedDict()
 
                 self.instance = YList(self)
                 self._segment_path = lambda: "instances"
@@ -1087,7 +1095,7 @@ class Rcmd(Entity):
                 """
                 Operational data for a particular instance
                 
-                .. attribute:: instance_name  <key>
+                .. attribute:: instance_name  (key)
                 
                 	Operational data for a particular instance
                 	**type**\: str
@@ -1158,10 +1166,13 @@ class Rcmd(Entity):
                     self.yang_parent_name = "instances"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"ipfrr-event-summaries" : ("ipfrr_event_summaries", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries), "prefix-event-statistics" : ("prefix_event_statistics", Rcmd.Ospf.Instances.Instance.PrefixEventStatistics), "spf-run-summaries" : ("spf_run_summaries", Rcmd.Ospf.Instances.Instance.SpfRunSummaries), "ipfrr-event-offlines" : ("ipfrr_event_offlines", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines), "spf-run-offlines" : ("spf_run_offlines", Rcmd.Ospf.Instances.Instance.SpfRunOfflines), "summary-external-event-summaries" : ("summary_external_event_summaries", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries), "prefix-event-summaries" : ("prefix_event_summaries", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries), "summary-external-event-offlines" : ("summary_external_event_offlines", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines), "prefix-event-offlines" : ("prefix_event_offlines", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines), "summary-external-event-statistics" : ("summary_external_event_statistics", Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics)}
-                    self._child_list_classes = {}
-
-                    self.instance_name = YLeaf(YType.str, "instance-name")
+                    self.ylist_key_names = ['instance_name']
+                    self._child_container_classes = OrderedDict([("ipfrr-event-summaries", ("ipfrr_event_summaries", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries)), ("prefix-event-statistics", ("prefix_event_statistics", Rcmd.Ospf.Instances.Instance.PrefixEventStatistics)), ("spf-run-summaries", ("spf_run_summaries", Rcmd.Ospf.Instances.Instance.SpfRunSummaries)), ("ipfrr-event-offlines", ("ipfrr_event_offlines", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines)), ("spf-run-offlines", ("spf_run_offlines", Rcmd.Ospf.Instances.Instance.SpfRunOfflines)), ("summary-external-event-summaries", ("summary_external_event_summaries", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries)), ("prefix-event-summaries", ("prefix_event_summaries", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries)), ("summary-external-event-offlines", ("summary_external_event_offlines", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines)), ("prefix-event-offlines", ("prefix_event_offlines", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines)), ("summary-external-event-statistics", ("summary_external_event_statistics", Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('instance_name', YLeaf(YType.str, 'instance-name')),
+                    ])
+                    self.instance_name = None
 
                     self.ipfrr_event_summaries = Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries()
                     self.ipfrr_event_summaries.parent = self
@@ -1212,7 +1223,7 @@ class Rcmd(Entity):
                     self.summary_external_event_statistics.parent = self
                     self._children_name_map["summary_external_event_statistics"] = "summary-external-event-statistics"
                     self._children_yang_names.add("summary-external-event-statistics")
-                    self._segment_path = lambda: "instance" + "[instance-name='" + self.instance_name.get() + "']"
+                    self._segment_path = lambda: "instance" + "[instance-name='" + str(self.instance_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ospf/instances/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1242,8 +1253,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipfrr-event-summary" : ("ipfrr_event_summary", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipfrr-event-summary", ("ipfrr_event_summary", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary))])
+                        self._leafs = OrderedDict()
 
                         self.ipfrr_event_summary = YList(self)
                         self._segment_path = lambda: "ipfrr-event-summaries"
@@ -1256,7 +1269,7 @@ class Rcmd(Entity):
                         """
                         IP\-FRR Event data
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific IP\-FRR Event
                         	**type**\: int
@@ -1364,36 +1377,39 @@ class Rcmd(Entity):
                             self.yang_parent_name = "ipfrr-event-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ipfrr-statistic" : ("ipfrr_statistic", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic), "remote-node" : ("remote_node", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.event_id_xr = YLeaf(YType.uint32, "event-id-xr")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                            self.trigger_spf_run = YLeaf(YType.uint32, "trigger-spf-run")
-
-                            self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                            self.start_time_offset = YLeaf(YType.str, "start-time-offset")
-
-                            self.duration = YLeaf(YType.str, "duration")
-
-                            self.completed_spf_run = YLeaf(YType.uint32, "completed-spf-run")
-
-                            self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                            self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                            self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                            self.coverage = YLeaf(YType.str, "coverage")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("ipfrr-statistic", ("ipfrr_statistic", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic)), ("remote-node", ("remote_node", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('event_id_xr', YLeaf(YType.uint32, 'event-id-xr')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                ('trigger_spf_run', YLeaf(YType.uint32, 'trigger-spf-run')),
+                                ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ('start_time_offset', YLeaf(YType.str, 'start-time-offset')),
+                                ('duration', YLeaf(YType.str, 'duration')),
+                                ('completed_spf_run', YLeaf(YType.uint32, 'completed-spf-run')),
+                                ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                ('coverage', YLeaf(YType.str, 'coverage')),
+                            ])
+                            self.event_id = None
+                            self.event_id_xr = None
+                            self.trigger_time = None
+                            self.trigger_spf_run = None
+                            self.wait_time = None
+                            self.start_time_offset = None
+                            self.duration = None
+                            self.completed_spf_run = None
+                            self.total_routes = None
+                            self.fully_protected_routes = None
+                            self.partially_protected_routes = None
+                            self.coverage = None
 
                             self.ipfrr_statistic = YList(self)
                             self.remote_node = YList(self)
-                            self._segment_path = lambda: "ipfrr-event-summary" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "ipfrr-event-summary" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary, ['event_id', 'event_id_xr', 'trigger_time', 'trigger_spf_run', 'wait_time', 'start_time_offset', 'duration', 'completed_spf_run', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
@@ -1469,24 +1485,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "ipfrr-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.priority = YLeaf(YType.enumeration, "priority")
-
-                                self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                self.coverage = YLeaf(YType.str, "coverage")
-
-                                self.local_lfa_coverage = YLeaf(YType.str, "local-lfa-coverage")
-
-                                self.remote_lfa_coverage = YLeaf(YType.str, "remote-lfa-coverage")
-
-                                self.below_threshold = YLeaf(YType.boolean, "below-threshold")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('priority', YLeaf(YType.enumeration, 'priority')),
+                                    ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                    ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                    ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                    ('coverage', YLeaf(YType.str, 'coverage')),
+                                    ('local_lfa_coverage', YLeaf(YType.str, 'local-lfa-coverage')),
+                                    ('remote_lfa_coverage', YLeaf(YType.str, 'remote-lfa-coverage')),
+                                    ('below_threshold', YLeaf(YType.boolean, 'below-threshold')),
+                                ])
+                                self.priority = None
+                                self.total_routes = None
+                                self.fully_protected_routes = None
+                                self.partially_protected_routes = None
+                                self.coverage = None
+                                self.local_lfa_coverage = None
+                                self.remote_lfa_coverage = None
+                                self.below_threshold = None
                                 self._segment_path = lambda: "ipfrr-statistic"
 
                             def __setattr__(self, name, value):
@@ -1547,18 +1566,21 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "ipfrr-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"primary-path" : ("primary_path", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath)}
-
-                                self.remote_node_id = YLeaf(YType.str, "remote-node-id")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.path_count = YLeaf(YType.uint32, "path-count")
-
-                                self.in_use_time = YLeaf(YType.str, "in-use-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("primary-path", ("primary_path", Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath))])
+                                self._leafs = OrderedDict([
+                                    ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('path_count', YLeaf(YType.uint32, 'path-count')),
+                                    ('in_use_time', YLeaf(YType.str, 'in-use-time')),
+                                ])
+                                self.remote_node_id = None
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.path_count = None
+                                self.in_use_time = None
 
                                 self.primary_path = YList(self)
                                 self._segment_path = lambda: "remote-node"
@@ -1597,12 +1619,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "remote-node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ])
+                                    self.interface_name = None
+                                    self.neighbour_address = None
                                     self._segment_path = lambda: "primary-path"
 
                                 def __setattr__(self, name, value):
@@ -1632,8 +1657,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix-event-statistic" : ("prefix_event_statistic", Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("prefix-event-statistic", ("prefix_event_statistic", Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic))])
+                        self._leafs = OrderedDict()
 
                         self.prefix_event_statistic = YList(self)
                         self._segment_path = lambda: "prefix-event-statistics"
@@ -1646,7 +1673,7 @@ class Rcmd(Entity):
                         """
                         Prefix Event statistics
                         
-                        .. attribute:: prefix_info  <key>
+                        .. attribute:: prefix_info  (key)
                         
                         	Events with Prefix
                         	**type**\: union of the below types:
@@ -1770,41 +1797,44 @@ class Rcmd(Entity):
                             self.yang_parent_name = "prefix-event-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix_info = YLeaf(YType.str, "prefix-info")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_lenth = YLeaf(YType.uint32, "prefix-lenth")
-
-                            self.last_event_time = YLeaf(YType.str, "last-event-time")
-
-                            self.last_priority = YLeaf(YType.enumeration, "last-priority")
-
-                            self.last_route_type = YLeaf(YType.enumeration, "last-route-type")
-
-                            self.last_change_type = YLeaf(YType.enumeration, "last-change-type")
-
-                            self.last_cost = YLeaf(YType.uint32, "last-cost")
-
-                            self.critical_priority = YLeaf(YType.uint32, "critical-priority")
-
-                            self.high_priority = YLeaf(YType.uint32, "high-priority")
-
-                            self.medium_priority = YLeaf(YType.uint32, "medium-priority")
-
-                            self.low_priority = YLeaf(YType.uint32, "low-priority")
-
-                            self.add_count = YLeaf(YType.uint32, "add-count")
-
-                            self.modify_count = YLeaf(YType.uint32, "modify-count")
-
-                            self.delete_count = YLeaf(YType.uint32, "delete-count")
-
-                            self.threshold_exceed_count = YLeaf(YType.uint32, "threshold-exceed-count")
-                            self._segment_path = lambda: "prefix-event-statistic" + "[prefix-info='" + self.prefix_info.get() + "']"
+                            self.ylist_key_names = ['prefix_info']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix_info', YLeaf(YType.str, 'prefix-info')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_lenth', YLeaf(YType.uint32, 'prefix-lenth')),
+                                ('last_event_time', YLeaf(YType.str, 'last-event-time')),
+                                ('last_priority', YLeaf(YType.enumeration, 'last-priority')),
+                                ('last_route_type', YLeaf(YType.enumeration, 'last-route-type')),
+                                ('last_change_type', YLeaf(YType.enumeration, 'last-change-type')),
+                                ('last_cost', YLeaf(YType.uint32, 'last-cost')),
+                                ('critical_priority', YLeaf(YType.uint32, 'critical-priority')),
+                                ('high_priority', YLeaf(YType.uint32, 'high-priority')),
+                                ('medium_priority', YLeaf(YType.uint32, 'medium-priority')),
+                                ('low_priority', YLeaf(YType.uint32, 'low-priority')),
+                                ('add_count', YLeaf(YType.uint32, 'add-count')),
+                                ('modify_count', YLeaf(YType.uint32, 'modify-count')),
+                                ('delete_count', YLeaf(YType.uint32, 'delete-count')),
+                                ('threshold_exceed_count', YLeaf(YType.uint32, 'threshold-exceed-count')),
+                            ])
+                            self.prefix_info = None
+                            self.prefix = None
+                            self.prefix_lenth = None
+                            self.last_event_time = None
+                            self.last_priority = None
+                            self.last_route_type = None
+                            self.last_change_type = None
+                            self.last_cost = None
+                            self.critical_priority = None
+                            self.high_priority = None
+                            self.medium_priority = None
+                            self.low_priority = None
+                            self.add_count = None
+                            self.modify_count = None
+                            self.delete_count = None
+                            self.threshold_exceed_count = None
+                            self._segment_path = lambda: "prefix-event-statistic" + "[prefix-info='" + str(self.prefix_info) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, ['prefix_info', 'prefix', 'prefix_lenth', 'last_event_time', 'last_priority', 'last_route_type', 'last_change_type', 'last_cost', 'critical_priority', 'high_priority', 'medium_priority', 'low_priority', 'add_count', 'modify_count', 'delete_count', 'threshold_exceed_count'], name, value)
@@ -1833,8 +1863,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"spf-run-summary" : ("spf_run_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("spf-run-summary", ("spf_run_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary))])
+                        self._leafs = OrderedDict()
 
                         self.spf_run_summary = YList(self)
                         self._segment_path = lambda: "spf-run-summaries"
@@ -1847,7 +1879,7 @@ class Rcmd(Entity):
                         """
                         SPF Event data
                         
-                        .. attribute:: spf_run_number  <key>
+                        .. attribute:: spf_run_number  (key)
                         
                         	Specific SPF run
                         	**type**\: int
@@ -1883,10 +1915,13 @@ class Rcmd(Entity):
                             self.yang_parent_name = "spf-run-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"spf-summary" : ("spf_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary)}
-                            self._child_list_classes = {"dijkstra-run" : ("dijkstra_run", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun), "inter-area-and-external" : ("inter_area_and_external", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal)}
-
-                            self.spf_run_number = YLeaf(YType.uint32, "spf-run-number")
+                            self.ylist_key_names = ['spf_run_number']
+                            self._child_container_classes = OrderedDict([("spf-summary", ("spf_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary))])
+                            self._child_list_classes = OrderedDict([("dijkstra-run", ("dijkstra_run", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun)), ("inter-area-and-external", ("inter_area_and_external", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal))])
+                            self._leafs = OrderedDict([
+                                ('spf_run_number', YLeaf(YType.uint32, 'spf-run-number')),
+                            ])
+                            self.spf_run_number = None
 
                             self.spf_summary = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary()
                             self.spf_summary.parent = self
@@ -1895,7 +1930,7 @@ class Rcmd(Entity):
 
                             self.dijkstra_run = YList(self)
                             self.inter_area_and_external = YList(self)
-                            self._segment_path = lambda: "spf-run-summary" + "[spf-run-number='" + self.spf_run_number.get() + "']"
+                            self._segment_path = lambda: "spf-run-summary" + "[spf-run-number='" + str(self.spf_run_number) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary, ['spf_run_number'], name, value)
@@ -1982,28 +2017,31 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"priority-summary" : ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary)}
-
-                                self.state = YLeaf(YType.enumeration, "state")
-
-                                self.is_data_complete = YLeaf(YType.boolean, "is-data-complete")
-
-                                self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                                self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                self.duration = YLeaf(YType.str, "duration")
-
-                                self.total_dijkstra_runs = YLeaf(YType.uint16, "total-dijkstra-runs")
-
-                                self.total_inter_area_and_external_batches = YLeaf(YType.uint16, "total-inter-area-and-external-batches")
-
-                                self.total_type12lsa_changes = YLeaf(YType.uint16, "total-type12lsa-changes")
-
-                                self.total_type357lsa_changes = YLeaf(YType.uint16, "total-type357lsa-changes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary))])
+                                self._leafs = OrderedDict([
+                                    ('state', YLeaf(YType.enumeration, 'state')),
+                                    ('is_data_complete', YLeaf(YType.boolean, 'is-data-complete')),
+                                    ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                    ('duration', YLeaf(YType.str, 'duration')),
+                                    ('total_dijkstra_runs', YLeaf(YType.uint16, 'total-dijkstra-runs')),
+                                    ('total_inter_area_and_external_batches', YLeaf(YType.uint16, 'total-inter-area-and-external-batches')),
+                                    ('total_type12lsa_changes', YLeaf(YType.uint16, 'total-type12lsa-changes')),
+                                    ('total_type357lsa_changes', YLeaf(YType.uint16, 'total-type357lsa-changes')),
+                                ])
+                                self.state = None
+                                self.is_data_complete = None
+                                self.threshold_exceeded = None
+                                self.trigger_time = None
+                                self.start_time = None
+                                self.duration = None
+                                self.total_dijkstra_runs = None
+                                self.total_inter_area_and_external_batches = None
+                                self.total_type12lsa_changes = None
+                                self.total_type357lsa_changes = None
 
                                 self.priority_summary = YList(self)
                                 self._segment_path = lambda: "spf-summary"
@@ -2061,12 +2099,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "spf-summary"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime)}
-                                    self._child_list_classes = {"frr-statistic" : ("frr_statistic", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic)}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime))])
+                                    self._child_list_classes = OrderedDict([("frr-statistic", ("frr_statistic", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic))])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ])
+                                    self.level = None
+                                    self.threshold_exceeded = None
 
                                     self.route_statistics = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics()
                                     self.route_statistics.parent = self
@@ -2150,20 +2191,23 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.adds = YLeaf(YType.uint32, "adds")
-
-                                        self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                        self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                        self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                        self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                        self.touches = YLeaf(YType.uint32, "touches")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('adds', YLeaf(YType.uint32, 'adds')),
+                                            ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                            ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                            ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                            ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                            ('touches', YLeaf(YType.uint32, 'touches')),
+                                        ])
+                                        self.adds = None
+                                        self.deletes = None
+                                        self.modifies = None
+                                        self.reachables = None
+                                        self.unreachables = None
+                                        self.touches = None
                                         self._segment_path = lambda: "route-statistics"
 
                                     def __setattr__(self, name, value):
@@ -2212,16 +2256,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "ip-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -2270,16 +2317,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "mpls-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -2332,16 +2382,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                        self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                        self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                        self.coverage = YLeaf(YType.str, "coverage")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                            ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                            ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                            ('coverage', YLeaf(YType.str, 'coverage')),
+                                        ])
+                                        self.total_routes = None
+                                        self.fully_protected_routes = None
+                                        self.partially_protected_routes = None
+                                        self.coverage = None
                                         self._segment_path = lambda: "frr-statistic"
 
                                     def __setattr__(self, name, value):
@@ -2422,22 +2475,25 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"trigger-lsa" : ("trigger_lsa", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa), "priority" : ("priority", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority), "lsa-processed" : ("lsa_processed", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed)}
-
-                                self.dijkstra_run_number = YLeaf(YType.uint32, "dijkstra-run-number")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                                self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                                self.duration = YLeaf(YType.str, "duration")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("trigger-lsa", ("trigger_lsa", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa)), ("priority", ("priority", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority)), ("lsa-processed", ("lsa_processed", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed))])
+                                self._leafs = OrderedDict([
+                                    ('dijkstra_run_number', YLeaf(YType.uint32, 'dijkstra-run-number')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                    ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                    ('duration', YLeaf(YType.str, 'duration')),
+                                ])
+                                self.dijkstra_run_number = None
+                                self.area_id = None
+                                self.threshold_exceeded = None
+                                self.trigger_time = None
+                                self.start_time = None
+                                self.wait_time = None
+                                self.duration = None
 
                                 self.trigger_lsa = YList(self)
                                 self.priority = YList(self)
@@ -2500,20 +2556,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "dijkstra-run"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                    self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                    self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                    self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.reception_time = YLeaf(YType.str, "reception-time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                        ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                        ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                        ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                    ])
+                                    self.lsa_id = None
+                                    self.sequence_number = None
+                                    self.lsa_type = None
+                                    self.origin_router_id = None
+                                    self.change_type = None
+                                    self.reception_time = None
                                     self._segment_path = lambda: "trigger-lsa"
 
                                 def __setattr__(self, name, value):
@@ -2558,8 +2617,10 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "dijkstra-run"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"priority-summary" : ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary)}
-                                    self._child_list_classes = {"convergence-timeline" : ("convergence_timeline", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline), "leaf-networks-added" : ("leaf_networks_added", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded), "leaf-networks-deleted" : ("leaf_networks_deleted", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary))])
+                                    self._child_list_classes = OrderedDict([("convergence-timeline", ("convergence_timeline", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline)), ("leaf-networks-added", ("leaf_networks_added", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded)), ("leaf-networks-deleted", ("leaf_networks_deleted", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted))])
+                                    self._leafs = OrderedDict()
 
                                     self.priority_summary = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary()
                                     self.priority_summary.parent = self
@@ -2623,12 +2684,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime)}
-                                        self._child_list_classes = {"frr-statistic" : ("frr_statistic", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic)}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime))])
+                                        self._child_list_classes = OrderedDict([("frr-statistic", ("frr_statistic", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic))])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                        ])
+                                        self.level = None
+                                        self.threshold_exceeded = None
 
                                         self.route_statistics = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics()
                                         self.route_statistics.parent = self
@@ -2712,20 +2776,23 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.adds = YLeaf(YType.uint32, "adds")
-
-                                            self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                            self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                            self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                            self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                            self.touches = YLeaf(YType.uint32, "touches")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('adds', YLeaf(YType.uint32, 'adds')),
+                                                ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                                ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                                ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                                ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                                ('touches', YLeaf(YType.uint32, 'touches')),
+                                            ])
+                                            self.adds = None
+                                            self.deletes = None
+                                            self.modifies = None
+                                            self.reachables = None
+                                            self.unreachables = None
+                                            self.touches = None
                                             self._segment_path = lambda: "route-statistics"
 
                                         def __setattr__(self, name, value):
@@ -2774,16 +2841,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                            self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                            self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                            self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                                ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                                ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                                ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                            ])
+                                            self.minimum_time = None
+                                            self.maximum_time = None
+                                            self.slowest_node_name = None
+                                            self.fastest_node_name = None
                                             self._segment_path = lambda: "ip-convergence-time"
 
                                         def __setattr__(self, name, value):
@@ -2832,16 +2902,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                            self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                            self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                            self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                                ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                                ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                                ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                            ])
+                                            self.minimum_time = None
+                                            self.maximum_time = None
+                                            self.slowest_node_name = None
+                                            self.fastest_node_name = None
                                             self._segment_path = lambda: "mpls-convergence-time"
 
                                         def __setattr__(self, name, value):
@@ -2894,16 +2967,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                            self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                            self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                            self.coverage = YLeaf(YType.str, "coverage")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                                ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                                ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                                ('coverage', YLeaf(YType.str, 'coverage')),
+                                            ])
+                                            self.total_routes = None
+                                            self.fully_protected_routes = None
+                                            self.partially_protected_routes = None
+                                            self.coverage = None
                                             self._segment_path = lambda: "frr-statistic"
 
                                         def __setattr__(self, name, value):
@@ -2978,8 +3054,10 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"route-origin" : ("route_origin", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin), "ri-bv4-enter" : ("ri_bv4_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter), "ri-bv4-exit" : ("ri_bv4_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit), "ri-bv4-redistribute" : ("ri_bv4_redistribute", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute), "ldp-enter" : ("ldp_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter), "ldp-exit" : ("ldp_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit), "lsd-enter" : ("lsd_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter), "lsd-exit" : ("lsd_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit)}
-                                        self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("route-origin", ("route_origin", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin)), ("ri-bv4-enter", ("ri_bv4_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter)), ("ri-bv4-exit", ("ri_bv4_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit)), ("ri-bv4-redistribute", ("ri_bv4_redistribute", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute)), ("ldp-enter", ("ldp_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter)), ("ldp-exit", ("ldp_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit)), ("lsd-enter", ("lsd_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter)), ("lsd-exit", ("lsd_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit))])
+                                        self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls))])
+                                        self._leafs = OrderedDict()
 
                                         self.route_origin = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin()
                                         self.route_origin.parent = self
@@ -3062,14 +3140,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "route-origin"
 
                                         def __setattr__(self, name, value):
@@ -3109,14 +3190,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-enter"
 
                                         def __setattr__(self, name, value):
@@ -3156,14 +3240,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-exit"
 
                                         def __setattr__(self, name, value):
@@ -3203,14 +3290,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-redistribute"
 
                                         def __setattr__(self, name, value):
@@ -3250,14 +3340,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ldp-enter"
 
                                         def __setattr__(self, name, value):
@@ -3297,14 +3390,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ldp-exit"
 
                                         def __setattr__(self, name, value):
@@ -3344,14 +3440,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "lsd-enter"
 
                                         def __setattr__(self, name, value):
@@ -3391,14 +3490,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "lsd-exit"
 
                                         def __setattr__(self, name, value):
@@ -3439,12 +3541,15 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete)}
-                                            self._child_list_classes = {}
-
-                                            self.node_name = YLeaf(YType.str, "node-name")
-
-                                            self.speed = YLeaf(YType.enumeration, "speed")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                                ('speed', YLeaf(YType.enumeration, 'speed')),
+                                            ])
+                                            self.node_name = None
+                                            self.speed = None
 
                                             self.fib_complete = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete()
                                             self.fib_complete.parent = self
@@ -3489,14 +3594,17 @@ class Rcmd(Entity):
                                                 self.yang_parent_name = "lc-ip"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                                self.end_time = YLeaf(YType.str, "end-time")
-
-                                                self.duration = YLeaf(YType.str, "duration")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                                    ('end_time', YLeaf(YType.str, 'end-time')),
+                                                    ('duration', YLeaf(YType.str, 'duration')),
+                                                ])
+                                                self.start_time = None
+                                                self.end_time = None
+                                                self.duration = None
                                                 self._segment_path = lambda: "fib-complete"
 
                                             def __setattr__(self, name, value):
@@ -3537,12 +3645,15 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete)}
-                                            self._child_list_classes = {}
-
-                                            self.node_name = YLeaf(YType.str, "node-name")
-
-                                            self.speed = YLeaf(YType.enumeration, "speed")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                                ('speed', YLeaf(YType.enumeration, 'speed')),
+                                            ])
+                                            self.node_name = None
+                                            self.speed = None
 
                                             self.fib_complete = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete()
                                             self.fib_complete.parent = self
@@ -3587,14 +3698,17 @@ class Rcmd(Entity):
                                                 self.yang_parent_name = "lc-mpls"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                                self.end_time = YLeaf(YType.str, "end-time")
-
-                                                self.duration = YLeaf(YType.str, "duration")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                                    ('end_time', YLeaf(YType.str, 'end-time')),
+                                                    ('duration', YLeaf(YType.str, 'duration')),
+                                                ])
+                                                self.start_time = None
+                                                self.end_time = None
+                                                self.duration = None
                                                 self._segment_path = lambda: "fib-complete"
 
                                             def __setattr__(self, name, value):
@@ -3633,12 +3747,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                        ])
+                                        self.address = None
+                                        self.net_mask = None
                                         self._segment_path = lambda: "leaf-networks-added"
 
                                     def __setattr__(self, name, value):
@@ -3677,12 +3794,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                        ])
+                                        self.address = None
+                                        self.net_mask = None
                                         self._segment_path = lambda: "leaf-networks-deleted"
 
                                     def __setattr__(self, name, value):
@@ -3741,20 +3861,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "dijkstra-run"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                    self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                    self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                    self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.reception_time = YLeaf(YType.str, "reception-time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                        ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                        ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                        ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                    ])
+                                    self.lsa_id = None
+                                    self.sequence_number = None
+                                    self.lsa_type = None
+                                    self.origin_router_id = None
+                                    self.change_type = None
+                                    self.reception_time = None
                                     self._segment_path = lambda: "lsa-processed"
 
                                 def __setattr__(self, name, value):
@@ -3784,8 +3907,10 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"priority" : ("priority", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("priority", ("priority", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority))])
+                                self._leafs = OrderedDict()
 
                                 self.priority = YList(self)
                                 self._segment_path = lambda: "inter-area-and-external"
@@ -3832,8 +3957,10 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "inter-area-and-external"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"priority-summary" : ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary)}
-                                    self._child_list_classes = {"convergence-timeline" : ("convergence_timeline", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline), "leaf-networks-added" : ("leaf_networks_added", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded), "leaf-networks-deleted" : ("leaf_networks_deleted", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary))])
+                                    self._child_list_classes = OrderedDict([("convergence-timeline", ("convergence_timeline", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline)), ("leaf-networks-added", ("leaf_networks_added", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded)), ("leaf-networks-deleted", ("leaf_networks_deleted", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted))])
+                                    self._leafs = OrderedDict()
 
                                     self.priority_summary = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary()
                                     self.priority_summary.parent = self
@@ -3913,18 +4040,21 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime)}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                                        self.type3ls_as = YLeaf(YType.uint32, "type3ls-as")
-
-                                        self.type4ls_as = YLeaf(YType.uint32, "type4ls-as")
-
-                                        self.type57ls_as = YLeaf(YType.uint32, "type57ls-as")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                            ('type3ls_as', YLeaf(YType.uint32, 'type3ls-as')),
+                                            ('type4ls_as', YLeaf(YType.uint32, 'type4ls-as')),
+                                            ('type57ls_as', YLeaf(YType.uint32, 'type57ls-as')),
+                                        ])
+                                        self.level = None
+                                        self.threshold_exceeded = None
+                                        self.type3ls_as = None
+                                        self.type4ls_as = None
+                                        self.type57ls_as = None
 
                                         self.route_statistics = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics()
                                         self.route_statistics.parent = self
@@ -4006,20 +4136,23 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.adds = YLeaf(YType.uint32, "adds")
-
-                                            self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                            self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                            self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                            self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                            self.touches = YLeaf(YType.uint32, "touches")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('adds', YLeaf(YType.uint32, 'adds')),
+                                                ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                                ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                                ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                                ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                                ('touches', YLeaf(YType.uint32, 'touches')),
+                                            ])
+                                            self.adds = None
+                                            self.deletes = None
+                                            self.modifies = None
+                                            self.reachables = None
+                                            self.unreachables = None
+                                            self.touches = None
                                             self._segment_path = lambda: "route-statistics"
 
                                         def __setattr__(self, name, value):
@@ -4068,16 +4201,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                            self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                            self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                            self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                                ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                                ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                                ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                            ])
+                                            self.minimum_time = None
+                                            self.maximum_time = None
+                                            self.slowest_node_name = None
+                                            self.fastest_node_name = None
                                             self._segment_path = lambda: "ip-convergence-time"
 
                                         def __setattr__(self, name, value):
@@ -4126,16 +4262,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                            self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                            self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                            self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                                ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                                ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                                ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                            ])
+                                            self.minimum_time = None
+                                            self.maximum_time = None
+                                            self.slowest_node_name = None
+                                            self.fastest_node_name = None
                                             self._segment_path = lambda: "mpls-convergence-time"
 
                                         def __setattr__(self, name, value):
@@ -4210,8 +4349,10 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"route-origin" : ("route_origin", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin), "ri-bv4-enter" : ("ri_bv4_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter), "ri-bv4-exit" : ("ri_bv4_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit), "ri-bv4-redistribute" : ("ri_bv4_redistribute", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute), "ldp-enter" : ("ldp_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter), "ldp-exit" : ("ldp_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit), "lsd-enter" : ("lsd_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter), "lsd-exit" : ("lsd_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit)}
-                                        self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("route-origin", ("route_origin", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin)), ("ri-bv4-enter", ("ri_bv4_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter)), ("ri-bv4-exit", ("ri_bv4_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit)), ("ri-bv4-redistribute", ("ri_bv4_redistribute", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute)), ("ldp-enter", ("ldp_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter)), ("ldp-exit", ("ldp_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit)), ("lsd-enter", ("lsd_enter", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter)), ("lsd-exit", ("lsd_exit", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit))])
+                                        self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls))])
+                                        self._leafs = OrderedDict()
 
                                         self.route_origin = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin()
                                         self.route_origin.parent = self
@@ -4294,14 +4435,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "route-origin"
 
                                         def __setattr__(self, name, value):
@@ -4341,14 +4485,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-enter"
 
                                         def __setattr__(self, name, value):
@@ -4388,14 +4535,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-exit"
 
                                         def __setattr__(self, name, value):
@@ -4435,14 +4585,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-redistribute"
 
                                         def __setattr__(self, name, value):
@@ -4482,14 +4635,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ldp-enter"
 
                                         def __setattr__(self, name, value):
@@ -4529,14 +4685,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ldp-exit"
 
                                         def __setattr__(self, name, value):
@@ -4576,14 +4735,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "lsd-enter"
 
                                         def __setattr__(self, name, value):
@@ -4623,14 +4785,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "lsd-exit"
 
                                         def __setattr__(self, name, value):
@@ -4671,12 +4836,15 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete)}
-                                            self._child_list_classes = {}
-
-                                            self.node_name = YLeaf(YType.str, "node-name")
-
-                                            self.speed = YLeaf(YType.enumeration, "speed")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                                ('speed', YLeaf(YType.enumeration, 'speed')),
+                                            ])
+                                            self.node_name = None
+                                            self.speed = None
 
                                             self.fib_complete = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete()
                                             self.fib_complete.parent = self
@@ -4721,14 +4889,17 @@ class Rcmd(Entity):
                                                 self.yang_parent_name = "lc-ip"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                                self.end_time = YLeaf(YType.str, "end-time")
-
-                                                self.duration = YLeaf(YType.str, "duration")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                                    ('end_time', YLeaf(YType.str, 'end-time')),
+                                                    ('duration', YLeaf(YType.str, 'duration')),
+                                                ])
+                                                self.start_time = None
+                                                self.end_time = None
+                                                self.duration = None
                                                 self._segment_path = lambda: "fib-complete"
 
                                             def __setattr__(self, name, value):
@@ -4769,12 +4940,15 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete)}
-                                            self._child_list_classes = {}
-
-                                            self.node_name = YLeaf(YType.str, "node-name")
-
-                                            self.speed = YLeaf(YType.enumeration, "speed")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                                ('speed', YLeaf(YType.enumeration, 'speed')),
+                                            ])
+                                            self.node_name = None
+                                            self.speed = None
 
                                             self.fib_complete = Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete()
                                             self.fib_complete.parent = self
@@ -4819,14 +4993,17 @@ class Rcmd(Entity):
                                                 self.yang_parent_name = "lc-mpls"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                                self.end_time = YLeaf(YType.str, "end-time")
-
-                                                self.duration = YLeaf(YType.str, "duration")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                                    ('end_time', YLeaf(YType.str, 'end-time')),
+                                                    ('duration', YLeaf(YType.str, 'duration')),
+                                                ])
+                                                self.start_time = None
+                                                self.end_time = None
+                                                self.duration = None
                                                 self._segment_path = lambda: "fib-complete"
 
                                             def __setattr__(self, name, value):
@@ -4865,12 +5042,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                        ])
+                                        self.address = None
+                                        self.net_mask = None
                                         self._segment_path = lambda: "leaf-networks-added"
 
                                     def __setattr__(self, name, value):
@@ -4909,12 +5089,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                        ])
+                                        self.address = None
+                                        self.net_mask = None
                                         self._segment_path = lambda: "leaf-networks-deleted"
 
                                     def __setattr__(self, name, value):
@@ -4944,8 +5127,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipfrr-event-offline" : ("ipfrr_event_offline", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipfrr-event-offline", ("ipfrr_event_offline", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline))])
+                        self._leafs = OrderedDict()
 
                         self.ipfrr_event_offline = YList(self)
                         self._segment_path = lambda: "ipfrr-event-offlines"
@@ -4959,7 +5144,7 @@ class Rcmd(Entity):
                         Offline operational data for particular OSPF
                         IP\-FRR Event
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific IP\-FRR Event
                         	**type**\: int
@@ -5067,36 +5252,39 @@ class Rcmd(Entity):
                             self.yang_parent_name = "ipfrr-event-offlines"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ipfrr-statistic" : ("ipfrr_statistic", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic), "remote-node" : ("remote_node", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.event_id_xr = YLeaf(YType.uint32, "event-id-xr")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                            self.trigger_spf_run = YLeaf(YType.uint32, "trigger-spf-run")
-
-                            self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                            self.start_time_offset = YLeaf(YType.str, "start-time-offset")
-
-                            self.duration = YLeaf(YType.str, "duration")
-
-                            self.completed_spf_run = YLeaf(YType.uint32, "completed-spf-run")
-
-                            self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                            self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                            self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                            self.coverage = YLeaf(YType.str, "coverage")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("ipfrr-statistic", ("ipfrr_statistic", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic)), ("remote-node", ("remote_node", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('event_id_xr', YLeaf(YType.uint32, 'event-id-xr')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                ('trigger_spf_run', YLeaf(YType.uint32, 'trigger-spf-run')),
+                                ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ('start_time_offset', YLeaf(YType.str, 'start-time-offset')),
+                                ('duration', YLeaf(YType.str, 'duration')),
+                                ('completed_spf_run', YLeaf(YType.uint32, 'completed-spf-run')),
+                                ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                ('coverage', YLeaf(YType.str, 'coverage')),
+                            ])
+                            self.event_id = None
+                            self.event_id_xr = None
+                            self.trigger_time = None
+                            self.trigger_spf_run = None
+                            self.wait_time = None
+                            self.start_time_offset = None
+                            self.duration = None
+                            self.completed_spf_run = None
+                            self.total_routes = None
+                            self.fully_protected_routes = None
+                            self.partially_protected_routes = None
+                            self.coverage = None
 
                             self.ipfrr_statistic = YList(self)
                             self.remote_node = YList(self)
-                            self._segment_path = lambda: "ipfrr-event-offline" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "ipfrr-event-offline" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline, ['event_id', 'event_id_xr', 'trigger_time', 'trigger_spf_run', 'wait_time', 'start_time_offset', 'duration', 'completed_spf_run', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
@@ -5172,24 +5360,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "ipfrr-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.priority = YLeaf(YType.enumeration, "priority")
-
-                                self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                self.coverage = YLeaf(YType.str, "coverage")
-
-                                self.local_lfa_coverage = YLeaf(YType.str, "local-lfa-coverage")
-
-                                self.remote_lfa_coverage = YLeaf(YType.str, "remote-lfa-coverage")
-
-                                self.below_threshold = YLeaf(YType.boolean, "below-threshold")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('priority', YLeaf(YType.enumeration, 'priority')),
+                                    ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                    ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                    ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                    ('coverage', YLeaf(YType.str, 'coverage')),
+                                    ('local_lfa_coverage', YLeaf(YType.str, 'local-lfa-coverage')),
+                                    ('remote_lfa_coverage', YLeaf(YType.str, 'remote-lfa-coverage')),
+                                    ('below_threshold', YLeaf(YType.boolean, 'below-threshold')),
+                                ])
+                                self.priority = None
+                                self.total_routes = None
+                                self.fully_protected_routes = None
+                                self.partially_protected_routes = None
+                                self.coverage = None
+                                self.local_lfa_coverage = None
+                                self.remote_lfa_coverage = None
+                                self.below_threshold = None
                                 self._segment_path = lambda: "ipfrr-statistic"
 
                             def __setattr__(self, name, value):
@@ -5250,18 +5441,21 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "ipfrr-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"primary-path" : ("primary_path", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath)}
-
-                                self.remote_node_id = YLeaf(YType.str, "remote-node-id")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.path_count = YLeaf(YType.uint32, "path-count")
-
-                                self.in_use_time = YLeaf(YType.str, "in-use-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("primary-path", ("primary_path", Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath))])
+                                self._leafs = OrderedDict([
+                                    ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('path_count', YLeaf(YType.uint32, 'path-count')),
+                                    ('in_use_time', YLeaf(YType.str, 'in-use-time')),
+                                ])
+                                self.remote_node_id = None
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.path_count = None
+                                self.in_use_time = None
 
                                 self.primary_path = YList(self)
                                 self._segment_path = lambda: "remote-node"
@@ -5300,12 +5494,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "remote-node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ])
+                                    self.interface_name = None
+                                    self.neighbour_address = None
                                     self._segment_path = lambda: "primary-path"
 
                                 def __setattr__(self, name, value):
@@ -5335,8 +5532,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"spf-run-offline" : ("spf_run_offline", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("spf-run-offline", ("spf_run_offline", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline))])
+                        self._leafs = OrderedDict()
 
                         self.spf_run_offline = YList(self)
                         self._segment_path = lambda: "spf-run-offlines"
@@ -5350,7 +5549,7 @@ class Rcmd(Entity):
                         Offline operational data for particular OSPF
                         SPF run
                         
-                        .. attribute:: spf_run_number  <key>
+                        .. attribute:: spf_run_number  (key)
                         
                         	Specific SPF run
                         	**type**\: int
@@ -5386,10 +5585,13 @@ class Rcmd(Entity):
                             self.yang_parent_name = "spf-run-offlines"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"spf-summary" : ("spf_summary", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary)}
-                            self._child_list_classes = {"dijkstra-run" : ("dijkstra_run", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun), "inter-area-and-external" : ("inter_area_and_external", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal)}
-
-                            self.spf_run_number = YLeaf(YType.uint32, "spf-run-number")
+                            self.ylist_key_names = ['spf_run_number']
+                            self._child_container_classes = OrderedDict([("spf-summary", ("spf_summary", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary))])
+                            self._child_list_classes = OrderedDict([("dijkstra-run", ("dijkstra_run", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun)), ("inter-area-and-external", ("inter_area_and_external", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal))])
+                            self._leafs = OrderedDict([
+                                ('spf_run_number', YLeaf(YType.uint32, 'spf-run-number')),
+                            ])
+                            self.spf_run_number = None
 
                             self.spf_summary = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary()
                             self.spf_summary.parent = self
@@ -5398,7 +5600,7 @@ class Rcmd(Entity):
 
                             self.dijkstra_run = YList(self)
                             self.inter_area_and_external = YList(self)
-                            self._segment_path = lambda: "spf-run-offline" + "[spf-run-number='" + self.spf_run_number.get() + "']"
+                            self._segment_path = lambda: "spf-run-offline" + "[spf-run-number='" + str(self.spf_run_number) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline, ['spf_run_number'], name, value)
@@ -5485,28 +5687,31 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"priority-summary" : ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary)}
-
-                                self.state = YLeaf(YType.enumeration, "state")
-
-                                self.is_data_complete = YLeaf(YType.boolean, "is-data-complete")
-
-                                self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                                self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                self.duration = YLeaf(YType.str, "duration")
-
-                                self.total_dijkstra_runs = YLeaf(YType.uint16, "total-dijkstra-runs")
-
-                                self.total_inter_area_and_external_batches = YLeaf(YType.uint16, "total-inter-area-and-external-batches")
-
-                                self.total_type12lsa_changes = YLeaf(YType.uint16, "total-type12lsa-changes")
-
-                                self.total_type357lsa_changes = YLeaf(YType.uint16, "total-type357lsa-changes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary))])
+                                self._leafs = OrderedDict([
+                                    ('state', YLeaf(YType.enumeration, 'state')),
+                                    ('is_data_complete', YLeaf(YType.boolean, 'is-data-complete')),
+                                    ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                    ('duration', YLeaf(YType.str, 'duration')),
+                                    ('total_dijkstra_runs', YLeaf(YType.uint16, 'total-dijkstra-runs')),
+                                    ('total_inter_area_and_external_batches', YLeaf(YType.uint16, 'total-inter-area-and-external-batches')),
+                                    ('total_type12lsa_changes', YLeaf(YType.uint16, 'total-type12lsa-changes')),
+                                    ('total_type357lsa_changes', YLeaf(YType.uint16, 'total-type357lsa-changes')),
+                                ])
+                                self.state = None
+                                self.is_data_complete = None
+                                self.threshold_exceeded = None
+                                self.trigger_time = None
+                                self.start_time = None
+                                self.duration = None
+                                self.total_dijkstra_runs = None
+                                self.total_inter_area_and_external_batches = None
+                                self.total_type12lsa_changes = None
+                                self.total_type357lsa_changes = None
 
                                 self.priority_summary = YList(self)
                                 self._segment_path = lambda: "spf-summary"
@@ -5564,12 +5769,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "spf-summary"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime)}
-                                    self._child_list_classes = {"frr-statistic" : ("frr_statistic", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic)}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime))])
+                                    self._child_list_classes = OrderedDict([("frr-statistic", ("frr_statistic", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic))])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ])
+                                    self.level = None
+                                    self.threshold_exceeded = None
 
                                     self.route_statistics = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics()
                                     self.route_statistics.parent = self
@@ -5653,20 +5861,23 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.adds = YLeaf(YType.uint32, "adds")
-
-                                        self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                        self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                        self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                        self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                        self.touches = YLeaf(YType.uint32, "touches")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('adds', YLeaf(YType.uint32, 'adds')),
+                                            ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                            ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                            ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                            ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                            ('touches', YLeaf(YType.uint32, 'touches')),
+                                        ])
+                                        self.adds = None
+                                        self.deletes = None
+                                        self.modifies = None
+                                        self.reachables = None
+                                        self.unreachables = None
+                                        self.touches = None
                                         self._segment_path = lambda: "route-statistics"
 
                                     def __setattr__(self, name, value):
@@ -5715,16 +5926,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "ip-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -5773,16 +5987,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "mpls-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -5835,16 +6052,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                        self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                        self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                        self.coverage = YLeaf(YType.str, "coverage")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                            ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                            ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                            ('coverage', YLeaf(YType.str, 'coverage')),
+                                        ])
+                                        self.total_routes = None
+                                        self.fully_protected_routes = None
+                                        self.partially_protected_routes = None
+                                        self.coverage = None
                                         self._segment_path = lambda: "frr-statistic"
 
                                     def __setattr__(self, name, value):
@@ -5925,22 +6145,25 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"trigger-lsa" : ("trigger_lsa", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa), "priority" : ("priority", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority), "lsa-processed" : ("lsa_processed", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed)}
-
-                                self.dijkstra_run_number = YLeaf(YType.uint32, "dijkstra-run-number")
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                                self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                                self.duration = YLeaf(YType.str, "duration")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("trigger-lsa", ("trigger_lsa", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa)), ("priority", ("priority", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority)), ("lsa-processed", ("lsa_processed", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed))])
+                                self._leafs = OrderedDict([
+                                    ('dijkstra_run_number', YLeaf(YType.uint32, 'dijkstra-run-number')),
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                    ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                    ('duration', YLeaf(YType.str, 'duration')),
+                                ])
+                                self.dijkstra_run_number = None
+                                self.area_id = None
+                                self.threshold_exceeded = None
+                                self.trigger_time = None
+                                self.start_time = None
+                                self.wait_time = None
+                                self.duration = None
 
                                 self.trigger_lsa = YList(self)
                                 self.priority = YList(self)
@@ -6003,20 +6226,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "dijkstra-run"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                    self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                    self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                    self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.reception_time = YLeaf(YType.str, "reception-time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                        ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                        ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                        ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                    ])
+                                    self.lsa_id = None
+                                    self.sequence_number = None
+                                    self.lsa_type = None
+                                    self.origin_router_id = None
+                                    self.change_type = None
+                                    self.reception_time = None
                                     self._segment_path = lambda: "trigger-lsa"
 
                                 def __setattr__(self, name, value):
@@ -6061,8 +6287,10 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "dijkstra-run"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"priority-summary" : ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary)}
-                                    self._child_list_classes = {"convergence-timeline" : ("convergence_timeline", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline), "leaf-networks-added" : ("leaf_networks_added", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded), "leaf-networks-deleted" : ("leaf_networks_deleted", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary))])
+                                    self._child_list_classes = OrderedDict([("convergence-timeline", ("convergence_timeline", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline)), ("leaf-networks-added", ("leaf_networks_added", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded)), ("leaf-networks-deleted", ("leaf_networks_deleted", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted))])
+                                    self._leafs = OrderedDict()
 
                                     self.priority_summary = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary()
                                     self.priority_summary.parent = self
@@ -6126,12 +6354,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime)}
-                                        self._child_list_classes = {"frr-statistic" : ("frr_statistic", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic)}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime))])
+                                        self._child_list_classes = OrderedDict([("frr-statistic", ("frr_statistic", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic))])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                        ])
+                                        self.level = None
+                                        self.threshold_exceeded = None
 
                                         self.route_statistics = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics()
                                         self.route_statistics.parent = self
@@ -6215,20 +6446,23 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.adds = YLeaf(YType.uint32, "adds")
-
-                                            self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                            self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                            self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                            self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                            self.touches = YLeaf(YType.uint32, "touches")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('adds', YLeaf(YType.uint32, 'adds')),
+                                                ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                                ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                                ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                                ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                                ('touches', YLeaf(YType.uint32, 'touches')),
+                                            ])
+                                            self.adds = None
+                                            self.deletes = None
+                                            self.modifies = None
+                                            self.reachables = None
+                                            self.unreachables = None
+                                            self.touches = None
                                             self._segment_path = lambda: "route-statistics"
 
                                         def __setattr__(self, name, value):
@@ -6277,16 +6511,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                            self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                            self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                            self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                                ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                                ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                                ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                            ])
+                                            self.minimum_time = None
+                                            self.maximum_time = None
+                                            self.slowest_node_name = None
+                                            self.fastest_node_name = None
                                             self._segment_path = lambda: "ip-convergence-time"
 
                                         def __setattr__(self, name, value):
@@ -6335,16 +6572,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                            self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                            self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                            self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                                ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                                ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                                ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                            ])
+                                            self.minimum_time = None
+                                            self.maximum_time = None
+                                            self.slowest_node_name = None
+                                            self.fastest_node_name = None
                                             self._segment_path = lambda: "mpls-convergence-time"
 
                                         def __setattr__(self, name, value):
@@ -6397,16 +6637,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                            self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                            self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                            self.coverage = YLeaf(YType.str, "coverage")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                                ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                                ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                                ('coverage', YLeaf(YType.str, 'coverage')),
+                                            ])
+                                            self.total_routes = None
+                                            self.fully_protected_routes = None
+                                            self.partially_protected_routes = None
+                                            self.coverage = None
                                             self._segment_path = lambda: "frr-statistic"
 
                                         def __setattr__(self, name, value):
@@ -6481,8 +6724,10 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"route-origin" : ("route_origin", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin), "ri-bv4-enter" : ("ri_bv4_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter), "ri-bv4-exit" : ("ri_bv4_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit), "ri-bv4-redistribute" : ("ri_bv4_redistribute", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute), "ldp-enter" : ("ldp_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter), "ldp-exit" : ("ldp_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit), "lsd-enter" : ("lsd_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter), "lsd-exit" : ("lsd_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit)}
-                                        self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("route-origin", ("route_origin", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin)), ("ri-bv4-enter", ("ri_bv4_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter)), ("ri-bv4-exit", ("ri_bv4_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit)), ("ri-bv4-redistribute", ("ri_bv4_redistribute", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute)), ("ldp-enter", ("ldp_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter)), ("ldp-exit", ("ldp_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit)), ("lsd-enter", ("lsd_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter)), ("lsd-exit", ("lsd_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit))])
+                                        self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls))])
+                                        self._leafs = OrderedDict()
 
                                         self.route_origin = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin()
                                         self.route_origin.parent = self
@@ -6565,14 +6810,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "route-origin"
 
                                         def __setattr__(self, name, value):
@@ -6612,14 +6860,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-enter"
 
                                         def __setattr__(self, name, value):
@@ -6659,14 +6910,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-exit"
 
                                         def __setattr__(self, name, value):
@@ -6706,14 +6960,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-redistribute"
 
                                         def __setattr__(self, name, value):
@@ -6753,14 +7010,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ldp-enter"
 
                                         def __setattr__(self, name, value):
@@ -6800,14 +7060,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ldp-exit"
 
                                         def __setattr__(self, name, value):
@@ -6847,14 +7110,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "lsd-enter"
 
                                         def __setattr__(self, name, value):
@@ -6894,14 +7160,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "lsd-exit"
 
                                         def __setattr__(self, name, value):
@@ -6942,12 +7211,15 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete)}
-                                            self._child_list_classes = {}
-
-                                            self.node_name = YLeaf(YType.str, "node-name")
-
-                                            self.speed = YLeaf(YType.enumeration, "speed")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                                ('speed', YLeaf(YType.enumeration, 'speed')),
+                                            ])
+                                            self.node_name = None
+                                            self.speed = None
 
                                             self.fib_complete = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete()
                                             self.fib_complete.parent = self
@@ -6992,14 +7264,17 @@ class Rcmd(Entity):
                                                 self.yang_parent_name = "lc-ip"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                                self.end_time = YLeaf(YType.str, "end-time")
-
-                                                self.duration = YLeaf(YType.str, "duration")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                                    ('end_time', YLeaf(YType.str, 'end-time')),
+                                                    ('duration', YLeaf(YType.str, 'duration')),
+                                                ])
+                                                self.start_time = None
+                                                self.end_time = None
+                                                self.duration = None
                                                 self._segment_path = lambda: "fib-complete"
 
                                             def __setattr__(self, name, value):
@@ -7040,12 +7315,15 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete)}
-                                            self._child_list_classes = {}
-
-                                            self.node_name = YLeaf(YType.str, "node-name")
-
-                                            self.speed = YLeaf(YType.enumeration, "speed")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                                ('speed', YLeaf(YType.enumeration, 'speed')),
+                                            ])
+                                            self.node_name = None
+                                            self.speed = None
 
                                             self.fib_complete = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete()
                                             self.fib_complete.parent = self
@@ -7090,14 +7368,17 @@ class Rcmd(Entity):
                                                 self.yang_parent_name = "lc-mpls"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                                self.end_time = YLeaf(YType.str, "end-time")
-
-                                                self.duration = YLeaf(YType.str, "duration")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                                    ('end_time', YLeaf(YType.str, 'end-time')),
+                                                    ('duration', YLeaf(YType.str, 'duration')),
+                                                ])
+                                                self.start_time = None
+                                                self.end_time = None
+                                                self.duration = None
                                                 self._segment_path = lambda: "fib-complete"
 
                                             def __setattr__(self, name, value):
@@ -7136,12 +7417,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                        ])
+                                        self.address = None
+                                        self.net_mask = None
                                         self._segment_path = lambda: "leaf-networks-added"
 
                                     def __setattr__(self, name, value):
@@ -7180,12 +7464,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                        ])
+                                        self.address = None
+                                        self.net_mask = None
                                         self._segment_path = lambda: "leaf-networks-deleted"
 
                                     def __setattr__(self, name, value):
@@ -7244,20 +7531,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "dijkstra-run"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                    self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                    self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                    self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.reception_time = YLeaf(YType.str, "reception-time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                        ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                        ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                        ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                    ])
+                                    self.lsa_id = None
+                                    self.sequence_number = None
+                                    self.lsa_type = None
+                                    self.origin_router_id = None
+                                    self.change_type = None
+                                    self.reception_time = None
                                     self._segment_path = lambda: "lsa-processed"
 
                                 def __setattr__(self, name, value):
@@ -7287,8 +7577,10 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"priority" : ("priority", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("priority", ("priority", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority))])
+                                self._leafs = OrderedDict()
 
                                 self.priority = YList(self)
                                 self._segment_path = lambda: "inter-area-and-external"
@@ -7335,8 +7627,10 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "inter-area-and-external"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"priority-summary" : ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary)}
-                                    self._child_list_classes = {"convergence-timeline" : ("convergence_timeline", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline), "leaf-networks-added" : ("leaf_networks_added", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded), "leaf-networks-deleted" : ("leaf_networks_deleted", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary))])
+                                    self._child_list_classes = OrderedDict([("convergence-timeline", ("convergence_timeline", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline)), ("leaf-networks-added", ("leaf_networks_added", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded)), ("leaf-networks-deleted", ("leaf_networks_deleted", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted))])
+                                    self._leafs = OrderedDict()
 
                                     self.priority_summary = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary()
                                     self.priority_summary.parent = self
@@ -7416,18 +7710,21 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime)}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                                        self.type3ls_as = YLeaf(YType.uint32, "type3ls-as")
-
-                                        self.type4ls_as = YLeaf(YType.uint32, "type4ls-as")
-
-                                        self.type57ls_as = YLeaf(YType.uint32, "type57ls-as")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                            ('type3ls_as', YLeaf(YType.uint32, 'type3ls-as')),
+                                            ('type4ls_as', YLeaf(YType.uint32, 'type4ls-as')),
+                                            ('type57ls_as', YLeaf(YType.uint32, 'type57ls-as')),
+                                        ])
+                                        self.level = None
+                                        self.threshold_exceeded = None
+                                        self.type3ls_as = None
+                                        self.type4ls_as = None
+                                        self.type57ls_as = None
 
                                         self.route_statistics = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics()
                                         self.route_statistics.parent = self
@@ -7509,20 +7806,23 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.adds = YLeaf(YType.uint32, "adds")
-
-                                            self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                            self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                            self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                            self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                            self.touches = YLeaf(YType.uint32, "touches")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('adds', YLeaf(YType.uint32, 'adds')),
+                                                ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                                ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                                ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                                ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                                ('touches', YLeaf(YType.uint32, 'touches')),
+                                            ])
+                                            self.adds = None
+                                            self.deletes = None
+                                            self.modifies = None
+                                            self.reachables = None
+                                            self.unreachables = None
+                                            self.touches = None
                                             self._segment_path = lambda: "route-statistics"
 
                                         def __setattr__(self, name, value):
@@ -7571,16 +7871,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                            self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                            self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                            self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                                ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                                ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                                ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                            ])
+                                            self.minimum_time = None
+                                            self.maximum_time = None
+                                            self.slowest_node_name = None
+                                            self.fastest_node_name = None
                                             self._segment_path = lambda: "ip-convergence-time"
 
                                         def __setattr__(self, name, value):
@@ -7629,16 +7932,19 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "priority-summary"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                            self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                            self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                            self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                                ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                                ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                                ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                            ])
+                                            self.minimum_time = None
+                                            self.maximum_time = None
+                                            self.slowest_node_name = None
+                                            self.fastest_node_name = None
                                             self._segment_path = lambda: "mpls-convergence-time"
 
                                         def __setattr__(self, name, value):
@@ -7713,8 +8019,10 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"route-origin" : ("route_origin", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin), "ri-bv4-enter" : ("ri_bv4_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter), "ri-bv4-exit" : ("ri_bv4_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit), "ri-bv4-redistribute" : ("ri_bv4_redistribute", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute), "ldp-enter" : ("ldp_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter), "ldp-exit" : ("ldp_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit), "lsd-enter" : ("lsd_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter), "lsd-exit" : ("lsd_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit)}
-                                        self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("route-origin", ("route_origin", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin)), ("ri-bv4-enter", ("ri_bv4_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter)), ("ri-bv4-exit", ("ri_bv4_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit)), ("ri-bv4-redistribute", ("ri_bv4_redistribute", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute)), ("ldp-enter", ("ldp_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter)), ("ldp-exit", ("ldp_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit)), ("lsd-enter", ("lsd_enter", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter)), ("lsd-exit", ("lsd_exit", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit))])
+                                        self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls))])
+                                        self._leafs = OrderedDict()
 
                                         self.route_origin = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin()
                                         self.route_origin.parent = self
@@ -7797,14 +8105,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "route-origin"
 
                                         def __setattr__(self, name, value):
@@ -7844,14 +8155,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-enter"
 
                                         def __setattr__(self, name, value):
@@ -7891,14 +8205,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-exit"
 
                                         def __setattr__(self, name, value):
@@ -7938,14 +8255,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ri-bv4-redistribute"
 
                                         def __setattr__(self, name, value):
@@ -7985,14 +8305,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ldp-enter"
 
                                         def __setattr__(self, name, value):
@@ -8032,14 +8355,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "ldp-exit"
 
                                         def __setattr__(self, name, value):
@@ -8079,14 +8405,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "lsd-enter"
 
                                         def __setattr__(self, name, value):
@@ -8126,14 +8455,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "lsd-exit"
 
                                         def __setattr__(self, name, value):
@@ -8174,12 +8506,15 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete)}
-                                            self._child_list_classes = {}
-
-                                            self.node_name = YLeaf(YType.str, "node-name")
-
-                                            self.speed = YLeaf(YType.enumeration, "speed")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                                ('speed', YLeaf(YType.enumeration, 'speed')),
+                                            ])
+                                            self.node_name = None
+                                            self.speed = None
 
                                             self.fib_complete = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete()
                                             self.fib_complete.parent = self
@@ -8224,14 +8559,17 @@ class Rcmd(Entity):
                                                 self.yang_parent_name = "lc-ip"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                                self.end_time = YLeaf(YType.str, "end-time")
-
-                                                self.duration = YLeaf(YType.str, "duration")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                                    ('end_time', YLeaf(YType.str, 'end-time')),
+                                                    ('duration', YLeaf(YType.str, 'duration')),
+                                                ])
+                                                self.start_time = None
+                                                self.end_time = None
+                                                self.duration = None
                                                 self._segment_path = lambda: "fib-complete"
 
                                             def __setattr__(self, name, value):
@@ -8272,12 +8610,15 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "convergence-timeline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete)}
-                                            self._child_list_classes = {}
-
-                                            self.node_name = YLeaf(YType.str, "node-name")
-
-                                            self.speed = YLeaf(YType.enumeration, "speed")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                                ('speed', YLeaf(YType.enumeration, 'speed')),
+                                            ])
+                                            self.node_name = None
+                                            self.speed = None
 
                                             self.fib_complete = Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete()
                                             self.fib_complete.parent = self
@@ -8322,14 +8663,17 @@ class Rcmd(Entity):
                                                 self.yang_parent_name = "lc-mpls"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.start_time = YLeaf(YType.str, "start-time")
-
-                                                self.end_time = YLeaf(YType.str, "end-time")
-
-                                                self.duration = YLeaf(YType.str, "duration")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('start_time', YLeaf(YType.str, 'start-time')),
+                                                    ('end_time', YLeaf(YType.str, 'end-time')),
+                                                    ('duration', YLeaf(YType.str, 'duration')),
+                                                ])
+                                                self.start_time = None
+                                                self.end_time = None
+                                                self.duration = None
                                                 self._segment_path = lambda: "fib-complete"
 
                                             def __setattr__(self, name, value):
@@ -8368,12 +8712,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                        ])
+                                        self.address = None
+                                        self.net_mask = None
                                         self._segment_path = lambda: "leaf-networks-added"
 
                                     def __setattr__(self, name, value):
@@ -8412,12 +8759,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                        ])
+                                        self.address = None
+                                        self.net_mask = None
                                         self._segment_path = lambda: "leaf-networks-deleted"
 
                                     def __setattr__(self, name, value):
@@ -8448,8 +8798,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"summary-external-event-summary" : ("summary_external_event_summary", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("summary-external-event-summary", ("summary_external_event_summary", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary))])
+                        self._leafs = OrderedDict()
 
                         self.summary_external_event_summary = YList(self)
                         self._segment_path = lambda: "summary-external-event-summaries"
@@ -8462,7 +8814,7 @@ class Rcmd(Entity):
                         """
                         OSPF Summary\-External Prefix Event data
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific Event ID
                         	**type**\: int
@@ -8578,32 +8930,35 @@ class Rcmd(Entity):
                             self.yang_parent_name = "summary-external-event-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime)}
-                            self._child_list_classes = {"path" : ("path", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path), "trigger-lsa" : ("trigger_lsa", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa), "time-line" : ("time_line", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine), "lsa-processed" : ("lsa_processed", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_lenth = YLeaf(YType.uint32, "prefix-lenth")
-
-                            self.spf_run_no = YLeaf(YType.uint32, "spf-run-no")
-
-                            self.ipfrr_event_id = YLeaf(YType.uint32, "ipfrr-event-id")
-
-                            self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                            self.route_type = YLeaf(YType.enumeration, "route-type")
-
-                            self.route_path_change_type = YLeaf(YType.enumeration, "route-path-change-type")
-
-                            self.cost = YLeaf(YType.uint32, "cost")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime))])
+                            self._child_list_classes = OrderedDict([("path", ("path", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path)), ("trigger-lsa", ("trigger_lsa", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa)), ("time-line", ("time_line", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine)), ("lsa-processed", ("lsa_processed", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_lenth', YLeaf(YType.uint32, 'prefix-lenth')),
+                                ('spf_run_no', YLeaf(YType.uint32, 'spf-run-no')),
+                                ('ipfrr_event_id', YLeaf(YType.uint32, 'ipfrr-event-id')),
+                                ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                ('route_path_change_type', YLeaf(YType.enumeration, 'route-path-change-type')),
+                                ('cost', YLeaf(YType.uint32, 'cost')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                            ])
+                            self.event_id = None
+                            self.prefix = None
+                            self.prefix_lenth = None
+                            self.spf_run_no = None
+                            self.ipfrr_event_id = None
+                            self.threshold_exceeded = None
+                            self.priority = None
+                            self.change_type = None
+                            self.route_type = None
+                            self.route_path_change_type = None
+                            self.cost = None
+                            self.trigger_time = None
 
                             self.ip_convergence_time = Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime()
                             self.ip_convergence_time.parent = self
@@ -8619,7 +8974,7 @@ class Rcmd(Entity):
                             self.trigger_lsa = YList(self)
                             self.time_line = YList(self)
                             self.lsa_processed = YList(self)
-                            self._segment_path = lambda: "summary-external-event-summary" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "summary-external-event-summary" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
@@ -8667,16 +9022,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "ip-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -8725,16 +9083,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "mpls-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -8788,16 +9149,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lfa-path" : ("lfa_path", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath)}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.path_metric = YLeaf(YType.uint32, "path-metric")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lfa-path", ("lfa_path", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath))])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                ])
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.change_type = None
+                                self.path_metric = None
 
                                 self.lfa_path = YList(self)
                                 self._segment_path = lambda: "path"
@@ -8860,20 +9224,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lfa_type = YLeaf(YType.enumeration, "lfa-type")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.path_metric = YLeaf(YType.uint32, "path-metric")
-
-                                    self.remote_node_id = YLeaf(YType.str, "remote-node-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lfa_type', YLeaf(YType.enumeration, 'lfa-type')),
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                        ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ])
+                                    self.lfa_type = None
+                                    self.interface_name = None
+                                    self.neighbour_address = None
+                                    self.change_type = None
+                                    self.path_metric = None
+                                    self.remote_node_id = None
                                     self._segment_path = lambda: "lfa-path"
 
                                 def __setattr__(self, name, value):
@@ -8932,20 +9299,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "trigger-lsa"
 
                             def __setattr__(self, name, value):
@@ -9020,24 +9390,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls)}
-
-                                self.route_origin = YLeaf(YType.str, "route-origin")
-
-                                self.ri_bv4_enter = YLeaf(YType.str, "ri-bv4-enter")
-
-                                self.ri_bv4_exit = YLeaf(YType.str, "ri-bv4-exit")
-
-                                self.ri_bv4_redistribute = YLeaf(YType.str, "ri-bv4-redistribute")
-
-                                self.ldp_enter = YLeaf(YType.str, "ldp-enter")
-
-                                self.ldp_exit = YLeaf(YType.str, "ldp-exit")
-
-                                self.lsd_enter = YLeaf(YType.str, "lsd-enter")
-
-                                self.lsd_exit = YLeaf(YType.str, "lsd-exit")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls))])
+                                self._leafs = OrderedDict([
+                                    ('route_origin', YLeaf(YType.str, 'route-origin')),
+                                    ('ri_bv4_enter', YLeaf(YType.str, 'ri-bv4-enter')),
+                                    ('ri_bv4_exit', YLeaf(YType.str, 'ri-bv4-exit')),
+                                    ('ri_bv4_redistribute', YLeaf(YType.str, 'ri-bv4-redistribute')),
+                                    ('ldp_enter', YLeaf(YType.str, 'ldp-enter')),
+                                    ('ldp_exit', YLeaf(YType.str, 'ldp-exit')),
+                                    ('lsd_enter', YLeaf(YType.str, 'lsd-enter')),
+                                    ('lsd_exit', YLeaf(YType.str, 'lsd-exit')),
+                                ])
+                                self.route_origin = None
+                                self.ri_bv4_enter = None
+                                self.ri_bv4_exit = None
+                                self.ri_bv4_redistribute = None
+                                self.ldp_enter = None
+                                self.ldp_exit = None
+                                self.lsd_enter = None
+                                self.lsd_exit = None
 
                                 self.lc_ip = YList(self)
                                 self.lc_mpls = YList(self)
@@ -9081,14 +9454,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-ip"
 
                                 def __setattr__(self, name, value):
@@ -9129,14 +9505,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-mpls"
 
                                 def __setattr__(self, name, value):
@@ -9195,20 +9574,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "lsa-processed"
 
                             def __setattr__(self, name, value):
@@ -9238,8 +9620,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix-event-summary" : ("prefix_event_summary", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("prefix-event-summary", ("prefix_event_summary", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary))])
+                        self._leafs = OrderedDict()
 
                         self.prefix_event_summary = YList(self)
                         self._segment_path = lambda: "prefix-event-summaries"
@@ -9252,7 +9636,7 @@ class Rcmd(Entity):
                         """
                         OSPF Prefix Event data
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific Event ID
                         	**type**\: int
@@ -9368,32 +9752,35 @@ class Rcmd(Entity):
                             self.yang_parent_name = "prefix-event-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime)}
-                            self._child_list_classes = {"path" : ("path", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path), "trigger-lsa" : ("trigger_lsa", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa), "time-line" : ("time_line", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine), "lsa-processed" : ("lsa_processed", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_lenth = YLeaf(YType.uint32, "prefix-lenth")
-
-                            self.spf_run_no = YLeaf(YType.uint32, "spf-run-no")
-
-                            self.ipfrr_event_id = YLeaf(YType.uint32, "ipfrr-event-id")
-
-                            self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                            self.route_type = YLeaf(YType.enumeration, "route-type")
-
-                            self.route_path_change_type = YLeaf(YType.enumeration, "route-path-change-type")
-
-                            self.cost = YLeaf(YType.uint32, "cost")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime))])
+                            self._child_list_classes = OrderedDict([("path", ("path", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path)), ("trigger-lsa", ("trigger_lsa", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa)), ("time-line", ("time_line", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine)), ("lsa-processed", ("lsa_processed", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_lenth', YLeaf(YType.uint32, 'prefix-lenth')),
+                                ('spf_run_no', YLeaf(YType.uint32, 'spf-run-no')),
+                                ('ipfrr_event_id', YLeaf(YType.uint32, 'ipfrr-event-id')),
+                                ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                ('route_path_change_type', YLeaf(YType.enumeration, 'route-path-change-type')),
+                                ('cost', YLeaf(YType.uint32, 'cost')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                            ])
+                            self.event_id = None
+                            self.prefix = None
+                            self.prefix_lenth = None
+                            self.spf_run_no = None
+                            self.ipfrr_event_id = None
+                            self.threshold_exceeded = None
+                            self.priority = None
+                            self.change_type = None
+                            self.route_type = None
+                            self.route_path_change_type = None
+                            self.cost = None
+                            self.trigger_time = None
 
                             self.ip_convergence_time = Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime()
                             self.ip_convergence_time.parent = self
@@ -9409,7 +9796,7 @@ class Rcmd(Entity):
                             self.trigger_lsa = YList(self)
                             self.time_line = YList(self)
                             self.lsa_processed = YList(self)
-                            self._segment_path = lambda: "prefix-event-summary" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "prefix-event-summary" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
@@ -9457,16 +9844,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "ip-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -9515,16 +9905,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "mpls-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -9578,16 +9971,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lfa-path" : ("lfa_path", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath)}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.path_metric = YLeaf(YType.uint32, "path-metric")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lfa-path", ("lfa_path", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath))])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                ])
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.change_type = None
+                                self.path_metric = None
 
                                 self.lfa_path = YList(self)
                                 self._segment_path = lambda: "path"
@@ -9650,20 +10046,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lfa_type = YLeaf(YType.enumeration, "lfa-type")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.path_metric = YLeaf(YType.uint32, "path-metric")
-
-                                    self.remote_node_id = YLeaf(YType.str, "remote-node-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lfa_type', YLeaf(YType.enumeration, 'lfa-type')),
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                        ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ])
+                                    self.lfa_type = None
+                                    self.interface_name = None
+                                    self.neighbour_address = None
+                                    self.change_type = None
+                                    self.path_metric = None
+                                    self.remote_node_id = None
                                     self._segment_path = lambda: "lfa-path"
 
                                 def __setattr__(self, name, value):
@@ -9722,20 +10121,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "trigger-lsa"
 
                             def __setattr__(self, name, value):
@@ -9810,24 +10212,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls)}
-
-                                self.route_origin = YLeaf(YType.str, "route-origin")
-
-                                self.ri_bv4_enter = YLeaf(YType.str, "ri-bv4-enter")
-
-                                self.ri_bv4_exit = YLeaf(YType.str, "ri-bv4-exit")
-
-                                self.ri_bv4_redistribute = YLeaf(YType.str, "ri-bv4-redistribute")
-
-                                self.ldp_enter = YLeaf(YType.str, "ldp-enter")
-
-                                self.ldp_exit = YLeaf(YType.str, "ldp-exit")
-
-                                self.lsd_enter = YLeaf(YType.str, "lsd-enter")
-
-                                self.lsd_exit = YLeaf(YType.str, "lsd-exit")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls))])
+                                self._leafs = OrderedDict([
+                                    ('route_origin', YLeaf(YType.str, 'route-origin')),
+                                    ('ri_bv4_enter', YLeaf(YType.str, 'ri-bv4-enter')),
+                                    ('ri_bv4_exit', YLeaf(YType.str, 'ri-bv4-exit')),
+                                    ('ri_bv4_redistribute', YLeaf(YType.str, 'ri-bv4-redistribute')),
+                                    ('ldp_enter', YLeaf(YType.str, 'ldp-enter')),
+                                    ('ldp_exit', YLeaf(YType.str, 'ldp-exit')),
+                                    ('lsd_enter', YLeaf(YType.str, 'lsd-enter')),
+                                    ('lsd_exit', YLeaf(YType.str, 'lsd-exit')),
+                                ])
+                                self.route_origin = None
+                                self.ri_bv4_enter = None
+                                self.ri_bv4_exit = None
+                                self.ri_bv4_redistribute = None
+                                self.ldp_enter = None
+                                self.ldp_exit = None
+                                self.lsd_enter = None
+                                self.lsd_exit = None
 
                                 self.lc_ip = YList(self)
                                 self.lc_mpls = YList(self)
@@ -9871,14 +10276,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-ip"
 
                                 def __setattr__(self, name, value):
@@ -9919,14 +10327,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-mpls"
 
                                 def __setattr__(self, name, value):
@@ -9985,20 +10396,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "lsa-processed"
 
                             def __setattr__(self, name, value):
@@ -10029,8 +10443,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"summary-external-event-offline" : ("summary_external_event_offline", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("summary-external-event-offline", ("summary_external_event_offline", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline))])
+                        self._leafs = OrderedDict()
 
                         self.summary_external_event_offline = YList(self)
                         self._segment_path = lambda: "summary-external-event-offlines"
@@ -10044,7 +10460,7 @@ class Rcmd(Entity):
                         Offline operational data for particular OSPF
                         Prefix Event
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific Event ID
                         	**type**\: int
@@ -10160,32 +10576,35 @@ class Rcmd(Entity):
                             self.yang_parent_name = "summary-external-event-offlines"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime)}
-                            self._child_list_classes = {"path" : ("path", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path), "trigger-lsa" : ("trigger_lsa", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa), "time-line" : ("time_line", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine), "lsa-processed" : ("lsa_processed", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_lenth = YLeaf(YType.uint32, "prefix-lenth")
-
-                            self.spf_run_no = YLeaf(YType.uint32, "spf-run-no")
-
-                            self.ipfrr_event_id = YLeaf(YType.uint32, "ipfrr-event-id")
-
-                            self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                            self.route_type = YLeaf(YType.enumeration, "route-type")
-
-                            self.route_path_change_type = YLeaf(YType.enumeration, "route-path-change-type")
-
-                            self.cost = YLeaf(YType.uint32, "cost")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime))])
+                            self._child_list_classes = OrderedDict([("path", ("path", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path)), ("trigger-lsa", ("trigger_lsa", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa)), ("time-line", ("time_line", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine)), ("lsa-processed", ("lsa_processed", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_lenth', YLeaf(YType.uint32, 'prefix-lenth')),
+                                ('spf_run_no', YLeaf(YType.uint32, 'spf-run-no')),
+                                ('ipfrr_event_id', YLeaf(YType.uint32, 'ipfrr-event-id')),
+                                ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                ('route_path_change_type', YLeaf(YType.enumeration, 'route-path-change-type')),
+                                ('cost', YLeaf(YType.uint32, 'cost')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                            ])
+                            self.event_id = None
+                            self.prefix = None
+                            self.prefix_lenth = None
+                            self.spf_run_no = None
+                            self.ipfrr_event_id = None
+                            self.threshold_exceeded = None
+                            self.priority = None
+                            self.change_type = None
+                            self.route_type = None
+                            self.route_path_change_type = None
+                            self.cost = None
+                            self.trigger_time = None
 
                             self.ip_convergence_time = Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime()
                             self.ip_convergence_time.parent = self
@@ -10201,7 +10620,7 @@ class Rcmd(Entity):
                             self.trigger_lsa = YList(self)
                             self.time_line = YList(self)
                             self.lsa_processed = YList(self)
-                            self._segment_path = lambda: "summary-external-event-offline" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "summary-external-event-offline" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
@@ -10249,16 +10668,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "ip-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -10307,16 +10729,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "mpls-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -10370,16 +10795,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lfa-path" : ("lfa_path", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath)}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.path_metric = YLeaf(YType.uint32, "path-metric")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lfa-path", ("lfa_path", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath))])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                ])
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.change_type = None
+                                self.path_metric = None
 
                                 self.lfa_path = YList(self)
                                 self._segment_path = lambda: "path"
@@ -10442,20 +10870,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lfa_type = YLeaf(YType.enumeration, "lfa-type")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.path_metric = YLeaf(YType.uint32, "path-metric")
-
-                                    self.remote_node_id = YLeaf(YType.str, "remote-node-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lfa_type', YLeaf(YType.enumeration, 'lfa-type')),
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                        ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ])
+                                    self.lfa_type = None
+                                    self.interface_name = None
+                                    self.neighbour_address = None
+                                    self.change_type = None
+                                    self.path_metric = None
+                                    self.remote_node_id = None
                                     self._segment_path = lambda: "lfa-path"
 
                                 def __setattr__(self, name, value):
@@ -10514,20 +10945,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "trigger-lsa"
 
                             def __setattr__(self, name, value):
@@ -10602,24 +11036,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls)}
-
-                                self.route_origin = YLeaf(YType.str, "route-origin")
-
-                                self.ri_bv4_enter = YLeaf(YType.str, "ri-bv4-enter")
-
-                                self.ri_bv4_exit = YLeaf(YType.str, "ri-bv4-exit")
-
-                                self.ri_bv4_redistribute = YLeaf(YType.str, "ri-bv4-redistribute")
-
-                                self.ldp_enter = YLeaf(YType.str, "ldp-enter")
-
-                                self.ldp_exit = YLeaf(YType.str, "ldp-exit")
-
-                                self.lsd_enter = YLeaf(YType.str, "lsd-enter")
-
-                                self.lsd_exit = YLeaf(YType.str, "lsd-exit")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls))])
+                                self._leafs = OrderedDict([
+                                    ('route_origin', YLeaf(YType.str, 'route-origin')),
+                                    ('ri_bv4_enter', YLeaf(YType.str, 'ri-bv4-enter')),
+                                    ('ri_bv4_exit', YLeaf(YType.str, 'ri-bv4-exit')),
+                                    ('ri_bv4_redistribute', YLeaf(YType.str, 'ri-bv4-redistribute')),
+                                    ('ldp_enter', YLeaf(YType.str, 'ldp-enter')),
+                                    ('ldp_exit', YLeaf(YType.str, 'ldp-exit')),
+                                    ('lsd_enter', YLeaf(YType.str, 'lsd-enter')),
+                                    ('lsd_exit', YLeaf(YType.str, 'lsd-exit')),
+                                ])
+                                self.route_origin = None
+                                self.ri_bv4_enter = None
+                                self.ri_bv4_exit = None
+                                self.ri_bv4_redistribute = None
+                                self.ldp_enter = None
+                                self.ldp_exit = None
+                                self.lsd_enter = None
+                                self.lsd_exit = None
 
                                 self.lc_ip = YList(self)
                                 self.lc_mpls = YList(self)
@@ -10663,14 +11100,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-ip"
 
                                 def __setattr__(self, name, value):
@@ -10711,14 +11151,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-mpls"
 
                                 def __setattr__(self, name, value):
@@ -10777,20 +11220,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "summary-external-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "lsa-processed"
 
                             def __setattr__(self, name, value):
@@ -10820,8 +11266,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix-event-offline" : ("prefix_event_offline", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("prefix-event-offline", ("prefix_event_offline", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline))])
+                        self._leafs = OrderedDict()
 
                         self.prefix_event_offline = YList(self)
                         self._segment_path = lambda: "prefix-event-offlines"
@@ -10835,7 +11283,7 @@ class Rcmd(Entity):
                         Offline operational data for particular OSPF
                         Prefix Event
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific Event ID
                         	**type**\: int
@@ -10951,32 +11399,35 @@ class Rcmd(Entity):
                             self.yang_parent_name = "prefix-event-offlines"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ip-convergence-time" : ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime)}
-                            self._child_list_classes = {"path" : ("path", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path), "trigger-lsa" : ("trigger_lsa", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa), "time-line" : ("time_line", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine), "lsa-processed" : ("lsa_processed", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_lenth = YLeaf(YType.uint32, "prefix-lenth")
-
-                            self.spf_run_no = YLeaf(YType.uint32, "spf-run-no")
-
-                            self.ipfrr_event_id = YLeaf(YType.uint32, "ipfrr-event-id")
-
-                            self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                            self.route_type = YLeaf(YType.enumeration, "route-type")
-
-                            self.route_path_change_type = YLeaf(YType.enumeration, "route-path-change-type")
-
-                            self.cost = YLeaf(YType.uint32, "cost")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([("ip-convergence-time", ("ip_convergence_time", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime))])
+                            self._child_list_classes = OrderedDict([("path", ("path", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path)), ("trigger-lsa", ("trigger_lsa", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa)), ("time-line", ("time_line", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine)), ("lsa-processed", ("lsa_processed", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_lenth', YLeaf(YType.uint32, 'prefix-lenth')),
+                                ('spf_run_no', YLeaf(YType.uint32, 'spf-run-no')),
+                                ('ipfrr_event_id', YLeaf(YType.uint32, 'ipfrr-event-id')),
+                                ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                ('route_path_change_type', YLeaf(YType.enumeration, 'route-path-change-type')),
+                                ('cost', YLeaf(YType.uint32, 'cost')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                            ])
+                            self.event_id = None
+                            self.prefix = None
+                            self.prefix_lenth = None
+                            self.spf_run_no = None
+                            self.ipfrr_event_id = None
+                            self.threshold_exceeded = None
+                            self.priority = None
+                            self.change_type = None
+                            self.route_type = None
+                            self.route_path_change_type = None
+                            self.cost = None
+                            self.trigger_time = None
 
                             self.ip_convergence_time = Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime()
                             self.ip_convergence_time.parent = self
@@ -10992,7 +11443,7 @@ class Rcmd(Entity):
                             self.trigger_lsa = YList(self)
                             self.time_line = YList(self)
                             self.lsa_processed = YList(self)
-                            self._segment_path = lambda: "prefix-event-offline" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "prefix-event-offline" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
@@ -11040,16 +11491,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "ip-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -11098,16 +11552,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "mpls-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -11161,16 +11618,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lfa-path" : ("lfa_path", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath)}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.path_metric = YLeaf(YType.uint32, "path-metric")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lfa-path", ("lfa_path", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath))])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                ])
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.change_type = None
+                                self.path_metric = None
 
                                 self.lfa_path = YList(self)
                                 self._segment_path = lambda: "path"
@@ -11233,20 +11693,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lfa_type = YLeaf(YType.enumeration, "lfa-type")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.path_metric = YLeaf(YType.uint32, "path-metric")
-
-                                    self.remote_node_id = YLeaf(YType.str, "remote-node-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lfa_type', YLeaf(YType.enumeration, 'lfa-type')),
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                        ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ])
+                                    self.lfa_type = None
+                                    self.interface_name = None
+                                    self.neighbour_address = None
+                                    self.change_type = None
+                                    self.path_metric = None
+                                    self.remote_node_id = None
                                     self._segment_path = lambda: "lfa-path"
 
                                 def __setattr__(self, name, value):
@@ -11305,20 +11768,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "trigger-lsa"
 
                             def __setattr__(self, name, value):
@@ -11393,24 +11859,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls)}
-
-                                self.route_origin = YLeaf(YType.str, "route-origin")
-
-                                self.ri_bv4_enter = YLeaf(YType.str, "ri-bv4-enter")
-
-                                self.ri_bv4_exit = YLeaf(YType.str, "ri-bv4-exit")
-
-                                self.ri_bv4_redistribute = YLeaf(YType.str, "ri-bv4-redistribute")
-
-                                self.ldp_enter = YLeaf(YType.str, "ldp-enter")
-
-                                self.ldp_exit = YLeaf(YType.str, "ldp-exit")
-
-                                self.lsd_enter = YLeaf(YType.str, "lsd-enter")
-
-                                self.lsd_exit = YLeaf(YType.str, "lsd-exit")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls))])
+                                self._leafs = OrderedDict([
+                                    ('route_origin', YLeaf(YType.str, 'route-origin')),
+                                    ('ri_bv4_enter', YLeaf(YType.str, 'ri-bv4-enter')),
+                                    ('ri_bv4_exit', YLeaf(YType.str, 'ri-bv4-exit')),
+                                    ('ri_bv4_redistribute', YLeaf(YType.str, 'ri-bv4-redistribute')),
+                                    ('ldp_enter', YLeaf(YType.str, 'ldp-enter')),
+                                    ('ldp_exit', YLeaf(YType.str, 'ldp-exit')),
+                                    ('lsd_enter', YLeaf(YType.str, 'lsd-enter')),
+                                    ('lsd_exit', YLeaf(YType.str, 'lsd-exit')),
+                                ])
+                                self.route_origin = None
+                                self.ri_bv4_enter = None
+                                self.ri_bv4_exit = None
+                                self.ri_bv4_redistribute = None
+                                self.ldp_enter = None
+                                self.ldp_exit = None
+                                self.lsd_enter = None
+                                self.lsd_exit = None
 
                                 self.lc_ip = YList(self)
                                 self.lc_mpls = YList(self)
@@ -11454,14 +11923,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-ip"
 
                                 def __setattr__(self, name, value):
@@ -11502,14 +11974,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-mpls"
 
                                 def __setattr__(self, name, value):
@@ -11568,20 +12043,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "lsa-processed"
 
                             def __setattr__(self, name, value):
@@ -11718,40 +12196,43 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.inter_area_routes = YLeaf(YType.uint32, "inter-area-routes")
-
-                        self.inter_area_added = YLeaf(YType.uint32, "inter-area-added")
-
-                        self.inter_area_modified = YLeaf(YType.uint32, "inter-area-modified")
-
-                        self.inter_area_deleted = YLeaf(YType.uint32, "inter-area-deleted")
-
-                        self.inter_area_critical = YLeaf(YType.uint32, "inter-area-critical")
-
-                        self.inter_area_high = YLeaf(YType.uint32, "inter-area-high")
-
-                        self.inter_area_medium = YLeaf(YType.uint32, "inter-area-medium")
-
-                        self.inter_area_low = YLeaf(YType.uint32, "inter-area-low")
-
-                        self.external_routes = YLeaf(YType.uint32, "external-routes")
-
-                        self.external_added = YLeaf(YType.uint32, "external-added")
-
-                        self.external_modified = YLeaf(YType.uint32, "external-modified")
-
-                        self.external_deleted = YLeaf(YType.uint32, "external-deleted")
-
-                        self.external_critical = YLeaf(YType.uint32, "external-critical")
-
-                        self.external_high = YLeaf(YType.uint32, "external-high")
-
-                        self.external_medium = YLeaf(YType.uint32, "external-medium")
-
-                        self.external_low = YLeaf(YType.uint32, "external-low")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('inter_area_routes', YLeaf(YType.uint32, 'inter-area-routes')),
+                            ('inter_area_added', YLeaf(YType.uint32, 'inter-area-added')),
+                            ('inter_area_modified', YLeaf(YType.uint32, 'inter-area-modified')),
+                            ('inter_area_deleted', YLeaf(YType.uint32, 'inter-area-deleted')),
+                            ('inter_area_critical', YLeaf(YType.uint32, 'inter-area-critical')),
+                            ('inter_area_high', YLeaf(YType.uint32, 'inter-area-high')),
+                            ('inter_area_medium', YLeaf(YType.uint32, 'inter-area-medium')),
+                            ('inter_area_low', YLeaf(YType.uint32, 'inter-area-low')),
+                            ('external_routes', YLeaf(YType.uint32, 'external-routes')),
+                            ('external_added', YLeaf(YType.uint32, 'external-added')),
+                            ('external_modified', YLeaf(YType.uint32, 'external-modified')),
+                            ('external_deleted', YLeaf(YType.uint32, 'external-deleted')),
+                            ('external_critical', YLeaf(YType.uint32, 'external-critical')),
+                            ('external_high', YLeaf(YType.uint32, 'external-high')),
+                            ('external_medium', YLeaf(YType.uint32, 'external-medium')),
+                            ('external_low', YLeaf(YType.uint32, 'external-low')),
+                        ])
+                        self.inter_area_routes = None
+                        self.inter_area_added = None
+                        self.inter_area_modified = None
+                        self.inter_area_deleted = None
+                        self.inter_area_critical = None
+                        self.inter_area_high = None
+                        self.inter_area_medium = None
+                        self.inter_area_low = None
+                        self.external_routes = None
+                        self.external_added = None
+                        self.external_modified = None
+                        self.external_deleted = None
+                        self.external_critical = None
+                        self.external_high = None
+                        self.external_medium = None
+                        self.external_low = None
                         self._segment_path = lambda: "summary-external-event-statistics"
 
                     def __setattr__(self, name, value):
@@ -11786,8 +12267,10 @@ class Rcmd(Entity):
             self.yang_parent_name = "rcmd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"normal" : ("normal", Rcmd.Server.Normal), "detail" : ("detail", Rcmd.Server.Detail)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("normal", ("normal", Rcmd.Server.Normal)), ("detail", ("detail", Rcmd.Server.Detail))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.normal = Rcmd.Server.Normal()
             self.normal.parent = self
@@ -11988,60 +12471,63 @@ class Rcmd(Entity):
                 self.yang_parent_name = "server"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"protocol-config" : ("protocol_config", Rcmd.Server.Normal.ProtocolConfig), "server-detail" : ("server_detail", Rcmd.Server.Normal.ServerDetail)}
-
-                self.host_name = YLeaf(YType.str, "host-name")
-
-                self.status = YLeaf(YType.enumeration, "status")
-
-                self.max_events = YLeaf(YType.uint32, "max-events")
-
-                self.event_buffer_size = YLeaf(YType.uint32, "event-buffer-size")
-
-                self.monitoring_interval = YLeaf(YType.uint32, "monitoring-interval")
-
-                self.next_interval = YLeaf(YType.uint32, "next-interval")
-
-                self.max_interface_count = YLeaf(YType.uint32, "max-interface-count")
-
-                self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                self.node_rp_count = YLeaf(YType.uint32, "node-rp-count")
-
-                self.node_lc_count = YLeaf(YType.uint32, "node-lc-count")
-
-                self.diag_node_count = YLeaf(YType.uint32, "diag-node-count")
-
-                self.disabled_node_count = YLeaf(YType.uint32, "disabled-node-count")
-
-                self.in_active_node_count = YLeaf(YType.uint32, "in-active-node-count")
-
-                self.last_process_start_time = YLeaf(YType.str, "last-process-start-time")
-
-                self.last_process_duration = YLeaf(YType.str, "last-process-duration")
-
-                self.last_process_state = YLeaf(YType.enumeration, "last-process-state")
-
-                self.process_count = YLeaf(YType.uint32, "process-count")
-
-                self.spf_process_count = YLeaf(YType.uint32, "spf-process-count")
-
-                self.reports_archive_path = YLeaf(YType.str, "reports-archive-path")
-
-                self.reports_archive_node = YLeaf(YType.str, "reports-archive-node")
-
-                self.last_archival_status = YLeaf(YType.str, "last-archival-status")
-
-                self.last_archival_error = YLeaf(YType.str, "last-archival-error")
-
-                self.last_archival_error_time = YLeaf(YType.str, "last-archival-error-time")
-
-                self.archive_count = YLeaf(YType.uint32, "archive-count")
-
-                self.diagnostics_archive_path = YLeaf(YType.str, "diagnostics-archive-path")
-
-                self.diagnostics_archive_node = YLeaf(YType.str, "diagnostics-archive-node")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("protocol-config", ("protocol_config", Rcmd.Server.Normal.ProtocolConfig)), ("server-detail", ("server_detail", Rcmd.Server.Normal.ServerDetail))])
+                self._leafs = OrderedDict([
+                    ('host_name', YLeaf(YType.str, 'host-name')),
+                    ('status', YLeaf(YType.enumeration, 'status')),
+                    ('max_events', YLeaf(YType.uint32, 'max-events')),
+                    ('event_buffer_size', YLeaf(YType.uint32, 'event-buffer-size')),
+                    ('monitoring_interval', YLeaf(YType.uint32, 'monitoring-interval')),
+                    ('next_interval', YLeaf(YType.uint32, 'next-interval')),
+                    ('max_interface_count', YLeaf(YType.uint32, 'max-interface-count')),
+                    ('interface_count', YLeaf(YType.uint32, 'interface-count')),
+                    ('node_rp_count', YLeaf(YType.uint32, 'node-rp-count')),
+                    ('node_lc_count', YLeaf(YType.uint32, 'node-lc-count')),
+                    ('diag_node_count', YLeaf(YType.uint32, 'diag-node-count')),
+                    ('disabled_node_count', YLeaf(YType.uint32, 'disabled-node-count')),
+                    ('in_active_node_count', YLeaf(YType.uint32, 'in-active-node-count')),
+                    ('last_process_start_time', YLeaf(YType.str, 'last-process-start-time')),
+                    ('last_process_duration', YLeaf(YType.str, 'last-process-duration')),
+                    ('last_process_state', YLeaf(YType.enumeration, 'last-process-state')),
+                    ('process_count', YLeaf(YType.uint32, 'process-count')),
+                    ('spf_process_count', YLeaf(YType.uint32, 'spf-process-count')),
+                    ('reports_archive_path', YLeaf(YType.str, 'reports-archive-path')),
+                    ('reports_archive_node', YLeaf(YType.str, 'reports-archive-node')),
+                    ('last_archival_status', YLeaf(YType.str, 'last-archival-status')),
+                    ('last_archival_error', YLeaf(YType.str, 'last-archival-error')),
+                    ('last_archival_error_time', YLeaf(YType.str, 'last-archival-error-time')),
+                    ('archive_count', YLeaf(YType.uint32, 'archive-count')),
+                    ('diagnostics_archive_path', YLeaf(YType.str, 'diagnostics-archive-path')),
+                    ('diagnostics_archive_node', YLeaf(YType.str, 'diagnostics-archive-node')),
+                ])
+                self.host_name = None
+                self.status = None
+                self.max_events = None
+                self.event_buffer_size = None
+                self.monitoring_interval = None
+                self.next_interval = None
+                self.max_interface_count = None
+                self.interface_count = None
+                self.node_rp_count = None
+                self.node_lc_count = None
+                self.diag_node_count = None
+                self.disabled_node_count = None
+                self.in_active_node_count = None
+                self.last_process_start_time = None
+                self.last_process_duration = None
+                self.last_process_state = None
+                self.process_count = None
+                self.spf_process_count = None
+                self.reports_archive_path = None
+                self.reports_archive_node = None
+                self.last_archival_status = None
+                self.last_archival_error = None
+                self.last_archival_error_time = None
+                self.archive_count = None
+                self.diagnostics_archive_path = None
+                self.diagnostics_archive_node = None
 
                 self.protocol_config = YList(self)
                 self.server_detail = YList(self)
@@ -12080,10 +12566,13 @@ class Rcmd(Entity):
                     self.yang_parent_name = "normal"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"priority" : ("priority", Rcmd.Server.Normal.ProtocolConfig.Priority)}
-
-                    self.protocol_name = YLeaf(YType.str, "protocol-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("priority", ("priority", Rcmd.Server.Normal.ProtocolConfig.Priority))])
+                    self._leafs = OrderedDict([
+                        ('protocol_name', YLeaf(YType.str, 'protocol-name')),
+                    ])
+                    self.protocol_name = None
 
                     self.priority = YList(self)
                     self._segment_path = lambda: "protocol-config"
@@ -12128,14 +12617,17 @@ class Rcmd(Entity):
                         self.yang_parent_name = "protocol-config"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.priority_name = YLeaf(YType.enumeration, "priority-name")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
-
-                        self.disable = YLeaf(YType.enumeration, "disable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('priority_name', YLeaf(YType.enumeration, 'priority-name')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('disable', YLeaf(YType.enumeration, 'disable')),
+                        ])
+                        self.priority_name = None
+                        self.threshold = None
+                        self.disable = None
                         self._segment_path = lambda: "priority"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/normal/protocol-config/%s" % self._segment_path()
 
@@ -12180,12 +12672,15 @@ class Rcmd(Entity):
                     self.yang_parent_name = "normal"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"trace-information" : ("trace_information", Rcmd.Server.Normal.ServerDetail.TraceInformation)}
-
-                    self.overload_suspend = YLeaf(YType.uint32, "overload-suspend")
-
-                    self.memory_suspend = YLeaf(YType.uint32, "memory-suspend")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("trace-information", ("trace_information", Rcmd.Server.Normal.ServerDetail.TraceInformation))])
+                    self._leafs = OrderedDict([
+                        ('overload_suspend', YLeaf(YType.uint32, 'overload-suspend')),
+                        ('memory_suspend', YLeaf(YType.uint32, 'memory-suspend')),
+                    ])
+                    self.overload_suspend = None
+                    self.memory_suspend = None
 
                     self.trace_information = YList(self)
                     self._segment_path = lambda: "server-detail"
@@ -12239,16 +12734,19 @@ class Rcmd(Entity):
                         self.yang_parent_name = "server-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.trace_name = YLeaf(YType.str, "trace-name")
-
-                        self.total_stats = YLeaf(YType.uint32, "total-stats")
-
-                        self.last_run_stats = YLeaf(YType.uint32, "last-run-stats")
-
-                        self.error_stats = YLeaf(YType.uint32, "error-stats")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('trace_name', YLeaf(YType.str, 'trace-name')),
+                            ('total_stats', YLeaf(YType.uint32, 'total-stats')),
+                            ('last_run_stats', YLeaf(YType.uint32, 'last-run-stats')),
+                            ('error_stats', YLeaf(YType.uint32, 'error-stats')),
+                        ])
+                        self.trace_name = None
+                        self.total_stats = None
+                        self.last_run_stats = None
+                        self.error_stats = None
                         self._segment_path = lambda: "trace-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/normal/server-detail/%s" % self._segment_path()
 
@@ -12442,60 +12940,63 @@ class Rcmd(Entity):
                 self.yang_parent_name = "server"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"protocol-config" : ("protocol_config", Rcmd.Server.Detail.ProtocolConfig), "server-detail" : ("server_detail", Rcmd.Server.Detail.ServerDetail)}
-
-                self.host_name = YLeaf(YType.str, "host-name")
-
-                self.status = YLeaf(YType.enumeration, "status")
-
-                self.max_events = YLeaf(YType.uint32, "max-events")
-
-                self.event_buffer_size = YLeaf(YType.uint32, "event-buffer-size")
-
-                self.monitoring_interval = YLeaf(YType.uint32, "monitoring-interval")
-
-                self.next_interval = YLeaf(YType.uint32, "next-interval")
-
-                self.max_interface_count = YLeaf(YType.uint32, "max-interface-count")
-
-                self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                self.node_rp_count = YLeaf(YType.uint32, "node-rp-count")
-
-                self.node_lc_count = YLeaf(YType.uint32, "node-lc-count")
-
-                self.diag_node_count = YLeaf(YType.uint32, "diag-node-count")
-
-                self.disabled_node_count = YLeaf(YType.uint32, "disabled-node-count")
-
-                self.in_active_node_count = YLeaf(YType.uint32, "in-active-node-count")
-
-                self.last_process_start_time = YLeaf(YType.str, "last-process-start-time")
-
-                self.last_process_duration = YLeaf(YType.str, "last-process-duration")
-
-                self.last_process_state = YLeaf(YType.enumeration, "last-process-state")
-
-                self.process_count = YLeaf(YType.uint32, "process-count")
-
-                self.spf_process_count = YLeaf(YType.uint32, "spf-process-count")
-
-                self.reports_archive_path = YLeaf(YType.str, "reports-archive-path")
-
-                self.reports_archive_node = YLeaf(YType.str, "reports-archive-node")
-
-                self.last_archival_status = YLeaf(YType.str, "last-archival-status")
-
-                self.last_archival_error = YLeaf(YType.str, "last-archival-error")
-
-                self.last_archival_error_time = YLeaf(YType.str, "last-archival-error-time")
-
-                self.archive_count = YLeaf(YType.uint32, "archive-count")
-
-                self.diagnostics_archive_path = YLeaf(YType.str, "diagnostics-archive-path")
-
-                self.diagnostics_archive_node = YLeaf(YType.str, "diagnostics-archive-node")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("protocol-config", ("protocol_config", Rcmd.Server.Detail.ProtocolConfig)), ("server-detail", ("server_detail", Rcmd.Server.Detail.ServerDetail))])
+                self._leafs = OrderedDict([
+                    ('host_name', YLeaf(YType.str, 'host-name')),
+                    ('status', YLeaf(YType.enumeration, 'status')),
+                    ('max_events', YLeaf(YType.uint32, 'max-events')),
+                    ('event_buffer_size', YLeaf(YType.uint32, 'event-buffer-size')),
+                    ('monitoring_interval', YLeaf(YType.uint32, 'monitoring-interval')),
+                    ('next_interval', YLeaf(YType.uint32, 'next-interval')),
+                    ('max_interface_count', YLeaf(YType.uint32, 'max-interface-count')),
+                    ('interface_count', YLeaf(YType.uint32, 'interface-count')),
+                    ('node_rp_count', YLeaf(YType.uint32, 'node-rp-count')),
+                    ('node_lc_count', YLeaf(YType.uint32, 'node-lc-count')),
+                    ('diag_node_count', YLeaf(YType.uint32, 'diag-node-count')),
+                    ('disabled_node_count', YLeaf(YType.uint32, 'disabled-node-count')),
+                    ('in_active_node_count', YLeaf(YType.uint32, 'in-active-node-count')),
+                    ('last_process_start_time', YLeaf(YType.str, 'last-process-start-time')),
+                    ('last_process_duration', YLeaf(YType.str, 'last-process-duration')),
+                    ('last_process_state', YLeaf(YType.enumeration, 'last-process-state')),
+                    ('process_count', YLeaf(YType.uint32, 'process-count')),
+                    ('spf_process_count', YLeaf(YType.uint32, 'spf-process-count')),
+                    ('reports_archive_path', YLeaf(YType.str, 'reports-archive-path')),
+                    ('reports_archive_node', YLeaf(YType.str, 'reports-archive-node')),
+                    ('last_archival_status', YLeaf(YType.str, 'last-archival-status')),
+                    ('last_archival_error', YLeaf(YType.str, 'last-archival-error')),
+                    ('last_archival_error_time', YLeaf(YType.str, 'last-archival-error-time')),
+                    ('archive_count', YLeaf(YType.uint32, 'archive-count')),
+                    ('diagnostics_archive_path', YLeaf(YType.str, 'diagnostics-archive-path')),
+                    ('diagnostics_archive_node', YLeaf(YType.str, 'diagnostics-archive-node')),
+                ])
+                self.host_name = None
+                self.status = None
+                self.max_events = None
+                self.event_buffer_size = None
+                self.monitoring_interval = None
+                self.next_interval = None
+                self.max_interface_count = None
+                self.interface_count = None
+                self.node_rp_count = None
+                self.node_lc_count = None
+                self.diag_node_count = None
+                self.disabled_node_count = None
+                self.in_active_node_count = None
+                self.last_process_start_time = None
+                self.last_process_duration = None
+                self.last_process_state = None
+                self.process_count = None
+                self.spf_process_count = None
+                self.reports_archive_path = None
+                self.reports_archive_node = None
+                self.last_archival_status = None
+                self.last_archival_error = None
+                self.last_archival_error_time = None
+                self.archive_count = None
+                self.diagnostics_archive_path = None
+                self.diagnostics_archive_node = None
 
                 self.protocol_config = YList(self)
                 self.server_detail = YList(self)
@@ -12534,10 +13035,13 @@ class Rcmd(Entity):
                     self.yang_parent_name = "detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"priority" : ("priority", Rcmd.Server.Detail.ProtocolConfig.Priority)}
-
-                    self.protocol_name = YLeaf(YType.str, "protocol-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("priority", ("priority", Rcmd.Server.Detail.ProtocolConfig.Priority))])
+                    self._leafs = OrderedDict([
+                        ('protocol_name', YLeaf(YType.str, 'protocol-name')),
+                    ])
+                    self.protocol_name = None
 
                     self.priority = YList(self)
                     self._segment_path = lambda: "protocol-config"
@@ -12582,14 +13086,17 @@ class Rcmd(Entity):
                         self.yang_parent_name = "protocol-config"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.priority_name = YLeaf(YType.enumeration, "priority-name")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
-
-                        self.disable = YLeaf(YType.enumeration, "disable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('priority_name', YLeaf(YType.enumeration, 'priority-name')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('disable', YLeaf(YType.enumeration, 'disable')),
+                        ])
+                        self.priority_name = None
+                        self.threshold = None
+                        self.disable = None
                         self._segment_path = lambda: "priority"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/detail/protocol-config/%s" % self._segment_path()
 
@@ -12634,12 +13141,15 @@ class Rcmd(Entity):
                     self.yang_parent_name = "detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"trace-information" : ("trace_information", Rcmd.Server.Detail.ServerDetail.TraceInformation)}
-
-                    self.overload_suspend = YLeaf(YType.uint32, "overload-suspend")
-
-                    self.memory_suspend = YLeaf(YType.uint32, "memory-suspend")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("trace-information", ("trace_information", Rcmd.Server.Detail.ServerDetail.TraceInformation))])
+                    self._leafs = OrderedDict([
+                        ('overload_suspend', YLeaf(YType.uint32, 'overload-suspend')),
+                        ('memory_suspend', YLeaf(YType.uint32, 'memory-suspend')),
+                    ])
+                    self.overload_suspend = None
+                    self.memory_suspend = None
 
                     self.trace_information = YList(self)
                     self._segment_path = lambda: "server-detail"
@@ -12693,16 +13203,19 @@ class Rcmd(Entity):
                         self.yang_parent_name = "server-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.trace_name = YLeaf(YType.str, "trace-name")
-
-                        self.total_stats = YLeaf(YType.uint32, "total-stats")
-
-                        self.last_run_stats = YLeaf(YType.uint32, "last-run-stats")
-
-                        self.error_stats = YLeaf(YType.uint32, "error-stats")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('trace_name', YLeaf(YType.str, 'trace-name')),
+                            ('total_stats', YLeaf(YType.uint32, 'total-stats')),
+                            ('last_run_stats', YLeaf(YType.uint32, 'last-run-stats')),
+                            ('error_stats', YLeaf(YType.uint32, 'error-stats')),
+                        ])
+                        self.trace_name = None
+                        self.total_stats = None
+                        self.last_run_stats = None
+                        self.error_stats = None
                         self._segment_path = lambda: "trace-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/server/detail/server-detail/%s" % self._segment_path()
 
@@ -12733,8 +13246,10 @@ class Rcmd(Entity):
             self.yang_parent_name = "rcmd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node-information" : ("node_information", Rcmd.Node.NodeInformation)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node-information", ("node_information", Rcmd.Node.NodeInformation))])
+            self._leafs = OrderedDict()
 
             self.node_information = YList(self)
             self._segment_path = lambda: "node"
@@ -12834,32 +13349,35 @@ class Rcmd(Entity):
                 self.yang_parent_name = "node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.node_id = YLeaf(YType.uint32, "node-id")
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.rack_id = YLeaf(YType.uint32, "rack-id")
-
-                self.last_update_time = YLeaf(YType.str, "last-update-time")
-
-                self.fwd_referenced = YLeaf(YType.enumeration, "fwd-referenced")
-
-                self.node_type = YLeaf(YType.enumeration, "node-type")
-
-                self.software_state = YLeaf(YType.uint32, "software-state")
-
-                self.card_state = YLeaf(YType.uint32, "card-state")
-
-                self.node_state = YLeaf(YType.enumeration, "node-state")
-
-                self.status = YLeaf(YType.enumeration, "status")
-
-                self.diag_mode = YLeaf(YType.uint32, "diag-mode")
-
-                self.redundancy_state = YLeaf(YType.uint32, "redundancy-state")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_id', YLeaf(YType.uint32, 'node-id')),
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('rack_id', YLeaf(YType.uint32, 'rack-id')),
+                    ('last_update_time', YLeaf(YType.str, 'last-update-time')),
+                    ('fwd_referenced', YLeaf(YType.enumeration, 'fwd-referenced')),
+                    ('node_type', YLeaf(YType.enumeration, 'node-type')),
+                    ('software_state', YLeaf(YType.uint32, 'software-state')),
+                    ('card_state', YLeaf(YType.uint32, 'card-state')),
+                    ('node_state', YLeaf(YType.enumeration, 'node-state')),
+                    ('status', YLeaf(YType.enumeration, 'status')),
+                    ('diag_mode', YLeaf(YType.uint32, 'diag-mode')),
+                    ('redundancy_state', YLeaf(YType.uint32, 'redundancy-state')),
+                ])
+                self.node_id = None
+                self.node_name = None
+                self.rack_id = None
+                self.last_update_time = None
+                self.fwd_referenced = None
+                self.node_type = None
+                self.software_state = None
+                self.card_state = None
+                self.node_state = None
+                self.status = None
+                self.diag_mode = None
+                self.redundancy_state = None
                 self._segment_path = lambda: "node-information"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/node/%s" % self._segment_path()
 
@@ -12890,8 +13408,10 @@ class Rcmd(Entity):
             self.yang_parent_name = "rcmd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"instances" : ("instances", Rcmd.Isis.Instances)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("instances", ("instances", Rcmd.Isis.Instances))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.instances = Rcmd.Isis.Instances()
             self.instances.parent = self
@@ -12924,8 +13444,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "isis"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"instance" : ("instance", Rcmd.Isis.Instances.Instance)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("instance", ("instance", Rcmd.Isis.Instances.Instance))])
+                self._leafs = OrderedDict()
 
                 self.instance = YList(self)
                 self._segment_path = lambda: "instances"
@@ -12939,7 +13461,7 @@ class Rcmd(Entity):
                 """
                 Operational data for a particular instance
                 
-                .. attribute:: instance_name  <key>
+                .. attribute:: instance_name  (key)
                 
                 	Operational data for a particular instance
                 	**type**\: str
@@ -13000,10 +13522,13 @@ class Rcmd(Entity):
                     self.yang_parent_name = "instances"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"ipfrr-event-summaries" : ("ipfrr_event_summaries", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries), "prefix-event-statistics" : ("prefix_event_statistics", Rcmd.Isis.Instances.Instance.PrefixEventStatistics), "spf-run-summaries" : ("spf_run_summaries", Rcmd.Isis.Instances.Instance.SpfRunSummaries), "ipfrr-event-offlines" : ("ipfrr_event_offlines", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines), "spf-run-offlines" : ("spf_run_offlines", Rcmd.Isis.Instances.Instance.SpfRunOfflines), "prefix-event-summaries" : ("prefix_event_summaries", Rcmd.Isis.Instances.Instance.PrefixEventSummaries), "prefix-event-offlines" : ("prefix_event_offlines", Rcmd.Isis.Instances.Instance.PrefixEventOfflines), "lsp-regenerateds" : ("lsp_regenerateds", Rcmd.Isis.Instances.Instance.LspRegenerateds)}
-                    self._child_list_classes = {}
-
-                    self.instance_name = YLeaf(YType.str, "instance-name")
+                    self.ylist_key_names = ['instance_name']
+                    self._child_container_classes = OrderedDict([("ipfrr-event-summaries", ("ipfrr_event_summaries", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries)), ("prefix-event-statistics", ("prefix_event_statistics", Rcmd.Isis.Instances.Instance.PrefixEventStatistics)), ("spf-run-summaries", ("spf_run_summaries", Rcmd.Isis.Instances.Instance.SpfRunSummaries)), ("ipfrr-event-offlines", ("ipfrr_event_offlines", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines)), ("spf-run-offlines", ("spf_run_offlines", Rcmd.Isis.Instances.Instance.SpfRunOfflines)), ("prefix-event-summaries", ("prefix_event_summaries", Rcmd.Isis.Instances.Instance.PrefixEventSummaries)), ("prefix-event-offlines", ("prefix_event_offlines", Rcmd.Isis.Instances.Instance.PrefixEventOfflines)), ("lsp-regenerateds", ("lsp_regenerateds", Rcmd.Isis.Instances.Instance.LspRegenerateds))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('instance_name', YLeaf(YType.str, 'instance-name')),
+                    ])
+                    self.instance_name = None
 
                     self.ipfrr_event_summaries = Rcmd.Isis.Instances.Instance.IpfrrEventSummaries()
                     self.ipfrr_event_summaries.parent = self
@@ -13044,7 +13569,7 @@ class Rcmd(Entity):
                     self.lsp_regenerateds.parent = self
                     self._children_name_map["lsp_regenerateds"] = "lsp-regenerateds"
                     self._children_yang_names.add("lsp-regenerateds")
-                    self._segment_path = lambda: "instance" + "[instance-name='" + self.instance_name.get() + "']"
+                    self._segment_path = lambda: "instance" + "[instance-name='" + str(self.instance_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/isis/instances/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -13074,8 +13599,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipfrr-event-summary" : ("ipfrr_event_summary", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipfrr-event-summary", ("ipfrr_event_summary", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary))])
+                        self._leafs = OrderedDict()
 
                         self.ipfrr_event_summary = YList(self)
                         self._segment_path = lambda: "ipfrr-event-summaries"
@@ -13088,7 +13615,7 @@ class Rcmd(Entity):
                         """
                         IP\-FRR Event data
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific IP\-FRR Event
                         	**type**\: int
@@ -13196,36 +13723,39 @@ class Rcmd(Entity):
                             self.yang_parent_name = "ipfrr-event-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ipfrr-statistic" : ("ipfrr_statistic", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic), "remote-node" : ("remote_node", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.event_id_xr = YLeaf(YType.uint32, "event-id-xr")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                            self.trigger_spf_run = YLeaf(YType.uint32, "trigger-spf-run")
-
-                            self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                            self.start_time_offset = YLeaf(YType.str, "start-time-offset")
-
-                            self.duration = YLeaf(YType.str, "duration")
-
-                            self.completed_spf_run = YLeaf(YType.uint32, "completed-spf-run")
-
-                            self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                            self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                            self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                            self.coverage = YLeaf(YType.str, "coverage")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("ipfrr-statistic", ("ipfrr_statistic", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic)), ("remote-node", ("remote_node", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('event_id_xr', YLeaf(YType.uint32, 'event-id-xr')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                ('trigger_spf_run', YLeaf(YType.uint32, 'trigger-spf-run')),
+                                ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ('start_time_offset', YLeaf(YType.str, 'start-time-offset')),
+                                ('duration', YLeaf(YType.str, 'duration')),
+                                ('completed_spf_run', YLeaf(YType.uint32, 'completed-spf-run')),
+                                ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                ('coverage', YLeaf(YType.str, 'coverage')),
+                            ])
+                            self.event_id = None
+                            self.event_id_xr = None
+                            self.trigger_time = None
+                            self.trigger_spf_run = None
+                            self.wait_time = None
+                            self.start_time_offset = None
+                            self.duration = None
+                            self.completed_spf_run = None
+                            self.total_routes = None
+                            self.fully_protected_routes = None
+                            self.partially_protected_routes = None
+                            self.coverage = None
 
                             self.ipfrr_statistic = YList(self)
                             self.remote_node = YList(self)
-                            self._segment_path = lambda: "ipfrr-event-summary" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "ipfrr-event-summary" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary, ['event_id', 'event_id_xr', 'trigger_time', 'trigger_spf_run', 'wait_time', 'start_time_offset', 'duration', 'completed_spf_run', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
@@ -13301,24 +13831,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "ipfrr-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.priority = YLeaf(YType.enumeration, "priority")
-
-                                self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                self.coverage = YLeaf(YType.str, "coverage")
-
-                                self.local_lfa_coverage = YLeaf(YType.str, "local-lfa-coverage")
-
-                                self.remote_lfa_coverage = YLeaf(YType.str, "remote-lfa-coverage")
-
-                                self.below_threshold = YLeaf(YType.boolean, "below-threshold")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('priority', YLeaf(YType.enumeration, 'priority')),
+                                    ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                    ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                    ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                    ('coverage', YLeaf(YType.str, 'coverage')),
+                                    ('local_lfa_coverage', YLeaf(YType.str, 'local-lfa-coverage')),
+                                    ('remote_lfa_coverage', YLeaf(YType.str, 'remote-lfa-coverage')),
+                                    ('below_threshold', YLeaf(YType.boolean, 'below-threshold')),
+                                ])
+                                self.priority = None
+                                self.total_routes = None
+                                self.fully_protected_routes = None
+                                self.partially_protected_routes = None
+                                self.coverage = None
+                                self.local_lfa_coverage = None
+                                self.remote_lfa_coverage = None
+                                self.below_threshold = None
                                 self._segment_path = lambda: "ipfrr-statistic"
 
                             def __setattr__(self, name, value):
@@ -13379,18 +13912,21 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "ipfrr-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"primary-path" : ("primary_path", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath)}
-
-                                self.remote_node_id = YLeaf(YType.str, "remote-node-id")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.path_count = YLeaf(YType.uint32, "path-count")
-
-                                self.in_use_time = YLeaf(YType.str, "in-use-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("primary-path", ("primary_path", Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath))])
+                                self._leafs = OrderedDict([
+                                    ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('path_count', YLeaf(YType.uint32, 'path-count')),
+                                    ('in_use_time', YLeaf(YType.str, 'in-use-time')),
+                                ])
+                                self.remote_node_id = None
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.path_count = None
+                                self.in_use_time = None
 
                                 self.primary_path = YList(self)
                                 self._segment_path = lambda: "remote-node"
@@ -13429,12 +13965,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "remote-node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ])
+                                    self.interface_name = None
+                                    self.neighbour_address = None
                                     self._segment_path = lambda: "primary-path"
 
                                 def __setattr__(self, name, value):
@@ -13464,8 +14003,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix-event-statistic" : ("prefix_event_statistic", Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("prefix-event-statistic", ("prefix_event_statistic", Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic))])
+                        self._leafs = OrderedDict()
 
                         self.prefix_event_statistic = YList(self)
                         self._segment_path = lambda: "prefix-event-statistics"
@@ -13478,7 +14019,7 @@ class Rcmd(Entity):
                         """
                         Monitoring Statistics
                         
-                        .. attribute:: prefix_info  <key>
+                        .. attribute:: prefix_info  (key)
                         
                         	Events with Prefix
                         	**type**\: union of the below types:
@@ -13602,41 +14143,44 @@ class Rcmd(Entity):
                             self.yang_parent_name = "prefix-event-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix_info = YLeaf(YType.str, "prefix-info")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_lenth = YLeaf(YType.uint32, "prefix-lenth")
-
-                            self.last_event_time = YLeaf(YType.str, "last-event-time")
-
-                            self.last_priority = YLeaf(YType.enumeration, "last-priority")
-
-                            self.last_route_type = YLeaf(YType.enumeration, "last-route-type")
-
-                            self.last_change_type = YLeaf(YType.enumeration, "last-change-type")
-
-                            self.last_cost = YLeaf(YType.uint32, "last-cost")
-
-                            self.critical_priority = YLeaf(YType.uint32, "critical-priority")
-
-                            self.high_priority = YLeaf(YType.uint32, "high-priority")
-
-                            self.medium_priority = YLeaf(YType.uint32, "medium-priority")
-
-                            self.low_priority = YLeaf(YType.uint32, "low-priority")
-
-                            self.add_count = YLeaf(YType.uint32, "add-count")
-
-                            self.modify_count = YLeaf(YType.uint32, "modify-count")
-
-                            self.delete_count = YLeaf(YType.uint32, "delete-count")
-
-                            self.threshold_exceed_count = YLeaf(YType.uint32, "threshold-exceed-count")
-                            self._segment_path = lambda: "prefix-event-statistic" + "[prefix-info='" + self.prefix_info.get() + "']"
+                            self.ylist_key_names = ['prefix_info']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix_info', YLeaf(YType.str, 'prefix-info')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_lenth', YLeaf(YType.uint32, 'prefix-lenth')),
+                                ('last_event_time', YLeaf(YType.str, 'last-event-time')),
+                                ('last_priority', YLeaf(YType.enumeration, 'last-priority')),
+                                ('last_route_type', YLeaf(YType.enumeration, 'last-route-type')),
+                                ('last_change_type', YLeaf(YType.enumeration, 'last-change-type')),
+                                ('last_cost', YLeaf(YType.uint32, 'last-cost')),
+                                ('critical_priority', YLeaf(YType.uint32, 'critical-priority')),
+                                ('high_priority', YLeaf(YType.uint32, 'high-priority')),
+                                ('medium_priority', YLeaf(YType.uint32, 'medium-priority')),
+                                ('low_priority', YLeaf(YType.uint32, 'low-priority')),
+                                ('add_count', YLeaf(YType.uint32, 'add-count')),
+                                ('modify_count', YLeaf(YType.uint32, 'modify-count')),
+                                ('delete_count', YLeaf(YType.uint32, 'delete-count')),
+                                ('threshold_exceed_count', YLeaf(YType.uint32, 'threshold-exceed-count')),
+                            ])
+                            self.prefix_info = None
+                            self.prefix = None
+                            self.prefix_lenth = None
+                            self.last_event_time = None
+                            self.last_priority = None
+                            self.last_route_type = None
+                            self.last_change_type = None
+                            self.last_cost = None
+                            self.critical_priority = None
+                            self.high_priority = None
+                            self.medium_priority = None
+                            self.low_priority = None
+                            self.add_count = None
+                            self.modify_count = None
+                            self.delete_count = None
+                            self.threshold_exceed_count = None
+                            self._segment_path = lambda: "prefix-event-statistic" + "[prefix-info='" + str(self.prefix_info) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, ['prefix_info', 'prefix', 'prefix_lenth', 'last_event_time', 'last_priority', 'last_route_type', 'last_change_type', 'last_cost', 'critical_priority', 'high_priority', 'medium_priority', 'low_priority', 'add_count', 'modify_count', 'delete_count', 'threshold_exceed_count'], name, value)
@@ -13665,8 +14209,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"spf-run-summary" : ("spf_run_summary", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("spf-run-summary", ("spf_run_summary", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary))])
+                        self._leafs = OrderedDict()
 
                         self.spf_run_summary = YList(self)
                         self._segment_path = lambda: "spf-run-summaries"
@@ -13679,7 +14225,7 @@ class Rcmd(Entity):
                         """
                         SPF Event data
                         
-                        .. attribute:: spf_run_number  <key>
+                        .. attribute:: spf_run_number  (key)
                         
                         	Specific SPF run
                         	**type**\: int
@@ -13747,16 +14293,19 @@ class Rcmd(Entity):
                             self.yang_parent_name = "spf-run-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"spf-summary" : ("spf_summary", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary), "node-statistics" : ("node_statistics", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics)}
-                            self._child_list_classes = {"trigger-lsp" : ("trigger_lsp", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp), "priority" : ("priority", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority), "lsp-processed" : ("lsp_processed", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed), "lsp-regenerated" : ("lsp_regenerated", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated)}
-
-                            self.spf_run_number = YLeaf(YType.uint32, "spf-run-number")
-
-                            self.start_time = YLeaf(YType.str, "start-time")
-
-                            self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                            self.reason = YLeaf(YType.str, "reason")
+                            self.ylist_key_names = ['spf_run_number']
+                            self._child_container_classes = OrderedDict([("spf-summary", ("spf_summary", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary)), ("node-statistics", ("node_statistics", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics))])
+                            self._child_list_classes = OrderedDict([("trigger-lsp", ("trigger_lsp", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp)), ("priority", ("priority", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority)), ("lsp-processed", ("lsp_processed", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed)), ("lsp-regenerated", ("lsp_regenerated", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated))])
+                            self._leafs = OrderedDict([
+                                ('spf_run_number', YLeaf(YType.uint32, 'spf-run-number')),
+                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ('reason', YLeaf(YType.str, 'reason')),
+                            ])
+                            self.spf_run_number = None
+                            self.start_time = None
+                            self.wait_time = None
+                            self.reason = None
 
                             self.spf_summary = Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary()
                             self.spf_summary.parent = self
@@ -13772,7 +14321,7 @@ class Rcmd(Entity):
                             self.priority = YList(self)
                             self.lsp_processed = YList(self)
                             self.lsp_regenerated = YList(self)
-                            self._segment_path = lambda: "spf-run-summary" + "[spf-run-number='" + self.spf_run_number.get() + "']"
+                            self._segment_path = lambda: "spf-run-summary" + "[spf-run-number='" + str(self.spf_run_number) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary, ['spf_run_number', 'start_time', 'wait_time', 'reason'], name, value)
@@ -13850,26 +14399,29 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"priority-summary" : ("priority_summary", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary)}
-
-                                self.topology = YLeaf(YType.uint32, "topology")
-
-                                self.isis_level = YLeaf(YType.enumeration, "isis-level")
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                                self.state = YLeaf(YType.enumeration, "state")
-
-                                self.is_data_complete = YLeaf(YType.boolean, "is-data-complete")
-
-                                self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                                self.duration = YLeaf(YType.str, "duration")
-
-                                self.total_lsp_changes = YLeaf(YType.uint16, "total-lsp-changes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary))])
+                                self._leafs = OrderedDict([
+                                    ('topology', YLeaf(YType.uint32, 'topology')),
+                                    ('isis_level', YLeaf(YType.enumeration, 'isis-level')),
+                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ('state', YLeaf(YType.enumeration, 'state')),
+                                    ('is_data_complete', YLeaf(YType.boolean, 'is-data-complete')),
+                                    ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                    ('duration', YLeaf(YType.str, 'duration')),
+                                    ('total_lsp_changes', YLeaf(YType.uint16, 'total-lsp-changes')),
+                                ])
+                                self.topology = None
+                                self.isis_level = None
+                                self.type = None
+                                self.threshold_exceeded = None
+                                self.state = None
+                                self.is_data_complete = None
+                                self.trigger_time = None
+                                self.duration = None
+                                self.total_lsp_changes = None
 
                                 self.priority_summary = YList(self)
                                 self._segment_path = lambda: "spf-summary"
@@ -13927,12 +14479,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "spf-summary"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime)}
-                                    self._child_list_classes = {"frr-statistic" : ("frr_statistic", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic)}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime))])
+                                    self._child_list_classes = OrderedDict([("frr-statistic", ("frr_statistic", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic))])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ])
+                                    self.level = None
+                                    self.threshold_exceeded = None
 
                                     self.route_statistics = Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics()
                                     self.route_statistics.parent = self
@@ -14016,20 +14571,23 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.adds = YLeaf(YType.uint32, "adds")
-
-                                        self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                        self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                        self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                        self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                        self.touches = YLeaf(YType.uint32, "touches")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('adds', YLeaf(YType.uint32, 'adds')),
+                                            ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                            ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                            ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                            ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                            ('touches', YLeaf(YType.uint32, 'touches')),
+                                        ])
+                                        self.adds = None
+                                        self.deletes = None
+                                        self.modifies = None
+                                        self.reachables = None
+                                        self.unreachables = None
+                                        self.touches = None
                                         self._segment_path = lambda: "route-statistics"
 
                                     def __setattr__(self, name, value):
@@ -14078,16 +14636,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "ip-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -14136,16 +14697,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "mpls-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -14198,16 +14762,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                        self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                        self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                        self.coverage = YLeaf(YType.str, "coverage")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                            ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                            ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                            ('coverage', YLeaf(YType.str, 'coverage')),
+                                        ])
+                                        self.total_routes = None
+                                        self.fully_protected_routes = None
+                                        self.partially_protected_routes = None
+                                        self.coverage = None
                                         self._segment_path = lambda: "frr-statistic"
 
                                     def __setattr__(self, name, value):
@@ -14274,20 +14841,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.adds = YLeaf(YType.uint32, "adds")
-
-                                self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                self.touches = YLeaf(YType.uint32, "touches")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('adds', YLeaf(YType.uint32, 'adds')),
+                                    ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                    ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                    ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                    ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                    ('touches', YLeaf(YType.uint32, 'touches')),
+                                ])
+                                self.adds = None
+                                self.deletes = None
+                                self.modifies = None
+                                self.reachables = None
+                                self.unreachables = None
+                                self.touches = None
                                 self._segment_path = lambda: "node-statistics"
 
                             def __setattr__(self, name, value):
@@ -14334,16 +14904,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsp_id = YLeaf(YType.str, "lsp-id")
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsp_id', YLeaf(YType.str, 'lsp-id')),
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsp_id = None
+                                self.sequence_number = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "trigger-lsp"
 
                             def __setattr__(self, name, value):
@@ -14388,8 +14961,10 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"priority-summary" : ("priority_summary", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary)}
-                                self._child_list_classes = {"convergence-timeline" : ("convergence_timeline", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline), "leaf-networks-added" : ("leaf_networks_added", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded), "leaf-networks-deleted" : ("leaf_networks_deleted", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary))])
+                                self._child_list_classes = OrderedDict([("convergence-timeline", ("convergence_timeline", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline)), ("leaf-networks-added", ("leaf_networks_added", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded)), ("leaf-networks-deleted", ("leaf_networks_deleted", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted))])
+                                self._leafs = OrderedDict()
 
                                 self.priority_summary = Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary()
                                 self.priority_summary.parent = self
@@ -14453,12 +15028,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "priority"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime)}
-                                    self._child_list_classes = {"frr-statistic" : ("frr_statistic", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic)}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime))])
+                                    self._child_list_classes = OrderedDict([("frr-statistic", ("frr_statistic", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic))])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ])
+                                    self.level = None
+                                    self.threshold_exceeded = None
 
                                     self.route_statistics = Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics()
                                     self.route_statistics.parent = self
@@ -14542,20 +15120,23 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.adds = YLeaf(YType.uint32, "adds")
-
-                                        self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                        self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                        self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                        self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                        self.touches = YLeaf(YType.uint32, "touches")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('adds', YLeaf(YType.uint32, 'adds')),
+                                            ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                            ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                            ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                            ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                            ('touches', YLeaf(YType.uint32, 'touches')),
+                                        ])
+                                        self.adds = None
+                                        self.deletes = None
+                                        self.modifies = None
+                                        self.reachables = None
+                                        self.unreachables = None
+                                        self.touches = None
                                         self._segment_path = lambda: "route-statistics"
 
                                     def __setattr__(self, name, value):
@@ -14604,16 +15185,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "ip-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -14662,16 +15246,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "mpls-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -14724,16 +15311,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                        self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                        self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                        self.coverage = YLeaf(YType.str, "coverage")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                            ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                            ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                            ('coverage', YLeaf(YType.str, 'coverage')),
+                                        ])
+                                        self.total_routes = None
+                                        self.fully_protected_routes = None
+                                        self.partially_protected_routes = None
+                                        self.coverage = None
                                         self._segment_path = lambda: "frr-statistic"
 
                                     def __setattr__(self, name, value):
@@ -14808,8 +15398,10 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "priority"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"route-origin" : ("route_origin", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin), "ri-bv4-enter" : ("ri_bv4_enter", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter), "ri-bv4-exit" : ("ri_bv4_exit", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit), "ri-bv4-redistribute" : ("ri_bv4_redistribute", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute), "ldp-enter" : ("ldp_enter", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter), "ldp-exit" : ("ldp_exit", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit), "lsd-enter" : ("lsd_enter", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter), "lsd-exit" : ("lsd_exit", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit)}
-                                    self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("route-origin", ("route_origin", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin)), ("ri-bv4-enter", ("ri_bv4_enter", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter)), ("ri-bv4-exit", ("ri_bv4_exit", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit)), ("ri-bv4-redistribute", ("ri_bv4_redistribute", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute)), ("ldp-enter", ("ldp_enter", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter)), ("ldp-exit", ("ldp_exit", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit)), ("lsd-enter", ("lsd_enter", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter)), ("lsd-exit", ("lsd_exit", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit))])
+                                    self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls))])
+                                    self._leafs = OrderedDict()
 
                                     self.route_origin = Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin()
                                     self.route_origin.parent = self
@@ -14892,14 +15484,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "route-origin"
 
                                     def __setattr__(self, name, value):
@@ -14939,14 +15534,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ri-bv4-enter"
 
                                     def __setattr__(self, name, value):
@@ -14986,14 +15584,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ri-bv4-exit"
 
                                     def __setattr__(self, name, value):
@@ -15033,14 +15634,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ri-bv4-redistribute"
 
                                     def __setattr__(self, name, value):
@@ -15080,14 +15684,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ldp-enter"
 
                                     def __setattr__(self, name, value):
@@ -15127,14 +15734,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ldp-exit"
 
                                     def __setattr__(self, name, value):
@@ -15174,14 +15784,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "lsd-enter"
 
                                     def __setattr__(self, name, value):
@@ -15221,14 +15834,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "lsd-exit"
 
                                     def __setattr__(self, name, value):
@@ -15269,12 +15885,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete)}
-                                        self._child_list_classes = {}
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-
-                                        self.speed = YLeaf(YType.enumeration, "speed")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_name', YLeaf(YType.str, 'node-name')),
+                                            ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ])
+                                        self.node_name = None
+                                        self.speed = None
 
                                         self.fib_complete = Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete()
                                         self.fib_complete.parent = self
@@ -15319,14 +15938,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "lc-ip"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "fib-complete"
 
                                         def __setattr__(self, name, value):
@@ -15367,12 +15989,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete)}
-                                        self._child_list_classes = {}
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-
-                                        self.speed = YLeaf(YType.enumeration, "speed")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_name', YLeaf(YType.str, 'node-name')),
+                                            ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ])
+                                        self.node_name = None
+                                        self.speed = None
 
                                         self.fib_complete = Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete()
                                         self.fib_complete.parent = self
@@ -15417,14 +16042,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "lc-mpls"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "fib-complete"
 
                                         def __setattr__(self, name, value):
@@ -15463,12 +16091,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "priority"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address = YLeaf(YType.str, "address")
-
-                                    self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                    ])
+                                    self.address = None
+                                    self.net_mask = None
                                     self._segment_path = lambda: "leaf-networks-added"
 
                                 def __setattr__(self, name, value):
@@ -15507,12 +16138,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "priority"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address = YLeaf(YType.str, "address")
-
-                                    self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                    ])
+                                    self.address = None
+                                    self.net_mask = None
                                     self._segment_path = lambda: "leaf-networks-deleted"
 
                                 def __setattr__(self, name, value):
@@ -15559,16 +16193,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsp_id = YLeaf(YType.str, "lsp-id")
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsp_id', YLeaf(YType.str, 'lsp-id')),
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsp_id = None
+                                self.sequence_number = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "lsp-processed"
 
                             def __setattr__(self, name, value):
@@ -15634,22 +16271,25 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.serial_number_xr = YLeaf(YType.uint32, "serial-number-xr")
-
-                                self.lsp_id = YLeaf(YType.str, "lsp-id")
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
-
-                                self.isis_level = YLeaf(YType.enumeration, "isis-level")
-
-                                self.spf_run_number = YLeaf(YType.uint32, "spf-run-number")
-
-                                self.reason = YLeaf(YType.str, "reason")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('serial_number_xr', YLeaf(YType.uint32, 'serial-number-xr')),
+                                    ('lsp_id', YLeaf(YType.str, 'lsp-id')),
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                    ('isis_level', YLeaf(YType.enumeration, 'isis-level')),
+                                    ('spf_run_number', YLeaf(YType.uint32, 'spf-run-number')),
+                                    ('reason', YLeaf(YType.str, 'reason')),
+                                ])
+                                self.serial_number_xr = None
+                                self.lsp_id = None
+                                self.sequence_number = None
+                                self.reception_time = None
+                                self.isis_level = None
+                                self.spf_run_number = None
+                                self.reason = None
                                 self._segment_path = lambda: "lsp-regenerated"
 
                             def __setattr__(self, name, value):
@@ -15679,8 +16319,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipfrr-event-offline" : ("ipfrr_event_offline", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipfrr-event-offline", ("ipfrr_event_offline", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline))])
+                        self._leafs = OrderedDict()
 
                         self.ipfrr_event_offline = YList(self)
                         self._segment_path = lambda: "ipfrr-event-offlines"
@@ -15694,7 +16336,7 @@ class Rcmd(Entity):
                         Offline operational data for particular ISIS
                         IP\-FRR Event
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific IP\-FRR Event
                         	**type**\: int
@@ -15802,36 +16444,39 @@ class Rcmd(Entity):
                             self.yang_parent_name = "ipfrr-event-offlines"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ipfrr-statistic" : ("ipfrr_statistic", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic), "remote-node" : ("remote_node", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.event_id_xr = YLeaf(YType.uint32, "event-id-xr")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                            self.trigger_spf_run = YLeaf(YType.uint32, "trigger-spf-run")
-
-                            self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                            self.start_time_offset = YLeaf(YType.str, "start-time-offset")
-
-                            self.duration = YLeaf(YType.str, "duration")
-
-                            self.completed_spf_run = YLeaf(YType.uint32, "completed-spf-run")
-
-                            self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                            self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                            self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                            self.coverage = YLeaf(YType.str, "coverage")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("ipfrr-statistic", ("ipfrr_statistic", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic)), ("remote-node", ("remote_node", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('event_id_xr', YLeaf(YType.uint32, 'event-id-xr')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                ('trigger_spf_run', YLeaf(YType.uint32, 'trigger-spf-run')),
+                                ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ('start_time_offset', YLeaf(YType.str, 'start-time-offset')),
+                                ('duration', YLeaf(YType.str, 'duration')),
+                                ('completed_spf_run', YLeaf(YType.uint32, 'completed-spf-run')),
+                                ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                ('coverage', YLeaf(YType.str, 'coverage')),
+                            ])
+                            self.event_id = None
+                            self.event_id_xr = None
+                            self.trigger_time = None
+                            self.trigger_spf_run = None
+                            self.wait_time = None
+                            self.start_time_offset = None
+                            self.duration = None
+                            self.completed_spf_run = None
+                            self.total_routes = None
+                            self.fully_protected_routes = None
+                            self.partially_protected_routes = None
+                            self.coverage = None
 
                             self.ipfrr_statistic = YList(self)
                             self.remote_node = YList(self)
-                            self._segment_path = lambda: "ipfrr-event-offline" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "ipfrr-event-offline" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline, ['event_id', 'event_id_xr', 'trigger_time', 'trigger_spf_run', 'wait_time', 'start_time_offset', 'duration', 'completed_spf_run', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
@@ -15907,24 +16552,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "ipfrr-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.priority = YLeaf(YType.enumeration, "priority")
-
-                                self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                self.coverage = YLeaf(YType.str, "coverage")
-
-                                self.local_lfa_coverage = YLeaf(YType.str, "local-lfa-coverage")
-
-                                self.remote_lfa_coverage = YLeaf(YType.str, "remote-lfa-coverage")
-
-                                self.below_threshold = YLeaf(YType.boolean, "below-threshold")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('priority', YLeaf(YType.enumeration, 'priority')),
+                                    ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                    ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                    ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                    ('coverage', YLeaf(YType.str, 'coverage')),
+                                    ('local_lfa_coverage', YLeaf(YType.str, 'local-lfa-coverage')),
+                                    ('remote_lfa_coverage', YLeaf(YType.str, 'remote-lfa-coverage')),
+                                    ('below_threshold', YLeaf(YType.boolean, 'below-threshold')),
+                                ])
+                                self.priority = None
+                                self.total_routes = None
+                                self.fully_protected_routes = None
+                                self.partially_protected_routes = None
+                                self.coverage = None
+                                self.local_lfa_coverage = None
+                                self.remote_lfa_coverage = None
+                                self.below_threshold = None
                                 self._segment_path = lambda: "ipfrr-statistic"
 
                             def __setattr__(self, name, value):
@@ -15985,18 +16633,21 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "ipfrr-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"primary-path" : ("primary_path", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath)}
-
-                                self.remote_node_id = YLeaf(YType.str, "remote-node-id")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.path_count = YLeaf(YType.uint32, "path-count")
-
-                                self.in_use_time = YLeaf(YType.str, "in-use-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("primary-path", ("primary_path", Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath))])
+                                self._leafs = OrderedDict([
+                                    ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('path_count', YLeaf(YType.uint32, 'path-count')),
+                                    ('in_use_time', YLeaf(YType.str, 'in-use-time')),
+                                ])
+                                self.remote_node_id = None
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.path_count = None
+                                self.in_use_time = None
 
                                 self.primary_path = YList(self)
                                 self._segment_path = lambda: "remote-node"
@@ -16035,12 +16686,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "remote-node"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ])
+                                    self.interface_name = None
+                                    self.neighbour_address = None
                                     self._segment_path = lambda: "primary-path"
 
                                 def __setattr__(self, name, value):
@@ -16070,8 +16724,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"spf-run-offline" : ("spf_run_offline", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("spf-run-offline", ("spf_run_offline", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline))])
+                        self._leafs = OrderedDict()
 
                         self.spf_run_offline = YList(self)
                         self._segment_path = lambda: "spf-run-offlines"
@@ -16085,7 +16741,7 @@ class Rcmd(Entity):
                         Offline operational data for particular ISIS
                         SPF run
                         
-                        .. attribute:: spf_run_number  <key>
+                        .. attribute:: spf_run_number  (key)
                         
                         	Specific SPF run
                         	**type**\: int
@@ -16153,16 +16809,19 @@ class Rcmd(Entity):
                             self.yang_parent_name = "spf-run-offlines"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"spf-summary" : ("spf_summary", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary), "node-statistics" : ("node_statistics", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics)}
-                            self._child_list_classes = {"trigger-lsp" : ("trigger_lsp", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp), "priority" : ("priority", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority), "lsp-processed" : ("lsp_processed", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed), "lsp-regenerated" : ("lsp_regenerated", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated)}
-
-                            self.spf_run_number = YLeaf(YType.uint32, "spf-run-number")
-
-                            self.start_time = YLeaf(YType.str, "start-time")
-
-                            self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                            self.reason = YLeaf(YType.str, "reason")
+                            self.ylist_key_names = ['spf_run_number']
+                            self._child_container_classes = OrderedDict([("spf-summary", ("spf_summary", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary)), ("node-statistics", ("node_statistics", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics))])
+                            self._child_list_classes = OrderedDict([("trigger-lsp", ("trigger_lsp", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp)), ("priority", ("priority", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority)), ("lsp-processed", ("lsp_processed", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed)), ("lsp-regenerated", ("lsp_regenerated", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated))])
+                            self._leafs = OrderedDict([
+                                ('spf_run_number', YLeaf(YType.uint32, 'spf-run-number')),
+                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ('reason', YLeaf(YType.str, 'reason')),
+                            ])
+                            self.spf_run_number = None
+                            self.start_time = None
+                            self.wait_time = None
+                            self.reason = None
 
                             self.spf_summary = Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary()
                             self.spf_summary.parent = self
@@ -16178,7 +16837,7 @@ class Rcmd(Entity):
                             self.priority = YList(self)
                             self.lsp_processed = YList(self)
                             self.lsp_regenerated = YList(self)
-                            self._segment_path = lambda: "spf-run-offline" + "[spf-run-number='" + self.spf_run_number.get() + "']"
+                            self._segment_path = lambda: "spf-run-offline" + "[spf-run-number='" + str(self.spf_run_number) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline, ['spf_run_number', 'start_time', 'wait_time', 'reason'], name, value)
@@ -16256,26 +16915,29 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"priority-summary" : ("priority_summary", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary)}
-
-                                self.topology = YLeaf(YType.uint32, "topology")
-
-                                self.isis_level = YLeaf(YType.enumeration, "isis-level")
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                                self.state = YLeaf(YType.enumeration, "state")
-
-                                self.is_data_complete = YLeaf(YType.boolean, "is-data-complete")
-
-                                self.trigger_time = YLeaf(YType.str, "trigger-time")
-
-                                self.duration = YLeaf(YType.str, "duration")
-
-                                self.total_lsp_changes = YLeaf(YType.uint16, "total-lsp-changes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary))])
+                                self._leafs = OrderedDict([
+                                    ('topology', YLeaf(YType.uint32, 'topology')),
+                                    ('isis_level', YLeaf(YType.enumeration, 'isis-level')),
+                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ('state', YLeaf(YType.enumeration, 'state')),
+                                    ('is_data_complete', YLeaf(YType.boolean, 'is-data-complete')),
+                                    ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                                    ('duration', YLeaf(YType.str, 'duration')),
+                                    ('total_lsp_changes', YLeaf(YType.uint16, 'total-lsp-changes')),
+                                ])
+                                self.topology = None
+                                self.isis_level = None
+                                self.type = None
+                                self.threshold_exceeded = None
+                                self.state = None
+                                self.is_data_complete = None
+                                self.trigger_time = None
+                                self.duration = None
+                                self.total_lsp_changes = None
 
                                 self.priority_summary = YList(self)
                                 self._segment_path = lambda: "spf-summary"
@@ -16333,12 +16995,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "spf-summary"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime)}
-                                    self._child_list_classes = {"frr-statistic" : ("frr_statistic", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic)}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime))])
+                                    self._child_list_classes = OrderedDict([("frr-statistic", ("frr_statistic", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic))])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ])
+                                    self.level = None
+                                    self.threshold_exceeded = None
 
                                     self.route_statistics = Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics()
                                     self.route_statistics.parent = self
@@ -16422,20 +17087,23 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.adds = YLeaf(YType.uint32, "adds")
-
-                                        self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                        self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                        self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                        self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                        self.touches = YLeaf(YType.uint32, "touches")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('adds', YLeaf(YType.uint32, 'adds')),
+                                            ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                            ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                            ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                            ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                            ('touches', YLeaf(YType.uint32, 'touches')),
+                                        ])
+                                        self.adds = None
+                                        self.deletes = None
+                                        self.modifies = None
+                                        self.reachables = None
+                                        self.unreachables = None
+                                        self.touches = None
                                         self._segment_path = lambda: "route-statistics"
 
                                     def __setattr__(self, name, value):
@@ -16484,16 +17152,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "ip-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -16542,16 +17213,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "mpls-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -16604,16 +17278,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                        self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                        self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                        self.coverage = YLeaf(YType.str, "coverage")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                            ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                            ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                            ('coverage', YLeaf(YType.str, 'coverage')),
+                                        ])
+                                        self.total_routes = None
+                                        self.fully_protected_routes = None
+                                        self.partially_protected_routes = None
+                                        self.coverage = None
                                         self._segment_path = lambda: "frr-statistic"
 
                                     def __setattr__(self, name, value):
@@ -16680,20 +17357,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.adds = YLeaf(YType.uint32, "adds")
-
-                                self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                self.touches = YLeaf(YType.uint32, "touches")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('adds', YLeaf(YType.uint32, 'adds')),
+                                    ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                    ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                    ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                    ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                    ('touches', YLeaf(YType.uint32, 'touches')),
+                                ])
+                                self.adds = None
+                                self.deletes = None
+                                self.modifies = None
+                                self.reachables = None
+                                self.unreachables = None
+                                self.touches = None
                                 self._segment_path = lambda: "node-statistics"
 
                             def __setattr__(self, name, value):
@@ -16740,16 +17420,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsp_id = YLeaf(YType.str, "lsp-id")
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsp_id', YLeaf(YType.str, 'lsp-id')),
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsp_id = None
+                                self.sequence_number = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "trigger-lsp"
 
                             def __setattr__(self, name, value):
@@ -16794,8 +17477,10 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"priority-summary" : ("priority_summary", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary)}
-                                self._child_list_classes = {"convergence-timeline" : ("convergence_timeline", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline), "leaf-networks-added" : ("leaf_networks_added", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded), "leaf-networks-deleted" : ("leaf_networks_deleted", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("priority-summary", ("priority_summary", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary))])
+                                self._child_list_classes = OrderedDict([("convergence-timeline", ("convergence_timeline", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline)), ("leaf-networks-added", ("leaf_networks_added", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded)), ("leaf-networks-deleted", ("leaf_networks_deleted", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted))])
+                                self._leafs = OrderedDict()
 
                                 self.priority_summary = Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary()
                                 self.priority_summary.parent = self
@@ -16859,12 +17544,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "priority"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"route-statistics" : ("route_statistics", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics), "ip-convergence-time" : ("ip_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime)}
-                                    self._child_list_classes = {"frr-statistic" : ("frr_statistic", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic)}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("route-statistics", ("route_statistics", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics)), ("ip-convergence-time", ("ip_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime))])
+                                    self._child_list_classes = OrderedDict([("frr-statistic", ("frr_statistic", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic))])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                    ])
+                                    self.level = None
+                                    self.threshold_exceeded = None
 
                                     self.route_statistics = Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics()
                                     self.route_statistics.parent = self
@@ -16948,20 +17636,23 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.adds = YLeaf(YType.uint32, "adds")
-
-                                        self.deletes = YLeaf(YType.uint32, "deletes")
-
-                                        self.modifies = YLeaf(YType.uint32, "modifies")
-
-                                        self.reachables = YLeaf(YType.uint32, "reachables")
-
-                                        self.unreachables = YLeaf(YType.uint32, "unreachables")
-
-                                        self.touches = YLeaf(YType.uint32, "touches")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('adds', YLeaf(YType.uint32, 'adds')),
+                                            ('deletes', YLeaf(YType.uint32, 'deletes')),
+                                            ('modifies', YLeaf(YType.uint32, 'modifies')),
+                                            ('reachables', YLeaf(YType.uint32, 'reachables')),
+                                            ('unreachables', YLeaf(YType.uint32, 'unreachables')),
+                                            ('touches', YLeaf(YType.uint32, 'touches')),
+                                        ])
+                                        self.adds = None
+                                        self.deletes = None
+                                        self.modifies = None
+                                        self.reachables = None
+                                        self.unreachables = None
+                                        self.touches = None
                                         self._segment_path = lambda: "route-statistics"
 
                                     def __setattr__(self, name, value):
@@ -17010,16 +17701,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "ip-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -17068,16 +17762,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                        self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                        self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                        self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                            ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                            ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                            ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                        ])
+                                        self.minimum_time = None
+                                        self.maximum_time = None
+                                        self.slowest_node_name = None
+                                        self.fastest_node_name = None
                                         self._segment_path = lambda: "mpls-convergence-time"
 
                                     def __setattr__(self, name, value):
@@ -17130,16 +17827,19 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "priority-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.total_routes = YLeaf(YType.uint32, "total-routes")
-
-                                        self.fully_protected_routes = YLeaf(YType.uint32, "fully-protected-routes")
-
-                                        self.partially_protected_routes = YLeaf(YType.uint32, "partially-protected-routes")
-
-                                        self.coverage = YLeaf(YType.str, "coverage")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('total_routes', YLeaf(YType.uint32, 'total-routes')),
+                                            ('fully_protected_routes', YLeaf(YType.uint32, 'fully-protected-routes')),
+                                            ('partially_protected_routes', YLeaf(YType.uint32, 'partially-protected-routes')),
+                                            ('coverage', YLeaf(YType.str, 'coverage')),
+                                        ])
+                                        self.total_routes = None
+                                        self.fully_protected_routes = None
+                                        self.partially_protected_routes = None
+                                        self.coverage = None
                                         self._segment_path = lambda: "frr-statistic"
 
                                     def __setattr__(self, name, value):
@@ -17214,8 +17914,10 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "priority"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"route-origin" : ("route_origin", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin), "ri-bv4-enter" : ("ri_bv4_enter", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter), "ri-bv4-exit" : ("ri_bv4_exit", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit), "ri-bv4-redistribute" : ("ri_bv4_redistribute", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute), "ldp-enter" : ("ldp_enter", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter), "ldp-exit" : ("ldp_exit", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit), "lsd-enter" : ("lsd_enter", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter), "lsd-exit" : ("lsd_exit", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit)}
-                                    self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("route-origin", ("route_origin", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin)), ("ri-bv4-enter", ("ri_bv4_enter", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter)), ("ri-bv4-exit", ("ri_bv4_exit", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit)), ("ri-bv4-redistribute", ("ri_bv4_redistribute", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute)), ("ldp-enter", ("ldp_enter", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter)), ("ldp-exit", ("ldp_exit", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit)), ("lsd-enter", ("lsd_enter", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter)), ("lsd-exit", ("lsd_exit", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit))])
+                                    self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls))])
+                                    self._leafs = OrderedDict()
 
                                     self.route_origin = Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin()
                                     self.route_origin.parent = self
@@ -17298,14 +18000,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "route-origin"
 
                                     def __setattr__(self, name, value):
@@ -17345,14 +18050,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ri-bv4-enter"
 
                                     def __setattr__(self, name, value):
@@ -17392,14 +18100,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ri-bv4-exit"
 
                                     def __setattr__(self, name, value):
@@ -17439,14 +18150,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ri-bv4-redistribute"
 
                                     def __setattr__(self, name, value):
@@ -17486,14 +18200,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ldp-enter"
 
                                     def __setattr__(self, name, value):
@@ -17533,14 +18250,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "ldp-exit"
 
                                     def __setattr__(self, name, value):
@@ -17580,14 +18300,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "lsd-enter"
 
                                     def __setattr__(self, name, value):
@@ -17627,14 +18350,17 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.start_time = YLeaf(YType.str, "start-time")
-
-                                        self.end_time = YLeaf(YType.str, "end-time")
-
-                                        self.duration = YLeaf(YType.str, "duration")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('start_time', YLeaf(YType.str, 'start-time')),
+                                            ('end_time', YLeaf(YType.str, 'end-time')),
+                                            ('duration', YLeaf(YType.str, 'duration')),
+                                        ])
+                                        self.start_time = None
+                                        self.end_time = None
+                                        self.duration = None
                                         self._segment_path = lambda: "lsd-exit"
 
                                     def __setattr__(self, name, value):
@@ -17675,12 +18401,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete)}
-                                        self._child_list_classes = {}
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-
-                                        self.speed = YLeaf(YType.enumeration, "speed")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_name', YLeaf(YType.str, 'node-name')),
+                                            ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ])
+                                        self.node_name = None
+                                        self.speed = None
 
                                         self.fib_complete = Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete()
                                         self.fib_complete.parent = self
@@ -17725,14 +18454,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "lc-ip"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "fib-complete"
 
                                         def __setattr__(self, name, value):
@@ -17773,12 +18505,15 @@ class Rcmd(Entity):
                                         self.yang_parent_name = "convergence-timeline"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"fib-complete" : ("fib_complete", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete)}
-                                        self._child_list_classes = {}
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-
-                                        self.speed = YLeaf(YType.enumeration, "speed")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("fib-complete", ("fib_complete", Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_name', YLeaf(YType.str, 'node-name')),
+                                            ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ])
+                                        self.node_name = None
+                                        self.speed = None
 
                                         self.fib_complete = Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete()
                                         self.fib_complete.parent = self
@@ -17823,14 +18558,17 @@ class Rcmd(Entity):
                                             self.yang_parent_name = "lc-mpls"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.start_time = YLeaf(YType.str, "start-time")
-
-                                            self.end_time = YLeaf(YType.str, "end-time")
-
-                                            self.duration = YLeaf(YType.str, "duration")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('start_time', YLeaf(YType.str, 'start-time')),
+                                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                                ('duration', YLeaf(YType.str, 'duration')),
+                                            ])
+                                            self.start_time = None
+                                            self.end_time = None
+                                            self.duration = None
                                             self._segment_path = lambda: "fib-complete"
 
                                         def __setattr__(self, name, value):
@@ -17869,12 +18607,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "priority"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address = YLeaf(YType.str, "address")
-
-                                    self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                    ])
+                                    self.address = None
+                                    self.net_mask = None
                                     self._segment_path = lambda: "leaf-networks-added"
 
                                 def __setattr__(self, name, value):
@@ -17913,12 +18654,15 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "priority"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address = YLeaf(YType.str, "address")
-
-                                    self.net_mask = YLeaf(YType.uint8, "net-mask")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('net_mask', YLeaf(YType.uint8, 'net-mask')),
+                                    ])
+                                    self.address = None
+                                    self.net_mask = None
                                     self._segment_path = lambda: "leaf-networks-deleted"
 
                                 def __setattr__(self, name, value):
@@ -17965,16 +18709,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsp_id = YLeaf(YType.str, "lsp-id")
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsp_id', YLeaf(YType.str, 'lsp-id')),
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsp_id = None
+                                self.sequence_number = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "lsp-processed"
 
                             def __setattr__(self, name, value):
@@ -18040,22 +18787,25 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "spf-run-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.serial_number_xr = YLeaf(YType.uint32, "serial-number-xr")
-
-                                self.lsp_id = YLeaf(YType.str, "lsp-id")
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
-
-                                self.isis_level = YLeaf(YType.enumeration, "isis-level")
-
-                                self.spf_run_number = YLeaf(YType.uint32, "spf-run-number")
-
-                                self.reason = YLeaf(YType.str, "reason")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('serial_number_xr', YLeaf(YType.uint32, 'serial-number-xr')),
+                                    ('lsp_id', YLeaf(YType.str, 'lsp-id')),
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                    ('isis_level', YLeaf(YType.enumeration, 'isis-level')),
+                                    ('spf_run_number', YLeaf(YType.uint32, 'spf-run-number')),
+                                    ('reason', YLeaf(YType.str, 'reason')),
+                                ])
+                                self.serial_number_xr = None
+                                self.lsp_id = None
+                                self.sequence_number = None
+                                self.reception_time = None
+                                self.isis_level = None
+                                self.spf_run_number = None
+                                self.reason = None
                                 self._segment_path = lambda: "lsp-regenerated"
 
                             def __setattr__(self, name, value):
@@ -18085,8 +18835,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix-event-summary" : ("prefix_event_summary", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("prefix-event-summary", ("prefix_event_summary", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary))])
+                        self._leafs = OrderedDict()
 
                         self.prefix_event_summary = YList(self)
                         self._segment_path = lambda: "prefix-event-summaries"
@@ -18099,7 +18851,7 @@ class Rcmd(Entity):
                         """
                         Prefix Event data
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific Event ID
                         	**type**\: int
@@ -18215,32 +18967,35 @@ class Rcmd(Entity):
                             self.yang_parent_name = "prefix-event-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ip-convergence-time" : ("ip_convergence_time", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime)}
-                            self._child_list_classes = {"path" : ("path", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path), "trigger-lsa" : ("trigger_lsa", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa), "time-line" : ("time_line", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine), "lsa-processed" : ("lsa_processed", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_lenth = YLeaf(YType.uint32, "prefix-lenth")
-
-                            self.spf_run_no = YLeaf(YType.uint32, "spf-run-no")
-
-                            self.ipfrr_event_id = YLeaf(YType.uint32, "ipfrr-event-id")
-
-                            self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                            self.route_type = YLeaf(YType.enumeration, "route-type")
-
-                            self.route_path_change_type = YLeaf(YType.enumeration, "route-path-change-type")
-
-                            self.cost = YLeaf(YType.uint32, "cost")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([("ip-convergence-time", ("ip_convergence_time", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime))])
+                            self._child_list_classes = OrderedDict([("path", ("path", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path)), ("trigger-lsa", ("trigger_lsa", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa)), ("time-line", ("time_line", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine)), ("lsa-processed", ("lsa_processed", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_lenth', YLeaf(YType.uint32, 'prefix-lenth')),
+                                ('spf_run_no', YLeaf(YType.uint32, 'spf-run-no')),
+                                ('ipfrr_event_id', YLeaf(YType.uint32, 'ipfrr-event-id')),
+                                ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                ('route_path_change_type', YLeaf(YType.enumeration, 'route-path-change-type')),
+                                ('cost', YLeaf(YType.uint32, 'cost')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                            ])
+                            self.event_id = None
+                            self.prefix = None
+                            self.prefix_lenth = None
+                            self.spf_run_no = None
+                            self.ipfrr_event_id = None
+                            self.threshold_exceeded = None
+                            self.priority = None
+                            self.change_type = None
+                            self.route_type = None
+                            self.route_path_change_type = None
+                            self.cost = None
+                            self.trigger_time = None
 
                             self.ip_convergence_time = Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime()
                             self.ip_convergence_time.parent = self
@@ -18256,7 +19011,7 @@ class Rcmd(Entity):
                             self.trigger_lsa = YList(self)
                             self.time_line = YList(self)
                             self.lsa_processed = YList(self)
-                            self._segment_path = lambda: "prefix-event-summary" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "prefix-event-summary" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
@@ -18304,16 +19059,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "ip-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -18362,16 +19120,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "mpls-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -18425,16 +19186,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lfa-path" : ("lfa_path", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath)}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.path_metric = YLeaf(YType.uint32, "path-metric")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lfa-path", ("lfa_path", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath))])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                ])
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.change_type = None
+                                self.path_metric = None
 
                                 self.lfa_path = YList(self)
                                 self._segment_path = lambda: "path"
@@ -18497,20 +19261,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lfa_type = YLeaf(YType.enumeration, "lfa-type")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.path_metric = YLeaf(YType.uint32, "path-metric")
-
-                                    self.remote_node_id = YLeaf(YType.str, "remote-node-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lfa_type', YLeaf(YType.enumeration, 'lfa-type')),
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                        ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ])
+                                    self.lfa_type = None
+                                    self.interface_name = None
+                                    self.neighbour_address = None
+                                    self.change_type = None
+                                    self.path_metric = None
+                                    self.remote_node_id = None
                                     self._segment_path = lambda: "lfa-path"
 
                                 def __setattr__(self, name, value):
@@ -18569,20 +19336,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "trigger-lsa"
 
                             def __setattr__(self, name, value):
@@ -18657,24 +19427,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls)}
-
-                                self.route_origin = YLeaf(YType.str, "route-origin")
-
-                                self.ri_bv4_enter = YLeaf(YType.str, "ri-bv4-enter")
-
-                                self.ri_bv4_exit = YLeaf(YType.str, "ri-bv4-exit")
-
-                                self.ri_bv4_redistribute = YLeaf(YType.str, "ri-bv4-redistribute")
-
-                                self.ldp_enter = YLeaf(YType.str, "ldp-enter")
-
-                                self.ldp_exit = YLeaf(YType.str, "ldp-exit")
-
-                                self.lsd_enter = YLeaf(YType.str, "lsd-enter")
-
-                                self.lsd_exit = YLeaf(YType.str, "lsd-exit")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls))])
+                                self._leafs = OrderedDict([
+                                    ('route_origin', YLeaf(YType.str, 'route-origin')),
+                                    ('ri_bv4_enter', YLeaf(YType.str, 'ri-bv4-enter')),
+                                    ('ri_bv4_exit', YLeaf(YType.str, 'ri-bv4-exit')),
+                                    ('ri_bv4_redistribute', YLeaf(YType.str, 'ri-bv4-redistribute')),
+                                    ('ldp_enter', YLeaf(YType.str, 'ldp-enter')),
+                                    ('ldp_exit', YLeaf(YType.str, 'ldp-exit')),
+                                    ('lsd_enter', YLeaf(YType.str, 'lsd-enter')),
+                                    ('lsd_exit', YLeaf(YType.str, 'lsd-exit')),
+                                ])
+                                self.route_origin = None
+                                self.ri_bv4_enter = None
+                                self.ri_bv4_exit = None
+                                self.ri_bv4_redistribute = None
+                                self.ldp_enter = None
+                                self.ldp_exit = None
+                                self.lsd_enter = None
+                                self.lsd_exit = None
 
                                 self.lc_ip = YList(self)
                                 self.lc_mpls = YList(self)
@@ -18718,14 +19491,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-ip"
 
                                 def __setattr__(self, name, value):
@@ -18766,14 +19542,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-mpls"
 
                                 def __setattr__(self, name, value):
@@ -18832,20 +19611,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "lsa-processed"
 
                             def __setattr__(self, name, value):
@@ -18875,8 +19657,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix-event-offline" : ("prefix_event_offline", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("prefix-event-offline", ("prefix_event_offline", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline))])
+                        self._leafs = OrderedDict()
 
                         self.prefix_event_offline = YList(self)
                         self._segment_path = lambda: "prefix-event-offlines"
@@ -18890,7 +19674,7 @@ class Rcmd(Entity):
                         Offline operational data for particular ISIS
                         Prefix Event
                         
-                        .. attribute:: event_id  <key>
+                        .. attribute:: event_id  (key)
                         
                         	Specific Event ID
                         	**type**\: int
@@ -19006,32 +19790,35 @@ class Rcmd(Entity):
                             self.yang_parent_name = "prefix-event-offlines"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ip-convergence-time" : ("ip_convergence_time", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime), "mpls-convergence-time" : ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime)}
-                            self._child_list_classes = {"path" : ("path", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path), "trigger-lsa" : ("trigger_lsa", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa), "time-line" : ("time_line", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine), "lsa-processed" : ("lsa_processed", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed)}
-
-                            self.event_id = YLeaf(YType.uint32, "event-id")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_lenth = YLeaf(YType.uint32, "prefix-lenth")
-
-                            self.spf_run_no = YLeaf(YType.uint32, "spf-run-no")
-
-                            self.ipfrr_event_id = YLeaf(YType.uint32, "ipfrr-event-id")
-
-                            self.threshold_exceeded = YLeaf(YType.boolean, "threshold-exceeded")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                            self.route_type = YLeaf(YType.enumeration, "route-type")
-
-                            self.route_path_change_type = YLeaf(YType.enumeration, "route-path-change-type")
-
-                            self.cost = YLeaf(YType.uint32, "cost")
-
-                            self.trigger_time = YLeaf(YType.str, "trigger-time")
+                            self.ylist_key_names = ['event_id']
+                            self._child_container_classes = OrderedDict([("ip-convergence-time", ("ip_convergence_time", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime)), ("mpls-convergence-time", ("mpls_convergence_time", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime))])
+                            self._child_list_classes = OrderedDict([("path", ("path", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path)), ("trigger-lsa", ("trigger_lsa", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa)), ("time-line", ("time_line", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine)), ("lsa-processed", ("lsa_processed", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed))])
+                            self._leafs = OrderedDict([
+                                ('event_id', YLeaf(YType.uint32, 'event-id')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_lenth', YLeaf(YType.uint32, 'prefix-lenth')),
+                                ('spf_run_no', YLeaf(YType.uint32, 'spf-run-no')),
+                                ('ipfrr_event_id', YLeaf(YType.uint32, 'ipfrr-event-id')),
+                                ('threshold_exceeded', YLeaf(YType.boolean, 'threshold-exceeded')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                ('route_path_change_type', YLeaf(YType.enumeration, 'route-path-change-type')),
+                                ('cost', YLeaf(YType.uint32, 'cost')),
+                                ('trigger_time', YLeaf(YType.str, 'trigger-time')),
+                            ])
+                            self.event_id = None
+                            self.prefix = None
+                            self.prefix_lenth = None
+                            self.spf_run_no = None
+                            self.ipfrr_event_id = None
+                            self.threshold_exceeded = None
+                            self.priority = None
+                            self.change_type = None
+                            self.route_type = None
+                            self.route_path_change_type = None
+                            self.cost = None
+                            self.trigger_time = None
 
                             self.ip_convergence_time = Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime()
                             self.ip_convergence_time.parent = self
@@ -19047,7 +19834,7 @@ class Rcmd(Entity):
                             self.trigger_lsa = YList(self)
                             self.time_line = YList(self)
                             self.lsa_processed = YList(self)
-                            self._segment_path = lambda: "prefix-event-offline" + "[event-id='" + self.event_id.get() + "']"
+                            self._segment_path = lambda: "prefix-event-offline" + "[event-id='" + str(self.event_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline, ['event_id', 'prefix', 'prefix_lenth', 'spf_run_no', 'ipfrr_event_id', 'threshold_exceeded', 'priority', 'change_type', 'route_type', 'route_path_change_type', 'cost', 'trigger_time'], name, value)
@@ -19095,16 +19882,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "ip-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -19153,16 +19943,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.minimum_time = YLeaf(YType.str, "minimum-time")
-
-                                self.maximum_time = YLeaf(YType.str, "maximum-time")
-
-                                self.slowest_node_name = YLeaf(YType.str, "slowest-node-name")
-
-                                self.fastest_node_name = YLeaf(YType.str, "fastest-node-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('minimum_time', YLeaf(YType.str, 'minimum-time')),
+                                    ('maximum_time', YLeaf(YType.str, 'maximum-time')),
+                                    ('slowest_node_name', YLeaf(YType.str, 'slowest-node-name')),
+                                    ('fastest_node_name', YLeaf(YType.str, 'fastest-node-name')),
+                                ])
+                                self.minimum_time = None
+                                self.maximum_time = None
+                                self.slowest_node_name = None
+                                self.fastest_node_name = None
                                 self._segment_path = lambda: "mpls-convergence-time"
 
                             def __setattr__(self, name, value):
@@ -19216,16 +20009,19 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lfa-path" : ("lfa_path", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath)}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.path_metric = YLeaf(YType.uint32, "path-metric")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lfa-path", ("lfa_path", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath))])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                ])
+                                self.interface_name = None
+                                self.neighbour_address = None
+                                self.change_type = None
+                                self.path_metric = None
 
                                 self.lfa_path = YList(self)
                                 self._segment_path = lambda: "path"
@@ -19288,20 +20084,23 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lfa_type = YLeaf(YType.enumeration, "lfa-type")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.neighbour_address = YLeaf(YType.str, "neighbour-address")
-
-                                    self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                    self.path_metric = YLeaf(YType.uint32, "path-metric")
-
-                                    self.remote_node_id = YLeaf(YType.str, "remote-node-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lfa_type', YLeaf(YType.enumeration, 'lfa-type')),
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('neighbour_address', YLeaf(YType.str, 'neighbour-address')),
+                                        ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                        ('path_metric', YLeaf(YType.uint32, 'path-metric')),
+                                        ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                                    ])
+                                    self.lfa_type = None
+                                    self.interface_name = None
+                                    self.neighbour_address = None
+                                    self.change_type = None
+                                    self.path_metric = None
+                                    self.remote_node_id = None
                                     self._segment_path = lambda: "lfa-path"
 
                                 def __setattr__(self, name, value):
@@ -19360,20 +20159,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "trigger-lsa"
 
                             def __setattr__(self, name, value):
@@ -19448,24 +20250,27 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lc-ip" : ("lc_ip", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp), "lc-mpls" : ("lc_mpls", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls)}
-
-                                self.route_origin = YLeaf(YType.str, "route-origin")
-
-                                self.ri_bv4_enter = YLeaf(YType.str, "ri-bv4-enter")
-
-                                self.ri_bv4_exit = YLeaf(YType.str, "ri-bv4-exit")
-
-                                self.ri_bv4_redistribute = YLeaf(YType.str, "ri-bv4-redistribute")
-
-                                self.ldp_enter = YLeaf(YType.str, "ldp-enter")
-
-                                self.ldp_exit = YLeaf(YType.str, "ldp-exit")
-
-                                self.lsd_enter = YLeaf(YType.str, "lsd-enter")
-
-                                self.lsd_exit = YLeaf(YType.str, "lsd-exit")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lc-ip", ("lc_ip", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp)), ("lc-mpls", ("lc_mpls", Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls))])
+                                self._leafs = OrderedDict([
+                                    ('route_origin', YLeaf(YType.str, 'route-origin')),
+                                    ('ri_bv4_enter', YLeaf(YType.str, 'ri-bv4-enter')),
+                                    ('ri_bv4_exit', YLeaf(YType.str, 'ri-bv4-exit')),
+                                    ('ri_bv4_redistribute', YLeaf(YType.str, 'ri-bv4-redistribute')),
+                                    ('ldp_enter', YLeaf(YType.str, 'ldp-enter')),
+                                    ('ldp_exit', YLeaf(YType.str, 'ldp-exit')),
+                                    ('lsd_enter', YLeaf(YType.str, 'lsd-enter')),
+                                    ('lsd_exit', YLeaf(YType.str, 'lsd-exit')),
+                                ])
+                                self.route_origin = None
+                                self.ri_bv4_enter = None
+                                self.ri_bv4_exit = None
+                                self.ri_bv4_redistribute = None
+                                self.ldp_enter = None
+                                self.ldp_exit = None
+                                self.lsd_enter = None
+                                self.lsd_exit = None
 
                                 self.lc_ip = YList(self)
                                 self.lc_mpls = YList(self)
@@ -19509,14 +20314,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-ip"
 
                                 def __setattr__(self, name, value):
@@ -19557,14 +20365,17 @@ class Rcmd(Entity):
                                     self.yang_parent_name = "time-line"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                                    self.fib_complete = YLeaf(YType.str, "fib-complete")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                                        ('fib_complete', YLeaf(YType.str, 'fib-complete')),
+                                    ])
+                                    self.node_name = None
+                                    self.speed = None
+                                    self.fib_complete = None
                                     self._segment_path = lambda: "lc-mpls"
 
                                 def __setattr__(self, name, value):
@@ -19623,20 +20434,23 @@ class Rcmd(Entity):
                                 self.yang_parent_name = "prefix-event-offline"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                self.sequence_number = YLeaf(YType.str, "sequence-number")
-
-                                self.lsa_type = YLeaf(YType.enumeration, "lsa-type")
-
-                                self.origin_router_id = YLeaf(YType.str, "origin-router-id")
-
-                                self.change_type = YLeaf(YType.enumeration, "change-type")
-
-                                self.reception_time = YLeaf(YType.str, "reception-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                    ('sequence_number', YLeaf(YType.str, 'sequence-number')),
+                                    ('lsa_type', YLeaf(YType.enumeration, 'lsa-type')),
+                                    ('origin_router_id', YLeaf(YType.str, 'origin-router-id')),
+                                    ('change_type', YLeaf(YType.enumeration, 'change-type')),
+                                    ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ])
+                                self.lsa_id = None
+                                self.sequence_number = None
+                                self.lsa_type = None
+                                self.origin_router_id = None
+                                self.change_type = None
+                                self.reception_time = None
                                 self._segment_path = lambda: "lsa-processed"
 
                             def __setattr__(self, name, value):
@@ -19666,8 +20480,10 @@ class Rcmd(Entity):
                         self.yang_parent_name = "instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"lsp-regenerated" : ("lsp_regenerated", Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("lsp-regenerated", ("lsp_regenerated", Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated))])
+                        self._leafs = OrderedDict()
 
                         self.lsp_regenerated = YList(self)
                         self._segment_path = lambda: "lsp-regenerateds"
@@ -19680,7 +20496,7 @@ class Rcmd(Entity):
                         """
                         Regenerated LSP data
                         
-                        .. attribute:: serial_number  <key>
+                        .. attribute:: serial_number  (key)
                         
                         	Data for a particular regenerated LSP
                         	**type**\: int
@@ -19742,25 +20558,28 @@ class Rcmd(Entity):
                             self.yang_parent_name = "lsp-regenerateds"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.serial_number = YLeaf(YType.uint32, "serial-number")
-
-                            self.serial_number_xr = YLeaf(YType.uint32, "serial-number-xr")
-
-                            self.lsp_id = YLeaf(YType.str, "lsp-id")
-
-                            self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                            self.reception_time = YLeaf(YType.str, "reception-time")
-
-                            self.isis_level = YLeaf(YType.enumeration, "isis-level")
-
-                            self.spf_run_number = YLeaf(YType.uint32, "spf-run-number")
-
-                            self.reason = YLeaf(YType.str, "reason")
-                            self._segment_path = lambda: "lsp-regenerated" + "[serial-number='" + self.serial_number.get() + "']"
+                            self.ylist_key_names = ['serial_number']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('serial_number', YLeaf(YType.uint32, 'serial-number')),
+                                ('serial_number_xr', YLeaf(YType.uint32, 'serial-number-xr')),
+                                ('lsp_id', YLeaf(YType.str, 'lsp-id')),
+                                ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                ('reception_time', YLeaf(YType.str, 'reception-time')),
+                                ('isis_level', YLeaf(YType.enumeration, 'isis-level')),
+                                ('spf_run_number', YLeaf(YType.uint32, 'spf-run-number')),
+                                ('reason', YLeaf(YType.str, 'reason')),
+                            ])
+                            self.serial_number = None
+                            self.serial_number_xr = None
+                            self.lsp_id = None
+                            self.sequence_number = None
+                            self.reception_time = None
+                            self.isis_level = None
+                            self.spf_run_number = None
+                            self.reason = None
+                            self._segment_path = lambda: "lsp-regenerated" + "[serial-number='" + str(self.serial_number) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated, ['serial_number', 'serial_number_xr', 'lsp_id', 'sequence_number', 'reception_time', 'isis_level', 'spf_run_number', 'reason'], name, value)
@@ -19799,8 +20618,10 @@ class Rcmd(Entity):
             self.yang_parent_name = "rcmd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"memory-info" : ("memory_info", Rcmd.Memory.MemoryInfo), "edm-memory-info" : ("edm_memory_info", Rcmd.Memory.EdmMemoryInfo), "string-memory-info" : ("string_memory_info", Rcmd.Memory.StringMemoryInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("memory-info", ("memory_info", Rcmd.Memory.MemoryInfo)), ("edm-memory-info", ("edm_memory_info", Rcmd.Memory.EdmMemoryInfo)), ("string-memory-info", ("string_memory_info", Rcmd.Memory.StringMemoryInfo))])
+            self._leafs = OrderedDict()
 
             self.memory_info = YList(self)
             self.edm_memory_info = YList(self)
@@ -19875,22 +20696,25 @@ class Rcmd(Entity):
                 self.yang_parent_name = "memory"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.structure_name = YLeaf(YType.str, "structure-name")
-
-                self.size = YLeaf(YType.uint32, "size")
-
-                self.current_count = YLeaf(YType.uint32, "current-count")
-
-                self.alloc_fails = YLeaf(YType.uint32, "alloc-fails")
-
-                self.alloc_count = YLeaf(YType.uint32, "alloc-count")
-
-                self.freed_count = YLeaf(YType.uint32, "freed-count")
-
-                self.memory_type = YLeaf(YType.enumeration, "memory-type")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('structure_name', YLeaf(YType.str, 'structure-name')),
+                    ('size', YLeaf(YType.uint32, 'size')),
+                    ('current_count', YLeaf(YType.uint32, 'current-count')),
+                    ('alloc_fails', YLeaf(YType.uint32, 'alloc-fails')),
+                    ('alloc_count', YLeaf(YType.uint32, 'alloc-count')),
+                    ('freed_count', YLeaf(YType.uint32, 'freed-count')),
+                    ('memory_type', YLeaf(YType.enumeration, 'memory-type')),
+                ])
+                self.structure_name = None
+                self.size = None
+                self.current_count = None
+                self.alloc_fails = None
+                self.alloc_count = None
+                self.freed_count = None
+                self.memory_type = None
                 self._segment_path = lambda: "memory-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/memory/%s" % self._segment_path()
 
@@ -19944,16 +20768,19 @@ class Rcmd(Entity):
                 self.yang_parent_name = "memory"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.size = YLeaf(YType.uint32, "size")
-
-                self.total = YLeaf(YType.uint32, "total")
-
-                self.success = YLeaf(YType.uint32, "success")
-
-                self.failure = YLeaf(YType.uint32, "failure")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('size', YLeaf(YType.uint32, 'size')),
+                    ('total', YLeaf(YType.uint32, 'total')),
+                    ('success', YLeaf(YType.uint32, 'success')),
+                    ('failure', YLeaf(YType.uint32, 'failure')),
+                ])
+                self.size = None
+                self.total = None
+                self.success = None
+                self.failure = None
                 self._segment_path = lambda: "edm-memory-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/memory/%s" % self._segment_path()
 
@@ -20007,16 +20834,19 @@ class Rcmd(Entity):
                 self.yang_parent_name = "memory"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.size = YLeaf(YType.uint32, "size")
-
-                self.total = YLeaf(YType.uint32, "total")
-
-                self.success = YLeaf(YType.uint32, "success")
-
-                self.failure = YLeaf(YType.uint32, "failure")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('size', YLeaf(YType.uint32, 'size')),
+                    ('total', YLeaf(YType.uint32, 'total')),
+                    ('success', YLeaf(YType.uint32, 'success')),
+                    ('failure', YLeaf(YType.uint32, 'failure')),
+                ])
+                self.size = None
+                self.total = None
+                self.success = None
+                self.failure = None
                 self._segment_path = lambda: "string-memory-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/memory/%s" % self._segment_path()
 
@@ -20057,8 +20887,10 @@ class Rcmd(Entity):
             self.yang_parent_name = "rcmd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"sessions" : ("sessions", Rcmd.Ldp.Sessions), "remote-lfa-s" : ("remote_lfa_s", Rcmd.Ldp.RemoteLfaS), "remote-lfa-summaries" : ("remote_lfa_summaries", Rcmd.Ldp.RemoteLfaSummaries)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("sessions", ("sessions", Rcmd.Ldp.Sessions)), ("remote-lfa-s", ("remote_lfa_s", Rcmd.Ldp.RemoteLfaS)), ("remote-lfa-summaries", ("remote_lfa_summaries", Rcmd.Ldp.RemoteLfaSummaries))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.sessions = Rcmd.Ldp.Sessions()
             self.sessions.parent = self
@@ -20101,8 +20933,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "ldp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"session" : ("session", Rcmd.Ldp.Sessions.Session)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("session", ("session", Rcmd.Ldp.Sessions.Session))])
+                self._leafs = OrderedDict()
 
                 self.session = YList(self)
                 self._segment_path = lambda: "sessions"
@@ -20116,7 +20950,7 @@ class Rcmd(Entity):
                 """
                 Session
                 
-                .. attribute:: event_id  <key>
+                .. attribute:: event_id  (key)
                 
                 	Specific Event ID
                 	**type**\: int
@@ -20178,25 +21012,28 @@ class Rcmd(Entity):
                     self.yang_parent_name = "sessions"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.event_id = YLeaf(YType.uint32, "event-id")
-
-                    self.event_id_xr = YLeaf(YType.uint32, "event-id-xr")
-
-                    self.event_type = YLeaf(YType.enumeration, "event-type")
-
-                    self.event_time = YLeaf(YType.str, "event-time")
-
-                    self.lsr_id = YLeaf(YType.str, "lsr-id")
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.state = YLeaf(YType.enumeration, "state")
-                    self._segment_path = lambda: "session" + "[event-id='" + self.event_id.get() + "']"
+                    self.ylist_key_names = ['event_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('event_id', YLeaf(YType.uint32, 'event-id')),
+                        ('event_id_xr', YLeaf(YType.uint32, 'event-id-xr')),
+                        ('event_type', YLeaf(YType.enumeration, 'event-type')),
+                        ('event_time', YLeaf(YType.str, 'event-time')),
+                        ('lsr_id', YLeaf(YType.str, 'lsr-id')),
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('state', YLeaf(YType.enumeration, 'state')),
+                    ])
+                    self.event_id = None
+                    self.event_id_xr = None
+                    self.event_type = None
+                    self.event_time = None
+                    self.lsr_id = None
+                    self.interface_name = None
+                    self.address = None
+                    self.state = None
+                    self._segment_path = lambda: "session" + "[event-id='" + str(self.event_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/sessions/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -20226,8 +21063,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "ldp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"remote-lfa" : ("remote_lfa", Rcmd.Ldp.RemoteLfaS.RemoteLfa)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("remote-lfa", ("remote_lfa", Rcmd.Ldp.RemoteLfaS.RemoteLfa))])
+                self._leafs = OrderedDict()
 
                 self.remote_lfa = YList(self)
                 self._segment_path = lambda: "remote-lfa-s"
@@ -20241,7 +21080,7 @@ class Rcmd(Entity):
                 """
                 RemoteLFA
                 
-                .. attribute:: event_id  <key>
+                .. attribute:: event_id  (key)
                 
                 	Specific Event ID
                 	**type**\: int
@@ -20311,27 +21150,30 @@ class Rcmd(Entity):
                     self.yang_parent_name = "remote-lfa-s"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-statistic" : ("session_statistic", Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic), "remote-node" : ("remote_node", Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode), "logs" : ("logs", Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs)}
-
-                    self.event_id = YLeaf(YType.uint32, "event-id")
-
-                    self.event_id_xr = YLeaf(YType.uint32, "event-id-xr")
-
-                    self.end_of_calculation_time = YLeaf(YType.str, "end-of-calculation-time")
-
-                    self.igp_protocol = YLeaf(YType.enumeration, "igp-protocol")
-
-                    self.process_name = YLeaf(YType.str, "process-name")
-
-                    self.ipfrr_event_id = YLeaf(YType.uint32, "ipfrr-event-id")
-
-                    self.below_threshold = YLeaf(YType.boolean, "below-threshold")
+                    self.ylist_key_names = ['event_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session-statistic", ("session_statistic", Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic)), ("remote-node", ("remote_node", Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode)), ("logs", ("logs", Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs))])
+                    self._leafs = OrderedDict([
+                        ('event_id', YLeaf(YType.uint32, 'event-id')),
+                        ('event_id_xr', YLeaf(YType.uint32, 'event-id-xr')),
+                        ('end_of_calculation_time', YLeaf(YType.str, 'end-of-calculation-time')),
+                        ('igp_protocol', YLeaf(YType.enumeration, 'igp-protocol')),
+                        ('process_name', YLeaf(YType.str, 'process-name')),
+                        ('ipfrr_event_id', YLeaf(YType.uint32, 'ipfrr-event-id')),
+                        ('below_threshold', YLeaf(YType.boolean, 'below-threshold')),
+                    ])
+                    self.event_id = None
+                    self.event_id_xr = None
+                    self.end_of_calculation_time = None
+                    self.igp_protocol = None
+                    self.process_name = None
+                    self.ipfrr_event_id = None
+                    self.below_threshold = None
 
                     self.session_statistic = YList(self)
                     self.remote_node = YList(self)
                     self.logs = YList(self)
-                    self._segment_path = lambda: "remote-lfa" + "[event-id='" + self.event_id.get() + "']"
+                    self._segment_path = lambda: "remote-lfa" + "[event-id='" + str(self.event_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-s/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -20403,22 +21245,25 @@ class Rcmd(Entity):
                         self.yang_parent_name = "remote-lfa"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                        self.session_count = YLeaf(YType.uint32, "session-count")
-
-                        self.route_count = YLeaf(YType.uint32, "route-count")
-
-                        self.path_count = YLeaf(YType.uint32, "path-count")
-
-                        self.remote_label_count = YLeaf(YType.uint32, "remote-label-count")
-
-                        self.protected_route_count = YLeaf(YType.uint32, "protected-route-count")
-
-                        self.protected_path_count = YLeaf(YType.uint32, "protected-path-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                            ('session_count', YLeaf(YType.uint32, 'session-count')),
+                            ('route_count', YLeaf(YType.uint32, 'route-count')),
+                            ('path_count', YLeaf(YType.uint32, 'path-count')),
+                            ('remote_label_count', YLeaf(YType.uint32, 'remote-label-count')),
+                            ('protected_route_count', YLeaf(YType.uint32, 'protected-route-count')),
+                            ('protected_path_count', YLeaf(YType.uint32, 'protected-path-count')),
+                        ])
+                        self.session_state = None
+                        self.session_count = None
+                        self.route_count = None
+                        self.path_count = None
+                        self.remote_label_count = None
+                        self.protected_route_count = None
+                        self.protected_path_count = None
                         self._segment_path = lambda: "session-statistic"
 
                     def __setattr__(self, name, value):
@@ -20509,28 +21354,31 @@ class Rcmd(Entity):
                         self.yang_parent_name = "remote-lfa"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.remote_node_id = YLeaf(YType.str, "remote-node-id")
-
-                        self.lsr_id = YLeaf(YType.str, "lsr-id")
-
-                        self.transport_address = YLeaf(YType.str, "transport-address")
-
-                        self.in_use_time = YLeaf(YType.str, "in-use-time")
-
-                        self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                        self.route_count = YLeaf(YType.uint32, "route-count")
-
-                        self.path_count = YLeaf(YType.uint32, "path-count")
-
-                        self.remote_label_count = YLeaf(YType.uint32, "remote-label-count")
-
-                        self.protected_route_count = YLeaf(YType.uint32, "protected-route-count")
-
-                        self.protected_path_count = YLeaf(YType.uint32, "protected-path-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                            ('lsr_id', YLeaf(YType.str, 'lsr-id')),
+                            ('transport_address', YLeaf(YType.str, 'transport-address')),
+                            ('in_use_time', YLeaf(YType.str, 'in-use-time')),
+                            ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                            ('route_count', YLeaf(YType.uint32, 'route-count')),
+                            ('path_count', YLeaf(YType.uint32, 'path-count')),
+                            ('remote_label_count', YLeaf(YType.uint32, 'remote-label-count')),
+                            ('protected_route_count', YLeaf(YType.uint32, 'protected-route-count')),
+                            ('protected_path_count', YLeaf(YType.uint32, 'protected-path-count')),
+                        ])
+                        self.remote_node_id = None
+                        self.lsr_id = None
+                        self.transport_address = None
+                        self.in_use_time = None
+                        self.session_state = None
+                        self.route_count = None
+                        self.path_count = None
+                        self.remote_label_count = None
+                        self.protected_route_count = None
+                        self.protected_path_count = None
                         self._segment_path = lambda: "remote-node"
 
                     def __setattr__(self, name, value):
@@ -20579,16 +21427,19 @@ class Rcmd(Entity):
                         self.yang_parent_name = "remote-lfa"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.log_time = YLeaf(YType.str, "log-time")
-
-                        self.label_coverage_state = YLeaf(YType.enumeration, "label-coverage-state")
-
-                        self.route_count = YLeaf(YType.uint32, "route-count")
-
-                        self.remote_label_count = YLeaf(YType.uint32, "remote-label-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('log_time', YLeaf(YType.str, 'log-time')),
+                            ('label_coverage_state', YLeaf(YType.enumeration, 'label-coverage-state')),
+                            ('route_count', YLeaf(YType.uint32, 'route-count')),
+                            ('remote_label_count', YLeaf(YType.uint32, 'remote-label-count')),
+                        ])
+                        self.log_time = None
+                        self.label_coverage_state = None
+                        self.route_count = None
+                        self.remote_label_count = None
                         self._segment_path = lambda: "logs"
 
                     def __setattr__(self, name, value):
@@ -20618,8 +21469,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "ldp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"remote-lfa-summary" : ("remote_lfa_summary", Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("remote-lfa-summary", ("remote_lfa_summary", Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary))])
+                self._leafs = OrderedDict()
 
                 self.remote_lfa_summary = YList(self)
                 self._segment_path = lambda: "remote-lfa-summaries"
@@ -20633,7 +21486,7 @@ class Rcmd(Entity):
                 """
                 Summary operational data for Remote LFA
                 
-                .. attribute:: event_id  <key>
+                .. attribute:: event_id  (key)
                 
                 	Specific Event ID
                 	**type**\: int
@@ -20703,27 +21556,30 @@ class Rcmd(Entity):
                     self.yang_parent_name = "remote-lfa-summaries"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-statistic" : ("session_statistic", Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic), "remote-node" : ("remote_node", Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode), "logs" : ("logs", Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs)}
-
-                    self.event_id = YLeaf(YType.uint32, "event-id")
-
-                    self.event_id_xr = YLeaf(YType.uint32, "event-id-xr")
-
-                    self.end_of_calculation_time = YLeaf(YType.str, "end-of-calculation-time")
-
-                    self.igp_protocol = YLeaf(YType.enumeration, "igp-protocol")
-
-                    self.process_name = YLeaf(YType.str, "process-name")
-
-                    self.ipfrr_event_id = YLeaf(YType.uint32, "ipfrr-event-id")
-
-                    self.below_threshold = YLeaf(YType.boolean, "below-threshold")
+                    self.ylist_key_names = ['event_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session-statistic", ("session_statistic", Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic)), ("remote-node", ("remote_node", Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode)), ("logs", ("logs", Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs))])
+                    self._leafs = OrderedDict([
+                        ('event_id', YLeaf(YType.uint32, 'event-id')),
+                        ('event_id_xr', YLeaf(YType.uint32, 'event-id-xr')),
+                        ('end_of_calculation_time', YLeaf(YType.str, 'end-of-calculation-time')),
+                        ('igp_protocol', YLeaf(YType.enumeration, 'igp-protocol')),
+                        ('process_name', YLeaf(YType.str, 'process-name')),
+                        ('ipfrr_event_id', YLeaf(YType.uint32, 'ipfrr-event-id')),
+                        ('below_threshold', YLeaf(YType.boolean, 'below-threshold')),
+                    ])
+                    self.event_id = None
+                    self.event_id_xr = None
+                    self.end_of_calculation_time = None
+                    self.igp_protocol = None
+                    self.process_name = None
+                    self.ipfrr_event_id = None
+                    self.below_threshold = None
 
                     self.session_statistic = YList(self)
                     self.remote_node = YList(self)
                     self.logs = YList(self)
-                    self._segment_path = lambda: "remote-lfa-summary" + "[event-id='" + self.event_id.get() + "']"
+                    self._segment_path = lambda: "remote-lfa-summary" + "[event-id='" + str(self.event_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/ldp/remote-lfa-summaries/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -20795,22 +21651,25 @@ class Rcmd(Entity):
                         self.yang_parent_name = "remote-lfa-summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                        self.session_count = YLeaf(YType.uint32, "session-count")
-
-                        self.route_count = YLeaf(YType.uint32, "route-count")
-
-                        self.path_count = YLeaf(YType.uint32, "path-count")
-
-                        self.remote_label_count = YLeaf(YType.uint32, "remote-label-count")
-
-                        self.protected_route_count = YLeaf(YType.uint32, "protected-route-count")
-
-                        self.protected_path_count = YLeaf(YType.uint32, "protected-path-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                            ('session_count', YLeaf(YType.uint32, 'session-count')),
+                            ('route_count', YLeaf(YType.uint32, 'route-count')),
+                            ('path_count', YLeaf(YType.uint32, 'path-count')),
+                            ('remote_label_count', YLeaf(YType.uint32, 'remote-label-count')),
+                            ('protected_route_count', YLeaf(YType.uint32, 'protected-route-count')),
+                            ('protected_path_count', YLeaf(YType.uint32, 'protected-path-count')),
+                        ])
+                        self.session_state = None
+                        self.session_count = None
+                        self.route_count = None
+                        self.path_count = None
+                        self.remote_label_count = None
+                        self.protected_route_count = None
+                        self.protected_path_count = None
                         self._segment_path = lambda: "session-statistic"
 
                     def __setattr__(self, name, value):
@@ -20901,28 +21760,31 @@ class Rcmd(Entity):
                         self.yang_parent_name = "remote-lfa-summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.remote_node_id = YLeaf(YType.str, "remote-node-id")
-
-                        self.lsr_id = YLeaf(YType.str, "lsr-id")
-
-                        self.transport_address = YLeaf(YType.str, "transport-address")
-
-                        self.in_use_time = YLeaf(YType.str, "in-use-time")
-
-                        self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                        self.route_count = YLeaf(YType.uint32, "route-count")
-
-                        self.path_count = YLeaf(YType.uint32, "path-count")
-
-                        self.remote_label_count = YLeaf(YType.uint32, "remote-label-count")
-
-                        self.protected_route_count = YLeaf(YType.uint32, "protected-route-count")
-
-                        self.protected_path_count = YLeaf(YType.uint32, "protected-path-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('remote_node_id', YLeaf(YType.str, 'remote-node-id')),
+                            ('lsr_id', YLeaf(YType.str, 'lsr-id')),
+                            ('transport_address', YLeaf(YType.str, 'transport-address')),
+                            ('in_use_time', YLeaf(YType.str, 'in-use-time')),
+                            ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                            ('route_count', YLeaf(YType.uint32, 'route-count')),
+                            ('path_count', YLeaf(YType.uint32, 'path-count')),
+                            ('remote_label_count', YLeaf(YType.uint32, 'remote-label-count')),
+                            ('protected_route_count', YLeaf(YType.uint32, 'protected-route-count')),
+                            ('protected_path_count', YLeaf(YType.uint32, 'protected-path-count')),
+                        ])
+                        self.remote_node_id = None
+                        self.lsr_id = None
+                        self.transport_address = None
+                        self.in_use_time = None
+                        self.session_state = None
+                        self.route_count = None
+                        self.path_count = None
+                        self.remote_label_count = None
+                        self.protected_route_count = None
+                        self.protected_path_count = None
                         self._segment_path = lambda: "remote-node"
 
                     def __setattr__(self, name, value):
@@ -20971,16 +21833,19 @@ class Rcmd(Entity):
                         self.yang_parent_name = "remote-lfa-summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.log_time = YLeaf(YType.str, "log-time")
-
-                        self.label_coverage_state = YLeaf(YType.enumeration, "label-coverage-state")
-
-                        self.route_count = YLeaf(YType.uint32, "route-count")
-
-                        self.remote_label_count = YLeaf(YType.uint32, "remote-label-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('log_time', YLeaf(YType.str, 'log-time')),
+                            ('label_coverage_state', YLeaf(YType.enumeration, 'label-coverage-state')),
+                            ('route_count', YLeaf(YType.uint32, 'route-count')),
+                            ('remote_label_count', YLeaf(YType.uint32, 'remote-label-count')),
+                        ])
+                        self.log_time = None
+                        self.label_coverage_state = None
+                        self.route_count = None
+                        self.remote_label_count = None
                         self._segment_path = lambda: "logs"
 
                     def __setattr__(self, name, value):
@@ -21010,8 +21875,10 @@ class Rcmd(Entity):
             self.yang_parent_name = "rcmd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"events" : ("events", Rcmd.Intf.Events)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("events", ("events", Rcmd.Intf.Events))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.events = Rcmd.Intf.Events()
             self.events.parent = self
@@ -21044,8 +21911,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "intf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"event" : ("event", Rcmd.Intf.Events.Event)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("event", ("event", Rcmd.Intf.Events.Event))])
+                self._leafs = OrderedDict()
 
                 self.event = YList(self)
                 self._segment_path = lambda: "events"
@@ -21059,7 +21928,7 @@ class Rcmd(Entity):
                 """
                 Events
                 
-                .. attribute:: event_no  <key>
+                .. attribute:: event_no  (key)
                 
                 	Specific Event No
                 	**type**\: int
@@ -21114,23 +21983,26 @@ class Rcmd(Entity):
                     self.yang_parent_name = "events"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.event_no = YLeaf(YType.uint32, "event-no")
-
-                    self.sequence_no = YLeaf(YType.uint32, "sequence-no")
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.component = YLeaf(YType.enumeration, "component")
-
-                    self.event_type = YLeaf(YType.enumeration, "event-type")
-
-                    self.event_time = YLeaf(YType.str, "event-time")
-
-                    self.primary_address = YLeaf(YType.str, "primary-address")
-                    self._segment_path = lambda: "event" + "[event-no='" + self.event_no.get() + "']"
+                    self.ylist_key_names = ['event_no']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('event_no', YLeaf(YType.uint32, 'event-no')),
+                        ('sequence_no', YLeaf(YType.uint32, 'sequence-no')),
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('component', YLeaf(YType.enumeration, 'component')),
+                        ('event_type', YLeaf(YType.enumeration, 'event-type')),
+                        ('event_time', YLeaf(YType.str, 'event-time')),
+                        ('primary_address', YLeaf(YType.str, 'primary-address')),
+                    ])
+                    self.event_no = None
+                    self.sequence_no = None
+                    self.interface_name = None
+                    self.component = None
+                    self.event_type = None
+                    self.event_time = None
+                    self.primary_address = None
+                    self._segment_path = lambda: "event" + "[event-no='" + str(self.event_no) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/intf/events/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -21170,8 +22042,10 @@ class Rcmd(Entity):
             self.yang_parent_name = "rcmd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"isis" : ("isis", Rcmd.Process.Isis), "ospf" : ("ospf", Rcmd.Process.Ospf), "ldp" : ("ldp", Rcmd.Process.Ldp)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("isis", ("isis", Rcmd.Process.Isis)), ("ospf", ("ospf", Rcmd.Process.Ospf)), ("ldp", ("ldp", Rcmd.Process.Ldp))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.isis = Rcmd.Process.Isis()
             self.isis.parent = self
@@ -21198,7 +22072,7 @@ class Rcmd(Entity):
             .. attribute:: process
             
             	Process Information
-            	**type**\: list of  		 :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process>`
+            	**type**\: list of  		 :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_>`
             
             
 
@@ -21214,8 +22088,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "process"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"process" : ("process", Rcmd.Process.Isis.Process)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("process", ("process", Rcmd.Process.Isis.Process_))])
+                self._leafs = OrderedDict()
 
                 self.process = YList(self)
                 self._segment_path = lambda: "isis"
@@ -21225,7 +22101,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Process.Isis, [], name, value)
 
 
-            class Process(Entity):
+            class Process_(Entity):
                 """
                 Process Information
                 
@@ -21242,7 +22118,7 @@ class Rcmd(Entity):
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
-                	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process.InstanceName>`
+                	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_.InstanceName>`
                 
                 
 
@@ -21252,25 +22128,28 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Process.Isis.Process, self).__init__()
+                    super(Rcmd.Process.Isis.Process_, self).__init__()
 
                     self.yang_name = "process"
                     self.yang_parent_name = "isis"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"instance-name" : ("instance_name", Rcmd.Process.Isis.Process.InstanceName)}
-
-                    self.protocol_id = YLeaf(YType.enumeration, "protocol-id")
-
-                    self.process_name = YLeaf(YType.str, "process-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("instance-name", ("instance_name", Rcmd.Process.Isis.Process_.InstanceName))])
+                    self._leafs = OrderedDict([
+                        ('protocol_id', YLeaf(YType.enumeration, 'protocol-id')),
+                        ('process_name', YLeaf(YType.str, 'process-name')),
+                    ])
+                    self.protocol_id = None
+                    self.process_name = None
 
                     self.instance_name = YList(self)
                     self._segment_path = lambda: "process"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/isis/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rcmd.Process.Isis.Process, ['protocol_id', 'process_name'], name, value)
+                    self._perform_setattr(Rcmd.Process.Isis.Process_, ['protocol_id', 'process_name'], name, value)
 
 
                 class InstanceName(Entity):
@@ -21346,7 +22225,7 @@ class Rcmd(Entity):
                     .. attribute:: instance
                     
                     	Instance Information
-                    	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process.InstanceName.Instance>`
+                    	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_.InstanceName.Instance>`
                     
                     
 
@@ -21356,41 +22235,44 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Process.Isis.Process.InstanceName, self).__init__()
+                        super(Rcmd.Process.Isis.Process_.InstanceName, self).__init__()
 
                         self.yang_name = "instance-name"
                         self.yang_parent_name = "process"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"instance" : ("instance", Rcmd.Process.Isis.Process.InstanceName.Instance)}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.last_update_time = YLeaf(YType.str, "last-update-time")
-
-                        self.total_spf_nos = YLeaf(YType.uint32, "total-spf-nos")
-
-                        self.route_change_spf_nos = YLeaf(YType.uint32, "route-change-spf-nos")
-
-                        self.no_route_change_spf_nos = YLeaf(YType.uint32, "no-route-change-spf-nos")
-
-                        self.not_interested_spf_nos = YLeaf(YType.uint32, "not-interested-spf-nos")
-
-                        self.lsp_regeneration_count = YLeaf(YType.uint32, "lsp-regeneration-count")
-
-                        self.lsp_regeneration_serial = YLeaf(YType.uint32, "lsp-regeneration-serial")
-
-                        self.arch_spf_event = YLeaf(YType.uint32, "arch-spf-event")
-
-                        self.arch_lsp_regeneration = YLeaf(YType.uint32, "arch-lsp-regeneration")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("instance", ("instance", Rcmd.Process.Isis.Process_.InstanceName.Instance))])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('last_update_time', YLeaf(YType.str, 'last-update-time')),
+                            ('total_spf_nos', YLeaf(YType.uint32, 'total-spf-nos')),
+                            ('route_change_spf_nos', YLeaf(YType.uint32, 'route-change-spf-nos')),
+                            ('no_route_change_spf_nos', YLeaf(YType.uint32, 'no-route-change-spf-nos')),
+                            ('not_interested_spf_nos', YLeaf(YType.uint32, 'not-interested-spf-nos')),
+                            ('lsp_regeneration_count', YLeaf(YType.uint32, 'lsp-regeneration-count')),
+                            ('lsp_regeneration_serial', YLeaf(YType.uint32, 'lsp-regeneration-serial')),
+                            ('arch_spf_event', YLeaf(YType.uint32, 'arch-spf-event')),
+                            ('arch_lsp_regeneration', YLeaf(YType.uint32, 'arch-lsp-regeneration')),
+                        ])
+                        self.name = None
+                        self.last_update_time = None
+                        self.total_spf_nos = None
+                        self.route_change_spf_nos = None
+                        self.no_route_change_spf_nos = None
+                        self.not_interested_spf_nos = None
+                        self.lsp_regeneration_count = None
+                        self.lsp_regeneration_serial = None
+                        self.arch_spf_event = None
+                        self.arch_lsp_regeneration = None
 
                         self.instance = YList(self)
                         self._segment_path = lambda: "instance-name"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/isis/process/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rcmd.Process.Isis.Process.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
+                        self._perform_setattr(Rcmd.Process.Isis.Process_.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
 
 
                     class Instance(Entity):
@@ -21488,45 +22370,48 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Process.Isis.Process.InstanceName.Instance, self).__init__()
+                            super(Rcmd.Process.Isis.Process_.InstanceName.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "instance-name"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.instance_id = YLeaf(YType.uint32, "instance-id")
-
-                            self.instance_state = YLeaf(YType.enumeration, "instance-state")
-
-                            self.instance_deleted = YLeaf(YType.enumeration, "instance-deleted")
-
-                            self.fwd_referenced = YLeaf(YType.enumeration, "fwd-referenced")
-
-                            self.last_update_time = YLeaf(YType.str, "last-update-time")
-
-                            self.node_id = YLeaf(YType.uint32, "node-id")
-
-                            self.spf_offset = YLeaf(YType.uint32, "spf-offset")
-
-                            self.total_spf_nos = YLeaf(YType.uint32, "total-spf-nos")
-
-                            self.arch_spf_run = YLeaf(YType.uint32, "arch-spf-run")
-
-                            self.route_change_spf_nos = YLeaf(YType.uint32, "route-change-spf-nos")
-
-                            self.no_route_change_spf_nos = YLeaf(YType.uint32, "no-route-change-spf-nos")
-
-                            self.not_interested_spf_nos = YLeaf(YType.uint32, "not-interested-spf-nos")
-
-                            self.total_spt_nos = YLeaf(YType.uint32, "total-spt-nos")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('instance_id', YLeaf(YType.uint32, 'instance-id')),
+                                ('instance_state', YLeaf(YType.enumeration, 'instance-state')),
+                                ('instance_deleted', YLeaf(YType.enumeration, 'instance-deleted')),
+                                ('fwd_referenced', YLeaf(YType.enumeration, 'fwd-referenced')),
+                                ('last_update_time', YLeaf(YType.str, 'last-update-time')),
+                                ('node_id', YLeaf(YType.uint32, 'node-id')),
+                                ('spf_offset', YLeaf(YType.uint32, 'spf-offset')),
+                                ('total_spf_nos', YLeaf(YType.uint32, 'total-spf-nos')),
+                                ('arch_spf_run', YLeaf(YType.uint32, 'arch-spf-run')),
+                                ('route_change_spf_nos', YLeaf(YType.uint32, 'route-change-spf-nos')),
+                                ('no_route_change_spf_nos', YLeaf(YType.uint32, 'no-route-change-spf-nos')),
+                                ('not_interested_spf_nos', YLeaf(YType.uint32, 'not-interested-spf-nos')),
+                                ('total_spt_nos', YLeaf(YType.uint32, 'total-spt-nos')),
+                            ])
+                            self.instance_id = None
+                            self.instance_state = None
+                            self.instance_deleted = None
+                            self.fwd_referenced = None
+                            self.last_update_time = None
+                            self.node_id = None
+                            self.spf_offset = None
+                            self.total_spf_nos = None
+                            self.arch_spf_run = None
+                            self.route_change_spf_nos = None
+                            self.no_route_change_spf_nos = None
+                            self.not_interested_spf_nos = None
+                            self.total_spt_nos = None
                             self._segment_path = lambda: "instance"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/isis/process/instance-name/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Rcmd.Process.Isis.Process.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
+                            self._perform_setattr(Rcmd.Process.Isis.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
 
         class Ospf(Entity):
@@ -21536,7 +22421,7 @@ class Rcmd(Entity):
             .. attribute:: process
             
             	Process Information
-            	**type**\: list of  		 :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process>`
+            	**type**\: list of  		 :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_>`
             
             
 
@@ -21552,8 +22437,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "process"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"process" : ("process", Rcmd.Process.Ospf.Process)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("process", ("process", Rcmd.Process.Ospf.Process_))])
+                self._leafs = OrderedDict()
 
                 self.process = YList(self)
                 self._segment_path = lambda: "ospf"
@@ -21563,7 +22450,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Process.Ospf, [], name, value)
 
 
-            class Process(Entity):
+            class Process_(Entity):
                 """
                 Process Information
                 
@@ -21580,7 +22467,7 @@ class Rcmd(Entity):
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
-                	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process.InstanceName>`
+                	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_.InstanceName>`
                 
                 
 
@@ -21590,25 +22477,28 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Process.Ospf.Process, self).__init__()
+                    super(Rcmd.Process.Ospf.Process_, self).__init__()
 
                     self.yang_name = "process"
                     self.yang_parent_name = "ospf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"instance-name" : ("instance_name", Rcmd.Process.Ospf.Process.InstanceName)}
-
-                    self.protocol_id = YLeaf(YType.enumeration, "protocol-id")
-
-                    self.process_name = YLeaf(YType.str, "process-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("instance-name", ("instance_name", Rcmd.Process.Ospf.Process_.InstanceName))])
+                    self._leafs = OrderedDict([
+                        ('protocol_id', YLeaf(YType.enumeration, 'protocol-id')),
+                        ('process_name', YLeaf(YType.str, 'process-name')),
+                    ])
+                    self.protocol_id = None
+                    self.process_name = None
 
                     self.instance_name = YList(self)
                     self._segment_path = lambda: "process"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ospf/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rcmd.Process.Ospf.Process, ['protocol_id', 'process_name'], name, value)
+                    self._perform_setattr(Rcmd.Process.Ospf.Process_, ['protocol_id', 'process_name'], name, value)
 
 
                 class InstanceName(Entity):
@@ -21684,7 +22574,7 @@ class Rcmd(Entity):
                     .. attribute:: instance
                     
                     	Instance Information
-                    	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process.InstanceName.Instance>`
+                    	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_.InstanceName.Instance>`
                     
                     
 
@@ -21694,41 +22584,44 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Process.Ospf.Process.InstanceName, self).__init__()
+                        super(Rcmd.Process.Ospf.Process_.InstanceName, self).__init__()
 
                         self.yang_name = "instance-name"
                         self.yang_parent_name = "process"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"instance" : ("instance", Rcmd.Process.Ospf.Process.InstanceName.Instance)}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.last_update_time = YLeaf(YType.str, "last-update-time")
-
-                        self.total_spf_nos = YLeaf(YType.uint32, "total-spf-nos")
-
-                        self.route_change_spf_nos = YLeaf(YType.uint32, "route-change-spf-nos")
-
-                        self.no_route_change_spf_nos = YLeaf(YType.uint32, "no-route-change-spf-nos")
-
-                        self.not_interested_spf_nos = YLeaf(YType.uint32, "not-interested-spf-nos")
-
-                        self.lsp_regeneration_count = YLeaf(YType.uint32, "lsp-regeneration-count")
-
-                        self.lsp_regeneration_serial = YLeaf(YType.uint32, "lsp-regeneration-serial")
-
-                        self.arch_spf_event = YLeaf(YType.uint32, "arch-spf-event")
-
-                        self.arch_lsp_regeneration = YLeaf(YType.uint32, "arch-lsp-regeneration")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("instance", ("instance", Rcmd.Process.Ospf.Process_.InstanceName.Instance))])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('last_update_time', YLeaf(YType.str, 'last-update-time')),
+                            ('total_spf_nos', YLeaf(YType.uint32, 'total-spf-nos')),
+                            ('route_change_spf_nos', YLeaf(YType.uint32, 'route-change-spf-nos')),
+                            ('no_route_change_spf_nos', YLeaf(YType.uint32, 'no-route-change-spf-nos')),
+                            ('not_interested_spf_nos', YLeaf(YType.uint32, 'not-interested-spf-nos')),
+                            ('lsp_regeneration_count', YLeaf(YType.uint32, 'lsp-regeneration-count')),
+                            ('lsp_regeneration_serial', YLeaf(YType.uint32, 'lsp-regeneration-serial')),
+                            ('arch_spf_event', YLeaf(YType.uint32, 'arch-spf-event')),
+                            ('arch_lsp_regeneration', YLeaf(YType.uint32, 'arch-lsp-regeneration')),
+                        ])
+                        self.name = None
+                        self.last_update_time = None
+                        self.total_spf_nos = None
+                        self.route_change_spf_nos = None
+                        self.no_route_change_spf_nos = None
+                        self.not_interested_spf_nos = None
+                        self.lsp_regeneration_count = None
+                        self.lsp_regeneration_serial = None
+                        self.arch_spf_event = None
+                        self.arch_lsp_regeneration = None
 
                         self.instance = YList(self)
                         self._segment_path = lambda: "instance-name"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ospf/process/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rcmd.Process.Ospf.Process.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
+                        self._perform_setattr(Rcmd.Process.Ospf.Process_.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
 
 
                     class Instance(Entity):
@@ -21826,45 +22719,48 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Process.Ospf.Process.InstanceName.Instance, self).__init__()
+                            super(Rcmd.Process.Ospf.Process_.InstanceName.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "instance-name"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.instance_id = YLeaf(YType.uint32, "instance-id")
-
-                            self.instance_state = YLeaf(YType.enumeration, "instance-state")
-
-                            self.instance_deleted = YLeaf(YType.enumeration, "instance-deleted")
-
-                            self.fwd_referenced = YLeaf(YType.enumeration, "fwd-referenced")
-
-                            self.last_update_time = YLeaf(YType.str, "last-update-time")
-
-                            self.node_id = YLeaf(YType.uint32, "node-id")
-
-                            self.spf_offset = YLeaf(YType.uint32, "spf-offset")
-
-                            self.total_spf_nos = YLeaf(YType.uint32, "total-spf-nos")
-
-                            self.arch_spf_run = YLeaf(YType.uint32, "arch-spf-run")
-
-                            self.route_change_spf_nos = YLeaf(YType.uint32, "route-change-spf-nos")
-
-                            self.no_route_change_spf_nos = YLeaf(YType.uint32, "no-route-change-spf-nos")
-
-                            self.not_interested_spf_nos = YLeaf(YType.uint32, "not-interested-spf-nos")
-
-                            self.total_spt_nos = YLeaf(YType.uint32, "total-spt-nos")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('instance_id', YLeaf(YType.uint32, 'instance-id')),
+                                ('instance_state', YLeaf(YType.enumeration, 'instance-state')),
+                                ('instance_deleted', YLeaf(YType.enumeration, 'instance-deleted')),
+                                ('fwd_referenced', YLeaf(YType.enumeration, 'fwd-referenced')),
+                                ('last_update_time', YLeaf(YType.str, 'last-update-time')),
+                                ('node_id', YLeaf(YType.uint32, 'node-id')),
+                                ('spf_offset', YLeaf(YType.uint32, 'spf-offset')),
+                                ('total_spf_nos', YLeaf(YType.uint32, 'total-spf-nos')),
+                                ('arch_spf_run', YLeaf(YType.uint32, 'arch-spf-run')),
+                                ('route_change_spf_nos', YLeaf(YType.uint32, 'route-change-spf-nos')),
+                                ('no_route_change_spf_nos', YLeaf(YType.uint32, 'no-route-change-spf-nos')),
+                                ('not_interested_spf_nos', YLeaf(YType.uint32, 'not-interested-spf-nos')),
+                                ('total_spt_nos', YLeaf(YType.uint32, 'total-spt-nos')),
+                            ])
+                            self.instance_id = None
+                            self.instance_state = None
+                            self.instance_deleted = None
+                            self.fwd_referenced = None
+                            self.last_update_time = None
+                            self.node_id = None
+                            self.spf_offset = None
+                            self.total_spf_nos = None
+                            self.arch_spf_run = None
+                            self.route_change_spf_nos = None
+                            self.no_route_change_spf_nos = None
+                            self.not_interested_spf_nos = None
+                            self.total_spt_nos = None
                             self._segment_path = lambda: "instance"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ospf/process/instance-name/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Rcmd.Process.Ospf.Process.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
+                            self._perform_setattr(Rcmd.Process.Ospf.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
 
         class Ldp(Entity):
@@ -21874,7 +22770,7 @@ class Rcmd(Entity):
             .. attribute:: process
             
             	Process Information
-            	**type**\: list of  		 :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process>`
+            	**type**\: list of  		 :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_>`
             
             
 
@@ -21890,8 +22786,10 @@ class Rcmd(Entity):
                 self.yang_parent_name = "process"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"process" : ("process", Rcmd.Process.Ldp.Process)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("process", ("process", Rcmd.Process.Ldp.Process_))])
+                self._leafs = OrderedDict()
 
                 self.process = YList(self)
                 self._segment_path = lambda: "ldp"
@@ -21901,7 +22799,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Process.Ldp, [], name, value)
 
 
-            class Process(Entity):
+            class Process_(Entity):
                 """
                 Process Information
                 
@@ -21918,7 +22816,7 @@ class Rcmd(Entity):
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
-                	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process.InstanceName>`
+                	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_.InstanceName>`
                 
                 
 
@@ -21928,25 +22826,28 @@ class Rcmd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rcmd.Process.Ldp.Process, self).__init__()
+                    super(Rcmd.Process.Ldp.Process_, self).__init__()
 
                     self.yang_name = "process"
                     self.yang_parent_name = "ldp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"instance-name" : ("instance_name", Rcmd.Process.Ldp.Process.InstanceName)}
-
-                    self.protocol_id = YLeaf(YType.enumeration, "protocol-id")
-
-                    self.process_name = YLeaf(YType.str, "process-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("instance-name", ("instance_name", Rcmd.Process.Ldp.Process_.InstanceName))])
+                    self._leafs = OrderedDict([
+                        ('protocol_id', YLeaf(YType.enumeration, 'protocol-id')),
+                        ('process_name', YLeaf(YType.str, 'process-name')),
+                    ])
+                    self.protocol_id = None
+                    self.process_name = None
 
                     self.instance_name = YList(self)
                     self._segment_path = lambda: "process"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ldp/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rcmd.Process.Ldp.Process, ['protocol_id', 'process_name'], name, value)
+                    self._perform_setattr(Rcmd.Process.Ldp.Process_, ['protocol_id', 'process_name'], name, value)
 
 
                 class InstanceName(Entity):
@@ -22022,7 +22923,7 @@ class Rcmd(Entity):
                     .. attribute:: instance
                     
                     	Instance Information
-                    	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process.InstanceName.Instance>`
+                    	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_.InstanceName.Instance>`
                     
                     
 
@@ -22032,41 +22933,44 @@ class Rcmd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rcmd.Process.Ldp.Process.InstanceName, self).__init__()
+                        super(Rcmd.Process.Ldp.Process_.InstanceName, self).__init__()
 
                         self.yang_name = "instance-name"
                         self.yang_parent_name = "process"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"instance" : ("instance", Rcmd.Process.Ldp.Process.InstanceName.Instance)}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.last_update_time = YLeaf(YType.str, "last-update-time")
-
-                        self.total_spf_nos = YLeaf(YType.uint32, "total-spf-nos")
-
-                        self.route_change_spf_nos = YLeaf(YType.uint32, "route-change-spf-nos")
-
-                        self.no_route_change_spf_nos = YLeaf(YType.uint32, "no-route-change-spf-nos")
-
-                        self.not_interested_spf_nos = YLeaf(YType.uint32, "not-interested-spf-nos")
-
-                        self.lsp_regeneration_count = YLeaf(YType.uint32, "lsp-regeneration-count")
-
-                        self.lsp_regeneration_serial = YLeaf(YType.uint32, "lsp-regeneration-serial")
-
-                        self.arch_spf_event = YLeaf(YType.uint32, "arch-spf-event")
-
-                        self.arch_lsp_regeneration = YLeaf(YType.uint32, "arch-lsp-regeneration")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("instance", ("instance", Rcmd.Process.Ldp.Process_.InstanceName.Instance))])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('last_update_time', YLeaf(YType.str, 'last-update-time')),
+                            ('total_spf_nos', YLeaf(YType.uint32, 'total-spf-nos')),
+                            ('route_change_spf_nos', YLeaf(YType.uint32, 'route-change-spf-nos')),
+                            ('no_route_change_spf_nos', YLeaf(YType.uint32, 'no-route-change-spf-nos')),
+                            ('not_interested_spf_nos', YLeaf(YType.uint32, 'not-interested-spf-nos')),
+                            ('lsp_regeneration_count', YLeaf(YType.uint32, 'lsp-regeneration-count')),
+                            ('lsp_regeneration_serial', YLeaf(YType.uint32, 'lsp-regeneration-serial')),
+                            ('arch_spf_event', YLeaf(YType.uint32, 'arch-spf-event')),
+                            ('arch_lsp_regeneration', YLeaf(YType.uint32, 'arch-lsp-regeneration')),
+                        ])
+                        self.name = None
+                        self.last_update_time = None
+                        self.total_spf_nos = None
+                        self.route_change_spf_nos = None
+                        self.no_route_change_spf_nos = None
+                        self.not_interested_spf_nos = None
+                        self.lsp_regeneration_count = None
+                        self.lsp_regeneration_serial = None
+                        self.arch_spf_event = None
+                        self.arch_lsp_regeneration = None
 
                         self.instance = YList(self)
                         self._segment_path = lambda: "instance-name"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ldp/process/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rcmd.Process.Ldp.Process.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
+                        self._perform_setattr(Rcmd.Process.Ldp.Process_.InstanceName, ['name', 'last_update_time', 'total_spf_nos', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'lsp_regeneration_count', 'lsp_regeneration_serial', 'arch_spf_event', 'arch_lsp_regeneration'], name, value)
 
 
                     class Instance(Entity):
@@ -22164,45 +23068,48 @@ class Rcmd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Rcmd.Process.Ldp.Process.InstanceName.Instance, self).__init__()
+                            super(Rcmd.Process.Ldp.Process_.InstanceName.Instance, self).__init__()
 
                             self.yang_name = "instance"
                             self.yang_parent_name = "instance-name"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.instance_id = YLeaf(YType.uint32, "instance-id")
-
-                            self.instance_state = YLeaf(YType.enumeration, "instance-state")
-
-                            self.instance_deleted = YLeaf(YType.enumeration, "instance-deleted")
-
-                            self.fwd_referenced = YLeaf(YType.enumeration, "fwd-referenced")
-
-                            self.last_update_time = YLeaf(YType.str, "last-update-time")
-
-                            self.node_id = YLeaf(YType.uint32, "node-id")
-
-                            self.spf_offset = YLeaf(YType.uint32, "spf-offset")
-
-                            self.total_spf_nos = YLeaf(YType.uint32, "total-spf-nos")
-
-                            self.arch_spf_run = YLeaf(YType.uint32, "arch-spf-run")
-
-                            self.route_change_spf_nos = YLeaf(YType.uint32, "route-change-spf-nos")
-
-                            self.no_route_change_spf_nos = YLeaf(YType.uint32, "no-route-change-spf-nos")
-
-                            self.not_interested_spf_nos = YLeaf(YType.uint32, "not-interested-spf-nos")
-
-                            self.total_spt_nos = YLeaf(YType.uint32, "total-spt-nos")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('instance_id', YLeaf(YType.uint32, 'instance-id')),
+                                ('instance_state', YLeaf(YType.enumeration, 'instance-state')),
+                                ('instance_deleted', YLeaf(YType.enumeration, 'instance-deleted')),
+                                ('fwd_referenced', YLeaf(YType.enumeration, 'fwd-referenced')),
+                                ('last_update_time', YLeaf(YType.str, 'last-update-time')),
+                                ('node_id', YLeaf(YType.uint32, 'node-id')),
+                                ('spf_offset', YLeaf(YType.uint32, 'spf-offset')),
+                                ('total_spf_nos', YLeaf(YType.uint32, 'total-spf-nos')),
+                                ('arch_spf_run', YLeaf(YType.uint32, 'arch-spf-run')),
+                                ('route_change_spf_nos', YLeaf(YType.uint32, 'route-change-spf-nos')),
+                                ('no_route_change_spf_nos', YLeaf(YType.uint32, 'no-route-change-spf-nos')),
+                                ('not_interested_spf_nos', YLeaf(YType.uint32, 'not-interested-spf-nos')),
+                                ('total_spt_nos', YLeaf(YType.uint32, 'total-spt-nos')),
+                            ])
+                            self.instance_id = None
+                            self.instance_state = None
+                            self.instance_deleted = None
+                            self.fwd_referenced = None
+                            self.last_update_time = None
+                            self.node_id = None
+                            self.spf_offset = None
+                            self.total_spf_nos = None
+                            self.arch_spf_run = None
+                            self.route_change_spf_nos = None
+                            self.no_route_change_spf_nos = None
+                            self.not_interested_spf_nos = None
+                            self.total_spt_nos = None
                             self._segment_path = lambda: "instance"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-oper:rcmd/process/ldp/process/instance-name/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Rcmd.Process.Ldp.Process.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
+                            self._perform_setattr(Rcmd.Process.Ldp.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Rcmd()

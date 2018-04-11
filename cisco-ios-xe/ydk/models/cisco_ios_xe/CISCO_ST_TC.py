@@ -4,15 +4,17 @@ This module defines textual conventions used in
 Storage Area Network technology specific mibs.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class FcAddressType(Enum):
     """
-    FcAddressType
+    FcAddressType (Enum Class)
 
     Denotes if a Fibre Channel Address is
 
@@ -37,7 +39,7 @@ class FcAddressType(Enum):
 
 class FcIfServiceStateType(Enum):
     """
-    FcIfServiceStateType
+    FcIfServiceStateType (Enum Class)
 
     Represents the service state of a Fibre Channel
 
@@ -68,7 +70,7 @@ class FcIfServiceStateType(Enum):
 
 class FcIfSfpDiagLevelType(Enum):
     """
-    FcIfSfpDiagLevelType
+    FcIfSfpDiagLevelType (Enum Class)
 
     Represents the severity level of the SFP
 
@@ -107,7 +109,7 @@ class FcIfSfpDiagLevelType(Enum):
 
 class FcIfSpeed(Enum):
     """
-    FcIfSpeed
+    FcIfSpeed (Enum Class)
 
     Represents the speed of a fibre channel port.
 
@@ -202,7 +204,7 @@ class FcIfSpeed(Enum):
 
 class FcPortModuleTypes(Enum):
     """
-    FcPortModuleTypes
+    FcPortModuleTypes (Enum Class)
 
     Represents module type of the port connector. This
 
@@ -359,7 +361,7 @@ class FcPortModuleTypes(Enum):
 
 class FcPortTxTypes(Enum):
     """
-    FcPortTxTypes
+    FcPortTxTypes (Enum Class)
 
     Represents port transciever technology types.
 
@@ -442,7 +444,7 @@ class FcPortTxTypes(Enum):
 
 class FcPortTypes(Enum):
     """
-    FcPortTypes
+    FcPortTypes (Enum Class)
 
     Represents fibre channel port types\:
 
@@ -587,7 +589,7 @@ class FcPortTypes(Enum):
 
 class InterfaceOperMode(Enum):
     """
-    InterfaceOperMode
+    InterfaceOperMode (Enum Class)
 
     Represents the operational mode of an interface
 

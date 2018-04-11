@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AddrFamily(Enum):
     """
-    AddrFamily
+    AddrFamily (Enum Class)
 
     Address Family Types
 
@@ -281,7 +283,7 @@ class AddrFamily(Enum):
 
 class LptsPcbQuery(Enum):
     """
-    LptsPcbQuery
+    LptsPcbQuery (Enum Class)
 
     Lpts pcb query
 
@@ -314,7 +316,7 @@ class LptsPcbQuery(Enum):
 
 class MessageTypeIcmp(Enum):
     """
-    MessageTypeIcmp
+    MessageTypeIcmp (Enum Class)
 
     LPTS ICMP message types
 
@@ -465,9 +467,9 @@ class MessageTypeIcmp(Enum):
     domain_name_request = Enum.YLeaf(37, "domain-name-request")
 
 
-class MessageTypeIcmp(Enum):
+class MessageTypeIcmp_(Enum):
     """
-    MessageTypeIcmp
+    MessageTypeIcmp\_ (Enum Class)
 
     LPTS ICMP message types
 
@@ -620,7 +622,7 @@ class MessageTypeIcmp(Enum):
 
 class MessageTypeIcmpv6(Enum):
     """
-    MessageTypeIcmpv6
+    MessageTypeIcmpv6 (Enum Class)
 
     LPTS ICMPv6 message types
 
@@ -837,9 +839,9 @@ class MessageTypeIcmpv6(Enum):
     fmipv6_messages = Enum.YLeaf(154, "fmipv6-messages")
 
 
-class MessageTypeIcmpv6(Enum):
+class MessageTypeIcmpv6_(Enum):
     """
-    MessageTypeIcmpv6
+    MessageTypeIcmpv6\_ (Enum Class)
 
     LPTS ICMPv6 message types
 
@@ -1058,7 +1060,7 @@ class MessageTypeIcmpv6(Enum):
 
 class MessageTypeIgmp(Enum):
     """
-    MessageTypeIgmp
+    MessageTypeIgmp (Enum Class)
 
     LPTS IGMP message types
 
@@ -1145,9 +1147,9 @@ class MessageTypeIgmp(Enum):
     multicast_router_termination = Enum.YLeaf(50, "multicast-router-termination")
 
 
-class MessageTypeIgmp(Enum):
+class MessageTypeIgmp_(Enum):
     """
-    MessageTypeIgmp
+    MessageTypeIgmp\_ (Enum Class)
 
     LPTS IGMP message types
 
@@ -1236,7 +1238,7 @@ class MessageTypeIgmp(Enum):
 
 class Packet(Enum):
     """
-    Packet
+    Packet (Enum Class)
 
     Packet type
 
@@ -1269,7 +1271,7 @@ class Packet(Enum):
 
 class UdpAddressFamily(Enum):
     """
-    UdpAddressFamily
+    UdpAddressFamily (Enum Class)
 
     Address Family Type
 
@@ -1313,8 +1315,10 @@ class Udp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-udp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Udp.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Udp.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Udp.Nodes()
         self.nodes.parent = self
@@ -1346,8 +1350,10 @@ class Udp(Entity):
             self.yang_parent_name = "udp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Udp.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Udp.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -1361,7 +1367,7 @@ class Udp(Entity):
             """
             UDP operational data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -1387,16 +1393,19 @@ class Udp(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"statistics" : ("statistics", Udp.Nodes.Node.Statistics)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("statistics", ("statistics", Udp.Nodes.Node.Statistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.statistics = Udp.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
                 self._children_yang_names.add("statistics")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-oper:udp/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1431,8 +1440,10 @@ class Udp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"ipv4-traffic" : ("ipv4_traffic", Udp.Nodes.Node.Statistics.Ipv4Traffic), "ipv6-traffic" : ("ipv6_traffic", Udp.Nodes.Node.Statistics.Ipv6Traffic)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("ipv4-traffic", ("ipv4_traffic", Udp.Nodes.Node.Statistics.Ipv4Traffic)), ("ipv6-traffic", ("ipv6_traffic", Udp.Nodes.Node.Statistics.Ipv6Traffic))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.ipv4_traffic = Udp.Nodes.Node.Statistics.Ipv4Traffic()
                     self.ipv4_traffic.parent = self
@@ -1506,20 +1517,23 @@ class Udp(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.udp_input_packets = YLeaf(YType.uint32, "udp-input-packets")
-
-                        self.udp_checksum_error_packets = YLeaf(YType.uint32, "udp-checksum-error-packets")
-
-                        self.udp_no_port_packets = YLeaf(YType.uint32, "udp-no-port-packets")
-
-                        self.udp_bad_length_packets = YLeaf(YType.uint32, "udp-bad-length-packets")
-
-                        self.udp_output_packets = YLeaf(YType.uint32, "udp-output-packets")
-
-                        self.udp_dropped_packets = YLeaf(YType.uint32, "udp-dropped-packets")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('udp_input_packets', YLeaf(YType.uint32, 'udp-input-packets')),
+                            ('udp_checksum_error_packets', YLeaf(YType.uint32, 'udp-checksum-error-packets')),
+                            ('udp_no_port_packets', YLeaf(YType.uint32, 'udp-no-port-packets')),
+                            ('udp_bad_length_packets', YLeaf(YType.uint32, 'udp-bad-length-packets')),
+                            ('udp_output_packets', YLeaf(YType.uint32, 'udp-output-packets')),
+                            ('udp_dropped_packets', YLeaf(YType.uint32, 'udp-dropped-packets')),
+                        ])
+                        self.udp_input_packets = None
+                        self.udp_checksum_error_packets = None
+                        self.udp_no_port_packets = None
+                        self.udp_bad_length_packets = None
+                        self.udp_output_packets = None
+                        self.udp_dropped_packets = None
                         self._segment_path = lambda: "ipv4-traffic"
 
                     def __setattr__(self, name, value):
@@ -1586,20 +1600,23 @@ class Udp(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.udp_input_packets = YLeaf(YType.uint32, "udp-input-packets")
-
-                        self.udp_checksum_error_packets = YLeaf(YType.uint32, "udp-checksum-error-packets")
-
-                        self.udp_no_port_packets = YLeaf(YType.uint32, "udp-no-port-packets")
-
-                        self.udp_bad_length_packets = YLeaf(YType.uint32, "udp-bad-length-packets")
-
-                        self.udp_output_packets = YLeaf(YType.uint32, "udp-output-packets")
-
-                        self.udp_dropped_packets = YLeaf(YType.uint32, "udp-dropped-packets")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('udp_input_packets', YLeaf(YType.uint32, 'udp-input-packets')),
+                            ('udp_checksum_error_packets', YLeaf(YType.uint32, 'udp-checksum-error-packets')),
+                            ('udp_no_port_packets', YLeaf(YType.uint32, 'udp-no-port-packets')),
+                            ('udp_bad_length_packets', YLeaf(YType.uint32, 'udp-bad-length-packets')),
+                            ('udp_output_packets', YLeaf(YType.uint32, 'udp-output-packets')),
+                            ('udp_dropped_packets', YLeaf(YType.uint32, 'udp-dropped-packets')),
+                        ])
+                        self.udp_input_packets = None
+                        self.udp_checksum_error_packets = None
+                        self.udp_no_port_packets = None
+                        self.udp_bad_length_packets = None
+                        self.udp_output_packets = None
+                        self.udp_dropped_packets = None
                         self._segment_path = lambda: "ipv6-traffic"
 
                     def __setattr__(self, name, value):
@@ -1633,8 +1650,10 @@ class UdpConnection(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-udp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", UdpConnection.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", UdpConnection.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = UdpConnection.Nodes()
         self.nodes.parent = self
@@ -1666,8 +1685,10 @@ class UdpConnection(Entity):
             self.yang_parent_name = "udp-connection"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", UdpConnection.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", UdpConnection.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -1681,7 +1702,7 @@ class UdpConnection(Entity):
             """
             Information about a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -1722,10 +1743,13 @@ class UdpConnection(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"statistics" : ("statistics", UdpConnection.Nodes.Node.Statistics), "lpts" : ("lpts", UdpConnection.Nodes.Node.Lpts), "pcb-details" : ("pcb_details", UdpConnection.Nodes.Node.PcbDetails), "pcb-briefs" : ("pcb_briefs", UdpConnection.Nodes.Node.PcbBriefs)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("statistics", ("statistics", UdpConnection.Nodes.Node.Statistics)), ("lpts", ("lpts", UdpConnection.Nodes.Node.Lpts)), ("pcb-details", ("pcb_details", UdpConnection.Nodes.Node.PcbDetails)), ("pcb-briefs", ("pcb_briefs", UdpConnection.Nodes.Node.PcbBriefs))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.statistics = UdpConnection.Nodes.Node.Statistics()
                 self.statistics.parent = self
@@ -1746,7 +1770,7 @@ class UdpConnection(Entity):
                 self.pcb_briefs.parent = self
                 self._children_name_map["pcb_briefs"] = "pcb-briefs"
                 self._children_yang_names.add("pcb-briefs")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1786,8 +1810,10 @@ class UdpConnection(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"clients" : ("clients", UdpConnection.Nodes.Node.Statistics.Clients), "summary" : ("summary", UdpConnection.Nodes.Node.Statistics.Summary), "pcb-statistics" : ("pcb_statistics", UdpConnection.Nodes.Node.Statistics.PcbStatistics)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("clients", ("clients", UdpConnection.Nodes.Node.Statistics.Clients)), ("summary", ("summary", UdpConnection.Nodes.Node.Statistics.Summary)), ("pcb-statistics", ("pcb_statistics", UdpConnection.Nodes.Node.Statistics.PcbStatistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.clients = UdpConnection.Nodes.Node.Statistics.Clients()
                     self.clients.parent = self
@@ -1829,8 +1855,10 @@ class UdpConnection(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"client" : ("client", UdpConnection.Nodes.Node.Statistics.Clients.Client)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("client", ("client", UdpConnection.Nodes.Node.Statistics.Clients.Client))])
+                        self._leafs = OrderedDict()
 
                         self.client = YList(self)
                         self._segment_path = lambda: "clients"
@@ -1843,7 +1871,7 @@ class UdpConnection(Entity):
                         """
                         Describing Client ID
                         
-                        .. attribute:: client_id  <key>
+                        .. attribute:: client_id  (key)
                         
                         	Displaying client's aggregated statistics
                         	**type**\: int
@@ -1906,23 +1934,26 @@ class UdpConnection(Entity):
                             self.yang_parent_name = "clients"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.client_id = YLeaf(YType.uint32, "client-id")
-
-                            self.client_jid = YLeaf(YType.int32, "client-jid")
-
-                            self.client_name = YLeaf(YType.str, "client-name")
-
-                            self.ipv4_received_packets = YLeaf(YType.uint32, "ipv4-received-packets")
-
-                            self.ipv4_sent_packets = YLeaf(YType.uint32, "ipv4-sent-packets")
-
-                            self.ipv6_received_packets = YLeaf(YType.uint32, "ipv6-received-packets")
-
-                            self.ipv6_sent_packets = YLeaf(YType.uint32, "ipv6-sent-packets")
-                            self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+                            self.ylist_key_names = ['client_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('client_id', YLeaf(YType.uint32, 'client-id')),
+                                ('client_jid', YLeaf(YType.int32, 'client-jid')),
+                                ('client_name', YLeaf(YType.str, 'client-name')),
+                                ('ipv4_received_packets', YLeaf(YType.uint32, 'ipv4-received-packets')),
+                                ('ipv4_sent_packets', YLeaf(YType.uint32, 'ipv4-sent-packets')),
+                                ('ipv6_received_packets', YLeaf(YType.uint32, 'ipv6-received-packets')),
+                                ('ipv6_sent_packets', YLeaf(YType.uint32, 'ipv6-sent-packets')),
+                            ])
+                            self.client_id = None
+                            self.client_jid = None
+                            self.client_name = None
+                            self.ipv4_received_packets = None
+                            self.ipv4_sent_packets = None
+                            self.ipv6_received_packets = None
+                            self.ipv6_sent_packets = None
+                            self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', 'client_jid', 'client_name', 'ipv4_received_packets', 'ipv4_sent_packets', 'ipv6_received_packets', 'ipv6_sent_packets'], name, value)
@@ -2016,28 +2047,31 @@ class UdpConnection(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.received_total_packets = YLeaf(YType.uint32, "received-total-packets")
-
-                        self.received_no_port_packets = YLeaf(YType.uint32, "received-no-port-packets")
-
-                        self.received_bad_checksum_packets = YLeaf(YType.uint32, "received-bad-checksum-packets")
-
-                        self.received_too_short_packets = YLeaf(YType.uint32, "received-too-short-packets")
-
-                        self.received_drop_packets = YLeaf(YType.uint32, "received-drop-packets")
-
-                        self.sent_total_packets = YLeaf(YType.uint32, "sent-total-packets")
-
-                        self.sent_error_packets = YLeaf(YType.uint32, "sent-error-packets")
-
-                        self.forward_broadcast_packets = YLeaf(YType.uint32, "forward-broadcast-packets")
-
-                        self.cloned_packets = YLeaf(YType.uint32, "cloned-packets")
-
-                        self.failed_clone_packets = YLeaf(YType.uint32, "failed-clone-packets")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('received_total_packets', YLeaf(YType.uint32, 'received-total-packets')),
+                            ('received_no_port_packets', YLeaf(YType.uint32, 'received-no-port-packets')),
+                            ('received_bad_checksum_packets', YLeaf(YType.uint32, 'received-bad-checksum-packets')),
+                            ('received_too_short_packets', YLeaf(YType.uint32, 'received-too-short-packets')),
+                            ('received_drop_packets', YLeaf(YType.uint32, 'received-drop-packets')),
+                            ('sent_total_packets', YLeaf(YType.uint32, 'sent-total-packets')),
+                            ('sent_error_packets', YLeaf(YType.uint32, 'sent-error-packets')),
+                            ('forward_broadcast_packets', YLeaf(YType.uint32, 'forward-broadcast-packets')),
+                            ('cloned_packets', YLeaf(YType.uint32, 'cloned-packets')),
+                            ('failed_clone_packets', YLeaf(YType.uint32, 'failed-clone-packets')),
+                        ])
+                        self.received_total_packets = None
+                        self.received_no_port_packets = None
+                        self.received_bad_checksum_packets = None
+                        self.received_too_short_packets = None
+                        self.received_drop_packets = None
+                        self.sent_total_packets = None
+                        self.sent_error_packets = None
+                        self.forward_broadcast_packets = None
+                        self.cloned_packets = None
+                        self.failed_clone_packets = None
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
@@ -2068,8 +2102,10 @@ class UdpConnection(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"pcb-statistic" : ("pcb_statistic", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("pcb-statistic", ("pcb_statistic", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic))])
+                        self._leafs = OrderedDict()
 
                         self.pcb_statistic = YList(self)
                         self._segment_path = lambda: "pcb-statistics"
@@ -2082,7 +2118,7 @@ class UdpConnection(Entity):
                         """
                         Satistics associated with a particular PCB
                         
-                        .. attribute:: pcb_address  <key>
+                        .. attribute:: pcb_address  (key)
                         
                         	Protocol Control Block address
                         	**type**\: int
@@ -2125,14 +2161,17 @@ class UdpConnection(Entity):
                             self.yang_parent_name = "pcb-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"send" : ("send", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send), "receive" : ("receive", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive)}
-                            self._child_list_classes = {}
-
-                            self.pcb_address = YLeaf(YType.uint32, "pcb-address")
-
-                            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                            self.is_paw_socket = YLeaf(YType.boolean, "is-paw-socket")
+                            self.ylist_key_names = ['pcb_address']
+                            self._child_container_classes = OrderedDict([("send", ("send", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send)), ("receive", ("receive", UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('pcb_address', YLeaf(YType.uint32, 'pcb-address')),
+                                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                                ('is_paw_socket', YLeaf(YType.boolean, 'is-paw-socket')),
+                            ])
+                            self.pcb_address = None
+                            self.vrf_id = None
+                            self.is_paw_socket = None
 
                             self.send = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send()
                             self.send.parent = self
@@ -2143,7 +2182,7 @@ class UdpConnection(Entity):
                             self.receive.parent = self
                             self._children_name_map["receive"] = "receive"
                             self._children_yang_names.add("receive")
-                            self._segment_path = lambda: "pcb-statistic" + "[pcb-address='" + self.pcb_address.get() + "']"
+                            self._segment_path = lambda: "pcb-statistic" + "[pcb-address='" + str(self.pcb_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', 'vrf_id', 'is_paw_socket'], name, value)
@@ -2211,20 +2250,23 @@ class UdpConnection(Entity):
                                 self.yang_parent_name = "pcb-statistic"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.received_application_bytes = YLeaf(YType.uint64, "received-application-bytes")
-
-                                self.received_xipc_pulses = YLeaf(YType.uint64, "received-xipc-pulses")
-
-                                self.sent_network_packets = YLeaf(YType.uint64, "sent-network-packets")
-
-                                self.sent_net_io_packets = YLeaf(YType.uint64, "sent-net-io-packets")
-
-                                self.failed_queued_network_packets = YLeaf(YType.uint32, "failed-queued-network-packets")
-
-                                self.failed_queued_net_io_packets = YLeaf(YType.uint32, "failed-queued-net-io-packets")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('received_application_bytes', YLeaf(YType.uint64, 'received-application-bytes')),
+                                    ('received_xipc_pulses', YLeaf(YType.uint64, 'received-xipc-pulses')),
+                                    ('sent_network_packets', YLeaf(YType.uint64, 'sent-network-packets')),
+                                    ('sent_net_io_packets', YLeaf(YType.uint64, 'sent-net-io-packets')),
+                                    ('failed_queued_network_packets', YLeaf(YType.uint32, 'failed-queued-network-packets')),
+                                    ('failed_queued_net_io_packets', YLeaf(YType.uint32, 'failed-queued-net-io-packets')),
+                                ])
+                                self.received_application_bytes = None
+                                self.received_xipc_pulses = None
+                                self.sent_network_packets = None
+                                self.sent_net_io_packets = None
+                                self.failed_queued_network_packets = None
+                                self.failed_queued_net_io_packets = None
                                 self._segment_path = lambda: "send"
 
                             def __setattr__(self, name, value):
@@ -2284,18 +2326,21 @@ class UdpConnection(Entity):
                                 self.yang_parent_name = "pcb-statistic"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.received_network_packets = YLeaf(YType.uint64, "received-network-packets")
-
-                                self.failed_queued_application_packets = YLeaf(YType.uint32, "failed-queued-application-packets")
-
-                                self.queued_application_packets = YLeaf(YType.uint64, "queued-application-packets")
-
-                                self.failed_queued_application_socket_packets = YLeaf(YType.uint32, "failed-queued-application-socket-packets")
-
-                                self.queued_application_socket_packets = YLeaf(YType.uint64, "queued-application-socket-packets")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('received_network_packets', YLeaf(YType.uint64, 'received-network-packets')),
+                                    ('failed_queued_application_packets', YLeaf(YType.uint32, 'failed-queued-application-packets')),
+                                    ('queued_application_packets', YLeaf(YType.uint64, 'queued-application-packets')),
+                                    ('failed_queued_application_socket_packets', YLeaf(YType.uint32, 'failed-queued-application-socket-packets')),
+                                    ('queued_application_socket_packets', YLeaf(YType.uint64, 'queued-application-socket-packets')),
+                                ])
+                                self.received_network_packets = None
+                                self.failed_queued_application_packets = None
+                                self.queued_application_packets = None
+                                self.failed_queued_application_socket_packets = None
+                                self.queued_application_socket_packets = None
                                 self._segment_path = lambda: "receive"
 
                             def __setattr__(self, name, value):
@@ -2325,8 +2370,10 @@ class UdpConnection(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"queries" : ("queries", UdpConnection.Nodes.Node.Lpts.Queries)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("queries", ("queries", UdpConnection.Nodes.Node.Lpts.Queries))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.queries = UdpConnection.Nodes.Node.Lpts.Queries()
                     self.queries.parent = self
@@ -2358,8 +2405,10 @@ class UdpConnection(Entity):
                         self.yang_parent_name = "lpts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"query" : ("query", UdpConnection.Nodes.Node.Lpts.Queries.Query)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("query", ("query", UdpConnection.Nodes.Node.Lpts.Queries.Query))])
+                        self._leafs = OrderedDict()
 
                         self.query = YList(self)
                         self._segment_path = lambda: "queries"
@@ -2372,7 +2421,7 @@ class UdpConnection(Entity):
                         """
                         Query option
                         
-                        .. attribute:: query_name  <key>
+                        .. attribute:: query_name  (key)
                         
                         	Query option
                         	**type**\:  :py:class:`LptsPcbQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.LptsPcbQuery>`
@@ -2396,16 +2445,19 @@ class UdpConnection(Entity):
                             self.yang_parent_name = "queries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"pcbs" : ("pcbs", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs)}
-                            self._child_list_classes = {}
-
-                            self.query_name = YLeaf(YType.enumeration, "query-name")
+                            self.ylist_key_names = ['query_name']
+                            self._child_container_classes = OrderedDict([("pcbs", ("pcbs", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('query_name', YLeaf(YType.enumeration, 'query-name')),
+                            ])
+                            self.query_name = None
 
                             self.pcbs = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs()
                             self.pcbs.parent = self
                             self._children_name_map["pcbs"] = "pcbs"
                             self._children_yang_names.add("pcbs")
-                            self._segment_path = lambda: "query" + "[query-name='" + self.query_name.get() + "']"
+                            self._segment_path = lambda: "query" + "[query-name='" + str(self.query_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query, ['query_name'], name, value)
@@ -2434,8 +2486,10 @@ class UdpConnection(Entity):
                                 self.yang_parent_name = "query"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"pcb" : ("pcb", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("pcb", ("pcb", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb))])
+                                self._leafs = OrderedDict()
 
                                 self.pcb = YList(self)
                                 self._segment_path = lambda: "pcbs"
@@ -2448,7 +2502,7 @@ class UdpConnection(Entity):
                                 """
                                 A PCB information
                                 
-                                .. attribute:: pcb_address  <key>
+                                .. attribute:: pcb_address  (key)
                                 
                                 	PCB address
                                 	**type**\: int
@@ -2505,16 +2559,19 @@ class UdpConnection(Entity):
                                     self.yang_parent_name = "pcbs"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"local-address" : ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress), "foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress), "common" : ("common", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common)}
-                                    self._child_list_classes = {}
-
-                                    self.pcb_address = YLeaf(YType.uint32, "pcb-address")
-
-                                    self.l4_protocol = YLeaf(YType.uint32, "l4-protocol")
-
-                                    self.local_port = YLeaf(YType.uint16, "local-port")
-
-                                    self.foreign_port = YLeaf(YType.uint16, "foreign-port")
+                                    self.ylist_key_names = ['pcb_address']
+                                    self._child_container_classes = OrderedDict([("local-address", ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress)), ("foreign-address", ("foreign_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress)), ("common", ("common", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('pcb_address', YLeaf(YType.uint32, 'pcb-address')),
+                                        ('l4_protocol', YLeaf(YType.uint32, 'l4-protocol')),
+                                        ('local_port', YLeaf(YType.uint16, 'local-port')),
+                                        ('foreign_port', YLeaf(YType.uint16, 'foreign-port')),
+                                    ])
+                                    self.pcb_address = None
+                                    self.l4_protocol = None
+                                    self.local_port = None
+                                    self.foreign_port = None
 
                                     self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress()
                                     self.local_address.parent = self
@@ -2530,7 +2587,7 @@ class UdpConnection(Entity):
                                     self.common.parent = self
                                     self._children_name_map["common"] = "common"
                                     self._children_yang_names.add("common")
-                                    self._segment_path = lambda: "pcb" + "[pcb-address='" + self.pcb_address.get() + "']"
+                                    self._segment_path = lambda: "pcb" + "[pcb-address='" + str(self.pcb_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, ['pcb_address', 'l4_protocol', 'local_port', 'foreign_port'], name, value)
@@ -2573,14 +2630,17 @@ class UdpConnection(Entity):
                                         self.yang_parent_name = "pcb"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                        ])
+                                        self.af_name = None
+                                        self.ipv4_address = None
+                                        self.ipv6_address = None
                                         self._segment_path = lambda: "local-address"
 
                                     def __setattr__(self, name, value):
@@ -2624,14 +2684,17 @@ class UdpConnection(Entity):
                                         self.yang_parent_name = "pcb"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                        ])
+                                        self.af_name = None
+                                        self.ipv4_address = None
+                                        self.ipv6_address = None
                                         self._segment_path = lambda: "foreign-address"
 
                                     def __setattr__(self, name, value):
@@ -2666,10 +2729,13 @@ class UdpConnection(Entity):
                                         self.yang_parent_name = "pcb"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"lpts-pcb" : ("lpts_pcb", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb)}
-                                        self._child_list_classes = {}
-
-                                        self.af_name = YLeaf(YType.enumeration, "af-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("lpts-pcb", ("lpts_pcb", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                        ])
+                                        self.af_name = None
 
                                         self.lpts_pcb = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb()
                                         self.lpts_pcb.parent = self
@@ -2733,12 +2799,15 @@ class UdpConnection(Entity):
                                             self.yang_parent_name = "common"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"options" : ("options", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options), "lpts-flags" : ("lpts_flags", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags), "accept-mask" : ("accept_mask", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask)}
-                                            self._child_list_classes = {"filter" : ("filter", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter)}
-
-                                            self.ttl = YLeaf(YType.uint8, "ttl")
-
-                                            self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("options", ("options", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options)), ("lpts-flags", ("lpts_flags", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags)), ("accept-mask", ("accept_mask", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask))])
+                                            self._child_list_classes = OrderedDict([("filter", ("filter", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter))])
+                                            self._leafs = OrderedDict([
+                                                ('ttl', YLeaf(YType.uint8, 'ttl')),
+                                                ('flow_types_info', YLeaf(YType.uint32, 'flow-types-info')),
+                                            ])
+                                            self.ttl = None
+                                            self.flow_types_info = None
 
                                             self.options = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options()
                                             self.options.parent = self
@@ -2790,12 +2859,15 @@ class UdpConnection(Entity):
                                                 self.yang_parent_name = "lpts-pcb"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.is_receive_filter = YLeaf(YType.boolean, "is-receive-filter")
-
-                                                self.is_ip_sla = YLeaf(YType.boolean, "is-ip-sla")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('is_receive_filter', YLeaf(YType.boolean, 'is-receive-filter')),
+                                                    ('is_ip_sla', YLeaf(YType.boolean, 'is-ip-sla')),
+                                                ])
+                                                self.is_receive_filter = None
+                                                self.is_ip_sla = None
                                                 self._segment_path = lambda: "options"
 
                                             def __setattr__(self, name, value):
@@ -2835,14 +2907,17 @@ class UdpConnection(Entity):
                                                 self.yang_parent_name = "lpts-pcb"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.is_pcb_bound = YLeaf(YType.boolean, "is-pcb-bound")
-
-                                                self.is_local_address_ignore = YLeaf(YType.boolean, "is-local-address-ignore")
-
-                                                self.is_ignore_vrf_filter = YLeaf(YType.boolean, "is-ignore-vrf-filter")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('is_pcb_bound', YLeaf(YType.boolean, 'is-pcb-bound')),
+                                                    ('is_local_address_ignore', YLeaf(YType.boolean, 'is-local-address-ignore')),
+                                                    ('is_ignore_vrf_filter', YLeaf(YType.boolean, 'is-ignore-vrf-filter')),
+                                                ])
+                                                self.is_pcb_bound = None
+                                                self.is_local_address_ignore = None
+                                                self.is_ignore_vrf_filter = None
                                                 self._segment_path = lambda: "lpts-flags"
 
                                             def __setattr__(self, name, value):
@@ -2897,20 +2972,23 @@ class UdpConnection(Entity):
                                                 self.yang_parent_name = "lpts-pcb"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.is_interface = YLeaf(YType.boolean, "is-interface")
-
-                                                self.is_packet_type = YLeaf(YType.boolean, "is-packet-type")
-
-                                                self.is_remote_address = YLeaf(YType.boolean, "is-remote-address")
-
-                                                self.is_remote_port = YLeaf(YType.boolean, "is-remote-port")
-
-                                                self.is_local_address = YLeaf(YType.boolean, "is-local-address")
-
-                                                self.is_local_port = YLeaf(YType.boolean, "is-local-port")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('is_interface', YLeaf(YType.boolean, 'is-interface')),
+                                                    ('is_packet_type', YLeaf(YType.boolean, 'is-packet-type')),
+                                                    ('is_remote_address', YLeaf(YType.boolean, 'is-remote-address')),
+                                                    ('is_remote_port', YLeaf(YType.boolean, 'is-remote-port')),
+                                                    ('is_local_address', YLeaf(YType.boolean, 'is-local-address')),
+                                                    ('is_local_port', YLeaf(YType.boolean, 'is-local-port')),
+                                                ])
+                                                self.is_interface = None
+                                                self.is_packet_type = None
+                                                self.is_remote_address = None
+                                                self.is_remote_port = None
+                                                self.is_local_address = None
+                                                self.is_local_port = None
                                                 self._segment_path = lambda: "accept-mask"
 
                                             def __setattr__(self, name, value):
@@ -3006,24 +3084,27 @@ class UdpConnection(Entity):
                                                 self.yang_parent_name = "lpts-pcb"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"packet-type" : ("packet_type", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType), "remote-address" : ("remote_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress), "local-address" : ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress)}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                                self.remote_length = YLeaf(YType.uint16, "remote-length")
-
-                                                self.local_length = YLeaf(YType.uint16, "local-length")
-
-                                                self.receive_remote_port = YLeaf(YType.uint16, "receive-remote-port")
-
-                                                self.receive_local_port = YLeaf(YType.uint16, "receive-local-port")
-
-                                                self.priority = YLeaf(YType.uint8, "priority")
-
-                                                self.ttl = YLeaf(YType.uint8, "ttl")
-
-                                                self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("packet-type", ("packet_type", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType)), ("remote-address", ("remote_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress)), ("local-address", ("local_address", UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ('remote_length', YLeaf(YType.uint16, 'remote-length')),
+                                                    ('local_length', YLeaf(YType.uint16, 'local-length')),
+                                                    ('receive_remote_port', YLeaf(YType.uint16, 'receive-remote-port')),
+                                                    ('receive_local_port', YLeaf(YType.uint16, 'receive-local-port')),
+                                                    ('priority', YLeaf(YType.uint8, 'priority')),
+                                                    ('ttl', YLeaf(YType.uint8, 'ttl')),
+                                                    ('flow_types_info', YLeaf(YType.uint32, 'flow-types-info')),
+                                                ])
+                                                self.interface_name = None
+                                                self.remote_length = None
+                                                self.local_length = None
+                                                self.receive_remote_port = None
+                                                self.receive_local_port = None
+                                                self.priority = None
+                                                self.ttl = None
+                                                self.flow_types_info = None
 
                                                 self.packet_type = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType()
                                                 self.packet_type.parent = self
@@ -3057,17 +3138,17 @@ class UdpConnection(Entity):
                                                 .. attribute:: icmp_message_type
                                                 
                                                 	ICMP message type
-                                                	**type**\:  :py:class:`MessageTypeIcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmp>`
+                                                	**type**\:  :py:class:`MessageTypeIcmp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmp_>`
                                                 
                                                 .. attribute:: icm_pv6_message_type
                                                 
                                                 	ICMPv6 message type
-                                                	**type**\:  :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6>`
+                                                	**type**\:  :py:class:`MessageTypeIcmpv6_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6_>`
                                                 
                                                 .. attribute:: igmp_message_type
                                                 
                                                 	IGMP message type
-                                                	**type**\:  :py:class:`MessageTypeIgmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmp>`
+                                                	**type**\:  :py:class:`MessageTypeIgmp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmp_>`
                                                 
                                                 .. attribute:: message_id
                                                 
@@ -3090,18 +3171,21 @@ class UdpConnection(Entity):
                                                     self.yang_parent_name = "filter"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                                    self.icmp_message_type = YLeaf(YType.enumeration, "icmp-message-type")
-
-                                                    self.icm_pv6_message_type = YLeaf(YType.enumeration, "icm-pv6-message-type")
-
-                                                    self.igmp_message_type = YLeaf(YType.enumeration, "igmp-message-type")
-
-                                                    self.message_id = YLeaf(YType.uint32, "message-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                                        ('icmp_message_type', YLeaf(YType.enumeration, 'icmp-message-type')),
+                                                        ('icm_pv6_message_type', YLeaf(YType.enumeration, 'icm-pv6-message-type')),
+                                                        ('igmp_message_type', YLeaf(YType.enumeration, 'igmp-message-type')),
+                                                        ('message_id', YLeaf(YType.uint32, 'message-id')),
+                                                    ])
+                                                    self.type = None
+                                                    self.icmp_message_type = None
+                                                    self.icm_pv6_message_type = None
+                                                    self.igmp_message_type = None
+                                                    self.message_id = None
                                                     self._segment_path = lambda: "packet-type"
 
                                                 def __setattr__(self, name, value):
@@ -3145,14 +3229,17 @@ class UdpConnection(Entity):
                                                     self.yang_parent_name = "filter"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ])
+                                                    self.af_name = None
+                                                    self.ipv4_address = None
+                                                    self.ipv6_address = None
                                                     self._segment_path = lambda: "remote-address"
 
                                                 def __setattr__(self, name, value):
@@ -3196,14 +3283,17 @@ class UdpConnection(Entity):
                                                     self.yang_parent_name = "filter"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ])
+                                                    self.af_name = None
+                                                    self.ipv4_address = None
+                                                    self.ipv6_address = None
                                                     self._segment_path = lambda: "local-address"
 
                                                 def __setattr__(self, name, value):
@@ -3234,8 +3324,10 @@ class UdpConnection(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"pcb-detail" : ("pcb_detail", UdpConnection.Nodes.Node.PcbDetails.PcbDetail)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("pcb-detail", ("pcb_detail", UdpConnection.Nodes.Node.PcbDetails.PcbDetail))])
+                    self._leafs = OrderedDict()
 
                     self.pcb_detail = YList(self)
                     self._segment_path = lambda: "pcb-details"
@@ -3248,7 +3340,7 @@ class UdpConnection(Entity):
                     """
                     Detail information about a UDP connection
                     
-                    .. attribute:: pcb_address  <key>
+                    .. attribute:: pcb_address  (key)
                     
                     	Protocol Control Block address
                     	**type**\: int
@@ -3326,24 +3418,27 @@ class UdpConnection(Entity):
                         self.yang_parent_name = "pcb-details"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"local-address" : ("local_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress), "foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress)}
-                        self._child_list_classes = {}
-
-                        self.pcb_address = YLeaf(YType.uint32, "pcb-address")
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.local_process_id = YLeaf(YType.uint32, "local-process-id")
-
-                        self.local_port = YLeaf(YType.uint16, "local-port")
-
-                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
-
-                        self.receive_queue = YLeaf(YType.uint32, "receive-queue")
-
-                        self.send_queue = YLeaf(YType.uint32, "send-queue")
-
-                        self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+                        self.ylist_key_names = ['pcb_address']
+                        self._child_container_classes = OrderedDict([("local-address", ("local_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress)), ("foreign-address", ("foreign_address", UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pcb_address', YLeaf(YType.uint32, 'pcb-address')),
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('local_process_id', YLeaf(YType.uint32, 'local-process-id')),
+                            ('local_port', YLeaf(YType.uint16, 'local-port')),
+                            ('foreign_port', YLeaf(YType.uint16, 'foreign-port')),
+                            ('receive_queue', YLeaf(YType.uint32, 'receive-queue')),
+                            ('send_queue', YLeaf(YType.uint32, 'send-queue')),
+                            ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                        ])
+                        self.pcb_address = None
+                        self.af_name = None
+                        self.local_process_id = None
+                        self.local_port = None
+                        self.foreign_port = None
+                        self.receive_queue = None
+                        self.send_queue = None
+                        self.vrf_id = None
 
                         self.local_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress()
                         self.local_address.parent = self
@@ -3354,7 +3449,7 @@ class UdpConnection(Entity):
                         self.foreign_address.parent = self
                         self._children_name_map["foreign_address"] = "foreign-address"
                         self._children_yang_names.add("foreign-address")
-                        self._segment_path = lambda: "pcb-detail" + "[pcb-address='" + self.pcb_address.get() + "']"
+                        self._segment_path = lambda: "pcb-detail" + "[pcb-address='" + str(self.pcb_address) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', 'af_name', 'local_process_id', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
@@ -3397,14 +3492,17 @@ class UdpConnection(Entity):
                             self.yang_parent_name = "pcb-detail"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
@@ -3448,14 +3546,17 @@ class UdpConnection(Entity):
                             self.yang_parent_name = "pcb-detail"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "foreign-address"
 
                         def __setattr__(self, name, value):
@@ -3485,8 +3586,10 @@ class UdpConnection(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"pcb-brief" : ("pcb_brief", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("pcb-brief", ("pcb_brief", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief))])
+                    self._leafs = OrderedDict()
 
                     self.pcb_brief = YList(self)
                     self._segment_path = lambda: "pcb-briefs"
@@ -3499,7 +3602,7 @@ class UdpConnection(Entity):
                     """
                     Brief information about a UDP connection
                     
-                    .. attribute:: pcb_address  <key>
+                    .. attribute:: pcb_address  (key)
                     
                     	Protocol Control Block address
                     	**type**\: int
@@ -3570,22 +3673,25 @@ class UdpConnection(Entity):
                         self.yang_parent_name = "pcb-briefs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"local-address" : ("local_address", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress), "foreign-address" : ("foreign_address", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress)}
-                        self._child_list_classes = {}
-
-                        self.pcb_address = YLeaf(YType.uint32, "pcb-address")
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.local_port = YLeaf(YType.uint16, "local-port")
-
-                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
-
-                        self.receive_queue = YLeaf(YType.uint32, "receive-queue")
-
-                        self.send_queue = YLeaf(YType.uint32, "send-queue")
-
-                        self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+                        self.ylist_key_names = ['pcb_address']
+                        self._child_container_classes = OrderedDict([("local-address", ("local_address", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress)), ("foreign-address", ("foreign_address", UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pcb_address', YLeaf(YType.uint32, 'pcb-address')),
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('local_port', YLeaf(YType.uint16, 'local-port')),
+                            ('foreign_port', YLeaf(YType.uint16, 'foreign-port')),
+                            ('receive_queue', YLeaf(YType.uint32, 'receive-queue')),
+                            ('send_queue', YLeaf(YType.uint32, 'send-queue')),
+                            ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                        ])
+                        self.pcb_address = None
+                        self.af_name = None
+                        self.local_port = None
+                        self.foreign_port = None
+                        self.receive_queue = None
+                        self.send_queue = None
+                        self.vrf_id = None
 
                         self.local_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress()
                         self.local_address.parent = self
@@ -3596,7 +3702,7 @@ class UdpConnection(Entity):
                         self.foreign_address.parent = self
                         self._children_name_map["foreign_address"] = "foreign-address"
                         self._children_yang_names.add("foreign-address")
-                        self._segment_path = lambda: "pcb-brief" + "[pcb-address='" + self.pcb_address.get() + "']"
+                        self._segment_path = lambda: "pcb-brief" + "[pcb-address='" + str(self.pcb_address) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', 'af_name', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
@@ -3639,14 +3745,17 @@ class UdpConnection(Entity):
                             self.yang_parent_name = "pcb-brief"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
@@ -3690,14 +3799,17 @@ class UdpConnection(Entity):
                             self.yang_parent_name = "pcb-brief"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "foreign-address"
 
                         def __setattr__(self, name, value):

@@ -6,9 +6,11 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -37,8 +39,10 @@ class LldpEntries(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-lldp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"lldp-entry" : ("lldp_entry", LldpEntries.LldpEntry)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("lldp-entry", ("lldp_entry", LldpEntries.LldpEntry))])
+        self._leafs = OrderedDict()
 
         self.lldp_entry = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-lldp-oper:lldp-entries"
@@ -51,17 +55,17 @@ class LldpEntries(Entity):
         """
         The list of LLDP entries
         
-        .. attribute:: device_id  <key>
+        .. attribute:: device_id  (key)
         
         	Device ID of the link
         	**type**\: str
         
-        .. attribute:: local_interface  <key>
+        .. attribute:: local_interface  (key)
         
         	Name of the local interface on the current device
         	**type**\: str
         
-        .. attribute:: connecting_interface  <key>
+        .. attribute:: connecting_interface  (key)
         
         	Name of the connected interface to 'local\-interface'
         	**type**\: str
@@ -92,22 +96,25 @@ class LldpEntries(Entity):
             self.yang_parent_name = "lldp-entries"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"capabilities" : ("capabilities", LldpEntries.LldpEntry.Capabilities)}
-            self._child_list_classes = {}
-
-            self.device_id = YLeaf(YType.str, "device-id")
-
-            self.local_interface = YLeaf(YType.str, "local-interface")
-
-            self.connecting_interface = YLeaf(YType.str, "connecting-interface")
-
-            self.ttl = YLeaf(YType.uint32, "ttl")
+            self.ylist_key_names = ['device_id','local_interface','connecting_interface']
+            self._child_container_classes = OrderedDict([("capabilities", ("capabilities", LldpEntries.LldpEntry.Capabilities))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('device_id', YLeaf(YType.str, 'device-id')),
+                ('local_interface', YLeaf(YType.str, 'local-interface')),
+                ('connecting_interface', YLeaf(YType.str, 'connecting-interface')),
+                ('ttl', YLeaf(YType.uint32, 'ttl')),
+            ])
+            self.device_id = None
+            self.local_interface = None
+            self.connecting_interface = None
+            self.ttl = None
 
             self.capabilities = LldpEntries.LldpEntry.Capabilities()
             self.capabilities.parent = self
             self._children_name_map["capabilities"] = "capabilities"
             self._children_yang_names.add("capabilities")
-            self._segment_path = lambda: "lldp-entry" + "[device-id='" + self.device_id.get() + "']" + "[local-interface='" + self.local_interface.get() + "']" + "[connecting-interface='" + self.connecting_interface.get() + "']"
+            self._segment_path = lambda: "lldp-entry" + "[device-id='" + str(self.device_id) + "']" + "[local-interface='" + str(self.local_interface) + "']" + "[connecting-interface='" + str(self.connecting_interface) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-lldp-oper:lldp-entries/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -172,24 +179,27 @@ class LldpEntries(Entity):
                 self.yang_parent_name = "lldp-entry"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.repeater = YLeaf(YType.empty, "repeater")
-
-                self.bridge = YLeaf(YType.empty, "bridge")
-
-                self.access_point = YLeaf(YType.empty, "access-point")
-
-                self.router = YLeaf(YType.empty, "router")
-
-                self.telephone = YLeaf(YType.empty, "telephone")
-
-                self.docsis = YLeaf(YType.empty, "docsis")
-
-                self.station = YLeaf(YType.empty, "station")
-
-                self.other = YLeaf(YType.empty, "other")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('repeater', YLeaf(YType.empty, 'repeater')),
+                    ('bridge', YLeaf(YType.empty, 'bridge')),
+                    ('access_point', YLeaf(YType.empty, 'access-point')),
+                    ('router', YLeaf(YType.empty, 'router')),
+                    ('telephone', YLeaf(YType.empty, 'telephone')),
+                    ('docsis', YLeaf(YType.empty, 'docsis')),
+                    ('station', YLeaf(YType.empty, 'station')),
+                    ('other', YLeaf(YType.empty, 'other')),
+                ])
+                self.repeater = None
+                self.bridge = None
+                self.access_point = None
+                self.router = None
+                self.telephone = None
+                self.docsis = None
+                self.station = None
+                self.other = None
                 self._segment_path = lambda: "capabilities"
 
             def __setattr__(self, name, value):

@@ -120,33 +120,7 @@ module Cisco-IOS-XE-route-map {
     }
   }
 
-  grouping config-route-map-grouping {
-    list route-map-seq {
-
-       key "ordering-seq";
-         leaf ordering-seq {
-            description "Ordering seq tag";
-            type string;
-         }
-
-        // route-map * permit
-        // route-map * deny
-        leaf operation {
-          type enumeration {
-            enum "deny" {
-            }
-            enum "permit" {
-            }
-          }
-        }
-
-        // route-map * #
-        leaf sequence {
-          type uint16 {
-            range "0..65535";
-          }
-        }
-
+  grouping config-route-map-common-grouping {
       // route-map * / description
       leaf description {
         description
@@ -1404,6 +1378,51 @@ module Cisco-IOS-XE-route-map {
           }
         }
       }
+  }
+  grouping config-route-map-grouping {
+    list route-map-seq {
+
+      key "ordering-seq";
+      leaf ordering-seq {
+        description "Ordering seq tag";
+        type string;
+      }
+
+      // route-map * permit
+      // route-map * deny
+      leaf operation {
+        type enumeration {
+          enum "deny" {
+          }
+          enum "permit" {
+          }
+        }
+      }
+
+      // route-map * #
+      leaf sequence {
+        type uint16 {
+          range "0..65535";
+        }
+      }
+      uses config-route-map-common-grouping; 
+    }
+    list route-map-without-order-seq {
+      key "seq_no";
+      leaf seq_no {
+        type uint16 {
+          range "0..65535";
+        }
+      }
+      leaf operation {
+        type enumeration {
+          enum "deny" {
+          }
+          enum "permit" {
+          }
+        }
+      }
+      uses config-route-map-common-grouping; 
     }
   }
 

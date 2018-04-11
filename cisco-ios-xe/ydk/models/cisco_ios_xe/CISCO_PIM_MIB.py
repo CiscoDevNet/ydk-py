@@ -6,9 +6,11 @@ These definitions are an extension of those defined in
 the IETF PIM MIB (RFC 2934).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class CISCOPIMMIB(Entity):
         self.yang_parent_name = "CISCO-PIM-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpim" : ("cpim", CISCOPIMMIB.Cpim), "ciscoPimMIBNotificationObjects" : ("ciscopimmibnotificationobjects", CISCOPIMMIB.Ciscopimmibnotificationobjects)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cpim", ("cpim", CISCOPIMMIB.Cpim)), ("ciscoPimMIBNotificationObjects", ("ciscopimmibnotificationobjects", CISCOPIMMIB.Ciscopimmibnotificationobjects))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cpim = CISCOPIMMIB.Cpim()
         self.cpim.parent = self
@@ -130,26 +134,29 @@ class CISCOPIMMIB(Entity):
             self.yang_parent_name = "CISCO-PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cpiminvalidregistermsgsrcvd = YLeaf(YType.uint32, "cpimInvalidRegisterMsgsRcvd")
-
-            self.cpiminvalidjoinprunemsgsrcvd = YLeaf(YType.uint32, "cpimInvalidJoinPruneMsgsRcvd")
-
-            self.cpimlasterrortype = YLeaf(YType.enumeration, "cpimLastErrorType")
-
-            self.cpimlasterrororigintype = YLeaf(YType.enumeration, "cpimLastErrorOriginType")
-
-            self.cpimlasterrororigin = YLeaf(YType.str, "cpimLastErrorOrigin")
-
-            self.cpimlasterrorgrouptype = YLeaf(YType.enumeration, "cpimLastErrorGroupType")
-
-            self.cpimlasterrorgroup = YLeaf(YType.str, "cpimLastErrorGroup")
-
-            self.cpimlasterrorrptype = YLeaf(YType.enumeration, "cpimLastErrorRPType")
-
-            self.cpimlasterrorrp = YLeaf(YType.str, "cpimLastErrorRP")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cpiminvalidregistermsgsrcvd', YLeaf(YType.uint32, 'cpimInvalidRegisterMsgsRcvd')),
+                ('cpiminvalidjoinprunemsgsrcvd', YLeaf(YType.uint32, 'cpimInvalidJoinPruneMsgsRcvd')),
+                ('cpimlasterrortype', YLeaf(YType.enumeration, 'cpimLastErrorType')),
+                ('cpimlasterrororigintype', YLeaf(YType.enumeration, 'cpimLastErrorOriginType')),
+                ('cpimlasterrororigin', YLeaf(YType.str, 'cpimLastErrorOrigin')),
+                ('cpimlasterrorgrouptype', YLeaf(YType.enumeration, 'cpimLastErrorGroupType')),
+                ('cpimlasterrorgroup', YLeaf(YType.str, 'cpimLastErrorGroup')),
+                ('cpimlasterrorrptype', YLeaf(YType.enumeration, 'cpimLastErrorRPType')),
+                ('cpimlasterrorrp', YLeaf(YType.str, 'cpimLastErrorRP')),
+            ])
+            self.cpiminvalidregistermsgsrcvd = None
+            self.cpiminvalidjoinprunemsgsrcvd = None
+            self.cpimlasterrortype = None
+            self.cpimlasterrororigintype = None
+            self.cpimlasterrororigin = None
+            self.cpimlasterrorgrouptype = None
+            self.cpimlasterrorgroup = None
+            self.cpimlasterrorrptype = None
+            self.cpimlasterrorrp = None
             self._segment_path = lambda: "cpim"
             self._absolute_path = lambda: "CISCO-PIM-MIB:CISCO-PIM-MIB/%s" % self._segment_path()
 
@@ -158,7 +165,7 @@ class CISCOPIMMIB(Entity):
 
         class Cpimlasterrortype(Enum):
             """
-            Cpimlasterrortype
+            Cpimlasterrortype (Enum Class)
 
             The type of the last invalid message that was received by
 
@@ -203,10 +210,13 @@ class CISCOPIMMIB(Entity):
             self.yang_parent_name = "CISCO-PIM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cpimrpmappingchangetype = YLeaf(YType.enumeration, "cpimRPMappingChangeType")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cpimrpmappingchangetype', YLeaf(YType.enumeration, 'cpimRPMappingChangeType')),
+            ])
+            self.cpimrpmappingchangetype = None
             self._segment_path = lambda: "ciscoPimMIBNotificationObjects"
             self._absolute_path = lambda: "CISCO-PIM-MIB:CISCO-PIM-MIB/%s" % self._segment_path()
 
@@ -215,7 +225,7 @@ class CISCOPIMMIB(Entity):
 
         class Cpimrpmappingchangetype(Enum):
             """
-            Cpimrpmappingchangetype
+            Cpimrpmappingchangetype (Enum Class)
 
             Describes the operation that resulted in generation
 

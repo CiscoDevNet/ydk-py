@@ -143,9 +143,11 @@ This MIB allows configuration and monitoring of CEF
 related objects.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -269,8 +271,10 @@ class CISCOCEFMIB(Entity):
         self.yang_parent_name = "CISCO-CEF-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cefFIB" : ("ceffib", CISCOCEFMIB.Ceffib), "cefCC" : ("cefcc", CISCOCEFMIB.Cefcc), "cefNotifCntl" : ("cefnotifcntl", CISCOCEFMIB.Cefnotifcntl), "cefFIBSummaryTable" : ("ceffibsummarytable", CISCOCEFMIB.Ceffibsummarytable), "cefPrefixTable" : ("cefprefixtable", CISCOCEFMIB.Cefprefixtable), "cefLMPrefixTable" : ("ceflmprefixtable", CISCOCEFMIB.Ceflmprefixtable), "cefPathTable" : ("cefpathtable", CISCOCEFMIB.Cefpathtable), "cefAdjSummaryTable" : ("cefadjsummarytable", CISCOCEFMIB.Cefadjsummarytable), "cefAdjTable" : ("cefadjtable", CISCOCEFMIB.Cefadjtable), "cefFESelectionTable" : ("ceffeselectiontable", CISCOCEFMIB.Ceffeselectiontable), "cefCfgTable" : ("cefcfgtable", CISCOCEFMIB.Cefcfgtable), "cefResourceTable" : ("cefresourcetable", CISCOCEFMIB.Cefresourcetable), "cefIntTable" : ("cefinttable", CISCOCEFMIB.Cefinttable), "cefPeerTable" : ("cefpeertable", CISCOCEFMIB.Cefpeertable), "cefPeerFIBTable" : ("cefpeerfibtable", CISCOCEFMIB.Cefpeerfibtable), "cefCCGlobalTable" : ("cefccglobaltable", CISCOCEFMIB.Cefccglobaltable), "cefCCTypeTable" : ("cefcctypetable", CISCOCEFMIB.Cefcctypetable), "cefInconsistencyRecordTable" : ("cefinconsistencyrecordtable", CISCOCEFMIB.Cefinconsistencyrecordtable), "cefStatsPrefixLenTable" : ("cefstatsprefixlentable", CISCOCEFMIB.Cefstatsprefixlentable), "cefSwitchingStatsTable" : ("cefswitchingstatstable", CISCOCEFMIB.Cefswitchingstatstable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cefFIB", ("ceffib", CISCOCEFMIB.Ceffib)), ("cefCC", ("cefcc", CISCOCEFMIB.Cefcc)), ("cefNotifCntl", ("cefnotifcntl", CISCOCEFMIB.Cefnotifcntl)), ("cefFIBSummaryTable", ("ceffibsummarytable", CISCOCEFMIB.Ceffibsummarytable)), ("cefPrefixTable", ("cefprefixtable", CISCOCEFMIB.Cefprefixtable)), ("cefLMPrefixTable", ("ceflmprefixtable", CISCOCEFMIB.Ceflmprefixtable)), ("cefPathTable", ("cefpathtable", CISCOCEFMIB.Cefpathtable)), ("cefAdjSummaryTable", ("cefadjsummarytable", CISCOCEFMIB.Cefadjsummarytable)), ("cefAdjTable", ("cefadjtable", CISCOCEFMIB.Cefadjtable)), ("cefFESelectionTable", ("ceffeselectiontable", CISCOCEFMIB.Ceffeselectiontable)), ("cefCfgTable", ("cefcfgtable", CISCOCEFMIB.Cefcfgtable)), ("cefResourceTable", ("cefresourcetable", CISCOCEFMIB.Cefresourcetable)), ("cefIntTable", ("cefinttable", CISCOCEFMIB.Cefinttable)), ("cefPeerTable", ("cefpeertable", CISCOCEFMIB.Cefpeertable)), ("cefPeerFIBTable", ("cefpeerfibtable", CISCOCEFMIB.Cefpeerfibtable)), ("cefCCGlobalTable", ("cefccglobaltable", CISCOCEFMIB.Cefccglobaltable)), ("cefCCTypeTable", ("cefcctypetable", CISCOCEFMIB.Cefcctypetable)), ("cefInconsistencyRecordTable", ("cefinconsistencyrecordtable", CISCOCEFMIB.Cefinconsistencyrecordtable)), ("cefStatsPrefixLenTable", ("cefstatsprefixlentable", CISCOCEFMIB.Cefstatsprefixlentable)), ("cefSwitchingStatsTable", ("cefswitchingstatstable", CISCOCEFMIB.Cefswitchingstatstable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ceffib = CISCOCEFMIB.Ceffib()
         self.ceffib.parent = self
@@ -399,10 +403,13 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ceflmprefixspinlock = YLeaf(YType.int32, "cefLMPrefixSpinLock")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ceflmprefixspinlock', YLeaf(YType.int32, 'cefLMPrefixSpinLock')),
+            ])
+            self.ceflmprefixspinlock = None
             self._segment_path = lambda: "cefFIB"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
@@ -445,14 +452,17 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entlastinconsistencydetecttime = YLeaf(YType.uint32, "entLastInconsistencyDetectTime")
-
-            self.cefinconsistencyreset = YLeaf(YType.enumeration, "cefInconsistencyReset")
-
-            self.cefinconsistencyresetstatus = YLeaf(YType.enumeration, "cefInconsistencyResetStatus")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entlastinconsistencydetecttime', YLeaf(YType.uint32, 'entLastInconsistencyDetectTime')),
+                ('cefinconsistencyreset', YLeaf(YType.enumeration, 'cefInconsistencyReset')),
+                ('cefinconsistencyresetstatus', YLeaf(YType.enumeration, 'cefInconsistencyResetStatus')),
+            ])
+            self.entlastinconsistencydetecttime = None
+            self.cefinconsistencyreset = None
+            self.cefinconsistencyresetstatus = None
             self._segment_path = lambda: "cefCC"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
@@ -507,18 +517,21 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cefresourcefailurenotifenable = YLeaf(YType.boolean, "cefResourceFailureNotifEnable")
-
-            self.cefpeerstatechangenotifenable = YLeaf(YType.boolean, "cefPeerStateChangeNotifEnable")
-
-            self.cefpeerfibstatechangenotifenable = YLeaf(YType.boolean, "cefPeerFIBStateChangeNotifEnable")
-
-            self.cefnotifthrottlinginterval = YLeaf(YType.int32, "cefNotifThrottlingInterval")
-
-            self.cefinconsistencynotifenable = YLeaf(YType.boolean, "cefInconsistencyNotifEnable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cefresourcefailurenotifenable', YLeaf(YType.boolean, 'cefResourceFailureNotifEnable')),
+                ('cefpeerstatechangenotifenable', YLeaf(YType.boolean, 'cefPeerStateChangeNotifEnable')),
+                ('cefpeerfibstatechangenotifenable', YLeaf(YType.boolean, 'cefPeerFIBStateChangeNotifEnable')),
+                ('cefnotifthrottlinginterval', YLeaf(YType.int32, 'cefNotifThrottlingInterval')),
+                ('cefinconsistencynotifenable', YLeaf(YType.boolean, 'cefInconsistencyNotifEnable')),
+            ])
+            self.cefresourcefailurenotifenable = None
+            self.cefpeerstatechangenotifenable = None
+            self.cefpeerfibstatechangenotifenable = None
+            self.cefnotifthrottlinginterval = None
+            self.cefinconsistencynotifenable = None
             self._segment_path = lambda: "cefNotifCntl"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
 
@@ -550,8 +563,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefFIBSummaryEntry" : ("ceffibsummaryentry", CISCOCEFMIB.Ceffibsummarytable.Ceffibsummaryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefFIBSummaryEntry", ("ceffibsummaryentry", CISCOCEFMIB.Ceffibsummarytable.Ceffibsummaryentry))])
+            self._leafs = OrderedDict()
 
             self.ceffibsummaryentry = YList(self)
             self._segment_path = lambda: "cefFIBSummaryTable"
@@ -576,7 +591,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -585,7 +600,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	The version of IP forwarding
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
@@ -611,15 +626,18 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefFIBSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.ceffibsummaryfwdprefixes = YLeaf(YType.uint32, "cefFIBSummaryFwdPrefixes")
-                self._segment_path = lambda: "cefFIBSummaryEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','ceffibipversion']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('ceffibsummaryfwdprefixes', YLeaf(YType.uint32, 'cefFIBSummaryFwdPrefixes')),
+                ])
+                self.entphysicalindex = None
+                self.ceffibipversion = None
+                self.ceffibsummaryfwdprefixes = None
+                self._segment_path = lambda: "cefFIBSummaryEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefFIBSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -649,8 +667,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefPrefixEntry" : ("cefprefixentry", CISCOCEFMIB.Cefprefixtable.Cefprefixentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefPrefixEntry", ("cefprefixentry", CISCOCEFMIB.Cefprefixtable.Cefprefixentry))])
+            self._leafs = OrderedDict()
 
             self.cefprefixentry = YList(self)
             self._segment_path = lambda: "cefPrefixTable"
@@ -676,7 +696,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -685,19 +705,19 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: cefprefixtype  <key>
+            .. attribute:: cefprefixtype  (key)
             
             	The Network Prefix Type. This object specifies the address type used for cefPrefixAddr.  Prefix entries are only valid for the address type of ipv4(1) and ipv6(2)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cefprefixaddr  <key>
+            .. attribute:: cefprefixaddr  (key)
             
             	The Network Prefix Address. The type of this address is determined by the value of the cefPrefixType object. This object is a Prefix Address containing the  prefix with length specified by cefPrefixLen.  Any bits beyond the length specified by cefPrefixLen are zeroed
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: cefprefixlen  <key>
+            .. attribute:: cefprefixlen  (key)
             
             	Length in bits of the FIB Address prefix
             	**type**\: int
@@ -831,43 +851,46 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefPrefixTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.cefprefixtype = YLeaf(YType.enumeration, "cefPrefixType")
-
-                self.cefprefixaddr = YLeaf(YType.str, "cefPrefixAddr")
-
-                self.cefprefixlen = YLeaf(YType.uint32, "cefPrefixLen")
-
-                self.cefprefixforwardinginfo = YLeaf(YType.str, "cefPrefixForwardingInfo")
-
-                self.cefprefixpkts = YLeaf(YType.uint32, "cefPrefixPkts")
-
-                self.cefprefixhcpkts = YLeaf(YType.uint64, "cefPrefixHCPkts")
-
-                self.cefprefixbytes = YLeaf(YType.uint32, "cefPrefixBytes")
-
-                self.cefprefixhcbytes = YLeaf(YType.uint64, "cefPrefixHCBytes")
-
-                self.cefprefixinternalnrpkts = YLeaf(YType.uint32, "cefPrefixInternalNRPkts")
-
-                self.cefprefixinternalnrhcpkts = YLeaf(YType.uint64, "cefPrefixInternalNRHCPkts")
-
-                self.cefprefixinternalnrbytes = YLeaf(YType.uint32, "cefPrefixInternalNRBytes")
-
-                self.cefprefixinternalnrhcbytes = YLeaf(YType.uint64, "cefPrefixInternalNRHCBytes")
-
-                self.cefprefixexternalnrpkts = YLeaf(YType.uint32, "cefPrefixExternalNRPkts")
-
-                self.cefprefixexternalnrhcpkts = YLeaf(YType.uint64, "cefPrefixExternalNRHCPkts")
-
-                self.cefprefixexternalnrbytes = YLeaf(YType.uint32, "cefPrefixExternalNRBytes")
-
-                self.cefprefixexternalnrhcbytes = YLeaf(YType.uint64, "cefPrefixExternalNRHCBytes")
-                self._segment_path = lambda: "cefPrefixEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefPrefixType='" + self.cefprefixtype.get() + "']" + "[cefPrefixAddr='" + self.cefprefixaddr.get() + "']" + "[cefPrefixLen='" + self.cefprefixlen.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','cefprefixtype','cefprefixaddr','cefprefixlen']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('cefprefixtype', YLeaf(YType.enumeration, 'cefPrefixType')),
+                    ('cefprefixaddr', YLeaf(YType.str, 'cefPrefixAddr')),
+                    ('cefprefixlen', YLeaf(YType.uint32, 'cefPrefixLen')),
+                    ('cefprefixforwardinginfo', YLeaf(YType.str, 'cefPrefixForwardingInfo')),
+                    ('cefprefixpkts', YLeaf(YType.uint32, 'cefPrefixPkts')),
+                    ('cefprefixhcpkts', YLeaf(YType.uint64, 'cefPrefixHCPkts')),
+                    ('cefprefixbytes', YLeaf(YType.uint32, 'cefPrefixBytes')),
+                    ('cefprefixhcbytes', YLeaf(YType.uint64, 'cefPrefixHCBytes')),
+                    ('cefprefixinternalnrpkts', YLeaf(YType.uint32, 'cefPrefixInternalNRPkts')),
+                    ('cefprefixinternalnrhcpkts', YLeaf(YType.uint64, 'cefPrefixInternalNRHCPkts')),
+                    ('cefprefixinternalnrbytes', YLeaf(YType.uint32, 'cefPrefixInternalNRBytes')),
+                    ('cefprefixinternalnrhcbytes', YLeaf(YType.uint64, 'cefPrefixInternalNRHCBytes')),
+                    ('cefprefixexternalnrpkts', YLeaf(YType.uint32, 'cefPrefixExternalNRPkts')),
+                    ('cefprefixexternalnrhcpkts', YLeaf(YType.uint64, 'cefPrefixExternalNRHCPkts')),
+                    ('cefprefixexternalnrbytes', YLeaf(YType.uint32, 'cefPrefixExternalNRBytes')),
+                    ('cefprefixexternalnrhcbytes', YLeaf(YType.uint64, 'cefPrefixExternalNRHCBytes')),
+                ])
+                self.entphysicalindex = None
+                self.cefprefixtype = None
+                self.cefprefixaddr = None
+                self.cefprefixlen = None
+                self.cefprefixforwardinginfo = None
+                self.cefprefixpkts = None
+                self.cefprefixhcpkts = None
+                self.cefprefixbytes = None
+                self.cefprefixhcbytes = None
+                self.cefprefixinternalnrpkts = None
+                self.cefprefixinternalnrhcpkts = None
+                self.cefprefixinternalnrbytes = None
+                self.cefprefixinternalnrhcbytes = None
+                self.cefprefixexternalnrpkts = None
+                self.cefprefixexternalnrhcpkts = None
+                self.cefprefixexternalnrbytes = None
+                self.cefprefixexternalnrhcbytes = None
+                self._segment_path = lambda: "cefPrefixEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefPrefixType='" + str(self.cefprefixtype) + "']" + "[cefPrefixAddr='" + str(self.cefprefixaddr) + "']" + "[cefPrefixLen='" + str(self.cefprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -901,8 +924,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefLMPrefixEntry" : ("ceflmprefixentry", CISCOCEFMIB.Ceflmprefixtable.Ceflmprefixentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefLMPrefixEntry", ("ceflmprefixentry", CISCOCEFMIB.Ceflmprefixtable.Ceflmprefixentry))])
+            self._leafs = OrderedDict()
 
             self.ceflmprefixentry = YList(self)
             self._segment_path = lambda: "cefLMPrefixTable"
@@ -950,7 +975,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -959,12 +984,12 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: ceflmprefixdestaddrtype  <key>
+            .. attribute:: ceflmprefixdestaddrtype  (key)
             
             	The Destination Address Type. This object specifies the address type used for cefLMPrefixDestAddr.  Longest Match Prefix entries are only valid  for the address type of ipv4(1) and ipv6(2)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: ceflmprefixdestaddr  <key>
+            .. attribute:: ceflmprefixdestaddr  (key)
             
             	The Destination Address. The type of this address is determined by the value of the cefLMPrefixDestAddrType object
             	**type**\: str
@@ -1009,23 +1034,26 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefLMPrefixTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ceflmprefixdestaddrtype = YLeaf(YType.enumeration, "cefLMPrefixDestAddrType")
-
-                self.ceflmprefixdestaddr = YLeaf(YType.str, "cefLMPrefixDestAddr")
-
-                self.ceflmprefixstate = YLeaf(YType.enumeration, "cefLMPrefixState")
-
-                self.ceflmprefixaddr = YLeaf(YType.str, "cefLMPrefixAddr")
-
-                self.ceflmprefixlen = YLeaf(YType.uint32, "cefLMPrefixLen")
-
-                self.ceflmprefixrowstatus = YLeaf(YType.enumeration, "cefLMPrefixRowStatus")
-                self._segment_path = lambda: "cefLMPrefixEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefLMPrefixDestAddrType='" + self.ceflmprefixdestaddrtype.get() + "']" + "[cefLMPrefixDestAddr='" + self.ceflmprefixdestaddr.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','ceflmprefixdestaddrtype','ceflmprefixdestaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('ceflmprefixdestaddrtype', YLeaf(YType.enumeration, 'cefLMPrefixDestAddrType')),
+                    ('ceflmprefixdestaddr', YLeaf(YType.str, 'cefLMPrefixDestAddr')),
+                    ('ceflmprefixstate', YLeaf(YType.enumeration, 'cefLMPrefixState')),
+                    ('ceflmprefixaddr', YLeaf(YType.str, 'cefLMPrefixAddr')),
+                    ('ceflmprefixlen', YLeaf(YType.uint32, 'cefLMPrefixLen')),
+                    ('ceflmprefixrowstatus', YLeaf(YType.enumeration, 'cefLMPrefixRowStatus')),
+                ])
+                self.entphysicalindex = None
+                self.ceflmprefixdestaddrtype = None
+                self.ceflmprefixdestaddr = None
+                self.ceflmprefixstate = None
+                self.ceflmprefixaddr = None
+                self.ceflmprefixlen = None
+                self.ceflmprefixrowstatus = None
+                self._segment_path = lambda: "cefLMPrefixEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefLMPrefixDestAddrType='" + str(self.ceflmprefixdestaddrtype) + "']" + "[cefLMPrefixDestAddr='" + str(self.ceflmprefixdestaddr) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefLMPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1058,8 +1086,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefPathEntry" : ("cefpathentry", CISCOCEFMIB.Cefpathtable.Cefpathentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefPathEntry", ("cefpathentry", CISCOCEFMIB.Cefpathtable.Cefpathentry))])
+            self._leafs = OrderedDict()
 
             self.cefpathentry = YList(self)
             self._segment_path = lambda: "cefPathTable"
@@ -1079,7 +1109,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -1088,12 +1118,12 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: cefprefixtype  <key>
+            .. attribute:: cefprefixtype  (key)
             
             	
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cefprefixaddr  <key>
+            .. attribute:: cefprefixaddr  (key)
             
             	
             	**type**\: str
@@ -1102,7 +1132,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`cefprefixaddr <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefprefixtable.Cefprefixentry>`
             
-            .. attribute:: cefprefixlen  <key>
+            .. attribute:: cefprefixlen  (key)
             
             	
             	**type**\: int
@@ -1111,7 +1141,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`cefprefixlen <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefprefixtable.Cefprefixentry>`
             
-            .. attribute:: cefpathid  <key>
+            .. attribute:: cefpathid  (key)
             
             	The locally arbitrary, but unique identifier associated with this prefix path entry
             	**type**\: int
@@ -1158,27 +1188,30 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefPathTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.cefprefixtype = YLeaf(YType.enumeration, "cefPrefixType")
-
-                self.cefprefixaddr = YLeaf(YType.str, "cefPrefixAddr")
-
-                self.cefprefixlen = YLeaf(YType.str, "cefPrefixLen")
-
-                self.cefpathid = YLeaf(YType.int32, "cefPathId")
-
-                self.cefpathtype = YLeaf(YType.enumeration, "cefPathType")
-
-                self.cefpathinterface = YLeaf(YType.int32, "cefPathInterface")
-
-                self.cefpathnexthopaddr = YLeaf(YType.str, "cefPathNextHopAddr")
-
-                self.cefpathrecursevrfname = YLeaf(YType.str, "cefPathRecurseVrfName")
-                self._segment_path = lambda: "cefPathEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefPrefixType='" + self.cefprefixtype.get() + "']" + "[cefPrefixAddr='" + self.cefprefixaddr.get() + "']" + "[cefPrefixLen='" + self.cefprefixlen.get() + "']" + "[cefPathId='" + self.cefpathid.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','cefprefixtype','cefprefixaddr','cefprefixlen','cefpathid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('cefprefixtype', YLeaf(YType.enumeration, 'cefPrefixType')),
+                    ('cefprefixaddr', YLeaf(YType.str, 'cefPrefixAddr')),
+                    ('cefprefixlen', YLeaf(YType.str, 'cefPrefixLen')),
+                    ('cefpathid', YLeaf(YType.int32, 'cefPathId')),
+                    ('cefpathtype', YLeaf(YType.enumeration, 'cefPathType')),
+                    ('cefpathinterface', YLeaf(YType.int32, 'cefPathInterface')),
+                    ('cefpathnexthopaddr', YLeaf(YType.str, 'cefPathNextHopAddr')),
+                    ('cefpathrecursevrfname', YLeaf(YType.str, 'cefPathRecurseVrfName')),
+                ])
+                self.entphysicalindex = None
+                self.cefprefixtype = None
+                self.cefprefixaddr = None
+                self.cefprefixlen = None
+                self.cefpathid = None
+                self.cefpathtype = None
+                self.cefpathinterface = None
+                self.cefpathnexthopaddr = None
+                self.cefpathrecursevrfname = None
+                self._segment_path = lambda: "cefPathEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefPrefixType='" + str(self.cefprefixtype) + "']" + "[cefPrefixAddr='" + str(self.cefprefixaddr) + "']" + "[cefPrefixLen='" + str(self.cefprefixlen) + "']" + "[cefPathId='" + str(self.cefpathid) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPathTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1209,8 +1242,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefAdjSummaryEntry" : ("cefadjsummaryentry", CISCOCEFMIB.Cefadjsummarytable.Cefadjsummaryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefAdjSummaryEntry", ("cefadjsummaryentry", CISCOCEFMIB.Cefadjsummarytable.Cefadjsummaryentry))])
+            self._leafs = OrderedDict()
 
             self.cefadjsummaryentry = YList(self)
             self._segment_path = lambda: "cefAdjSummaryTable"
@@ -1233,7 +1268,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -1242,7 +1277,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: cefadjsummarylinktype  <key>
+            .. attribute:: cefadjsummarylinktype  (key)
             
             	The link type of the adjacency
             	**type**\:  :py:class:`CefAdjLinkType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefAdjLinkType>`
@@ -1289,21 +1324,24 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefAdjSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.cefadjsummarylinktype = YLeaf(YType.enumeration, "cefAdjSummaryLinkType")
-
-                self.cefadjsummarycomplete = YLeaf(YType.uint32, "cefAdjSummaryComplete")
-
-                self.cefadjsummaryincomplete = YLeaf(YType.uint32, "cefAdjSummaryIncomplete")
-
-                self.cefadjsummaryfixup = YLeaf(YType.uint32, "cefAdjSummaryFixup")
-
-                self.cefadjsummaryredirect = YLeaf(YType.uint32, "cefAdjSummaryRedirect")
-                self._segment_path = lambda: "cefAdjSummaryEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefAdjSummaryLinkType='" + self.cefadjsummarylinktype.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','cefadjsummarylinktype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('cefadjsummarylinktype', YLeaf(YType.enumeration, 'cefAdjSummaryLinkType')),
+                    ('cefadjsummarycomplete', YLeaf(YType.uint32, 'cefAdjSummaryComplete')),
+                    ('cefadjsummaryincomplete', YLeaf(YType.uint32, 'cefAdjSummaryIncomplete')),
+                    ('cefadjsummaryfixup', YLeaf(YType.uint32, 'cefAdjSummaryFixup')),
+                    ('cefadjsummaryredirect', YLeaf(YType.uint32, 'cefAdjSummaryRedirect')),
+                ])
+                self.entphysicalindex = None
+                self.cefadjsummarylinktype = None
+                self.cefadjsummarycomplete = None
+                self.cefadjsummaryincomplete = None
+                self.cefadjsummaryfixup = None
+                self.cefadjsummaryredirect = None
+                self._segment_path = lambda: "cefAdjSummaryEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefAdjSummaryLinkType='" + str(self.cefadjsummarylinktype) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefAdjSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1333,8 +1371,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefAdjEntry" : ("cefadjentry", CISCOCEFMIB.Cefadjtable.Cefadjentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefAdjEntry", ("cefadjentry", CISCOCEFMIB.Cefadjtable.Cefadjentry))])
+            self._leafs = OrderedDict()
 
             self.cefadjentry = YList(self)
             self._segment_path = lambda: "cefAdjTable"
@@ -1362,7 +1402,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -1371,7 +1411,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1380,26 +1420,26 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: cefadjnexthopaddrtype  <key>
+            .. attribute:: cefadjnexthopaddrtype  (key)
             
             	Address type for the cefAdjNextHopAddr. This object specifies the address type used for cefAdjNextHopAddr.   Adjacency entries are only valid for the  address type of ipv4(1) and ipv6(2)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cefadjnexthopaddr  <key>
+            .. attribute:: cefadjnexthopaddr  (key)
             
             	The next Hop address for this adjacency. The type of this address is determined by the value of the cefAdjNextHopAddrType object
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: cefadjconnid  <key>
+            .. attribute:: cefadjconnid  (key)
             
             	In cases where cefLinkType, interface and the next hop address are not able to uniquely define an adjacency entry (e.g. ATM and Frame Relay Bundles), this object is a unique identifier to differentiate between these adjacency entries.   In all the other cases the value of this  index object will be 0
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cefadjsummarylinktype  <key>
+            .. attribute:: cefadjsummarylinktype  (key)
             
             	
             	**type**\:  :py:class:`CefAdjLinkType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefAdjLinkType>`
@@ -1483,39 +1523,42 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefAdjTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cefadjnexthopaddrtype = YLeaf(YType.enumeration, "cefAdjNextHopAddrType")
-
-                self.cefadjnexthopaddr = YLeaf(YType.str, "cefAdjNextHopAddr")
-
-                self.cefadjconnid = YLeaf(YType.uint32, "cefAdjConnId")
-
-                self.cefadjsummarylinktype = YLeaf(YType.enumeration, "cefAdjSummaryLinkType")
-
-                self.cefadjsource = YLeaf(YType.bits, "cefAdjSource")
-
-                self.cefadjencap = YLeaf(YType.str, "cefAdjEncap")
-
-                self.cefadjfixup = YLeaf(YType.str, "cefAdjFixup")
-
-                self.cefadjmtu = YLeaf(YType.uint32, "cefAdjMTU")
-
-                self.cefadjforwardinginfo = YLeaf(YType.str, "cefAdjForwardingInfo")
-
-                self.cefadjpkts = YLeaf(YType.uint32, "cefAdjPkts")
-
-                self.cefadjhcpkts = YLeaf(YType.uint64, "cefAdjHCPkts")
-
-                self.cefadjbytes = YLeaf(YType.uint32, "cefAdjBytes")
-
-                self.cefadjhcbytes = YLeaf(YType.uint64, "cefAdjHCBytes")
-                self._segment_path = lambda: "cefAdjEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']" + "[cefAdjNextHopAddrType='" + self.cefadjnexthopaddrtype.get() + "']" + "[cefAdjNextHopAddr='" + self.cefadjnexthopaddr.get() + "']" + "[cefAdjConnId='" + self.cefadjconnid.get() + "']" + "[cefAdjSummaryLinkType='" + self.cefadjsummarylinktype.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','ifindex','cefadjnexthopaddrtype','cefadjnexthopaddr','cefadjconnid','cefadjsummarylinktype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cefadjnexthopaddrtype', YLeaf(YType.enumeration, 'cefAdjNextHopAddrType')),
+                    ('cefadjnexthopaddr', YLeaf(YType.str, 'cefAdjNextHopAddr')),
+                    ('cefadjconnid', YLeaf(YType.uint32, 'cefAdjConnId')),
+                    ('cefadjsummarylinktype', YLeaf(YType.enumeration, 'cefAdjSummaryLinkType')),
+                    ('cefadjsource', YLeaf(YType.bits, 'cefAdjSource')),
+                    ('cefadjencap', YLeaf(YType.str, 'cefAdjEncap')),
+                    ('cefadjfixup', YLeaf(YType.str, 'cefAdjFixup')),
+                    ('cefadjmtu', YLeaf(YType.uint32, 'cefAdjMTU')),
+                    ('cefadjforwardinginfo', YLeaf(YType.str, 'cefAdjForwardingInfo')),
+                    ('cefadjpkts', YLeaf(YType.uint32, 'cefAdjPkts')),
+                    ('cefadjhcpkts', YLeaf(YType.uint64, 'cefAdjHCPkts')),
+                    ('cefadjbytes', YLeaf(YType.uint32, 'cefAdjBytes')),
+                    ('cefadjhcbytes', YLeaf(YType.uint64, 'cefAdjHCBytes')),
+                ])
+                self.entphysicalindex = None
+                self.ifindex = None
+                self.cefadjnexthopaddrtype = None
+                self.cefadjnexthopaddr = None
+                self.cefadjconnid = None
+                self.cefadjsummarylinktype = None
+                self.cefadjsource = Bits()
+                self.cefadjencap = None
+                self.cefadjfixup = None
+                self.cefadjmtu = None
+                self.cefadjforwardinginfo = None
+                self.cefadjpkts = None
+                self.cefadjhcpkts = None
+                self.cefadjbytes = None
+                self.cefadjhcbytes = None
+                self._segment_path = lambda: "cefAdjEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[ifIndex='" + str(self.ifindex) + "']" + "[cefAdjNextHopAddrType='" + str(self.cefadjnexthopaddrtype) + "']" + "[cefAdjNextHopAddr='" + str(self.cefadjnexthopaddr) + "']" + "[cefAdjConnId='" + str(self.cefadjconnid) + "']" + "[cefAdjSummaryLinkType='" + str(self.cefadjsummarylinktype) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefAdjTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1545,8 +1588,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefFESelectionEntry" : ("ceffeselectionentry", CISCOCEFMIB.Ceffeselectiontable.Ceffeselectionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefFESelectionEntry", ("ceffeselectionentry", CISCOCEFMIB.Ceffeselectiontable.Ceffeselectionentry))])
+            self._leafs = OrderedDict()
 
             self.ceffeselectionentry = YList(self)
             self._segment_path = lambda: "cefFESelectionTable"
@@ -1567,7 +1612,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -1576,14 +1621,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: ceffeselectionname  <key>
+            .. attribute:: ceffeselectionname  (key)
             
             	The locally arbitrary, but unique identifier used to select a set of forwarding element lists
             	**type**\: str
             
             	**length:** 1..32
             
-            .. attribute:: ceffeselectionid  <key>
+            .. attribute:: ceffeselectionid  (key)
             
             	Secondary index to identify a forwarding elements List  in this Table
             	**type**\: int
@@ -1661,33 +1706,36 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefFESelectionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ceffeselectionname = YLeaf(YType.str, "cefFESelectionName")
-
-                self.ceffeselectionid = YLeaf(YType.int32, "cefFESelectionId")
-
-                self.ceffeselectionspecial = YLeaf(YType.enumeration, "cefFESelectionSpecial")
-
-                self.ceffeselectionlabels = YLeaf(YType.str, "cefFESelectionLabels")
-
-                self.ceffeselectionadjlinktype = YLeaf(YType.enumeration, "cefFESelectionAdjLinkType")
-
-                self.ceffeselectionadjinterface = YLeaf(YType.int32, "cefFESelectionAdjInterface")
-
-                self.ceffeselectionadjnexthopaddrtype = YLeaf(YType.enumeration, "cefFESelectionAdjNextHopAddrType")
-
-                self.ceffeselectionadjnexthopaddr = YLeaf(YType.str, "cefFESelectionAdjNextHopAddr")
-
-                self.ceffeselectionadjconnid = YLeaf(YType.uint32, "cefFESelectionAdjConnId")
-
-                self.ceffeselectionvrfname = YLeaf(YType.str, "cefFESelectionVrfName")
-
-                self.ceffeselectionweight = YLeaf(YType.uint32, "cefFESelectionWeight")
-                self._segment_path = lambda: "cefFESelectionEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefFESelectionName='" + self.ceffeselectionname.get() + "']" + "[cefFESelectionId='" + self.ceffeselectionid.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','ceffeselectionname','ceffeselectionid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('ceffeselectionname', YLeaf(YType.str, 'cefFESelectionName')),
+                    ('ceffeselectionid', YLeaf(YType.int32, 'cefFESelectionId')),
+                    ('ceffeselectionspecial', YLeaf(YType.enumeration, 'cefFESelectionSpecial')),
+                    ('ceffeselectionlabels', YLeaf(YType.str, 'cefFESelectionLabels')),
+                    ('ceffeselectionadjlinktype', YLeaf(YType.enumeration, 'cefFESelectionAdjLinkType')),
+                    ('ceffeselectionadjinterface', YLeaf(YType.int32, 'cefFESelectionAdjInterface')),
+                    ('ceffeselectionadjnexthopaddrtype', YLeaf(YType.enumeration, 'cefFESelectionAdjNextHopAddrType')),
+                    ('ceffeselectionadjnexthopaddr', YLeaf(YType.str, 'cefFESelectionAdjNextHopAddr')),
+                    ('ceffeselectionadjconnid', YLeaf(YType.uint32, 'cefFESelectionAdjConnId')),
+                    ('ceffeselectionvrfname', YLeaf(YType.str, 'cefFESelectionVrfName')),
+                    ('ceffeselectionweight', YLeaf(YType.uint32, 'cefFESelectionWeight')),
+                ])
+                self.entphysicalindex = None
+                self.ceffeselectionname = None
+                self.ceffeselectionid = None
+                self.ceffeselectionspecial = None
+                self.ceffeselectionlabels = None
+                self.ceffeselectionadjlinktype = None
+                self.ceffeselectionadjinterface = None
+                self.ceffeselectionadjnexthopaddrtype = None
+                self.ceffeselectionadjnexthopaddr = None
+                self.ceffeselectionadjconnid = None
+                self.ceffeselectionvrfname = None
+                self.ceffeselectionweight = None
+                self._segment_path = lambda: "cefFESelectionEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFESelectionName='" + str(self.ceffeselectionname) + "']" + "[cefFESelectionId='" + str(self.ceffeselectionid) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefFESelectionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1718,8 +1766,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefCfgEntry" : ("cefcfgentry", CISCOCEFMIB.Cefcfgtable.Cefcfgentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefCfgEntry", ("cefcfgentry", CISCOCEFMIB.Cefcfgtable.Cefcfgentry))])
+            self._leafs = OrderedDict()
 
             self.cefcfgentry = YList(self)
             self._segment_path = lambda: "cefCfgTable"
@@ -1743,7 +1793,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -1752,7 +1802,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
@@ -1826,31 +1876,34 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.cefcfgadminstate = YLeaf(YType.enumeration, "cefCfgAdminState")
-
-                self.cefcfgoperstate = YLeaf(YType.enumeration, "cefCfgOperState")
-
-                self.cefcfgdistributionadminstate = YLeaf(YType.enumeration, "cefCfgDistributionAdminState")
-
-                self.cefcfgdistributionoperstate = YLeaf(YType.enumeration, "cefCfgDistributionOperState")
-
-                self.cefcfgaccountingmap = YLeaf(YType.bits, "cefCfgAccountingMap")
-
-                self.cefcfgloadsharingalgorithm = YLeaf(YType.enumeration, "cefCfgLoadSharingAlgorithm")
-
-                self.cefcfgloadsharingid = YLeaf(YType.uint32, "cefCfgLoadSharingID")
-
-                self.cefcfgtrafficstatsloadinterval = YLeaf(YType.uint32, "cefCfgTrafficStatsLoadInterval")
-
-                self.cefcfgtrafficstatsupdaterate = YLeaf(YType.uint32, "cefCfgTrafficStatsUpdateRate")
-                self._segment_path = lambda: "cefCfgEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','ceffibipversion']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('cefcfgadminstate', YLeaf(YType.enumeration, 'cefCfgAdminState')),
+                    ('cefcfgoperstate', YLeaf(YType.enumeration, 'cefCfgOperState')),
+                    ('cefcfgdistributionadminstate', YLeaf(YType.enumeration, 'cefCfgDistributionAdminState')),
+                    ('cefcfgdistributionoperstate', YLeaf(YType.enumeration, 'cefCfgDistributionOperState')),
+                    ('cefcfgaccountingmap', YLeaf(YType.bits, 'cefCfgAccountingMap')),
+                    ('cefcfgloadsharingalgorithm', YLeaf(YType.enumeration, 'cefCfgLoadSharingAlgorithm')),
+                    ('cefcfgloadsharingid', YLeaf(YType.uint32, 'cefCfgLoadSharingID')),
+                    ('cefcfgtrafficstatsloadinterval', YLeaf(YType.uint32, 'cefCfgTrafficStatsLoadInterval')),
+                    ('cefcfgtrafficstatsupdaterate', YLeaf(YType.uint32, 'cefCfgTrafficStatsUpdateRate')),
+                ])
+                self.entphysicalindex = None
+                self.ceffibipversion = None
+                self.cefcfgadminstate = None
+                self.cefcfgoperstate = None
+                self.cefcfgdistributionadminstate = None
+                self.cefcfgdistributionoperstate = None
+                self.cefcfgaccountingmap = Bits()
+                self.cefcfgloadsharingalgorithm = None
+                self.cefcfgloadsharingid = None
+                self.cefcfgtrafficstatsloadinterval = None
+                self.cefcfgtrafficstatsupdaterate = None
+                self._segment_path = lambda: "cefCfgEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1858,7 +1911,7 @@ class CISCOCEFMIB(Entity):
 
             class Cefcfgloadsharingalgorithm(Enum):
                 """
-                Cefcfgloadsharingalgorithm
+                Cefcfgloadsharingalgorithm (Enum Class)
 
                 Indicates the CEF Load balancing algorithm.
 
@@ -1938,8 +1991,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefResourceEntry" : ("cefresourceentry", CISCOCEFMIB.Cefresourcetable.Cefresourceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefResourceEntry", ("cefresourceentry", CISCOCEFMIB.Cefresourcetable.Cefresourceentry))])
+            self._leafs = OrderedDict()
 
             self.cefresourceentry = YList(self)
             self._segment_path = lambda: "cefResourceTable"
@@ -1960,7 +2015,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -1997,15 +2052,18 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefResourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.cefresourcememoryused = YLeaf(YType.uint32, "cefResourceMemoryUsed")
-
-                self.cefresourcefailurereason = YLeaf(YType.enumeration, "cefResourceFailureReason")
-                self._segment_path = lambda: "cefResourceEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('cefresourcememoryused', YLeaf(YType.uint32, 'cefResourceMemoryUsed')),
+                    ('cefresourcefailurereason', YLeaf(YType.enumeration, 'cefResourceFailureReason')),
+                ])
+                self.entphysicalindex = None
+                self.cefresourcememoryused = None
+                self.cefresourcefailurereason = None
+                self._segment_path = lambda: "cefResourceEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefResourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2037,8 +2095,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefIntEntry" : ("cefintentry", CISCOCEFMIB.Cefinttable.Cefintentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefIntEntry", ("cefintentry", CISCOCEFMIB.Cefinttable.Cefintentry))])
+            self._leafs = OrderedDict()
 
             self.cefintentry = YList(self)
             self._segment_path = lambda: "cefIntTable"
@@ -2068,7 +2128,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -2077,12 +2137,12 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2120,21 +2180,24 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefIntTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cefintswitchingstate = YLeaf(YType.enumeration, "cefIntSwitchingState")
-
-                self.cefintloadsharing = YLeaf(YType.enumeration, "cefIntLoadSharing")
-
-                self.cefintnonrecursiveaccouting = YLeaf(YType.enumeration, "cefIntNonrecursiveAccouting")
-                self._segment_path = lambda: "cefIntEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','ceffibipversion','ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cefintswitchingstate', YLeaf(YType.enumeration, 'cefIntSwitchingState')),
+                    ('cefintloadsharing', YLeaf(YType.enumeration, 'cefIntLoadSharing')),
+                    ('cefintnonrecursiveaccouting', YLeaf(YType.enumeration, 'cefIntNonrecursiveAccouting')),
+                ])
+                self.entphysicalindex = None
+                self.ceffibipversion = None
+                self.ifindex = None
+                self.cefintswitchingstate = None
+                self.cefintloadsharing = None
+                self.cefintnonrecursiveaccouting = None
+                self._segment_path = lambda: "cefIntEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefIntTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2142,7 +2205,7 @@ class CISCOCEFMIB(Entity):
 
             class Cefintloadsharing(Enum):
                 """
-                Cefintloadsharing
+                Cefintloadsharing (Enum Class)
 
                 The status of load sharing on the
 
@@ -2177,7 +2240,7 @@ class CISCOCEFMIB(Entity):
 
             class Cefintnonrecursiveaccouting(Enum):
                 """
-                Cefintnonrecursiveaccouting
+                Cefintnonrecursiveaccouting (Enum Class)
 
                 The CEF accounting mode for the interface.
 
@@ -2216,7 +2279,7 @@ class CISCOCEFMIB(Entity):
 
             class Cefintswitchingstate(Enum):
                 """
-                Cefintswitchingstate
+                Cefintswitchingstate (Enum Class)
 
                 The CEF switching State for the interface. 
 
@@ -2277,8 +2340,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefPeerEntry" : ("cefpeerentry", CISCOCEFMIB.Cefpeertable.Cefpeerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefPeerEntry", ("cefpeerentry", CISCOCEFMIB.Cefpeertable.Cefpeerentry))])
+            self._leafs = OrderedDict()
 
             self.cefpeerentry = YList(self)
             self._segment_path = lambda: "cefPeerTable"
@@ -2299,7 +2364,7 @@ class CISCOCEFMIB(Entity):
             entities of 'module' entPhysicalClass which are
             capable of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -2308,7 +2373,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: entpeerphysicalindex  <key>
+            .. attribute:: entpeerphysicalindex  (key)
             
             	The entity index for the CEF peer entity. Only the entities of 'module'  entPhysicalClass are included here
             	**type**\: int
@@ -2341,17 +2406,20 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.entpeerphysicalindex = YLeaf(YType.int32, "entPeerPhysicalIndex")
-
-                self.cefpeeroperstate = YLeaf(YType.enumeration, "cefPeerOperState")
-
-                self.cefpeernumberofresets = YLeaf(YType.uint32, "cefPeerNumberOfResets")
-                self._segment_path = lambda: "cefPeerEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[entPeerPhysicalIndex='" + self.entpeerphysicalindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','entpeerphysicalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('entpeerphysicalindex', YLeaf(YType.int32, 'entPeerPhysicalIndex')),
+                    ('cefpeeroperstate', YLeaf(YType.enumeration, 'cefPeerOperState')),
+                    ('cefpeernumberofresets', YLeaf(YType.uint32, 'cefPeerNumberOfResets')),
+                ])
+                self.entphysicalindex = None
+                self.entpeerphysicalindex = None
+                self.cefpeeroperstate = None
+                self.cefpeernumberofresets = None
+                self._segment_path = lambda: "cefPeerEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[entPeerPhysicalIndex='" + str(self.entpeerphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2359,7 +2427,7 @@ class CISCOCEFMIB(Entity):
 
             class Cefpeeroperstate(Enum):
                 """
-                Cefpeeroperstate
+                Cefpeeroperstate (Enum Class)
 
                 The current CEF operational state of the CEF peer entity.
 
@@ -2430,8 +2498,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefPeerFIBEntry" : ("cefpeerfibentry", CISCOCEFMIB.Cefpeerfibtable.Cefpeerfibentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefPeerFIBEntry", ("cefpeerfibentry", CISCOCEFMIB.Cefpeerfibtable.Cefpeerfibentry))])
+            self._leafs = OrderedDict()
 
             self.cefpeerfibentry = YList(self)
             self._segment_path = lambda: "cefPeerFIBTable"
@@ -2452,7 +2522,7 @@ class CISCOCEFMIB(Entity):
             entities of 'module' entPhysicalClass which are
             capable of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -2461,7 +2531,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: entpeerphysicalindex  <key>
+            .. attribute:: entpeerphysicalindex  (key)
             
             	
             	**type**\: int
@@ -2470,7 +2540,7 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entpeerphysicalindex <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.Cefpeertable.Cefpeerentry>`
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
@@ -2494,17 +2564,20 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefPeerFIBTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.entpeerphysicalindex = YLeaf(YType.str, "entPeerPhysicalIndex")
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.cefpeerfiboperstate = YLeaf(YType.enumeration, "cefPeerFIBOperState")
-                self._segment_path = lambda: "cefPeerFIBEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[entPeerPhysicalIndex='" + self.entpeerphysicalindex.get() + "']" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','entpeerphysicalindex','ceffibipversion']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('entpeerphysicalindex', YLeaf(YType.str, 'entPeerPhysicalIndex')),
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('cefpeerfiboperstate', YLeaf(YType.enumeration, 'cefPeerFIBOperState')),
+                ])
+                self.entphysicalindex = None
+                self.entpeerphysicalindex = None
+                self.ceffibipversion = None
+                self.cefpeerfiboperstate = None
+                self._segment_path = lambda: "cefPeerFIBEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[entPeerPhysicalIndex='" + str(self.entpeerphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPeerFIBTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2512,7 +2585,7 @@ class CISCOCEFMIB(Entity):
 
             class Cefpeerfiboperstate(Enum):
                 """
-                Cefpeerfiboperstate
+                Cefpeerfiboperstate (Enum Class)
 
                 The current CEF FIB Operational State for the 
 
@@ -2566,8 +2639,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefCCGlobalEntry" : ("cefccglobalentry", CISCOCEFMIB.Cefccglobaltable.Cefccglobalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefCCGlobalEntry", ("cefccglobalentry", CISCOCEFMIB.Cefccglobaltable.Cefccglobalentry))])
+            self._leafs = OrderedDict()
 
             self.cefccglobalentry = YList(self)
             self._segment_path = lambda: "cefCCGlobalTable"
@@ -2586,7 +2661,7 @@ class CISCOCEFMIB(Entity):
             (v4 and v6) depending upon the IP version
             supported on the device.
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
@@ -2643,23 +2718,26 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefCCGlobalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.cefccglobalautorepairenabled = YLeaf(YType.boolean, "cefCCGlobalAutoRepairEnabled")
-
-                self.cefccglobalautorepairdelay = YLeaf(YType.uint32, "cefCCGlobalAutoRepairDelay")
-
-                self.cefccglobalautorepairholddown = YLeaf(YType.uint32, "cefCCGlobalAutoRepairHoldDown")
-
-                self.cefccglobalerrormsgenabled = YLeaf(YType.boolean, "cefCCGlobalErrorMsgEnabled")
-
-                self.cefccglobalfullscanaction = YLeaf(YType.enumeration, "cefCCGlobalFullScanAction")
-
-                self.cefccglobalfullscanstatus = YLeaf(YType.enumeration, "cefCCGlobalFullScanStatus")
-                self._segment_path = lambda: "cefCCGlobalEntry" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']"
+                self.ylist_key_names = ['ceffibipversion']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('cefccglobalautorepairenabled', YLeaf(YType.boolean, 'cefCCGlobalAutoRepairEnabled')),
+                    ('cefccglobalautorepairdelay', YLeaf(YType.uint32, 'cefCCGlobalAutoRepairDelay')),
+                    ('cefccglobalautorepairholddown', YLeaf(YType.uint32, 'cefCCGlobalAutoRepairHoldDown')),
+                    ('cefccglobalerrormsgenabled', YLeaf(YType.boolean, 'cefCCGlobalErrorMsgEnabled')),
+                    ('cefccglobalfullscanaction', YLeaf(YType.enumeration, 'cefCCGlobalFullScanAction')),
+                    ('cefccglobalfullscanstatus', YLeaf(YType.enumeration, 'cefCCGlobalFullScanStatus')),
+                ])
+                self.ceffibipversion = None
+                self.cefccglobalautorepairenabled = None
+                self.cefccglobalautorepairdelay = None
+                self.cefccglobalautorepairholddown = None
+                self.cefccglobalerrormsgenabled = None
+                self.cefccglobalfullscanaction = None
+                self.cefccglobalfullscanstatus = None
+                self._segment_path = lambda: "cefCCGlobalEntry" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCCGlobalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2694,8 +2772,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefCCTypeEntry" : ("cefcctypeentry", CISCOCEFMIB.Cefcctypetable.Cefcctypeentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefCCTypeEntry", ("cefcctypeentry", CISCOCEFMIB.Cefcctypetable.Cefcctypeentry))])
+            self._leafs = OrderedDict()
 
             self.cefcctypeentry = YList(self)
             self._segment_path = lambda: "cefCCTypeTable"
@@ -2715,12 +2795,12 @@ class CISCOCEFMIB(Entity):
             (v4 and v6) depending upon the IP version
             supported on the device.
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
-            .. attribute:: cefcctype  <key>
+            .. attribute:: cefcctype  (key)
             
             	Type of the consistency checker
             	**type**\:  :py:class:`CefCCType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefCCType>`
@@ -2788,27 +2868,30 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefCCTypeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.cefcctype = YLeaf(YType.enumeration, "cefCCType")
-
-                self.cefccenabled = YLeaf(YType.boolean, "cefCCEnabled")
-
-                self.cefcccount = YLeaf(YType.uint32, "cefCCCount")
-
-                self.cefccperiod = YLeaf(YType.uint32, "cefCCPeriod")
-
-                self.cefccqueriessent = YLeaf(YType.uint32, "cefCCQueriesSent")
-
-                self.cefccqueriesignored = YLeaf(YType.uint32, "cefCCQueriesIgnored")
-
-                self.cefccquerieschecked = YLeaf(YType.uint32, "cefCCQueriesChecked")
-
-                self.cefccqueriesiterated = YLeaf(YType.uint32, "cefCCQueriesIterated")
-                self._segment_path = lambda: "cefCCTypeEntry" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']" + "[cefCCType='" + self.cefcctype.get() + "']"
+                self.ylist_key_names = ['ceffibipversion','cefcctype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('cefcctype', YLeaf(YType.enumeration, 'cefCCType')),
+                    ('cefccenabled', YLeaf(YType.boolean, 'cefCCEnabled')),
+                    ('cefcccount', YLeaf(YType.uint32, 'cefCCCount')),
+                    ('cefccperiod', YLeaf(YType.uint32, 'cefCCPeriod')),
+                    ('cefccqueriessent', YLeaf(YType.uint32, 'cefCCQueriesSent')),
+                    ('cefccqueriesignored', YLeaf(YType.uint32, 'cefCCQueriesIgnored')),
+                    ('cefccquerieschecked', YLeaf(YType.uint32, 'cefCCQueriesChecked')),
+                    ('cefccqueriesiterated', YLeaf(YType.uint32, 'cefCCQueriesIterated')),
+                ])
+                self.ceffibipversion = None
+                self.cefcctype = None
+                self.cefccenabled = None
+                self.cefcccount = None
+                self.cefccperiod = None
+                self.cefccqueriessent = None
+                self.cefccqueriesignored = None
+                self.cefccquerieschecked = None
+                self.cefccqueriesiterated = None
+                self._segment_path = lambda: "cefCCTypeEntry" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[cefCCType='" + str(self.cefcctype) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCCTypeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2839,8 +2922,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefInconsistencyRecordEntry" : ("cefinconsistencyrecordentry", CISCOCEFMIB.Cefinconsistencyrecordtable.Cefinconsistencyrecordentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefInconsistencyRecordEntry", ("cefinconsistencyrecordentry", CISCOCEFMIB.Cefinconsistencyrecordtable.Cefinconsistencyrecordentry))])
+            self._leafs = OrderedDict()
 
             self.cefinconsistencyrecordentry = YList(self)
             self._segment_path = lambda: "cefInconsistencyRecordTable"
@@ -2856,12 +2941,12 @@ class CISCOCEFMIB(Entity):
             each entry contains the inconsistency 
             record.
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
-            .. attribute:: cefinconsistencyrecid  <key>
+            .. attribute:: cefinconsistencyrecid  (key)
             
             	The locally arbitrary, but unique identifier associated with this inconsistency record entry
             	**type**\: int
@@ -2925,27 +3010,30 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefInconsistencyRecordTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.cefinconsistencyrecid = YLeaf(YType.int32, "cefInconsistencyRecId")
-
-                self.cefinconsistencyprefixtype = YLeaf(YType.enumeration, "cefInconsistencyPrefixType")
-
-                self.cefinconsistencyprefixaddr = YLeaf(YType.str, "cefInconsistencyPrefixAddr")
-
-                self.cefinconsistencyprefixlen = YLeaf(YType.uint32, "cefInconsistencyPrefixLen")
-
-                self.cefinconsistencyvrfname = YLeaf(YType.str, "cefInconsistencyVrfName")
-
-                self.cefinconsistencycctype = YLeaf(YType.enumeration, "cefInconsistencyCCType")
-
-                self.cefinconsistencyentity = YLeaf(YType.int32, "cefInconsistencyEntity")
-
-                self.cefinconsistencyreason = YLeaf(YType.enumeration, "cefInconsistencyReason")
-                self._segment_path = lambda: "cefInconsistencyRecordEntry" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']" + "[cefInconsistencyRecId='" + self.cefinconsistencyrecid.get() + "']"
+                self.ylist_key_names = ['ceffibipversion','cefinconsistencyrecid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('cefinconsistencyrecid', YLeaf(YType.int32, 'cefInconsistencyRecId')),
+                    ('cefinconsistencyprefixtype', YLeaf(YType.enumeration, 'cefInconsistencyPrefixType')),
+                    ('cefinconsistencyprefixaddr', YLeaf(YType.str, 'cefInconsistencyPrefixAddr')),
+                    ('cefinconsistencyprefixlen', YLeaf(YType.uint32, 'cefInconsistencyPrefixLen')),
+                    ('cefinconsistencyvrfname', YLeaf(YType.str, 'cefInconsistencyVrfName')),
+                    ('cefinconsistencycctype', YLeaf(YType.enumeration, 'cefInconsistencyCCType')),
+                    ('cefinconsistencyentity', YLeaf(YType.int32, 'cefInconsistencyEntity')),
+                    ('cefinconsistencyreason', YLeaf(YType.enumeration, 'cefInconsistencyReason')),
+                ])
+                self.ceffibipversion = None
+                self.cefinconsistencyrecid = None
+                self.cefinconsistencyprefixtype = None
+                self.cefinconsistencyprefixaddr = None
+                self.cefinconsistencyprefixlen = None
+                self.cefinconsistencyvrfname = None
+                self.cefinconsistencycctype = None
+                self.cefinconsistencyentity = None
+                self.cefinconsistencyreason = None
+                self._segment_path = lambda: "cefInconsistencyRecordEntry" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[cefInconsistencyRecId='" + str(self.cefinconsistencyrecid) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefInconsistencyRecordTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2953,7 +3041,7 @@ class CISCOCEFMIB(Entity):
 
             class Cefinconsistencyreason(Enum):
                 """
-                Cefinconsistencyreason
+                Cefinconsistencyreason (Enum Class)
 
                 The reason for generating this inconsistency record. 
 
@@ -3003,8 +3091,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefStatsPrefixLenEntry" : ("cefstatsprefixlenentry", CISCOCEFMIB.Cefstatsprefixlentable.Cefstatsprefixlenentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefStatsPrefixLenEntry", ("cefstatsprefixlenentry", CISCOCEFMIB.Cefstatsprefixlentable.Cefstatsprefixlenentry))])
+            self._leafs = OrderedDict()
 
             self.cefstatsprefixlenentry = YList(self)
             self._segment_path = lambda: "cefStatsPrefixLenTable"
@@ -3032,7 +3122,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -3041,12 +3131,12 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
-            .. attribute:: cefstatsprefixlen  <key>
+            .. attribute:: cefstatsprefixlen  (key)
             
             	Length in bits of the Destination IP prefix. As 0.0.0.0/0 is a valid prefix, hence  0 is a valid prefix length
             	**type**\: int
@@ -3123,31 +3213,34 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefStatsPrefixLenTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.cefstatsprefixlen = YLeaf(YType.uint32, "cefStatsPrefixLen")
-
-                self.cefstatsprefixqueries = YLeaf(YType.uint32, "cefStatsPrefixQueries")
-
-                self.cefstatsprefixhcqueries = YLeaf(YType.uint64, "cefStatsPrefixHCQueries")
-
-                self.cefstatsprefixinserts = YLeaf(YType.uint32, "cefStatsPrefixInserts")
-
-                self.cefstatsprefixhcinserts = YLeaf(YType.uint64, "cefStatsPrefixHCInserts")
-
-                self.cefstatsprefixdeletes = YLeaf(YType.uint32, "cefStatsPrefixDeletes")
-
-                self.cefstatsprefixhcdeletes = YLeaf(YType.uint64, "cefStatsPrefixHCDeletes")
-
-                self.cefstatsprefixelements = YLeaf(YType.uint32, "cefStatsPrefixElements")
-
-                self.cefstatsprefixhcelements = YLeaf(YType.uint64, "cefStatsPrefixHCElements")
-                self._segment_path = lambda: "cefStatsPrefixLenEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']" + "[cefStatsPrefixLen='" + self.cefstatsprefixlen.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','ceffibipversion','cefstatsprefixlen']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('cefstatsprefixlen', YLeaf(YType.uint32, 'cefStatsPrefixLen')),
+                    ('cefstatsprefixqueries', YLeaf(YType.uint32, 'cefStatsPrefixQueries')),
+                    ('cefstatsprefixhcqueries', YLeaf(YType.uint64, 'cefStatsPrefixHCQueries')),
+                    ('cefstatsprefixinserts', YLeaf(YType.uint32, 'cefStatsPrefixInserts')),
+                    ('cefstatsprefixhcinserts', YLeaf(YType.uint64, 'cefStatsPrefixHCInserts')),
+                    ('cefstatsprefixdeletes', YLeaf(YType.uint32, 'cefStatsPrefixDeletes')),
+                    ('cefstatsprefixhcdeletes', YLeaf(YType.uint64, 'cefStatsPrefixHCDeletes')),
+                    ('cefstatsprefixelements', YLeaf(YType.uint32, 'cefStatsPrefixElements')),
+                    ('cefstatsprefixhcelements', YLeaf(YType.uint64, 'cefStatsPrefixHCElements')),
+                ])
+                self.entphysicalindex = None
+                self.ceffibipversion = None
+                self.cefstatsprefixlen = None
+                self.cefstatsprefixqueries = None
+                self.cefstatsprefixhcqueries = None
+                self.cefstatsprefixinserts = None
+                self.cefstatsprefixhcinserts = None
+                self.cefstatsprefixdeletes = None
+                self.cefstatsprefixhcdeletes = None
+                self.cefstatsprefixelements = None
+                self.cefstatsprefixhcelements = None
+                self._segment_path = lambda: "cefStatsPrefixLenEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[cefStatsPrefixLen='" + str(self.cefstatsprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefStatsPrefixLenTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3177,8 +3270,10 @@ class CISCOCEFMIB(Entity):
             self.yang_parent_name = "CISCO-CEF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cefSwitchingStatsEntry" : ("cefswitchingstatsentry", CISCOCEFMIB.Cefswitchingstatstable.Cefswitchingstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cefSwitchingStatsEntry", ("cefswitchingstatsentry", CISCOCEFMIB.Cefswitchingstatstable.Cefswitchingstatsentry))])
+            self._leafs = OrderedDict()
 
             self.cefswitchingstatsentry = YList(self)
             self._segment_path = lambda: "cefSwitchingStatsTable"
@@ -3201,7 +3296,7 @@ class CISCOCEFMIB(Entity):
             'module' entPhysicalClass which are capable
             of running CEF.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -3210,12 +3305,12 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: ceffibipversion  <key>
+            .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
-            .. attribute:: cefswitchingindex  <key>
+            .. attribute:: cefswitchingindex  (key)
             
             	The locally arbitrary, but unique identifier associated with this switching stats entry
             	**type**\: int
@@ -3297,29 +3392,32 @@ class CISCOCEFMIB(Entity):
                 self.yang_parent_name = "cefSwitchingStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.ceffibipversion = YLeaf(YType.enumeration, "cefFIBIpVersion")
-
-                self.cefswitchingindex = YLeaf(YType.int32, "cefSwitchingIndex")
-
-                self.cefswitchingpath = YLeaf(YType.str, "cefSwitchingPath")
-
-                self.cefswitchingdrop = YLeaf(YType.uint32, "cefSwitchingDrop")
-
-                self.cefswitchinghcdrop = YLeaf(YType.uint64, "cefSwitchingHCDrop")
-
-                self.cefswitchingpunt = YLeaf(YType.uint32, "cefSwitchingPunt")
-
-                self.cefswitchinghcpunt = YLeaf(YType.uint64, "cefSwitchingHCPunt")
-
-                self.cefswitchingpunt2host = YLeaf(YType.uint32, "cefSwitchingPunt2Host")
-
-                self.cefswitchinghcpunt2host = YLeaf(YType.uint64, "cefSwitchingHCPunt2Host")
-                self._segment_path = lambda: "cefSwitchingStatsEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefFIBIpVersion='" + self.ceffibipversion.get() + "']" + "[cefSwitchingIndex='" + self.cefswitchingindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','ceffibipversion','cefswitchingindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
+                    ('cefswitchingindex', YLeaf(YType.int32, 'cefSwitchingIndex')),
+                    ('cefswitchingpath', YLeaf(YType.str, 'cefSwitchingPath')),
+                    ('cefswitchingdrop', YLeaf(YType.uint32, 'cefSwitchingDrop')),
+                    ('cefswitchinghcdrop', YLeaf(YType.uint64, 'cefSwitchingHCDrop')),
+                    ('cefswitchingpunt', YLeaf(YType.uint32, 'cefSwitchingPunt')),
+                    ('cefswitchinghcpunt', YLeaf(YType.uint64, 'cefSwitchingHCPunt')),
+                    ('cefswitchingpunt2host', YLeaf(YType.uint32, 'cefSwitchingPunt2Host')),
+                    ('cefswitchinghcpunt2host', YLeaf(YType.uint64, 'cefSwitchingHCPunt2Host')),
+                ])
+                self.entphysicalindex = None
+                self.ceffibipversion = None
+                self.cefswitchingindex = None
+                self.cefswitchingpath = None
+                self.cefswitchingdrop = None
+                self.cefswitchinghcdrop = None
+                self.cefswitchingpunt = None
+                self.cefswitchinghcpunt = None
+                self.cefswitchingpunt2host = None
+                self.cefswitchinghcpunt2host = None
+                self._segment_path = lambda: "cefSwitchingStatsEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[cefSwitchingIndex='" + str(self.cefswitchingindex) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefSwitchingStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

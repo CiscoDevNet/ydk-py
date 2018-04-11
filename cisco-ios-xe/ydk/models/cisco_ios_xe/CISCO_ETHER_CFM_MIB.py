@@ -44,9 +44,11 @@ The following acronyms are used in this module\:
 \- OAM\: Operations Administration and Management.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -80,8 +82,10 @@ class CISCOETHERCFMMIB(Entity):
         self.yang_parent_name = "CISCO-ETHER-CFM-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cecCfmEvents" : ("ceccfmevents", CISCOETHERCFMMIB.Ceccfmevents), "cEtherCfmEventTable" : ("cethercfmeventtable", CISCOETHERCFMMIB.Cethercfmeventtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cecCfmEvents", ("ceccfmevents", CISCOETHERCFMMIB.Ceccfmevents)), ("cEtherCfmEventTable", ("cethercfmeventtable", CISCOETHERCFMMIB.Cethercfmeventtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ceccfmevents = CISCOETHERCFMMIB.Ceccfmevents()
         self.ceccfmevents.parent = self
@@ -120,10 +124,13 @@ class CISCOETHERCFMMIB(Entity):
             self.yang_parent_name = "CISCO-ETHER-CFM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cethercfmmaxeventindex = YLeaf(YType.uint32, "cEtherCfmMaxEventIndex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cethercfmmaxeventindex', YLeaf(YType.uint32, 'cEtherCfmMaxEventIndex')),
+            ])
+            self.cethercfmmaxeventindex = None
             self._segment_path = lambda: "cecCfmEvents"
             self._absolute_path = lambda: "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/%s" % self._segment_path()
 
@@ -190,8 +197,10 @@ class CISCOETHERCFMMIB(Entity):
             self.yang_parent_name = "CISCO-ETHER-CFM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cEtherCfmEventEntry" : ("cethercfmevententry", CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cEtherCfmEventEntry", ("cethercfmevententry", CISCOETHERCFMMIB.Cethercfmeventtable.Cethercfmevententry))])
+            self._leafs = OrderedDict()
 
             self.cethercfmevententry = YList(self)
             self._segment_path = lambda: "cEtherCfmEventTable"
@@ -206,21 +215,21 @@ class CISCOETHERCFMMIB(Entity):
             An entry in this table is created for every event reported
             by Ethernet CFM.
             
-            .. attribute:: cethercfmeventdomainindex  <key>
+            .. attribute:: cethercfmeventdomainindex  (key)
             
             	This object represents the ID which uniquely identifies  a CFM maintenance domain on the device. Every domain can be uniquely identified by its user\-defined  name (cEtherCfmEventDomainName) or device\-assigned ID (this object)
             	**type**\: int
             
             	**range:** 1..4294967295
             
-            .. attribute:: cethercfmeventsvlan  <key>
+            .. attribute:: cethercfmeventsvlan  (key)
             
             	The service VLAN identifier of the customer service  instance to which the event belongs
             	**type**\: int
             
             	**range:** 1..4094
             
-            .. attribute:: cethercfmeventindex  <key>
+            .. attribute:: cethercfmeventindex  (key)
             
             	A monotonically increasing integer for the sole purpose of indexing CFM events.  When it reaches the maximum value  supported by the agent, as defined in the  cEtherCfmMaxEventIndex object, the agent wraps the value back to 1 and may flush existing entries
             	**type**\: int
@@ -329,43 +338,46 @@ class CISCOETHERCFMMIB(Entity):
                 self.yang_parent_name = "cEtherCfmEventTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cethercfmeventdomainindex = YLeaf(YType.uint32, "cEtherCfmEventDomainIndex")
-
-                self.cethercfmeventsvlan = YLeaf(YType.int32, "cEtherCfmEventSvlan")
-
-                self.cethercfmeventindex = YLeaf(YType.uint32, "cEtherCfmEventIndex")
-
-                self.cethercfmeventdomainname = YLeaf(YType.str, "cEtherCfmEventDomainName")
-
-                self.cethercfmeventtype = YLeaf(YType.enumeration, "cEtherCfmEventType")
-
-                self.cethercfmeventlastchange = YLeaf(YType.uint32, "cEtherCfmEventLastChange")
-
-                self.cethercfmeventserviceid = YLeaf(YType.str, "cEtherCfmEventServiceId")
-
-                self.cethercfmeventlclmepid = YLeaf(YType.uint32, "cEtherCfmEventLclMepid")
-
-                self.cethercfmeventlclmacaddress = YLeaf(YType.str, "cEtherCfmEventLclMacAddress")
-
-                self.cethercfmeventlclmepcount = YLeaf(YType.uint32, "cEtherCfmEventLclMepCount")
-
-                self.cethercfmeventlclifcount = YLeaf(YType.uint32, "cEtherCfmEventLclIfCount")
-
-                self.cethercfmeventrmtmepid = YLeaf(YType.uint32, "cEtherCfmEventRmtMepid")
-
-                self.cethercfmeventrmtmacaddress = YLeaf(YType.str, "cEtherCfmEventRmtMacAddress")
-
-                self.cethercfmeventrmtportstate = YLeaf(YType.enumeration, "cEtherCfmEventRmtPortState")
-
-                self.cethercfmeventrmtserviceid = YLeaf(YType.str, "cEtherCfmEventRmtServiceId")
-
-                self.cethercfmeventcode = YLeaf(YType.enumeration, "cEtherCfmEventCode")
-
-                self.cethercfmeventdeleterow = YLeaf(YType.enumeration, "cEtherCfmEventDeleteRow")
-                self._segment_path = lambda: "cEtherCfmEventEntry" + "[cEtherCfmEventDomainIndex='" + self.cethercfmeventdomainindex.get() + "']" + "[cEtherCfmEventSvlan='" + self.cethercfmeventsvlan.get() + "']" + "[cEtherCfmEventIndex='" + self.cethercfmeventindex.get() + "']"
+                self.ylist_key_names = ['cethercfmeventdomainindex','cethercfmeventsvlan','cethercfmeventindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cethercfmeventdomainindex', YLeaf(YType.uint32, 'cEtherCfmEventDomainIndex')),
+                    ('cethercfmeventsvlan', YLeaf(YType.int32, 'cEtherCfmEventSvlan')),
+                    ('cethercfmeventindex', YLeaf(YType.uint32, 'cEtherCfmEventIndex')),
+                    ('cethercfmeventdomainname', YLeaf(YType.str, 'cEtherCfmEventDomainName')),
+                    ('cethercfmeventtype', YLeaf(YType.enumeration, 'cEtherCfmEventType')),
+                    ('cethercfmeventlastchange', YLeaf(YType.uint32, 'cEtherCfmEventLastChange')),
+                    ('cethercfmeventserviceid', YLeaf(YType.str, 'cEtherCfmEventServiceId')),
+                    ('cethercfmeventlclmepid', YLeaf(YType.uint32, 'cEtherCfmEventLclMepid')),
+                    ('cethercfmeventlclmacaddress', YLeaf(YType.str, 'cEtherCfmEventLclMacAddress')),
+                    ('cethercfmeventlclmepcount', YLeaf(YType.uint32, 'cEtherCfmEventLclMepCount')),
+                    ('cethercfmeventlclifcount', YLeaf(YType.uint32, 'cEtherCfmEventLclIfCount')),
+                    ('cethercfmeventrmtmepid', YLeaf(YType.uint32, 'cEtherCfmEventRmtMepid')),
+                    ('cethercfmeventrmtmacaddress', YLeaf(YType.str, 'cEtherCfmEventRmtMacAddress')),
+                    ('cethercfmeventrmtportstate', YLeaf(YType.enumeration, 'cEtherCfmEventRmtPortState')),
+                    ('cethercfmeventrmtserviceid', YLeaf(YType.str, 'cEtherCfmEventRmtServiceId')),
+                    ('cethercfmeventcode', YLeaf(YType.enumeration, 'cEtherCfmEventCode')),
+                    ('cethercfmeventdeleterow', YLeaf(YType.enumeration, 'cEtherCfmEventDeleteRow')),
+                ])
+                self.cethercfmeventdomainindex = None
+                self.cethercfmeventsvlan = None
+                self.cethercfmeventindex = None
+                self.cethercfmeventdomainname = None
+                self.cethercfmeventtype = None
+                self.cethercfmeventlastchange = None
+                self.cethercfmeventserviceid = None
+                self.cethercfmeventlclmepid = None
+                self.cethercfmeventlclmacaddress = None
+                self.cethercfmeventlclmepcount = None
+                self.cethercfmeventlclifcount = None
+                self.cethercfmeventrmtmepid = None
+                self.cethercfmeventrmtmacaddress = None
+                self.cethercfmeventrmtportstate = None
+                self.cethercfmeventrmtserviceid = None
+                self.cethercfmeventcode = None
+                self.cethercfmeventdeleterow = None
+                self._segment_path = lambda: "cEtherCfmEventEntry" + "[cEtherCfmEventDomainIndex='" + str(self.cethercfmeventdomainindex) + "']" + "[cEtherCfmEventSvlan='" + str(self.cethercfmeventsvlan) + "']" + "[cEtherCfmEventIndex='" + str(self.cethercfmeventindex) + "']"
                 self._absolute_path = lambda: "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/cEtherCfmEventTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -373,7 +385,7 @@ class CISCOETHERCFMMIB(Entity):
 
             class Cethercfmeventcode(Enum):
                 """
-                Cethercfmeventcode
+                Cethercfmeventcode (Enum Class)
 
                 This object is used in decoding 'mepUp' and 'mepDown' events. 
 
@@ -470,7 +482,7 @@ class CISCOETHERCFMMIB(Entity):
 
             class Cethercfmeventdeleterow(Enum):
                 """
-                Cethercfmeventdeleterow
+                Cethercfmeventdeleterow (Enum Class)
 
                 This object allows the management station to 
 
@@ -507,7 +519,7 @@ class CISCOETHERCFMMIB(Entity):
 
             class Cethercfmeventrmtportstate(Enum):
                 """
-                Cethercfmeventrmtportstate
+                Cethercfmeventrmtportstate (Enum Class)
 
                 The operational state of the port on which the 
 
@@ -582,7 +594,7 @@ class CISCOETHERCFMMIB(Entity):
 
             class Cethercfmeventtype(Enum):
                 """
-                Cethercfmeventtype
+                Cethercfmeventtype (Enum Class)
 
                 This object informs the management station of how to interpret
 

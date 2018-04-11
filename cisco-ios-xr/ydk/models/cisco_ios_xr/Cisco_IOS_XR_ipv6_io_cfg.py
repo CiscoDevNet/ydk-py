@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -79,16 +81,19 @@ class Ipv6Configuration(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-io-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipv6-assembler" : ("ipv6_assembler", Ipv6Configuration.Ipv6Assembler), "ipv6icmp" : ("ipv6icmp", Ipv6Configuration.Ipv6Icmp)}
-        self._child_list_classes = {}
-
-        self.ipv6_pmtu_time_out = YLeaf(YType.uint32, "ipv6-pmtu-time-out")
-
-        self.ipv6_source_route = YLeaf(YType.boolean, "ipv6-source-route")
-
-        self.ipv6_pmtu_enable = YLeaf(YType.boolean, "ipv6-pmtu-enable")
-
-        self.ipv6_hop_limit = YLeaf(YType.uint32, "ipv6-hop-limit")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ipv6-assembler", ("ipv6_assembler", Ipv6Configuration.Ipv6Assembler)), ("ipv6icmp", ("ipv6icmp", Ipv6Configuration.Ipv6Icmp))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('ipv6_pmtu_time_out', YLeaf(YType.uint32, 'ipv6-pmtu-time-out')),
+            ('ipv6_source_route', YLeaf(YType.boolean, 'ipv6-source-route')),
+            ('ipv6_pmtu_enable', YLeaf(YType.boolean, 'ipv6-pmtu-enable')),
+            ('ipv6_hop_limit', YLeaf(YType.uint32, 'ipv6-hop-limit')),
+        ])
+        self.ipv6_pmtu_time_out = None
+        self.ipv6_source_route = None
+        self.ipv6_pmtu_enable = None
+        self.ipv6_hop_limit = None
 
         self.ipv6_assembler = Ipv6Configuration.Ipv6Assembler()
         self.ipv6_assembler.parent = self
@@ -140,12 +145,15 @@ class Ipv6Configuration(Entity):
             self.yang_parent_name = "ipv6-configuration"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.timeout = YLeaf(YType.uint32, "timeout")
-
-            self.max_packets = YLeaf(YType.uint32, "max-packets")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('timeout', YLeaf(YType.uint32, 'timeout')),
+                ('max_packets', YLeaf(YType.uint32, 'max-packets')),
+            ])
+            self.timeout = None
+            self.max_packets = None
             self._segment_path = lambda: "ipv6-assembler"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration/%s" % self._segment_path()
 
@@ -193,13 +201,16 @@ class Ipv6Configuration(Entity):
             self.yang_parent_name = "ipv6-configuration"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.error_interval = YLeaf(YType.uint32, "error-interval")
-
-            self.bucket_size = YLeaf(YType.uint32, "bucket-size")
+            self._leafs = OrderedDict([
+                ('error_interval', YLeaf(YType.uint32, 'error-interval')),
+                ('bucket_size', YLeaf(YType.uint32, 'bucket-size')),
+            ])
+            self.error_interval = None
+            self.bucket_size = None
             self._segment_path = lambda: "ipv6icmp"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration/%s" % self._segment_path()
 

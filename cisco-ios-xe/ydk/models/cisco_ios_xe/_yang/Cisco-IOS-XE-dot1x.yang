@@ -33,7 +33,20 @@ module Cisco-IOS-XE-dot1x {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
 
+  revision 2017-11-14 {
+   description 
+     "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-14 {
+   description 
+     "This revision has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -336,14 +349,40 @@ module Cisco-IOS-XE-dot1x {
   }
 
   /////////////////////////////////////////////////////////
-  // native / interface TwentyFiveGigabitEthernet * dot1x
+  // native / interface TwentyFiveGigE * dot1x
   /////////////////////////////////////////////////////////
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-interface-dot1x-grouping {
       if-feature ios-features:dot1x;
     }
   }
 
+  //////////////////////////////////////////////////////////
+  // native / interface TwoGigabitEthernet * dot1x
+  //////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-dot1x-grouping {
+      if-feature ios-features:dot1x;
+    }
+  }
+
+  //////////////////////////////////////////////////////////
+  // native / interface FortyGigabitEthernet * dot1x
+  //////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-dot1x-grouping {
+      if-feature ios-features:dot1x;
+    }
+  }
+
+  //////////////////////////////////////////////////////////
+  // native / interface HundredGigE * dot1x
+  //////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-dot1x-grouping {
+      if-feature ios-features:dot1x;
+    }
+  }
 
   /////////////////////////////////////////////////////////
   // native / interface Port-channel * dot1x

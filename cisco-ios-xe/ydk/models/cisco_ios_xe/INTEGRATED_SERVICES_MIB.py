@@ -4,15 +4,17 @@ The MIB module to describe the Integrated Services
 Protocol
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class QosService(Enum):
     """
-    QosService
+    QosService (Enum Class)
 
     The class of service in use by a flow.
 
@@ -66,8 +68,10 @@ class INTEGRATEDSERVICESMIB(Entity):
         self.yang_parent_name = "INTEGRATED-SERVICES-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"intSrvGenObjects" : ("intsrvgenobjects", INTEGRATEDSERVICESMIB.Intsrvgenobjects), "intSrvIfAttribTable" : ("intsrvifattribtable", INTEGRATEDSERVICESMIB.Intsrvifattribtable), "intSrvFlowTable" : ("intsrvflowtable", INTEGRATEDSERVICESMIB.Intsrvflowtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("intSrvGenObjects", ("intsrvgenobjects", INTEGRATEDSERVICESMIB.Intsrvgenobjects)), ("intSrvIfAttribTable", ("intsrvifattribtable", INTEGRATEDSERVICESMIB.Intsrvifattribtable)), ("intSrvFlowTable", ("intsrvflowtable", INTEGRATEDSERVICESMIB.Intsrvflowtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.intsrvgenobjects = INTEGRATEDSERVICESMIB.Intsrvgenobjects()
         self.intsrvgenobjects.parent = self
@@ -111,10 +115,13 @@ class INTEGRATEDSERVICESMIB(Entity):
             self.yang_parent_name = "INTEGRATED-SERVICES-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.intsrvflownewindex = YLeaf(YType.int32, "intSrvFlowNewIndex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('intsrvflownewindex', YLeaf(YType.int32, 'intSrvFlowNewIndex')),
+            ])
+            self.intsrvflownewindex = None
             self._segment_path = lambda: "intSrvGenObjects"
             self._absolute_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB/%s" % self._segment_path()
 
@@ -146,8 +153,10 @@ class INTEGRATEDSERVICESMIB(Entity):
             self.yang_parent_name = "INTEGRATED-SERVICES-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"intSrvIfAttribEntry" : ("intsrvifattribentry", INTEGRATEDSERVICESMIB.Intsrvifattribtable.Intsrvifattribentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("intSrvIfAttribEntry", ("intsrvifattribentry", INTEGRATEDSERVICESMIB.Intsrvifattribtable.Intsrvifattribentry))])
+            self._leafs = OrderedDict()
 
             self.intsrvifattribentry = YList(self)
             self._segment_path = lambda: "intSrvIfAttribTable"
@@ -162,7 +171,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             The reservable attributes of  a  given  inter\-
             face.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -233,23 +242,26 @@ class INTEGRATEDSERVICESMIB(Entity):
                 self.yang_parent_name = "intSrvIfAttribTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.intsrvifattriballocatedbits = YLeaf(YType.int32, "intSrvIfAttribAllocatedBits")
-
-                self.intsrvifattribmaxallocatedbits = YLeaf(YType.int32, "intSrvIfAttribMaxAllocatedBits")
-
-                self.intsrvifattriballocatedbuffer = YLeaf(YType.int32, "intSrvIfAttribAllocatedBuffer")
-
-                self.intsrvifattribflows = YLeaf(YType.uint32, "intSrvIfAttribFlows")
-
-                self.intsrvifattribpropagationdelay = YLeaf(YType.int32, "intSrvIfAttribPropagationDelay")
-
-                self.intsrvifattribstatus = YLeaf(YType.enumeration, "intSrvIfAttribStatus")
-                self._segment_path = lambda: "intSrvIfAttribEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('intsrvifattriballocatedbits', YLeaf(YType.int32, 'intSrvIfAttribAllocatedBits')),
+                    ('intsrvifattribmaxallocatedbits', YLeaf(YType.int32, 'intSrvIfAttribMaxAllocatedBits')),
+                    ('intsrvifattriballocatedbuffer', YLeaf(YType.int32, 'intSrvIfAttribAllocatedBuffer')),
+                    ('intsrvifattribflows', YLeaf(YType.uint32, 'intSrvIfAttribFlows')),
+                    ('intsrvifattribpropagationdelay', YLeaf(YType.int32, 'intSrvIfAttribPropagationDelay')),
+                    ('intsrvifattribstatus', YLeaf(YType.enumeration, 'intSrvIfAttribStatus')),
+                ])
+                self.ifindex = None
+                self.intsrvifattriballocatedbits = None
+                self.intsrvifattribmaxallocatedbits = None
+                self.intsrvifattriballocatedbuffer = None
+                self.intsrvifattribflows = None
+                self.intsrvifattribpropagationdelay = None
+                self.intsrvifattribstatus = None
+                self._segment_path = lambda: "intSrvIfAttribEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB/intSrvIfAttribTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -280,8 +292,10 @@ class INTEGRATEDSERVICESMIB(Entity):
             self.yang_parent_name = "INTEGRATED-SERVICES-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"intSrvFlowEntry" : ("intsrvflowentry", INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("intSrvFlowEntry", ("intsrvflowentry", INTEGRATEDSERVICESMIB.Intsrvflowtable.Intsrvflowentry))])
+            self._leafs = OrderedDict()
 
             self.intsrvflowentry = YList(self)
             self._segment_path = lambda: "intSrvFlowTable"
@@ -298,7 +312,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             intSrvFlowPoliced starts counting  at  the  in\-
             stallation of the flow.
             
-            .. attribute:: intsrvflownumber  <key>
+            .. attribute:: intsrvflownumber  (key)
             
             	The number of this flow.  This is for SNMP In\- dexing purposes only and has no relation to any protocol value
             	**type**\: int
@@ -483,59 +497,62 @@ class INTEGRATEDSERVICESMIB(Entity):
                 self.yang_parent_name = "intSrvFlowTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.intsrvflownumber = YLeaf(YType.int32, "intSrvFlowNumber")
-
-                self.intsrvflowtype = YLeaf(YType.int32, "intSrvFlowType")
-
-                self.intsrvflowowner = YLeaf(YType.enumeration, "intSrvFlowOwner")
-
-                self.intsrvflowdestaddr = YLeaf(YType.str, "intSrvFlowDestAddr")
-
-                self.intsrvflowsenderaddr = YLeaf(YType.str, "intSrvFlowSenderAddr")
-
-                self.intsrvflowdestaddrlength = YLeaf(YType.int32, "intSrvFlowDestAddrLength")
-
-                self.intsrvflowsenderaddrlength = YLeaf(YType.int32, "intSrvFlowSenderAddrLength")
-
-                self.intsrvflowprotocol = YLeaf(YType.int32, "intSrvFlowProtocol")
-
-                self.intsrvflowdestport = YLeaf(YType.str, "intSrvFlowDestPort")
-
-                self.intsrvflowport = YLeaf(YType.str, "intSrvFlowPort")
-
-                self.intsrvflowflowid = YLeaf(YType.int32, "intSrvFlowFlowId")
-
-                self.intsrvflowinterface = YLeaf(YType.int32, "intSrvFlowInterface")
-
-                self.intsrvflowifaddr = YLeaf(YType.str, "intSrvFlowIfAddr")
-
-                self.intsrvflowrate = YLeaf(YType.int32, "intSrvFlowRate")
-
-                self.intsrvflowburst = YLeaf(YType.int32, "intSrvFlowBurst")
-
-                self.intsrvflowweight = YLeaf(YType.int32, "intSrvFlowWeight")
-
-                self.intsrvflowqueue = YLeaf(YType.int32, "intSrvFlowQueue")
-
-                self.intsrvflowmintu = YLeaf(YType.int32, "intSrvFlowMinTU")
-
-                self.intsrvflowmaxtu = YLeaf(YType.int32, "intSrvFlowMaxTU")
-
-                self.intsrvflowbesteffort = YLeaf(YType.uint32, "intSrvFlowBestEffort")
-
-                self.intsrvflowpoliced = YLeaf(YType.uint32, "intSrvFlowPoliced")
-
-                self.intsrvflowdiscard = YLeaf(YType.boolean, "intSrvFlowDiscard")
-
-                self.intsrvflowservice = YLeaf(YType.enumeration, "intSrvFlowService")
-
-                self.intsrvfloworder = YLeaf(YType.int32, "intSrvFlowOrder")
-
-                self.intsrvflowstatus = YLeaf(YType.enumeration, "intSrvFlowStatus")
-                self._segment_path = lambda: "intSrvFlowEntry" + "[intSrvFlowNumber='" + self.intsrvflownumber.get() + "']"
+                self.ylist_key_names = ['intsrvflownumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('intsrvflownumber', YLeaf(YType.int32, 'intSrvFlowNumber')),
+                    ('intsrvflowtype', YLeaf(YType.int32, 'intSrvFlowType')),
+                    ('intsrvflowowner', YLeaf(YType.enumeration, 'intSrvFlowOwner')),
+                    ('intsrvflowdestaddr', YLeaf(YType.str, 'intSrvFlowDestAddr')),
+                    ('intsrvflowsenderaddr', YLeaf(YType.str, 'intSrvFlowSenderAddr')),
+                    ('intsrvflowdestaddrlength', YLeaf(YType.int32, 'intSrvFlowDestAddrLength')),
+                    ('intsrvflowsenderaddrlength', YLeaf(YType.int32, 'intSrvFlowSenderAddrLength')),
+                    ('intsrvflowprotocol', YLeaf(YType.int32, 'intSrvFlowProtocol')),
+                    ('intsrvflowdestport', YLeaf(YType.str, 'intSrvFlowDestPort')),
+                    ('intsrvflowport', YLeaf(YType.str, 'intSrvFlowPort')),
+                    ('intsrvflowflowid', YLeaf(YType.int32, 'intSrvFlowFlowId')),
+                    ('intsrvflowinterface', YLeaf(YType.int32, 'intSrvFlowInterface')),
+                    ('intsrvflowifaddr', YLeaf(YType.str, 'intSrvFlowIfAddr')),
+                    ('intsrvflowrate', YLeaf(YType.int32, 'intSrvFlowRate')),
+                    ('intsrvflowburst', YLeaf(YType.int32, 'intSrvFlowBurst')),
+                    ('intsrvflowweight', YLeaf(YType.int32, 'intSrvFlowWeight')),
+                    ('intsrvflowqueue', YLeaf(YType.int32, 'intSrvFlowQueue')),
+                    ('intsrvflowmintu', YLeaf(YType.int32, 'intSrvFlowMinTU')),
+                    ('intsrvflowmaxtu', YLeaf(YType.int32, 'intSrvFlowMaxTU')),
+                    ('intsrvflowbesteffort', YLeaf(YType.uint32, 'intSrvFlowBestEffort')),
+                    ('intsrvflowpoliced', YLeaf(YType.uint32, 'intSrvFlowPoliced')),
+                    ('intsrvflowdiscard', YLeaf(YType.boolean, 'intSrvFlowDiscard')),
+                    ('intsrvflowservice', YLeaf(YType.enumeration, 'intSrvFlowService')),
+                    ('intsrvfloworder', YLeaf(YType.int32, 'intSrvFlowOrder')),
+                    ('intsrvflowstatus', YLeaf(YType.enumeration, 'intSrvFlowStatus')),
+                ])
+                self.intsrvflownumber = None
+                self.intsrvflowtype = None
+                self.intsrvflowowner = None
+                self.intsrvflowdestaddr = None
+                self.intsrvflowsenderaddr = None
+                self.intsrvflowdestaddrlength = None
+                self.intsrvflowsenderaddrlength = None
+                self.intsrvflowprotocol = None
+                self.intsrvflowdestport = None
+                self.intsrvflowport = None
+                self.intsrvflowflowid = None
+                self.intsrvflowinterface = None
+                self.intsrvflowifaddr = None
+                self.intsrvflowrate = None
+                self.intsrvflowburst = None
+                self.intsrvflowweight = None
+                self.intsrvflowqueue = None
+                self.intsrvflowmintu = None
+                self.intsrvflowmaxtu = None
+                self.intsrvflowbesteffort = None
+                self.intsrvflowpoliced = None
+                self.intsrvflowdiscard = None
+                self.intsrvflowservice = None
+                self.intsrvfloworder = None
+                self.intsrvflowstatus = None
+                self._segment_path = lambda: "intSrvFlowEntry" + "[intSrvFlowNumber='" + str(self.intsrvflownumber) + "']"
                 self._absolute_path = lambda: "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB/intSrvFlowTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -543,7 +560,7 @@ class INTEGRATEDSERVICESMIB(Entity):
 
             class Intsrvflowowner(Enum):
                 """
-                Intsrvflowowner
+                Intsrvflowowner (Enum Class)
 
                 The process that installed this  flow  in  the
 

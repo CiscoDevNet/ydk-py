@@ -5,15 +5,17 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AccessListInOutType(Enum):
     """
-    AccessListInOutType
+    AccessListInOutType (Enum Class)
 
     .. data:: in_ = 0
 
@@ -28,7 +30,7 @@ class AccessListInOutType(Enum):
 
 class AclTcpPortType(Enum):
     """
-    AclTcpPortType
+    AclTcpPortType (Enum Class)
 
     .. data:: bgp = 179
 
@@ -167,7 +169,7 @@ class AclTcpPortType(Enum):
 
 class AclUdpPortType(Enum):
     """
-    AclUdpPortType
+    AclUdpPortType (Enum Class)
 
     .. data:: biff = 512
 
@@ -286,7 +288,7 @@ class AclUdpPortType(Enum):
 
 class BgpIpv4AfType(Enum):
     """
-    BgpIpv4AfType
+    BgpIpv4AfType (Enum Class)
 
     .. data:: unicast = 0
 
@@ -321,7 +323,7 @@ class BgpIpv4AfType(Enum):
 
 class BgpIpv6AfType(Enum):
     """
-    BgpIpv6AfType
+    BgpIpv6AfType (Enum Class)
 
     .. data:: unicast = 0
 
@@ -348,7 +350,7 @@ class BgpIpv6AfType(Enum):
 
 class CommunityWellKnownAddType(Enum):
     """
-    CommunityWellKnownAddType
+    CommunityWellKnownAddType (Enum Class)
 
     .. data:: gshut = 0
 
@@ -379,7 +381,7 @@ class CommunityWellKnownAddType(Enum):
 
 class CommunityWellKnownType(Enum):
     """
-    CommunityWellKnownType
+    CommunityWellKnownType (Enum Class)
 
     .. data:: gshut = 0
 
@@ -406,7 +408,7 @@ class CommunityWellKnownType(Enum):
 
 class CosValueType(Enum):
     """
-    CosValueType
+    CosValueType (Enum Class)
 
     .. data:: cos = 0
 
@@ -429,7 +431,7 @@ class CosValueType(Enum):
 
 class DscpType(Enum):
     """
-    DscpType
+    DscpType (Enum Class)
 
     .. data:: af11 = 10
 
@@ -528,7 +530,7 @@ class DscpType(Enum):
 
 class ExpValueType(Enum):
     """
-    ExpValueType
+    ExpValueType (Enum Class)
 
     .. data:: cos = 0
 
@@ -551,7 +553,7 @@ class ExpValueType(Enum):
 
 class InterfaceType(Enum):
     """
-    InterfaceType
+    InterfaceType (Enum Class)
 
     .. data:: BDI = 0
 
@@ -571,7 +573,9 @@ class InterfaceType(Enum):
 
     .. data:: FiveGigabitEthernet = 8
 
-    .. data:: TwentyFiveGigabitEthernet = 9
+    .. data:: TwentyFiveGigE = 9
+
+    .. data:: TwoGigabitEthernet = 10
 
     """
 
@@ -593,12 +597,14 @@ class InterfaceType(Enum):
 
     FiveGigabitEthernet = Enum.YLeaf(8, "FiveGigabitEthernet")
 
-    TwentyFiveGigabitEthernet = Enum.YLeaf(9, "TwentyFiveGigabitEthernet")
+    TwentyFiveGigE = Enum.YLeaf(9, "TwentyFiveGigE")
+
+    TwoGigabitEthernet = Enum.YLeaf(10, "TwoGigabitEthernet")
 
 
 class LimitDcNonDcType(Enum):
     """
-    LimitDcNonDcType
+    LimitDcNonDcType (Enum Class)
 
     .. data:: disable = 0
 
@@ -609,7 +615,7 @@ class LimitDcNonDcType(Enum):
 
 class MobilityType(Enum):
     """
-    MobilityType
+    MobilityType (Enum Class)
 
     .. data:: bind_acknowledgement = 0
 
@@ -648,7 +654,7 @@ class MobilityType(Enum):
 
 class MonthType(Enum):
     """
-    MonthType
+    MonthType (Enum Class)
 
     .. data:: Jan = 0
 
@@ -703,7 +709,7 @@ class MonthType(Enum):
 
 class PrecValueType(Enum):
     """
-    PrecValueType
+    PrecValueType (Enum Class)
 
     .. data:: cos = 0
 
@@ -726,7 +732,7 @@ class PrecValueType(Enum):
 
 class PrecedenceType(Enum):
     """
-    PrecedenceType
+    PrecedenceType (Enum Class)
 
     .. data:: critical = 0
 
@@ -765,7 +771,7 @@ class PrecedenceType(Enum):
 
 class QosValueType(Enum):
     """
-    QosValueType
+    QosValueType (Enum Class)
 
     .. data:: cos = 0
 
@@ -788,7 +794,7 @@ class QosValueType(Enum):
 
 class RedistOspfExternalType(Enum):
     """
-    RedistOspfExternalType
+    RedistOspfExternalType (Enum Class)
 
     .. data:: Y_1 = 0
 
@@ -803,7 +809,7 @@ class RedistOspfExternalType(Enum):
 
 class WeekdayType(Enum):
     """
-    WeekdayType
+    WeekdayType (Enum Class)
 
     .. data:: Mon = 0
 

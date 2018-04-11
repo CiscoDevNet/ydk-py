@@ -13,9 +13,11 @@ This MIB contains managed object definitions for the
 Protocol, LDP' document.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -99,8 +101,10 @@ class MPLSLDPSTDMIB(Entity):
         self.yang_parent_name = "MPLS-LDP-STD-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mplsLdpLsrObjects" : ("mplsldplsrobjects", MPLSLDPSTDMIB.Mplsldplsrobjects), "mplsLdpEntityObjects" : ("mplsldpentityobjects", MPLSLDPSTDMIB.Mplsldpentityobjects), "mplsLdpSessionObjects" : ("mplsldpsessionobjects", MPLSLDPSTDMIB.Mplsldpsessionobjects), "mplsFecObjects" : ("mplsfecobjects", MPLSLDPSTDMIB.Mplsfecobjects), "mplsLdpEntityTable" : ("mplsldpentitytable", MPLSLDPSTDMIB.Mplsldpentitytable), "mplsLdpPeerTable" : ("mplsldppeertable", MPLSLDPSTDMIB.Mplsldppeertable), "mplsLdpHelloAdjacencyTable" : ("mplsldphelloadjacencytable", MPLSLDPSTDMIB.Mplsldphelloadjacencytable), "mplsInSegmentLdpLspTable" : ("mplsinsegmentldplsptable", MPLSLDPSTDMIB.Mplsinsegmentldplsptable), "mplsOutSegmentLdpLspTable" : ("mplsoutsegmentldplsptable", MPLSLDPSTDMIB.Mplsoutsegmentldplsptable), "mplsFecTable" : ("mplsfectable", MPLSLDPSTDMIB.Mplsfectable), "mplsLdpLspFecTable" : ("mplsldplspfectable", MPLSLDPSTDMIB.Mplsldplspfectable), "mplsLdpSessionPeerAddrTable" : ("mplsldpsessionpeeraddrtable", MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("mplsLdpLsrObjects", ("mplsldplsrobjects", MPLSLDPSTDMIB.Mplsldplsrobjects)), ("mplsLdpEntityObjects", ("mplsldpentityobjects", MPLSLDPSTDMIB.Mplsldpentityobjects)), ("mplsLdpSessionObjects", ("mplsldpsessionobjects", MPLSLDPSTDMIB.Mplsldpsessionobjects)), ("mplsFecObjects", ("mplsfecobjects", MPLSLDPSTDMIB.Mplsfecobjects)), ("mplsLdpEntityTable", ("mplsldpentitytable", MPLSLDPSTDMIB.Mplsldpentitytable)), ("mplsLdpPeerTable", ("mplsldppeertable", MPLSLDPSTDMIB.Mplsldppeertable)), ("mplsLdpHelloAdjacencyTable", ("mplsldphelloadjacencytable", MPLSLDPSTDMIB.Mplsldphelloadjacencytable)), ("mplsInSegmentLdpLspTable", ("mplsinsegmentldplsptable", MPLSLDPSTDMIB.Mplsinsegmentldplsptable)), ("mplsOutSegmentLdpLspTable", ("mplsoutsegmentldplsptable", MPLSLDPSTDMIB.Mplsoutsegmentldplsptable)), ("mplsFecTable", ("mplsfectable", MPLSLDPSTDMIB.Mplsfectable)), ("mplsLdpLspFecTable", ("mplsldplspfectable", MPLSLDPSTDMIB.Mplsldplspfectable)), ("mplsLdpSessionPeerAddrTable", ("mplsldpsessionpeeraddrtable", MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.mplsldplsrobjects = MPLSLDPSTDMIB.Mplsldplsrobjects()
         self.mplsldplsrobjects.parent = self
@@ -194,12 +198,15 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mplsldplsrid = YLeaf(YType.str, "mplsLdpLsrId")
-
-            self.mplsldplsrloopdetectioncapable = YLeaf(YType.enumeration, "mplsLdpLsrLoopDetectionCapable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mplsldplsrid', YLeaf(YType.str, 'mplsLdpLsrId')),
+                ('mplsldplsrloopdetectioncapable', YLeaf(YType.enumeration, 'mplsLdpLsrLoopDetectionCapable')),
+            ])
+            self.mplsldplsrid = None
+            self.mplsldplsrloopdetectioncapable = None
             self._segment_path = lambda: "mplsLdpLsrObjects"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
@@ -208,7 +215,7 @@ class MPLSLDPSTDMIB(Entity):
 
         class Mplsldplsrloopdetectioncapable(Enum):
             """
-            Mplsldplsrloopdetectioncapable
+            Mplsldplsrloopdetectioncapable (Enum Class)
 
             A indication of whether this
 
@@ -308,12 +315,15 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mplsldpentitylastchange = YLeaf(YType.uint32, "mplsLdpEntityLastChange")
-
-            self.mplsldpentityindexnext = YLeaf(YType.uint32, "mplsLdpEntityIndexNext")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mplsldpentitylastchange', YLeaf(YType.uint32, 'mplsLdpEntityLastChange')),
+                ('mplsldpentityindexnext', YLeaf(YType.uint32, 'mplsLdpEntityIndexNext')),
+            ])
+            self.mplsldpentitylastchange = None
+            self.mplsldpentityindexnext = None
             self._segment_path = lambda: "mplsLdpEntityObjects"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
@@ -353,12 +363,15 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mplsldppeerlastchange = YLeaf(YType.uint32, "mplsLdpPeerLastChange")
-
-            self.mplsldplspfeclastchange = YLeaf(YType.uint32, "mplsLdpLspFecLastChange")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mplsldppeerlastchange', YLeaf(YType.uint32, 'mplsLdpPeerLastChange')),
+                ('mplsldplspfeclastchange', YLeaf(YType.uint32, 'mplsLdpLspFecLastChange')),
+            ])
+            self.mplsldppeerlastchange = None
+            self.mplsldplspfeclastchange = None
             self._segment_path = lambda: "mplsLdpSessionObjects"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
@@ -398,12 +411,15 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mplsfeclastchange = YLeaf(YType.uint32, "mplsFecLastChange")
-
-            self.mplsfecindexnext = YLeaf(YType.uint32, "mplsFecIndexNext")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mplsfeclastchange', YLeaf(YType.uint32, 'mplsFecLastChange')),
+                ('mplsfecindexnext', YLeaf(YType.uint32, 'mplsFecIndexNext')),
+            ])
+            self.mplsfeclastchange = None
+            self.mplsfecindexnext = None
             self._segment_path = lambda: "mplsFecObjects"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
 
@@ -437,8 +453,10 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsLdpEntityEntry" : ("mplsldpentityentry", MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsLdpEntityEntry", ("mplsldpentityentry", MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry))])
+            self._leafs = OrderedDict()
 
             self.mplsldpentityentry = YList(self)
             self._segment_path = lambda: "mplsLdpEntityTable"
@@ -454,12 +472,12 @@ class MPLSLDPSTDMIB(Entity):
             An entry can be created by a network administrator
             or by an SNMP agent as instructed by LDP.
             
-            .. attribute:: mplsldpentityldpid  <key>
+            .. attribute:: mplsldpentityldpid  (key)
             
             	The LDP identifier
             	**type**\: str
             
-            .. attribute:: mplsldpentityindex  <key>
+            .. attribute:: mplsldpentityindex  (key)
             
             	This index is used as a secondary index to uniquely identify this row.  Before creating a row in this table, the 'mplsLdpEntityIndexNext' object should be retrieved. That value should be used for the value of this index when creating a row in this table.  NOTE\:  if a value of zero (0) is retrieved, that indicates that no rows can be created in this table at this time.  A secondary index (this object) is meaningful to some but not all, LDP implementations.  For example an LDP implementation which uses PPP would use this index to differentiate PPP sub\-links.  Another way to use this index is to give this the value of ifIndex.  However, this is dependant   on the implementation
             	**type**\: int
@@ -704,81 +722,84 @@ class MPLSLDPSTDMIB(Entity):
                 self.yang_parent_name = "mplsLdpEntityTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
-
-                self.mplsldpentityindex = YLeaf(YType.uint32, "mplsLdpEntityIndex")
-
-                self.mplsldpentityprotocolversion = YLeaf(YType.uint32, "mplsLdpEntityProtocolVersion")
-
-                self.mplsldpentityadminstatus = YLeaf(YType.enumeration, "mplsLdpEntityAdminStatus")
-
-                self.mplsldpentityoperstatus = YLeaf(YType.enumeration, "mplsLdpEntityOperStatus")
-
-                self.mplsldpentitytcpport = YLeaf(YType.uint16, "mplsLdpEntityTcpPort")
-
-                self.mplsldpentityudpdscport = YLeaf(YType.uint16, "mplsLdpEntityUdpDscPort")
-
-                self.mplsldpentitymaxpdulength = YLeaf(YType.uint32, "mplsLdpEntityMaxPduLength")
-
-                self.mplsldpentitykeepaliveholdtimer = YLeaf(YType.uint32, "mplsLdpEntityKeepAliveHoldTimer")
-
-                self.mplsldpentityhelloholdtimer = YLeaf(YType.uint32, "mplsLdpEntityHelloHoldTimer")
-
-                self.mplsldpentityinitsessionthreshold = YLeaf(YType.int32, "mplsLdpEntityInitSessionThreshold")
-
-                self.mplsldpentitylabeldistmethod = YLeaf(YType.enumeration, "mplsLdpEntityLabelDistMethod")
-
-                self.mplsldpentitylabelretentionmode = YLeaf(YType.enumeration, "mplsLdpEntityLabelRetentionMode")
-
-                self.mplsldpentitypathvectorlimit = YLeaf(YType.int32, "mplsLdpEntityPathVectorLimit")
-
-                self.mplsldpentityhopcountlimit = YLeaf(YType.int32, "mplsLdpEntityHopCountLimit")
-
-                self.mplsldpentitytransportaddrkind = YLeaf(YType.enumeration, "mplsLdpEntityTransportAddrKind")
-
-                self.mplsldpentitytargetpeer = YLeaf(YType.boolean, "mplsLdpEntityTargetPeer")
-
-                self.mplsldpentitytargetpeeraddrtype = YLeaf(YType.enumeration, "mplsLdpEntityTargetPeerAddrType")
-
-                self.mplsldpentitytargetpeeraddr = YLeaf(YType.str, "mplsLdpEntityTargetPeerAddr")
-
-                self.mplsldpentitylabeltype = YLeaf(YType.enumeration, "mplsLdpEntityLabelType")
-
-                self.mplsldpentitydiscontinuitytime = YLeaf(YType.uint32, "mplsLdpEntityDiscontinuityTime")
-
-                self.mplsldpentitystoragetype = YLeaf(YType.enumeration, "mplsLdpEntityStorageType")
-
-                self.mplsldpentityrowstatus = YLeaf(YType.enumeration, "mplsLdpEntityRowStatus")
-
-                self.mplsldpentitystatssessionattempts = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionAttempts")
-
-                self.mplsldpentitystatssessionrejectednohelloerrors = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionRejectedNoHelloErrors")
-
-                self.mplsldpentitystatssessionrejectedaderrors = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionRejectedAdErrors")
-
-                self.mplsldpentitystatssessionrejectedmaxpduerrors = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionRejectedMaxPduErrors")
-
-                self.mplsldpentitystatssessionrejectedlrerrors = YLeaf(YType.uint32, "mplsLdpEntityStatsSessionRejectedLRErrors")
-
-                self.mplsldpentitystatsbadldpidentifiererrors = YLeaf(YType.uint32, "mplsLdpEntityStatsBadLdpIdentifierErrors")
-
-                self.mplsldpentitystatsbadpdulengtherrors = YLeaf(YType.uint32, "mplsLdpEntityStatsBadPduLengthErrors")
-
-                self.mplsldpentitystatsbadmessagelengtherrors = YLeaf(YType.uint32, "mplsLdpEntityStatsBadMessageLengthErrors")
-
-                self.mplsldpentitystatsbadtlvlengtherrors = YLeaf(YType.uint32, "mplsLdpEntityStatsBadTlvLengthErrors")
-
-                self.mplsldpentitystatsmalformedtlvvalueerrors = YLeaf(YType.uint32, "mplsLdpEntityStatsMalformedTlvValueErrors")
-
-                self.mplsldpentitystatskeepalivetimerexperrors = YLeaf(YType.uint32, "mplsLdpEntityStatsKeepAliveTimerExpErrors")
-
-                self.mplsldpentitystatsshutdownreceivednotifications = YLeaf(YType.uint32, "mplsLdpEntityStatsShutdownReceivedNotifications")
-
-                self.mplsldpentitystatsshutdownsentnotifications = YLeaf(YType.uint32, "mplsLdpEntityStatsShutdownSentNotifications")
-                self._segment_path = lambda: "mplsLdpEntityEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']"
+                self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
+                    ('mplsldpentityindex', YLeaf(YType.uint32, 'mplsLdpEntityIndex')),
+                    ('mplsldpentityprotocolversion', YLeaf(YType.uint32, 'mplsLdpEntityProtocolVersion')),
+                    ('mplsldpentityadminstatus', YLeaf(YType.enumeration, 'mplsLdpEntityAdminStatus')),
+                    ('mplsldpentityoperstatus', YLeaf(YType.enumeration, 'mplsLdpEntityOperStatus')),
+                    ('mplsldpentitytcpport', YLeaf(YType.uint16, 'mplsLdpEntityTcpPort')),
+                    ('mplsldpentityudpdscport', YLeaf(YType.uint16, 'mplsLdpEntityUdpDscPort')),
+                    ('mplsldpentitymaxpdulength', YLeaf(YType.uint32, 'mplsLdpEntityMaxPduLength')),
+                    ('mplsldpentitykeepaliveholdtimer', YLeaf(YType.uint32, 'mplsLdpEntityKeepAliveHoldTimer')),
+                    ('mplsldpentityhelloholdtimer', YLeaf(YType.uint32, 'mplsLdpEntityHelloHoldTimer')),
+                    ('mplsldpentityinitsessionthreshold', YLeaf(YType.int32, 'mplsLdpEntityInitSessionThreshold')),
+                    ('mplsldpentitylabeldistmethod', YLeaf(YType.enumeration, 'mplsLdpEntityLabelDistMethod')),
+                    ('mplsldpentitylabelretentionmode', YLeaf(YType.enumeration, 'mplsLdpEntityLabelRetentionMode')),
+                    ('mplsldpentitypathvectorlimit', YLeaf(YType.int32, 'mplsLdpEntityPathVectorLimit')),
+                    ('mplsldpentityhopcountlimit', YLeaf(YType.int32, 'mplsLdpEntityHopCountLimit')),
+                    ('mplsldpentitytransportaddrkind', YLeaf(YType.enumeration, 'mplsLdpEntityTransportAddrKind')),
+                    ('mplsldpentitytargetpeer', YLeaf(YType.boolean, 'mplsLdpEntityTargetPeer')),
+                    ('mplsldpentitytargetpeeraddrtype', YLeaf(YType.enumeration, 'mplsLdpEntityTargetPeerAddrType')),
+                    ('mplsldpentitytargetpeeraddr', YLeaf(YType.str, 'mplsLdpEntityTargetPeerAddr')),
+                    ('mplsldpentitylabeltype', YLeaf(YType.enumeration, 'mplsLdpEntityLabelType')),
+                    ('mplsldpentitydiscontinuitytime', YLeaf(YType.uint32, 'mplsLdpEntityDiscontinuityTime')),
+                    ('mplsldpentitystoragetype', YLeaf(YType.enumeration, 'mplsLdpEntityStorageType')),
+                    ('mplsldpentityrowstatus', YLeaf(YType.enumeration, 'mplsLdpEntityRowStatus')),
+                    ('mplsldpentitystatssessionattempts', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionAttempts')),
+                    ('mplsldpentitystatssessionrejectednohelloerrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedNoHelloErrors')),
+                    ('mplsldpentitystatssessionrejectedaderrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedAdErrors')),
+                    ('mplsldpentitystatssessionrejectedmaxpduerrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedMaxPduErrors')),
+                    ('mplsldpentitystatssessionrejectedlrerrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedLRErrors')),
+                    ('mplsldpentitystatsbadldpidentifiererrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsBadLdpIdentifierErrors')),
+                    ('mplsldpentitystatsbadpdulengtherrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsBadPduLengthErrors')),
+                    ('mplsldpentitystatsbadmessagelengtherrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsBadMessageLengthErrors')),
+                    ('mplsldpentitystatsbadtlvlengtherrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsBadTlvLengthErrors')),
+                    ('mplsldpentitystatsmalformedtlvvalueerrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsMalformedTlvValueErrors')),
+                    ('mplsldpentitystatskeepalivetimerexperrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsKeepAliveTimerExpErrors')),
+                    ('mplsldpentitystatsshutdownreceivednotifications', YLeaf(YType.uint32, 'mplsLdpEntityStatsShutdownReceivedNotifications')),
+                    ('mplsldpentitystatsshutdownsentnotifications', YLeaf(YType.uint32, 'mplsLdpEntityStatsShutdownSentNotifications')),
+                ])
+                self.mplsldpentityldpid = None
+                self.mplsldpentityindex = None
+                self.mplsldpentityprotocolversion = None
+                self.mplsldpentityadminstatus = None
+                self.mplsldpentityoperstatus = None
+                self.mplsldpentitytcpport = None
+                self.mplsldpentityudpdscport = None
+                self.mplsldpentitymaxpdulength = None
+                self.mplsldpentitykeepaliveholdtimer = None
+                self.mplsldpentityhelloholdtimer = None
+                self.mplsldpentityinitsessionthreshold = None
+                self.mplsldpentitylabeldistmethod = None
+                self.mplsldpentitylabelretentionmode = None
+                self.mplsldpentitypathvectorlimit = None
+                self.mplsldpentityhopcountlimit = None
+                self.mplsldpentitytransportaddrkind = None
+                self.mplsldpentitytargetpeer = None
+                self.mplsldpentitytargetpeeraddrtype = None
+                self.mplsldpentitytargetpeeraddr = None
+                self.mplsldpentitylabeltype = None
+                self.mplsldpentitydiscontinuitytime = None
+                self.mplsldpentitystoragetype = None
+                self.mplsldpentityrowstatus = None
+                self.mplsldpentitystatssessionattempts = None
+                self.mplsldpentitystatssessionrejectednohelloerrors = None
+                self.mplsldpentitystatssessionrejectedaderrors = None
+                self.mplsldpentitystatssessionrejectedmaxpduerrors = None
+                self.mplsldpentitystatssessionrejectedlrerrors = None
+                self.mplsldpentitystatsbadldpidentifiererrors = None
+                self.mplsldpentitystatsbadpdulengtherrors = None
+                self.mplsldpentitystatsbadmessagelengtherrors = None
+                self.mplsldpentitystatsbadtlvlengtherrors = None
+                self.mplsldpentitystatsmalformedtlvvalueerrors = None
+                self.mplsldpentitystatskeepalivetimerexperrors = None
+                self.mplsldpentitystatsshutdownreceivednotifications = None
+                self.mplsldpentitystatsshutdownsentnotifications = None
+                self._segment_path = lambda: "mplsLdpEntityEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpEntityTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -786,7 +807,7 @@ class MPLSLDPSTDMIB(Entity):
 
             class Mplsldpentityadminstatus(Enum):
                 """
-                Mplsldpentityadminstatus
+                Mplsldpentityadminstatus (Enum Class)
 
                 The administrative status of this LDP Entity.
 
@@ -833,7 +854,7 @@ class MPLSLDPSTDMIB(Entity):
 
             class Mplsldpentityoperstatus(Enum):
                 """
-                Mplsldpentityoperstatus
+                Mplsldpentityoperstatus (Enum Class)
 
                 The operational status of this LDP Entity.
 
@@ -864,7 +885,7 @@ class MPLSLDPSTDMIB(Entity):
 
             class Mplsldpentitytransportaddrkind(Enum):
                 """
-                Mplsldpentitytransportaddrkind
+                Mplsldpentitytransportaddrkind (Enum Class)
 
                 This specifies whether the loopback or interface
 
@@ -928,8 +949,10 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsLdpPeerEntry" : ("mplsldppeerentry", MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsLdpPeerEntry", ("mplsldppeerentry", MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry))])
+            self._leafs = OrderedDict()
 
             self.mplsldppeerentry = YList(self)
             self._segment_path = lambda: "mplsLdpPeerTable"
@@ -945,14 +968,14 @@ class MPLSLDPSTDMIB(Entity):
             to a Session.  This table is augmented by
             the mplsLdpSessionTable.
             
-            .. attribute:: mplsldpentityldpid  <key>
+            .. attribute:: mplsldpentityldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldpentityindex  <key>
+            .. attribute:: mplsldpentityindex  (key)
             
             	
             	**type**\: int
@@ -961,7 +984,7 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldppeerldpid  <key>
+            .. attribute:: mplsldppeerldpid  (key)
             
             	The LDP identifier of this LDP Peer
             	**type**\: str
@@ -1074,43 +1097,46 @@ class MPLSLDPSTDMIB(Entity):
                 self.yang_parent_name = "mplsLdpPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
-
-                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
-
-                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
-
-                self.mplsldppeerlabeldistmethod = YLeaf(YType.enumeration, "mplsLdpPeerLabelDistMethod")
-
-                self.mplsldppeerpathvectorlimit = YLeaf(YType.int32, "mplsLdpPeerPathVectorLimit")
-
-                self.mplsldppeertransportaddrtype = YLeaf(YType.enumeration, "mplsLdpPeerTransportAddrType")
-
-                self.mplsldppeertransportaddr = YLeaf(YType.str, "mplsLdpPeerTransportAddr")
-
-                self.mplsldpsessionstatelastchange = YLeaf(YType.uint32, "mplsLdpSessionStateLastChange")
-
-                self.mplsldpsessionstate = YLeaf(YType.enumeration, "mplsLdpSessionState")
-
-                self.mplsldpsessionrole = YLeaf(YType.enumeration, "mplsLdpSessionRole")
-
-                self.mplsldpsessionprotocolversion = YLeaf(YType.uint32, "mplsLdpSessionProtocolVersion")
-
-                self.mplsldpsessionkeepaliveholdtimerem = YLeaf(YType.int32, "mplsLdpSessionKeepAliveHoldTimeRem")
-
-                self.mplsldpsessionkeepalivetime = YLeaf(YType.uint32, "mplsLdpSessionKeepAliveTime")
-
-                self.mplsldpsessionmaxpdulength = YLeaf(YType.uint32, "mplsLdpSessionMaxPduLength")
-
-                self.mplsldpsessiondiscontinuitytime = YLeaf(YType.uint32, "mplsLdpSessionDiscontinuityTime")
-
-                self.mplsldpsessionstatsunknownmestypeerrors = YLeaf(YType.uint32, "mplsLdpSessionStatsUnknownMesTypeErrors")
-
-                self.mplsldpsessionstatsunknowntlverrors = YLeaf(YType.uint32, "mplsLdpSessionStatsUnknownTlvErrors")
-                self._segment_path = lambda: "mplsLdpPeerEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']"
+                self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
+                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
+                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
+                    ('mplsldppeerlabeldistmethod', YLeaf(YType.enumeration, 'mplsLdpPeerLabelDistMethod')),
+                    ('mplsldppeerpathvectorlimit', YLeaf(YType.int32, 'mplsLdpPeerPathVectorLimit')),
+                    ('mplsldppeertransportaddrtype', YLeaf(YType.enumeration, 'mplsLdpPeerTransportAddrType')),
+                    ('mplsldppeertransportaddr', YLeaf(YType.str, 'mplsLdpPeerTransportAddr')),
+                    ('mplsldpsessionstatelastchange', YLeaf(YType.uint32, 'mplsLdpSessionStateLastChange')),
+                    ('mplsldpsessionstate', YLeaf(YType.enumeration, 'mplsLdpSessionState')),
+                    ('mplsldpsessionrole', YLeaf(YType.enumeration, 'mplsLdpSessionRole')),
+                    ('mplsldpsessionprotocolversion', YLeaf(YType.uint32, 'mplsLdpSessionProtocolVersion')),
+                    ('mplsldpsessionkeepaliveholdtimerem', YLeaf(YType.int32, 'mplsLdpSessionKeepAliveHoldTimeRem')),
+                    ('mplsldpsessionkeepalivetime', YLeaf(YType.uint32, 'mplsLdpSessionKeepAliveTime')),
+                    ('mplsldpsessionmaxpdulength', YLeaf(YType.uint32, 'mplsLdpSessionMaxPduLength')),
+                    ('mplsldpsessiondiscontinuitytime', YLeaf(YType.uint32, 'mplsLdpSessionDiscontinuityTime')),
+                    ('mplsldpsessionstatsunknownmestypeerrors', YLeaf(YType.uint32, 'mplsLdpSessionStatsUnknownMesTypeErrors')),
+                    ('mplsldpsessionstatsunknowntlverrors', YLeaf(YType.uint32, 'mplsLdpSessionStatsUnknownTlvErrors')),
+                ])
+                self.mplsldpentityldpid = None
+                self.mplsldpentityindex = None
+                self.mplsldppeerldpid = None
+                self.mplsldppeerlabeldistmethod = None
+                self.mplsldppeerpathvectorlimit = None
+                self.mplsldppeertransportaddrtype = None
+                self.mplsldppeertransportaddr = None
+                self.mplsldpsessionstatelastchange = None
+                self.mplsldpsessionstate = None
+                self.mplsldpsessionrole = None
+                self.mplsldpsessionprotocolversion = None
+                self.mplsldpsessionkeepaliveholdtimerem = None
+                self.mplsldpsessionkeepalivetime = None
+                self.mplsldpsessionmaxpdulength = None
+                self.mplsldpsessiondiscontinuitytime = None
+                self.mplsldpsessionstatsunknownmestypeerrors = None
+                self.mplsldpsessionstatsunknowntlverrors = None
+                self._segment_path = lambda: "mplsLdpPeerEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1118,7 +1144,7 @@ class MPLSLDPSTDMIB(Entity):
 
             class Mplsldpsessionrole(Enum):
                 """
-                Mplsldpsessionrole
+                Mplsldpsessionrole (Enum Class)
 
                 During session establishment the LSR/LER takes either
 
@@ -1151,7 +1177,7 @@ class MPLSLDPSTDMIB(Entity):
 
             class Mplsldpsessionstate(Enum):
                 """
-                Mplsldpsessionstate
+                Mplsldpsessionstate (Enum Class)
 
                 The current state of the session, all of the
 
@@ -1206,8 +1232,10 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsLdpHelloAdjacencyEntry" : ("mplsldphelloadjacencyentry", MPLSLDPSTDMIB.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsLdpHelloAdjacencyEntry", ("mplsldphelloadjacencyentry", MPLSLDPSTDMIB.Mplsldphelloadjacencytable.Mplsldphelloadjacencyentry))])
+            self._leafs = OrderedDict()
 
             self.mplsldphelloadjacencyentry = YList(self)
             self._segment_path = lambda: "mplsLdpHelloAdjacencyTable"
@@ -1223,14 +1251,14 @@ class MPLSLDPSTDMIB(Entity):
             An LDP Session can have one or more Hello
             Adjacencies.
             
-            .. attribute:: mplsldpentityldpid  <key>
+            .. attribute:: mplsldpentityldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldpentityindex  <key>
+            .. attribute:: mplsldpentityindex  (key)
             
             	
             	**type**\: int
@@ -1239,14 +1267,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldppeerldpid  <key>
+            .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
             
-            .. attribute:: mplsldphelloadjacencyindex  <key>
+            .. attribute:: mplsldphelloadjacencyindex  (key)
             
             	An identifier for this specific adjacency
             	**type**\: int
@@ -1288,23 +1316,26 @@ class MPLSLDPSTDMIB(Entity):
                 self.yang_parent_name = "mplsLdpHelloAdjacencyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
-
-                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
-
-                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
-
-                self.mplsldphelloadjacencyindex = YLeaf(YType.uint32, "mplsLdpHelloAdjacencyIndex")
-
-                self.mplsldphelloadjacencyholdtimerem = YLeaf(YType.int32, "mplsLdpHelloAdjacencyHoldTimeRem")
-
-                self.mplsldphelloadjacencyholdtime = YLeaf(YType.uint32, "mplsLdpHelloAdjacencyHoldTime")
-
-                self.mplsldphelloadjacencytype = YLeaf(YType.enumeration, "mplsLdpHelloAdjacencyType")
-                self._segment_path = lambda: "mplsLdpHelloAdjacencyEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsLdpHelloAdjacencyIndex='" + self.mplsldphelloadjacencyindex.get() + "']"
+                self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldphelloadjacencyindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
+                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
+                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
+                    ('mplsldphelloadjacencyindex', YLeaf(YType.uint32, 'mplsLdpHelloAdjacencyIndex')),
+                    ('mplsldphelloadjacencyholdtimerem', YLeaf(YType.int32, 'mplsLdpHelloAdjacencyHoldTimeRem')),
+                    ('mplsldphelloadjacencyholdtime', YLeaf(YType.uint32, 'mplsLdpHelloAdjacencyHoldTime')),
+                    ('mplsldphelloadjacencytype', YLeaf(YType.enumeration, 'mplsLdpHelloAdjacencyType')),
+                ])
+                self.mplsldpentityldpid = None
+                self.mplsldpentityindex = None
+                self.mplsldppeerldpid = None
+                self.mplsldphelloadjacencyindex = None
+                self.mplsldphelloadjacencyholdtimerem = None
+                self.mplsldphelloadjacencyholdtime = None
+                self.mplsldphelloadjacencytype = None
+                self._segment_path = lambda: "mplsLdpHelloAdjacencyEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsLdpHelloAdjacencyIndex='" + str(self.mplsldphelloadjacencyindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpHelloAdjacencyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1312,7 +1343,7 @@ class MPLSLDPSTDMIB(Entity):
 
             class Mplsldphelloadjacencytype(Enum):
                 """
-                Mplsldphelloadjacencytype
+                Mplsldphelloadjacencytype (Enum Class)
 
                 This adjacency is the result of a 'link'
 
@@ -1359,8 +1390,10 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsInSegmentLdpLspEntry" : ("mplsinsegmentldplspentry", MPLSLDPSTDMIB.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsInSegmentLdpLspEntry", ("mplsinsegmentldplspentry", MPLSLDPSTDMIB.Mplsinsegmentldplsptable.Mplsinsegmentldplspentry))])
+            self._leafs = OrderedDict()
 
             self.mplsinsegmentldplspentry = YList(self)
             self._segment_path = lambda: "mplsInSegmentLdpLspTable"
@@ -1382,14 +1415,14 @@ class MPLSLDPSTDMIB(Entity):
             
             The information contained in a row is read\-only.
             
-            .. attribute:: mplsldpentityldpid  <key>
+            .. attribute:: mplsldpentityldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldpentityindex  <key>
+            .. attribute:: mplsldpentityindex  (key)
             
             	
             	**type**\: int
@@ -1398,14 +1431,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldppeerldpid  <key>
+            .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
             
-            .. attribute:: mplsinsegmentldplspindex  <key>
+            .. attribute:: mplsinsegmentldplspindex  (key)
             
             	This contains the same value as the mplsInSegmentIndex in the MPLS\-LSR\-STD\-MIB's mplsInSegmentTable
             	**type**\: str
@@ -1436,21 +1469,24 @@ class MPLSLDPSTDMIB(Entity):
                 self.yang_parent_name = "mplsInSegmentLdpLspTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
-
-                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
-
-                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
-
-                self.mplsinsegmentldplspindex = YLeaf(YType.str, "mplsInSegmentLdpLspIndex")
-
-                self.mplsinsegmentldplsplabeltype = YLeaf(YType.enumeration, "mplsInSegmentLdpLspLabelType")
-
-                self.mplsinsegmentldplsptype = YLeaf(YType.enumeration, "mplsInSegmentLdpLspType")
-                self._segment_path = lambda: "mplsInSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsInSegmentLdpLspIndex='" + self.mplsinsegmentldplspindex.get() + "']"
+                self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsinsegmentldplspindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
+                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
+                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
+                    ('mplsinsegmentldplspindex', YLeaf(YType.str, 'mplsInSegmentLdpLspIndex')),
+                    ('mplsinsegmentldplsplabeltype', YLeaf(YType.enumeration, 'mplsInSegmentLdpLspLabelType')),
+                    ('mplsinsegmentldplsptype', YLeaf(YType.enumeration, 'mplsInSegmentLdpLspType')),
+                ])
+                self.mplsldpentityldpid = None
+                self.mplsldpentityindex = None
+                self.mplsldppeerldpid = None
+                self.mplsinsegmentldplspindex = None
+                self.mplsinsegmentldplsplabeltype = None
+                self.mplsinsegmentldplsptype = None
+                self._segment_path = lambda: "mplsInSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsInSegmentLdpLspIndex='" + str(self.mplsinsegmentldplspindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsInSegmentLdpLspTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1482,8 +1518,10 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsOutSegmentLdpLspEntry" : ("mplsoutsegmentldplspentry", MPLSLDPSTDMIB.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsOutSegmentLdpLspEntry", ("mplsoutsegmentldplspentry", MPLSLDPSTDMIB.Mplsoutsegmentldplsptable.Mplsoutsegmentldplspentry))])
+            self._leafs = OrderedDict()
 
             self.mplsoutsegmentldplspentry = YList(self)
             self._segment_path = lambda: "mplsOutSegmentLdpLspTable"
@@ -1504,14 +1542,14 @@ class MPLSLDPSTDMIB(Entity):
             
             The information contained in a row is read\-only.
             
-            .. attribute:: mplsldpentityldpid  <key>
+            .. attribute:: mplsldpentityldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldpentityindex  <key>
+            .. attribute:: mplsldpentityindex  (key)
             
             	
             	**type**\: int
@@ -1520,14 +1558,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldppeerldpid  <key>
+            .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
             
-            .. attribute:: mplsoutsegmentldplspindex  <key>
+            .. attribute:: mplsoutsegmentldplspindex  (key)
             
             	This contains the same value as the mplsOutSegmentIndex in the MPLS\-LSR\-STD\-MIB's mplsOutSegmentTable
             	**type**\: str
@@ -1558,21 +1596,24 @@ class MPLSLDPSTDMIB(Entity):
                 self.yang_parent_name = "mplsOutSegmentLdpLspTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
-
-                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
-
-                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
-
-                self.mplsoutsegmentldplspindex = YLeaf(YType.str, "mplsOutSegmentLdpLspIndex")
-
-                self.mplsoutsegmentldplsplabeltype = YLeaf(YType.enumeration, "mplsOutSegmentLdpLspLabelType")
-
-                self.mplsoutsegmentldplsptype = YLeaf(YType.enumeration, "mplsOutSegmentLdpLspType")
-                self._segment_path = lambda: "mplsOutSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsOutSegmentLdpLspIndex='" + self.mplsoutsegmentldplspindex.get() + "']"
+                self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsoutsegmentldplspindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
+                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
+                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
+                    ('mplsoutsegmentldplspindex', YLeaf(YType.str, 'mplsOutSegmentLdpLspIndex')),
+                    ('mplsoutsegmentldplsplabeltype', YLeaf(YType.enumeration, 'mplsOutSegmentLdpLspLabelType')),
+                    ('mplsoutsegmentldplsptype', YLeaf(YType.enumeration, 'mplsOutSegmentLdpLspType')),
+                ])
+                self.mplsldpentityldpid = None
+                self.mplsldpentityindex = None
+                self.mplsldppeerldpid = None
+                self.mplsoutsegmentldplspindex = None
+                self.mplsoutsegmentldplsplabeltype = None
+                self.mplsoutsegmentldplsptype = None
+                self._segment_path = lambda: "mplsOutSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsOutSegmentLdpLspIndex='" + str(self.mplsoutsegmentldplspindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsOutSegmentLdpLspTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1604,8 +1645,10 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsFecEntry" : ("mplsfecentry", MPLSLDPSTDMIB.Mplsfectable.Mplsfecentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsFecEntry", ("mplsfecentry", MPLSLDPSTDMIB.Mplsfectable.Mplsfecentry))])
+            self._leafs = OrderedDict()
 
             self.mplsfecentry = YList(self)
             self._segment_path = lambda: "mplsFecTable"
@@ -1619,7 +1662,7 @@ class MPLSLDPSTDMIB(Entity):
             """
             Each row represents a single FEC Element.
             
-            .. attribute:: mplsfecindex  <key>
+            .. attribute:: mplsfecindex  (key)
             
             	The index which uniquely identifies this entry
             	**type**\: int
@@ -1674,23 +1717,26 @@ class MPLSLDPSTDMIB(Entity):
                 self.yang_parent_name = "mplsFecTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsfecindex = YLeaf(YType.uint32, "mplsFecIndex")
-
-                self.mplsfectype = YLeaf(YType.enumeration, "mplsFecType")
-
-                self.mplsfecaddrprefixlength = YLeaf(YType.uint32, "mplsFecAddrPrefixLength")
-
-                self.mplsfecaddrtype = YLeaf(YType.enumeration, "mplsFecAddrType")
-
-                self.mplsfecaddr = YLeaf(YType.str, "mplsFecAddr")
-
-                self.mplsfecstoragetype = YLeaf(YType.enumeration, "mplsFecStorageType")
-
-                self.mplsfecrowstatus = YLeaf(YType.enumeration, "mplsFecRowStatus")
-                self._segment_path = lambda: "mplsFecEntry" + "[mplsFecIndex='" + self.mplsfecindex.get() + "']"
+                self.ylist_key_names = ['mplsfecindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsfecindex', YLeaf(YType.uint32, 'mplsFecIndex')),
+                    ('mplsfectype', YLeaf(YType.enumeration, 'mplsFecType')),
+                    ('mplsfecaddrprefixlength', YLeaf(YType.uint32, 'mplsFecAddrPrefixLength')),
+                    ('mplsfecaddrtype', YLeaf(YType.enumeration, 'mplsFecAddrType')),
+                    ('mplsfecaddr', YLeaf(YType.str, 'mplsFecAddr')),
+                    ('mplsfecstoragetype', YLeaf(YType.enumeration, 'mplsFecStorageType')),
+                    ('mplsfecrowstatus', YLeaf(YType.enumeration, 'mplsFecRowStatus')),
+                ])
+                self.mplsfecindex = None
+                self.mplsfectype = None
+                self.mplsfecaddrprefixlength = None
+                self.mplsfecaddrtype = None
+                self.mplsfecaddr = None
+                self.mplsfecstoragetype = None
+                self.mplsfecrowstatus = None
+                self._segment_path = lambda: "mplsFecEntry" + "[mplsFecIndex='" + str(self.mplsfecindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsFecTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1698,7 +1744,7 @@ class MPLSLDPSTDMIB(Entity):
 
             class Mplsfectype(Enum):
                 """
-                Mplsfectype
+                Mplsfectype (Enum Class)
 
                 The type of the FEC.  If the value of this object
 
@@ -1747,8 +1793,10 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsLdpLspFecEntry" : ("mplsldplspfecentry", MPLSLDPSTDMIB.Mplsldplspfectable.Mplsldplspfecentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsLdpLspFecEntry", ("mplsldplspfecentry", MPLSLDPSTDMIB.Mplsldplspfectable.Mplsldplspfecentry))])
+            self._leafs = OrderedDict()
 
             self.mplsldplspfecentry = YList(self)
             self._segment_path = lambda: "mplsLdpLspFecTable"
@@ -1763,14 +1811,14 @@ class MPLSLDPSTDMIB(Entity):
             An entry represents a LDP LSP
             to FEC association.
             
-            .. attribute:: mplsldpentityldpid  <key>
+            .. attribute:: mplsldpentityldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldpentityindex  <key>
+            .. attribute:: mplsldpentityindex  (key)
             
             	
             	**type**\: int
@@ -1779,26 +1827,26 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldppeerldpid  <key>
+            .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
             
-            .. attribute:: mplsldplspfecsegment  <key>
+            .. attribute:: mplsldplspfecsegment  (key)
             
             	If the value is inSegment(1), then this indicates that the following index, mplsLdpLspFecSegmentIndex, contains the same value as the mplsInSegmentLdpLspIndex.  Otherwise, if the value of this object is   outSegment(2),  then this indicates that following index, mplsLdpLspFecSegmentIndex, contains the same value as the mplsOutSegmentLdpLspIndex
             	**type**\:  :py:class:`Mplsldplspfecsegment <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldplspfectable.Mplsldplspfecentry.Mplsldplspfecsegment>`
             
-            .. attribute:: mplsldplspfecsegmentindex  <key>
+            .. attribute:: mplsldplspfecsegmentindex  (key)
             
             	This index is interpretted by using the value of the mplsLdpLspFecSegment.  If the mplsLdpLspFecSegment is inSegment(1), then this index has the same value as mplsInSegmentLdpLspIndex.  If the mplsLdpLspFecSegment is outSegment(2), then this index has the same value as mplsOutSegmentLdpLspIndex
             	**type**\: str
             
             	**length:** 1..24
             
-            .. attribute:: mplsldplspfecindex  <key>
+            .. attribute:: mplsldplspfecindex  (key)
             
             	This index identifies the FEC entry in the mplsFecTable associated with this session. In other words, the value of this index is the same as the value of the mplsFecIndex that denotes the FEC associated with this Session
             	**type**\: int
@@ -1829,25 +1877,28 @@ class MPLSLDPSTDMIB(Entity):
                 self.yang_parent_name = "mplsLdpLspFecTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
-
-                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
-
-                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
-
-                self.mplsldplspfecsegment = YLeaf(YType.enumeration, "mplsLdpLspFecSegment")
-
-                self.mplsldplspfecsegmentindex = YLeaf(YType.str, "mplsLdpLspFecSegmentIndex")
-
-                self.mplsldplspfecindex = YLeaf(YType.uint32, "mplsLdpLspFecIndex")
-
-                self.mplsldplspfecstoragetype = YLeaf(YType.enumeration, "mplsLdpLspFecStorageType")
-
-                self.mplsldplspfecrowstatus = YLeaf(YType.enumeration, "mplsLdpLspFecRowStatus")
-                self._segment_path = lambda: "mplsLdpLspFecEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsLdpLspFecSegment='" + self.mplsldplspfecsegment.get() + "']" + "[mplsLdpLspFecSegmentIndex='" + self.mplsldplspfecsegmentindex.get() + "']" + "[mplsLdpLspFecIndex='" + self.mplsldplspfecindex.get() + "']"
+                self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldplspfecsegment','mplsldplspfecsegmentindex','mplsldplspfecindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
+                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
+                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
+                    ('mplsldplspfecsegment', YLeaf(YType.enumeration, 'mplsLdpLspFecSegment')),
+                    ('mplsldplspfecsegmentindex', YLeaf(YType.str, 'mplsLdpLspFecSegmentIndex')),
+                    ('mplsldplspfecindex', YLeaf(YType.uint32, 'mplsLdpLspFecIndex')),
+                    ('mplsldplspfecstoragetype', YLeaf(YType.enumeration, 'mplsLdpLspFecStorageType')),
+                    ('mplsldplspfecrowstatus', YLeaf(YType.enumeration, 'mplsLdpLspFecRowStatus')),
+                ])
+                self.mplsldpentityldpid = None
+                self.mplsldpentityindex = None
+                self.mplsldppeerldpid = None
+                self.mplsldplspfecsegment = None
+                self.mplsldplspfecsegmentindex = None
+                self.mplsldplspfecindex = None
+                self.mplsldplspfecstoragetype = None
+                self.mplsldplspfecrowstatus = None
+                self._segment_path = lambda: "mplsLdpLspFecEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsLdpLspFecSegment='" + str(self.mplsldplspfecsegment) + "']" + "[mplsLdpLspFecSegmentIndex='" + str(self.mplsldplspfecsegmentindex) + "']" + "[mplsLdpLspFecIndex='" + str(self.mplsldplspfecindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpLspFecTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1855,7 +1906,7 @@ class MPLSLDPSTDMIB(Entity):
 
             class Mplsldplspfecsegment(Enum):
                 """
-                Mplsldplspfecsegment
+                Mplsldplspfecsegment (Enum Class)
 
                 If the value is inSegment(1), then this
 
@@ -1921,8 +1972,10 @@ class MPLSLDPSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsLdpSessionPeerAddrEntry" : ("mplsldpsessionpeeraddrentry", MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsLdpSessionPeerAddrEntry", ("mplsldpsessionpeeraddrentry", MPLSLDPSTDMIB.Mplsldpsessionpeeraddrtable.Mplsldpsessionpeeraddrentry))])
+            self._leafs = OrderedDict()
 
             self.mplsldpsessionpeeraddrentry = YList(self)
             self._segment_path = lambda: "mplsLdpSessionPeerAddrTable"
@@ -1939,14 +1992,14 @@ class MPLSLDPSTDMIB(Entity):
             advertised in an Address Message from the LDP peer.
             The information contained in a row is read\-only.
             
-            .. attribute:: mplsldpentityldpid  <key>
+            .. attribute:: mplsldpentityldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldpentityindex  <key>
+            .. attribute:: mplsldpentityindex  (key)
             
             	
             	**type**\: int
@@ -1955,14 +2008,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldppeerldpid  <key>
+            .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldppeertable.Mplsldppeerentry>`
             
-            .. attribute:: mplsldpsessionpeeraddrindex  <key>
+            .. attribute:: mplsldpsessionpeeraddrindex  (key)
             
             	An index which uniquely identifies this entry within a given session
             	**type**\: int
@@ -1995,21 +2048,24 @@ class MPLSLDPSTDMIB(Entity):
                 self.yang_parent_name = "mplsLdpSessionPeerAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
-
-                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
-
-                self.mplsldppeerldpid = YLeaf(YType.str, "mplsLdpPeerLdpId")
-
-                self.mplsldpsessionpeeraddrindex = YLeaf(YType.uint32, "mplsLdpSessionPeerAddrIndex")
-
-                self.mplsldpsessionpeernexthopaddrtype = YLeaf(YType.enumeration, "mplsLdpSessionPeerNextHopAddrType")
-
-                self.mplsldpsessionpeernexthopaddr = YLeaf(YType.str, "mplsLdpSessionPeerNextHopAddr")
-                self._segment_path = lambda: "mplsLdpSessionPeerAddrEntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpPeerLdpId='" + self.mplsldppeerldpid.get() + "']" + "[mplsLdpSessionPeerAddrIndex='" + self.mplsldpsessionpeeraddrindex.get() + "']"
+                self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldpsessionpeeraddrindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
+                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
+                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
+                    ('mplsldpsessionpeeraddrindex', YLeaf(YType.uint32, 'mplsLdpSessionPeerAddrIndex')),
+                    ('mplsldpsessionpeernexthopaddrtype', YLeaf(YType.enumeration, 'mplsLdpSessionPeerNextHopAddrType')),
+                    ('mplsldpsessionpeernexthopaddr', YLeaf(YType.str, 'mplsLdpSessionPeerNextHopAddr')),
+                ])
+                self.mplsldpentityldpid = None
+                self.mplsldpentityindex = None
+                self.mplsldppeerldpid = None
+                self.mplsldpsessionpeeraddrindex = None
+                self.mplsldpsessionpeernexthopaddrtype = None
+                self.mplsldpsessionpeernexthopaddr = None
+                self._segment_path = lambda: "mplsLdpSessionPeerAddrEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsLdpSessionPeerAddrIndex='" + str(self.mplsldpsessionpeeraddrindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpSessionPeerAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

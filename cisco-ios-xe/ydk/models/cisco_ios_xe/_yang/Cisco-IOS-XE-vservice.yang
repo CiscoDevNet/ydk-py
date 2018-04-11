@@ -33,6 +33,15 @@ module Cisco-IOS-XE-vservice {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+  revision 2017-09-15 {
+    description
+        "This revision has changes for new 2gig interface addition";
+  }
+
   revision 2017-08-16 {
     description
         "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -76,9 +85,14 @@ module Cisco-IOS-XE-vservice {
               "Five Gigabit Ethernet";
             type string;
           }
-          leaf TwentyFiveGigabitEthernet {
+          leaf TwentyFiveGigE {
             description
               "Twenty Five Gigabit Ethernet";
+            type string;
+          }
+          leaf TwoGigabitEthernet {
+            description
+              "Two Gigabit Ethernet";
             type string;
           }
           leaf Loopback {

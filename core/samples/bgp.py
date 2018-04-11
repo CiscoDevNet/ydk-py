@@ -34,7 +34,7 @@ from session_mgr import establish_session, init_logging
 from ydk.models.openconfig import openconfig_bgp
 from ydk.models.openconfig import openconfig_bgp_types
 from ydk.models.openconfig.openconfig_routing_policy import RoutingPolicy
-from ydk.errors import YPYError
+from ydk.errors import YError
 
 
 
@@ -92,7 +92,7 @@ def bgp_run(crud_service, session):
     #first delete
     try:
         crud_service.delete(session, routing_policy)
-    except YPYError:
+    except YError:
         print('Routing policy does not exist!')
 
     pass_all_policy_defn = RoutingPolicy.PolicyDefinitions.PolicyDefinition()

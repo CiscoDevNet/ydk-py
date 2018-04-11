@@ -5,15 +5,17 @@ objects. This is an extension to the standard SONET
 MIB(RFC 2558).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CsApsLineFailureCode(Enum):
     """
-    CsApsLineFailureCode
+    CsApsLineFailureCode (Enum Class)
 
     The Sonet APS line failure code \- this is the failure
 
@@ -60,7 +62,7 @@ class CsApsLineFailureCode(Enum):
 
 class CsApsLineSwitchReason(Enum):
     """
-    CsApsLineSwitchReason
+    CsApsLineSwitchReason (Enum Class)
 
     The reason why APS switch happened. When the working
 
@@ -236,8 +238,10 @@ class CISCOSONETMIB(Entity):
         self.yang_parent_name = "CISCO-SONET-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"csApsConfig" : ("csapsconfig", CISCOSONETMIB.Csapsconfig), "csNotifications" : ("csnotifications", CISCOSONETMIB.Csnotifications), "csConfigTable" : ("csconfigtable", CISCOSONETMIB.Csconfigtable), "csApsConfigTable" : ("csapsconfigtable", CISCOSONETMIB.Csapsconfigtable), "cssTotalTable" : ("csstotaltable", CISCOSONETMIB.Csstotaltable), "cssTraceTable" : ("csstracetable", CISCOSONETMIB.Csstracetable), "cslTotalTable" : ("csltotaltable", CISCOSONETMIB.Csltotaltable), "cslFarEndTotalTable" : ("cslfarendtotaltable", CISCOSONETMIB.Cslfarendtotaltable), "cspTotalTable" : ("csptotaltable", CISCOSONETMIB.Csptotaltable), "cspFarEndTotalTable" : ("cspfarendtotaltable", CISCOSONETMIB.Cspfarendtotaltable), "cspTraceTable" : ("csptracetable", CISCOSONETMIB.Csptracetable), "csStatsTable" : ("csstatstable", CISCOSONETMIB.Csstatstable), "csAu4Tug3ConfigTable" : ("csau4tug3configtable", CISCOSONETMIB.Csau4Tug3Configtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("csApsConfig", ("csapsconfig", CISCOSONETMIB.Csapsconfig)), ("csNotifications", ("csnotifications", CISCOSONETMIB.Csnotifications)), ("csConfigTable", ("csconfigtable", CISCOSONETMIB.Csconfigtable)), ("csApsConfigTable", ("csapsconfigtable", CISCOSONETMIB.Csapsconfigtable)), ("cssTotalTable", ("csstotaltable", CISCOSONETMIB.Csstotaltable)), ("cssTraceTable", ("csstracetable", CISCOSONETMIB.Csstracetable)), ("cslTotalTable", ("csltotaltable", CISCOSONETMIB.Csltotaltable)), ("cslFarEndTotalTable", ("cslfarendtotaltable", CISCOSONETMIB.Cslfarendtotaltable)), ("cspTotalTable", ("csptotaltable", CISCOSONETMIB.Csptotaltable)), ("cspFarEndTotalTable", ("cspfarendtotaltable", CISCOSONETMIB.Cspfarendtotaltable)), ("cspTraceTable", ("csptracetable", CISCOSONETMIB.Csptracetable)), ("csStatsTable", ("csstatstable", CISCOSONETMIB.Csstatstable)), ("csAu4Tug3ConfigTable", ("csau4tug3configtable", CISCOSONETMIB.Csau4Tug3Configtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.csapsconfig = CISCOSONETMIB.Csapsconfig()
         self.csapsconfig.parent = self
@@ -334,12 +338,15 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.csapslinefailurecode = YLeaf(YType.enumeration, "csApsLineFailureCode")
-
-            self.csapslineswitchreason = YLeaf(YType.enumeration, "csApsLineSwitchReason")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('csapslinefailurecode', YLeaf(YType.enumeration, 'csApsLineFailureCode')),
+                ('csapslineswitchreason', YLeaf(YType.enumeration, 'csApsLineSwitchReason')),
+            ])
+            self.csapslinefailurecode = None
+            self.csapslineswitchreason = None
             self._segment_path = lambda: "csApsConfig"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
 
@@ -370,10 +377,13 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.csnotificationsenabled = YLeaf(YType.boolean, "csNotificationsEnabled")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('csnotificationsenabled', YLeaf(YType.boolean, 'csNotificationsEnabled')),
+            ])
+            self.csnotificationsenabled = None
             self._segment_path = lambda: "csNotifications"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
 
@@ -405,8 +415,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csConfigEntry" : ("csconfigentry", CISCOSONETMIB.Csconfigtable.Csconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csConfigEntry", ("csconfigentry", CISCOSONETMIB.Csconfigtable.Csconfigentry))])
+            self._leafs = OrderedDict()
 
             self.csconfigentry = YList(self)
             self._segment_path = lambda: "csConfigTable"
@@ -425,7 +437,7 @@ class CISCOSONETMIB(Entity):
             disabled(down) state unless provisioned 'up' using 
             'ifAdminStatus'.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -503,33 +515,36 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "csConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.csconfigloopbacktype = YLeaf(YType.enumeration, "csConfigLoopbackType")
-
-                self.csconfigxmtclocksource = YLeaf(YType.enumeration, "csConfigXmtClockSource")
-
-                self.csconfigframescramble = YLeaf(YType.enumeration, "csConfigFrameScramble")
-
-                self.csconfigtype = YLeaf(YType.enumeration, "csConfigType")
-
-                self.csconfigrdivtype = YLeaf(YType.enumeration, "csConfigRDIVType")
-
-                self.csconfigrdiptype = YLeaf(YType.enumeration, "csConfigRDIPType")
-
-                self.cstributarytype = YLeaf(YType.enumeration, "csTributaryType")
-
-                self.cstributarymappingtype = YLeaf(YType.enumeration, "csTributaryMappingType")
-
-                self.cstributaryframingtype = YLeaf(YType.enumeration, "csTributaryFramingType")
-
-                self.cssignallingtransportmode = YLeaf(YType.enumeration, "csSignallingTransportMode")
-
-                self.cstributarygroupingtype = YLeaf(YType.enumeration, "csTributaryGroupingType")
-                self._segment_path = lambda: "csConfigEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('csconfigloopbacktype', YLeaf(YType.enumeration, 'csConfigLoopbackType')),
+                    ('csconfigxmtclocksource', YLeaf(YType.enumeration, 'csConfigXmtClockSource')),
+                    ('csconfigframescramble', YLeaf(YType.enumeration, 'csConfigFrameScramble')),
+                    ('csconfigtype', YLeaf(YType.enumeration, 'csConfigType')),
+                    ('csconfigrdivtype', YLeaf(YType.enumeration, 'csConfigRDIVType')),
+                    ('csconfigrdiptype', YLeaf(YType.enumeration, 'csConfigRDIPType')),
+                    ('cstributarytype', YLeaf(YType.enumeration, 'csTributaryType')),
+                    ('cstributarymappingtype', YLeaf(YType.enumeration, 'csTributaryMappingType')),
+                    ('cstributaryframingtype', YLeaf(YType.enumeration, 'csTributaryFramingType')),
+                    ('cssignallingtransportmode', YLeaf(YType.enumeration, 'csSignallingTransportMode')),
+                    ('cstributarygroupingtype', YLeaf(YType.enumeration, 'csTributaryGroupingType')),
+                ])
+                self.ifindex = None
+                self.csconfigloopbacktype = None
+                self.csconfigxmtclocksource = None
+                self.csconfigframescramble = None
+                self.csconfigtype = None
+                self.csconfigrdivtype = None
+                self.csconfigrdiptype = None
+                self.cstributarytype = None
+                self.cstributarymappingtype = None
+                self.cstributaryframingtype = None
+                self.cssignallingtransportmode = None
+                self.cstributarygroupingtype = None
+                self._segment_path = lambda: "csConfigEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/csConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -537,7 +552,7 @@ class CISCOSONETMIB(Entity):
 
             class Csconfigframescramble(Enum):
                 """
-                Csconfigframescramble
+                Csconfigframescramble (Enum Class)
 
                 This object is used to disable or enable the Scrambling
 
@@ -556,7 +571,7 @@ class CISCOSONETMIB(Entity):
 
             class Csconfigloopbacktype(Enum):
                 """
-                Csconfigloopbacktype
+                Csconfigloopbacktype (Enum Class)
 
                 This object specifies the desired loopback mode
 
@@ -613,7 +628,7 @@ class CISCOSONETMIB(Entity):
 
             class Csconfigrdiptype(Enum):
                 """
-                Csconfigrdiptype
+                Csconfigrdiptype (Enum Class)
 
                 This object represents the type of RDI\-P (Remote Defect
 
@@ -640,7 +655,7 @@ class CISCOSONETMIB(Entity):
 
             class Csconfigrdivtype(Enum):
                 """
-                Csconfigrdivtype
+                Csconfigrdivtype (Enum Class)
 
                 This object specifies the type of RDI\-V (Remote Defect
 
@@ -667,7 +682,7 @@ class CISCOSONETMIB(Entity):
 
             class Csconfigtype(Enum):
                 """
-                Csconfigtype
+                Csconfigtype (Enum Class)
 
                 This object represents the configured line type.
 
@@ -732,7 +747,7 @@ class CISCOSONETMIB(Entity):
 
             class Csconfigxmtclocksource(Enum):
                 """
-                Csconfigxmtclocksource
+                Csconfigxmtclocksource (Enum Class)
 
                 Specifies the source of the transmit clock.
 
@@ -761,7 +776,7 @@ class CISCOSONETMIB(Entity):
 
             class Cssignallingtransportmode(Enum):
                 """
-                Cssignallingtransportmode
+                Cssignallingtransportmode (Enum Class)
 
                 This object represents the mode used to transport DS0 
 
@@ -798,7 +813,7 @@ class CISCOSONETMIB(Entity):
 
             class Cstributaryframingtype(Enum):
                 """
-                Cstributaryframingtype
+                Cstributaryframingtype (Enum Class)
 
                 This object represents the framing type to be assigned to the
 
@@ -835,7 +850,7 @@ class CISCOSONETMIB(Entity):
 
             class Cstributarygroupingtype(Enum):
                 """
-                Cstributarygroupingtype
+                Cstributarygroupingtype (Enum Class)
 
                 This object represents the method used to group VCs into an
 
@@ -868,7 +883,7 @@ class CISCOSONETMIB(Entity):
 
             class Cstributarymappingtype(Enum):
                 """
-                Cstributarymappingtype
+                Cstributarymappingtype (Enum Class)
 
                 This object represents the VT/VC mapping type.
 
@@ -897,7 +912,7 @@ class CISCOSONETMIB(Entity):
 
             class Cstributarytype(Enum):
                 """
-                Cstributarytype
+                Cstributarytype (Enum Class)
 
                 Type of the tributary carried within the SONET/SDH signal.
 
@@ -946,8 +961,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csApsConfigEntry" : ("csapsconfigentry", CISCOSONETMIB.Csapsconfigtable.Csapsconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csApsConfigEntry", ("csapsconfigentry", CISCOSONETMIB.Csapsconfigtable.Csapsconfigentry))])
+            self._leafs = OrderedDict()
 
             self.csapsconfigentry = YList(self)
             self._segment_path = lambda: "csApsConfigTable"
@@ -973,7 +990,7 @@ class CISCOSONETMIB(Entity):
             sonet line pair. It remains in the  working/protection 
             role even after the card is reset.
             
-            .. attribute:: csapsworkingindex  <key>
+            .. attribute:: csapsworkingindex  (key)
             
             	When a pair of APS lines is configured, one line has to be the working line, which is the primary line, and the other has to be the protection line, which is the backup line. This object refers to the working line in the APS pair. For G.783 AnnexB, this index refers to Working Section 1
             	**type**\: int
@@ -1079,41 +1096,44 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "csApsConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csapsworkingindex = YLeaf(YType.int32, "csApsWorkingIndex")
-
-                self.csapsprotectionindex = YLeaf(YType.int32, "csApsProtectionIndex")
-
-                self.csapsenable = YLeaf(YType.enumeration, "csApsEnable")
-
-                self.csapsarchmode = YLeaf(YType.enumeration, "csApsArchMode")
-
-                self.csapsactiveline = YLeaf(YType.enumeration, "csApsActiveLine")
-
-                self.csapssigfaultber = YLeaf(YType.uint32, "csApsSigFaultBER")
-
-                self.csapssigdegradeber = YLeaf(YType.uint32, "csApsSigDegradeBER")
-
-                self.csapswaittorestore = YLeaf(YType.uint32, "csApsWaitToRestore")
-
-                self.csapsdirection = YLeaf(YType.enumeration, "csApsDirection")
-
-                self.csapsrevertive = YLeaf(YType.enumeration, "csApsRevertive")
-
-                self.csapsdirectionoperational = YLeaf(YType.enumeration, "csApsDirectionOperational")
-
-                self.csapsarchmodeoperational = YLeaf(YType.enumeration, "csApsArchModeOperational")
-
-                self.csapschannelprotocol = YLeaf(YType.enumeration, "csApsChannelProtocol")
-
-                self.csapsfailurestatus = YLeaf(YType.bits, "csApsFailureStatus")
-
-                self.csapsswitchreason = YLeaf(YType.enumeration, "csApsSwitchReason")
-
-                self.csapsprimarysection = YLeaf(YType.enumeration, "csApsPrimarySection")
-                self._segment_path = lambda: "csApsConfigEntry" + "[csApsWorkingIndex='" + self.csapsworkingindex.get() + "']"
+                self.ylist_key_names = ['csapsworkingindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csapsworkingindex', YLeaf(YType.int32, 'csApsWorkingIndex')),
+                    ('csapsprotectionindex', YLeaf(YType.int32, 'csApsProtectionIndex')),
+                    ('csapsenable', YLeaf(YType.enumeration, 'csApsEnable')),
+                    ('csapsarchmode', YLeaf(YType.enumeration, 'csApsArchMode')),
+                    ('csapsactiveline', YLeaf(YType.enumeration, 'csApsActiveLine')),
+                    ('csapssigfaultber', YLeaf(YType.uint32, 'csApsSigFaultBER')),
+                    ('csapssigdegradeber', YLeaf(YType.uint32, 'csApsSigDegradeBER')),
+                    ('csapswaittorestore', YLeaf(YType.uint32, 'csApsWaitToRestore')),
+                    ('csapsdirection', YLeaf(YType.enumeration, 'csApsDirection')),
+                    ('csapsrevertive', YLeaf(YType.enumeration, 'csApsRevertive')),
+                    ('csapsdirectionoperational', YLeaf(YType.enumeration, 'csApsDirectionOperational')),
+                    ('csapsarchmodeoperational', YLeaf(YType.enumeration, 'csApsArchModeOperational')),
+                    ('csapschannelprotocol', YLeaf(YType.enumeration, 'csApsChannelProtocol')),
+                    ('csapsfailurestatus', YLeaf(YType.bits, 'csApsFailureStatus')),
+                    ('csapsswitchreason', YLeaf(YType.enumeration, 'csApsSwitchReason')),
+                    ('csapsprimarysection', YLeaf(YType.enumeration, 'csApsPrimarySection')),
+                ])
+                self.csapsworkingindex = None
+                self.csapsprotectionindex = None
+                self.csapsenable = None
+                self.csapsarchmode = None
+                self.csapsactiveline = None
+                self.csapssigfaultber = None
+                self.csapssigdegradeber = None
+                self.csapswaittorestore = None
+                self.csapsdirection = None
+                self.csapsrevertive = None
+                self.csapsdirectionoperational = None
+                self.csapsarchmodeoperational = None
+                self.csapschannelprotocol = None
+                self.csapsfailurestatus = Bits()
+                self.csapsswitchreason = None
+                self.csapsprimarysection = None
+                self._segment_path = lambda: "csApsConfigEntry" + "[csApsWorkingIndex='" + str(self.csapsworkingindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/csApsConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1121,7 +1141,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapsactiveline(Enum):
                 """
-                Csapsactiveline
+                Csapsactiveline (Enum Class)
 
                 This object indicates which line is currently active. 
 
@@ -1150,7 +1170,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapsarchmode(Enum):
                 """
-                Csapsarchmode
+                Csapsarchmode (Enum Class)
 
                 This object is used to configure APS architecture mode
 
@@ -1229,7 +1249,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapsarchmodeoperational(Enum):
                 """
-                Csapsarchmodeoperational
+                Csapsarchmodeoperational (Enum Class)
 
                 This object shows the actual APS architecture mode that
 
@@ -1272,7 +1292,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapschannelprotocol(Enum):
                 """
-                Csapschannelprotocol
+                Csapschannelprotocol (Enum Class)
 
                 This object allows to configure APS channel protocol to 
 
@@ -1307,7 +1327,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapsdirection(Enum):
                 """
-                Csapsdirection
+                Csapsdirection (Enum Class)
 
                 This object is used to configure the switching 
 
@@ -1330,7 +1350,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapsdirectionoperational(Enum):
                 """
-                Csapsdirectionoperational
+                Csapsdirectionoperational (Enum Class)
 
                 This object shows the actual APS direction that is 
 
@@ -1355,7 +1375,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapsenable(Enum):
                 """
-                Csapsenable
+                Csapsenable (Enum Class)
 
                 This object is used to enable or disable the APS feature
 
@@ -1380,7 +1400,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapsprimarysection(Enum):
                 """
-                Csapsprimarysection
+                Csapsprimarysection (Enum Class)
 
                 This object indicates which working section is the APS
 
@@ -1425,7 +1445,7 @@ class CISCOSONETMIB(Entity):
 
             class Csapsrevertive(Enum):
                 """
-                Csapsrevertive
+                Csapsrevertive (Enum Class)
 
                 This object is used to configure the APS revertive or
 
@@ -1489,8 +1509,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cssTotalEntry" : ("csstotalentry", CISCOSONETMIB.Csstotaltable.Csstotalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cssTotalEntry", ("csstotalentry", CISCOSONETMIB.Csstotaltable.Csstotalentry))])
+            self._leafs = OrderedDict()
 
             self.csstotalentry = YList(self)
             self._segment_path = lambda: "cssTotalTable"
@@ -1505,7 +1527,7 @@ class CISCOSONETMIB(Entity):
             An entry in the SONET/SDH Section Total table. Entries
             are created automatically for sonet lines.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1564,19 +1586,22 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "cssTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.csstotaless = YLeaf(YType.uint32, "cssTotalESs")
-
-                self.csstotalsess = YLeaf(YType.uint32, "cssTotalSESs")
-
-                self.csstotalsefss = YLeaf(YType.uint32, "cssTotalSEFSs")
-
-                self.csstotalcvs = YLeaf(YType.uint32, "cssTotalCVs")
-                self._segment_path = lambda: "cssTotalEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('csstotaless', YLeaf(YType.uint32, 'cssTotalESs')),
+                    ('csstotalsess', YLeaf(YType.uint32, 'cssTotalSESs')),
+                    ('csstotalsefss', YLeaf(YType.uint32, 'cssTotalSEFSs')),
+                    ('csstotalcvs', YLeaf(YType.uint32, 'cssTotalCVs')),
+                ])
+                self.ifindex = None
+                self.csstotaless = None
+                self.csstotalsess = None
+                self.csstotalsefss = None
+                self.csstotalcvs = None
+                self._segment_path = lambda: "cssTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cssTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1607,8 +1632,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cssTraceEntry" : ("csstraceentry", CISCOSONETMIB.Csstracetable.Csstraceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cssTraceEntry", ("csstraceentry", CISCOSONETMIB.Csstracetable.Csstraceentry))])
+            self._leafs = OrderedDict()
 
             self.csstraceentry = YList(self)
             self._segment_path = lambda: "cssTraceTable"
@@ -1624,7 +1651,7 @@ class CISCOSONETMIB(Entity):
             lines. The objects in this table are used to verify 
             continued connection between the two ends of the line.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1673,19 +1700,22 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "cssTraceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.csstracetotransmit = YLeaf(YType.str, "cssTraceToTransmit")
-
-                self.csstracetoexpect = YLeaf(YType.str, "cssTraceToExpect")
-
-                self.csstracefailure = YLeaf(YType.boolean, "cssTraceFailure")
-
-                self.csstracereceived = YLeaf(YType.str, "cssTraceReceived")
-                self._segment_path = lambda: "cssTraceEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('csstracetotransmit', YLeaf(YType.str, 'cssTraceToTransmit')),
+                    ('csstracetoexpect', YLeaf(YType.str, 'cssTraceToExpect')),
+                    ('csstracefailure', YLeaf(YType.boolean, 'cssTraceFailure')),
+                    ('csstracereceived', YLeaf(YType.str, 'cssTraceReceived')),
+                ])
+                self.ifindex = None
+                self.csstracetotransmit = None
+                self.csstracetoexpect = None
+                self.csstracefailure = None
+                self.csstracereceived = None
+                self._segment_path = lambda: "cssTraceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cssTraceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1720,8 +1750,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cslTotalEntry" : ("csltotalentry", CISCOSONETMIB.Csltotaltable.Csltotalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cslTotalEntry", ("csltotalentry", CISCOSONETMIB.Csltotaltable.Csltotalentry))])
+            self._leafs = OrderedDict()
 
             self.csltotalentry = YList(self)
             self._segment_path = lambda: "cslTotalTable"
@@ -1736,7 +1768,7 @@ class CISCOSONETMIB(Entity):
             An entry in the SONET/SDH Line Total table. Entries
             are created automatically for sonet lines.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1795,19 +1827,22 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "cslTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.csltotaless = YLeaf(YType.uint32, "cslTotalESs")
-
-                self.csltotalsess = YLeaf(YType.uint32, "cslTotalSESs")
-
-                self.csltotalcvs = YLeaf(YType.uint32, "cslTotalCVs")
-
-                self.csltotaluass = YLeaf(YType.uint32, "cslTotalUASs")
-                self._segment_path = lambda: "cslTotalEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('csltotaless', YLeaf(YType.uint32, 'cslTotalESs')),
+                    ('csltotalsess', YLeaf(YType.uint32, 'cslTotalSESs')),
+                    ('csltotalcvs', YLeaf(YType.uint32, 'cslTotalCVs')),
+                    ('csltotaluass', YLeaf(YType.uint32, 'cslTotalUASs')),
+                ])
+                self.ifindex = None
+                self.csltotaless = None
+                self.csltotalsess = None
+                self.csltotalcvs = None
+                self.csltotaluass = None
+                self._segment_path = lambda: "cslTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cslTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1842,8 +1877,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cslFarEndTotalEntry" : ("cslfarendtotalentry", CISCOSONETMIB.Cslfarendtotaltable.Cslfarendtotalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cslFarEndTotalEntry", ("cslfarendtotalentry", CISCOSONETMIB.Cslfarendtotaltable.Cslfarendtotalentry))])
+            self._leafs = OrderedDict()
 
             self.cslfarendtotalentry = YList(self)
             self._segment_path = lambda: "cslFarEndTotalTable"
@@ -1858,7 +1895,7 @@ class CISCOSONETMIB(Entity):
             An entry in the SONET/SDH Far End Line Total table. Entries
             are created automatically for sonet lines.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1917,19 +1954,22 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "cslFarEndTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cslfarendtotaless = YLeaf(YType.uint32, "cslFarEndTotalESs")
-
-                self.cslfarendtotalsess = YLeaf(YType.uint32, "cslFarEndTotalSESs")
-
-                self.cslfarendtotalcvs = YLeaf(YType.uint32, "cslFarEndTotalCVs")
-
-                self.cslfarendtotaluass = YLeaf(YType.uint32, "cslFarEndTotalUASs")
-                self._segment_path = lambda: "cslFarEndTotalEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cslfarendtotaless', YLeaf(YType.uint32, 'cslFarEndTotalESs')),
+                    ('cslfarendtotalsess', YLeaf(YType.uint32, 'cslFarEndTotalSESs')),
+                    ('cslfarendtotalcvs', YLeaf(YType.uint32, 'cslFarEndTotalCVs')),
+                    ('cslfarendtotaluass', YLeaf(YType.uint32, 'cslFarEndTotalUASs')),
+                ])
+                self.ifindex = None
+                self.cslfarendtotaless = None
+                self.cslfarendtotalsess = None
+                self.cslfarendtotalcvs = None
+                self.cslfarendtotaluass = None
+                self._segment_path = lambda: "cslFarEndTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cslFarEndTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1964,8 +2004,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cspTotalEntry" : ("csptotalentry", CISCOSONETMIB.Csptotaltable.Csptotalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cspTotalEntry", ("csptotalentry", CISCOSONETMIB.Csptotaltable.Csptotalentry))])
+            self._leafs = OrderedDict()
 
             self.csptotalentry = YList(self)
             self._segment_path = lambda: "cspTotalTable"
@@ -1980,7 +2022,7 @@ class CISCOSONETMIB(Entity):
             An entry in the SONET/SDH Path Total table. Entries
             are created automatically for sonet lines.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2039,19 +2081,22 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "cspTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.csptotaless = YLeaf(YType.uint32, "cspTotalESs")
-
-                self.csptotalsess = YLeaf(YType.uint32, "cspTotalSESs")
-
-                self.csptotalcvs = YLeaf(YType.uint32, "cspTotalCVs")
-
-                self.csptotaluass = YLeaf(YType.uint32, "cspTotalUASs")
-                self._segment_path = lambda: "cspTotalEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('csptotaless', YLeaf(YType.uint32, 'cspTotalESs')),
+                    ('csptotalsess', YLeaf(YType.uint32, 'cspTotalSESs')),
+                    ('csptotalcvs', YLeaf(YType.uint32, 'cspTotalCVs')),
+                    ('csptotaluass', YLeaf(YType.uint32, 'cspTotalUASs')),
+                ])
+                self.ifindex = None
+                self.csptotaless = None
+                self.csptotalsess = None
+                self.csptotalcvs = None
+                self.csptotaluass = None
+                self._segment_path = lambda: "cspTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cspTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2087,8 +2132,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cspFarEndTotalEntry" : ("cspfarendtotalentry", CISCOSONETMIB.Cspfarendtotaltable.Cspfarendtotalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cspFarEndTotalEntry", ("cspfarendtotalentry", CISCOSONETMIB.Cspfarendtotaltable.Cspfarendtotalentry))])
+            self._leafs = OrderedDict()
 
             self.cspfarendtotalentry = YList(self)
             self._segment_path = lambda: "cspFarEndTotalTable"
@@ -2103,7 +2150,7 @@ class CISCOSONETMIB(Entity):
             An entry in the SONET/SDH Far End Path Total table. 
             Entries are created automatically for sonet lines.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2162,19 +2209,22 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "cspFarEndTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cspfarendtotaless = YLeaf(YType.uint32, "cspFarEndTotalESs")
-
-                self.cspfarendtotalsess = YLeaf(YType.uint32, "cspFarEndTotalSESs")
-
-                self.cspfarendtotalcvs = YLeaf(YType.uint32, "cspFarEndTotalCVs")
-
-                self.cspfarendtotaluass = YLeaf(YType.uint32, "cspFarEndTotalUASs")
-                self._segment_path = lambda: "cspFarEndTotalEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cspfarendtotaless', YLeaf(YType.uint32, 'cspFarEndTotalESs')),
+                    ('cspfarendtotalsess', YLeaf(YType.uint32, 'cspFarEndTotalSESs')),
+                    ('cspfarendtotalcvs', YLeaf(YType.uint32, 'cspFarEndTotalCVs')),
+                    ('cspfarendtotaluass', YLeaf(YType.uint32, 'cspFarEndTotalUASs')),
+                ])
+                self.ifindex = None
+                self.cspfarendtotaless = None
+                self.cspfarendtotalsess = None
+                self.cspfarendtotalcvs = None
+                self.cspfarendtotaluass = None
+                self._segment_path = lambda: "cspFarEndTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cspFarEndTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2205,8 +2255,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cspTraceEntry" : ("csptraceentry", CISCOSONETMIB.Csptracetable.Csptraceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cspTraceEntry", ("csptraceentry", CISCOSONETMIB.Csptracetable.Csptraceentry))])
+            self._leafs = OrderedDict()
 
             self.csptraceentry = YList(self)
             self._segment_path = lambda: "cspTraceTable"
@@ -2223,7 +2275,7 @@ class CISCOSONETMIB(Entity):
             used to verify continued connection between the two ends of
             the line.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2272,19 +2324,22 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "cspTraceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.csptracetotransmit = YLeaf(YType.str, "cspTraceToTransmit")
-
-                self.csptracetoexpect = YLeaf(YType.str, "cspTraceToExpect")
-
-                self.csptracefailure = YLeaf(YType.boolean, "cspTraceFailure")
-
-                self.csptracereceived = YLeaf(YType.str, "cspTraceReceived")
-                self._segment_path = lambda: "cspTraceEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('csptracetotransmit', YLeaf(YType.str, 'cspTraceToTransmit')),
+                    ('csptracetoexpect', YLeaf(YType.str, 'cspTraceToExpect')),
+                    ('csptracefailure', YLeaf(YType.boolean, 'cspTraceFailure')),
+                    ('csptracereceived', YLeaf(YType.str, 'cspTraceReceived')),
+                ])
+                self.ifindex = None
+                self.csptracetotransmit = None
+                self.csptracetoexpect = None
+                self.csptracefailure = None
+                self.csptracereceived = None
+                self._segment_path = lambda: "cspTraceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cspTraceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2317,8 +2372,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csStatsEntry" : ("csstatsentry", CISCOSONETMIB.Csstatstable.Csstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csStatsEntry", ("csstatsentry", CISCOSONETMIB.Csstatstable.Csstatsentry))])
+            self._leafs = OrderedDict()
 
             self.csstatsentry = YList(self)
             self._segment_path = lambda: "csStatsTable"
@@ -2336,7 +2393,7 @@ class CISCOSONETMIB(Entity):
             An entry is created automatically and is indexed by 
             ifIndex.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2413,23 +2470,26 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "csStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cssloss = YLeaf(YType.uint32, "cssLOSs")
-
-                self.csslofs = YLeaf(YType.uint32, "cssLOFs")
-
-                self.cslaiss = YLeaf(YType.uint32, "cslAISs")
-
-                self.cslrfis = YLeaf(YType.uint32, "cslRFIs")
-
-                self.cspaiss = YLeaf(YType.uint32, "cspAISs")
-
-                self.csprfis = YLeaf(YType.uint32, "cspRFIs")
-                self._segment_path = lambda: "csStatsEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cssloss', YLeaf(YType.uint32, 'cssLOSs')),
+                    ('csslofs', YLeaf(YType.uint32, 'cssLOFs')),
+                    ('cslaiss', YLeaf(YType.uint32, 'cslAISs')),
+                    ('cslrfis', YLeaf(YType.uint32, 'cslRFIs')),
+                    ('cspaiss', YLeaf(YType.uint32, 'cspAISs')),
+                    ('csprfis', YLeaf(YType.uint32, 'cspRFIs')),
+                ])
+                self.ifindex = None
+                self.cssloss = None
+                self.csslofs = None
+                self.cslaiss = None
+                self.cslrfis = None
+                self.cspaiss = None
+                self.csprfis = None
+                self._segment_path = lambda: "csStatsEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/csStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2477,8 +2537,10 @@ class CISCOSONETMIB(Entity):
             self.yang_parent_name = "CISCO-SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csAu4Tug3ConfigEntry" : ("csau4tug3configentry", CISCOSONETMIB.Csau4Tug3Configtable.Csau4Tug3Configentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csAu4Tug3ConfigEntry", ("csau4tug3configentry", CISCOSONETMIB.Csau4Tug3Configtable.Csau4Tug3Configentry))])
+            self._leafs = OrderedDict()
 
             self.csau4tug3configentry = YList(self)
             self._segment_path = lambda: "csAu4Tug3ConfigTable"
@@ -2496,7 +2558,7 @@ class CISCOSONETMIB(Entity):
             ifType = sonetPath(50).The ifTable entry applicable for
             this entry belongs to AU\-4 path.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2505,7 +2567,7 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: csau4tug3  <key>
+            .. attribute:: csau4tug3  (key)
             
             	This object represents the TUG\-3 number
             	**type**\: int
@@ -2531,15 +2593,18 @@ class CISCOSONETMIB(Entity):
                 self.yang_parent_name = "csAu4Tug3ConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.csau4tug3 = YLeaf(YType.int32, "csAu4Tug3")
-
-                self.csau4tug3payload = YLeaf(YType.enumeration, "csAu4Tug3Payload")
-                self._segment_path = lambda: "csAu4Tug3ConfigEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[csAu4Tug3='" + self.csau4tug3.get() + "']"
+                self.ylist_key_names = ['ifindex','csau4tug3']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('csau4tug3', YLeaf(YType.int32, 'csAu4Tug3')),
+                    ('csau4tug3payload', YLeaf(YType.enumeration, 'csAu4Tug3Payload')),
+                ])
+                self.ifindex = None
+                self.csau4tug3 = None
+                self.csau4tug3payload = None
+                self._segment_path = lambda: "csAu4Tug3ConfigEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[csAu4Tug3='" + str(self.csau4tug3) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/csAu4Tug3ConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2547,7 +2612,7 @@ class CISCOSONETMIB(Entity):
 
             class Csau4Tug3Payload(Enum):
                 """
-                Csau4Tug3Payload
+                Csau4Tug3Payload (Enum Class)
 
                 This object is used for configuring the payload
 

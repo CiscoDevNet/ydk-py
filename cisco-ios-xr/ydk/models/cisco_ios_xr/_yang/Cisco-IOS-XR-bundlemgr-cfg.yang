@@ -1,319 +1,351 @@
 module Cisco-IOS-XR-bundlemgr-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-bundlemgr-cfg";
+  prefix bundlemgr-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import ietf-yang-types {
+    prefix yang;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-ifmgr-cfg {
+    prefix a1;
+  }
+  import Cisco-IOS-XR-rgmgr-cfg {
+    prefix a2;
+  }
 
-  prefix "bundlemgr-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import ietf-yang-types { prefix "yang"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
-
-  import Cisco-IOS-XR-rgmgr-cfg { prefix "a2"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR bundlemgr package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        lacp: Link Aggregation Control Protocol commands
-
+     
      This YANG module augments the
        Cisco-IOS-XR-ifmgr-cfg,
        Cisco-IOS-XR-rgmgr-cfg,
      modules with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2016-12-16" {
+  revision 2016-12-16 {
     description
       "Description updated.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Bfd-mode {
     type enumeration {
-      enum no-cfg {
+      enum "no-cfg" {
         value 0;
-        description "BFD mode not configured on per-bundle basis";
+        description
+          "BFD mode not configured on per-bundle basis";
       }
-      enum cisco {
+      enum "cisco" {
         value 1;
-        description "BFD mode Cisco";
+        description
+          "BFD mode Cisco";
       }
-      enum ietf {
+      enum "ietf" {
         value 2;
-        description "BFD mode IETF";
+        description
+          "BFD mode IETF";
       }
     }
-    description "Bfd mode";
+    description
+      "Bfd mode";
   }
+
   typedef Churn-logging {
     type enumeration {
-      enum actor {
+      enum "actor" {
         value 1;
-        description "Logging for actor churn only";
+        description
+          "Logging for actor churn only";
       }
-      enum partner {
+      enum "partner" {
         value 2;
-        description "Logging for partner churn only";
+        description
+          "Logging for partner churn only";
       }
-      enum both {
+      enum "both" {
         value 3;
-        description "Logging for actor and partner churn";
+        description
+          "Logging for actor and partner churn";
       }
     }
-    description "Churn logging";
+    description
+      "Churn logging";
   }
+
   typedef Bundle-mode {
     type enumeration {
-      enum on {
+      enum "on" {
         value 0;
-        description "On";
+        description
+          "On";
       }
-      enum active {
+      enum "active" {
         value 1;
-        description "Active";
+        description
+          "Active";
       }
-      enum passive {
+      enum "passive" {
         value 2;
-        description "Passive";
+        description
+          "Passive";
       }
     }
-    description "Bundle mode";
+    description
+      "Bundle mode";
   }
+
   typedef Bundle-minimum-bandwidth-range {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "None";
+        description
+          "None";
       }
-      enum kbps {
+      enum "kbps" {
         value 1;
-        description "kbps";
+        description
+          "kbps";
       }
-      enum mbps {
+      enum "mbps" {
         value 2;
-        description "mbps";
+        description
+          "mbps";
       }
-      enum gbps {
+      enum "gbps" {
         value 3;
-        description "gbps";
+        description
+          "gbps";
       }
     }
-    description "Bundle minimum bandwidth range";
+    description
+      "Bundle minimum bandwidth range";
   }
+
   typedef Period-short-enum {
     type union {
       type enumeration {
-        enum true {
+        enum "true" {
           value 1;
-          description "Use the standard LACP short period (1s)";
+          description
+            "Use the standard LACP short period (1s)";
         }
       }
       type uint32 {
         range "1..1000";
       }
     }
-    description "Period short enum";
+    description
+      "Period short enum";
   }
+
   typedef Bundle-cisco-ext-types {
     type enumeration {
-      enum lon-signaling-off {
+      enum "lon-signaling-off" {
         value 0;
-        description "LON signaling disabled";
+        description
+          "LON signaling disabled";
       }
-      enum lon-signaling-on {
+      enum "lon-signaling-on" {
         value 1;
-        description "LON signaling enabled";
+        description
+          "LON signaling enabled";
       }
     }
-    description "Bundle cisco ext types";
+    description
+      "Bundle cisco ext types";
   }
+
   typedef Bundle-cisco-ext {
     type empty;
-    description "Cisco extensions enabled";
+    description
+      "Cisco extensions enabled";
   }
+
   typedef Bundle-maximum-active-links-mode {
     type enumeration {
-      enum default {
+      enum "default" {
         value 0;
-        description "Default";
+        description
+          "Default";
       }
-      enum hot-standby {
+      enum "hot-standby" {
         value 1;
-        description "Hot standby";
+        description
+          "Hot standby";
       }
     }
-    description "Bundle maximum active links mode";
+    description
+      "Bundle maximum active links mode";
   }
+
   typedef Mlacp-switchover {
     type enumeration {
-      enum brute-force {
+      enum "brute-force" {
         value 1;
-        description "Brute force shutdown";
+        description
+          "Brute force shutdown";
       }
-      enum revertive {
+      enum "revertive" {
         value 2;
-        description "Revertive behavior";
+        description
+          "Revertive behavior";
       }
     }
-    description "Mlacp switchover";
+    description
+      "Mlacp switchover";
   }
+
   typedef Bundle-load-balance {
     type enumeration {
-      enum default {
+      enum "default" {
         value 0;
-        description "Default hash function used";
+        description
+          "Default hash function used";
       }
-      enum efp-auto {
+      enum "efp-auto" {
         value 1;
         description
           "Send all traffic for this EFP over an
-          automatically selected member";
+           automatically selected member";
       }
-      enum efp-value {
+      enum "efp-value" {
         value 2;
         description
           "Send all traffic for this EFP over the member
-          corresponding to the specified hash function";
+           corresponding to the specified hash function";
       }
-      enum source-ip {
+      enum "source-ip" {
         value 3;
-        description "Load balance according to source IP address";
+        description
+          "Load balance according to source IP address";
       }
-      enum destination-ip {
+      enum "destination-ip" {
         value 4;
         description
           "Load balance according to detination IP address";
       }
     }
-    description "Bundle load balance";
+    description
+      "Bundle load balance";
   }
+
   typedef Bundle-port-activity {
     type enumeration {
-      enum on {
+      enum "on" {
         value 1;
-        description "On";
+        description
+          "On";
       }
-      enum active {
+      enum "active" {
         value 2;
-        description "Active";
+        description
+          "Active";
       }
-      enum passive {
+      enum "passive" {
         value 3;
-        description "Passive";
+        description
+          "Passive";
       }
-      enum inherit {
+      enum "inherit" {
         value 4;
-        description "Inherit";
+        description
+          "Inherit";
       }
     }
-    description "Bundle port activity";
+    description
+      "Bundle port activity";
   }
+
   typedef Mlacp-maximize-parameter {
     type enumeration {
-      enum links {
+      enum "links" {
         value 1;
-        description "Maximize the number of operational links";
+        description
+          "Maximize the number of operational links";
       }
-      enum bandwidth {
+      enum "bandwidth" {
         value 2;
-        description "Maximize the operational bandwidth";
+        description
+          "Maximize the operational bandwidth";
       }
     }
-    description "Mlacp maximize parameter";
+    description
+      "Mlacp maximize parameter";
   }
+
   typedef Bundle-period {
     type union {
       type enumeration {
-        enum true {
+        enum "true" {
           value 1;
-          description "Use the standard LACP short period (1s)";
+          description
+            "Use the standard LACP short period (1s)";
         }
       }
       type uint32 {
         range "1..1000";
       }
     }
-    description "Bundle period";
-  }
-
-  container lacp {
-    description "Link Aggregation Control Protocol commands";
-    leaf system-mac {
-      type yang:mac-address;
-      description "Unique identifier for this system.";
-    }
-    leaf system-priority {
-      type uint32 {
-        range "1..65535";
-      }
-      default "32768";
-      description
-        "Priority for this system. Lower value is higher
-        priority.";
-    }
+    description
+      "Bundle period";
   }
 
   augment "/a1:interface-configurations/a1:interface-configuration" {
-
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-ifmgr-cfg'";
     container bfd {
-      description "BFD over bundle members configuration";
-
+      description
+        "BFD over bundle members configuration";
       container address-family {
         description
           "Configuration of BFDoBM for all address
-          families";
-
+           families";
         container ipv6 {
           description
             "Configuration of BFDoBM for IPv6 address
-            family";
-
+             family";
           container ipv6-timers {
-            description "Timers associated with BFDoBM";
+            description
+              "Timers associated with BFDoBM";
             leaf ipv6-nbor-unconfig-timer {
               type uint32 {
                 range "60..3600";
               }
               description
                 "IPv6 Timer associated with aggressiveness on
-                BFD session peer being unconfigured";
+                 BFD session peer being unconfigured";
             }
             leaf ipv6-start-timer {
               type uint32 {
@@ -321,14 +353,14 @@ module Cisco-IOS-XR-bundlemgr-cfg {
               }
               description
                 "IPv6 Timer associated with aggressiveness on
-                BFD session creation";
+                 BFD session creation";
             }
           }
           leaf ipv6-destination-address {
             type string;
             description
               "IPv6 Destination address for BFD sessions
-              created by bundlemgr";
+               created by bundlemgr";
           }
           leaf ipv6-detection-multiplier {
             type uint32 {
@@ -336,7 +368,7 @@ module Cisco-IOS-XR-bundlemgr-cfg {
             }
             description
               "IPv6 Detection multiplier for BFD sessions
-              created by bundlemgr";
+               created by bundlemgr";
           }
           leaf ipv6-fast-detect {
             type empty;
@@ -349,36 +381,35 @@ module Cisco-IOS-XR-bundlemgr-cfg {
             }
             description
               "IPV6 Hello interval for BFD sessions created
-              by bundlemgr";
+               by bundlemgr";
           }
         }
-
         container ipv4 {
           description
             "Configuration of BFDoBM for IPv4 address
-            family";
-
+             family";
           container echo {
-            description "Container for Echo min-multiplier";
+            description
+              "Container for Echo min-multiplier";
             leaf min-interval {
               type uint32 {
                 range "15..2000";
               }
               description
                 "Configure echo min-interval for bundle
-                interface";
+                 interface";
             }
           }
-
           container timers {
-            description "Timers associated with BFDoBM";
+            description
+              "Timers associated with BFDoBM";
             leaf nbor-unconfig-timer {
               type uint32 {
                 range "60..3600";
               }
               description
                 "Timer associated with aggressiveness on BFD
-                session peer being unconfigured";
+                 session peer being unconfigured";
             }
             leaf start-timer {
               type uint32 {
@@ -386,7 +417,7 @@ module Cisco-IOS-XR-bundlemgr-cfg {
               }
               description
                 "Timer associated with aggressiveness on BFD
-                session creation";
+                 session creation";
             }
           }
           leaf interval {
@@ -395,7 +426,7 @@ module Cisco-IOS-XR-bundlemgr-cfg {
             }
             description
               "Hello interval for BFD sessions created by
-              bundlemgr";
+               bundlemgr";
           }
           leaf detection-multiplier {
             type uint32 {
@@ -403,13 +434,13 @@ module Cisco-IOS-XR-bundlemgr-cfg {
             }
             description
               "Detection multiplier for BFD sessions created
-              by bundlemgr";
+               by bundlemgr";
           }
           leaf destination-address {
             type inet:ipv4-address-no-zone;
             description
               "Destination address for BFD sessions created
-              by bundlemgr";
+               by bundlemgr";
           }
           leaf fast-detect {
             type empty;
@@ -421,29 +452,30 @@ module Cisco-IOS-XR-bundlemgr-cfg {
       leaf mode {
         type Bfd-mode;
         default "no-cfg";
-        description "Configuration of BFDoBM mode [cisco|ietf]";
+        description
+          "Configuration of BFDoBM mode [cisco|ietf]";
       }
     }
+  }
+  augment "/a1:interface-configurations/a1:interface-configuration" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-ifmgr-cfg'";
-  }
-
-  augment "/a1:interface-configurations/a1:interface-configuration" {
-
+       'Cisco-IOS-XR-ifmgr-cfg'";
     container bundle {
-      description "Generic per-bundle configuration";
-
+      description
+        "Generic per-bundle configuration";
       container bundle-load-balancing {
-        description "Load-balance configuration";
-
+        description
+          "Load-balance configuration";
         container hash-function {
           presence "Indicates a hash-function node is configured.";
-          description "Enable loadbalancing on this Bundle / EFP";
+          description
+            "Enable loadbalancing on this Bundle / EFP";
           leaf hash-type {
             type Bundle-load-balance;
             mandatory true;
-            description "The specified hash function to use";
+            description
+              "The specified hash function to use";
           }
           leaf hash-value {
             type uint32 {
@@ -452,8 +484,8 @@ module Cisco-IOS-XR-bundlemgr-cfg {
             mandatory true;
             description
               "The loadbalance hash value selected. For
-              non-EFP Value methods, this value must be set
-              to 1.";
+               non-EFP Value methods, this value must be set
+               to 1.";
           }
         }
         leaf localize-links {
@@ -462,29 +494,30 @@ module Cisco-IOS-XR-bundlemgr-cfg {
           }
           description
             "Set thresholds for forwarding bundle traffic
-            within a rack";
+             within a rack";
         }
       }
-
       container minimum-active {
-        description "Minimum criteria for a bundle to be active";
-
+        description
+          "Minimum criteria for a bundle to be active";
         container bandwidth {
           presence "Indicates a bandwidth node is configured.";
           description
             "Bandwidth (in kbps) needed to bring up a
-            bundle";
+             bundle";
           leaf min-bandwidth-range {
             type Bundle-minimum-bandwidth-range;
             mandatory true;
-            description "Minimum Bandwidth Range";
+            description
+              "Minimum Bandwidth Range";
           }
           leaf bandwidth {
             type uint32 {
               range "1..4294967295";
             }
             mandatory true;
-            description "Bandwidth";
+            description
+              "Bandwidth";
           }
         }
         leaf links {
@@ -494,28 +527,29 @@ module Cisco-IOS-XR-bundlemgr-cfg {
           default "1";
           description
             "Number of active links needed to bring up a
-            bundle";
+             bundle";
         }
       }
-
       container maximum-active {
         description
           "Set a limit on the number of links that can be
-          active";
-
+           active";
         container links {
           presence "Indicates a links node is configured.";
-          description "Maximum number of active links in a bundle";
+          description
+            "Maximum number of active links in a bundle";
           leaf links {
             type uint32 {
               range "1..64";
             }
             mandatory true;
-            description "Number of active links";
+            description
+              "Number of active links";
           }
           leaf max-active-links-mode {
             type Bundle-maximum-active-links-mode;
-            description "Maximum active links mode";
+            description
+              "Maximum active links mode";
           }
         }
       }
@@ -525,13 +559,13 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         }
         description
           "Set the lacp-delay timeout for members of this
-          bundle";
+           bundle";
       }
       leaf shutdown {
         type empty;
         description
           "Deactivate all member links (down to Standby
-          state)";
+           state)";
       }
       leaf wait-while {
         type uint32 {
@@ -540,28 +574,27 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         default "2000";
         description
           "Set the wait-while timeout for members of this
-          bundle";
+           bundle";
       }
     }
+  }
+  augment "/a1:interface-configurations/a1:interface-configuration" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-ifmgr-cfg'";
-  }
-
-  augment "/a1:interface-configurations/a1:interface-configuration" {
-
+       'Cisco-IOS-XR-ifmgr-cfg'";
     container lacp {
       description
         "Link Aggregation Control Protocol per-interface
-        configuration (for bundle or member)";
-
+         configuration (for bundle or member)";
       container cisco-extensions {
         presence "Indicates a cisco-extensions node is configured.";
-        description "Enable bundle Cisco extensions";
+        description
+          "Enable bundle Cisco extensions";
         leaf cisco-ext {
           type Bundle-cisco-ext;
           mandatory true;
-          description "Cisco extensions";
+          description
+            "Cisco extensions";
         }
         leaf cisco-ext-type {
           type Bundle-cisco-ext-types;
@@ -569,16 +602,16 @@ module Cisco-IOS-XR-bundlemgr-cfg {
             "Specific Cisco extension to enable / disable";
         }
       }
-
       container timeout {
-        description "Set timeout values for LACP-related timers";
+        description
+          "Set timeout values for LACP-related timers";
         leaf rx-default {
           type uint32 {
             range "0..3000";
           }
           description
             "Set the timeout between expired and defaulted
-            states";
+             states";
         }
         leaf actor-churn {
           type uint32 {
@@ -586,7 +619,7 @@ module Cisco-IOS-XR-bundlemgr-cfg {
           }
           description
             "The time in milliseconds for which to run the
-            timer";
+             timer";
         }
         leaf partner-churn {
           type uint32 {
@@ -594,7 +627,7 @@ module Cisco-IOS-XR-bundlemgr-cfg {
           }
           description
             "Set the timeout to use before declaring
-            partner churn";
+             partner churn";
         }
       }
       leaf system-priority {
@@ -603,11 +636,12 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         }
         description
           "System priority for this bundle. Lower value is
-          higher priority.";
+           higher priority.";
       }
       leaf period {
         type Bundle-period;
-        description "Lacp period for the bundle.";
+        description
+          "Lacp period for the bundle.";
       }
       leaf collector-max-delay {
         type uint32 {
@@ -615,19 +649,22 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         }
         description
           "Collector Max Delay value to signal to the LACP
-          partner";
+           partner";
       }
       leaf lacp-nonrevertive {
         type empty;
-        description "Configure to enable lacp non-revertive mode";
+        description
+          "Configure to enable lacp non-revertive mode";
       }
       leaf mode {
         type Bundle-mode;
-        description "Lacp mode for the bundle.";
+        description
+          "Lacp mode for the bundle.";
       }
       leaf fast-switchover {
         type empty;
-        description "Configure to enable the fast-switchover mode";
+        description
+          "Configure to enable the fast-switchover mode";
       }
       leaf suppress-flaps {
         type uint32 {
@@ -635,40 +672,40 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         }
         description
           "Suppress flaps on switchover for the specified
-          period (in ms)";
+           period (in ms)";
       }
       leaf system-mac {
         type yang:mac-address;
-        description "System identifier for this bundle.";
+        description
+          "System identifier for this bundle.";
       }
       leaf period-short {
         type Period-short-enum;
         units "millisecond";
         description
           "LACP period to request from the partner (LACP
-          standard short period, or rate in milliseconds
-          for use with Cisco-specific extensions).
-          Default is LACP standard long period (30s).";
+           standard short period, or rate in milliseconds
+           for use with Cisco-specific extensions).
+           Default is LACP standard long period (30s).";
       }
       leaf churn-logging {
         type Churn-logging;
         description
           "Log churn notifications on the specified
-          system(s)";
+           system(s)";
       }
     }
+  }
+  augment "/a1:interface-configurations/a1:interface-configuration" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-ifmgr-cfg'";
-  }
-
-  augment "/a1:interface-configurations/a1:interface-configuration" {
-
+       'Cisco-IOS-XR-ifmgr-cfg'";
     container bundle-member {
-      description "Generic per-member configuration";
-
+      description
+        "Generic per-member configuration";
       container id {
-        description "Add the port to an aggregated interface.";
+        description
+          "Add the port to an aggregated interface.";
         leaf bundle-id {
           type uint32 {
             range "1..65535";
@@ -678,7 +715,8 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         }
         leaf port-activity {
           type Bundle-port-activity;
-          description "Port Activity";
+          description
+            "Port Activity";
         }
       }
       leaf port-priority {
@@ -686,28 +724,27 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         default "32768";
         description
           "Priority for this port. Lower value is higher
-          priority.";
+           priority.";
       }
     }
+  }
+  augment "/a1:interface-configurations/a1:interface-configuration" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-ifmgr-cfg'";
-  }
-
-  augment "/a1:interface-configurations/a1:interface-configuration" {
-
+       'Cisco-IOS-XR-ifmgr-cfg'";
     container mlacp {
-      description "Multi-chassis LACP configuration";
-
+      description
+        "Multi-chassis LACP configuration";
       container maximize {
         presence "Indicates a maximize node is configured.";
         description
           "Set parameters to maximize between the mLACP
-          peers";
+           peers";
         leaf maximize-by {
           type Mlacp-maximize-parameter;
           mandatory true;
-          description "The paramenter which should be maximized";
+          description
+            "The paramenter which should be maximized";
         }
         leaf link-threshold {
           type uint32 {
@@ -715,9 +752,9 @@ module Cisco-IOS-XR-bundlemgr-cfg {
           }
           description
             "The number of links below which to switch to
-            the peer if it has more links available. Only
-            applicable if maximizing by links. If 0, no
-            threshold is applied.";
+             the peer if it has more links available. Only
+             applicable if maximizing by links. If 0, no
+             threshold is applied.";
         }
         leaf bandwidth-threshold {
           type uint32 {
@@ -725,9 +762,9 @@ module Cisco-IOS-XR-bundlemgr-cfg {
           }
           description
             "The bandwidth (in kbps) below which to switch
-            to the peer if it has more bandwidth available
-            . Only applicable if maximizing by bandwidth.
-            If 0, no threshold is applied.";
+             to the peer if it has more bandwidth available
+             . Only applicable if maximizing by bandwidth.
+             If 0, no threshold is applied.";
         }
       }
       leaf port-priority {
@@ -735,7 +772,7 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         default "32768";
         description
           "The LACP port priority (lower value is higher
-          priority)";
+           priority)";
       }
       leaf recovery-delay {
         type uint32 {
@@ -744,13 +781,13 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         default "300";
         description
           "Set the delay before the bundle becomes active
-          after recovery from failure";
+           after recovery from failure";
       }
       leaf switchover-type {
         type Mlacp-switchover;
         description
           "Set the type of mLACP switchover to use for
-          this bundle";
+           this bundle";
       }
       leaf iccp-group {
         type uint32 {
@@ -758,32 +795,30 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         }
         description
           "Specify an ICCP Group in which this bundle
-          should operate";
+           should operate";
       }
     }
+  }
+  augment "/a2:redundancy-group-manager/a2:iccp/a2:iccp-groups/a2:iccp-group" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-ifmgr-cfg'";
-  }
-
-  augment "/a2:redundancy-group-manager/a2:iccp/a2:iccp-groups"+
-    "/a2:iccp-group" {
-
+       'Cisco-IOS-XR-rgmgr-cfg'";
     container mlacp {
       description
         "Multi-chassis Link Aggregation Control Protocol
-        commands";
+         commands";
       leaf connect-timeout {
         type uint32 {
           range "0..65534";
         }
         description
           "Number of seconds to wait before assuming mLACP
-          peer is down.";
+           peer is down.";
       }
       leaf system-mac {
         type yang:mac-address;
-        description "Unique LACP identifier for this system.";
+        description
+          "Unique LACP identifier for this system.";
       }
       leaf node {
         type uint32 {
@@ -791,7 +826,7 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         }
         description
           "Unique identifier for this system in the ICCP
-          Group.";
+           Group.";
       }
       leaf system-priority {
         type uint32 {
@@ -799,11 +834,26 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         }
         description
           "Priority for this system. Lower value is higher
-          priority.";
+           priority.";
       }
     }
+  }
+  container lacp {
     description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-rgmgr-cfg'";
+      "Link Aggregation Control Protocol commands";
+    leaf system-mac {
+      type yang:mac-address;
+      description
+        "Unique identifier for this system.";
+    }
+    leaf system-priority {
+      type uint32 {
+        range "1..65535";
+      }
+      default "32768";
+      description
+        "Priority for this system. Lower value is higher
+         priority.";
+    }
   }
 }

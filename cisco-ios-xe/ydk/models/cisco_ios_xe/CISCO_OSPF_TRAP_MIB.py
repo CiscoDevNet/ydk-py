@@ -7,9 +7,11 @@ draftietf\-ospf\-mib\-update\-05.txt. Support for OSPF
 Sham link is also added
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -38,8 +40,10 @@ class CISCOOSPFTRAPMIB(Entity):
         self.yang_parent_name = "CISCO-OSPF-TRAP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cospfTrapControl" : ("cospftrapcontrol", CISCOOSPFTRAPMIB.Cospftrapcontrol)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cospfTrapControl", ("cospftrapcontrol", CISCOOSPFTRAPMIB.Cospftrapcontrol))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cospftrapcontrol = CISCOOSPFTRAPMIB.Cospftrapcontrol()
         self.cospftrapcontrol.parent = self
@@ -88,16 +92,19 @@ class CISCOOSPFTRAPMIB(Entity):
             self.yang_parent_name = "CISCO-OSPF-TRAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cospfsettrap = YLeaf(YType.bits, "cospfSetTrap")
-
-            self.cospfconfigerrortype = YLeaf(YType.enumeration, "cospfConfigErrorType")
-
-            self.cospfpackettype = YLeaf(YType.enumeration, "cospfPacketType")
-
-            self.cospfpacketsrc = YLeaf(YType.str, "cospfPacketSrc")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cospfsettrap', YLeaf(YType.bits, 'cospfSetTrap')),
+                ('cospfconfigerrortype', YLeaf(YType.enumeration, 'cospfConfigErrorType')),
+                ('cospfpackettype', YLeaf(YType.enumeration, 'cospfPacketType')),
+                ('cospfpacketsrc', YLeaf(YType.str, 'cospfPacketSrc')),
+            ])
+            self.cospfsettrap = Bits()
+            self.cospfconfigerrortype = None
+            self.cospfpackettype = None
+            self.cospfpacketsrc = None
             self._segment_path = lambda: "cospfTrapControl"
             self._absolute_path = lambda: "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB/%s" % self._segment_path()
 
@@ -106,7 +113,7 @@ class CISCOOSPFTRAPMIB(Entity):
 
         class Cospfconfigerrortype(Enum):
             """
-            Cospfconfigerrortype
+            Cospfconfigerrortype (Enum Class)
 
             Potential types of configuration conflicts.
 
@@ -177,7 +184,7 @@ class CISCOOSPFTRAPMIB(Entity):
 
         class Cospfpackettype(Enum):
             """
-            Cospfpackettype
+            Cospfpackettype (Enum Class)
 
             OSPF packet types. When the last value of a trap
 

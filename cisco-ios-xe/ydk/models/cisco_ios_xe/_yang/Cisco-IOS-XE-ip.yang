@@ -38,6 +38,11 @@ submodule Cisco-IOS-XE-ip {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-10-25 {
+    description
+      "Support ip host and ip host vrf with multiple ipv4/ipv6 address";
+  }
+
   revision 2017-08-28 {
     description
       "Extend modeling for multicast";
@@ -1437,7 +1442,8 @@ submodule Cisco-IOS-XE-ip {
             description "Name of host";   
             type string;
           }
-          leaf ip {
+          leaf-list ip-list {
+            description "Host IP address";
             type inet:ip-address;
           }
         }  
@@ -1455,10 +1461,10 @@ submodule Cisco-IOS-XE-ip {
               description "Name of host";
               type string;
             }
-            leaf ipv4-address {
+            leaf-list ip-list {
               description "Host IP address";
-              type inet:ipv4-address;
-            } 
+              type inet:ip-address;
+            }
           }      
         }
       }

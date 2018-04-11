@@ -1,164 +1,187 @@
 submodule Cisco-IOS-XR-ipv4-pim-oper-sub2 {
-
   belongs-to Cisco-IOS-XR-ipv4-pim-oper {
     prefix Cisco-IOS-XR-ipv4-pim-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-pim package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-06-26" {
+  revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
   }
-
-  revision "2017-05-27" {
+  revision 2017-05-27 {
     description
       "Removed deprecated leaves under traffic-counters. Added missing leaves under context. Removed checkpoint-statistics container because the corresponding CLI command requires cisco-support permissions.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ipv6-address {
     type inet:ipv6-address;
-    description "IPV6 Address type";
+    description
+      "IPV6 Address type";
   }
+
   typedef Pim-afi {
     type enumeration {
-      enum ipv4-unicast {
+      enum "ipv4-unicast" {
         value 0;
-        description "IP v4 unicast";
+        description
+          "IP v4 unicast";
       }
-      enum ipv6-unicast {
+      enum "ipv6-unicast" {
         value 1;
-        description "IP v6 unicast";
+        description
+          "IP v6 unicast";
       }
     }
-    description "Address family";
+    description
+      "Address family";
   }
+
   typedef Pim-interface {
     type enumeration {
-      enum encap-interface {
+      enum "encap-interface" {
         value 0;
-        description "Encap Interface";
+        description
+          "Encap Interface";
       }
-      enum decap-interface {
+      enum "decap-interface" {
         value 1;
-        description "Decap Interface";
+        description
+          "Decap Interface";
       }
-      enum mdt-interface {
+      enum "mdt-interface" {
         value 2;
-        description "MDT Interface";
+        description
+          "MDT Interface";
       }
     }
-    description "Interface Type";
+    description
+      "Interface Type";
   }
 
   grouping PIM-MA-SUMMARY {
-    description "PIM MA Summary";
+    description
+      "PIM MA Summary";
     leaf is-im-connection-open {
       type boolean;
-      description "IM Connection Open";
+      description
+        "IM Connection Open";
     }
     leaf is-netio-connection-open {
       type boolean;
-      description "Netio Connection Open";
+      description
+        "Netio Connection Open";
     }
     leaf is-edm-connection-open {
       type boolean;
-      description "EDM Connection Open";
+      description
+        "EDM Connection Open";
     }
     leaf is-standby-edm-connection-open {
       type boolean;
-      description "Standby EDM Connection Open";
+      description
+        "Standby EDM Connection Open";
     }
     leaf encap-interface-count {
       type uint32;
-      description "Encap Interface Count";
+      description
+        "Encap Interface Count";
     }
     leaf decap-interface-count {
       type uint32;
-      description "Decap Interface Count";
+      description
+        "Decap Interface Count";
     }
     leaf mdt-interface-count {
       type uint32;
-      description "MDT Interface Count";
+      description
+        "MDT Interface Count";
     }
   }
 
   grouping PIM-ADDRTYPE {
-    description "PIM ADDRTYPE";
+    description
+      "PIM ADDRTYPE";
     leaf af-name {
       type Pim-afi;
-      description "AFName";
+      description
+        "AFName";
     }
     leaf ipv4-address {
       when "../af-name = 'ipv4-unicast'" {
-        description "../AFName = 'IPv4Unicast'";
+        description
+          "../AFName = 'IPv4Unicast'";
       }
       type inet:ipv4-address;
-      description "IPv4 Address";
+      description
+        "IPv4 Address";
     }
     leaf ipv6-address {
       when "../af-name = 'ipv6-unicast'" {
-        description "../AFName = 'IPv6Unicast'";
+        description
+          "../AFName = 'IPv6Unicast'";
       }
       type Ipv6-address;
-      description "IPV6 Address";
+      description
+        "IPV6 Address";
     }
   }
 
   grouping PIM-MA-IDB {
-    description "PIM MA interface";
-
+    description
+      "PIM MA interface";
     container rp-address {
-      description "RP Address";
+      description
+        "RP Address";
       uses PIM-ADDRTYPE;
     }
-
     container source-address {
-      description "Source Address";
+      description
+        "Source Address";
       uses PIM-ADDRTYPE;
     }
     leaf interface-name-xr {
       type xr:Interface-name;
-      description "Interface Name";
+      description
+        "Interface Name";
     }
     leaf vrf-name {
       type string;
-      description "VRF Name";
+      description
+        "VRF Name";
     }
     leaf interface-type {
       type Pim-interface;
-      description "Interface Type";
+      description
+        "Interface Type";
     }
   }
 }

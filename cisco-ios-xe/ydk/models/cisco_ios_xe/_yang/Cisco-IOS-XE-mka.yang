@@ -29,6 +29,20 @@ module Cisco-IOS-XE-mka {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Add 100GE Support";
+  }
+
+  revision 2017-09-17 {
+    description
+      "add key-server priority for mka grouping";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -49,6 +63,14 @@ module Cisco-IOS-XE-mka {
         leaf name {
           description "MKA Policy NAME";
           type string;
+        }
+        container key-server {
+          description "Configure MKA key-server options";
+          leaf priority {
+            description
+              "Set MKA key-server priority";
+            type uint8;
+          }
         }
         container macsec-cipher-suite {
           description "Cipher Suite for SAK derivation";
@@ -130,7 +152,19 @@ module Cisco-IOS-XE-mka {
     uses config-interface-mka-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-mka-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-mka-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-mka-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-mka-grouping;
   }
 }

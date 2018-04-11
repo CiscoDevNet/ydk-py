@@ -18,15 +18,17 @@ Acronyms\:
   CFM\: Connection Fault Management
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class RttMonCodecType(Enum):
     """
-    RttMonCodecType
+    RttMonCodecType (Enum Class)
 
     Specifies the codec type to be used with the jitter probe.
 
@@ -61,7 +63,7 @@ class RttMonCodecType(Enum):
 
 class RttMonLSPPingReplyMode(Enum):
     """
-    RttMonLSPPingReplyMode
+    RttMonLSPPingReplyMode (Enum Class)
 
     Specifies the Reply mode for the MPLS LSP Echo request
 
@@ -90,7 +92,7 @@ class RttMonLSPPingReplyMode(Enum):
 
 class RttMonOperation(Enum):
     """
-    RttMonOperation
+    RttMonOperation (Enum Class)
 
     The following are specific RTT operations for a
 
@@ -155,7 +157,7 @@ class RttMonOperation(Enum):
 
 class RttMonProtocol(Enum):
     """
-    RttMonProtocol
+    RttMonProtocol (Enum Class)
 
     Specifies the protocol to be used to perform the timed
 
@@ -498,7 +500,7 @@ class RttMonProtocol(Enum):
 
 class RttMonReactVar(Enum):
     """
-    RttMonReactVar
+    RttMonReactVar (Enum Class)
 
     The following are specific Reaction variables for a
 
@@ -725,7 +727,7 @@ class RttMonReactVar(Enum):
 
 class RttMonRttType(Enum):
     """
-    RttMonRttType
+    RttMonRttType (Enum Class)
 
     Specifies the type of RTT operation to be performed.
 
@@ -970,7 +972,7 @@ class RttMonRttType(Enum):
 
 class RttMplsVpnMonLpdFailureSense(Enum):
     """
-    RttMplsVpnMonLpdFailureSense
+    RttMplsVpnMonLpdFailureSense (Enum Class)
 
     These are the defined values for the causes of failure in
 
@@ -1067,7 +1069,7 @@ class RttMplsVpnMonLpdFailureSense(Enum):
 
 class RttMplsVpnMonLpdGrpStatus(Enum):
     """
-    RttMplsVpnMonLpdGrpStatus
+    RttMplsVpnMonLpdGrpStatus (Enum Class)
 
     These are the defined values for the status of the LPD Group.
 
@@ -1118,7 +1120,7 @@ class RttMplsVpnMonLpdGrpStatus(Enum):
 
 class RttMplsVpnMonRttType(Enum):
     """
-    RttMplsVpnMonRttType
+    RttMplsVpnMonRttType (Enum Class)
 
     Specifies the type of RTT operation to be performed for
 
@@ -1153,7 +1155,7 @@ class RttMplsVpnMonRttType(Enum):
 
 class RttReset(Enum):
     """
-    RttReset
+    RttReset (Enum Class)
 
     When the value set to 'reset', the entire RTT application
 
@@ -1176,7 +1178,7 @@ class RttReset(Enum):
 
 class RttResponseSense(Enum):
     """
-    RttResponseSense
+    RttResponseSense (Enum Class)
 
     These are the defined values for a completion status
 

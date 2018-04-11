@@ -44,9 +44,11 @@ There are five main tables within this mib\:
       configured to run.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -95,8 +97,10 @@ class CISCOEIGRPMIB(Entity):
         self.yang_parent_name = "CISCO-EIGRP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cEigrpVpnTable" : ("ceigrpvpntable", CISCOEIGRPMIB.Ceigrpvpntable), "cEigrpTraffStatsTable" : ("ceigrptraffstatstable", CISCOEIGRPMIB.Ceigrptraffstatstable), "cEigrpTopoTable" : ("ceigrptopotable", CISCOEIGRPMIB.Ceigrptopotable), "cEigrpPeerTable" : ("ceigrppeertable", CISCOEIGRPMIB.Ceigrppeertable), "cEigrpInterfaceTable" : ("ceigrpinterfacetable", CISCOEIGRPMIB.Ceigrpinterfacetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cEigrpVpnTable", ("ceigrpvpntable", CISCOEIGRPMIB.Ceigrpvpntable)), ("cEigrpTraffStatsTable", ("ceigrptraffstatstable", CISCOEIGRPMIB.Ceigrptraffstatstable)), ("cEigrpTopoTable", ("ceigrptopotable", CISCOEIGRPMIB.Ceigrptopotable)), ("cEigrpPeerTable", ("ceigrppeertable", CISCOEIGRPMIB.Ceigrppeertable)), ("cEigrpInterfaceTable", ("ceigrpinterfacetable", CISCOEIGRPMIB.Ceigrpinterfacetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ceigrpvpntable = CISCOEIGRPMIB.Ceigrpvpntable()
         self.ceigrpvpntable.parent = self
@@ -153,8 +157,10 @@ class CISCOEIGRPMIB(Entity):
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cEigrpVpnEntry" : ("ceigrpvpnentry", CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cEigrpVpnEntry", ("ceigrpvpnentry", CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry))])
+            self._leafs = OrderedDict()
 
             self.ceigrpvpnentry = YList(self)
             self._segment_path = lambda: "cEigrpVpnTable"
@@ -169,7 +175,7 @@ class CISCOEIGRPMIB(Entity):
             Information relating to a single VPN which is configured
             to run EIGRP.
             
-            .. attribute:: ceigrpvpnid  <key>
+            .. attribute:: ceigrpvpnid  (key)
             
             	The unique VPN identifier.  This is a unique integer relative to all other VPN's defined on the router.  It also identifies internally the routing table instance
             	**type**\: int
@@ -195,13 +201,16 @@ class CISCOEIGRPMIB(Entity):
                 self.yang_parent_name = "cEigrpVpnTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceigrpvpnid = YLeaf(YType.uint32, "cEigrpVpnId")
-
-                self.ceigrpvpnname = YLeaf(YType.str, "cEigrpVpnName")
-                self._segment_path = lambda: "cEigrpVpnEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']"
+                self.ylist_key_names = ['ceigrpvpnid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceigrpvpnid', YLeaf(YType.uint32, 'cEigrpVpnId')),
+                    ('ceigrpvpnname', YLeaf(YType.str, 'cEigrpVpnName')),
+                ])
+                self.ceigrpvpnid = None
+                self.ceigrpvpnname = None
+                self._segment_path = lambda: "cEigrpVpnEntry" + "[cEigrpVpnId='" + str(self.ceigrpvpnid) + "']"
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpVpnTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -232,8 +241,10 @@ class CISCOEIGRPMIB(Entity):
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cEigrpTraffStatsEntry" : ("ceigrptraffstatsentry", CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cEigrpTraffStatsEntry", ("ceigrptraffstatsentry", CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry))])
+            self._leafs = OrderedDict()
 
             self.ceigrptraffstatsentry = YList(self)
             self._segment_path = lambda: "cEigrpTraffStatsTable"
@@ -248,7 +259,7 @@ class CISCOEIGRPMIB(Entity):
             The set of statistics and information for a single EIGRP
             Autonomous System.
             
-            .. attribute:: ceigrpvpnid  <key>
+            .. attribute:: ceigrpvpnid  (key)
             
             	
             	**type**\: int
@@ -257,7 +268,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
             
-            .. attribute:: ceigrpasnumber  <key>
+            .. attribute:: ceigrpasnumber  (key)
             
             	The Autonomous System number which is unique integer per VPN
             	**type**\: int
@@ -430,57 +441,60 @@ class CISCOEIGRPMIB(Entity):
                 self.yang_parent_name = "cEigrpTraffStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceigrpvpnid = YLeaf(YType.str, "cEigrpVpnId")
-
-                self.ceigrpasnumber = YLeaf(YType.uint32, "cEigrpAsNumber")
-
-                self.ceigrpnbrcount = YLeaf(YType.uint32, "cEigrpNbrCount")
-
-                self.ceigrphellossent = YLeaf(YType.uint32, "cEigrpHellosSent")
-
-                self.ceigrphellosrcvd = YLeaf(YType.uint32, "cEigrpHellosRcvd")
-
-                self.ceigrpupdatessent = YLeaf(YType.uint32, "cEigrpUpdatesSent")
-
-                self.ceigrpupdatesrcvd = YLeaf(YType.uint32, "cEigrpUpdatesRcvd")
-
-                self.ceigrpqueriessent = YLeaf(YType.uint32, "cEigrpQueriesSent")
-
-                self.ceigrpqueriesrcvd = YLeaf(YType.uint32, "cEigrpQueriesRcvd")
-
-                self.ceigrprepliessent = YLeaf(YType.uint32, "cEigrpRepliesSent")
-
-                self.ceigrprepliesrcvd = YLeaf(YType.uint32, "cEigrpRepliesRcvd")
-
-                self.ceigrpackssent = YLeaf(YType.uint32, "cEigrpAcksSent")
-
-                self.ceigrpacksrcvd = YLeaf(YType.uint32, "cEigrpAcksRcvd")
-
-                self.ceigrpinputqhighmark = YLeaf(YType.uint32, "cEigrpInputQHighMark")
-
-                self.ceigrpinputqdrops = YLeaf(YType.uint32, "cEigrpInputQDrops")
-
-                self.ceigrpsiaqueriessent = YLeaf(YType.uint32, "cEigrpSiaQueriesSent")
-
-                self.ceigrpsiaqueriesrcvd = YLeaf(YType.uint32, "cEigrpSiaQueriesRcvd")
-
-                self.ceigrpasrouteridtype = YLeaf(YType.enumeration, "cEigrpAsRouterIdType")
-
-                self.ceigrpasrouterid = YLeaf(YType.str, "cEigrpAsRouterId")
-
-                self.ceigrptoporoutes = YLeaf(YType.uint32, "cEigrpTopoRoutes")
-
-                self.ceigrpheadserial = YLeaf(YType.uint64, "cEigrpHeadSerial")
-
-                self.ceigrpnextserial = YLeaf(YType.uint64, "cEigrpNextSerial")
-
-                self.ceigrpxmitpendreplies = YLeaf(YType.uint32, "cEigrpXmitPendReplies")
-
-                self.ceigrpxmitdummies = YLeaf(YType.uint32, "cEigrpXmitDummies")
-                self._segment_path = lambda: "cEigrpTraffStatsEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + "[cEigrpAsNumber='" + self.ceigrpasnumber.get() + "']"
+                self.ylist_key_names = ['ceigrpvpnid','ceigrpasnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceigrpvpnid', YLeaf(YType.str, 'cEigrpVpnId')),
+                    ('ceigrpasnumber', YLeaf(YType.uint32, 'cEigrpAsNumber')),
+                    ('ceigrpnbrcount', YLeaf(YType.uint32, 'cEigrpNbrCount')),
+                    ('ceigrphellossent', YLeaf(YType.uint32, 'cEigrpHellosSent')),
+                    ('ceigrphellosrcvd', YLeaf(YType.uint32, 'cEigrpHellosRcvd')),
+                    ('ceigrpupdatessent', YLeaf(YType.uint32, 'cEigrpUpdatesSent')),
+                    ('ceigrpupdatesrcvd', YLeaf(YType.uint32, 'cEigrpUpdatesRcvd')),
+                    ('ceigrpqueriessent', YLeaf(YType.uint32, 'cEigrpQueriesSent')),
+                    ('ceigrpqueriesrcvd', YLeaf(YType.uint32, 'cEigrpQueriesRcvd')),
+                    ('ceigrprepliessent', YLeaf(YType.uint32, 'cEigrpRepliesSent')),
+                    ('ceigrprepliesrcvd', YLeaf(YType.uint32, 'cEigrpRepliesRcvd')),
+                    ('ceigrpackssent', YLeaf(YType.uint32, 'cEigrpAcksSent')),
+                    ('ceigrpacksrcvd', YLeaf(YType.uint32, 'cEigrpAcksRcvd')),
+                    ('ceigrpinputqhighmark', YLeaf(YType.uint32, 'cEigrpInputQHighMark')),
+                    ('ceigrpinputqdrops', YLeaf(YType.uint32, 'cEigrpInputQDrops')),
+                    ('ceigrpsiaqueriessent', YLeaf(YType.uint32, 'cEigrpSiaQueriesSent')),
+                    ('ceigrpsiaqueriesrcvd', YLeaf(YType.uint32, 'cEigrpSiaQueriesRcvd')),
+                    ('ceigrpasrouteridtype', YLeaf(YType.enumeration, 'cEigrpAsRouterIdType')),
+                    ('ceigrpasrouterid', YLeaf(YType.str, 'cEigrpAsRouterId')),
+                    ('ceigrptoporoutes', YLeaf(YType.uint32, 'cEigrpTopoRoutes')),
+                    ('ceigrpheadserial', YLeaf(YType.uint64, 'cEigrpHeadSerial')),
+                    ('ceigrpnextserial', YLeaf(YType.uint64, 'cEigrpNextSerial')),
+                    ('ceigrpxmitpendreplies', YLeaf(YType.uint32, 'cEigrpXmitPendReplies')),
+                    ('ceigrpxmitdummies', YLeaf(YType.uint32, 'cEigrpXmitDummies')),
+                ])
+                self.ceigrpvpnid = None
+                self.ceigrpasnumber = None
+                self.ceigrpnbrcount = None
+                self.ceigrphellossent = None
+                self.ceigrphellosrcvd = None
+                self.ceigrpupdatessent = None
+                self.ceigrpupdatesrcvd = None
+                self.ceigrpqueriessent = None
+                self.ceigrpqueriesrcvd = None
+                self.ceigrprepliessent = None
+                self.ceigrprepliesrcvd = None
+                self.ceigrpackssent = None
+                self.ceigrpacksrcvd = None
+                self.ceigrpinputqhighmark = None
+                self.ceigrpinputqdrops = None
+                self.ceigrpsiaqueriessent = None
+                self.ceigrpsiaqueriesrcvd = None
+                self.ceigrpasrouteridtype = None
+                self.ceigrpasrouterid = None
+                self.ceigrptoporoutes = None
+                self.ceigrpheadserial = None
+                self.ceigrpnextserial = None
+                self.ceigrpxmitpendreplies = None
+                self.ceigrpxmitdummies = None
+                self._segment_path = lambda: "cEigrpTraffStatsEntry" + "[cEigrpVpnId='" + str(self.ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + str(self.ceigrpasnumber) + "']"
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpTraffStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -514,8 +528,10 @@ class CISCOEIGRPMIB(Entity):
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cEigrpTopoEntry" : ("ceigrptopoentry", CISCOEIGRPMIB.Ceigrptopotable.Ceigrptopoentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cEigrpTopoEntry", ("ceigrptopoentry", CISCOEIGRPMIB.Ceigrptopotable.Ceigrptopoentry))])
+            self._leafs = OrderedDict()
 
             self.ceigrptopoentry = YList(self)
             self._segment_path = lambda: "cEigrpTopoTable"
@@ -530,7 +546,7 @@ class CISCOEIGRPMIB(Entity):
             The entry for a single EIGRP topology table in the given
             AS.
             
-            .. attribute:: ceigrpvpnid  <key>
+            .. attribute:: ceigrpvpnid  (key)
             
             	
             	**type**\: int
@@ -539,7 +555,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
             
-            .. attribute:: ceigrpasnumber  <key>
+            .. attribute:: ceigrpasnumber  (key)
             
             	
             	**type**\: int
@@ -548,19 +564,19 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry>`
             
-            .. attribute:: ceigrpdestnettype  <key>
+            .. attribute:: ceigrpdestnettype  (key)
             
             	The format of the destination IP network number for a single route in the topology table in the AS specified in cEigrpDestNet
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: ceigrpdestnet  <key>
+            .. attribute:: ceigrpdestnet  (key)
             
             	The destination IP network number for a single route in the topology table in the AS.  The format is governed by object cEigrpDestNetType
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: ceigrpdestnetprefixlen  <key>
+            .. attribute:: ceigrpdestnetprefixlen  (key)
             
             	The prefix length associated with the destination IP network address for a single route in the topology table in the AS.  The format is governed by the object cEigrpDestNetType
             	**type**\: int
@@ -653,43 +669,46 @@ class CISCOEIGRPMIB(Entity):
                 self.yang_parent_name = "cEigrpTopoTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceigrpvpnid = YLeaf(YType.str, "cEigrpVpnId")
-
-                self.ceigrpasnumber = YLeaf(YType.str, "cEigrpAsNumber")
-
-                self.ceigrpdestnettype = YLeaf(YType.enumeration, "cEigrpDestNetType")
-
-                self.ceigrpdestnet = YLeaf(YType.str, "cEigrpDestNet")
-
-                self.ceigrpdestnetprefixlen = YLeaf(YType.uint32, "cEigrpDestNetPrefixLen")
-
-                self.ceigrpactive = YLeaf(YType.boolean, "cEigrpActive")
-
-                self.ceigrpstuckinactive = YLeaf(YType.boolean, "cEigrpStuckInActive")
-
-                self.ceigrpdestsuccessors = YLeaf(YType.uint32, "cEigrpDestSuccessors")
-
-                self.ceigrpfdistance = YLeaf(YType.uint32, "cEigrpFdistance")
-
-                self.ceigrprouteorigintype = YLeaf(YType.str, "cEigrpRouteOriginType")
-
-                self.ceigrprouteoriginaddrtype = YLeaf(YType.enumeration, "cEigrpRouteOriginAddrType")
-
-                self.ceigrprouteoriginaddr = YLeaf(YType.str, "cEigrpRouteOriginAddr")
-
-                self.ceigrpnexthopaddresstype = YLeaf(YType.enumeration, "cEigrpNextHopAddressType")
-
-                self.ceigrpnexthopaddress = YLeaf(YType.str, "cEigrpNextHopAddress")
-
-                self.ceigrpnexthopinterface = YLeaf(YType.str, "cEigrpNextHopInterface")
-
-                self.ceigrpdistance = YLeaf(YType.uint32, "cEigrpDistance")
-
-                self.ceigrpreportdistance = YLeaf(YType.uint32, "cEigrpReportDistance")
-                self._segment_path = lambda: "cEigrpTopoEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + "[cEigrpAsNumber='" + self.ceigrpasnumber.get() + "']" + "[cEigrpDestNetType='" + self.ceigrpdestnettype.get() + "']" + "[cEigrpDestNet='" + self.ceigrpdestnet.get() + "']" + "[cEigrpDestNetPrefixLen='" + self.ceigrpdestnetprefixlen.get() + "']"
+                self.ylist_key_names = ['ceigrpvpnid','ceigrpasnumber','ceigrpdestnettype','ceigrpdestnet','ceigrpdestnetprefixlen']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceigrpvpnid', YLeaf(YType.str, 'cEigrpVpnId')),
+                    ('ceigrpasnumber', YLeaf(YType.str, 'cEigrpAsNumber')),
+                    ('ceigrpdestnettype', YLeaf(YType.enumeration, 'cEigrpDestNetType')),
+                    ('ceigrpdestnet', YLeaf(YType.str, 'cEigrpDestNet')),
+                    ('ceigrpdestnetprefixlen', YLeaf(YType.uint32, 'cEigrpDestNetPrefixLen')),
+                    ('ceigrpactive', YLeaf(YType.boolean, 'cEigrpActive')),
+                    ('ceigrpstuckinactive', YLeaf(YType.boolean, 'cEigrpStuckInActive')),
+                    ('ceigrpdestsuccessors', YLeaf(YType.uint32, 'cEigrpDestSuccessors')),
+                    ('ceigrpfdistance', YLeaf(YType.uint32, 'cEigrpFdistance')),
+                    ('ceigrprouteorigintype', YLeaf(YType.str, 'cEigrpRouteOriginType')),
+                    ('ceigrprouteoriginaddrtype', YLeaf(YType.enumeration, 'cEigrpRouteOriginAddrType')),
+                    ('ceigrprouteoriginaddr', YLeaf(YType.str, 'cEigrpRouteOriginAddr')),
+                    ('ceigrpnexthopaddresstype', YLeaf(YType.enumeration, 'cEigrpNextHopAddressType')),
+                    ('ceigrpnexthopaddress', YLeaf(YType.str, 'cEigrpNextHopAddress')),
+                    ('ceigrpnexthopinterface', YLeaf(YType.str, 'cEigrpNextHopInterface')),
+                    ('ceigrpdistance', YLeaf(YType.uint32, 'cEigrpDistance')),
+                    ('ceigrpreportdistance', YLeaf(YType.uint32, 'cEigrpReportDistance')),
+                ])
+                self.ceigrpvpnid = None
+                self.ceigrpasnumber = None
+                self.ceigrpdestnettype = None
+                self.ceigrpdestnet = None
+                self.ceigrpdestnetprefixlen = None
+                self.ceigrpactive = None
+                self.ceigrpstuckinactive = None
+                self.ceigrpdestsuccessors = None
+                self.ceigrpfdistance = None
+                self.ceigrprouteorigintype = None
+                self.ceigrprouteoriginaddrtype = None
+                self.ceigrprouteoriginaddr = None
+                self.ceigrpnexthopaddresstype = None
+                self.ceigrpnexthopaddress = None
+                self.ceigrpnexthopinterface = None
+                self.ceigrpdistance = None
+                self.ceigrpreportdistance = None
+                self._segment_path = lambda: "cEigrpTopoEntry" + "[cEigrpVpnId='" + str(self.ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + str(self.ceigrpasnumber) + "']" + "[cEigrpDestNetType='" + str(self.ceigrpdestnettype) + "']" + "[cEigrpDestNet='" + str(self.ceigrpdestnet) + "']" + "[cEigrpDestNetPrefixLen='" + str(self.ceigrpdestnetprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpTopoTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -723,8 +742,10 @@ class CISCOEIGRPMIB(Entity):
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cEigrpPeerEntry" : ("ceigrppeerentry", CISCOEIGRPMIB.Ceigrppeertable.Ceigrppeerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cEigrpPeerEntry", ("ceigrppeerentry", CISCOEIGRPMIB.Ceigrppeertable.Ceigrppeerentry))])
+            self._leafs = OrderedDict()
 
             self.ceigrppeerentry = YList(self)
             self._segment_path = lambda: "cEigrpPeerTable"
@@ -739,7 +760,7 @@ class CISCOEIGRPMIB(Entity):
             Statistics and operational parameters for a single peer
             in the AS.
             
-            .. attribute:: ceigrpvpnid  <key>
+            .. attribute:: ceigrpvpnid  (key)
             
             	
             	**type**\: int
@@ -748,7 +769,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
             
-            .. attribute:: ceigrpasnumber  <key>
+            .. attribute:: ceigrpasnumber  (key)
             
             	
             	**type**\: int
@@ -757,7 +778,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry>`
             
-            .. attribute:: ceigrphandle  <key>
+            .. attribute:: ceigrphandle  (key)
             
             	The unique internal identifier for the peer in the AS. This is a unique value among peer entries in a selected table
             	**type**\: int
@@ -862,39 +883,42 @@ class CISCOEIGRPMIB(Entity):
                 self.yang_parent_name = "cEigrpPeerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceigrpvpnid = YLeaf(YType.str, "cEigrpVpnId")
-
-                self.ceigrpasnumber = YLeaf(YType.str, "cEigrpAsNumber")
-
-                self.ceigrphandle = YLeaf(YType.uint32, "cEigrpHandle")
-
-                self.ceigrppeeraddrtype = YLeaf(YType.enumeration, "cEigrpPeerAddrType")
-
-                self.ceigrppeeraddr = YLeaf(YType.str, "cEigrpPeerAddr")
-
-                self.ceigrppeerifindex = YLeaf(YType.int32, "cEigrpPeerIfIndex")
-
-                self.ceigrpholdtime = YLeaf(YType.uint32, "cEigrpHoldTime")
-
-                self.ceigrpuptime = YLeaf(YType.str, "cEigrpUpTime")
-
-                self.ceigrpsrtt = YLeaf(YType.uint32, "cEigrpSrtt")
-
-                self.ceigrprto = YLeaf(YType.uint32, "cEigrpRto")
-
-                self.ceigrppktsenqueued = YLeaf(YType.uint32, "cEigrpPktsEnqueued")
-
-                self.ceigrplastseq = YLeaf(YType.uint32, "cEigrpLastSeq")
-
-                self.ceigrpversion = YLeaf(YType.str, "cEigrpVersion")
-
-                self.ceigrpretrans = YLeaf(YType.uint32, "cEigrpRetrans")
-
-                self.ceigrpretries = YLeaf(YType.uint32, "cEigrpRetries")
-                self._segment_path = lambda: "cEigrpPeerEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + "[cEigrpAsNumber='" + self.ceigrpasnumber.get() + "']" + "[cEigrpHandle='" + self.ceigrphandle.get() + "']"
+                self.ylist_key_names = ['ceigrpvpnid','ceigrpasnumber','ceigrphandle']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceigrpvpnid', YLeaf(YType.str, 'cEigrpVpnId')),
+                    ('ceigrpasnumber', YLeaf(YType.str, 'cEigrpAsNumber')),
+                    ('ceigrphandle', YLeaf(YType.uint32, 'cEigrpHandle')),
+                    ('ceigrppeeraddrtype', YLeaf(YType.enumeration, 'cEigrpPeerAddrType')),
+                    ('ceigrppeeraddr', YLeaf(YType.str, 'cEigrpPeerAddr')),
+                    ('ceigrppeerifindex', YLeaf(YType.int32, 'cEigrpPeerIfIndex')),
+                    ('ceigrpholdtime', YLeaf(YType.uint32, 'cEigrpHoldTime')),
+                    ('ceigrpuptime', YLeaf(YType.str, 'cEigrpUpTime')),
+                    ('ceigrpsrtt', YLeaf(YType.uint32, 'cEigrpSrtt')),
+                    ('ceigrprto', YLeaf(YType.uint32, 'cEigrpRto')),
+                    ('ceigrppktsenqueued', YLeaf(YType.uint32, 'cEigrpPktsEnqueued')),
+                    ('ceigrplastseq', YLeaf(YType.uint32, 'cEigrpLastSeq')),
+                    ('ceigrpversion', YLeaf(YType.str, 'cEigrpVersion')),
+                    ('ceigrpretrans', YLeaf(YType.uint32, 'cEigrpRetrans')),
+                    ('ceigrpretries', YLeaf(YType.uint32, 'cEigrpRetries')),
+                ])
+                self.ceigrpvpnid = None
+                self.ceigrpasnumber = None
+                self.ceigrphandle = None
+                self.ceigrppeeraddrtype = None
+                self.ceigrppeeraddr = None
+                self.ceigrppeerifindex = None
+                self.ceigrpholdtime = None
+                self.ceigrpuptime = None
+                self.ceigrpsrtt = None
+                self.ceigrprto = None
+                self.ceigrppktsenqueued = None
+                self.ceigrplastseq = None
+                self.ceigrpversion = None
+                self.ceigrpretrans = None
+                self.ceigrpretries = None
+                self._segment_path = lambda: "cEigrpPeerEntry" + "[cEigrpVpnId='" + str(self.ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + str(self.ceigrpasnumber) + "']" + "[cEigrpHandle='" + str(self.ceigrphandle) + "']"
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpPeerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -929,8 +953,10 @@ class CISCOEIGRPMIB(Entity):
             self.yang_parent_name = "CISCO-EIGRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cEigrpInterfaceEntry" : ("ceigrpinterfaceentry", CISCOEIGRPMIB.Ceigrpinterfacetable.Ceigrpinterfaceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cEigrpInterfaceEntry", ("ceigrpinterfaceentry", CISCOEIGRPMIB.Ceigrpinterfacetable.Ceigrpinterfaceentry))])
+            self._leafs = OrderedDict()
 
             self.ceigrpinterfaceentry = YList(self)
             self._segment_path = lambda: "cEigrpInterfaceTable"
@@ -945,7 +971,7 @@ class CISCOEIGRPMIB(Entity):
             Information for a single interface running EIGRP in the
             AS and VPN.
             
-            .. attribute:: ceigrpvpnid  <key>
+            .. attribute:: ceigrpvpnid  (key)
             
             	
             	**type**\: int
@@ -954,7 +980,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrpvpntable.Ceigrpvpnentry>`
             
-            .. attribute:: ceigrpasnumber  <key>
+            .. attribute:: ceigrpasnumber  (key)
             
             	
             	**type**\: int
@@ -963,7 +989,7 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.Ceigrptraffstatstable.Ceigrptraffstatsentry>`
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1139,57 +1165,60 @@ class CISCOEIGRPMIB(Entity):
                 self.yang_parent_name = "cEigrpInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceigrpvpnid = YLeaf(YType.str, "cEigrpVpnId")
-
-                self.ceigrpasnumber = YLeaf(YType.str, "cEigrpAsNumber")
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.ceigrppeercount = YLeaf(YType.uint32, "cEigrpPeerCount")
-
-                self.ceigrpxmitreliableq = YLeaf(YType.uint32, "cEigrpXmitReliableQ")
-
-                self.ceigrpxmitunreliableq = YLeaf(YType.uint32, "cEigrpXmitUnreliableQ")
-
-                self.ceigrpmeansrtt = YLeaf(YType.uint32, "cEigrpMeanSrtt")
-
-                self.ceigrppacingreliable = YLeaf(YType.uint32, "cEigrpPacingReliable")
-
-                self.ceigrppacingunreliable = YLeaf(YType.uint32, "cEigrpPacingUnreliable")
-
-                self.ceigrpmflowtimer = YLeaf(YType.uint32, "cEigrpMFlowTimer")
-
-                self.ceigrppendingroutes = YLeaf(YType.uint32, "cEigrpPendingRoutes")
-
-                self.ceigrphellointerval = YLeaf(YType.uint32, "cEigrpHelloInterval")
-
-                self.ceigrpxmitnextserial = YLeaf(YType.uint64, "cEigrpXmitNextSerial")
-
-                self.ceigrpumcasts = YLeaf(YType.uint32, "cEigrpUMcasts")
-
-                self.ceigrprmcasts = YLeaf(YType.uint32, "cEigrpRMcasts")
-
-                self.ceigrpuucasts = YLeaf(YType.uint32, "cEigrpUUcasts")
-
-                self.ceigrprucasts = YLeaf(YType.uint32, "cEigrpRUcasts")
-
-                self.ceigrpmcastexcepts = YLeaf(YType.uint32, "cEigrpMcastExcepts")
-
-                self.ceigrpcrpkts = YLeaf(YType.uint32, "cEigrpCRpkts")
-
-                self.ceigrpackssuppressed = YLeaf(YType.uint32, "cEigrpAcksSuppressed")
-
-                self.ceigrpretranssent = YLeaf(YType.uint32, "cEigrpRetransSent")
-
-                self.ceigrpoosrvcd = YLeaf(YType.uint32, "cEigrpOOSrvcd")
-
-                self.ceigrpauthmode = YLeaf(YType.enumeration, "cEigrpAuthMode")
-
-                self.ceigrpauthkeychain = YLeaf(YType.str, "cEigrpAuthKeyChain")
-                self._segment_path = lambda: "cEigrpInterfaceEntry" + "[cEigrpVpnId='" + self.ceigrpvpnid.get() + "']" + "[cEigrpAsNumber='" + self.ceigrpasnumber.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ceigrpvpnid','ceigrpasnumber','ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceigrpvpnid', YLeaf(YType.str, 'cEigrpVpnId')),
+                    ('ceigrpasnumber', YLeaf(YType.str, 'cEigrpAsNumber')),
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('ceigrppeercount', YLeaf(YType.uint32, 'cEigrpPeerCount')),
+                    ('ceigrpxmitreliableq', YLeaf(YType.uint32, 'cEigrpXmitReliableQ')),
+                    ('ceigrpxmitunreliableq', YLeaf(YType.uint32, 'cEigrpXmitUnreliableQ')),
+                    ('ceigrpmeansrtt', YLeaf(YType.uint32, 'cEigrpMeanSrtt')),
+                    ('ceigrppacingreliable', YLeaf(YType.uint32, 'cEigrpPacingReliable')),
+                    ('ceigrppacingunreliable', YLeaf(YType.uint32, 'cEigrpPacingUnreliable')),
+                    ('ceigrpmflowtimer', YLeaf(YType.uint32, 'cEigrpMFlowTimer')),
+                    ('ceigrppendingroutes', YLeaf(YType.uint32, 'cEigrpPendingRoutes')),
+                    ('ceigrphellointerval', YLeaf(YType.uint32, 'cEigrpHelloInterval')),
+                    ('ceigrpxmitnextserial', YLeaf(YType.uint64, 'cEigrpXmitNextSerial')),
+                    ('ceigrpumcasts', YLeaf(YType.uint32, 'cEigrpUMcasts')),
+                    ('ceigrprmcasts', YLeaf(YType.uint32, 'cEigrpRMcasts')),
+                    ('ceigrpuucasts', YLeaf(YType.uint32, 'cEigrpUUcasts')),
+                    ('ceigrprucasts', YLeaf(YType.uint32, 'cEigrpRUcasts')),
+                    ('ceigrpmcastexcepts', YLeaf(YType.uint32, 'cEigrpMcastExcepts')),
+                    ('ceigrpcrpkts', YLeaf(YType.uint32, 'cEigrpCRpkts')),
+                    ('ceigrpackssuppressed', YLeaf(YType.uint32, 'cEigrpAcksSuppressed')),
+                    ('ceigrpretranssent', YLeaf(YType.uint32, 'cEigrpRetransSent')),
+                    ('ceigrpoosrvcd', YLeaf(YType.uint32, 'cEigrpOOSrvcd')),
+                    ('ceigrpauthmode', YLeaf(YType.enumeration, 'cEigrpAuthMode')),
+                    ('ceigrpauthkeychain', YLeaf(YType.str, 'cEigrpAuthKeyChain')),
+                ])
+                self.ceigrpvpnid = None
+                self.ceigrpasnumber = None
+                self.ifindex = None
+                self.ceigrppeercount = None
+                self.ceigrpxmitreliableq = None
+                self.ceigrpxmitunreliableq = None
+                self.ceigrpmeansrtt = None
+                self.ceigrppacingreliable = None
+                self.ceigrppacingunreliable = None
+                self.ceigrpmflowtimer = None
+                self.ceigrppendingroutes = None
+                self.ceigrphellointerval = None
+                self.ceigrpxmitnextserial = None
+                self.ceigrpumcasts = None
+                self.ceigrprmcasts = None
+                self.ceigrpuucasts = None
+                self.ceigrprucasts = None
+                self.ceigrpmcastexcepts = None
+                self.ceigrpcrpkts = None
+                self.ceigrpackssuppressed = None
+                self.ceigrpretranssent = None
+                self.ceigrpoosrvcd = None
+                self.ceigrpauthmode = None
+                self.ceigrpauthkeychain = None
+                self._segment_path = lambda: "cEigrpInterfaceEntry" + "[cEigrpVpnId='" + str(self.ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + str(self.ceigrpasnumber) + "']" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB/cEigrpInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1197,7 +1226,7 @@ class CISCOEIGRPMIB(Entity):
 
             class Ceigrpauthmode(Enum):
                 """
-                Ceigrpauthmode
+                Ceigrpauthmode (Enum Class)
 
                 The EIGRP authentication mode of the interface.
 

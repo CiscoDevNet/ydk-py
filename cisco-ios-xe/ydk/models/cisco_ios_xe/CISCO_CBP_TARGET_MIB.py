@@ -6,9 +6,11 @@ mappings.  A target can be any logical interface
 to which a class\-based policy is able to be associated.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class CISCOCBPTARGETMIB(Entity):
         self.yang_parent_name = "CISCO-CBP-TARGET-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ccbptTargetAttachCfg" : ("ccbpttargetattachcfg", CISCOCBPTARGETMIB.Ccbpttargetattachcfg), "ccbptTargetTable" : ("ccbpttargettable", CISCOCBPTARGETMIB.Ccbpttargettable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ccbptTargetAttachCfg", ("ccbpttargetattachcfg", CISCOCBPTARGETMIB.Ccbpttargetattachcfg)), ("ccbptTargetTable", ("ccbpttargettable", CISCOCBPTARGETMIB.Ccbpttargettable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ccbpttargetattachcfg = CISCOCBPTARGETMIB.Ccbpttargetattachcfg()
         self.ccbpttargetattachcfg.parent = self
@@ -89,12 +93,15 @@ class CISCOCBPTARGETMIB(Entity):
             self.yang_parent_name = "CISCO-CBP-TARGET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ccbptpolicyidnext = YLeaf(YType.uint32, "ccbptPolicyIdNext")
-
-            self.ccbpttargettablelastchange = YLeaf(YType.uint32, "ccbptTargetTableLastChange")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ccbptpolicyidnext', YLeaf(YType.uint32, 'ccbptPolicyIdNext')),
+                ('ccbpttargettablelastchange', YLeaf(YType.uint32, 'ccbptTargetTableLastChange')),
+            ])
+            self.ccbptpolicyidnext = None
+            self.ccbpttargettablelastchange = None
             self._segment_path = lambda: "ccbptTargetAttachCfg"
             self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/%s" % self._segment_path()
 
@@ -126,8 +133,10 @@ class CISCOCBPTARGETMIB(Entity):
             self.yang_parent_name = "CISCO-CBP-TARGET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ccbptTargetEntry" : ("ccbpttargetentry", CISCOCBPTARGETMIB.Ccbpttargettable.Ccbpttargetentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ccbptTargetEntry", ("ccbpttargetentry", CISCOCBPTARGETMIB.Ccbpttargettable.Ccbpttargetentry))])
+            self._leafs = OrderedDict()
 
             self.ccbpttargetentry = YList(self)
             self._segment_path = lambda: "ccbptTargetTable"
@@ -172,29 +181,29 @@ class CISCOCBPTARGETMIB(Entity):
             within the scope of the target type, identifier, direction,
             and policy\-source type.
             
-            .. attribute:: ccbpttargettype  <key>
+            .. attribute:: ccbpttargettype  (key)
             
             	The type of target for this class\-based policy attachment. This object identifies the format of the ccbptTargetId for this entry
             	**type**\:  :py:class:`CcbptTargetType <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB.CcbptTargetType>`
             
-            .. attribute:: ccbpttargetid  <key>
+            .. attribute:: ccbpttargetid  (key)
             
             	The target identifier for this class\-based policy attachment. For decoding the ccbptTargetId refer to the ccbptTargetType object and the CcbptTargetType description
             	**type**\: str
             
             	**length:** 0..64
             
-            .. attribute:: ccbpttargetdir  <key>
+            .. attribute:: ccbpttargetdir  (key)
             
             	The direction relative to the ccbptTargetId for this class based policy attachment.  
             	**type**\:  :py:class:`CcbptTargetDirection <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB.CcbptTargetDirection>`
             
-            .. attribute:: ccbptpolicysourcetype  <key>
+            .. attribute:: ccbptpolicysourcetype  (key)
             
             	The source\-type of the class\-based policy for this target. The source\-type refers to the source of the class\-based policy definition.  The intent of this object is to allow implementations to distinguish between different MIBs defining policy\-maps. 
             	**type**\:  :py:class:`CcbptPolicySourceType <ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB.CcbptPolicySourceType>`
             
-            .. attribute:: ccbptpolicyid  <key>
+            .. attribute:: ccbptpolicyid  (key)
             
             	Unique identifier of this class\-based policy instance
             	**type**\: int
@@ -246,29 +255,32 @@ class CISCOCBPTARGETMIB(Entity):
                 self.yang_parent_name = "ccbptTargetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ccbpttargettype = YLeaf(YType.enumeration, "ccbptTargetType")
-
-                self.ccbpttargetid = YLeaf(YType.str, "ccbptTargetId")
-
-                self.ccbpttargetdir = YLeaf(YType.enumeration, "ccbptTargetDir")
-
-                self.ccbptpolicysourcetype = YLeaf(YType.enumeration, "ccbptPolicySourceType")
-
-                self.ccbptpolicyid = YLeaf(YType.uint32, "ccbptPolicyId")
-
-                self.ccbpttargetstatus = YLeaf(YType.enumeration, "ccbptTargetStatus")
-
-                self.ccbpttargetstoragetype = YLeaf(YType.enumeration, "ccbptTargetStorageType")
-
-                self.ccbptpolicymap = YLeaf(YType.str, "ccbptPolicyMap")
-
-                self.ccbptpolicyinstance = YLeaf(YType.str, "ccbptPolicyInstance")
-
-                self.ccbptpolicyattachtime = YLeaf(YType.uint32, "ccbptPolicyAttachTime")
-                self._segment_path = lambda: "ccbptTargetEntry" + "[ccbptTargetType='" + self.ccbpttargettype.get() + "']" + "[ccbptTargetId='" + self.ccbpttargetid.get() + "']" + "[ccbptTargetDir='" + self.ccbpttargetdir.get() + "']" + "[ccbptPolicySourceType='" + self.ccbptpolicysourcetype.get() + "']" + "[ccbptPolicyId='" + self.ccbptpolicyid.get() + "']"
+                self.ylist_key_names = ['ccbpttargettype','ccbpttargetid','ccbpttargetdir','ccbptpolicysourcetype','ccbptpolicyid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ccbpttargettype', YLeaf(YType.enumeration, 'ccbptTargetType')),
+                    ('ccbpttargetid', YLeaf(YType.str, 'ccbptTargetId')),
+                    ('ccbpttargetdir', YLeaf(YType.enumeration, 'ccbptTargetDir')),
+                    ('ccbptpolicysourcetype', YLeaf(YType.enumeration, 'ccbptPolicySourceType')),
+                    ('ccbptpolicyid', YLeaf(YType.uint32, 'ccbptPolicyId')),
+                    ('ccbpttargetstatus', YLeaf(YType.enumeration, 'ccbptTargetStatus')),
+                    ('ccbpttargetstoragetype', YLeaf(YType.enumeration, 'ccbptTargetStorageType')),
+                    ('ccbptpolicymap', YLeaf(YType.str, 'ccbptPolicyMap')),
+                    ('ccbptpolicyinstance', YLeaf(YType.str, 'ccbptPolicyInstance')),
+                    ('ccbptpolicyattachtime', YLeaf(YType.uint32, 'ccbptPolicyAttachTime')),
+                ])
+                self.ccbpttargettype = None
+                self.ccbpttargetid = None
+                self.ccbpttargetdir = None
+                self.ccbptpolicysourcetype = None
+                self.ccbptpolicyid = None
+                self.ccbpttargetstatus = None
+                self.ccbpttargetstoragetype = None
+                self.ccbptpolicymap = None
+                self.ccbptpolicyinstance = None
+                self.ccbptpolicyattachtime = None
+                self._segment_path = lambda: "ccbptTargetEntry" + "[ccbptTargetType='" + str(self.ccbpttargettype) + "']" + "[ccbptTargetId='" + str(self.ccbpttargetid) + "']" + "[ccbptTargetDir='" + str(self.ccbpttargetdir) + "']" + "[ccbptPolicySourceType='" + str(self.ccbptpolicysourcetype) + "']" + "[ccbptPolicyId='" + str(self.ccbptpolicyid) + "']"
                 self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/ccbptTargetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

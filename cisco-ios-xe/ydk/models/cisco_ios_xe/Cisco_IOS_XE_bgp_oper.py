@@ -6,15 +6,17 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class BgpFsmState(Enum):
     """
-    BgpFsmState
+    BgpFsmState (Enum Class)
 
     BGP FSM State
 
@@ -65,7 +67,7 @@ class BgpFsmState(Enum):
 
 class BgpLink(Enum):
     """
-    BgpLink
+    BgpLink (Enum Class)
 
     Operational state relevent to bgp global neighbor
 
@@ -86,7 +88,7 @@ class BgpLink(Enum):
 
 class BgpMode(Enum):
     """
-    BgpMode
+    BgpMode (Enum Class)
 
     BGP mode
 
@@ -135,7 +137,7 @@ class BgpStateData(Entity):
     """
 
     _prefix = 'bgp-ios-xe-oper'
-    _revision = '2017-05-12'
+    _revision = '2017-09-25'
 
     def __init__(self):
         super(BgpStateData, self).__init__()
@@ -145,8 +147,10 @@ class BgpStateData(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-bgp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"neighbors" : ("neighbors", BgpStateData.Neighbors), "address-families" : ("address_families", BgpStateData.AddressFamilies), "bgp-route-vrfs" : ("bgp_route_vrfs", BgpStateData.BgpRouteVrfs), "bgp-route-rds" : ("bgp_route_rds", BgpStateData.BgpRouteRds)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("neighbors", ("neighbors", BgpStateData.Neighbors)), ("address-families", ("address_families", BgpStateData.AddressFamilies)), ("bgp-route-vrfs", ("bgp_route_vrfs", BgpStateData.BgpRouteVrfs)), ("bgp-route-rds", ("bgp_route_rds", BgpStateData.BgpRouteRds))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.neighbors = BgpStateData.Neighbors()
         self.neighbors.parent = self
@@ -184,7 +188,7 @@ class BgpStateData(Entity):
         """
 
         _prefix = 'bgp-ios-xe-oper'
-        _revision = '2017-05-12'
+        _revision = '2017-09-25'
 
         def __init__(self):
             super(BgpStateData.Neighbors, self).__init__()
@@ -193,8 +197,10 @@ class BgpStateData(Entity):
             self.yang_parent_name = "bgp-state-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"neighbor" : ("neighbor", BgpStateData.Neighbors.Neighbor)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", BgpStateData.Neighbors.Neighbor))])
+            self._leafs = OrderedDict()
 
             self.neighbor = YList(self)
             self._segment_path = lambda: "neighbors"
@@ -208,17 +214,17 @@ class BgpStateData(Entity):
             """
             List of BGP neighbors
             
-            .. attribute:: afi_safi  <key>
+            .. attribute:: afi_safi  (key)
             
             	Afi\-safi key
             	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	VRF name
             	**type**\: str
             
-            .. attribute:: neighbor_id  <key>
+            .. attribute:: neighbor_id  (key)
             
             	Neighbor identifier
             	**type**\: str
@@ -297,12 +303,19 @@ class BgpStateData(Entity):
             	BGP neighbor activity
             	**type**\:  :py:class:`PrefixActivity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity>`
             
+            .. attribute:: as_
+            
+            	BGP neighbor AS number
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             
 
             """
 
             _prefix = 'bgp-ios-xe-oper'
-            _revision = '2017-05-12'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(BgpStateData.Neighbors.Neighbor, self).__init__()
@@ -311,32 +324,37 @@ class BgpStateData(Entity):
                 self.yang_parent_name = "neighbors"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"negotiated-keepalive-timers" : ("negotiated_keepalive_timers", BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers), "bgp-neighbor-counters" : ("bgp_neighbor_counters", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters), "connection" : ("connection", BgpStateData.Neighbors.Neighbor.Connection), "transport" : ("transport", BgpStateData.Neighbors.Neighbor.Transport), "prefix-activity" : ("prefix_activity", BgpStateData.Neighbors.Neighbor.PrefixActivity)}
-                self._child_list_classes = {}
-
-                self.afi_safi = YLeaf(YType.enumeration, "afi-safi")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.neighbor_id = YLeaf(YType.str, "neighbor-id")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.bgp_version = YLeaf(YType.uint16, "bgp-version")
-
-                self.link = YLeaf(YType.enumeration, "link")
-
-                self.up_time = YLeaf(YType.str, "up-time")
-
-                self.last_write = YLeaf(YType.str, "last-write")
-
-                self.last_read = YLeaf(YType.str, "last-read")
-
-                self.installed_prefixes = YLeaf(YType.uint32, "installed-prefixes")
-
-                self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                self.negotiated_cap = YLeafList(YType.str, "negotiated-cap")
+                self.ylist_key_names = ['afi_safi','vrf_name','neighbor_id']
+                self._child_container_classes = OrderedDict([("negotiated-keepalive-timers", ("negotiated_keepalive_timers", BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers)), ("bgp-neighbor-counters", ("bgp_neighbor_counters", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters)), ("connection", ("connection", BgpStateData.Neighbors.Neighbor.Connection)), ("transport", ("transport", BgpStateData.Neighbors.Neighbor.Transport)), ("prefix-activity", ("prefix_activity", BgpStateData.Neighbors.Neighbor.PrefixActivity))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('afi_safi', YLeaf(YType.enumeration, 'afi-safi')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
+                    ('description', YLeaf(YType.str, 'description')),
+                    ('bgp_version', YLeaf(YType.uint16, 'bgp-version')),
+                    ('link', YLeaf(YType.enumeration, 'link')),
+                    ('up_time', YLeaf(YType.str, 'up-time')),
+                    ('last_write', YLeaf(YType.str, 'last-write')),
+                    ('last_read', YLeaf(YType.str, 'last-read')),
+                    ('installed_prefixes', YLeaf(YType.uint32, 'installed-prefixes')),
+                    ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                    ('negotiated_cap', YLeafList(YType.str, 'negotiated-cap')),
+                    ('as_', YLeaf(YType.uint32, 'as')),
+                ])
+                self.afi_safi = None
+                self.vrf_name = None
+                self.neighbor_id = None
+                self.description = None
+                self.bgp_version = None
+                self.link = None
+                self.up_time = None
+                self.last_write = None
+                self.last_read = None
+                self.installed_prefixes = None
+                self.session_state = None
+                self.negotiated_cap = []
+                self.as_ = None
 
                 self.negotiated_keepalive_timers = BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers()
                 self.negotiated_keepalive_timers.parent = self
@@ -362,11 +380,11 @@ class BgpStateData(Entity):
                 self.prefix_activity.parent = self
                 self._children_name_map["prefix_activity"] = "prefix-activity"
                 self._children_yang_names.add("prefix-activity")
-                self._segment_path = lambda: "neighbor" + "[afi-safi='" + self.afi_safi.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']" + "[neighbor-id='" + self.neighbor_id.get() + "']"
+                self._segment_path = lambda: "neighbor" + "[afi-safi='" + str(self.afi_safi) + "']" + "[vrf-name='" + str(self.vrf_name) + "']" + "[neighbor-id='" + str(self.neighbor_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BgpStateData.Neighbors.Neighbor, ['afi_safi', 'vrf_name', 'neighbor_id', 'description', 'bgp_version', 'link', 'up_time', 'last_write', 'last_read', 'installed_prefixes', 'session_state', 'negotiated_cap'], name, value)
+                self._perform_setattr(BgpStateData.Neighbors.Neighbor, ['afi_safi', 'vrf_name', 'neighbor_id', 'description', 'bgp_version', 'link', 'up_time', 'last_write', 'last_read', 'installed_prefixes', 'session_state', 'negotiated_cap', 'as_'], name, value)
 
 
             class NegotiatedKeepaliveTimers(Entity):
@@ -392,7 +410,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers, self).__init__()
@@ -401,12 +419,15 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.hold_time = YLeaf(YType.uint16, "hold-time")
-
-                    self.keepalive_interval = YLeaf(YType.uint16, "keepalive-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('hold_time', YLeaf(YType.uint16, 'hold-time')),
+                        ('keepalive_interval', YLeaf(YType.uint16, 'keepalive-interval')),
+                    ])
+                    self.hold_time = None
+                    self.keepalive_interval = None
                     self._segment_path = lambda: "negotiated-keepalive-timers"
 
                 def __setattr__(self, name, value):
@@ -446,7 +467,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.BgpNeighborCounters, self).__init__()
@@ -455,12 +476,15 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"sent" : ("sent", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent), "received" : ("received", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received)}
-                    self._child_list_classes = {}
-
-                    self.inq_depth = YLeaf(YType.uint32, "inq-depth")
-
-                    self.outq_depth = YLeaf(YType.uint32, "outq-depth")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("sent", ("sent", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent)), ("received", ("received", BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('inq_depth', YLeaf(YType.uint32, 'inq-depth')),
+                        ('outq_depth', YLeaf(YType.uint32, 'outq-depth')),
+                    ])
+                    self.inq_depth = None
+                    self.outq_depth = None
 
                     self.sent = BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent()
                     self.sent.parent = self
@@ -521,7 +545,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-05-12'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent, self).__init__()
@@ -530,18 +554,21 @@ class BgpStateData(Entity):
                         self.yang_parent_name = "bgp-neighbor-counters"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.opens = YLeaf(YType.uint32, "opens")
-
-                        self.updates = YLeaf(YType.uint32, "updates")
-
-                        self.notifications = YLeaf(YType.uint32, "notifications")
-
-                        self.keepalives = YLeaf(YType.uint32, "keepalives")
-
-                        self.route_refreshes = YLeaf(YType.uint32, "route-refreshes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('opens', YLeaf(YType.uint32, 'opens')),
+                            ('updates', YLeaf(YType.uint32, 'updates')),
+                            ('notifications', YLeaf(YType.uint32, 'notifications')),
+                            ('keepalives', YLeaf(YType.uint32, 'keepalives')),
+                            ('route_refreshes', YLeaf(YType.uint32, 'route-refreshes')),
+                        ])
+                        self.opens = None
+                        self.updates = None
+                        self.notifications = None
+                        self.keepalives = None
+                        self.route_refreshes = None
                         self._segment_path = lambda: "sent"
 
                     def __setattr__(self, name, value):
@@ -592,7 +619,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-05-12'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received, self).__init__()
@@ -601,18 +628,21 @@ class BgpStateData(Entity):
                         self.yang_parent_name = "bgp-neighbor-counters"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.opens = YLeaf(YType.uint32, "opens")
-
-                        self.updates = YLeaf(YType.uint32, "updates")
-
-                        self.notifications = YLeaf(YType.uint32, "notifications")
-
-                        self.keepalives = YLeaf(YType.uint32, "keepalives")
-
-                        self.route_refreshes = YLeaf(YType.uint32, "route-refreshes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('opens', YLeaf(YType.uint32, 'opens')),
+                            ('updates', YLeaf(YType.uint32, 'updates')),
+                            ('notifications', YLeaf(YType.uint32, 'notifications')),
+                            ('keepalives', YLeaf(YType.uint32, 'keepalives')),
+                            ('route_refreshes', YLeaf(YType.uint32, 'route-refreshes')),
+                        ])
+                        self.opens = None
+                        self.updates = None
+                        self.notifications = None
+                        self.keepalives = None
+                        self.route_refreshes = None
                         self._segment_path = lambda: "received"
 
                     def __setattr__(self, name, value):
@@ -662,7 +692,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.Connection, self).__init__()
@@ -671,20 +701,23 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.state = YLeaf(YType.enumeration, "state")
-
-                    self.mode = YLeaf(YType.enumeration, "mode")
-
-                    self.total_established = YLeaf(YType.uint32, "total-established")
-
-                    self.total_dropped = YLeaf(YType.uint32, "total-dropped")
-
-                    self.last_reset = YLeaf(YType.str, "last-reset")
-
-                    self.reset_reason = YLeaf(YType.str, "reset-reason")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('state', YLeaf(YType.enumeration, 'state')),
+                        ('mode', YLeaf(YType.enumeration, 'mode')),
+                        ('total_established', YLeaf(YType.uint32, 'total-established')),
+                        ('total_dropped', YLeaf(YType.uint32, 'total-dropped')),
+                        ('last_reset', YLeaf(YType.str, 'last-reset')),
+                        ('reset_reason', YLeaf(YType.str, 'reset-reason')),
+                    ])
+                    self.state = None
+                    self.mode = None
+                    self.total_established = None
+                    self.total_dropped = None
+                    self.last_reset = None
+                    self.reset_reason = None
                     self._segment_path = lambda: "connection"
 
                 def __setattr__(self, name, value):
@@ -752,7 +785,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.Transport, self).__init__()
@@ -761,20 +794,23 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.path_mtu_discovery = YLeaf(YType.boolean, "path-mtu-discovery")
-
-                    self.local_port = YLeaf(YType.uint32, "local-port")
-
-                    self.local_host = YLeaf(YType.str, "local-host")
-
-                    self.foreign_port = YLeaf(YType.uint32, "foreign-port")
-
-                    self.foreign_host = YLeaf(YType.str, "foreign-host")
-
-                    self.mss = YLeaf(YType.uint32, "mss")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('path_mtu_discovery', YLeaf(YType.boolean, 'path-mtu-discovery')),
+                        ('local_port', YLeaf(YType.uint32, 'local-port')),
+                        ('local_host', YLeaf(YType.str, 'local-host')),
+                        ('foreign_port', YLeaf(YType.uint32, 'foreign-port')),
+                        ('foreign_host', YLeaf(YType.str, 'foreign-host')),
+                        ('mss', YLeaf(YType.uint32, 'mss')),
+                    ])
+                    self.path_mtu_discovery = None
+                    self.local_port = None
+                    self.local_host = None
+                    self.foreign_port = None
+                    self.foreign_host = None
+                    self.mss = None
                     self._segment_path = lambda: "transport"
 
                 def __setattr__(self, name, value):
@@ -800,7 +836,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.Neighbors.Neighbor.PrefixActivity, self).__init__()
@@ -809,8 +845,10 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"sent" : ("sent", BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent), "received" : ("received", BgpStateData.Neighbors.Neighbor.PrefixActivity.Received)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("sent", ("sent", BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent)), ("received", ("received", BgpStateData.Neighbors.Neighbor.PrefixActivity.Received))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.sent = BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent()
                     self.sent.parent = self
@@ -875,7 +913,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-05-12'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent, self).__init__()
@@ -884,20 +922,23 @@ class BgpStateData(Entity):
                         self.yang_parent_name = "prefix-activity"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.current_prefixes = YLeaf(YType.uint64, "current-prefixes")
-
-                        self.total_prefixes = YLeaf(YType.uint64, "total-prefixes")
-
-                        self.implicit_withdraw = YLeaf(YType.uint64, "implicit-withdraw")
-
-                        self.explicit_withdraw = YLeaf(YType.uint64, "explicit-withdraw")
-
-                        self.bestpaths = YLeaf(YType.uint64, "bestpaths")
-
-                        self.multipaths = YLeaf(YType.uint64, "multipaths")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('current_prefixes', YLeaf(YType.uint64, 'current-prefixes')),
+                            ('total_prefixes', YLeaf(YType.uint64, 'total-prefixes')),
+                            ('implicit_withdraw', YLeaf(YType.uint64, 'implicit-withdraw')),
+                            ('explicit_withdraw', YLeaf(YType.uint64, 'explicit-withdraw')),
+                            ('bestpaths', YLeaf(YType.uint64, 'bestpaths')),
+                            ('multipaths', YLeaf(YType.uint64, 'multipaths')),
+                        ])
+                        self.current_prefixes = None
+                        self.total_prefixes = None
+                        self.implicit_withdraw = None
+                        self.explicit_withdraw = None
+                        self.bestpaths = None
+                        self.multipaths = None
                         self._segment_path = lambda: "sent"
 
                     def __setattr__(self, name, value):
@@ -955,7 +996,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-05-12'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(BgpStateData.Neighbors.Neighbor.PrefixActivity.Received, self).__init__()
@@ -964,20 +1005,23 @@ class BgpStateData(Entity):
                         self.yang_parent_name = "prefix-activity"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.current_prefixes = YLeaf(YType.uint64, "current-prefixes")
-
-                        self.total_prefixes = YLeaf(YType.uint64, "total-prefixes")
-
-                        self.implicit_withdraw = YLeaf(YType.uint64, "implicit-withdraw")
-
-                        self.explicit_withdraw = YLeaf(YType.uint64, "explicit-withdraw")
-
-                        self.bestpaths = YLeaf(YType.uint64, "bestpaths")
-
-                        self.multipaths = YLeaf(YType.uint64, "multipaths")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('current_prefixes', YLeaf(YType.uint64, 'current-prefixes')),
+                            ('total_prefixes', YLeaf(YType.uint64, 'total-prefixes')),
+                            ('implicit_withdraw', YLeaf(YType.uint64, 'implicit-withdraw')),
+                            ('explicit_withdraw', YLeaf(YType.uint64, 'explicit-withdraw')),
+                            ('bestpaths', YLeaf(YType.uint64, 'bestpaths')),
+                            ('multipaths', YLeaf(YType.uint64, 'multipaths')),
+                        ])
+                        self.current_prefixes = None
+                        self.total_prefixes = None
+                        self.implicit_withdraw = None
+                        self.explicit_withdraw = None
+                        self.bestpaths = None
+                        self.multipaths = None
                         self._segment_path = lambda: "received"
 
                     def __setattr__(self, name, value):
@@ -998,7 +1042,7 @@ class BgpStateData(Entity):
         """
 
         _prefix = 'bgp-ios-xe-oper'
-        _revision = '2017-05-12'
+        _revision = '2017-09-25'
 
         def __init__(self):
             super(BgpStateData.AddressFamilies, self).__init__()
@@ -1007,8 +1051,10 @@ class BgpStateData(Entity):
             self.yang_parent_name = "bgp-state-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"address-family" : ("address_family", BgpStateData.AddressFamilies.AddressFamily)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("address-family", ("address_family", BgpStateData.AddressFamilies.AddressFamily))])
+            self._leafs = OrderedDict()
 
             self.address_family = YList(self)
             self._segment_path = lambda: "address-families"
@@ -1022,12 +1068,12 @@ class BgpStateData(Entity):
             """
             List of BGP address families
             
-            .. attribute:: afi_safi  <key>
+            .. attribute:: afi_safi  (key)
             
             	Afi\-safi value
             	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	VRF name
             	**type**\: str
@@ -1101,12 +1147,19 @@ class BgpStateData(Entity):
             	Neighbor summary
             	**type**\:  :py:class:`BgpNeighborSummaries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries>`
             
+            .. attribute:: local_as
+            
+            	Local AS number
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             
 
             """
 
             _prefix = 'bgp-ios-xe-oper'
-            _revision = '2017-05-12'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(BgpStateData.AddressFamilies.AddressFamily, self).__init__()
@@ -1115,20 +1168,25 @@ class BgpStateData(Entity):
                 self.yang_parent_name = "address-families"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"prefixes" : ("prefixes", BgpStateData.AddressFamilies.AddressFamily.Prefixes), "path" : ("path", BgpStateData.AddressFamilies.AddressFamily.Path), "as-path" : ("as_path", BgpStateData.AddressFamilies.AddressFamily.AsPath), "route-map" : ("route_map", BgpStateData.AddressFamilies.AddressFamily.RouteMap), "filter-list" : ("filter_list", BgpStateData.AddressFamilies.AddressFamily.FilterList), "activities" : ("activities", BgpStateData.AddressFamilies.AddressFamily.Activities), "bgp-neighbor-summaries" : ("bgp_neighbor_summaries", BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries)}
-                self._child_list_classes = {}
-
-                self.afi_safi = YLeaf(YType.enumeration, "afi-safi")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.router_id = YLeaf(YType.str, "router-id")
-
-                self.bgp_table_version = YLeaf(YType.uint64, "bgp-table-version")
-
-                self.routing_table_version = YLeaf(YType.uint64, "routing-table-version")
-
-                self.total_memory = YLeaf(YType.uint64, "total-memory")
+                self.ylist_key_names = ['afi_safi','vrf_name']
+                self._child_container_classes = OrderedDict([("prefixes", ("prefixes", BgpStateData.AddressFamilies.AddressFamily.Prefixes)), ("path", ("path", BgpStateData.AddressFamilies.AddressFamily.Path)), ("as-path", ("as_path", BgpStateData.AddressFamilies.AddressFamily.AsPath)), ("route-map", ("route_map", BgpStateData.AddressFamilies.AddressFamily.RouteMap)), ("filter-list", ("filter_list", BgpStateData.AddressFamilies.AddressFamily.FilterList)), ("activities", ("activities", BgpStateData.AddressFamilies.AddressFamily.Activities)), ("bgp-neighbor-summaries", ("bgp_neighbor_summaries", BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('afi_safi', YLeaf(YType.enumeration, 'afi-safi')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('router_id', YLeaf(YType.str, 'router-id')),
+                    ('bgp_table_version', YLeaf(YType.uint64, 'bgp-table-version')),
+                    ('routing_table_version', YLeaf(YType.uint64, 'routing-table-version')),
+                    ('total_memory', YLeaf(YType.uint64, 'total-memory')),
+                    ('local_as', YLeaf(YType.uint32, 'local-as')),
+                ])
+                self.afi_safi = None
+                self.vrf_name = None
+                self.router_id = None
+                self.bgp_table_version = None
+                self.routing_table_version = None
+                self.total_memory = None
+                self.local_as = None
 
                 self.prefixes = BgpStateData.AddressFamilies.AddressFamily.Prefixes()
                 self.prefixes.parent = self
@@ -1164,11 +1222,11 @@ class BgpStateData(Entity):
                 self.bgp_neighbor_summaries.parent = self
                 self._children_name_map["bgp_neighbor_summaries"] = "bgp-neighbor-summaries"
                 self._children_yang_names.add("bgp-neighbor-summaries")
-                self._segment_path = lambda: "address-family" + "[afi-safi='" + self.afi_safi.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._segment_path = lambda: "address-family" + "[afi-safi='" + str(self.afi_safi) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily, ['afi_safi', 'vrf_name', 'router_id', 'bgp_table_version', 'routing_table_version', 'total_memory'], name, value)
+                self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily, ['afi_safi', 'vrf_name', 'router_id', 'bgp_table_version', 'routing_table_version', 'total_memory', 'local_as'], name, value)
 
 
             class Prefixes(Entity):
@@ -1194,7 +1252,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.Prefixes, self).__init__()
@@ -1203,12 +1261,15 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "address-family"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.total_entries = YLeaf(YType.uint64, "total-entries")
-
-                    self.memory_usage = YLeaf(YType.uint64, "memory-usage")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('total_entries', YLeaf(YType.uint64, 'total-entries')),
+                        ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
+                    ])
+                    self.total_entries = None
+                    self.memory_usage = None
                     self._segment_path = lambda: "prefixes"
 
                 def __setattr__(self, name, value):
@@ -1238,7 +1299,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.Path, self).__init__()
@@ -1247,12 +1308,15 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "address-family"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.total_entries = YLeaf(YType.uint64, "total-entries")
-
-                    self.memory_usage = YLeaf(YType.uint64, "memory-usage")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('total_entries', YLeaf(YType.uint64, 'total-entries')),
+                        ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
+                    ])
+                    self.total_entries = None
+                    self.memory_usage = None
                     self._segment_path = lambda: "path"
 
                 def __setattr__(self, name, value):
@@ -1282,7 +1346,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.AsPath, self).__init__()
@@ -1291,12 +1355,15 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "address-family"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.total_entries = YLeaf(YType.uint64, "total-entries")
-
-                    self.memory_usage = YLeaf(YType.uint64, "memory-usage")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('total_entries', YLeaf(YType.uint64, 'total-entries')),
+                        ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
+                    ])
+                    self.total_entries = None
+                    self.memory_usage = None
                     self._segment_path = lambda: "as-path"
 
                 def __setattr__(self, name, value):
@@ -1326,7 +1393,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.RouteMap, self).__init__()
@@ -1335,12 +1402,15 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "address-family"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.total_entries = YLeaf(YType.uint64, "total-entries")
-
-                    self.memory_usage = YLeaf(YType.uint64, "memory-usage")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('total_entries', YLeaf(YType.uint64, 'total-entries')),
+                        ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
+                    ])
+                    self.total_entries = None
+                    self.memory_usage = None
                     self._segment_path = lambda: "route-map"
 
                 def __setattr__(self, name, value):
@@ -1370,7 +1440,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.FilterList, self).__init__()
@@ -1379,12 +1449,15 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "address-family"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.total_entries = YLeaf(YType.uint64, "total-entries")
-
-                    self.memory_usage = YLeaf(YType.uint64, "memory-usage")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('total_entries', YLeaf(YType.uint64, 'total-entries')),
+                        ('memory_usage', YLeaf(YType.uint64, 'memory-usage')),
+                    ])
+                    self.total_entries = None
+                    self.memory_usage = None
                     self._segment_path = lambda: "filter-list"
 
                 def __setattr__(self, name, value):
@@ -1419,7 +1492,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.Activities, self).__init__()
@@ -1428,14 +1501,17 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "address-family"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.prefixes = YLeaf(YType.uint64, "prefixes")
-
-                    self.paths = YLeaf(YType.uint64, "paths")
-
-                    self.scan_interval = YLeaf(YType.str, "scan-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('prefixes', YLeaf(YType.uint64, 'prefixes')),
+                        ('paths', YLeaf(YType.uint64, 'paths')),
+                        ('scan_interval', YLeaf(YType.str, 'scan-interval')),
+                    ])
+                    self.prefixes = None
+                    self.paths = None
+                    self.scan_interval = None
                     self._segment_path = lambda: "activities"
 
                 def __setattr__(self, name, value):
@@ -1456,7 +1532,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries, self).__init__()
@@ -1465,8 +1541,10 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "address-family"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bgp-neighbor-summary" : ("bgp_neighbor_summary", BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bgp-neighbor-summary", ("bgp_neighbor_summary", BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary))])
+                    self._leafs = OrderedDict()
 
                     self.bgp_neighbor_summary = YList(self)
                     self._segment_path = lambda: "bgp-neighbor-summaries"
@@ -1479,7 +1557,7 @@ class BgpStateData(Entity):
                     """
                     List of neighbor summaries
                     
-                    .. attribute:: id  <key>
+                    .. attribute:: id  (key)
                     
                     	Neighbor address
                     	**type**\: str
@@ -1548,12 +1626,19 @@ class BgpStateData(Entity):
                     	Indication of whether the neighbor was dyanmically configured
                     	**type**\: bool
                     
+                    .. attribute:: as_
+                    
+                    	BGP neighbor AS number
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-05-12'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary, self).__init__()
@@ -1562,34 +1647,39 @@ class BgpStateData(Entity):
                         self.yang_parent_name = "bgp-neighbor-summaries"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.str, "id")
-
-                        self.bgp_version = YLeaf(YType.uint32, "bgp-version")
-
-                        self.messages_received = YLeaf(YType.uint64, "messages-received")
-
-                        self.messages_sent = YLeaf(YType.uint64, "messages-sent")
-
-                        self.table_version = YLeaf(YType.uint64, "table-version")
-
-                        self.input_queue = YLeaf(YType.uint64, "input-queue")
-
-                        self.output_queue = YLeaf(YType.uint64, "output-queue")
-
-                        self.up_time = YLeaf(YType.str, "up-time")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.prefixes_received = YLeaf(YType.uint64, "prefixes-received")
-
-                        self.dynamically_configured = YLeaf(YType.boolean, "dynamically-configured")
-                        self._segment_path = lambda: "bgp-neighbor-summary" + "[id='" + self.id.get() + "']"
+                        self.ylist_key_names = ['id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.str, 'id')),
+                            ('bgp_version', YLeaf(YType.uint32, 'bgp-version')),
+                            ('messages_received', YLeaf(YType.uint64, 'messages-received')),
+                            ('messages_sent', YLeaf(YType.uint64, 'messages-sent')),
+                            ('table_version', YLeaf(YType.uint64, 'table-version')),
+                            ('input_queue', YLeaf(YType.uint64, 'input-queue')),
+                            ('output_queue', YLeaf(YType.uint64, 'output-queue')),
+                            ('up_time', YLeaf(YType.str, 'up-time')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('prefixes_received', YLeaf(YType.uint64, 'prefixes-received')),
+                            ('dynamically_configured', YLeaf(YType.boolean, 'dynamically-configured')),
+                            ('as_', YLeaf(YType.uint32, 'as')),
+                        ])
+                        self.id = None
+                        self.bgp_version = None
+                        self.messages_received = None
+                        self.messages_sent = None
+                        self.table_version = None
+                        self.input_queue = None
+                        self.output_queue = None
+                        self.up_time = None
+                        self.state = None
+                        self.prefixes_received = None
+                        self.dynamically_configured = None
+                        self.as_ = None
+                        self._segment_path = lambda: "bgp-neighbor-summary" + "[id='" + str(self.id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary, ['id', 'bgp_version', 'messages_received', 'messages_sent', 'table_version', 'input_queue', 'output_queue', 'up_time', 'state', 'prefixes_received', 'dynamically_configured'], name, value)
+                        self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary, ['id', 'bgp_version', 'messages_received', 'messages_sent', 'table_version', 'input_queue', 'output_queue', 'up_time', 'state', 'prefixes_received', 'dynamically_configured', 'as_'], name, value)
 
 
     class BgpRouteVrfs(Entity):
@@ -1606,7 +1696,7 @@ class BgpStateData(Entity):
         """
 
         _prefix = 'bgp-ios-xe-oper'
-        _revision = '2017-05-12'
+        _revision = '2017-09-25'
 
         def __init__(self):
             super(BgpStateData.BgpRouteVrfs, self).__init__()
@@ -1615,8 +1705,10 @@ class BgpStateData(Entity):
             self.yang_parent_name = "bgp-state-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"bgp-route-vrf" : ("bgp_route_vrf", BgpStateData.BgpRouteVrfs.BgpRouteVrf)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("bgp-route-vrf", ("bgp_route_vrf", BgpStateData.BgpRouteVrfs.BgpRouteVrf))])
+            self._leafs = OrderedDict()
 
             self.bgp_route_vrf = YList(self)
             self._segment_path = lambda: "bgp-route-vrfs"
@@ -1630,7 +1722,7 @@ class BgpStateData(Entity):
             """
             List of BGP VRFs
             
-            .. attribute:: vrf  <key>
+            .. attribute:: vrf  (key)
             
             	BGP vrf
             	**type**\: str
@@ -1645,7 +1737,7 @@ class BgpStateData(Entity):
             """
 
             _prefix = 'bgp-ios-xe-oper'
-            _revision = '2017-05-12'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf, self).__init__()
@@ -1654,16 +1746,19 @@ class BgpStateData(Entity):
                 self.yang_parent_name = "bgp-route-vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"bgp-route-afs" : ("bgp_route_afs", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs)}
-                self._child_list_classes = {}
-
-                self.vrf = YLeaf(YType.str, "vrf")
+                self.ylist_key_names = ['vrf']
+                self._child_container_classes = OrderedDict([("bgp-route-afs", ("bgp_route_afs", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf', YLeaf(YType.str, 'vrf')),
+                ])
+                self.vrf = None
 
                 self.bgp_route_afs = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs()
                 self.bgp_route_afs.parent = self
                 self._children_name_map["bgp_route_afs"] = "bgp-route-afs"
                 self._children_yang_names.add("bgp-route-afs")
-                self._segment_path = lambda: "bgp-route-vrf" + "[vrf='" + self.vrf.get() + "']"
+                self._segment_path = lambda: "bgp-route-vrf" + "[vrf='" + str(self.vrf) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1684,7 +1779,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs, self).__init__()
@@ -1693,8 +1788,10 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "bgp-route-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bgp-route-af" : ("bgp_route_af", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bgp-route-af", ("bgp_route_af", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf))])
+                    self._leafs = OrderedDict()
 
                     self.bgp_route_af = YList(self)
                     self._segment_path = lambda: "bgp-route-afs"
@@ -1707,7 +1804,7 @@ class BgpStateData(Entity):
                     """
                     List of BGP address families
                     
-                    .. attribute:: afi_safi  <key>
+                    .. attribute:: afi_safi  (key)
                     
                     	BGP address family
                     	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
@@ -1732,7 +1829,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-05-12'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf, self).__init__()
@@ -1741,10 +1838,13 @@ class BgpStateData(Entity):
                         self.yang_parent_name = "bgp-route-afs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"bgp-route-filters" : ("bgp_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters), "bgp-route-neighbors" : ("bgp_route_neighbors", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors), "bgp-peer-groups" : ("bgp_peer_groups", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups)}
-                        self._child_list_classes = {}
-
-                        self.afi_safi = YLeaf(YType.enumeration, "afi-safi")
+                        self.ylist_key_names = ['afi_safi']
+                        self._child_container_classes = OrderedDict([("bgp-route-filters", ("bgp_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters)), ("bgp-route-neighbors", ("bgp_route_neighbors", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors)), ("bgp-peer-groups", ("bgp_peer_groups", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('afi_safi', YLeaf(YType.enumeration, 'afi-safi')),
+                        ])
+                        self.afi_safi = None
 
                         self.bgp_route_filters = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters()
                         self.bgp_route_filters.parent = self
@@ -1760,7 +1860,7 @@ class BgpStateData(Entity):
                         self.bgp_peer_groups.parent = self
                         self._children_name_map["bgp_peer_groups"] = "bgp-peer-groups"
                         self._children_yang_names.add("bgp-peer-groups")
-                        self._segment_path = lambda: "bgp-route-af" + "[afi-safi='" + self.afi_safi.get() + "']"
+                        self._segment_path = lambda: "bgp-route-af" + "[afi-safi='" + str(self.afi_safi) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf, ['afi_safi'], name, value)
@@ -1780,7 +1880,7 @@ class BgpStateData(Entity):
                         """
 
                         _prefix = 'bgp-ios-xe-oper'
-                        _revision = '2017-05-12'
+                        _revision = '2017-09-25'
 
                         def __init__(self):
                             super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters, self).__init__()
@@ -1789,8 +1889,10 @@ class BgpStateData(Entity):
                             self.yang_parent_name = "bgp-route-af"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"bgp-route-filter" : ("bgp_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("bgp-route-filter", ("bgp_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter))])
+                            self._leafs = OrderedDict()
 
                             self.bgp_route_filter = YList(self)
                             self._segment_path = lambda: "bgp-route-filters"
@@ -1803,7 +1905,7 @@ class BgpStateData(Entity):
                             """
                             List of BGP route filters
                             
-                            .. attribute:: route_filter  <key>
+                            .. attribute:: route_filter  (key)
                             
                             	BGP route filter
                             	**type**\:  :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRouteFilters>`
@@ -1818,7 +1920,7 @@ class BgpStateData(Entity):
                             """
 
                             _prefix = 'bgp-ios-xe-oper'
-                            _revision = '2017-05-12'
+                            _revision = '2017-09-25'
 
                             def __init__(self):
                                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter, self).__init__()
@@ -1827,16 +1929,19 @@ class BgpStateData(Entity):
                                 self.yang_parent_name = "bgp-route-filters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"bgp-route-entries" : ("bgp_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries)}
-                                self._child_list_classes = {}
-
-                                self.route_filter = YLeaf(YType.enumeration, "route-filter")
+                                self.ylist_key_names = ['route_filter']
+                                self._child_container_classes = OrderedDict([("bgp-route-entries", ("bgp_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_filter', YLeaf(YType.enumeration, 'route-filter')),
+                                ])
+                                self.route_filter = None
 
                                 self.bgp_route_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries()
                                 self.bgp_route_entries.parent = self
                                 self._children_name_map["bgp_route_entries"] = "bgp-route-entries"
                                 self._children_yang_names.add("bgp-route-entries")
-                                self._segment_path = lambda: "bgp-route-filter" + "[route-filter='" + self.route_filter.get() + "']"
+                                self._segment_path = lambda: "bgp-route-filter" + "[route-filter='" + str(self.route_filter) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter, ['route_filter'], name, value)
@@ -1856,7 +1961,7 @@ class BgpStateData(Entity):
                                 """
 
                                 _prefix = 'bgp-ios-xe-oper'
-                                _revision = '2017-05-12'
+                                _revision = '2017-09-25'
 
                                 def __init__(self):
                                     super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries, self).__init__()
@@ -1865,8 +1970,10 @@ class BgpStateData(Entity):
                                     self.yang_parent_name = "bgp-route-filter"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"bgp-route-entry" : ("bgp_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("bgp-route-entry", ("bgp_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry))])
+                                    self._leafs = OrderedDict()
 
                                     self.bgp_route_entry = YList(self)
                                     self._segment_path = lambda: "bgp-route-entries"
@@ -1879,7 +1986,7 @@ class BgpStateData(Entity):
                                     """
                                     List of BGP route entries
                                     
-                                    .. attribute:: prefix  <key>
+                                    .. attribute:: prefix  (key)
                                     
                                     	Routing table entry prefix
                                     	**type**\: str
@@ -1913,7 +2020,7 @@ class BgpStateData(Entity):
                                     """
 
                                     _prefix = 'bgp-ios-xe-oper'
-                                    _revision = '2017-05-12'
+                                    _revision = '2017-09-25'
 
                                     def __init__(self):
                                         super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry, self).__init__()
@@ -1922,22 +2029,25 @@ class BgpStateData(Entity):
                                         self.yang_parent_name = "bgp-route-entries"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"bgp-path-entries" : ("bgp_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.version = YLeaf(YType.uint32, "version")
-
-                                        self.available_paths = YLeaf(YType.uint32, "available-paths")
-
-                                        self.advertised_to = YLeaf(YType.str, "advertised-to")
+                                        self.ylist_key_names = ['prefix']
+                                        self._child_container_classes = OrderedDict([("bgp-path-entries", ("bgp_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('version', YLeaf(YType.uint32, 'version')),
+                                            ('available_paths', YLeaf(YType.uint32, 'available-paths')),
+                                            ('advertised_to', YLeaf(YType.str, 'advertised-to')),
+                                        ])
+                                        self.prefix = None
+                                        self.version = None
+                                        self.available_paths = None
+                                        self.advertised_to = None
 
                                         self.bgp_path_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries()
                                         self.bgp_path_entries.parent = self
                                         self._children_name_map["bgp_path_entries"] = "bgp-path-entries"
                                         self._children_yang_names.add("bgp-path-entries")
-                                        self._segment_path = lambda: "bgp-route-entry" + "[prefix='" + self.prefix.get() + "']"
+                                        self._segment_path = lambda: "bgp-route-entry" + "[prefix='" + str(self.prefix) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry, ['prefix', 'version', 'available_paths', 'advertised_to'], name, value)
@@ -1957,7 +2067,7 @@ class BgpStateData(Entity):
                                         """
 
                                         _prefix = 'bgp-ios-xe-oper'
-                                        _revision = '2017-05-12'
+                                        _revision = '2017-09-25'
 
                                         def __init__(self):
                                             super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries, self).__init__()
@@ -1966,8 +2076,10 @@ class BgpStateData(Entity):
                                             self.yang_parent_name = "bgp-route-entry"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"bgp-path-entry" : ("bgp_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("bgp-path-entry", ("bgp_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry))])
+                                            self._leafs = OrderedDict()
 
                                             self.bgp_path_entry = YList(self)
                                             self._segment_path = lambda: "bgp-path-entries"
@@ -1980,7 +2092,7 @@ class BgpStateData(Entity):
                                             """
                                             List of prefix next hop details
                                             
-                                            .. attribute:: nexthop  <key>
+                                            .. attribute:: nexthop  (key)
                                             
                                             	Next hop for this path
                                             	**type**\: str
@@ -2123,7 +2235,7 @@ class BgpStateData(Entity):
                                             """
 
                                             _prefix = 'bgp-ios-xe-oper'
-                                            _revision = '2017-05-12'
+                                            _revision = '2017-09-25'
 
                                             def __init__(self):
                                                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry, self).__init__()
@@ -2132,60 +2244,63 @@ class BgpStateData(Entity):
                                                 self.yang_parent_name = "bgp-path-entries"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"path-status" : ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus)}
-                                                self._child_list_classes = {}
-
-                                                self.nexthop = YLeaf(YType.str, "nexthop")
-
-                                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                                self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                                self.weight = YLeaf(YType.uint32, "weight")
-
-                                                self.as_path = YLeaf(YType.str, "as-path")
-
-                                                self.origin = YLeaf(YType.enumeration, "origin")
-
-                                                self.rpki_status = YLeaf(YType.enumeration, "rpki-status")
-
-                                                self.community = YLeaf(YType.str, "community")
-
-                                                self.mpls_in = YLeaf(YType.str, "mpls-in")
-
-                                                self.mpls_out = YLeaf(YType.str, "mpls-out")
-
-                                                self.sr_profile_name = YLeaf(YType.str, "sr-profile-name")
-
-                                                self.sr_binding_sid = YLeaf(YType.uint32, "sr-binding-sid")
-
-                                                self.sr_label_indx = YLeaf(YType.uint32, "sr-label-indx")
-
-                                                self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                                self.atomic_aggregate = YLeaf(YType.boolean, "atomic-aggregate")
-
-                                                self.aggr_as_number = YLeaf(YType.uint32, "aggr-as-number")
-
-                                                self.aggr_as4_number = YLeaf(YType.uint32, "aggr-as4-number")
-
-                                                self.aggr_address = YLeaf(YType.str, "aggr-address")
-
-                                                self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                                self.cluster_list = YLeaf(YType.str, "cluster-list")
-
-                                                self.extended_community = YLeaf(YType.str, "extended-community")
-
-                                                self.ext_aigp_metric = YLeaf(YType.uint64, "ext-aigp-metric")
-
-                                                self.path_id = YLeaf(YType.uint32, "path-id")
+                                                self.ylist_key_names = ['nexthop']
+                                                self._child_container_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('nexthop', YLeaf(YType.str, 'nexthop')),
+                                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                                    ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                    ('weight', YLeaf(YType.uint32, 'weight')),
+                                                    ('as_path', YLeaf(YType.str, 'as-path')),
+                                                    ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                    ('rpki_status', YLeaf(YType.enumeration, 'rpki-status')),
+                                                    ('community', YLeaf(YType.str, 'community')),
+                                                    ('mpls_in', YLeaf(YType.str, 'mpls-in')),
+                                                    ('mpls_out', YLeaf(YType.str, 'mpls-out')),
+                                                    ('sr_profile_name', YLeaf(YType.str, 'sr-profile-name')),
+                                                    ('sr_binding_sid', YLeaf(YType.uint32, 'sr-binding-sid')),
+                                                    ('sr_label_indx', YLeaf(YType.uint32, 'sr-label-indx')),
+                                                    ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                    ('atomic_aggregate', YLeaf(YType.boolean, 'atomic-aggregate')),
+                                                    ('aggr_as_number', YLeaf(YType.uint32, 'aggr-as-number')),
+                                                    ('aggr_as4_number', YLeaf(YType.uint32, 'aggr-as4-number')),
+                                                    ('aggr_address', YLeaf(YType.str, 'aggr-address')),
+                                                    ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                    ('cluster_list', YLeaf(YType.str, 'cluster-list')),
+                                                    ('extended_community', YLeaf(YType.str, 'extended-community')),
+                                                    ('ext_aigp_metric', YLeaf(YType.uint64, 'ext-aigp-metric')),
+                                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                                ])
+                                                self.nexthop = None
+                                                self.metric = None
+                                                self.local_pref = None
+                                                self.weight = None
+                                                self.as_path = None
+                                                self.origin = None
+                                                self.rpki_status = None
+                                                self.community = None
+                                                self.mpls_in = None
+                                                self.mpls_out = None
+                                                self.sr_profile_name = None
+                                                self.sr_binding_sid = None
+                                                self.sr_label_indx = None
+                                                self.as4_path = None
+                                                self.atomic_aggregate = None
+                                                self.aggr_as_number = None
+                                                self.aggr_as4_number = None
+                                                self.aggr_address = None
+                                                self.originator_id = None
+                                                self.cluster_list = None
+                                                self.extended_community = None
+                                                self.ext_aigp_metric = None
+                                                self.path_id = None
 
                                                 self.path_status = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus()
                                                 self.path_status.parent = self
                                                 self._children_name_map["path_status"] = "path-status"
                                                 self._children_yang_names.add("path-status")
-                                                self._segment_path = lambda: "bgp-path-entry" + "[nexthop='" + self.nexthop.get() + "']"
+                                                self._segment_path = lambda: "bgp-path-entry" + "[nexthop='" + str(self.nexthop) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community', 'mpls_in', 'mpls_out', 'sr_profile_name', 'sr_binding_sid', 'sr_label_indx', 'as4_path', 'atomic_aggregate', 'aggr_as_number', 'aggr_as4_number', 'aggr_address', 'originator_id', 'cluster_list', 'extended_community', 'ext_aigp_metric', 'path_id'], name, value)
@@ -2275,7 +2390,7 @@ class BgpStateData(Entity):
                                                 """
 
                                                 _prefix = 'bgp-ios-xe-oper'
-                                                _revision = '2017-05-12'
+                                                _revision = '2017-09-25'
 
                                                 def __init__(self):
                                                     super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus, self).__init__()
@@ -2284,38 +2399,41 @@ class BgpStateData(Entity):
                                                     self.yang_parent_name = "bgp-path-entry"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.suppressed = YLeaf(YType.empty, "suppressed")
-
-                                                    self.damped = YLeaf(YType.empty, "damped")
-
-                                                    self.history = YLeaf(YType.empty, "history")
-
-                                                    self.valid = YLeaf(YType.empty, "valid")
-
-                                                    self.sourced = YLeaf(YType.empty, "sourced")
-
-                                                    self.bestpath = YLeaf(YType.empty, "bestpath")
-
-                                                    self.internal = YLeaf(YType.empty, "internal")
-
-                                                    self.rib_fail = YLeaf(YType.empty, "rib-fail")
-
-                                                    self.stale = YLeaf(YType.empty, "stale")
-
-                                                    self.multipath = YLeaf(YType.empty, "multipath")
-
-                                                    self.backup_path = YLeaf(YType.empty, "backup-path")
-
-                                                    self.rt_filter = YLeaf(YType.empty, "rt-filter")
-
-                                                    self.best_external = YLeaf(YType.empty, "best-external")
-
-                                                    self.additional_path = YLeaf(YType.empty, "additional-path")
-
-                                                    self.rib_compressed = YLeaf(YType.empty, "rib-compressed")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('suppressed', YLeaf(YType.empty, 'suppressed')),
+                                                        ('damped', YLeaf(YType.empty, 'damped')),
+                                                        ('history', YLeaf(YType.empty, 'history')),
+                                                        ('valid', YLeaf(YType.empty, 'valid')),
+                                                        ('sourced', YLeaf(YType.empty, 'sourced')),
+                                                        ('bestpath', YLeaf(YType.empty, 'bestpath')),
+                                                        ('internal', YLeaf(YType.empty, 'internal')),
+                                                        ('rib_fail', YLeaf(YType.empty, 'rib-fail')),
+                                                        ('stale', YLeaf(YType.empty, 'stale')),
+                                                        ('multipath', YLeaf(YType.empty, 'multipath')),
+                                                        ('backup_path', YLeaf(YType.empty, 'backup-path')),
+                                                        ('rt_filter', YLeaf(YType.empty, 'rt-filter')),
+                                                        ('best_external', YLeaf(YType.empty, 'best-external')),
+                                                        ('additional_path', YLeaf(YType.empty, 'additional-path')),
+                                                        ('rib_compressed', YLeaf(YType.empty, 'rib-compressed')),
+                                                    ])
+                                                    self.suppressed = None
+                                                    self.damped = None
+                                                    self.history = None
+                                                    self.valid = None
+                                                    self.sourced = None
+                                                    self.bestpath = None
+                                                    self.internal = None
+                                                    self.rib_fail = None
+                                                    self.stale = None
+                                                    self.multipath = None
+                                                    self.backup_path = None
+                                                    self.rt_filter = None
+                                                    self.best_external = None
+                                                    self.additional_path = None
+                                                    self.rib_compressed = None
                                                     self._segment_path = lambda: "path-status"
 
                                                 def __setattr__(self, name, value):
@@ -2336,7 +2454,7 @@ class BgpStateData(Entity):
                         """
 
                         _prefix = 'bgp-ios-xe-oper'
-                        _revision = '2017-05-12'
+                        _revision = '2017-09-25'
 
                         def __init__(self):
                             super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors, self).__init__()
@@ -2345,8 +2463,10 @@ class BgpStateData(Entity):
                             self.yang_parent_name = "bgp-route-af"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"bgp-route-neighbor" : ("bgp_route_neighbor", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("bgp-route-neighbor", ("bgp_route_neighbor", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor))])
+                            self._leafs = OrderedDict()
 
                             self.bgp_route_neighbor = YList(self)
                             self._segment_path = lambda: "bgp-route-neighbors"
@@ -2359,7 +2479,7 @@ class BgpStateData(Entity):
                             """
                             List of BGP route neighbors
                             
-                            .. attribute:: nbr_id  <key>
+                            .. attribute:: nbr_id  (key)
                             
                             	BGP neighbor ID
                             	**type**\: str
@@ -2374,7 +2494,7 @@ class BgpStateData(Entity):
                             """
 
                             _prefix = 'bgp-ios-xe-oper'
-                            _revision = '2017-05-12'
+                            _revision = '2017-09-25'
 
                             def __init__(self):
                                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor, self).__init__()
@@ -2383,16 +2503,19 @@ class BgpStateData(Entity):
                                 self.yang_parent_name = "bgp-route-neighbors"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"bgp-neighbor-route-filters" : ("bgp_neighbor_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters)}
-                                self._child_list_classes = {}
-
-                                self.nbr_id = YLeaf(YType.str, "nbr-id")
+                                self.ylist_key_names = ['nbr_id']
+                                self._child_container_classes = OrderedDict([("bgp-neighbor-route-filters", ("bgp_neighbor_route_filters", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('nbr_id', YLeaf(YType.str, 'nbr-id')),
+                                ])
+                                self.nbr_id = None
 
                                 self.bgp_neighbor_route_filters = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters()
                                 self.bgp_neighbor_route_filters.parent = self
                                 self._children_name_map["bgp_neighbor_route_filters"] = "bgp-neighbor-route-filters"
                                 self._children_yang_names.add("bgp-neighbor-route-filters")
-                                self._segment_path = lambda: "bgp-route-neighbor" + "[nbr-id='" + self.nbr_id.get() + "']"
+                                self._segment_path = lambda: "bgp-route-neighbor" + "[nbr-id='" + str(self.nbr_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor, ['nbr_id'], name, value)
@@ -2412,7 +2535,7 @@ class BgpStateData(Entity):
                                 """
 
                                 _prefix = 'bgp-ios-xe-oper'
-                                _revision = '2017-05-12'
+                                _revision = '2017-09-25'
 
                                 def __init__(self):
                                     super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters, self).__init__()
@@ -2421,8 +2544,10 @@ class BgpStateData(Entity):
                                     self.yang_parent_name = "bgp-route-neighbor"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"bgp-neighbor-route-filter" : ("bgp_neighbor_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("bgp-neighbor-route-filter", ("bgp_neighbor_route_filter", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter))])
+                                    self._leafs = OrderedDict()
 
                                     self.bgp_neighbor_route_filter = YList(self)
                                     self._segment_path = lambda: "bgp-neighbor-route-filters"
@@ -2435,7 +2560,7 @@ class BgpStateData(Entity):
                                     """
                                     List of BGP neighbor route filters
                                     
-                                    .. attribute:: nbr_fltr  <key>
+                                    .. attribute:: nbr_fltr  (key)
                                     
                                     	BGP neighbor route filter
                                     	**type**\:  :py:class:`BgpNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpNeighborRouteFilters>`
@@ -2450,7 +2575,7 @@ class BgpStateData(Entity):
                                     """
 
                                     _prefix = 'bgp-ios-xe-oper'
-                                    _revision = '2017-05-12'
+                                    _revision = '2017-09-25'
 
                                     def __init__(self):
                                         super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter, self).__init__()
@@ -2459,16 +2584,19 @@ class BgpStateData(Entity):
                                         self.yang_parent_name = "bgp-neighbor-route-filters"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"bgp-neighbor-route-entries" : ("bgp_neighbor_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries)}
-                                        self._child_list_classes = {}
-
-                                        self.nbr_fltr = YLeaf(YType.enumeration, "nbr-fltr")
+                                        self.ylist_key_names = ['nbr_fltr']
+                                        self._child_container_classes = OrderedDict([("bgp-neighbor-route-entries", ("bgp_neighbor_route_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('nbr_fltr', YLeaf(YType.enumeration, 'nbr-fltr')),
+                                        ])
+                                        self.nbr_fltr = None
 
                                         self.bgp_neighbor_route_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries()
                                         self.bgp_neighbor_route_entries.parent = self
                                         self._children_name_map["bgp_neighbor_route_entries"] = "bgp-neighbor-route-entries"
                                         self._children_yang_names.add("bgp-neighbor-route-entries")
-                                        self._segment_path = lambda: "bgp-neighbor-route-filter" + "[nbr-fltr='" + self.nbr_fltr.get() + "']"
+                                        self._segment_path = lambda: "bgp-neighbor-route-filter" + "[nbr-fltr='" + str(self.nbr_fltr) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter, ['nbr_fltr'], name, value)
@@ -2488,7 +2616,7 @@ class BgpStateData(Entity):
                                         """
 
                                         _prefix = 'bgp-ios-xe-oper'
-                                        _revision = '2017-05-12'
+                                        _revision = '2017-09-25'
 
                                         def __init__(self):
                                             super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries, self).__init__()
@@ -2497,8 +2625,10 @@ class BgpStateData(Entity):
                                             self.yang_parent_name = "bgp-neighbor-route-filter"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"bgp-neighbor-route-entry" : ("bgp_neighbor_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("bgp-neighbor-route-entry", ("bgp_neighbor_route_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry))])
+                                            self._leafs = OrderedDict()
 
                                             self.bgp_neighbor_route_entry = YList(self)
                                             self._segment_path = lambda: "bgp-neighbor-route-entries"
@@ -2511,7 +2641,7 @@ class BgpStateData(Entity):
                                             """
                                             List of BGP neighbor route entries
                                             
-                                            .. attribute:: prefix  <key>
+                                            .. attribute:: prefix  (key)
                                             
                                             	Neighbor routing table entry prefix
                                             	**type**\: str
@@ -2545,7 +2675,7 @@ class BgpStateData(Entity):
                                             """
 
                                             _prefix = 'bgp-ios-xe-oper'
-                                            _revision = '2017-05-12'
+                                            _revision = '2017-09-25'
 
                                             def __init__(self):
                                                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry, self).__init__()
@@ -2554,22 +2684,25 @@ class BgpStateData(Entity):
                                                 self.yang_parent_name = "bgp-neighbor-route-entries"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"bgp-neighbor-path-entries" : ("bgp_neighbor_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries)}
-                                                self._child_list_classes = {}
-
-                                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                                self.version = YLeaf(YType.uint32, "version")
-
-                                                self.available_paths = YLeaf(YType.uint32, "available-paths")
-
-                                                self.advertised_to = YLeaf(YType.str, "advertised-to")
+                                                self.ylist_key_names = ['prefix']
+                                                self._child_container_classes = OrderedDict([("bgp-neighbor-path-entries", ("bgp_neighbor_path_entries", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                                    ('version', YLeaf(YType.uint32, 'version')),
+                                                    ('available_paths', YLeaf(YType.uint32, 'available-paths')),
+                                                    ('advertised_to', YLeaf(YType.str, 'advertised-to')),
+                                                ])
+                                                self.prefix = None
+                                                self.version = None
+                                                self.available_paths = None
+                                                self.advertised_to = None
 
                                                 self.bgp_neighbor_path_entries = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries()
                                                 self.bgp_neighbor_path_entries.parent = self
                                                 self._children_name_map["bgp_neighbor_path_entries"] = "bgp-neighbor-path-entries"
                                                 self._children_yang_names.add("bgp-neighbor-path-entries")
-                                                self._segment_path = lambda: "bgp-neighbor-route-entry" + "[prefix='" + self.prefix.get() + "']"
+                                                self._segment_path = lambda: "bgp-neighbor-route-entry" + "[prefix='" + str(self.prefix) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry, ['prefix', 'version', 'available_paths', 'advertised_to'], name, value)
@@ -2589,7 +2722,7 @@ class BgpStateData(Entity):
                                                 """
 
                                                 _prefix = 'bgp-ios-xe-oper'
-                                                _revision = '2017-05-12'
+                                                _revision = '2017-09-25'
 
                                                 def __init__(self):
                                                     super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries, self).__init__()
@@ -2598,8 +2731,10 @@ class BgpStateData(Entity):
                                                     self.yang_parent_name = "bgp-neighbor-route-entry"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"bgp-neighbor-path-entry" : ("bgp_neighbor_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("bgp-neighbor-path-entry", ("bgp_neighbor_path_entry", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.bgp_neighbor_path_entry = YList(self)
                                                     self._segment_path = lambda: "bgp-neighbor-path-entries"
@@ -2612,7 +2747,7 @@ class BgpStateData(Entity):
                                                     """
                                                     List of prefix next hop details
                                                     
-                                                    .. attribute:: nexthop  <key>
+                                                    .. attribute:: nexthop  (key)
                                                     
                                                     	Next hop for this path
                                                     	**type**\: str
@@ -2755,7 +2890,7 @@ class BgpStateData(Entity):
                                                     """
 
                                                     _prefix = 'bgp-ios-xe-oper'
-                                                    _revision = '2017-05-12'
+                                                    _revision = '2017-09-25'
 
                                                     def __init__(self):
                                                         super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry, self).__init__()
@@ -2764,60 +2899,63 @@ class BgpStateData(Entity):
                                                         self.yang_parent_name = "bgp-neighbor-path-entries"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"path-status" : ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus)}
-                                                        self._child_list_classes = {}
-
-                                                        self.nexthop = YLeaf(YType.str, "nexthop")
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                                        self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                                        self.weight = YLeaf(YType.uint32, "weight")
-
-                                                        self.as_path = YLeaf(YType.str, "as-path")
-
-                                                        self.origin = YLeaf(YType.enumeration, "origin")
-
-                                                        self.rpki_status = YLeaf(YType.enumeration, "rpki-status")
-
-                                                        self.community = YLeaf(YType.str, "community")
-
-                                                        self.mpls_in = YLeaf(YType.str, "mpls-in")
-
-                                                        self.mpls_out = YLeaf(YType.str, "mpls-out")
-
-                                                        self.sr_profile_name = YLeaf(YType.str, "sr-profile-name")
-
-                                                        self.sr_binding_sid = YLeaf(YType.uint32, "sr-binding-sid")
-
-                                                        self.sr_label_indx = YLeaf(YType.uint32, "sr-label-indx")
-
-                                                        self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                                        self.atomic_aggregate = YLeaf(YType.boolean, "atomic-aggregate")
-
-                                                        self.aggr_as_number = YLeaf(YType.uint32, "aggr-as-number")
-
-                                                        self.aggr_as4_number = YLeaf(YType.uint32, "aggr-as4-number")
-
-                                                        self.aggr_address = YLeaf(YType.str, "aggr-address")
-
-                                                        self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                                        self.cluster_list = YLeaf(YType.str, "cluster-list")
-
-                                                        self.extended_community = YLeaf(YType.str, "extended-community")
-
-                                                        self.ext_aigp_metric = YLeaf(YType.uint64, "ext-aigp-metric")
-
-                                                        self.path_id = YLeaf(YType.uint32, "path-id")
+                                                        self.ylist_key_names = ['nexthop']
+                                                        self._child_container_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('nexthop', YLeaf(YType.str, 'nexthop')),
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                            ('weight', YLeaf(YType.uint32, 'weight')),
+                                                            ('as_path', YLeaf(YType.str, 'as-path')),
+                                                            ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                            ('rpki_status', YLeaf(YType.enumeration, 'rpki-status')),
+                                                            ('community', YLeaf(YType.str, 'community')),
+                                                            ('mpls_in', YLeaf(YType.str, 'mpls-in')),
+                                                            ('mpls_out', YLeaf(YType.str, 'mpls-out')),
+                                                            ('sr_profile_name', YLeaf(YType.str, 'sr-profile-name')),
+                                                            ('sr_binding_sid', YLeaf(YType.uint32, 'sr-binding-sid')),
+                                                            ('sr_label_indx', YLeaf(YType.uint32, 'sr-label-indx')),
+                                                            ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                            ('atomic_aggregate', YLeaf(YType.boolean, 'atomic-aggregate')),
+                                                            ('aggr_as_number', YLeaf(YType.uint32, 'aggr-as-number')),
+                                                            ('aggr_as4_number', YLeaf(YType.uint32, 'aggr-as4-number')),
+                                                            ('aggr_address', YLeaf(YType.str, 'aggr-address')),
+                                                            ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                            ('cluster_list', YLeaf(YType.str, 'cluster-list')),
+                                                            ('extended_community', YLeaf(YType.str, 'extended-community')),
+                                                            ('ext_aigp_metric', YLeaf(YType.uint64, 'ext-aigp-metric')),
+                                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                                        ])
+                                                        self.nexthop = None
+                                                        self.metric = None
+                                                        self.local_pref = None
+                                                        self.weight = None
+                                                        self.as_path = None
+                                                        self.origin = None
+                                                        self.rpki_status = None
+                                                        self.community = None
+                                                        self.mpls_in = None
+                                                        self.mpls_out = None
+                                                        self.sr_profile_name = None
+                                                        self.sr_binding_sid = None
+                                                        self.sr_label_indx = None
+                                                        self.as4_path = None
+                                                        self.atomic_aggregate = None
+                                                        self.aggr_as_number = None
+                                                        self.aggr_as4_number = None
+                                                        self.aggr_address = None
+                                                        self.originator_id = None
+                                                        self.cluster_list = None
+                                                        self.extended_community = None
+                                                        self.ext_aigp_metric = None
+                                                        self.path_id = None
 
                                                         self.path_status = BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus()
                                                         self.path_status.parent = self
                                                         self._children_name_map["path_status"] = "path-status"
                                                         self._children_yang_names.add("path-status")
-                                                        self._segment_path = lambda: "bgp-neighbor-path-entry" + "[nexthop='" + self.nexthop.get() + "']"
+                                                        self._segment_path = lambda: "bgp-neighbor-path-entry" + "[nexthop='" + str(self.nexthop) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community', 'mpls_in', 'mpls_out', 'sr_profile_name', 'sr_binding_sid', 'sr_label_indx', 'as4_path', 'atomic_aggregate', 'aggr_as_number', 'aggr_as4_number', 'aggr_address', 'originator_id', 'cluster_list', 'extended_community', 'ext_aigp_metric', 'path_id'], name, value)
@@ -2907,7 +3045,7 @@ class BgpStateData(Entity):
                                                         """
 
                                                         _prefix = 'bgp-ios-xe-oper'
-                                                        _revision = '2017-05-12'
+                                                        _revision = '2017-09-25'
 
                                                         def __init__(self):
                                                             super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus, self).__init__()
@@ -2916,38 +3054,41 @@ class BgpStateData(Entity):
                                                             self.yang_parent_name = "bgp-neighbor-path-entry"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.suppressed = YLeaf(YType.empty, "suppressed")
-
-                                                            self.damped = YLeaf(YType.empty, "damped")
-
-                                                            self.history = YLeaf(YType.empty, "history")
-
-                                                            self.valid = YLeaf(YType.empty, "valid")
-
-                                                            self.sourced = YLeaf(YType.empty, "sourced")
-
-                                                            self.bestpath = YLeaf(YType.empty, "bestpath")
-
-                                                            self.internal = YLeaf(YType.empty, "internal")
-
-                                                            self.rib_fail = YLeaf(YType.empty, "rib-fail")
-
-                                                            self.stale = YLeaf(YType.empty, "stale")
-
-                                                            self.multipath = YLeaf(YType.empty, "multipath")
-
-                                                            self.backup_path = YLeaf(YType.empty, "backup-path")
-
-                                                            self.rt_filter = YLeaf(YType.empty, "rt-filter")
-
-                                                            self.best_external = YLeaf(YType.empty, "best-external")
-
-                                                            self.additional_path = YLeaf(YType.empty, "additional-path")
-
-                                                            self.rib_compressed = YLeaf(YType.empty, "rib-compressed")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('suppressed', YLeaf(YType.empty, 'suppressed')),
+                                                                ('damped', YLeaf(YType.empty, 'damped')),
+                                                                ('history', YLeaf(YType.empty, 'history')),
+                                                                ('valid', YLeaf(YType.empty, 'valid')),
+                                                                ('sourced', YLeaf(YType.empty, 'sourced')),
+                                                                ('bestpath', YLeaf(YType.empty, 'bestpath')),
+                                                                ('internal', YLeaf(YType.empty, 'internal')),
+                                                                ('rib_fail', YLeaf(YType.empty, 'rib-fail')),
+                                                                ('stale', YLeaf(YType.empty, 'stale')),
+                                                                ('multipath', YLeaf(YType.empty, 'multipath')),
+                                                                ('backup_path', YLeaf(YType.empty, 'backup-path')),
+                                                                ('rt_filter', YLeaf(YType.empty, 'rt-filter')),
+                                                                ('best_external', YLeaf(YType.empty, 'best-external')),
+                                                                ('additional_path', YLeaf(YType.empty, 'additional-path')),
+                                                                ('rib_compressed', YLeaf(YType.empty, 'rib-compressed')),
+                                                            ])
+                                                            self.suppressed = None
+                                                            self.damped = None
+                                                            self.history = None
+                                                            self.valid = None
+                                                            self.sourced = None
+                                                            self.bestpath = None
+                                                            self.internal = None
+                                                            self.rib_fail = None
+                                                            self.stale = None
+                                                            self.multipath = None
+                                                            self.backup_path = None
+                                                            self.rt_filter = None
+                                                            self.best_external = None
+                                                            self.additional_path = None
+                                                            self.rib_compressed = None
                                                             self._segment_path = lambda: "path-status"
 
                                                         def __setattr__(self, name, value):
@@ -2968,7 +3109,7 @@ class BgpStateData(Entity):
                         """
 
                         _prefix = 'bgp-ios-xe-oper'
-                        _revision = '2017-05-12'
+                        _revision = '2017-09-25'
 
                         def __init__(self):
                             super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups, self).__init__()
@@ -2977,8 +3118,10 @@ class BgpStateData(Entity):
                             self.yang_parent_name = "bgp-route-af"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"bgp-peer-group" : ("bgp_peer_group", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("bgp-peer-group", ("bgp_peer_group", BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup))])
+                            self._leafs = OrderedDict()
 
                             self.bgp_peer_group = YList(self)
                             self._segment_path = lambda: "bgp-peer-groups"
@@ -2991,7 +3134,7 @@ class BgpStateData(Entity):
                             """
                             List of BGP peer groups
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: name  (key)
                             
                             	BGP peer group name
                             	**type**\: str
@@ -3134,7 +3277,7 @@ class BgpStateData(Entity):
                             """
 
                             _prefix = 'bgp-ios-xe-oper'
-                            _revision = '2017-05-12'
+                            _revision = '2017-09-25'
 
                             def __init__(self):
                                 super(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup, self).__init__()
@@ -3143,53 +3286,56 @@ class BgpStateData(Entity):
                                 self.yang_parent_name = "bgp-peer-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.description = YLeaf(YType.str, "description")
-
-                                self.remote_as = YLeaf(YType.uint32, "remote-as")
-
-                                self.bgp_version = YLeaf(YType.uint16, "bgp-version")
-
-                                self.min_time = YLeaf(YType.uint16, "min-time")
-
-                                self.num_of_sessions = YLeaf(YType.uint32, "num-of-sessions")
-
-                                self.num_estab_sessions = YLeaf(YType.uint32, "num-estab-sessions")
-
-                                self.num_sso_sessions = YLeaf(YType.uint32, "num-sso-sessions")
-
-                                self.peer_members = YLeafList(YType.str, "peer-members")
-
-                                self.fmt_grp_ix = YLeaf(YType.uint16, "fmt-grp-ix")
-
-                                self.adv_ix = YLeaf(YType.uint16, "adv-ix")
-
-                                self.aspath_in = YLeaf(YType.uint32, "aspath-in")
-
-                                self.aspath_out = YLeaf(YType.uint32, "aspath-out")
-
-                                self.routemap_in = YLeaf(YType.str, "routemap-in")
-
-                                self.routemap_out = YLeaf(YType.str, "routemap-out")
-
-                                self.updated_messages = YLeaf(YType.uint64, "updated-messages")
-
-                                self.rep_count = YLeaf(YType.uint32, "rep-count")
-
-                                self.slowpeer_detection_value = YLeaf(YType.uint16, "slowpeer-detection-value")
-
-                                self.weight = YLeaf(YType.uint16, "weight")
-
-                                self.send_community = YLeaf(YType.boolean, "send-community")
-
-                                self.extended_community = YLeaf(YType.boolean, "extended-community")
-
-                                self.remove_private_as = YLeaf(YType.boolean, "remove-private-as")
-                                self._segment_path = lambda: "bgp-peer-group" + "[name='" + self.name.get() + "']"
+                                self.ylist_key_names = ['name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('description', YLeaf(YType.str, 'description')),
+                                    ('remote_as', YLeaf(YType.uint32, 'remote-as')),
+                                    ('bgp_version', YLeaf(YType.uint16, 'bgp-version')),
+                                    ('min_time', YLeaf(YType.uint16, 'min-time')),
+                                    ('num_of_sessions', YLeaf(YType.uint32, 'num-of-sessions')),
+                                    ('num_estab_sessions', YLeaf(YType.uint32, 'num-estab-sessions')),
+                                    ('num_sso_sessions', YLeaf(YType.uint32, 'num-sso-sessions')),
+                                    ('peer_members', YLeafList(YType.str, 'peer-members')),
+                                    ('fmt_grp_ix', YLeaf(YType.uint16, 'fmt-grp-ix')),
+                                    ('adv_ix', YLeaf(YType.uint16, 'adv-ix')),
+                                    ('aspath_in', YLeaf(YType.uint32, 'aspath-in')),
+                                    ('aspath_out', YLeaf(YType.uint32, 'aspath-out')),
+                                    ('routemap_in', YLeaf(YType.str, 'routemap-in')),
+                                    ('routemap_out', YLeaf(YType.str, 'routemap-out')),
+                                    ('updated_messages', YLeaf(YType.uint64, 'updated-messages')),
+                                    ('rep_count', YLeaf(YType.uint32, 'rep-count')),
+                                    ('slowpeer_detection_value', YLeaf(YType.uint16, 'slowpeer-detection-value')),
+                                    ('weight', YLeaf(YType.uint16, 'weight')),
+                                    ('send_community', YLeaf(YType.boolean, 'send-community')),
+                                    ('extended_community', YLeaf(YType.boolean, 'extended-community')),
+                                    ('remove_private_as', YLeaf(YType.boolean, 'remove-private-as')),
+                                ])
+                                self.name = None
+                                self.description = None
+                                self.remote_as = None
+                                self.bgp_version = None
+                                self.min_time = None
+                                self.num_of_sessions = None
+                                self.num_estab_sessions = None
+                                self.num_sso_sessions = None
+                                self.peer_members = []
+                                self.fmt_grp_ix = None
+                                self.adv_ix = None
+                                self.aspath_in = None
+                                self.aspath_out = None
+                                self.routemap_in = None
+                                self.routemap_out = None
+                                self.updated_messages = None
+                                self.rep_count = None
+                                self.slowpeer_detection_value = None
+                                self.weight = None
+                                self.send_community = None
+                                self.extended_community = None
+                                self.remove_private_as = None
+                                self._segment_path = lambda: "bgp-peer-group" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup, ['name', 'description', 'remote_as', 'bgp_version', 'min_time', 'num_of_sessions', 'num_estab_sessions', 'num_sso_sessions', 'peer_members', 'fmt_grp_ix', 'adv_ix', 'aspath_in', 'aspath_out', 'routemap_in', 'routemap_out', 'updated_messages', 'rep_count', 'slowpeer_detection_value', 'weight', 'send_community', 'extended_community', 'remove_private_as'], name, value)
@@ -3209,7 +3355,7 @@ class BgpStateData(Entity):
         """
 
         _prefix = 'bgp-ios-xe-oper'
-        _revision = '2017-05-12'
+        _revision = '2017-09-25'
 
         def __init__(self):
             super(BgpStateData.BgpRouteRds, self).__init__()
@@ -3218,8 +3364,10 @@ class BgpStateData(Entity):
             self.yang_parent_name = "bgp-state-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"bgp-route-rd" : ("bgp_route_rd", BgpStateData.BgpRouteRds.BgpRouteRd)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("bgp-route-rd", ("bgp_route_rd", BgpStateData.BgpRouteRds.BgpRouteRd))])
+            self._leafs = OrderedDict()
 
             self.bgp_route_rd = YList(self)
             self._segment_path = lambda: "bgp-route-rds"
@@ -3233,7 +3381,7 @@ class BgpStateData(Entity):
             """
             List of BGP RDs
             
-            .. attribute:: rd_value  <key>
+            .. attribute:: rd_value  (key)
             
             	BGP rd value
             	**type**\: str
@@ -3248,7 +3396,7 @@ class BgpStateData(Entity):
             """
 
             _prefix = 'bgp-ios-xe-oper'
-            _revision = '2017-05-12'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(BgpStateData.BgpRouteRds.BgpRouteRd, self).__init__()
@@ -3257,16 +3405,19 @@ class BgpStateData(Entity):
                 self.yang_parent_name = "bgp-route-rds"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"bgp-rd-route-afs" : ("bgp_rd_route_afs", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs)}
-                self._child_list_classes = {}
-
-                self.rd_value = YLeaf(YType.str, "rd-value")
+                self.ylist_key_names = ['rd_value']
+                self._child_container_classes = OrderedDict([("bgp-rd-route-afs", ("bgp_rd_route_afs", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rd_value', YLeaf(YType.str, 'rd-value')),
+                ])
+                self.rd_value = None
 
                 self.bgp_rd_route_afs = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs()
                 self.bgp_rd_route_afs.parent = self
                 self._children_name_map["bgp_rd_route_afs"] = "bgp-rd-route-afs"
                 self._children_yang_names.add("bgp-rd-route-afs")
-                self._segment_path = lambda: "bgp-route-rd" + "[rd-value='" + self.rd_value.get() + "']"
+                self._segment_path = lambda: "bgp-route-rd" + "[rd-value='" + str(self.rd_value) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3287,7 +3438,7 @@ class BgpStateData(Entity):
                 """
 
                 _prefix = 'bgp-ios-xe-oper'
-                _revision = '2017-05-12'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs, self).__init__()
@@ -3296,8 +3447,10 @@ class BgpStateData(Entity):
                     self.yang_parent_name = "bgp-route-rd"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bgp-rd-route-af" : ("bgp_rd_route_af", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bgp-rd-route-af", ("bgp_rd_route_af", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf))])
+                    self._leafs = OrderedDict()
 
                     self.bgp_rd_route_af = YList(self)
                     self._segment_path = lambda: "bgp-rd-route-afs"
@@ -3310,7 +3463,7 @@ class BgpStateData(Entity):
                     """
                     List of BGP RD address families
                     
-                    .. attribute:: afi_safi  <key>
+                    .. attribute:: afi_safi  (key)
                     
                     	BGP address family
                     	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
@@ -3330,7 +3483,7 @@ class BgpStateData(Entity):
                     """
 
                     _prefix = 'bgp-ios-xe-oper'
-                    _revision = '2017-05-12'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf, self).__init__()
@@ -3339,10 +3492,13 @@ class BgpStateData(Entity):
                         self.yang_parent_name = "bgp-rd-route-afs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"bgp-rd-route-filters" : ("bgp_rd_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters), "bgp-rd-route-neighbors" : ("bgp_rd_route_neighbors", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors)}
-                        self._child_list_classes = {}
-
-                        self.afi_safi = YLeaf(YType.enumeration, "afi-safi")
+                        self.ylist_key_names = ['afi_safi']
+                        self._child_container_classes = OrderedDict([("bgp-rd-route-filters", ("bgp_rd_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters)), ("bgp-rd-route-neighbors", ("bgp_rd_route_neighbors", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('afi_safi', YLeaf(YType.enumeration, 'afi-safi')),
+                        ])
+                        self.afi_safi = None
 
                         self.bgp_rd_route_filters = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters()
                         self.bgp_rd_route_filters.parent = self
@@ -3353,7 +3509,7 @@ class BgpStateData(Entity):
                         self.bgp_rd_route_neighbors.parent = self
                         self._children_name_map["bgp_rd_route_neighbors"] = "bgp-rd-route-neighbors"
                         self._children_yang_names.add("bgp-rd-route-neighbors")
-                        self._segment_path = lambda: "bgp-rd-route-af" + "[afi-safi='" + self.afi_safi.get() + "']"
+                        self._segment_path = lambda: "bgp-rd-route-af" + "[afi-safi='" + str(self.afi_safi) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf, ['afi_safi'], name, value)
@@ -3373,7 +3529,7 @@ class BgpStateData(Entity):
                         """
 
                         _prefix = 'bgp-ios-xe-oper'
-                        _revision = '2017-05-12'
+                        _revision = '2017-09-25'
 
                         def __init__(self):
                             super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters, self).__init__()
@@ -3382,8 +3538,10 @@ class BgpStateData(Entity):
                             self.yang_parent_name = "bgp-rd-route-af"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"bgp-rd-route-filter" : ("bgp_rd_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("bgp-rd-route-filter", ("bgp_rd_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter))])
+                            self._leafs = OrderedDict()
 
                             self.bgp_rd_route_filter = YList(self)
                             self._segment_path = lambda: "bgp-rd-route-filters"
@@ -3396,7 +3554,7 @@ class BgpStateData(Entity):
                             """
                             List of BGP RD route filters
                             
-                            .. attribute:: route_filter  <key>
+                            .. attribute:: route_filter  (key)
                             
                             	BGP RD route filter
                             	**type**\:  :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRouteFilters>`
@@ -3411,7 +3569,7 @@ class BgpStateData(Entity):
                             """
 
                             _prefix = 'bgp-ios-xe-oper'
-                            _revision = '2017-05-12'
+                            _revision = '2017-09-25'
 
                             def __init__(self):
                                 super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter, self).__init__()
@@ -3420,16 +3578,19 @@ class BgpStateData(Entity):
                                 self.yang_parent_name = "bgp-rd-route-filters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"bgp-rd-route-entries" : ("bgp_rd_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries)}
-                                self._child_list_classes = {}
-
-                                self.route_filter = YLeaf(YType.enumeration, "route-filter")
+                                self.ylist_key_names = ['route_filter']
+                                self._child_container_classes = OrderedDict([("bgp-rd-route-entries", ("bgp_rd_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('route_filter', YLeaf(YType.enumeration, 'route-filter')),
+                                ])
+                                self.route_filter = None
 
                                 self.bgp_rd_route_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries()
                                 self.bgp_rd_route_entries.parent = self
                                 self._children_name_map["bgp_rd_route_entries"] = "bgp-rd-route-entries"
                                 self._children_yang_names.add("bgp-rd-route-entries")
-                                self._segment_path = lambda: "bgp-rd-route-filter" + "[route-filter='" + self.route_filter.get() + "']"
+                                self._segment_path = lambda: "bgp-rd-route-filter" + "[route-filter='" + str(self.route_filter) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter, ['route_filter'], name, value)
@@ -3449,7 +3610,7 @@ class BgpStateData(Entity):
                                 """
 
                                 _prefix = 'bgp-ios-xe-oper'
-                                _revision = '2017-05-12'
+                                _revision = '2017-09-25'
 
                                 def __init__(self):
                                     super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries, self).__init__()
@@ -3458,8 +3619,10 @@ class BgpStateData(Entity):
                                     self.yang_parent_name = "bgp-rd-route-filter"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"bgp-rd-route-entry" : ("bgp_rd_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("bgp-rd-route-entry", ("bgp_rd_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry))])
+                                    self._leafs = OrderedDict()
 
                                     self.bgp_rd_route_entry = YList(self)
                                     self._segment_path = lambda: "bgp-rd-route-entries"
@@ -3472,7 +3635,7 @@ class BgpStateData(Entity):
                                     """
                                     List of BGP RD route entries
                                     
-                                    .. attribute:: prefix  <key>
+                                    .. attribute:: prefix  (key)
                                     
                                     	RD Routing table entry prefix
                                     	**type**\: str
@@ -3506,7 +3669,7 @@ class BgpStateData(Entity):
                                     """
 
                                     _prefix = 'bgp-ios-xe-oper'
-                                    _revision = '2017-05-12'
+                                    _revision = '2017-09-25'
 
                                     def __init__(self):
                                         super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry, self).__init__()
@@ -3515,22 +3678,25 @@ class BgpStateData(Entity):
                                         self.yang_parent_name = "bgp-rd-route-entries"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"bgp-rd-path-entries" : ("bgp_rd_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.version = YLeaf(YType.uint32, "version")
-
-                                        self.available_paths = YLeaf(YType.uint32, "available-paths")
-
-                                        self.advertised_to = YLeaf(YType.str, "advertised-to")
+                                        self.ylist_key_names = ['prefix']
+                                        self._child_container_classes = OrderedDict([("bgp-rd-path-entries", ("bgp_rd_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('version', YLeaf(YType.uint32, 'version')),
+                                            ('available_paths', YLeaf(YType.uint32, 'available-paths')),
+                                            ('advertised_to', YLeaf(YType.str, 'advertised-to')),
+                                        ])
+                                        self.prefix = None
+                                        self.version = None
+                                        self.available_paths = None
+                                        self.advertised_to = None
 
                                         self.bgp_rd_path_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries()
                                         self.bgp_rd_path_entries.parent = self
                                         self._children_name_map["bgp_rd_path_entries"] = "bgp-rd-path-entries"
                                         self._children_yang_names.add("bgp-rd-path-entries")
-                                        self._segment_path = lambda: "bgp-rd-route-entry" + "[prefix='" + self.prefix.get() + "']"
+                                        self._segment_path = lambda: "bgp-rd-route-entry" + "[prefix='" + str(self.prefix) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry, ['prefix', 'version', 'available_paths', 'advertised_to'], name, value)
@@ -3550,7 +3716,7 @@ class BgpStateData(Entity):
                                         """
 
                                         _prefix = 'bgp-ios-xe-oper'
-                                        _revision = '2017-05-12'
+                                        _revision = '2017-09-25'
 
                                         def __init__(self):
                                             super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries, self).__init__()
@@ -3559,8 +3725,10 @@ class BgpStateData(Entity):
                                             self.yang_parent_name = "bgp-rd-route-entry"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"bgp-rd-path-entry" : ("bgp_rd_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("bgp-rd-path-entry", ("bgp_rd_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry))])
+                                            self._leafs = OrderedDict()
 
                                             self.bgp_rd_path_entry = YList(self)
                                             self._segment_path = lambda: "bgp-rd-path-entries"
@@ -3573,7 +3741,7 @@ class BgpStateData(Entity):
                                             """
                                             List of prefix next hop details
                                             
-                                            .. attribute:: nexthop  <key>
+                                            .. attribute:: nexthop  (key)
                                             
                                             	Next hop for this path
                                             	**type**\: str
@@ -3716,7 +3884,7 @@ class BgpStateData(Entity):
                                             """
 
                                             _prefix = 'bgp-ios-xe-oper'
-                                            _revision = '2017-05-12'
+                                            _revision = '2017-09-25'
 
                                             def __init__(self):
                                                 super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry, self).__init__()
@@ -3725,60 +3893,63 @@ class BgpStateData(Entity):
                                                 self.yang_parent_name = "bgp-rd-path-entries"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"path-status" : ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus)}
-                                                self._child_list_classes = {}
-
-                                                self.nexthop = YLeaf(YType.str, "nexthop")
-
-                                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                                self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                                self.weight = YLeaf(YType.uint32, "weight")
-
-                                                self.as_path = YLeaf(YType.str, "as-path")
-
-                                                self.origin = YLeaf(YType.enumeration, "origin")
-
-                                                self.rpki_status = YLeaf(YType.enumeration, "rpki-status")
-
-                                                self.community = YLeaf(YType.str, "community")
-
-                                                self.mpls_in = YLeaf(YType.str, "mpls-in")
-
-                                                self.mpls_out = YLeaf(YType.str, "mpls-out")
-
-                                                self.sr_profile_name = YLeaf(YType.str, "sr-profile-name")
-
-                                                self.sr_binding_sid = YLeaf(YType.uint32, "sr-binding-sid")
-
-                                                self.sr_label_indx = YLeaf(YType.uint32, "sr-label-indx")
-
-                                                self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                                self.atomic_aggregate = YLeaf(YType.boolean, "atomic-aggregate")
-
-                                                self.aggr_as_number = YLeaf(YType.uint32, "aggr-as-number")
-
-                                                self.aggr_as4_number = YLeaf(YType.uint32, "aggr-as4-number")
-
-                                                self.aggr_address = YLeaf(YType.str, "aggr-address")
-
-                                                self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                                self.cluster_list = YLeaf(YType.str, "cluster-list")
-
-                                                self.extended_community = YLeaf(YType.str, "extended-community")
-
-                                                self.ext_aigp_metric = YLeaf(YType.uint64, "ext-aigp-metric")
-
-                                                self.path_id = YLeaf(YType.uint32, "path-id")
+                                                self.ylist_key_names = ['nexthop']
+                                                self._child_container_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('nexthop', YLeaf(YType.str, 'nexthop')),
+                                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                                    ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                    ('weight', YLeaf(YType.uint32, 'weight')),
+                                                    ('as_path', YLeaf(YType.str, 'as-path')),
+                                                    ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                    ('rpki_status', YLeaf(YType.enumeration, 'rpki-status')),
+                                                    ('community', YLeaf(YType.str, 'community')),
+                                                    ('mpls_in', YLeaf(YType.str, 'mpls-in')),
+                                                    ('mpls_out', YLeaf(YType.str, 'mpls-out')),
+                                                    ('sr_profile_name', YLeaf(YType.str, 'sr-profile-name')),
+                                                    ('sr_binding_sid', YLeaf(YType.uint32, 'sr-binding-sid')),
+                                                    ('sr_label_indx', YLeaf(YType.uint32, 'sr-label-indx')),
+                                                    ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                    ('atomic_aggregate', YLeaf(YType.boolean, 'atomic-aggregate')),
+                                                    ('aggr_as_number', YLeaf(YType.uint32, 'aggr-as-number')),
+                                                    ('aggr_as4_number', YLeaf(YType.uint32, 'aggr-as4-number')),
+                                                    ('aggr_address', YLeaf(YType.str, 'aggr-address')),
+                                                    ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                    ('cluster_list', YLeaf(YType.str, 'cluster-list')),
+                                                    ('extended_community', YLeaf(YType.str, 'extended-community')),
+                                                    ('ext_aigp_metric', YLeaf(YType.uint64, 'ext-aigp-metric')),
+                                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                                ])
+                                                self.nexthop = None
+                                                self.metric = None
+                                                self.local_pref = None
+                                                self.weight = None
+                                                self.as_path = None
+                                                self.origin = None
+                                                self.rpki_status = None
+                                                self.community = None
+                                                self.mpls_in = None
+                                                self.mpls_out = None
+                                                self.sr_profile_name = None
+                                                self.sr_binding_sid = None
+                                                self.sr_label_indx = None
+                                                self.as4_path = None
+                                                self.atomic_aggregate = None
+                                                self.aggr_as_number = None
+                                                self.aggr_as4_number = None
+                                                self.aggr_address = None
+                                                self.originator_id = None
+                                                self.cluster_list = None
+                                                self.extended_community = None
+                                                self.ext_aigp_metric = None
+                                                self.path_id = None
 
                                                 self.path_status = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus()
                                                 self.path_status.parent = self
                                                 self._children_name_map["path_status"] = "path-status"
                                                 self._children_yang_names.add("path-status")
-                                                self._segment_path = lambda: "bgp-rd-path-entry" + "[nexthop='" + self.nexthop.get() + "']"
+                                                self._segment_path = lambda: "bgp-rd-path-entry" + "[nexthop='" + str(self.nexthop) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community', 'mpls_in', 'mpls_out', 'sr_profile_name', 'sr_binding_sid', 'sr_label_indx', 'as4_path', 'atomic_aggregate', 'aggr_as_number', 'aggr_as4_number', 'aggr_address', 'originator_id', 'cluster_list', 'extended_community', 'ext_aigp_metric', 'path_id'], name, value)
@@ -3868,7 +4039,7 @@ class BgpStateData(Entity):
                                                 """
 
                                                 _prefix = 'bgp-ios-xe-oper'
-                                                _revision = '2017-05-12'
+                                                _revision = '2017-09-25'
 
                                                 def __init__(self):
                                                     super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus, self).__init__()
@@ -3877,38 +4048,41 @@ class BgpStateData(Entity):
                                                     self.yang_parent_name = "bgp-rd-path-entry"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.suppressed = YLeaf(YType.empty, "suppressed")
-
-                                                    self.damped = YLeaf(YType.empty, "damped")
-
-                                                    self.history = YLeaf(YType.empty, "history")
-
-                                                    self.valid = YLeaf(YType.empty, "valid")
-
-                                                    self.sourced = YLeaf(YType.empty, "sourced")
-
-                                                    self.bestpath = YLeaf(YType.empty, "bestpath")
-
-                                                    self.internal = YLeaf(YType.empty, "internal")
-
-                                                    self.rib_fail = YLeaf(YType.empty, "rib-fail")
-
-                                                    self.stale = YLeaf(YType.empty, "stale")
-
-                                                    self.multipath = YLeaf(YType.empty, "multipath")
-
-                                                    self.backup_path = YLeaf(YType.empty, "backup-path")
-
-                                                    self.rt_filter = YLeaf(YType.empty, "rt-filter")
-
-                                                    self.best_external = YLeaf(YType.empty, "best-external")
-
-                                                    self.additional_path = YLeaf(YType.empty, "additional-path")
-
-                                                    self.rib_compressed = YLeaf(YType.empty, "rib-compressed")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('suppressed', YLeaf(YType.empty, 'suppressed')),
+                                                        ('damped', YLeaf(YType.empty, 'damped')),
+                                                        ('history', YLeaf(YType.empty, 'history')),
+                                                        ('valid', YLeaf(YType.empty, 'valid')),
+                                                        ('sourced', YLeaf(YType.empty, 'sourced')),
+                                                        ('bestpath', YLeaf(YType.empty, 'bestpath')),
+                                                        ('internal', YLeaf(YType.empty, 'internal')),
+                                                        ('rib_fail', YLeaf(YType.empty, 'rib-fail')),
+                                                        ('stale', YLeaf(YType.empty, 'stale')),
+                                                        ('multipath', YLeaf(YType.empty, 'multipath')),
+                                                        ('backup_path', YLeaf(YType.empty, 'backup-path')),
+                                                        ('rt_filter', YLeaf(YType.empty, 'rt-filter')),
+                                                        ('best_external', YLeaf(YType.empty, 'best-external')),
+                                                        ('additional_path', YLeaf(YType.empty, 'additional-path')),
+                                                        ('rib_compressed', YLeaf(YType.empty, 'rib-compressed')),
+                                                    ])
+                                                    self.suppressed = None
+                                                    self.damped = None
+                                                    self.history = None
+                                                    self.valid = None
+                                                    self.sourced = None
+                                                    self.bestpath = None
+                                                    self.internal = None
+                                                    self.rib_fail = None
+                                                    self.stale = None
+                                                    self.multipath = None
+                                                    self.backup_path = None
+                                                    self.rt_filter = None
+                                                    self.best_external = None
+                                                    self.additional_path = None
+                                                    self.rib_compressed = None
                                                     self._segment_path = lambda: "path-status"
 
                                                 def __setattr__(self, name, value):
@@ -3929,7 +4103,7 @@ class BgpStateData(Entity):
                         """
 
                         _prefix = 'bgp-ios-xe-oper'
-                        _revision = '2017-05-12'
+                        _revision = '2017-09-25'
 
                         def __init__(self):
                             super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors, self).__init__()
@@ -3938,8 +4112,10 @@ class BgpStateData(Entity):
                             self.yang_parent_name = "bgp-rd-route-af"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"bgp-rd-route-neighbor" : ("bgp_rd_route_neighbor", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("bgp-rd-route-neighbor", ("bgp_rd_route_neighbor", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor))])
+                            self._leafs = OrderedDict()
 
                             self.bgp_rd_route_neighbor = YList(self)
                             self._segment_path = lambda: "bgp-rd-route-neighbors"
@@ -3952,7 +4128,7 @@ class BgpStateData(Entity):
                             """
                             List of BGP RD route neighbors
                             
-                            .. attribute:: neighbor_id  <key>
+                            .. attribute:: neighbor_id  (key)
                             
                             	BGP RD neighbor ID
                             	**type**\: str
@@ -3967,7 +4143,7 @@ class BgpStateData(Entity):
                             """
 
                             _prefix = 'bgp-ios-xe-oper'
-                            _revision = '2017-05-12'
+                            _revision = '2017-09-25'
 
                             def __init__(self):
                                 super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor, self).__init__()
@@ -3976,16 +4152,19 @@ class BgpStateData(Entity):
                                 self.yang_parent_name = "bgp-rd-route-neighbors"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"bgp-rd-neighbor-route-filters" : ("bgp_rd_neighbor_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters)}
-                                self._child_list_classes = {}
-
-                                self.neighbor_id = YLeaf(YType.str, "neighbor-id")
+                                self.ylist_key_names = ['neighbor_id']
+                                self._child_container_classes = OrderedDict([("bgp-rd-neighbor-route-filters", ("bgp_rd_neighbor_route_filters", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
+                                ])
+                                self.neighbor_id = None
 
                                 self.bgp_rd_neighbor_route_filters = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters()
                                 self.bgp_rd_neighbor_route_filters.parent = self
                                 self._children_name_map["bgp_rd_neighbor_route_filters"] = "bgp-rd-neighbor-route-filters"
                                 self._children_yang_names.add("bgp-rd-neighbor-route-filters")
-                                self._segment_path = lambda: "bgp-rd-route-neighbor" + "[neighbor-id='" + self.neighbor_id.get() + "']"
+                                self._segment_path = lambda: "bgp-rd-route-neighbor" + "[neighbor-id='" + str(self.neighbor_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor, ['neighbor_id'], name, value)
@@ -4005,7 +4184,7 @@ class BgpStateData(Entity):
                                 """
 
                                 _prefix = 'bgp-ios-xe-oper'
-                                _revision = '2017-05-12'
+                                _revision = '2017-09-25'
 
                                 def __init__(self):
                                     super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters, self).__init__()
@@ -4014,8 +4193,10 @@ class BgpStateData(Entity):
                                     self.yang_parent_name = "bgp-rd-route-neighbor"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"bgp-rd-neighbor-route-filter" : ("bgp_rd_neighbor_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("bgp-rd-neighbor-route-filter", ("bgp_rd_neighbor_route_filter", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter))])
+                                    self._leafs = OrderedDict()
 
                                     self.bgp_rd_neighbor_route_filter = YList(self)
                                     self._segment_path = lambda: "bgp-rd-neighbor-route-filters"
@@ -4028,7 +4209,7 @@ class BgpStateData(Entity):
                                     """
                                     List of BGP RD neighbor route filters
                                     
-                                    .. attribute:: neighbor_filter  <key>
+                                    .. attribute:: neighbor_filter  (key)
                                     
                                     	BGP RD neighbor route filter
                                     	**type**\:  :py:class:`BgpNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpNeighborRouteFilters>`
@@ -4043,7 +4224,7 @@ class BgpStateData(Entity):
                                     """
 
                                     _prefix = 'bgp-ios-xe-oper'
-                                    _revision = '2017-05-12'
+                                    _revision = '2017-09-25'
 
                                     def __init__(self):
                                         super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter, self).__init__()
@@ -4052,16 +4233,19 @@ class BgpStateData(Entity):
                                         self.yang_parent_name = "bgp-rd-neighbor-route-filters"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"bgp-rd-neighbor-route-entries" : ("bgp_rd_neighbor_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries)}
-                                        self._child_list_classes = {}
-
-                                        self.neighbor_filter = YLeaf(YType.enumeration, "neighbor-filter")
+                                        self.ylist_key_names = ['neighbor_filter']
+                                        self._child_container_classes = OrderedDict([("bgp-rd-neighbor-route-entries", ("bgp_rd_neighbor_route_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('neighbor_filter', YLeaf(YType.enumeration, 'neighbor-filter')),
+                                        ])
+                                        self.neighbor_filter = None
 
                                         self.bgp_rd_neighbor_route_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries()
                                         self.bgp_rd_neighbor_route_entries.parent = self
                                         self._children_name_map["bgp_rd_neighbor_route_entries"] = "bgp-rd-neighbor-route-entries"
                                         self._children_yang_names.add("bgp-rd-neighbor-route-entries")
-                                        self._segment_path = lambda: "bgp-rd-neighbor-route-filter" + "[neighbor-filter='" + self.neighbor_filter.get() + "']"
+                                        self._segment_path = lambda: "bgp-rd-neighbor-route-filter" + "[neighbor-filter='" + str(self.neighbor_filter) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter, ['neighbor_filter'], name, value)
@@ -4081,7 +4265,7 @@ class BgpStateData(Entity):
                                         """
 
                                         _prefix = 'bgp-ios-xe-oper'
-                                        _revision = '2017-05-12'
+                                        _revision = '2017-09-25'
 
                                         def __init__(self):
                                             super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries, self).__init__()
@@ -4090,8 +4274,10 @@ class BgpStateData(Entity):
                                             self.yang_parent_name = "bgp-rd-neighbor-route-filter"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"bgp-rd-neighbor-route-entry" : ("bgp_rd_neighbor_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("bgp-rd-neighbor-route-entry", ("bgp_rd_neighbor_route_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry))])
+                                            self._leafs = OrderedDict()
 
                                             self.bgp_rd_neighbor_route_entry = YList(self)
                                             self._segment_path = lambda: "bgp-rd-neighbor-route-entries"
@@ -4104,7 +4290,7 @@ class BgpStateData(Entity):
                                             """
                                             List of BGP RD neighbor route entries
                                             
-                                            .. attribute:: prefix  <key>
+                                            .. attribute:: prefix  (key)
                                             
                                             	RD neighbor routing table entry prefix
                                             	**type**\: str
@@ -4138,7 +4324,7 @@ class BgpStateData(Entity):
                                             """
 
                                             _prefix = 'bgp-ios-xe-oper'
-                                            _revision = '2017-05-12'
+                                            _revision = '2017-09-25'
 
                                             def __init__(self):
                                                 super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry, self).__init__()
@@ -4147,22 +4333,25 @@ class BgpStateData(Entity):
                                                 self.yang_parent_name = "bgp-rd-neighbor-route-entries"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"bgp-rd-neighbor-path-entries" : ("bgp_rd_neighbor_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries)}
-                                                self._child_list_classes = {}
-
-                                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                                self.version = YLeaf(YType.uint32, "version")
-
-                                                self.available_paths = YLeaf(YType.uint32, "available-paths")
-
-                                                self.advertised_to = YLeaf(YType.str, "advertised-to")
+                                                self.ylist_key_names = ['prefix']
+                                                self._child_container_classes = OrderedDict([("bgp-rd-neighbor-path-entries", ("bgp_rd_neighbor_path_entries", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                                    ('version', YLeaf(YType.uint32, 'version')),
+                                                    ('available_paths', YLeaf(YType.uint32, 'available-paths')),
+                                                    ('advertised_to', YLeaf(YType.str, 'advertised-to')),
+                                                ])
+                                                self.prefix = None
+                                                self.version = None
+                                                self.available_paths = None
+                                                self.advertised_to = None
 
                                                 self.bgp_rd_neighbor_path_entries = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries()
                                                 self.bgp_rd_neighbor_path_entries.parent = self
                                                 self._children_name_map["bgp_rd_neighbor_path_entries"] = "bgp-rd-neighbor-path-entries"
                                                 self._children_yang_names.add("bgp-rd-neighbor-path-entries")
-                                                self._segment_path = lambda: "bgp-rd-neighbor-route-entry" + "[prefix='" + self.prefix.get() + "']"
+                                                self._segment_path = lambda: "bgp-rd-neighbor-route-entry" + "[prefix='" + str(self.prefix) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry, ['prefix', 'version', 'available_paths', 'advertised_to'], name, value)
@@ -4182,7 +4371,7 @@ class BgpStateData(Entity):
                                                 """
 
                                                 _prefix = 'bgp-ios-xe-oper'
-                                                _revision = '2017-05-12'
+                                                _revision = '2017-09-25'
 
                                                 def __init__(self):
                                                     super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries, self).__init__()
@@ -4191,8 +4380,10 @@ class BgpStateData(Entity):
                                                     self.yang_parent_name = "bgp-rd-neighbor-route-entry"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"bgp-rd-neighbor-path-entry" : ("bgp_rd_neighbor_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("bgp-rd-neighbor-path-entry", ("bgp_rd_neighbor_path_entry", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.bgp_rd_neighbor_path_entry = YList(self)
                                                     self._segment_path = lambda: "bgp-rd-neighbor-path-entries"
@@ -4205,7 +4396,7 @@ class BgpStateData(Entity):
                                                     """
                                                     List of prefix next hop details
                                                     
-                                                    .. attribute:: nexthop  <key>
+                                                    .. attribute:: nexthop  (key)
                                                     
                                                     	Next hop for this path
                                                     	**type**\: str
@@ -4348,7 +4539,7 @@ class BgpStateData(Entity):
                                                     """
 
                                                     _prefix = 'bgp-ios-xe-oper'
-                                                    _revision = '2017-05-12'
+                                                    _revision = '2017-09-25'
 
                                                     def __init__(self):
                                                         super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry, self).__init__()
@@ -4357,60 +4548,63 @@ class BgpStateData(Entity):
                                                         self.yang_parent_name = "bgp-rd-neighbor-path-entries"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"path-status" : ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus)}
-                                                        self._child_list_classes = {}
-
-                                                        self.nexthop = YLeaf(YType.str, "nexthop")
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                                        self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                                        self.weight = YLeaf(YType.uint32, "weight")
-
-                                                        self.as_path = YLeaf(YType.str, "as-path")
-
-                                                        self.origin = YLeaf(YType.enumeration, "origin")
-
-                                                        self.rpki_status = YLeaf(YType.enumeration, "rpki-status")
-
-                                                        self.community = YLeaf(YType.str, "community")
-
-                                                        self.mpls_in = YLeaf(YType.str, "mpls-in")
-
-                                                        self.mpls_out = YLeaf(YType.str, "mpls-out")
-
-                                                        self.sr_profile_name = YLeaf(YType.str, "sr-profile-name")
-
-                                                        self.sr_binding_sid = YLeaf(YType.uint32, "sr-binding-sid")
-
-                                                        self.sr_label_indx = YLeaf(YType.uint32, "sr-label-indx")
-
-                                                        self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                                        self.atomic_aggregate = YLeaf(YType.boolean, "atomic-aggregate")
-
-                                                        self.aggr_as_number = YLeaf(YType.uint32, "aggr-as-number")
-
-                                                        self.aggr_as4_number = YLeaf(YType.uint32, "aggr-as4-number")
-
-                                                        self.aggr_address = YLeaf(YType.str, "aggr-address")
-
-                                                        self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                                        self.cluster_list = YLeaf(YType.str, "cluster-list")
-
-                                                        self.extended_community = YLeaf(YType.str, "extended-community")
-
-                                                        self.ext_aigp_metric = YLeaf(YType.uint64, "ext-aigp-metric")
-
-                                                        self.path_id = YLeaf(YType.uint32, "path-id")
+                                                        self.ylist_key_names = ['nexthop']
+                                                        self._child_container_classes = OrderedDict([("path-status", ("path_status", BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('nexthop', YLeaf(YType.str, 'nexthop')),
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                            ('weight', YLeaf(YType.uint32, 'weight')),
+                                                            ('as_path', YLeaf(YType.str, 'as-path')),
+                                                            ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                            ('rpki_status', YLeaf(YType.enumeration, 'rpki-status')),
+                                                            ('community', YLeaf(YType.str, 'community')),
+                                                            ('mpls_in', YLeaf(YType.str, 'mpls-in')),
+                                                            ('mpls_out', YLeaf(YType.str, 'mpls-out')),
+                                                            ('sr_profile_name', YLeaf(YType.str, 'sr-profile-name')),
+                                                            ('sr_binding_sid', YLeaf(YType.uint32, 'sr-binding-sid')),
+                                                            ('sr_label_indx', YLeaf(YType.uint32, 'sr-label-indx')),
+                                                            ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                            ('atomic_aggregate', YLeaf(YType.boolean, 'atomic-aggregate')),
+                                                            ('aggr_as_number', YLeaf(YType.uint32, 'aggr-as-number')),
+                                                            ('aggr_as4_number', YLeaf(YType.uint32, 'aggr-as4-number')),
+                                                            ('aggr_address', YLeaf(YType.str, 'aggr-address')),
+                                                            ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                            ('cluster_list', YLeaf(YType.str, 'cluster-list')),
+                                                            ('extended_community', YLeaf(YType.str, 'extended-community')),
+                                                            ('ext_aigp_metric', YLeaf(YType.uint64, 'ext-aigp-metric')),
+                                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                                        ])
+                                                        self.nexthop = None
+                                                        self.metric = None
+                                                        self.local_pref = None
+                                                        self.weight = None
+                                                        self.as_path = None
+                                                        self.origin = None
+                                                        self.rpki_status = None
+                                                        self.community = None
+                                                        self.mpls_in = None
+                                                        self.mpls_out = None
+                                                        self.sr_profile_name = None
+                                                        self.sr_binding_sid = None
+                                                        self.sr_label_indx = None
+                                                        self.as4_path = None
+                                                        self.atomic_aggregate = None
+                                                        self.aggr_as_number = None
+                                                        self.aggr_as4_number = None
+                                                        self.aggr_address = None
+                                                        self.originator_id = None
+                                                        self.cluster_list = None
+                                                        self.extended_community = None
+                                                        self.ext_aigp_metric = None
+                                                        self.path_id = None
 
                                                         self.path_status = BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus()
                                                         self.path_status.parent = self
                                                         self._children_name_map["path_status"] = "path-status"
                                                         self._children_yang_names.add("path-status")
-                                                        self._segment_path = lambda: "bgp-rd-neighbor-path-entry" + "[nexthop='" + self.nexthop.get() + "']"
+                                                        self._segment_path = lambda: "bgp-rd-neighbor-path-entry" + "[nexthop='" + str(self.nexthop) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry, ['nexthop', 'metric', 'local_pref', 'weight', 'as_path', 'origin', 'rpki_status', 'community', 'mpls_in', 'mpls_out', 'sr_profile_name', 'sr_binding_sid', 'sr_label_indx', 'as4_path', 'atomic_aggregate', 'aggr_as_number', 'aggr_as4_number', 'aggr_address', 'originator_id', 'cluster_list', 'extended_community', 'ext_aigp_metric', 'path_id'], name, value)
@@ -4500,7 +4694,7 @@ class BgpStateData(Entity):
                                                         """
 
                                                         _prefix = 'bgp-ios-xe-oper'
-                                                        _revision = '2017-05-12'
+                                                        _revision = '2017-09-25'
 
                                                         def __init__(self):
                                                             super(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus, self).__init__()
@@ -4509,38 +4703,41 @@ class BgpStateData(Entity):
                                                             self.yang_parent_name = "bgp-rd-neighbor-path-entry"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.suppressed = YLeaf(YType.empty, "suppressed")
-
-                                                            self.damped = YLeaf(YType.empty, "damped")
-
-                                                            self.history = YLeaf(YType.empty, "history")
-
-                                                            self.valid = YLeaf(YType.empty, "valid")
-
-                                                            self.sourced = YLeaf(YType.empty, "sourced")
-
-                                                            self.bestpath = YLeaf(YType.empty, "bestpath")
-
-                                                            self.internal = YLeaf(YType.empty, "internal")
-
-                                                            self.rib_fail = YLeaf(YType.empty, "rib-fail")
-
-                                                            self.stale = YLeaf(YType.empty, "stale")
-
-                                                            self.multipath = YLeaf(YType.empty, "multipath")
-
-                                                            self.backup_path = YLeaf(YType.empty, "backup-path")
-
-                                                            self.rt_filter = YLeaf(YType.empty, "rt-filter")
-
-                                                            self.best_external = YLeaf(YType.empty, "best-external")
-
-                                                            self.additional_path = YLeaf(YType.empty, "additional-path")
-
-                                                            self.rib_compressed = YLeaf(YType.empty, "rib-compressed")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('suppressed', YLeaf(YType.empty, 'suppressed')),
+                                                                ('damped', YLeaf(YType.empty, 'damped')),
+                                                                ('history', YLeaf(YType.empty, 'history')),
+                                                                ('valid', YLeaf(YType.empty, 'valid')),
+                                                                ('sourced', YLeaf(YType.empty, 'sourced')),
+                                                                ('bestpath', YLeaf(YType.empty, 'bestpath')),
+                                                                ('internal', YLeaf(YType.empty, 'internal')),
+                                                                ('rib_fail', YLeaf(YType.empty, 'rib-fail')),
+                                                                ('stale', YLeaf(YType.empty, 'stale')),
+                                                                ('multipath', YLeaf(YType.empty, 'multipath')),
+                                                                ('backup_path', YLeaf(YType.empty, 'backup-path')),
+                                                                ('rt_filter', YLeaf(YType.empty, 'rt-filter')),
+                                                                ('best_external', YLeaf(YType.empty, 'best-external')),
+                                                                ('additional_path', YLeaf(YType.empty, 'additional-path')),
+                                                                ('rib_compressed', YLeaf(YType.empty, 'rib-compressed')),
+                                                            ])
+                                                            self.suppressed = None
+                                                            self.damped = None
+                                                            self.history = None
+                                                            self.valid = None
+                                                            self.sourced = None
+                                                            self.bestpath = None
+                                                            self.internal = None
+                                                            self.rib_fail = None
+                                                            self.stale = None
+                                                            self.multipath = None
+                                                            self.backup_path = None
+                                                            self.rt_filter = None
+                                                            self.best_external = None
+                                                            self.additional_path = None
+                                                            self.rib_compressed = None
                                                             self._segment_path = lambda: "path-status"
 
                                                         def __setattr__(self, name, value):

@@ -31,15 +31,17 @@ an IP/UDP Ports which must be configured. To resolve IP
 Addresses, DNS name services may be used.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CCallControlJitterDelayMode(Enum):
     """
-    CCallControlJitterDelayMode
+    CCallControlJitterDelayMode (Enum Class)
 
     This textual convention defines the jitter buffer mode in
 
@@ -72,7 +74,7 @@ class CCallControlJitterDelayMode(Enum):
 
 class CGwAdminState(Enum):
     """
-    CGwAdminState
+    CGwAdminState (Enum Class)
 
     This textual convention defines the administrative state of  
 
@@ -129,7 +131,7 @@ class CGwAdminState(Enum):
 
 class CGwServiceState(Enum):
     """
-    CGwServiceState
+    CGwServiceState (Enum Class)
 
     This textual convention defines the service state of media 
 
@@ -242,8 +244,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cMediaGwTable" : ("cmediagwtable", CISCOMEDIAGATEWAYMIB.Cmediagwtable), "cmgwSignalProtocolTable" : ("cmgwsignalprotocoltable", CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable), "cMediaGwIpConfigTable" : ("cmediagwipconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable), "cMediaGwDomainNameConfigTable" : ("cmediagwdomainnameconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable), "cMediaGwDnsIpConfigTable" : ("cmediagwdnsipconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable), "cmgwLifTable" : ("cmgwliftable", CISCOMEDIAGATEWAYMIB.Cmgwliftable), "cMediaGwCallControlConfigTable" : ("cmediagwcallcontrolconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable), "cMediaGwRscStatsTable" : ("cmediagwrscstatstable", CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cMediaGwTable", ("cmediagwtable", CISCOMEDIAGATEWAYMIB.Cmediagwtable)), ("cmgwSignalProtocolTable", ("cmgwsignalprotocoltable", CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable)), ("cMediaGwIpConfigTable", ("cmediagwipconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable)), ("cMediaGwDomainNameConfigTable", ("cmediagwdomainnameconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable)), ("cMediaGwDnsIpConfigTable", ("cmediagwdnsipconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable)), ("cmgwLifTable", ("cmgwliftable", CISCOMEDIAGATEWAYMIB.Cmgwliftable)), ("cMediaGwCallControlConfigTable", ("cmediagwcallcontrolconfigtable", CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable)), ("cMediaGwRscStatsTable", ("cmediagwrscstatstable", CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cmediagwtable = CISCOMEDIAGATEWAYMIB.Cmediagwtable()
         self.cmediagwtable.parent = self
@@ -313,8 +317,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cMediaGwEntry" : ("cmediagwentry", CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cMediaGwEntry", ("cmediagwentry", CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry))])
+            self._leafs = OrderedDict()
 
             self.cmediagwentry = YList(self)
             self._segment_path = lambda: "cMediaGwTable"
@@ -332,7 +338,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             to the system, and an entry is deleted if the entry associated
             media gateway module has been removed from the system.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	An index that uniquely identifies an entry in the  cMediaGwTable
             	**type**\: int
@@ -406,29 +412,32 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self.yang_parent_name = "cMediaGwTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.int32, "cmgwIndex")
-
-                self.cmgwdomainname = YLeaf(YType.str, "cmgwDomainName")
-
-                self.cmgwphysicalindex = YLeaf(YType.int32, "cmgwPhysicalIndex")
-
-                self.cmgwservicestate = YLeaf(YType.enumeration, "cmgwServiceState")
-
-                self.cmgwadminstate = YLeaf(YType.enumeration, "cmgwAdminState")
-
-                self.cmgwgracetime = YLeaf(YType.int32, "cmgwGraceTime")
-
-                self.cmgwvtmappingmode = YLeaf(YType.enumeration, "cmgwVtMappingMode")
-
-                self.cmgwsrcfilterenabled = YLeaf(YType.boolean, "cmgwSrcFilterEnabled")
-
-                self.cmgwlawinterceptenabled = YLeaf(YType.boolean, "cmgwLawInterceptEnabled")
-
-                self.cmgwv23enabled = YLeaf(YType.boolean, "cmgwV23Enabled")
-                self._segment_path = lambda: "cMediaGwEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.int32, 'cmgwIndex')),
+                    ('cmgwdomainname', YLeaf(YType.str, 'cmgwDomainName')),
+                    ('cmgwphysicalindex', YLeaf(YType.int32, 'cmgwPhysicalIndex')),
+                    ('cmgwservicestate', YLeaf(YType.enumeration, 'cmgwServiceState')),
+                    ('cmgwadminstate', YLeaf(YType.enumeration, 'cmgwAdminState')),
+                    ('cmgwgracetime', YLeaf(YType.int32, 'cmgwGraceTime')),
+                    ('cmgwvtmappingmode', YLeaf(YType.enumeration, 'cmgwVtMappingMode')),
+                    ('cmgwsrcfilterenabled', YLeaf(YType.boolean, 'cmgwSrcFilterEnabled')),
+                    ('cmgwlawinterceptenabled', YLeaf(YType.boolean, 'cmgwLawInterceptEnabled')),
+                    ('cmgwv23enabled', YLeaf(YType.boolean, 'cmgwV23Enabled')),
+                ])
+                self.cmgwindex = None
+                self.cmgwdomainname = None
+                self.cmgwphysicalindex = None
+                self.cmgwservicestate = None
+                self.cmgwadminstate = None
+                self.cmgwgracetime = None
+                self.cmgwvtmappingmode = None
+                self.cmgwsrcfilterenabled = None
+                self.cmgwlawinterceptenabled = None
+                self.cmgwv23enabled = None
+                self._segment_path = lambda: "cMediaGwEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']"
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -436,7 +445,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
             class Cmgwvtmappingmode(Enum):
                 """
-                Cmgwvtmappingmode
+                Cmgwvtmappingmode (Enum Class)
 
                 This object is used to represent the VT (sonet Virtual
 
@@ -491,8 +500,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cmgwSignalProtocolEntry" : ("cmgwsignalprotocolentry", CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable.Cmgwsignalprotocolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cmgwSignalProtocolEntry", ("cmgwsignalprotocolentry", CISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable.Cmgwsignalprotocolentry))])
+            self._leafs = OrderedDict()
 
             self.cmgwsignalprotocolentry = YList(self)
             self._segment_path = lambda: "cmgwSignalProtocolTable"
@@ -507,7 +518,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             Each entry represents an signaling protocol supported
             by the media gateway.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -516,7 +527,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
             
-            .. attribute:: cmgwsignalprotocolindex  <key>
+            .. attribute:: cmgwsignalprotocolindex  (key)
             
             	An index that uniquely identifies an entry in cmgwSignalProtocolTable
             	**type**\: int
@@ -577,25 +588,28 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self.yang_parent_name = "cmgwSignalProtocolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cmgwsignalprotocolindex = YLeaf(YType.int32, "cmgwSignalProtocolIndex")
-
-                self.cmgwsignalprotocol = YLeaf(YType.enumeration, "cmgwSignalProtocol")
-
-                self.cmgwsignalprotocolversion = YLeaf(YType.str, "cmgwSignalProtocolVersion")
-
-                self.cmgwsignalprotocolport = YLeaf(YType.int32, "cmgwSignalProtocolPort")
-
-                self.cmgwsignalmgcprotocolport = YLeaf(YType.uint16, "cmgwSignalMgcProtocolPort")
-
-                self.cmgwsignalprotocolpreference = YLeaf(YType.int32, "cmgwSignalProtocolPreference")
-
-                self.cmgwsignalprotocolconfigver = YLeaf(YType.str, "cmgwSignalProtocolConfigVer")
-                self._segment_path = lambda: "cmgwSignalProtocolEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']" + "[cmgwSignalProtocolIndex='" + self.cmgwsignalprotocolindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex','cmgwsignalprotocolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cmgwsignalprotocolindex', YLeaf(YType.int32, 'cmgwSignalProtocolIndex')),
+                    ('cmgwsignalprotocol', YLeaf(YType.enumeration, 'cmgwSignalProtocol')),
+                    ('cmgwsignalprotocolversion', YLeaf(YType.str, 'cmgwSignalProtocolVersion')),
+                    ('cmgwsignalprotocolport', YLeaf(YType.int32, 'cmgwSignalProtocolPort')),
+                    ('cmgwsignalmgcprotocolport', YLeaf(YType.uint16, 'cmgwSignalMgcProtocolPort')),
+                    ('cmgwsignalprotocolpreference', YLeaf(YType.int32, 'cmgwSignalProtocolPreference')),
+                    ('cmgwsignalprotocolconfigver', YLeaf(YType.str, 'cmgwSignalProtocolConfigVer')),
+                ])
+                self.cmgwindex = None
+                self.cmgwsignalprotocolindex = None
+                self.cmgwsignalprotocol = None
+                self.cmgwsignalprotocolversion = None
+                self.cmgwsignalprotocolport = None
+                self.cmgwsignalmgcprotocolport = None
+                self.cmgwsignalprotocolpreference = None
+                self.cmgwsignalprotocolconfigver = None
+                self._segment_path = lambda: "cmgwSignalProtocolEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']" + "[cmgwSignalProtocolIndex='" + str(self.cmgwsignalprotocolindex) + "']"
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cmgwSignalProtocolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -603,7 +617,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
             class Cmgwsignalprotocol(Enum):
                 """
-                Cmgwsignalprotocol
+                Cmgwsignalprotocol (Enum Class)
 
                 This object is used to represent the protocol type.
 
@@ -672,8 +686,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cMediaGwIpConfigEntry" : ("cmediagwipconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable.Cmediagwipconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cMediaGwIpConfigEntry", ("cmediagwipconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable.Cmediagwipconfigentry))])
+            self._leafs = OrderedDict()
 
             self.cmediagwipconfigentry = YList(self)
             self._segment_path = lambda: "cMediaGwIpConfigTable"
@@ -689,7 +705,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             Each entry represents a media gateway IP address for MGCs
             to communicate with the media gateway.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -698,7 +714,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
             
-            .. attribute:: cmgwipconfigindex  <key>
+            .. attribute:: cmgwipconfigindex  (key)
             
             	A unique index to identify each media gateway IP address
             	**type**\: int
@@ -774,31 +790,34 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self.yang_parent_name = "cMediaGwIpConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cmgwipconfigindex = YLeaf(YType.int32, "cmgwIpConfigIndex")
-
-                self.cmgwipconfigifindex = YLeaf(YType.int32, "cmgwIpConfigIfIndex")
-
-                self.cmgwipconfigvpi = YLeaf(YType.int32, "cmgwIpConfigVpi")
-
-                self.cmgwipconfigvci = YLeaf(YType.int32, "cmgwIpConfigVci")
-
-                self.cmgwipconfigaddrtype = YLeaf(YType.enumeration, "cmgwIpConfigAddrType")
-
-                self.cmgwipconfigaddress = YLeaf(YType.str, "cmgwIpConfigAddress")
-
-                self.cmgwipconfigsubnetmask = YLeaf(YType.uint32, "cmgwIpConfigSubnetMask")
-
-                self.cmgwipconfigdefaultgwip = YLeaf(YType.boolean, "cmgwIpConfigDefaultGwIp")
-
-                self.cmgwipconfigforremotemapping = YLeaf(YType.boolean, "cmgwIpConfigForRemoteMapping")
-
-                self.cmgwipconfigrowstatus = YLeaf(YType.enumeration, "cmgwIpConfigRowStatus")
-                self._segment_path = lambda: "cMediaGwIpConfigEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']" + "[cmgwIpConfigIndex='" + self.cmgwipconfigindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex','cmgwipconfigindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cmgwipconfigindex', YLeaf(YType.int32, 'cmgwIpConfigIndex')),
+                    ('cmgwipconfigifindex', YLeaf(YType.int32, 'cmgwIpConfigIfIndex')),
+                    ('cmgwipconfigvpi', YLeaf(YType.int32, 'cmgwIpConfigVpi')),
+                    ('cmgwipconfigvci', YLeaf(YType.int32, 'cmgwIpConfigVci')),
+                    ('cmgwipconfigaddrtype', YLeaf(YType.enumeration, 'cmgwIpConfigAddrType')),
+                    ('cmgwipconfigaddress', YLeaf(YType.str, 'cmgwIpConfigAddress')),
+                    ('cmgwipconfigsubnetmask', YLeaf(YType.uint32, 'cmgwIpConfigSubnetMask')),
+                    ('cmgwipconfigdefaultgwip', YLeaf(YType.boolean, 'cmgwIpConfigDefaultGwIp')),
+                    ('cmgwipconfigforremotemapping', YLeaf(YType.boolean, 'cmgwIpConfigForRemoteMapping')),
+                    ('cmgwipconfigrowstatus', YLeaf(YType.enumeration, 'cmgwIpConfigRowStatus')),
+                ])
+                self.cmgwindex = None
+                self.cmgwipconfigindex = None
+                self.cmgwipconfigifindex = None
+                self.cmgwipconfigvpi = None
+                self.cmgwipconfigvci = None
+                self.cmgwipconfigaddrtype = None
+                self.cmgwipconfigaddress = None
+                self.cmgwipconfigsubnetmask = None
+                self.cmgwipconfigdefaultgwip = None
+                self.cmgwipconfigforremotemapping = None
+                self.cmgwipconfigrowstatus = None
+                self._segment_path = lambda: "cMediaGwIpConfigEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']" + "[cmgwIpConfigIndex='" + str(self.cmgwipconfigindex) + "']"
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwIpConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -834,8 +853,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cMediaGwDomainNameConfigEntry" : ("cmediagwdomainnameconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cMediaGwDomainNameConfigEntry", ("cmediagwdomainnameconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry))])
+            self._leafs = OrderedDict()
 
             self.cmediagwdomainnameconfigentry = YList(self)
             self._segment_path = lambda: "cMediaGwDomainNameConfigTable"
@@ -852,7 +873,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             Creation and deletion are supported. Modification
             is prohibited.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -861,7 +882,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
             
-            .. attribute:: cmgwconfigdomainnameindex  <key>
+            .. attribute:: cmgwconfigdomainnameindex  (key)
             
             	An index that is uniquely identifies a domain name configured in the system
             	**type**\: int
@@ -899,19 +920,22 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self.yang_parent_name = "cMediaGwDomainNameConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cmgwconfigdomainnameindex = YLeaf(YType.int32, "cmgwConfigDomainNameIndex")
-
-                self.cmgwconfigdomainnameentity = YLeaf(YType.enumeration, "cmgwConfigDomainNameEntity")
-
-                self.cmgwconfigdomainname = YLeaf(YType.str, "cmgwConfigDomainName")
-
-                self.cmgwconfigdomainnamerowstatus = YLeaf(YType.enumeration, "cmgwConfigDomainNameRowStatus")
-                self._segment_path = lambda: "cMediaGwDomainNameConfigEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']" + "[cmgwConfigDomainNameIndex='" + self.cmgwconfigdomainnameindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex','cmgwconfigdomainnameindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cmgwconfigdomainnameindex', YLeaf(YType.int32, 'cmgwConfigDomainNameIndex')),
+                    ('cmgwconfigdomainnameentity', YLeaf(YType.enumeration, 'cmgwConfigDomainNameEntity')),
+                    ('cmgwconfigdomainname', YLeaf(YType.str, 'cmgwConfigDomainName')),
+                    ('cmgwconfigdomainnamerowstatus', YLeaf(YType.enumeration, 'cmgwConfigDomainNameRowStatus')),
+                ])
+                self.cmgwindex = None
+                self.cmgwconfigdomainnameindex = None
+                self.cmgwconfigdomainnameentity = None
+                self.cmgwconfigdomainname = None
+                self.cmgwconfigdomainnamerowstatus = None
+                self._segment_path = lambda: "cMediaGwDomainNameConfigEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']" + "[cmgwConfigDomainNameIndex='" + str(self.cmgwconfigdomainnameindex) + "']"
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwDomainNameConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -919,7 +943,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
             class Cmgwconfigdomainnameentity(Enum):
                 """
-                Cmgwconfigdomainnameentity
+                Cmgwconfigdomainnameentity (Enum Class)
 
                 This object indicates which entity to use this domain name.
 
@@ -991,8 +1015,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cMediaGwDnsIpConfigEntry" : ("cmediagwdnsipconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cMediaGwDnsIpConfigEntry", ("cmediagwdnsipconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry))])
+            self._leafs = OrderedDict()
 
             self.cmediagwdnsipconfigentry = YList(self)
             self._segment_path = lambda: "cMediaGwDnsIpConfigTable"
@@ -1007,7 +1033,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             Each entry represents an IP address of the DNS name 
             server.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -1016,7 +1042,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
             
-            .. attribute:: cmgwdnsipindex  <key>
+            .. attribute:: cmgwdnsipindex  (key)
             
             	An index that uniquely identifies an IP address of DNS name server
             	**type**\: int
@@ -1061,21 +1087,24 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self.yang_parent_name = "cMediaGwDnsIpConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cmgwdnsipindex = YLeaf(YType.int32, "cmgwDnsIpIndex")
-
-                self.cmgwdnsdomainname = YLeaf(YType.str, "cmgwDnsDomainName")
-
-                self.cmgwdnsiptype = YLeaf(YType.enumeration, "cmgwDnsIpType")
-
-                self.cmgwdnsip = YLeaf(YType.str, "cmgwDnsIp")
-
-                self.cmgwdnsiprowstatus = YLeaf(YType.enumeration, "cmgwDnsIpRowStatus")
-                self._segment_path = lambda: "cMediaGwDnsIpConfigEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']" + "[cmgwDnsIpIndex='" + self.cmgwdnsipindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex','cmgwdnsipindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cmgwdnsipindex', YLeaf(YType.int32, 'cmgwDnsIpIndex')),
+                    ('cmgwdnsdomainname', YLeaf(YType.str, 'cmgwDnsDomainName')),
+                    ('cmgwdnsiptype', YLeaf(YType.enumeration, 'cmgwDnsIpType')),
+                    ('cmgwdnsip', YLeaf(YType.str, 'cmgwDnsIp')),
+                    ('cmgwdnsiprowstatus', YLeaf(YType.enumeration, 'cmgwDnsIpRowStatus')),
+                ])
+                self.cmgwindex = None
+                self.cmgwdnsipindex = None
+                self.cmgwdnsdomainname = None
+                self.cmgwdnsiptype = None
+                self.cmgwdnsip = None
+                self.cmgwdnsiprowstatus = None
+                self._segment_path = lambda: "cMediaGwDnsIpConfigEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']" + "[cmgwDnsIpIndex='" + str(self.cmgwdnsipindex) + "']"
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwDnsIpConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1114,8 +1143,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cmgwLifEntry" : ("cmgwlifentry", CISCOMEDIAGATEWAYMIB.Cmgwliftable.Cmgwlifentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cmgwLifEntry", ("cmgwlifentry", CISCOMEDIAGATEWAYMIB.Cmgwliftable.Cmgwlifentry))])
+            self._leafs = OrderedDict()
 
             self.cmgwlifentry = YList(self)
             self._segment_path = lambda: "cmgwLifTable"
@@ -1130,7 +1161,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             An entry of this table is created by the media gateway
             when it supports the VoIP/VoATM application.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -1139,7 +1170,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
             
-            .. attribute:: cmgwlifnumber  <key>
+            .. attribute:: cmgwlifnumber  (key)
             
             	An index that uniquely identifies a LIF in the  media gateway
             	**type**\: int
@@ -1174,17 +1205,20 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self.yang_parent_name = "cmgwLifTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cmgwlifnumber = YLeaf(YType.uint32, "cmgwLifNumber")
-
-                self.cmgwlifpvccount = YLeaf(YType.uint32, "cmgwLifPvcCount")
-
-                self.cmgwlifvoiceifcount = YLeaf(YType.uint32, "cmgwLifVoiceIfCount")
-                self._segment_path = lambda: "cmgwLifEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']" + "[cmgwLifNumber='" + self.cmgwlifnumber.get() + "']"
+                self.ylist_key_names = ['cmgwindex','cmgwlifnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cmgwlifnumber', YLeaf(YType.uint32, 'cmgwLifNumber')),
+                    ('cmgwlifpvccount', YLeaf(YType.uint32, 'cmgwLifPvcCount')),
+                    ('cmgwlifvoiceifcount', YLeaf(YType.uint32, 'cmgwLifVoiceIfCount')),
+                ])
+                self.cmgwindex = None
+                self.cmgwlifnumber = None
+                self.cmgwlifpvccount = None
+                self.cmgwlifvoiceifcount = None
+                self._segment_path = lambda: "cmgwLifEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']" + "[cmgwLifNumber='" + str(self.cmgwlifnumber) + "']"
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cmgwLifTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1215,8 +1249,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cMediaGwCallControlConfigEntry" : ("cmediagwcallcontrolconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cMediaGwCallControlConfigEntry", ("cmediagwcallcontrolconfigentry", CISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry))])
+            self._leafs = OrderedDict()
 
             self.cmediagwcallcontrolconfigentry = YList(self)
             self._segment_path = lambda: "cMediaGwCallControlConfigTable"
@@ -1231,7 +1267,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             One entry for each media gateway which supports call control 
             protocol.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -1380,47 +1416,50 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self.yang_parent_name = "cMediaGwCallControlConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cmediagwcccfgcontroltos = YLeaf(YType.uint32, "cMediaGwCcCfgControlTos")
-
-                self.cmediagwcccfgbearertos = YLeaf(YType.uint32, "cMediaGwCcCfgBearerTos")
-
-                self.cmediagwcccfgntepayload = YLeaf(YType.uint32, "cMediaGwCcCfgNtePayload")
-
-                self.cmediagwcccfgnsepayload = YLeaf(YType.uint32, "cMediaGwCcCfgNsePayload")
-
-                self.cmediagwcccfgnseresptimer = YLeaf(YType.uint32, "cMediaGwCcCfgNseRespTimer")
-
-                self.cmediagwcccfgvbdjitterdelaymode = YLeaf(YType.enumeration, "cMediaGwCcCfgVbdJitterDelayMode")
-
-                self.cmediagwcccfgvbdjittermaxdelay = YLeaf(YType.uint32, "cMediaGwCcCfgVbdJitterMaxDelay")
-
-                self.cmediagwcccfgvbdjitternomdelay = YLeaf(YType.uint32, "cMediaGwCcCfgVbdJitterNomDelay")
-
-                self.cmediagwcccfgvbdjittermindelay = YLeaf(YType.uint32, "cMediaGwCcCfgVbdJitterMinDelay")
-
-                self.cmediagwcccfgdefaulttoneplanid = YLeaf(YType.uint32, "cMediaGwCcCfgDefaultTonePlanId")
-
-                self.cmediagwcccfgdescrinfoenabled = YLeaf(YType.boolean, "cMediaGwCcCfgDescrInfoEnabled")
-
-                self.cmediagwcccfgdsnameprefix = YLeaf(YType.str, "cMediaGwCcCfgDsNamePrefix")
-
-                self.cmediagwcccfgrtpnameprefix = YLeaf(YType.str, "cMediaGwCcCfgRtpNamePrefix")
-
-                self.cmediagwcccfgaal1svcnameprefix = YLeaf(YType.str, "cMediaGwCcCfgAal1SvcNamePrefix")
-
-                self.cmediagwcccfgaal2svcnameprefix = YLeaf(YType.str, "cMediaGwCcCfgAal2SvcNamePrefix")
-
-                self.cmediagwcccfgclusterenabled = YLeaf(YType.enumeration, "cMediaGwCcCfgClusterEnabled")
-
-                self.cmediagwcccfgdefbearertraffic = YLeaf(YType.enumeration, "cMediaGwCcCfgDefBearerTraffic")
-
-                self.cmediagwcccfgdefrtpnameprefix = YLeaf(YType.str, "cMediaGwCcCfgDefRtpNamePrefix")
-                self._segment_path = lambda: "cMediaGwCallControlConfigEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cmediagwcccfgcontroltos', YLeaf(YType.uint32, 'cMediaGwCcCfgControlTos')),
+                    ('cmediagwcccfgbearertos', YLeaf(YType.uint32, 'cMediaGwCcCfgBearerTos')),
+                    ('cmediagwcccfgntepayload', YLeaf(YType.uint32, 'cMediaGwCcCfgNtePayload')),
+                    ('cmediagwcccfgnsepayload', YLeaf(YType.uint32, 'cMediaGwCcCfgNsePayload')),
+                    ('cmediagwcccfgnseresptimer', YLeaf(YType.uint32, 'cMediaGwCcCfgNseRespTimer')),
+                    ('cmediagwcccfgvbdjitterdelaymode', YLeaf(YType.enumeration, 'cMediaGwCcCfgVbdJitterDelayMode')),
+                    ('cmediagwcccfgvbdjittermaxdelay', YLeaf(YType.uint32, 'cMediaGwCcCfgVbdJitterMaxDelay')),
+                    ('cmediagwcccfgvbdjitternomdelay', YLeaf(YType.uint32, 'cMediaGwCcCfgVbdJitterNomDelay')),
+                    ('cmediagwcccfgvbdjittermindelay', YLeaf(YType.uint32, 'cMediaGwCcCfgVbdJitterMinDelay')),
+                    ('cmediagwcccfgdefaulttoneplanid', YLeaf(YType.uint32, 'cMediaGwCcCfgDefaultTonePlanId')),
+                    ('cmediagwcccfgdescrinfoenabled', YLeaf(YType.boolean, 'cMediaGwCcCfgDescrInfoEnabled')),
+                    ('cmediagwcccfgdsnameprefix', YLeaf(YType.str, 'cMediaGwCcCfgDsNamePrefix')),
+                    ('cmediagwcccfgrtpnameprefix', YLeaf(YType.str, 'cMediaGwCcCfgRtpNamePrefix')),
+                    ('cmediagwcccfgaal1svcnameprefix', YLeaf(YType.str, 'cMediaGwCcCfgAal1SvcNamePrefix')),
+                    ('cmediagwcccfgaal2svcnameprefix', YLeaf(YType.str, 'cMediaGwCcCfgAal2SvcNamePrefix')),
+                    ('cmediagwcccfgclusterenabled', YLeaf(YType.enumeration, 'cMediaGwCcCfgClusterEnabled')),
+                    ('cmediagwcccfgdefbearertraffic', YLeaf(YType.enumeration, 'cMediaGwCcCfgDefBearerTraffic')),
+                    ('cmediagwcccfgdefrtpnameprefix', YLeaf(YType.str, 'cMediaGwCcCfgDefRtpNamePrefix')),
+                ])
+                self.cmgwindex = None
+                self.cmediagwcccfgcontroltos = None
+                self.cmediagwcccfgbearertos = None
+                self.cmediagwcccfgntepayload = None
+                self.cmediagwcccfgnsepayload = None
+                self.cmediagwcccfgnseresptimer = None
+                self.cmediagwcccfgvbdjitterdelaymode = None
+                self.cmediagwcccfgvbdjittermaxdelay = None
+                self.cmediagwcccfgvbdjitternomdelay = None
+                self.cmediagwcccfgvbdjittermindelay = None
+                self.cmediagwcccfgdefaulttoneplanid = None
+                self.cmediagwcccfgdescrinfoenabled = None
+                self.cmediagwcccfgdsnameprefix = None
+                self.cmediagwcccfgrtpnameprefix = None
+                self.cmediagwcccfgaal1svcnameprefix = None
+                self.cmediagwcccfgaal2svcnameprefix = None
+                self.cmediagwcccfgclusterenabled = None
+                self.cmediagwcccfgdefbearertraffic = None
+                self.cmediagwcccfgdefrtpnameprefix = None
+                self._segment_path = lambda: "cMediaGwCallControlConfigEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']"
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwCallControlConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1428,7 +1467,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
             class Cmediagwcccfgclusterenabled(Enum):
                 """
-                Cmediagwcccfgclusterenabled
+                Cmediagwcccfgclusterenabled (Enum Class)
 
                 This object specifies the condition of the cluster generation
 
@@ -1467,7 +1506,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
             class Cmediagwcccfgdefbearertraffic(Enum):
                 """
-                Cmediagwcccfgdefbearertraffic
+                Cmediagwcccfgdefbearertraffic (Enum Class)
 
                 This object specifies the combination of the network
 
@@ -1555,8 +1594,10 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             self.yang_parent_name = "CISCO-MEDIA-GATEWAY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cMediaGwRscStatsEntry" : ("cmediagwrscstatsentry", CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable.Cmediagwrscstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cMediaGwRscStatsEntry", ("cmediagwrscstatsentry", CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable.Cmediagwrscstatsentry))])
+            self._leafs = OrderedDict()
 
             self.cmediagwrscstatsentry = YList(self)
             self._segment_path = lambda: "cMediaGwRscStatsTable"
@@ -1571,7 +1612,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             Each entry stores the statistics
             information for a specific resource.
             
-            .. attribute:: cmgwindex  <key>
+            .. attribute:: cmgwindex  (key)
             
             	
             	**type**\: int
@@ -1580,7 +1621,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwtable.Cmediagwentry>`
             
-            .. attribute:: cmgwrscstatsindex  <key>
+            .. attribute:: cmgwrscstatsindex  (key)
             
             	An index that uniquely identifies a specific gateway resource
             	**type**\:  :py:class:`Cmgwrscstatsindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable.Cmediagwrscstatsentry.Cmgwrscstatsindex>`
@@ -1629,21 +1670,24 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self.yang_parent_name = "cMediaGwRscStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
-
-                self.cmgwrscstatsindex = YLeaf(YType.enumeration, "cmgwRscStatsIndex")
-
-                self.cmgwrscmaximumutilization = YLeaf(YType.uint32, "cmgwRscMaximumUtilization")
-
-                self.cmgwrscminimumutilization = YLeaf(YType.uint32, "cmgwRscMinimumUtilization")
-
-                self.cmgwrscaverageutilization = YLeaf(YType.uint32, "cmgwRscAverageUtilization")
-
-                self.cmgwrscsincelastreset = YLeaf(YType.uint32, "cmgwRscSinceLastReset")
-                self._segment_path = lambda: "cMediaGwRscStatsEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']" + "[cmgwRscStatsIndex='" + self.cmgwrscstatsindex.get() + "']"
+                self.ylist_key_names = ['cmgwindex','cmgwrscstatsindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cmgwindex', YLeaf(YType.str, 'cmgwIndex')),
+                    ('cmgwrscstatsindex', YLeaf(YType.enumeration, 'cmgwRscStatsIndex')),
+                    ('cmgwrscmaximumutilization', YLeaf(YType.uint32, 'cmgwRscMaximumUtilization')),
+                    ('cmgwrscminimumutilization', YLeaf(YType.uint32, 'cmgwRscMinimumUtilization')),
+                    ('cmgwrscaverageutilization', YLeaf(YType.uint32, 'cmgwRscAverageUtilization')),
+                    ('cmgwrscsincelastreset', YLeaf(YType.uint32, 'cmgwRscSinceLastReset')),
+                ])
+                self.cmgwindex = None
+                self.cmgwrscstatsindex = None
+                self.cmgwrscmaximumutilization = None
+                self.cmgwrscminimumutilization = None
+                self.cmgwrscaverageutilization = None
+                self.cmgwrscsincelastreset = None
+                self._segment_path = lambda: "cMediaGwRscStatsEntry" + "[cmgwIndex='" + str(self.cmgwindex) + "']" + "[cmgwRscStatsIndex='" + str(self.cmgwrscstatsindex) + "']"
                 self._absolute_path = lambda: "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwRscStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1651,7 +1695,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
             class Cmgwrscstatsindex(Enum):
                 """
-                Cmgwrscstatsindex
+                Cmgwrscstatsindex (Enum Class)
 
                 An index that uniquely identifies a specific gateway
 

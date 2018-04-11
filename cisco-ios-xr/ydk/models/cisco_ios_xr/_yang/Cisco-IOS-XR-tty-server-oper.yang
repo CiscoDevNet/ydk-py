@@ -1,144 +1,144 @@
 module Cisco-IOS-XR-tty-server-oper {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper";
+  prefix tty-server-oper;
 
-
-  prefix "tty-server-oper";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-tty-management-datatypes { prefix "dt1"; }
-
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-tty-management-datatypes {
+    prefix dt1;
+  }
   include Cisco-IOS-XR-tty-server-oper-sub5 {
     revision-date 2015-07-30;
   }
-
   include Cisco-IOS-XR-tty-server-oper-sub4 {
     revision-date 2015-07-30;
   }
-
   include Cisco-IOS-XR-tty-server-oper-sub3 {
     revision-date 2015-07-30;
   }
-
   include Cisco-IOS-XR-tty-server-oper-sub2 {
     revision-date 2015-07-30;
   }
-
   include Cisco-IOS-XR-tty-server-oper-sub1 {
     revision-date 2015-07-30;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR tty-server package operational data.
-
+     
      This module contains definitions
      for the following management objects:
        tty: TTY Line Configuration
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-07-30" {
+  revision 2015-07-30 {
     description
       "Descriptions updated.";
   }
-
-  revision "2015-01-07" {
+  revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
   }
 
   typedef Line-state {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "Line not connected";
+        description
+          "Line not connected";
       }
-      enum registered {
+      enum "registered" {
         value 1;
-        description "Line registered";
+        description
+          "Line registered";
       }
-      enum in-use {
+      enum "in-use" {
         value 2;
-        description "Line active and in use";
+        description
+          "Line active and in use";
       }
     }
-    description "Line state";
+    description
+      "Line state";
   }
+
   typedef Session-operation {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "No sessions on the line";
+        description
+          "No sessions on the line";
       }
-      enum setup {
+      enum "setup" {
         value 1;
-        description "Session getting set up";
+        description
+          "Session getting set up";
       }
-      enum shell {
+      enum "shell" {
         value 2;
-        description "Session active with a shell";
+        description
+          "Session active with a shell";
       }
-      enum transitioning {
+      enum "transitioning" {
         value 3;
-        description "Session in transitioning phase";
+        description
+          "Session in transitioning phase";
       }
-      enum packet {
+      enum "packet" {
         value 4;
-        description "Session ready to receive packets";
+        description
+          "Session ready to receive packets";
       }
     }
-    description "Session operation";
+    description
+      "Session operation";
   }
 
   grouping STATE {
     description
       "Common node of console-line, vty-line,
-      auxiliary-line";
-
+       auxiliary-line";
     container state {
-      description "Line state information";
-
+      description
+        "Line state information";
       container template {
         description
           "Information related to template applied to the
-          line";
+           line";
         leaf name {
           type string;
-          description "Name of the template";
+          description
+            "Name of the template";
         }
       }
-
       container general {
-        description "General information";
+        description
+          "General information";
         leaf operation {
           type Session-operation;
-          description "application running of on the tty line";
+          description
+            "application running of on the tty line";
         }
         leaf general-state {
           type Line-state;
-          description "State of the line";
+          description
+            "State of the line";
         }
       }
     }
@@ -147,10 +147,10 @@ module Cisco-IOS-XR-tty-server-oper {
   grouping GENERAL-STATISTICS {
     description
       "Common node of console-statistics, vty-statistics
-      , auxiliary-statistics";
-
+       , auxiliary-statistics";
     container general-statistics {
-      description "General statistics of line";
+      description
+        "General statistics of line";
       uses TTY-GENERAL-STATS;
     }
   }
@@ -158,10 +158,10 @@ module Cisco-IOS-XR-tty-server-oper {
   grouping AAA {
     description
       "Common node of console-statistics, vty-statistics
-      , auxiliary-statistics";
-
+       , auxiliary-statistics";
     container aaa {
-      description "AAA related statistics";
+      description
+        "AAA related statistics";
       uses TTY-AAA-STATS;
     }
   }
@@ -169,10 +169,10 @@ module Cisco-IOS-XR-tty-server-oper {
   grouping RS232 {
     description
       "Common node of console-statistics,
-      auxiliary-statistics";
-
+       auxiliary-statistics";
     container rs232 {
-      description "RS232 statistics of console line";
+      description
+        "RS232 statistics of console line";
       uses TTY-RS232-STATS;
     }
   }
@@ -180,10 +180,10 @@ module Cisco-IOS-XR-tty-server-oper {
   grouping EXEC {
     description
       "Common node of console-statistics, vty-statistics
-      , auxiliary-statistics";
-
+       , auxiliary-statistics";
     container exec {
-      description "Exec related statistics";
+      description
+        "Exec related statistics";
       uses TTY-EXEC-PROP-STATS;
     }
   }
@@ -191,49 +191,56 @@ module Cisco-IOS-XR-tty-server-oper {
   grouping CONFIGURATION {
     description
       "Common node of console-line, vty-line,
-      auxiliary-line";
-
+       auxiliary-line";
     container configuration {
-      description "Configuration information of the line";
-
+      description
+        "Configuration information of the line";
       container connection-configuration {
-        description "Conection configuration information";
-
+        description
+          "Conection configuration information";
         container transport-input {
           description
             "Protocols to use when connecting to the
-            terminal server";
+             terminal server";
           leaf select {
             type dt1:Tty-transport-protocol-select;
             default "all";
-            description "Choose transport protocols";
+            description
+              "Choose transport protocols";
           }
           leaf protocol1 {
             when "../select = 'some'" {
-              description "../Select = 2";
+              description
+                "../Select = 2";
             }
             type dt1:Tty-transport-protocol;
-            description "Transport protocol1";
+            description
+              "Transport protocol1";
           }
           leaf protocol2 {
             when "../select = 'some'" {
-              description "../Select = 2";
+              description
+                "../Select = 2";
             }
             type dt1:Tty-transport-protocol;
-            description "Transport protocol2";
+            description
+              "Transport protocol2";
           }
           leaf none {
             type int32;
-            description "Not used";
+            description
+              "Not used";
           }
         }
         leaf acl-out {
           type string;
-          description "ACL for outbound traffic";
+          description
+            "ACL for outbound traffic";
         }
         leaf acl-in {
           type string;
-          description "ACL for inbound traffic";
+          description
+            "ACL for inbound traffic";
         }
       }
     }
@@ -241,20 +248,21 @@ module Cisco-IOS-XR-tty-server-oper {
 
   container tty {
     config false;
-    description "TTY Line Configuration";
-
+    description
+      "TTY Line Configuration";
     container console-nodes {
-      description "List of Nodes for console";
-
+      description
+        "List of Nodes for console";
       list console-node {
         key "id";
-        description "Console line configuration on a node";
-
+        description
+          "Console line configuration on a node";
         container console-line {
-          description "Console line";
-
+          description
+            "Console line";
           container console-statistics {
-            description "Statistics of the console line";
+            description
+              "Statistics of the console line";
             uses RS232;
             uses GENERAL-STATISTICS;
             uses EXEC;
@@ -265,23 +273,24 @@ module Cisco-IOS-XR-tty-server-oper {
         }
         leaf id {
           type xr:Node-id;
-          description "Node ID";
+          description
+            "Node ID";
         }
       }
     }
-
     container vty-lines {
-      description "List of VTY lines";
-
+      description
+        "List of VTY lines";
       list vty-line {
         key "line-number";
-        description "VTY Line";
-
+        description
+          "VTY Line";
         container vty-statistics {
-          description "Statistics of the VTY line";
-
+          description
+            "Statistics of the VTY line";
           container connection {
-            description "Connection related statistics";
+            description
+              "Connection related statistics";
             uses TTY-CONNECTION-STATS;
           }
           uses GENERAL-STATISTICS;
@@ -290,25 +299,26 @@ module Cisco-IOS-XR-tty-server-oper {
         }
         leaf line-number {
           type int32;
-          description "VTY Line number";
+          description
+            "VTY Line number";
         }
         uses STATE;
         uses CONFIGURATION;
       }
     }
-
     container auxiliary-nodes {
-      description "List of Nodes attached with an auxiliary line";
-
+      description
+        "List of Nodes attached with an auxiliary line";
       list auxiliary-node {
         key "id";
-        description "Line configuration on a node";
-
+        description
+          "Line configuration on a node";
         container auxiliary-line {
-          description "Auxiliary line";
-
+          description
+            "Auxiliary line";
           container auxiliary-statistics {
-            description "Statistics of the auxiliary line";
+            description
+              "Statistics of the auxiliary line";
             uses RS232;
             uses GENERAL-STATISTICS;
             uses EXEC;
@@ -319,7 +329,8 @@ module Cisco-IOS-XR-tty-server-oper {
         }
         leaf id {
           type xr:Node-id;
-          description "Node ID";
+          description
+            "Node ID";
         }
       }
     }

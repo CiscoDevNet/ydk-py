@@ -23,9 +23,14 @@ module cisco-ia {
 
   description
     "DMI self-management YANG module for IOS
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+   revision "2018-01-22" {
+    description 
+      "Marked odm-log-level obsolete";
+    reference TBD;
+  }
    revision "2017-03-02" {
     description 
       "Remove unused RPCs";
@@ -729,6 +734,7 @@ module cisco-ia {
             "Logging level for ONEP";
         }
         leaf odm-log-level {
+          status obsolete;
           type cia-log-level;
           default "error";
           description

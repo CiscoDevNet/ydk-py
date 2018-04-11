@@ -33,9 +33,19 @@ module Cisco-IOS-XE-utd {
   // =========================================================================
   // REVISION
   // =========================================================================
-  revision 2017-10-27 {
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
     description
-      "Update supported interfaces";
+      "Add 2GE interface";
+  }
+
+  revision 2017-09-19 {
+    description
+      "Add UTD multi-tenancy support";
   }
   revision 2017-08-30 {
     description
@@ -138,6 +148,84 @@ module Cisco-IOS-XE-utd {
     }
   }
 
+  grouping utd-domain-filter-grouping {
+    container domain {
+      description
+        "UTD Domain based web-filtering submode";
+      list profile {
+        description
+          "Provide the profile ID";
+        key id;
+        leaf id {
+          type string;
+        }
+
+        leaf alert {
+          description
+            "Provide the logging alert level";
+          type enumeration {
+            enum all;
+            enum blacklist;
+            enum whitelist;
+          }
+        }
+
+        container blacklist {
+          description
+            "Choose the blacklist parameter-map";
+          presence true;
+
+          container parameter-map {
+            description
+              "Enter the parameter-map information for the regex";
+            leaf regex {
+              description
+                "Provide the regex parameter-map name";
+              type union {
+                type string;
+              }
+            }
+          }
+        }
+
+        container redirect-server {
+          description
+            "Provide the IP address for the redirect server for blocked domains";
+          choice id-choice {
+            leaf external {
+              description
+                "Provide data about the external redirect server";
+              type inet:ipv4-address;
+            }
+            leaf local-block-server {
+              description
+                "Use the local block server as the redirect server";
+              type string;
+            }
+          }
+        }
+
+        container whitelist {
+          description
+            "Choose the whitelist parameter-map";
+          presence true;
+
+          container parameter-map {
+            description
+              "Enter the parameter-map information for the regex";
+            leaf regex {
+              description
+                "Provide the regex parameter-map name";
+              type union {
+                type string;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   grouping utd-web-filter-grouping {     
     container web-filter {
       description
@@ -218,82 +306,6 @@ module Cisco-IOS-XE-utd {
                 description
                   "Specify the text to be used to be sent back";
                 type string;
-              }
-            }
-          }
-        }
-      }
-
-      container domain {
-        description
-          "UTD Domain based web-filtering submode";
-        list profile {
-          description
-            "Provide the profile ID";
-          key id;
-          leaf id {
-            type string;
-          }
-
-          leaf alert {
-            description
-              "Provide the logging alert level";
-            type enumeration {
-              enum all;
-              enum blacklist;
-              enum whitelist;
-            }
-          }
-
-          container blacklist {
-            description
-              "Choose the blacklist parameter-map";
-            presence true;
-
-            container parameter-map {
-              description
-                "Enter the parameter-map information for the regex";
-              leaf regex {
-                description
-                  "Provide the regex parameter-map name";
-                type union {
-                  type string;
-                }
-              }
-            }
-          }
-
-          container redirect-server {
-            description
-              "Provide the IP address for the redirect server for blocked domains";
-            choice id-choice {
-              leaf external {
-                description
-                  "Provide data about the external redirect server";
-                type inet:ipv4-address;
-              }
-              leaf local-block-server {
-                description
-                  "Use the local block server as the redirect server";
-                type string;
-              }
-            }
-          }
-
-          container whitelist {
-            description
-              "Choose the whitelist parameter-map";
-            presence true;
-
-            container parameter-map {
-              description
-                "Enter the parameter-map information for the regex";
-              leaf regex {
-                description
-                  "Provide the regex parameter-map name";
-                type union {
-                  type string;
-                }
               }
             }
           }
@@ -527,7 +539,7 @@ module Cisco-IOS-XE-utd {
     container threat-inspection {
       description
         "IPS (or IDS) specific config commands";
-      presence "true";
+      presence true;
       container signature {
         description
           "Provide config options for the signatures";
@@ -590,20 +602,10 @@ module Cisco-IOS-XE-utd {
     container web-filter {
       description
         "UTD engine standard web-filtering configs";
-      presence "true";
-      leaf domain-profile {
-        description
-          "Choose the domain profile to use for web filtering";
-        type string;
-      }
+      presence true;
       leaf sourcedb {
         description
           "Choose the source DB profile to use for web filtering";
-        type string;
-      }
-      leaf url-profile {
-        description
-          "Choose the url profile to use for web filtering";
         type string;
       }
     }
@@ -647,22 +649,184 @@ module Cisco-IOS-XE-utd {
     }
   }
 
+  // utd multi-tenancy
+  grouping config-utd-mt-grouping {
+    container utd-mt {
+      container utd {
+        description
+          "Global Unified Threat Defense";
+
+        // utd multi-tenancy
+        leaf multi-tenancy {
+          description
+            "Enable UTD multi-tenancy mode";
+          type empty;
+        }
+
+        // utd engine standard multi-tenancy
+        container engine {
+          description
+            "UTD engine";
+          container standard {
+            description
+              "UTD engine standard";
+            container multi-tenancy {
+              description
+                "Enable UTD multi-tenancy mode";
+              presence true;
+
+              // utd engine standard multi-tenancy / web-filter
+              uses utd-web-filter-grouping;
+
+              // utd engine standard multi-tenancy / threat-inspection whitelist profile *
+              container threat-inspection {  
+                description
+                  "UTD Threat Inspection (IPS/IDS) config modes";
+
+                // utd engine standard multi-tenancy / threat-inspection whitelist profile *
+                container whitelist {
+                  description
+                    "UTD whitelist config submode";
+                  list profile {
+                    description
+                      "UTD whitelist profile";
+                    key name;
+                    leaf name {
+                      type string;
+                    }
+
+                    // utd engine standard multi-tenancy / threat-inspection whitelist profile * / signature id *
+                    list signature {           
+                      description
+                        "Provide signatures for the whitelist";
+                      key id;
+                      leaf id {
+                        description
+                          "Provide signature id for the whitelist";
+                        type uint32;
+                      }
+                      leaf comment {
+                        description
+                          "Provide a comment for the signature";
+                        type string;
+                      }
+                    }
+                  }
+                }
+
+                // utd engine standard multi-tenancy / threat-inspection profile *
+                list profile {
+                  description
+                    "UTD Threat Inspection profile";
+                  key name;
+                  leaf name {
+                    type string;
+                  }
+
+                  // utd engine standard multi-tenancy / threat-inspection profile * / threat
+                  // utd engine standard multi-tenancy / threat-inspection profile * / policy
+                  // utd engine standard multi-tenancy / threat-inspection profile * / logging level
+                  uses utd-engine-threat-inspection-grouping;
+
+                  // utd engine standard multi-tenancy / threat-inspection profile * / whitelist profile         
+                  container whitelist {       
+                    description
+                      "Associate a whitelist profile with this profile";
+                    leaf profile {                 
+                      description
+                        "UTD whitelist profile";
+                      type string;
+                    }
+                  }
+                }
+              }
+
+              // utd engine standard multi-tenancy / utd global
+              container utd {
+                description 
+                  "UTD engine standard settings";
+                container global {
+                  description "UTD engine standard global settings";
+                  presence true;
+
+                  // utd engine standard multi-tenancy / utd global
+                  uses utd-engine-standard-grouping;
+                }
+              }
+
+              // utd engine standard multi-tenancy / policy *
+              list policy {
+                description
+                  "Multi-tenancy utd policy";
+                key name;
+                leaf name {
+                  type string;
+                }
+
+                // utd engine standard multi-tenancy / policy * / vrf *
+                list vrf {
+                  description
+                    "Associate a VRF with this policy";
+                  key name;
+                  leaf name {
+                    type string;
+                  }
+                }
+
+                // utd engine standard multi-tenancy / policy * / threat-inspection profile
+                container threat-inspection {
+                  description
+                    "Associate threat-inspection profile with this policy";
+                  leaf profile {
+                    description
+                      "Associate threat-inspection profile with this policy";
+                    type string;
+                  }
+                }
+
+                // utd engine standard multi-tenancy / policy * / web-filter url profile
+                container web-filter {
+                  description
+                    "Associate web filter profile with this policy";
+                  container url {
+                    description
+                      "Associate web filter profile with this policy";
+                    leaf profile {
+                      description 
+                        "Associate web filter profile with this policy";
+                      type string;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // utd single-tenancy
   grouping config-utd-st-grouping {
     container utd-st {
-      description
-       "Global Unified Threat Defense Engine";
       container utd {
-        uses utd-web-filter-grouping;
+        description
+          "Global Unified Threat Defense Engine";
+        uses utd-web-filter-grouping {
+          augment web-filter {
+            uses utd-domain-filter-grouping;
+          }
+        }
         container engine {
           description
             "UTD engine";
           container advanced {
             description
               "UTD engine advanced";
+            presence true;
             container threat {
               description
                 "Provide threat detection";
-              presence "true";
               leaf detection {
                 description
                   "Provide threat detection";
@@ -673,15 +837,27 @@ module Cisco-IOS-XE-utd {
           container standard {
             description
               "UTD engine standard";
-            presence "true";
+            presence true;
             uses utd-engine-standard-grouping {
-              augment "threat-inspection" {
+              augment threat-inspection {
                 uses utd-engine-threat-inspection-grouping;
 
                 leaf whitelist {
                   description
                     "Enable whitelisting under the utd engine";
                   type empty;
+                }
+              }
+              augment web-filter {
+                leaf domain-profile {
+                  description
+                    "Choose the domain profile to use for web filtering";
+                  type string;
+                }
+                leaf url-profile {
+                  description
+                    "Choose the url profile to use for web filtering";
+                  type string;
                 }
               }
             }
@@ -693,7 +869,7 @@ module Cisco-IOS-XE-utd {
           container whitelist {
             description
               "UTD whitelist config submode";
-            presence "true";
+            presence true;
             list signature {
               description
                 "Provide signatures for the whitelist";
@@ -721,7 +897,7 @@ module Cisco-IOS-XE-utd {
     container utd {
       description
         "Global Unified Threat Defense";
-      presence "true";
+      presence true;
 
       leaf all-interfaces {
         description
@@ -795,6 +971,7 @@ module Cisco-IOS-XE-utd {
   augment "/ios:native" {
     uses config-utd-grouping;
     uses config-utd-st-grouping;
+    uses config-utd-mt-grouping;
   } //augment
 
   /////////////////////////////////////////////////////////
@@ -816,7 +993,7 @@ module Cisco-IOS-XE-utd {
     uses config-interface-utd-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-interface-utd-grouping;
   }
 
@@ -825,6 +1002,10 @@ module Cisco-IOS-XE-utd {
   }
 
   augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-utd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
     uses config-interface-utd-grouping;
   }
 

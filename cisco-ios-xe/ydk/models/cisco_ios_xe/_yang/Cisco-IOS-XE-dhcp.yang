@@ -37,7 +37,35 @@ module Cisco-IOS-XE-dhcp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
 
+  revision 2017-11-14 {
+    description
+      "Add 100GE interface";
+  }
+
+  revision 2017-11-06 {
+    description
+      "Remove choice for ip dhcp pool / client-identifier and hardware-address";
+  }
+
+  revision 2017-11-01 {
+    description
+      "Add ip dhcp pool / host, client-name, client-identifier, hardware-address";
+  }
+
+  revision 2017-10-18 {
+    description
+      "Add modeling to interface mode: ip dhcp client route distance/track";
+  }
+
+  revision 2017-09-14 {
+    description 
+      "This revison has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -61,11 +89,29 @@ module Cisco-IOS-XE-dhcp {
     container client {
       description
         "DHCP client configuration";
-        leaf hostname {
+      leaf hostname {
+        description
+          "Specify hostname to use";
+        type string;
+      }
+      container route {
+        description
+          "Options for routes installed by dhcp";
+        leaf distance {
           description
-            "Specify hostname to use";
-          type string;
+            "set distance for dhcp static routes";
+          type uint8 {
+            range "1..254";
+          }
         }
+        leaf track {
+          description
+            "Track dhcp routes";
+          type uint16 {
+            range "1..1000";
+          }
+        }
+      }
     }
     container relay {
       description
@@ -147,7 +193,6 @@ module Cisco-IOS-XE-dhcp {
         description
           "DHCP Snooping vlan";
         key "id";
-        max-elements "1";
         leaf id {
           type uint16 {
             range "1..4094";
@@ -342,22 +387,9 @@ module Cisco-IOS-XE-dhcp {
       }
       //  accounting           Send Accounting Start/Stop messages
       //  bootfile             Boot file name
-      //  class                Specify a DHCP class
-      //  client-identifier    Client identifier
-      //  client-name          Client name
-      //  default-router       Default routers
-      //  dns-server           DNS servers
-      //  domain-name          Domain name
-      //  exit                 Exit from DHCP pool configuration mode
-      //  hardware-address     Client hardware address
-      //  host                 Client IP address and mask
-      //  lease                Address lease time
       //  netbios-name-server  NetBIOS (WINS) name servers
       //  netbios-node-type    NetBIOS node type
-      //  network              Network number and mask
       //  next-server          Next server in boot process
-      //  no                   Negate a command or set its defaults
-      //  option               Raw DHCP options
       container option {                                      
         description "Raw DHCP options";                     
         list option-range {                                 
@@ -398,7 +430,6 @@ module Cisco-IOS-XE-dhcp {
       //  subnet               Subnet allocation commands
       //  update               Dynamic updates
       //  utilization          Configure various utilization parameters
-      //  vrf                  Associate this pool with a VRF
       list class {
         description "Specify a DHCP class";
         key "name";
@@ -483,6 +514,37 @@ module Cisco-IOS-XE-dhcp {
             "Configure as secondary subnet";
           type empty;
         }
+      }
+      container host {
+        description
+          "Client IP address and mask";
+        leaf number {
+          type inet:ipv4-address;
+        }
+        leaf mask {
+          type inet:ipv4-address;
+        }
+      }
+      choice hardware-addr-cient-id-choice {
+        container hardware-address {
+          description
+            "Client hardware address";
+          leaf hardware-address-val {
+            description
+              "Dotted-hexadecimal string (aabb.ccdd.eeff ...)";
+            type ios-types:cisco-mac-address-type;
+          }
+        }
+        leaf client-identifier {
+          description
+            "Client identifier, Dotted-hexadecimal string (aabb.ccdd.eeff ...)";
+          type string;
+        }
+      }
+      leaf client-name {
+        description
+          "Client name, Client name (domain should not be included)";
+        type string;
       }
     }
     //  relay                      DHCP relay agent parameters
@@ -744,7 +806,19 @@ module Cisco-IOS-XE-dhcp {
     uses config-interface-ip-dhcp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip/ios:dhcp" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip/ios:dhcp" {
+    uses config-interface-ip-dhcp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip/ios:dhcp" {
+    uses config-interface-ip-dhcp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip/ios:dhcp" {
+    uses config-interface-ip-dhcp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip/ios:dhcp" {
     uses config-interface-ip-dhcp-grouping;
   }
 
@@ -791,7 +865,19 @@ module Cisco-IOS-XE-dhcp {
     uses config-interface-ipv6-dhcp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6/ios:dhcp" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6/ios:dhcp" {
+    uses config-interface-ipv6-dhcp-grouping;
+  }
+  
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6/ios:dhcp" {
+    uses config-interface-ipv6-dhcp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6/ios:dhcp" {
+    uses config-interface-ipv6-dhcp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6/ios:dhcp" {
     uses config-interface-ipv6-dhcp-grouping;
   }
 

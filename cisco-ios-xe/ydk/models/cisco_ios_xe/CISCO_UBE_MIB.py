@@ -9,9 +9,11 @@ independent voice over IP (VoIP) and video over IP
 networks for data, voice, and video transport
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -40,8 +42,10 @@ class CISCOUBEMIB(Entity):
         self.yang_parent_name = "CISCO-UBE-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciscoUbeMIBObjects" : ("ciscoubemibobjects", CISCOUBEMIB.Ciscoubemibobjects)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ciscoUbeMIBObjects", ("ciscoubemibobjects", CISCOUBEMIB.Ciscoubemibobjects))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ciscoubemibobjects = CISCOUBEMIB.Ciscoubemibobjects()
         self.ciscoubemibobjects.parent = self
@@ -87,14 +91,17 @@ class CISCOUBEMIB(Entity):
             self.yang_parent_name = "CISCO-UBE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cubeenabled = YLeaf(YType.boolean, "cubeEnabled")
-
-            self.cubeversion = YLeaf(YType.str, "cubeVersion")
-
-            self.cubetotalsessionallowed = YLeaf(YType.uint32, "cubeTotalSessionAllowed")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cubeenabled', YLeaf(YType.boolean, 'cubeEnabled')),
+                ('cubeversion', YLeaf(YType.str, 'cubeVersion')),
+                ('cubetotalsessionallowed', YLeaf(YType.uint32, 'cubeTotalSessionAllowed')),
+            ])
+            self.cubeenabled = None
+            self.cubeversion = None
+            self.cubetotalsessionallowed = None
             self._segment_path = lambda: "ciscoUbeMIBObjects"
             self._absolute_path = lambda: "CISCO-UBE-MIB:CISCO-UBE-MIB/%s" % self._segment_path()
 

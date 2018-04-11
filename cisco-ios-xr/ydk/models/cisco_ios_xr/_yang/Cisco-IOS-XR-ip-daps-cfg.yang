@@ -1,98 +1,94 @@
 module Cisco-IOS-XR-ip-daps-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ip-daps-cfg";
+  prefix ip-daps-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  prefix "ip-daps-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ip-daps package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        address-pool-service: Address Pool configuration data
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
-
   container address-pool-service {
-    description "Address Pool configuration data";
-
+    description
+      "Address Pool configuration data";
     container vrfs {
-      description "Enter VRF specific config mode";
-
+      description
+        "Enter VRF specific config mode";
       list vrf {
         key "vrf-name";
-        description "Specify VRF Name";
-
+        description
+          "Specify VRF Name";
         container ipv6 {
-          description "Enter IPv6 specific mode";
-
+          description
+            "Enter IPv6 specific mode";
           container pools {
-            description "IPv6 Pool Name";
-
+            description
+              "IPv6 Pool Name";
             list pool {
               key "ipv6-pool-name";
-              description "Enter the IPv6 Pool name";
-
+              description
+                "Enter the IPv6 Pool name";
               container address-ranges {
-                description "Specify address range for allocation";
-
+                description
+                  "Specify address range for allocation";
                 list address-range {
                   key "start-address";
-                  description "None";
+                  description
+                    "None";
                   leaf start-address {
                     type inet:ip-address-no-zone;
-                    description "Start address of the range";
+                    description
+                      "Start address of the range";
                   }
                   leaf blocked {
                     type int32;
-                    description "Blocked flag";
+                    description
+                      "Blocked flag";
                   }
                   leaf end-address {
                     type inet:ip-address-no-zone;
                     mandatory true;
-                    description "End Address of the range";
+                    description
+                      "End Address of the range";
                   }
                 }
               }
-
               container excludes {
-                description "Exclude IPv6 addresses / prefixes";
-
+                description
+                  "Exclude IPv6 addresses / prefixes";
                 list exclude {
                   key "start-address";
-                  description "None";
+                  description
+                    "None";
                   leaf start-address {
                     type inet:ip-address-no-zone;
                     description
@@ -101,13 +97,14 @@ module Cisco-IOS-XR-ip-daps-cfg {
                   leaf end-address {
                     type inet:ip-address-no-zone;
                     mandatory true;
-                    description "Last address in exclude Range";
+                    description
+                      "Last address in exclude Range";
                   }
                 }
               }
-
               container utilization-mark {
-                description "Specify utilization mark";
+                description
+                  "Specify utilization mark";
                 leaf high-mark {
                   type uint32 {
                     range "0..100";
@@ -125,49 +122,55 @@ module Cisco-IOS-XR-ip-daps-cfg {
                     "Specify numerical value as percentage";
                 }
               }
-
               container prefix-ranges {
-                description "Specify prefix range for allocation";
-
+                description
+                  "Specify prefix range for allocation";
                 list prefix-range {
                   key "start-prefix";
-                  description "None";
+                  description
+                    "None";
                   leaf start-prefix {
                     type inet:ip-address-no-zone;
-                    description "First prefix of range";
+                    description
+                      "First prefix of range";
                   }
                   leaf blocked {
                     type int32;
-                    description "Blocked flag";
+                    description
+                      "Blocked flag";
                   }
                   leaf end-prefix {
                     type inet:ip-address-no-zone;
                     mandatory true;
-                    description "Last prefix of range";
+                    description
+                      "Last prefix of range";
                   }
                 }
               }
-
               container networks {
-                description "Specify network for allocation";
-
+                description
+                  "Specify network for allocation";
                 list network {
                   key "prefix";
-                  description "None";
+                  description
+                    "None";
                   leaf prefix {
                     type inet:ip-address-no-zone;
-                    description "None";
+                    description
+                      "None";
                   }
                   leaf blocked {
                     type int32;
-                    description "Blocked flag";
+                    description
+                      "Blocked flag";
                   }
                   leaf prefix-length {
                     type uint32 {
                       range "1..128";
                     }
                     mandatory true;
-                    description "Prefix length for the IPv6 Prefix";
+                    description
+                      "Prefix length for the IPv6 Prefix";
                   }
                 }
               }
@@ -175,32 +178,34 @@ module Cisco-IOS-XR-ip-daps-cfg {
                 type uint32 {
                   range "1..128";
                 }
-                description "Enter the prefix-length for the Pool";
+                description
+                  "Enter the prefix-length for the Pool";
               }
               leaf ipv6-pool-name {
                 type xr:Cisco-ios-xr-string;
-                description "Enter the IPv6 Pool name";
+                description
+                  "Enter the IPv6 Pool name";
               }
             }
           }
         }
-
         container ipv4 {
-          description "Enter IPv4 specific configuration";
-
+          description
+            "Enter IPv4 specific configuration";
           container pools {
-            description "IPv4 Pool Table";
-
+            description
+              "IPv4 Pool Table";
             list pool {
               key "pool-name";
-              description "IPv4 Pool name";
-
+              description
+                "IPv4 Pool name";
               container address-ranges {
-                description "address range for allocation";
-
+                description
+                  "address range for allocation";
                 list address-range {
                   key "start-address";
-                  description "Specify first address in range";
+                  description
+                    "Specify first address in range";
                   leaf start-address {
                     type inet:ipv4-address-no-zone;
                     description
@@ -209,35 +214,39 @@ module Cisco-IOS-XR-ip-daps-cfg {
                   leaf end-address {
                     type inet:ip-address-no-zone;
                     mandatory true;
-                    description "Last address of the range";
+                    description
+                      "Last address of the range";
                   }
                   leaf blocked {
                     type int32;
-                    description "Blocked flag";
+                    description
+                      "Blocked flag";
                   }
                 }
               }
-
               container excludes {
-                description "Exclude addresses";
-
+                description
+                  "Exclude addresses";
                 list exclude {
                   key "start-address";
-                  description "First address in range";
+                  description
+                    "First address in range";
                   leaf start-address {
                     type inet:ipv4-address-no-zone;
-                    description "First address in exclude range";
+                    description
+                      "First address in exclude range";
                   }
                   leaf end-address {
                     type inet:ip-address-no-zone;
                     mandatory true;
-                    description "Last address in excluded range";
+                    description
+                      "Last address in excluded range";
                   }
                 }
               }
-
               container utilization-mark {
-                description "Specify utilization mark";
+                description
+                  "Specify utilization mark";
                 leaf high {
                   type uint32 {
                     range "0..100";
@@ -255,42 +264,48 @@ module Cisco-IOS-XR-ip-daps-cfg {
                     "Specify numerical value as percentage";
                 }
               }
-
               container networks {
-                description "Specify network for allocation";
-
+                description
+                  "Specify network for allocation";
                 list network {
                   key "ipv4-prefix";
-                  description "Network Prefix";
+                  description
+                    "Network Prefix";
                   leaf ipv4-prefix {
                     type inet:ip-address-no-zone;
-                    description "None";
+                    description
+                      "None";
                   }
                   leaf blocked {
                     type int32;
-                    description "Blocked flag";
+                    description
+                      "Blocked flag";
                   }
                   leaf prefix-length {
                     type int32;
                     mandatory true;
-                    description "Subnet Length for IPv4 subnet";
+                    description
+                      "Subnet Length for IPv4 subnet";
                   }
                   leaf default-router {
                     type inet:ipv4-address-no-zone;
-                    description "Default Gateway for IPv4 subnet";
+                    description
+                      "Default Gateway for IPv4 subnet";
                   }
                 }
               }
               leaf pool-name {
                 type xr:Cisco-ios-xr-string;
-                description "Enter the IPv4 Pool name";
+                description
+                  "Enter the IPv4 Pool name";
               }
             }
           }
         }
         leaf vrf-name {
           type xr:Cisco-ios-xr-string;
-          description "none";
+          description
+            "none";
         }
       }
     }

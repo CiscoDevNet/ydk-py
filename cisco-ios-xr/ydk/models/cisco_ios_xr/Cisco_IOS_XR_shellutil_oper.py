@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class TimeSource(Enum):
     """
-    TimeSource
+    TimeSource (Enum Class)
 
     Time source
 
@@ -86,8 +88,10 @@ class SystemTime(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-shellutil-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"clock" : ("clock", SystemTime.Clock), "uptime" : ("uptime", SystemTime.Uptime)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("clock", ("clock", SystemTime.Clock)), ("uptime", ("uptime", SystemTime.Uptime))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.clock = SystemTime.Clock()
         self.clock.parent = self
@@ -185,28 +189,31 @@ class SystemTime(Entity):
             self.yang_parent_name = "system-time"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.year = YLeaf(YType.uint16, "year")
-
-            self.month = YLeaf(YType.uint8, "month")
-
-            self.day = YLeaf(YType.uint8, "day")
-
-            self.hour = YLeaf(YType.uint8, "hour")
-
-            self.minute = YLeaf(YType.uint8, "minute")
-
-            self.second = YLeaf(YType.uint8, "second")
-
-            self.millisecond = YLeaf(YType.uint16, "millisecond")
-
-            self.wday = YLeaf(YType.uint16, "wday")
-
-            self.time_zone = YLeaf(YType.str, "time-zone")
-
-            self.time_source = YLeaf(YType.enumeration, "time-source")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('year', YLeaf(YType.uint16, 'year')),
+                ('month', YLeaf(YType.uint8, 'month')),
+                ('day', YLeaf(YType.uint8, 'day')),
+                ('hour', YLeaf(YType.uint8, 'hour')),
+                ('minute', YLeaf(YType.uint8, 'minute')),
+                ('second', YLeaf(YType.uint8, 'second')),
+                ('millisecond', YLeaf(YType.uint16, 'millisecond')),
+                ('wday', YLeaf(YType.uint16, 'wday')),
+                ('time_zone', YLeaf(YType.str, 'time-zone')),
+                ('time_source', YLeaf(YType.enumeration, 'time-source')),
+            ])
+            self.year = None
+            self.month = None
+            self.day = None
+            self.hour = None
+            self.minute = None
+            self.second = None
+            self.millisecond = None
+            self.wday = None
+            self.time_zone = None
+            self.time_source = None
             self._segment_path = lambda: "clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time/%s" % self._segment_path()
 
@@ -246,12 +253,15 @@ class SystemTime(Entity):
             self.yang_parent_name = "system-time"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.host_name = YLeaf(YType.str, "host-name")
-
-            self.uptime = YLeaf(YType.uint32, "uptime")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('host_name', YLeaf(YType.str, 'host-name')),
+                ('uptime', YLeaf(YType.uint32, 'uptime')),
+            ])
+            self.host_name = None
+            self.uptime = None
             self._segment_path = lambda: "uptime"
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time/%s" % self._segment_path()
 

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class DwdmAdminState(Enum):
     """
-    DwdmAdminState
+    DwdmAdminState (Enum Class)
 
     Dwdm admin state
 
@@ -52,7 +54,7 @@ class DwdmAdminState(Enum):
 
 class DwdmLoopback(Enum):
     """
-    DwdmLoopback
+    DwdmLoopback (Enum Class)
 
     Dwdm loopback
 
@@ -79,7 +81,7 @@ class DwdmLoopback(Enum):
 
 class Efec(Enum):
     """
-    Efec
+    Efec (Enum Class)
 
     Efec
 
@@ -108,7 +110,7 @@ class Efec(Enum):
 
 class ExpectedTti(Enum):
     """
-    ExpectedTti
+    ExpectedTti (Enum Class)
 
     Expected tti
 
@@ -129,7 +131,7 @@ class ExpectedTti(Enum):
 
 class Fec(Enum):
     """
-    Fec
+    Fec (Enum Class)
 
     Fec
 
@@ -194,7 +196,7 @@ class Fec(Enum):
 
 class Framing(Enum):
     """
-    Framing
+    Framing (Enum Class)
 
     Framing
 
@@ -215,7 +217,7 @@ class Framing(Enum):
 
 class OduAlarm(Enum):
     """
-    OduAlarm
+    OduAlarm (Enum Class)
 
     Odu alarm
 
@@ -272,7 +274,7 @@ class OduAlarm(Enum):
 
 class OduThreshold(Enum):
     """
-    OduThreshold
+    OduThreshold (Enum Class)
 
     Odu threshold
 
@@ -293,7 +295,7 @@ class OduThreshold(Enum):
 
 class OtuAlarm(Enum):
     """
-    OtuAlarm
+    OtuAlarm (Enum Class)
 
     Otu alarm
 
@@ -368,7 +370,7 @@ class OtuAlarm(Enum):
 
 class OtuThreshold(Enum):
     """
-    OtuThreshold
+    OtuThreshold (Enum Class)
 
     Otu threshold
 
@@ -401,7 +403,7 @@ class OtuThreshold(Enum):
 
 class PrbsMode(Enum):
     """
-    PrbsMode
+    PrbsMode (Enum Class)
 
     Prbs mode
 
@@ -434,7 +436,7 @@ class PrbsMode(Enum):
 
 class PrbsPattern(Enum):
     """
-    PrbsPattern
+    PrbsPattern (Enum Class)
 
     Prbs pattern
 
@@ -473,7 +475,7 @@ class PrbsPattern(Enum):
 
 class Proactive(Enum):
     """
-    Proactive
+    Proactive (Enum Class)
 
     Proactive
 
@@ -494,7 +496,7 @@ class Proactive(Enum):
 
 class TxTti(Enum):
     """
-    TxTti
+    TxTti (Enum Class)
 
     Tx tti
 
@@ -515,7 +517,7 @@ class TxTti(Enum):
 
 class WaveChannelNum(Enum):
     """
-    WaveChannelNum
+    WaveChannelNum (Enum Class)
 
     Wave channel num
 

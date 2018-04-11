@@ -13,15 +13,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AddrFamily(Enum):
     """
-    AddrFamily
+    AddrFamily (Enum Class)
 
     Address Family Types
 
@@ -42,7 +44,7 @@ class AddrFamily(Enum):
 
 class MessageTypeIcmp(Enum):
     """
-    MessageTypeIcmp
+    MessageTypeIcmp (Enum Class)
 
     LPTS ICMP message types
 
@@ -193,9 +195,9 @@ class MessageTypeIcmp(Enum):
     domain_name_request = Enum.YLeaf(37, "domain-name-request")
 
 
-class MessageTypeIcmp(Enum):
+class MessageTypeIcmp_(Enum):
     """
-    MessageTypeIcmp
+    MessageTypeIcmp\_ (Enum Class)
 
     LPTS ICMP message types
 
@@ -348,7 +350,7 @@ class MessageTypeIcmp(Enum):
 
 class MessageTypeIcmpv6(Enum):
     """
-    MessageTypeIcmpv6
+    MessageTypeIcmpv6 (Enum Class)
 
     LPTS ICMPv6 message types
 
@@ -565,9 +567,9 @@ class MessageTypeIcmpv6(Enum):
     fmipv6_messages = Enum.YLeaf(154, "fmipv6-messages")
 
 
-class MessageTypeIcmpv6(Enum):
+class MessageTypeIcmpv6_(Enum):
     """
-    MessageTypeIcmpv6
+    MessageTypeIcmpv6\_ (Enum Class)
 
     LPTS ICMPv6 message types
 
@@ -786,7 +788,7 @@ class MessageTypeIcmpv6(Enum):
 
 class MessageTypeIgmp(Enum):
     """
-    MessageTypeIgmp
+    MessageTypeIgmp (Enum Class)
 
     LPTS IGMP message types
 
@@ -873,9 +875,9 @@ class MessageTypeIgmp(Enum):
     multicast_router_termination = Enum.YLeaf(50, "multicast-router-termination")
 
 
-class MessageTypeIgmp(Enum):
+class MessageTypeIgmp_(Enum):
     """
-    MessageTypeIgmp
+    MessageTypeIgmp\_ (Enum Class)
 
     LPTS IGMP message types
 
@@ -964,7 +966,7 @@ class MessageTypeIgmp(Enum):
 
 class NsrDownReason(Enum):
     """
-    NsrDownReason
+    NsrDownReason (Enum Class)
 
     NSR\-Down Reasons
 
@@ -1073,7 +1075,7 @@ class NsrDownReason(Enum):
 
 class NsrStatus(Enum):
     """
-    NsrStatus
+    NsrStatus (Enum Class)
 
     NSR Stream Status
 
@@ -1100,7 +1102,7 @@ class NsrStatus(Enum):
 
 class Packet(Enum):
     """
-    Packet
+    Packet (Enum Class)
 
     Packet type
 
@@ -1133,7 +1135,7 @@ class Packet(Enum):
 
 class PakPrio(Enum):
     """
-    PakPrio
+    PakPrio (Enum Class)
 
     Packet Priority Types
 
@@ -1186,7 +1188,7 @@ class PakPrio(Enum):
 
 class Show(Enum):
     """
-    Show
+    Show (Enum Class)
 
     Show
 
@@ -1219,7 +1221,7 @@ class Show(Enum):
 
 class TcpAddressFamily(Enum):
     """
-    TcpAddressFamily
+    TcpAddressFamily (Enum Class)
 
     Address Family Type
 
@@ -1240,7 +1242,7 @@ class TcpAddressFamily(Enum):
 
 class TcpConnState(Enum):
     """
-    TcpConnState
+    TcpConnState (Enum Class)
 
     TCP Connection State
 
@@ -1315,7 +1317,7 @@ class TcpConnState(Enum):
 
 class TcpTimer(Enum):
     """
-    TcpTimer
+    TcpTimer (Enum Class)
 
     TCP Timer Type
 
@@ -1385,7 +1387,7 @@ class TcpConnection(Entity):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2017-05-01'
+    _revision = '2018-02-14'
 
     def __init__(self):
         super(TcpConnection, self).__init__()
@@ -1395,8 +1397,10 @@ class TcpConnection(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-tcp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", TcpConnection.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", TcpConnection.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = TcpConnection.Nodes()
         self.nodes.parent = self
@@ -1420,7 +1424,7 @@ class TcpConnection(Entity):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2017-05-01'
+        _revision = '2018-02-14'
 
         def __init__(self):
             super(TcpConnection.Nodes, self).__init__()
@@ -1429,8 +1433,10 @@ class TcpConnection(Entity):
             self.yang_parent_name = "tcp-connection"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", TcpConnection.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", TcpConnection.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -1444,7 +1450,7 @@ class TcpConnection(Entity):
             """
             Information about a single node
             
-            .. attribute:: id  <key>
+            .. attribute:: id  (key)
             
             	Describing a location
             	**type**\: str
@@ -1476,7 +1482,7 @@ class TcpConnection(Entity):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2017-05-01'
+            _revision = '2018-02-14'
 
             def __init__(self):
                 super(TcpConnection.Nodes.Node, self).__init__()
@@ -1485,10 +1491,13 @@ class TcpConnection(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"statistics" : ("statistics", TcpConnection.Nodes.Node.Statistics), "extended-information" : ("extended_information", TcpConnection.Nodes.Node.ExtendedInformation), "detail-informations" : ("detail_informations", TcpConnection.Nodes.Node.DetailInformations), "brief-informations" : ("brief_informations", TcpConnection.Nodes.Node.BriefInformations)}
-                self._child_list_classes = {}
-
-                self.id = YLeaf(YType.str, "id")
+                self.ylist_key_names = ['id']
+                self._child_container_classes = OrderedDict([("statistics", ("statistics", TcpConnection.Nodes.Node.Statistics)), ("extended-information", ("extended_information", TcpConnection.Nodes.Node.ExtendedInformation)), ("detail-informations", ("detail_informations", TcpConnection.Nodes.Node.DetailInformations)), ("brief-informations", ("brief_informations", TcpConnection.Nodes.Node.BriefInformations))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('id', YLeaf(YType.str, 'id')),
+                ])
+                self.id = None
 
                 self.statistics = TcpConnection.Nodes.Node.Statistics()
                 self.statistics.parent = self
@@ -1509,7 +1518,7 @@ class TcpConnection(Entity):
                 self.brief_informations.parent = self
                 self._children_name_map["brief_informations"] = "brief-informations"
                 self._children_yang_names.add("brief-informations")
-                self._segment_path = lambda: "node" + "[id='" + self.id.get() + "']"
+                self._segment_path = lambda: "node" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp-connection/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1540,7 +1549,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.Statistics, self).__init__()
@@ -1549,8 +1558,10 @@ class TcpConnection(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"clients" : ("clients", TcpConnection.Nodes.Node.Statistics.Clients), "pcbs" : ("pcbs", TcpConnection.Nodes.Node.Statistics.Pcbs), "summary" : ("summary", TcpConnection.Nodes.Node.Statistics.Summary)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("clients", ("clients", TcpConnection.Nodes.Node.Statistics.Clients)), ("pcbs", ("pcbs", TcpConnection.Nodes.Node.Statistics.Pcbs)), ("summary", ("summary", TcpConnection.Nodes.Node.Statistics.Summary))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.clients = TcpConnection.Nodes.Node.Statistics.Clients()
                     self.clients.parent = self
@@ -1583,7 +1594,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.Statistics.Clients, self).__init__()
@@ -1592,8 +1603,10 @@ class TcpConnection(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"client" : ("client", TcpConnection.Nodes.Node.Statistics.Clients.Client)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("client", ("client", TcpConnection.Nodes.Node.Statistics.Clients.Client))])
+                        self._leafs = OrderedDict()
 
                         self.client = YList(self)
                         self._segment_path = lambda: "clients"
@@ -1606,7 +1619,7 @@ class TcpConnection(Entity):
                         """
                         Describing Client ID
                         
-                        .. attribute:: client_id  <key>
+                        .. attribute:: client_id  (key)
                         
                         	Displaying client's aggregated statistics
                         	**type**\: int
@@ -1660,7 +1673,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
@@ -1669,23 +1682,26 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "clients"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.client_id = YLeaf(YType.uint32, "client-id")
-
-                            self.client_jid = YLeaf(YType.int32, "client-jid")
-
-                            self.client_name = YLeaf(YType.str, "client-name")
-
-                            self.ipv4_received_packets = YLeaf(YType.uint32, "ipv4-received-packets")
-
-                            self.ipv4_sent_packets = YLeaf(YType.uint32, "ipv4-sent-packets")
-
-                            self.ipv6_received_packets = YLeaf(YType.uint32, "ipv6-received-packets")
-
-                            self.ipv6_sent_packets = YLeaf(YType.uint32, "ipv6-sent-packets")
-                            self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+                            self.ylist_key_names = ['client_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('client_id', YLeaf(YType.uint32, 'client-id')),
+                                ('client_jid', YLeaf(YType.int32, 'client-jid')),
+                                ('client_name', YLeaf(YType.str, 'client-name')),
+                                ('ipv4_received_packets', YLeaf(YType.uint32, 'ipv4-received-packets')),
+                                ('ipv4_sent_packets', YLeaf(YType.uint32, 'ipv4-sent-packets')),
+                                ('ipv6_received_packets', YLeaf(YType.uint32, 'ipv6-received-packets')),
+                                ('ipv6_sent_packets', YLeaf(YType.uint32, 'ipv6-sent-packets')),
+                            ])
+                            self.client_id = None
+                            self.client_jid = None
+                            self.client_name = None
+                            self.ipv4_received_packets = None
+                            self.ipv4_sent_packets = None
+                            self.ipv6_received_packets = None
+                            self.ipv6_sent_packets = None
+                            self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', 'client_jid', 'client_name', 'ipv4_received_packets', 'ipv4_sent_packets', 'ipv6_received_packets', 'ipv6_sent_packets'], name, value)
@@ -1706,7 +1722,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.Statistics.Pcbs, self).__init__()
@@ -1715,8 +1731,10 @@ class TcpConnection(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"pcb" : ("pcb", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("pcb", ("pcb", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb))])
+                        self._leafs = OrderedDict()
 
                         self.pcb = YList(self)
                         self._segment_path = lambda: "pcbs"
@@ -1729,12 +1747,12 @@ class TcpConnection(Entity):
                         """
                         Protocol Control Block ID
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	Displaying statistics associated with a particular PCB
-                        	**type**\: int
+                        	**type**\: str
                         
-                        	**range:** 0..4294967295
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         .. attribute:: read_io_counts
                         
@@ -1866,7 +1884,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, self).__init__()
@@ -1875,42 +1893,45 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "pcbs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"read-io-counts" : ("read_io_counts", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts), "write-io-counts" : ("write_io_counts", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts), "async-session-stats" : ("async_session_stats", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats)}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.pcb = YLeaf(YType.uint64, "pcb")
-
-                            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                            self.packets_sent = YLeaf(YType.uint64, "packets-sent")
-
-                            self.xipc_pulse_received = YLeaf(YType.uint64, "xipc-pulse-received")
-
-                            self.segment_instruction_received = YLeaf(YType.uint32, "segment-instruction-received")
-
-                            self.send_packets_queued = YLeaf(YType.uint64, "send-packets-queued")
-
-                            self.send_packets_queued_net_io = YLeaf(YType.uint64, "send-packets-queued-net-io")
-
-                            self.send_queue_failed = YLeaf(YType.uint32, "send-queue-failed")
-
-                            self.send_queue_net_io_failed = YLeaf(YType.uint32, "send-queue-net-io-failed")
-
-                            self.packets_received = YLeaf(YType.uint64, "packets-received")
-
-                            self.receive_queue_failed = YLeaf(YType.uint32, "receive-queue-failed")
-
-                            self.received_packets_queued = YLeaf(YType.uint64, "received-packets-queued")
-
-                            self.send_window_shrink_ignored = YLeaf(YType.uint32, "send-window-shrink-ignored")
-
-                            self.is_paw_socket = YLeaf(YType.boolean, "is-paw-socket")
-
-                            self.read_io_time = YLeaf(YType.uint32, "read-io-time")
-
-                            self.write_io_time = YLeaf(YType.uint32, "write-io-time")
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([("read-io-counts", ("read_io_counts", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts)), ("write-io-counts", ("write_io_counts", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts)), ("async-session-stats", ("async_session_stats", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('pcb', YLeaf(YType.uint64, 'pcb')),
+                                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                                ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
+                                ('xipc_pulse_received', YLeaf(YType.uint64, 'xipc-pulse-received')),
+                                ('segment_instruction_received', YLeaf(YType.uint32, 'segment-instruction-received')),
+                                ('send_packets_queued', YLeaf(YType.uint64, 'send-packets-queued')),
+                                ('send_packets_queued_net_io', YLeaf(YType.uint64, 'send-packets-queued-net-io')),
+                                ('send_queue_failed', YLeaf(YType.uint32, 'send-queue-failed')),
+                                ('send_queue_net_io_failed', YLeaf(YType.uint32, 'send-queue-net-io-failed')),
+                                ('packets_received', YLeaf(YType.uint64, 'packets-received')),
+                                ('receive_queue_failed', YLeaf(YType.uint32, 'receive-queue-failed')),
+                                ('received_packets_queued', YLeaf(YType.uint64, 'received-packets-queued')),
+                                ('send_window_shrink_ignored', YLeaf(YType.uint32, 'send-window-shrink-ignored')),
+                                ('is_paw_socket', YLeaf(YType.boolean, 'is-paw-socket')),
+                                ('read_io_time', YLeaf(YType.uint32, 'read-io-time')),
+                                ('write_io_time', YLeaf(YType.uint32, 'write-io-time')),
+                            ])
+                            self.id = None
+                            self.pcb = None
+                            self.vrf_id = None
+                            self.packets_sent = None
+                            self.xipc_pulse_received = None
+                            self.segment_instruction_received = None
+                            self.send_packets_queued = None
+                            self.send_packets_queued_net_io = None
+                            self.send_queue_failed = None
+                            self.send_queue_net_io_failed = None
+                            self.packets_received = None
+                            self.receive_queue_failed = None
+                            self.received_packets_queued = None
+                            self.send_window_shrink_ignored = None
+                            self.is_paw_socket = None
+                            self.read_io_time = None
+                            self.write_io_time = None
 
                             self.read_io_counts = TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts()
                             self.read_io_counts.parent = self
@@ -1926,7 +1947,7 @@ class TcpConnection(Entity):
                             self.async_session_stats.parent = self
                             self._children_name_map["async_session_stats"] = "async-session-stats"
                             self._children_yang_names.add("async-session-stats")
-                            self._segment_path = lambda: "pcb" + "[id='" + self.id.get() + "']"
+                            self._segment_path = lambda: "pcb" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb, ['id', 'pcb', 'vrf_id', 'packets_sent', 'xipc_pulse_received', 'segment_instruction_received', 'send_packets_queued', 'send_packets_queued_net_io', 'send_queue_failed', 'send_queue_net_io_failed', 'packets_received', 'receive_queue_failed', 'received_packets_queued', 'send_window_shrink_ignored', 'is_paw_socket', 'read_io_time', 'write_io_time'], name, value)
@@ -1969,7 +1990,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts, self).__init__()
@@ -1978,16 +1999,19 @@ class TcpConnection(Entity):
                                 self.yang_parent_name = "pcb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.io_count = YLeaf(YType.uint32, "io-count")
-
-                                self.arm_count = YLeaf(YType.uint32, "arm-count")
-
-                                self.unarm_count = YLeaf(YType.uint32, "unarm-count")
-
-                                self.autoarm_count = YLeaf(YType.uint32, "autoarm-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('io_count', YLeaf(YType.uint32, 'io-count')),
+                                    ('arm_count', YLeaf(YType.uint32, 'arm-count')),
+                                    ('unarm_count', YLeaf(YType.uint32, 'unarm-count')),
+                                    ('autoarm_count', YLeaf(YType.uint32, 'autoarm-count')),
+                                ])
+                                self.io_count = None
+                                self.arm_count = None
+                                self.unarm_count = None
+                                self.autoarm_count = None
                                 self._segment_path = lambda: "read-io-counts"
 
                             def __setattr__(self, name, value):
@@ -2031,7 +2055,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts, self).__init__()
@@ -2040,16 +2064,19 @@ class TcpConnection(Entity):
                                 self.yang_parent_name = "pcb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.io_count = YLeaf(YType.uint32, "io-count")
-
-                                self.arm_count = YLeaf(YType.uint32, "arm-count")
-
-                                self.unarm_count = YLeaf(YType.uint32, "unarm-count")
-
-                                self.autoarm_count = YLeaf(YType.uint32, "autoarm-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('io_count', YLeaf(YType.uint32, 'io-count')),
+                                    ('arm_count', YLeaf(YType.uint32, 'arm-count')),
+                                    ('unarm_count', YLeaf(YType.uint32, 'unarm-count')),
+                                    ('autoarm_count', YLeaf(YType.uint32, 'autoarm-count')),
+                                ])
+                                self.io_count = None
+                                self.arm_count = None
+                                self.unarm_count = None
+                                self.autoarm_count = None
                                 self._segment_path = lambda: "write-io-counts"
 
                             def __setattr__(self, name, value):
@@ -2068,83 +2095,59 @@ class TcpConnection(Entity):
                             .. attribute:: data_write_success_num
                             
                             	Number of successful data write to XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
+                            	**type**\: list of  		 :py:class:`DataWriteSuccessNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum>`
                             
                             .. attribute:: data_read_success_num
                             
                             	Number of successful data read from XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
+                            	**type**\: list of  		 :py:class:`DataReadSuccessNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum>`
                             
                             .. attribute:: data_write_error_num
                             
                             	Number of failed data write to XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
+                            	**type**\: list of  		 :py:class:`DataWriteErrorNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum>`
                             
                             .. attribute:: data_read_error_num
                             
                             	Number of failed data read from XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
+                            	**type**\: list of  		 :py:class:`DataReadErrorNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum>`
                             
                             .. attribute:: control_write_success_num
                             
                             	Number of successful control write to XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
+                            	**type**\: list of  		 :py:class:`ControlWriteSuccessNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum>`
                             
                             .. attribute:: control_read_success_num
                             
                             	Number of successful control read to XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
+                            	**type**\: list of  		 :py:class:`ControlReadSuccessNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum>`
                             
                             .. attribute:: control_write_error_num
                             
                             	Number of failed control write to XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
+                            	**type**\: list of  		 :py:class:`ControlWriteErrorNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum>`
                             
                             .. attribute:: control_read_error_num
                             
                             	Number of failed control read from XIPC
-                            	**type**\: list of int
-                            
-                            	**range:** 0..4294967295
+                            	**type**\: list of  		 :py:class:`ControlReadErrorNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum>`
                             
                             .. attribute:: data_write_byte
                             
                             	Number of bytes data has been written
-                            	**type**\: list of int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte
+                            	**type**\: list of  		 :py:class:`DataWriteByte <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte>`
                             
                             .. attribute:: data_read_byte
                             
                             	Number of bytes data has been read
-                            	**type**\: list of int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte
+                            	**type**\: list of  		 :py:class:`DataReadByte <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte>`
                             
                             
 
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, self).__init__()
@@ -2153,34 +2156,412 @@ class TcpConnection(Entity):
                                 self.yang_parent_name = "pcb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("data-write-success-num", ("data_write_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum)), ("data-read-success-num", ("data_read_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum)), ("data-write-error-num", ("data_write_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum)), ("data-read-error-num", ("data_read_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum)), ("control-write-success-num", ("control_write_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum)), ("control-read-success-num", ("control_read_success_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum)), ("control-write-error-num", ("control_write_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum)), ("control-read-error-num", ("control_read_error_num", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum)), ("data-write-byte", ("data_write_byte", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte)), ("data-read-byte", ("data_read_byte", TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte))])
+                                self._leafs = OrderedDict([
+                                    ('async_session', YLeaf(YType.boolean, 'async-session')),
+                                ])
+                                self.async_session = None
 
-                                self.async_session = YLeaf(YType.boolean, "async-session")
-
-                                self.data_write_success_num = YLeafList(YType.uint32, "data-write-success-num")
-
-                                self.data_read_success_num = YLeafList(YType.uint32, "data-read-success-num")
-
-                                self.data_write_error_num = YLeafList(YType.uint32, "data-write-error-num")
-
-                                self.data_read_error_num = YLeafList(YType.uint32, "data-read-error-num")
-
-                                self.control_write_success_num = YLeafList(YType.uint32, "control-write-success-num")
-
-                                self.control_read_success_num = YLeafList(YType.uint32, "control-read-success-num")
-
-                                self.control_write_error_num = YLeafList(YType.uint32, "control-write-error-num")
-
-                                self.control_read_error_num = YLeafList(YType.uint32, "control-read-error-num")
-
-                                self.data_write_byte = YLeafList(YType.uint64, "data-write-byte")
-
-                                self.data_read_byte = YLeafList(YType.uint64, "data-read-byte")
+                                self.data_write_success_num = YList(self)
+                                self.data_read_success_num = YList(self)
+                                self.data_write_error_num = YList(self)
+                                self.data_read_error_num = YList(self)
+                                self.control_write_success_num = YList(self)
+                                self.control_read_success_num = YList(self)
+                                self.control_write_error_num = YList(self)
+                                self.control_read_error_num = YList(self)
+                                self.data_write_byte = YList(self)
+                                self.data_read_byte = YList(self)
                                 self._segment_path = lambda: "async-session-stats"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, ['async_session', 'data_write_success_num', 'data_read_success_num', 'data_write_error_num', 'data_read_error_num', 'control_write_success_num', 'control_read_success_num', 'control_write_error_num', 'control_read_error_num', 'data_write_byte', 'data_read_byte'], name, value)
+                                self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats, ['async_session'], name, value)
+
+
+                            class DataWriteSuccessNum(Entity):
+                                """
+                                Number of successful data write to XIPC
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, self).__init__()
+
+                                    self.yang_name = "data-write-success-num"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "data-write-success-num"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteSuccessNum, ['entry'], name, value)
+
+
+                            class DataReadSuccessNum(Entity):
+                                """
+                                Number of successful data read from XIPC
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, self).__init__()
+
+                                    self.yang_name = "data-read-success-num"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "data-read-success-num"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadSuccessNum, ['entry'], name, value)
+
+
+                            class DataWriteErrorNum(Entity):
+                                """
+                                Number of failed data write to XIPC
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, self).__init__()
+
+                                    self.yang_name = "data-write-error-num"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "data-write-error-num"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteErrorNum, ['entry'], name, value)
+
+
+                            class DataReadErrorNum(Entity):
+                                """
+                                Number of failed data read from XIPC
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, self).__init__()
+
+                                    self.yang_name = "data-read-error-num"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "data-read-error-num"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadErrorNum, ['entry'], name, value)
+
+
+                            class ControlWriteSuccessNum(Entity):
+                                """
+                                Number of successful control write to XIPC
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, self).__init__()
+
+                                    self.yang_name = "control-write-success-num"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "control-write-success-num"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteSuccessNum, ['entry'], name, value)
+
+
+                            class ControlReadSuccessNum(Entity):
+                                """
+                                Number of successful control read to XIPC
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, self).__init__()
+
+                                    self.yang_name = "control-read-success-num"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "control-read-success-num"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadSuccessNum, ['entry'], name, value)
+
+
+                            class ControlWriteErrorNum(Entity):
+                                """
+                                Number of failed control write to XIPC
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, self).__init__()
+
+                                    self.yang_name = "control-write-error-num"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "control-write-error-num"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlWriteErrorNum, ['entry'], name, value)
+
+
+                            class ControlReadErrorNum(Entity):
+                                """
+                                Number of failed control read from XIPC
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, self).__init__()
+
+                                    self.yang_name = "control-read-error-num"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "control-read-error-num"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.ControlReadErrorNum, ['entry'], name, value)
+
+
+                            class DataWriteByte(Entity):
+                                """
+                                Number of bytes data has been written
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, self).__init__()
+
+                                    self.yang_name = "data-write-byte"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint64, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "data-write-byte"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataWriteByte, ['entry'], name, value)
+
+
+                            class DataReadByte(Entity):
+                                """
+                                Number of bytes data has been read
+                                
+                                .. attribute:: entry
+                                
+                                	
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-tcp-oper'
+                                _revision = '2018-02-14'
+
+                                def __init__(self):
+                                    super(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, self).__init__()
+
+                                    self.yang_name = "data-read-byte"
+                                    self.yang_parent_name = "async-session-stats"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint64, 'entry')),
+                                    ])
+                                    self.entry = None
+                                    self._segment_path = lambda: "data-read-byte"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats.DataReadByte, ['entry'], name, value)
 
 
                 class Summary(Entity):
@@ -2819,12 +3200,22 @@ class TcpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: iqs_total_ingpacket
+                    
+                    	Total Number of Ingress packets on TCP iqs
+                    	**type**\: list of  		 :py:class:`IqsTotalIngpacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket>`
+                    
+                    .. attribute:: iqs_total_egpacket
+                    
+                    	Total Number of Egress packets on TCP iqs
+                    	**type**\: list of  		 :py:class:`IqsTotalEgpacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket>`
+                    
                     
 
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.Statistics.Summary, self).__init__()
@@ -2833,188 +3224,270 @@ class TcpConnection(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.syn_cache_count = YLeaf(YType.uint32, "syn-cache-count")
-
-                        self.num_open_sockets = YLeaf(YType.uint32, "num-open-sockets")
-
-                        self.total_pakets_sent = YLeaf(YType.uint32, "total-pakets-sent")
-
-                        self.send_packets_dropped = YLeaf(YType.uint32, "send-packets-dropped")
-
-                        self.send_auth_packets_dropped = YLeaf(YType.uint32, "send-auth-packets-dropped")
-
-                        self.data_pakets_sent = YLeaf(YType.uint32, "data-pakets-sent")
-
-                        self.data_bytes_sent = YLeaf(YType.uint32, "data-bytes-sent")
-
-                        self.packets_retransmitted = YLeaf(YType.uint32, "packets-retransmitted")
-
-                        self.bytes_retransmitted = YLeaf(YType.uint32, "bytes-retransmitted")
-
-                        self.ack_only_packets_sent = YLeaf(YType.uint32, "ack-only-packets-sent")
-
-                        self.delay_ack_packets_sent = YLeaf(YType.uint32, "delay-ack-packets-sent")
-
-                        self.urgent_only_packets_sent = YLeaf(YType.uint32, "urgent-only-packets-sent")
-
-                        self.window_probe_packets_sent = YLeaf(YType.uint32, "window-probe-packets-sent")
-
-                        self.window_update_packets_sent = YLeaf(YType.uint32, "window-update-packets-sent")
-
-                        self.control_packets_sent = YLeaf(YType.uint32, "control-packets-sent")
-
-                        self.rst_packets_sent = YLeaf(YType.uint32, "rst-packets-sent")
-
-                        self.total_packets_received = YLeaf(YType.uint32, "total-packets-received")
-
-                        self.received_packets_dropped = YLeaf(YType.uint32, "received-packets-dropped")
-
-                        self.synacl_match_pkts_dropped = YLeaf(YType.uint32, "synacl-match-pkts-dropped")
-
-                        self.received_packets_dropped_stale_c_hdr = YLeaf(YType.uint32, "received-packets-dropped-stale-c-hdr")
-
-                        self.received_auth_packets_dropped = YLeaf(YType.uint32, "received-auth-packets-dropped")
-
-                        self.ack_packets_received = YLeaf(YType.uint32, "ack-packets-received")
-
-                        self.ackbytes_received = YLeaf(YType.uint32, "ackbytes-received")
-
-                        self.duplicated_ack_packets_received = YLeaf(YType.uint32, "duplicated-ack-packets-received")
-
-                        self.ack_packets_for_unsent_received = YLeaf(YType.uint32, "ack-packets-for-unsent-received")
-
-                        self.data_packets_received_in_sequence = YLeaf(YType.uint32, "data-packets-received-in-sequence")
-
-                        self.data_bytes_received_in_sequence = YLeaf(YType.uint32, "data-bytes-received-in-sequence")
-
-                        self.duplicate_packets_received = YLeaf(YType.uint32, "duplicate-packets-received")
-
-                        self.duplicate_bytes_received = YLeaf(YType.uint32, "duplicate-bytes-received")
-
-                        self.partial_duplicate_ack_received = YLeaf(YType.uint32, "partial-duplicate-ack-received")
-
-                        self.partial_duplicate_bytes_received = YLeaf(YType.uint32, "partial-duplicate-bytes-received")
-
-                        self.out_of_order_packets_received = YLeaf(YType.uint32, "out-of-order-packets-received")
-
-                        self.out_of_order_bytes_received = YLeaf(YType.uint32, "out-of-order-bytes-received")
-
-                        self.after_window_packets_received = YLeaf(YType.uint32, "after-window-packets-received")
-
-                        self.after_window_bytes_received = YLeaf(YType.uint32, "after-window-bytes-received")
-
-                        self.window_probe_packets_received = YLeaf(YType.uint32, "window-probe-packets-received")
-
-                        self.window_update_packets_received = YLeaf(YType.uint32, "window-update-packets-received")
-
-                        self.packets_received_after_close_packet = YLeaf(YType.uint32, "packets-received-after-close-packet")
-
-                        self.bad_checksum_packets_received = YLeaf(YType.uint32, "bad-checksum-packets-received")
-
-                        self.too_short_packets_received = YLeaf(YType.uint32, "too-short-packets-received")
-
-                        self.malformed_packets_received = YLeaf(YType.uint32, "malformed-packets-received")
-
-                        self.no_port_packets_received = YLeaf(YType.uint32, "no-port-packets-received")
-
-                        self.connections_requested = YLeaf(YType.uint32, "connections-requested")
-
-                        self.connections_accepted = YLeaf(YType.uint32, "connections-accepted")
-
-                        self.connections_established = YLeaf(YType.uint32, "connections-established")
-
-                        self.connections_forcibly_closed = YLeaf(YType.uint32, "connections-forcibly-closed")
-
-                        self.connections_closed = YLeaf(YType.uint32, "connections-closed")
-
-                        self.connections_dropped = YLeaf(YType.uint32, "connections-dropped")
-
-                        self.embryonic_connection_dropped = YLeaf(YType.uint32, "embryonic-connection-dropped")
-
-                        self.connections_failed = YLeaf(YType.uint32, "connections-failed")
-
-                        self.established_connections_reset = YLeaf(YType.uint32, "established-connections-reset")
-
-                        self.retransmit_timeouts = YLeaf(YType.uint32, "retransmit-timeouts")
-
-                        self.retransmit_dropped = YLeaf(YType.uint32, "retransmit-dropped")
-
-                        self.keep_alive_timeouts = YLeaf(YType.uint32, "keep-alive-timeouts")
-
-                        self.keep_alive_dropped = YLeaf(YType.uint32, "keep-alive-dropped")
-
-                        self.keep_alive_probes = YLeaf(YType.uint32, "keep-alive-probes")
-
-                        self.paws_dropped = YLeaf(YType.uint32, "paws-dropped")
-
-                        self.persist_dropped = YLeaf(YType.uint32, "persist-dropped")
-
-                        self.try_lock_dropped = YLeaf(YType.uint32, "try-lock-dropped")
-
-                        self.connection_rate_limited = YLeaf(YType.uint32, "connection-rate-limited")
-
-                        self.syn_cache_added = YLeaf(YType.uint32, "syn-cache-added")
-
-                        self.syn_cache_completed = YLeaf(YType.uint32, "syn-cache-completed")
-
-                        self.syn_cache_timed_out = YLeaf(YType.uint32, "syn-cache-timed-out")
-
-                        self.syn_cache_overflow = YLeaf(YType.uint32, "syn-cache-overflow")
-
-                        self.syn_cache_reset = YLeaf(YType.uint32, "syn-cache-reset")
-
-                        self.syn_cache_unreach = YLeaf(YType.uint32, "syn-cache-unreach")
-
-                        self.syn_cache_bucket_oflow = YLeaf(YType.uint32, "syn-cache-bucket-oflow")
-
-                        self.syn_cache_aborted = YLeaf(YType.uint32, "syn-cache-aborted")
-
-                        self.syn_cache_duplicate_sy_ns = YLeaf(YType.uint32, "syn-cache-duplicate-sy-ns")
-
-                        self.syn_cache_dropped = YLeaf(YType.uint32, "syn-cache-dropped")
-
-                        self.pulse_errors = YLeaf(YType.uint32, "pulse-errors")
-
-                        self.socket_layer_packets = YLeaf(YType.uint32, "socket-layer-packets")
-
-                        self.reassembly_packets = YLeaf(YType.uint32, "reassembly-packets")
-
-                        self.recovered_packets = YLeaf(YType.uint32, "recovered-packets")
-
-                        self.packet_failures = YLeaf(YType.uint32, "packet-failures")
-
-                        self.mss_up = YLeaf(YType.uint32, "mss-up")
-
-                        self.mss_down = YLeaf(YType.uint32, "mss-down")
-
-                        self.truncated_write_iov = YLeaf(YType.uint32, "truncated-write-iov")
-
-                        self.no_throttle = YLeaf(YType.uint32, "no-throttle")
-
-                        self.low_water_mark_throttle = YLeaf(YType.uint32, "low-water-mark-throttle")
-
-                        self.high_water_mark_throttle = YLeaf(YType.uint32, "high-water-mark-throttle")
-
-                        self.stalled_timer_tickle_count = YLeaf(YType.uint32, "stalled-timer-tickle-count")
-
-                        self.stalled_timer_tickle_time = YLeaf(YType.uint32, "stalled-timer-tickle-time")
-
-                        self.iq_sock_writes = YLeaf(YType.uint32, "iq-sock-writes")
-
-                        self.iq_sock_retries = YLeaf(YType.uint32, "iq-sock-retries")
-
-                        self.iq_sock_aborts = YLeaf(YType.uint32, "iq-sock-aborts")
-
-                        self.iq_ingress_drops = YLeaf(YType.uint32, "iq-ingress-drops")
-
-                        self.total_i_qs = YLeaf(YType.uint32, "total-i-qs")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("iqs-total-ingpacket", ("iqs_total_ingpacket", TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket)), ("iqs-total-egpacket", ("iqs_total_egpacket", TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket))])
+                        self._leafs = OrderedDict([
+                            ('syn_cache_count', YLeaf(YType.uint32, 'syn-cache-count')),
+                            ('num_open_sockets', YLeaf(YType.uint32, 'num-open-sockets')),
+                            ('total_pakets_sent', YLeaf(YType.uint32, 'total-pakets-sent')),
+                            ('send_packets_dropped', YLeaf(YType.uint32, 'send-packets-dropped')),
+                            ('send_auth_packets_dropped', YLeaf(YType.uint32, 'send-auth-packets-dropped')),
+                            ('data_pakets_sent', YLeaf(YType.uint32, 'data-pakets-sent')),
+                            ('data_bytes_sent', YLeaf(YType.uint32, 'data-bytes-sent')),
+                            ('packets_retransmitted', YLeaf(YType.uint32, 'packets-retransmitted')),
+                            ('bytes_retransmitted', YLeaf(YType.uint32, 'bytes-retransmitted')),
+                            ('ack_only_packets_sent', YLeaf(YType.uint32, 'ack-only-packets-sent')),
+                            ('delay_ack_packets_sent', YLeaf(YType.uint32, 'delay-ack-packets-sent')),
+                            ('urgent_only_packets_sent', YLeaf(YType.uint32, 'urgent-only-packets-sent')),
+                            ('window_probe_packets_sent', YLeaf(YType.uint32, 'window-probe-packets-sent')),
+                            ('window_update_packets_sent', YLeaf(YType.uint32, 'window-update-packets-sent')),
+                            ('control_packets_sent', YLeaf(YType.uint32, 'control-packets-sent')),
+                            ('rst_packets_sent', YLeaf(YType.uint32, 'rst-packets-sent')),
+                            ('total_packets_received', YLeaf(YType.uint32, 'total-packets-received')),
+                            ('received_packets_dropped', YLeaf(YType.uint32, 'received-packets-dropped')),
+                            ('synacl_match_pkts_dropped', YLeaf(YType.uint32, 'synacl-match-pkts-dropped')),
+                            ('received_packets_dropped_stale_c_hdr', YLeaf(YType.uint32, 'received-packets-dropped-stale-c-hdr')),
+                            ('received_auth_packets_dropped', YLeaf(YType.uint32, 'received-auth-packets-dropped')),
+                            ('ack_packets_received', YLeaf(YType.uint32, 'ack-packets-received')),
+                            ('ackbytes_received', YLeaf(YType.uint32, 'ackbytes-received')),
+                            ('duplicated_ack_packets_received', YLeaf(YType.uint32, 'duplicated-ack-packets-received')),
+                            ('ack_packets_for_unsent_received', YLeaf(YType.uint32, 'ack-packets-for-unsent-received')),
+                            ('data_packets_received_in_sequence', YLeaf(YType.uint32, 'data-packets-received-in-sequence')),
+                            ('data_bytes_received_in_sequence', YLeaf(YType.uint32, 'data-bytes-received-in-sequence')),
+                            ('duplicate_packets_received', YLeaf(YType.uint32, 'duplicate-packets-received')),
+                            ('duplicate_bytes_received', YLeaf(YType.uint32, 'duplicate-bytes-received')),
+                            ('partial_duplicate_ack_received', YLeaf(YType.uint32, 'partial-duplicate-ack-received')),
+                            ('partial_duplicate_bytes_received', YLeaf(YType.uint32, 'partial-duplicate-bytes-received')),
+                            ('out_of_order_packets_received', YLeaf(YType.uint32, 'out-of-order-packets-received')),
+                            ('out_of_order_bytes_received', YLeaf(YType.uint32, 'out-of-order-bytes-received')),
+                            ('after_window_packets_received', YLeaf(YType.uint32, 'after-window-packets-received')),
+                            ('after_window_bytes_received', YLeaf(YType.uint32, 'after-window-bytes-received')),
+                            ('window_probe_packets_received', YLeaf(YType.uint32, 'window-probe-packets-received')),
+                            ('window_update_packets_received', YLeaf(YType.uint32, 'window-update-packets-received')),
+                            ('packets_received_after_close_packet', YLeaf(YType.uint32, 'packets-received-after-close-packet')),
+                            ('bad_checksum_packets_received', YLeaf(YType.uint32, 'bad-checksum-packets-received')),
+                            ('too_short_packets_received', YLeaf(YType.uint32, 'too-short-packets-received')),
+                            ('malformed_packets_received', YLeaf(YType.uint32, 'malformed-packets-received')),
+                            ('no_port_packets_received', YLeaf(YType.uint32, 'no-port-packets-received')),
+                            ('connections_requested', YLeaf(YType.uint32, 'connections-requested')),
+                            ('connections_accepted', YLeaf(YType.uint32, 'connections-accepted')),
+                            ('connections_established', YLeaf(YType.uint32, 'connections-established')),
+                            ('connections_forcibly_closed', YLeaf(YType.uint32, 'connections-forcibly-closed')),
+                            ('connections_closed', YLeaf(YType.uint32, 'connections-closed')),
+                            ('connections_dropped', YLeaf(YType.uint32, 'connections-dropped')),
+                            ('embryonic_connection_dropped', YLeaf(YType.uint32, 'embryonic-connection-dropped')),
+                            ('connections_failed', YLeaf(YType.uint32, 'connections-failed')),
+                            ('established_connections_reset', YLeaf(YType.uint32, 'established-connections-reset')),
+                            ('retransmit_timeouts', YLeaf(YType.uint32, 'retransmit-timeouts')),
+                            ('retransmit_dropped', YLeaf(YType.uint32, 'retransmit-dropped')),
+                            ('keep_alive_timeouts', YLeaf(YType.uint32, 'keep-alive-timeouts')),
+                            ('keep_alive_dropped', YLeaf(YType.uint32, 'keep-alive-dropped')),
+                            ('keep_alive_probes', YLeaf(YType.uint32, 'keep-alive-probes')),
+                            ('paws_dropped', YLeaf(YType.uint32, 'paws-dropped')),
+                            ('persist_dropped', YLeaf(YType.uint32, 'persist-dropped')),
+                            ('try_lock_dropped', YLeaf(YType.uint32, 'try-lock-dropped')),
+                            ('connection_rate_limited', YLeaf(YType.uint32, 'connection-rate-limited')),
+                            ('syn_cache_added', YLeaf(YType.uint32, 'syn-cache-added')),
+                            ('syn_cache_completed', YLeaf(YType.uint32, 'syn-cache-completed')),
+                            ('syn_cache_timed_out', YLeaf(YType.uint32, 'syn-cache-timed-out')),
+                            ('syn_cache_overflow', YLeaf(YType.uint32, 'syn-cache-overflow')),
+                            ('syn_cache_reset', YLeaf(YType.uint32, 'syn-cache-reset')),
+                            ('syn_cache_unreach', YLeaf(YType.uint32, 'syn-cache-unreach')),
+                            ('syn_cache_bucket_oflow', YLeaf(YType.uint32, 'syn-cache-bucket-oflow')),
+                            ('syn_cache_aborted', YLeaf(YType.uint32, 'syn-cache-aborted')),
+                            ('syn_cache_duplicate_sy_ns', YLeaf(YType.uint32, 'syn-cache-duplicate-sy-ns')),
+                            ('syn_cache_dropped', YLeaf(YType.uint32, 'syn-cache-dropped')),
+                            ('pulse_errors', YLeaf(YType.uint32, 'pulse-errors')),
+                            ('socket_layer_packets', YLeaf(YType.uint32, 'socket-layer-packets')),
+                            ('reassembly_packets', YLeaf(YType.uint32, 'reassembly-packets')),
+                            ('recovered_packets', YLeaf(YType.uint32, 'recovered-packets')),
+                            ('packet_failures', YLeaf(YType.uint32, 'packet-failures')),
+                            ('mss_up', YLeaf(YType.uint32, 'mss-up')),
+                            ('mss_down', YLeaf(YType.uint32, 'mss-down')),
+                            ('truncated_write_iov', YLeaf(YType.uint32, 'truncated-write-iov')),
+                            ('no_throttle', YLeaf(YType.uint32, 'no-throttle')),
+                            ('low_water_mark_throttle', YLeaf(YType.uint32, 'low-water-mark-throttle')),
+                            ('high_water_mark_throttle', YLeaf(YType.uint32, 'high-water-mark-throttle')),
+                            ('stalled_timer_tickle_count', YLeaf(YType.uint32, 'stalled-timer-tickle-count')),
+                            ('stalled_timer_tickle_time', YLeaf(YType.uint32, 'stalled-timer-tickle-time')),
+                            ('iq_sock_writes', YLeaf(YType.uint32, 'iq-sock-writes')),
+                            ('iq_sock_retries', YLeaf(YType.uint32, 'iq-sock-retries')),
+                            ('iq_sock_aborts', YLeaf(YType.uint32, 'iq-sock-aborts')),
+                            ('iq_ingress_drops', YLeaf(YType.uint32, 'iq-ingress-drops')),
+                            ('total_i_qs', YLeaf(YType.uint32, 'total-i-qs')),
+                        ])
+                        self.syn_cache_count = None
+                        self.num_open_sockets = None
+                        self.total_pakets_sent = None
+                        self.send_packets_dropped = None
+                        self.send_auth_packets_dropped = None
+                        self.data_pakets_sent = None
+                        self.data_bytes_sent = None
+                        self.packets_retransmitted = None
+                        self.bytes_retransmitted = None
+                        self.ack_only_packets_sent = None
+                        self.delay_ack_packets_sent = None
+                        self.urgent_only_packets_sent = None
+                        self.window_probe_packets_sent = None
+                        self.window_update_packets_sent = None
+                        self.control_packets_sent = None
+                        self.rst_packets_sent = None
+                        self.total_packets_received = None
+                        self.received_packets_dropped = None
+                        self.synacl_match_pkts_dropped = None
+                        self.received_packets_dropped_stale_c_hdr = None
+                        self.received_auth_packets_dropped = None
+                        self.ack_packets_received = None
+                        self.ackbytes_received = None
+                        self.duplicated_ack_packets_received = None
+                        self.ack_packets_for_unsent_received = None
+                        self.data_packets_received_in_sequence = None
+                        self.data_bytes_received_in_sequence = None
+                        self.duplicate_packets_received = None
+                        self.duplicate_bytes_received = None
+                        self.partial_duplicate_ack_received = None
+                        self.partial_duplicate_bytes_received = None
+                        self.out_of_order_packets_received = None
+                        self.out_of_order_bytes_received = None
+                        self.after_window_packets_received = None
+                        self.after_window_bytes_received = None
+                        self.window_probe_packets_received = None
+                        self.window_update_packets_received = None
+                        self.packets_received_after_close_packet = None
+                        self.bad_checksum_packets_received = None
+                        self.too_short_packets_received = None
+                        self.malformed_packets_received = None
+                        self.no_port_packets_received = None
+                        self.connections_requested = None
+                        self.connections_accepted = None
+                        self.connections_established = None
+                        self.connections_forcibly_closed = None
+                        self.connections_closed = None
+                        self.connections_dropped = None
+                        self.embryonic_connection_dropped = None
+                        self.connections_failed = None
+                        self.established_connections_reset = None
+                        self.retransmit_timeouts = None
+                        self.retransmit_dropped = None
+                        self.keep_alive_timeouts = None
+                        self.keep_alive_dropped = None
+                        self.keep_alive_probes = None
+                        self.paws_dropped = None
+                        self.persist_dropped = None
+                        self.try_lock_dropped = None
+                        self.connection_rate_limited = None
+                        self.syn_cache_added = None
+                        self.syn_cache_completed = None
+                        self.syn_cache_timed_out = None
+                        self.syn_cache_overflow = None
+                        self.syn_cache_reset = None
+                        self.syn_cache_unreach = None
+                        self.syn_cache_bucket_oflow = None
+                        self.syn_cache_aborted = None
+                        self.syn_cache_duplicate_sy_ns = None
+                        self.syn_cache_dropped = None
+                        self.pulse_errors = None
+                        self.socket_layer_packets = None
+                        self.reassembly_packets = None
+                        self.recovered_packets = None
+                        self.packet_failures = None
+                        self.mss_up = None
+                        self.mss_down = None
+                        self.truncated_write_iov = None
+                        self.no_throttle = None
+                        self.low_water_mark_throttle = None
+                        self.high_water_mark_throttle = None
+                        self.stalled_timer_tickle_count = None
+                        self.stalled_timer_tickle_time = None
+                        self.iq_sock_writes = None
+                        self.iq_sock_retries = None
+                        self.iq_sock_aborts = None
+                        self.iq_ingress_drops = None
+                        self.total_i_qs = None
+
+                        self.iqs_total_ingpacket = YList(self)
+                        self.iqs_total_egpacket = YList(self)
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary, ['syn_cache_count', 'num_open_sockets', 'total_pakets_sent', 'send_packets_dropped', 'send_auth_packets_dropped', 'data_pakets_sent', 'data_bytes_sent', 'packets_retransmitted', 'bytes_retransmitted', 'ack_only_packets_sent', 'delay_ack_packets_sent', 'urgent_only_packets_sent', 'window_probe_packets_sent', 'window_update_packets_sent', 'control_packets_sent', 'rst_packets_sent', 'total_packets_received', 'received_packets_dropped', 'synacl_match_pkts_dropped', 'received_packets_dropped_stale_c_hdr', 'received_auth_packets_dropped', 'ack_packets_received', 'ackbytes_received', 'duplicated_ack_packets_received', 'ack_packets_for_unsent_received', 'data_packets_received_in_sequence', 'data_bytes_received_in_sequence', 'duplicate_packets_received', 'duplicate_bytes_received', 'partial_duplicate_ack_received', 'partial_duplicate_bytes_received', 'out_of_order_packets_received', 'out_of_order_bytes_received', 'after_window_packets_received', 'after_window_bytes_received', 'window_probe_packets_received', 'window_update_packets_received', 'packets_received_after_close_packet', 'bad_checksum_packets_received', 'too_short_packets_received', 'malformed_packets_received', 'no_port_packets_received', 'connections_requested', 'connections_accepted', 'connections_established', 'connections_forcibly_closed', 'connections_closed', 'connections_dropped', 'embryonic_connection_dropped', 'connections_failed', 'established_connections_reset', 'retransmit_timeouts', 'retransmit_dropped', 'keep_alive_timeouts', 'keep_alive_dropped', 'keep_alive_probes', 'paws_dropped', 'persist_dropped', 'try_lock_dropped', 'connection_rate_limited', 'syn_cache_added', 'syn_cache_completed', 'syn_cache_timed_out', 'syn_cache_overflow', 'syn_cache_reset', 'syn_cache_unreach', 'syn_cache_bucket_oflow', 'syn_cache_aborted', 'syn_cache_duplicate_sy_ns', 'syn_cache_dropped', 'pulse_errors', 'socket_layer_packets', 'reassembly_packets', 'recovered_packets', 'packet_failures', 'mss_up', 'mss_down', 'truncated_write_iov', 'no_throttle', 'low_water_mark_throttle', 'high_water_mark_throttle', 'stalled_timer_tickle_count', 'stalled_timer_tickle_time', 'iq_sock_writes', 'iq_sock_retries', 'iq_sock_aborts', 'iq_ingress_drops', 'total_i_qs'], name, value)
+
+
+                    class IqsTotalIngpacket(Entity):
+                        """
+                        Total Number of Ingress packets on TCP iqs
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-oper'
+                        _revision = '2018-02-14'
+
+                        def __init__(self):
+                            super(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, self).__init__()
+
+                            self.yang_name = "iqs-total-ingpacket"
+                            self.yang_parent_name = "summary"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
+                            self._segment_path = lambda: "iqs-total-ingpacket"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalIngpacket, ['entry'], name, value)
+
+
+                    class IqsTotalEgpacket(Entity):
+                        """
+                        Total Number of Egress packets on TCP iqs
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-oper'
+                        _revision = '2018-02-14'
+
+                        def __init__(self):
+                            super(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, self).__init__()
+
+                            self.yang_name = "iqs-total-egpacket"
+                            self.yang_parent_name = "summary"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
+                            self._segment_path = lambda: "iqs-total-egpacket"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TcpConnection.Nodes.Node.Statistics.Summary.IqsTotalEgpacket, ['entry'], name, value)
 
 
             class ExtendedInformation(Entity):
@@ -3031,7 +3504,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.ExtendedInformation, self).__init__()
@@ -3040,8 +3513,10 @@ class TcpConnection(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"display-types" : ("display_types", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("display-types", ("display_types", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.display_types = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes()
                     self.display_types.parent = self
@@ -3064,7 +3539,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes, self).__init__()
@@ -3073,8 +3548,10 @@ class TcpConnection(Entity):
                         self.yang_parent_name = "extended-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"display-type" : ("display_type", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("display-type", ("display_type", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType))])
+                        self._leafs = OrderedDict()
 
                         self.display_type = YList(self)
                         self._segment_path = lambda: "display-types"
@@ -3087,7 +3564,7 @@ class TcpConnection(Entity):
                         """
                         Describing particular display type
                         
-                        .. attribute:: disp_type  <key>
+                        .. attribute:: disp_type  (key)
                         
                         	Specifying display type
                         	**type**\:  :py:class:`Show <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Show>`
@@ -3102,7 +3579,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType, self).__init__()
@@ -3111,13 +3588,16 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "display-types"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"connection-id" : ("connection_id", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId)}
-
-                            self.disp_type = YLeaf(YType.enumeration, "disp-type")
+                            self.ylist_key_names = ['disp_type']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("connection-id", ("connection_id", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId))])
+                            self._leafs = OrderedDict([
+                                ('disp_type', YLeaf(YType.enumeration, 'disp-type')),
+                            ])
+                            self.disp_type = None
 
                             self.connection_id = YList(self)
-                            self._segment_path = lambda: "display-type" + "[disp-type='" + self.disp_type.get() + "']"
+                            self._segment_path = lambda: "display-type" + "[disp-type='" + str(self.disp_type) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType, ['disp_type'], name, value)
@@ -3127,12 +3607,12 @@ class TcpConnection(Entity):
                             """
                             Describing connection ID
                             
-                            .. attribute:: pcb_id  <key>
+                            .. attribute:: pcb_id  (key)
                             
                             	Displaying inforamtion based on selected display type associatedwith a particular PCB
-                            	**type**\: int
+                            	**type**\: str
                             
-                            	**range:** 0..4294967295
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             .. attribute:: local_address
                             
@@ -3175,7 +3655,7 @@ class TcpConnection(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId, self).__init__()
@@ -3184,16 +3664,19 @@ class TcpConnection(Entity):
                                 self.yang_parent_name = "display-type"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"local-address" : ("local_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress), "foreign-address" : ("foreign_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress), "common" : ("common", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common)}
-                                self._child_list_classes = {}
-
-                                self.pcb_id = YLeaf(YType.uint32, "pcb-id")
-
-                                self.l4_protocol = YLeaf(YType.uint32, "l4-protocol")
-
-                                self.local_port = YLeaf(YType.uint16, "local-port")
-
-                                self.foreign_port = YLeaf(YType.uint16, "foreign-port")
+                                self.ylist_key_names = ['pcb_id']
+                                self._child_container_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress)), ("common", ("common", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pcb_id', YLeaf(YType.str, 'pcb-id')),
+                                    ('l4_protocol', YLeaf(YType.uint32, 'l4-protocol')),
+                                    ('local_port', YLeaf(YType.uint16, 'local-port')),
+                                    ('foreign_port', YLeaf(YType.uint16, 'foreign-port')),
+                                ])
+                                self.pcb_id = None
+                                self.l4_protocol = None
+                                self.local_port = None
+                                self.foreign_port = None
 
                                 self.local_address = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress()
                                 self.local_address.parent = self
@@ -3209,7 +3692,7 @@ class TcpConnection(Entity):
                                 self.common.parent = self
                                 self._children_name_map["common"] = "common"
                                 self._children_yang_names.add("common")
-                                self._segment_path = lambda: "connection-id" + "[pcb-id='" + self.pcb_id.get() + "']"
+                                self._segment_path = lambda: "connection-id" + "[pcb-id='" + str(self.pcb_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId, ['pcb_id', 'l4_protocol', 'local_port', 'foreign_port'], name, value)
@@ -3243,7 +3726,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2018-02-14'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress, self).__init__()
@@ -3252,14 +3735,17 @@ class TcpConnection(Entity):
                                     self.yang_parent_name = "connection-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                    ])
+                                    self.af_name = None
+                                    self.ipv4_address = None
+                                    self.ipv6_address = None
                                     self._segment_path = lambda: "local-address"
 
                                 def __setattr__(self, name, value):
@@ -3294,7 +3780,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2018-02-14'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress, self).__init__()
@@ -3303,14 +3789,17 @@ class TcpConnection(Entity):
                                     self.yang_parent_name = "connection-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                    ])
+                                    self.af_name = None
+                                    self.ipv4_address = None
+                                    self.ipv6_address = None
                                     self._segment_path = lambda: "foreign-address"
 
                                 def __setattr__(self, name, value):
@@ -3336,7 +3825,7 @@ class TcpConnection(Entity):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2017-05-01'
+                                _revision = '2018-02-14'
 
                                 def __init__(self):
                                     super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common, self).__init__()
@@ -3345,10 +3834,13 @@ class TcpConnection(Entity):
                                     self.yang_parent_name = "connection-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"lpts-pcb" : ("lpts_pcb", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb)}
-                                    self._child_list_classes = {}
-
-                                    self.af_name = YLeaf(YType.enumeration, "af-name")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("lpts-pcb", ("lpts_pcb", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ])
+                                    self.af_name = None
 
                                     self.lpts_pcb = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb()
                                     self.lpts_pcb.parent = self
@@ -3403,7 +3895,7 @@ class TcpConnection(Entity):
                                     """
 
                                     _prefix = 'ip-tcp-oper'
-                                    _revision = '2017-05-01'
+                                    _revision = '2018-02-14'
 
                                     def __init__(self):
                                         super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb, self).__init__()
@@ -3412,12 +3904,15 @@ class TcpConnection(Entity):
                                         self.yang_parent_name = "common"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"options" : ("options", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options), "lpts-flags" : ("lpts_flags", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags), "accept-mask" : ("accept_mask", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask)}
-                                        self._child_list_classes = {"filter" : ("filter", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter)}
-
-                                        self.ttl = YLeaf(YType.uint8, "ttl")
-
-                                        self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("options", ("options", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options)), ("lpts-flags", ("lpts_flags", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags)), ("accept-mask", ("accept_mask", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask))])
+                                        self._child_list_classes = OrderedDict([("filter", ("filter", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter))])
+                                        self._leafs = OrderedDict([
+                                            ('ttl', YLeaf(YType.uint8, 'ttl')),
+                                            ('flow_types_info', YLeaf(YType.uint32, 'flow-types-info')),
+                                        ])
+                                        self.ttl = None
+                                        self.flow_types_info = None
 
                                         self.options = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options()
                                         self.options.parent = self
@@ -3460,7 +3955,7 @@ class TcpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2018-02-14'
 
                                         def __init__(self):
                                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options, self).__init__()
@@ -3469,12 +3964,15 @@ class TcpConnection(Entity):
                                             self.yang_parent_name = "lpts-pcb"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.is_receive_filter = YLeaf(YType.boolean, "is-receive-filter")
-
-                                            self.is_ip_sla = YLeaf(YType.boolean, "is-ip-sla")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('is_receive_filter', YLeaf(YType.boolean, 'is-receive-filter')),
+                                                ('is_ip_sla', YLeaf(YType.boolean, 'is-ip-sla')),
+                                            ])
+                                            self.is_receive_filter = None
+                                            self.is_ip_sla = None
                                             self._segment_path = lambda: "options"
 
                                         def __setattr__(self, name, value):
@@ -3505,7 +4003,7 @@ class TcpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2018-02-14'
 
                                         def __init__(self):
                                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags, self).__init__()
@@ -3514,14 +4012,17 @@ class TcpConnection(Entity):
                                             self.yang_parent_name = "lpts-pcb"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.is_pcb_bound = YLeaf(YType.boolean, "is-pcb-bound")
-
-                                            self.is_local_address_ignore = YLeaf(YType.boolean, "is-local-address-ignore")
-
-                                            self.is_ignore_vrf_filter = YLeaf(YType.boolean, "is-ignore-vrf-filter")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('is_pcb_bound', YLeaf(YType.boolean, 'is-pcb-bound')),
+                                                ('is_local_address_ignore', YLeaf(YType.boolean, 'is-local-address-ignore')),
+                                                ('is_ignore_vrf_filter', YLeaf(YType.boolean, 'is-ignore-vrf-filter')),
+                                            ])
+                                            self.is_pcb_bound = None
+                                            self.is_local_address_ignore = None
+                                            self.is_ignore_vrf_filter = None
                                             self._segment_path = lambda: "lpts-flags"
 
                                         def __setattr__(self, name, value):
@@ -3567,7 +4068,7 @@ class TcpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2018-02-14'
 
                                         def __init__(self):
                                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask, self).__init__()
@@ -3576,20 +4077,23 @@ class TcpConnection(Entity):
                                             self.yang_parent_name = "lpts-pcb"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.is_interface = YLeaf(YType.boolean, "is-interface")
-
-                                            self.is_packet_type = YLeaf(YType.boolean, "is-packet-type")
-
-                                            self.is_remote_address = YLeaf(YType.boolean, "is-remote-address")
-
-                                            self.is_remote_port = YLeaf(YType.boolean, "is-remote-port")
-
-                                            self.is_local_address = YLeaf(YType.boolean, "is-local-address")
-
-                                            self.is_local_port = YLeaf(YType.boolean, "is-local-port")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('is_interface', YLeaf(YType.boolean, 'is-interface')),
+                                                ('is_packet_type', YLeaf(YType.boolean, 'is-packet-type')),
+                                                ('is_remote_address', YLeaf(YType.boolean, 'is-remote-address')),
+                                                ('is_remote_port', YLeaf(YType.boolean, 'is-remote-port')),
+                                                ('is_local_address', YLeaf(YType.boolean, 'is-local-address')),
+                                                ('is_local_port', YLeaf(YType.boolean, 'is-local-port')),
+                                            ])
+                                            self.is_interface = None
+                                            self.is_packet_type = None
+                                            self.is_remote_address = None
+                                            self.is_remote_port = None
+                                            self.is_local_address = None
+                                            self.is_local_port = None
                                             self._segment_path = lambda: "accept-mask"
 
                                         def __setattr__(self, name, value):
@@ -3676,7 +4180,7 @@ class TcpConnection(Entity):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2017-05-01'
+                                        _revision = '2018-02-14'
 
                                         def __init__(self):
                                             super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter, self).__init__()
@@ -3685,24 +4189,27 @@ class TcpConnection(Entity):
                                             self.yang_parent_name = "lpts-pcb"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"packet-type" : ("packet_type", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType), "remote-address" : ("remote_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress), "local-address" : ("local_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress)}
-                                            self._child_list_classes = {}
-
-                                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                            self.remote_length = YLeaf(YType.uint16, "remote-length")
-
-                                            self.local_length = YLeaf(YType.uint16, "local-length")
-
-                                            self.receive_remote_port = YLeaf(YType.uint16, "receive-remote-port")
-
-                                            self.receive_local_port = YLeaf(YType.uint16, "receive-local-port")
-
-                                            self.priority = YLeaf(YType.uint8, "priority")
-
-                                            self.ttl = YLeaf(YType.uint8, "ttl")
-
-                                            self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("packet-type", ("packet_type", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType)), ("remote-address", ("remote_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress)), ("local-address", ("local_address", TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ('remote_length', YLeaf(YType.uint16, 'remote-length')),
+                                                ('local_length', YLeaf(YType.uint16, 'local-length')),
+                                                ('receive_remote_port', YLeaf(YType.uint16, 'receive-remote-port')),
+                                                ('receive_local_port', YLeaf(YType.uint16, 'receive-local-port')),
+                                                ('priority', YLeaf(YType.uint8, 'priority')),
+                                                ('ttl', YLeaf(YType.uint8, 'ttl')),
+                                                ('flow_types_info', YLeaf(YType.uint32, 'flow-types-info')),
+                                            ])
+                                            self.interface_name = None
+                                            self.remote_length = None
+                                            self.local_length = None
+                                            self.receive_remote_port = None
+                                            self.receive_local_port = None
+                                            self.priority = None
+                                            self.ttl = None
+                                            self.flow_types_info = None
 
                                             self.packet_type = TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType()
                                             self.packet_type.parent = self
@@ -3736,17 +4243,17 @@ class TcpConnection(Entity):
                                             .. attribute:: icmp_message_type
                                             
                                             	ICMP message type
-                                            	**type**\:  :py:class:`MessageTypeIcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmp>`
+                                            	**type**\:  :py:class:`MessageTypeIcmp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmp_>`
                                             
                                             .. attribute:: icm_pv6_message_type
                                             
                                             	ICMPv6 message type
-                                            	**type**\:  :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6>`
+                                            	**type**\:  :py:class:`MessageTypeIcmpv6_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6_>`
                                             
                                             .. attribute:: igmp_message_type
                                             
                                             	IGMP message type
-                                            	**type**\:  :py:class:`MessageTypeIgmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIgmp>`
+                                            	**type**\:  :py:class:`MessageTypeIgmp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIgmp_>`
                                             
                                             .. attribute:: message_id
                                             
@@ -3760,7 +4267,7 @@ class TcpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2018-02-14'
 
                                             def __init__(self):
                                                 super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType, self).__init__()
@@ -3769,18 +4276,21 @@ class TcpConnection(Entity):
                                                 self.yang_parent_name = "filter"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.type = YLeaf(YType.enumeration, "type")
-
-                                                self.icmp_message_type = YLeaf(YType.enumeration, "icmp-message-type")
-
-                                                self.icm_pv6_message_type = YLeaf(YType.enumeration, "icm-pv6-message-type")
-
-                                                self.igmp_message_type = YLeaf(YType.enumeration, "igmp-message-type")
-
-                                                self.message_id = YLeaf(YType.uint32, "message-id")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                    ('icmp_message_type', YLeaf(YType.enumeration, 'icmp-message-type')),
+                                                    ('icm_pv6_message_type', YLeaf(YType.enumeration, 'icm-pv6-message-type')),
+                                                    ('igmp_message_type', YLeaf(YType.enumeration, 'igmp-message-type')),
+                                                    ('message_id', YLeaf(YType.uint32, 'message-id')),
+                                                ])
+                                                self.type = None
+                                                self.icmp_message_type = None
+                                                self.icm_pv6_message_type = None
+                                                self.igmp_message_type = None
+                                                self.message_id = None
                                                 self._segment_path = lambda: "packet-type"
 
                                             def __setattr__(self, name, value):
@@ -3815,7 +4325,7 @@ class TcpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2018-02-14'
 
                                             def __init__(self):
                                                 super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress, self).__init__()
@@ -3824,14 +4334,17 @@ class TcpConnection(Entity):
                                                 self.yang_parent_name = "filter"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                                self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                ])
+                                                self.af_name = None
+                                                self.ipv4_address = None
+                                                self.ipv6_address = None
                                                 self._segment_path = lambda: "remote-address"
 
                                             def __setattr__(self, name, value):
@@ -3866,7 +4379,7 @@ class TcpConnection(Entity):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2017-05-01'
+                                            _revision = '2018-02-14'
 
                                             def __init__(self):
                                                 super(TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress, self).__init__()
@@ -3875,14 +4388,17 @@ class TcpConnection(Entity):
                                                 self.yang_parent_name = "filter"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                                self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                ])
+                                                self.af_name = None
+                                                self.ipv4_address = None
+                                                self.ipv6_address = None
                                                 self._segment_path = lambda: "local-address"
 
                                             def __setattr__(self, name, value):
@@ -3904,7 +4420,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.DetailInformations, self).__init__()
@@ -3913,8 +4429,10 @@ class TcpConnection(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"detail-information" : ("detail_information", TcpConnection.Nodes.Node.DetailInformations.DetailInformation)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("detail-information", ("detail_information", TcpConnection.Nodes.Node.DetailInformations.DetailInformation))])
+                    self._leafs = OrderedDict()
 
                     self.detail_information = YList(self)
                     self._segment_path = lambda: "detail-informations"
@@ -3927,12 +4445,12 @@ class TcpConnection(Entity):
                     """
                     Protocol Control Block ID
                     
-                    .. attribute:: pcb_id  <key>
+                    .. attribute:: pcb_id  (key)
                     
                     	Detail information about TCP connection, put null for all
-                    	**type**\: int
+                    	**type**\: str
                     
-                    	**range:** 0..4294967295
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: local_address
                     
@@ -4523,16 +5041,12 @@ class TcpConnection(Entity):
                     .. attribute:: fib_pd_ctx
                     
                     	Cached fib pd context
-                    	**type**\: list of int
-                    
-                    	**range:** 0..4294967295
+                    	**type**\: list of  		 :py:class:`FibPdCtx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx>`
                     
                     .. attribute:: fib_label_output
                     
                     	Cached Label stack
-                    	**type**\: list of int
-                    
-                    	**range:** 0..4294967295
+                    	**type**\: list of  		 :py:class:`FibLabelOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput>`
                     
                     .. attribute:: timer
                     
@@ -4554,7 +5068,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, self).__init__()
@@ -4563,164 +5077,163 @@ class TcpConnection(Entity):
                         self.yang_parent_name = "detail-informations"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"local-address" : ("local_address", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress), "foreign-address" : ("foreign_address", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress), "socket-option-flags" : ("socket_option_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags), "socket-state-flags" : ("socket_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags), "feature-flags" : ("feature_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags), "state-flags" : ("state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags), "request-flags" : ("request_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags), "receive-buf-state-flags" : ("receive_buf_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags), "send-buf-state-flags" : ("send_buf_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags)}
-                        self._child_list_classes = {"timer" : ("timer", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer), "sack-blk" : ("sack_blk", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk), "send-sack-hole" : ("send_sack_hole", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole)}
-
-                        self.pcb_id = YLeaf(YType.uint32, "pcb-id")
-
-                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                        self.pcb = YLeaf(YType.uint64, "pcb")
-
-                        self.so = YLeaf(YType.uint64, "so")
-
-                        self.tcpcb = YLeaf(YType.uint64, "tcpcb")
-
-                        self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                        self.connection_state = YLeaf(YType.enumeration, "connection-state")
-
-                        self.established_time = YLeaf(YType.uint32, "established-time")
-
-                        self.local_pid = YLeaf(YType.uint32, "local-pid")
-
-                        self.local_port = YLeaf(YType.uint16, "local-port")
-
-                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
-
-                        self.packet_priority = YLeaf(YType.enumeration, "packet-priority")
-
-                        self.packet_tos = YLeaf(YType.uint16, "packet-tos")
-
-                        self.packet_ttl = YLeaf(YType.uint16, "packet-ttl")
-
-                        self.hash_index = YLeaf(YType.uint32, "hash-index")
-
-                        self.current_receive_queue_size = YLeaf(YType.uint32, "current-receive-queue-size")
-
-                        self.max_receive_queue_size = YLeaf(YType.uint32, "max-receive-queue-size")
-
-                        self.current_send_queue_size = YLeaf(YType.uint32, "current-send-queue-size")
-
-                        self.max_send_queue_size = YLeaf(YType.uint32, "max-send-queue-size")
-
-                        self.current_receive_queue_packet_size = YLeaf(YType.uint32, "current-receive-queue-packet-size")
-
-                        self.max_receive_queue_packet_size = YLeaf(YType.uint32, "max-receive-queue-packet-size")
-
-                        self.save_queue_size = YLeaf(YType.uint32, "save-queue-size")
-
-                        self.send_initial_sequence_num = YLeaf(YType.uint32, "send-initial-sequence-num")
-
-                        self.send_unack_sequence_num = YLeaf(YType.uint32, "send-unack-sequence-num")
-
-                        self.send_next_sequence_num = YLeaf(YType.uint32, "send-next-sequence-num")
-
-                        self.send_max_sequence_num = YLeaf(YType.uint32, "send-max-sequence-num")
-
-                        self.send_window_size = YLeaf(YType.uint32, "send-window-size")
-
-                        self.send_congestion_window_size = YLeaf(YType.uint32, "send-congestion-window-size")
-
-                        self.receive_initial_sequence_num = YLeaf(YType.uint32, "receive-initial-sequence-num")
-
-                        self.receive_next_sequence_num = YLeaf(YType.uint32, "receive-next-sequence-num")
-
-                        self.receive_adv_window_size = YLeaf(YType.uint32, "receive-adv-window-size")
-
-                        self.receive_window_size = YLeaf(YType.uint32, "receive-window-size")
-
-                        self.mss = YLeaf(YType.uint32, "mss")
-
-                        self.peer_mss = YLeaf(YType.uint32, "peer-mss")
-
-                        self.srtt = YLeaf(YType.uint32, "srtt")
-
-                        self.rtto = YLeaf(YType.uint32, "rtto")
-
-                        self.krtt = YLeaf(YType.uint32, "krtt")
-
-                        self.srtv = YLeaf(YType.uint32, "srtv")
-
-                        self.min_rtt = YLeaf(YType.uint32, "min-rtt")
-
-                        self.max_rtt = YLeaf(YType.uint32, "max-rtt")
-
-                        self.retries = YLeaf(YType.uint32, "retries")
-
-                        self.ack_hold_time = YLeaf(YType.uint32, "ack-hold-time")
-
-                        self.giveup_time = YLeaf(YType.uint32, "giveup-time")
-
-                        self.keep_alive_time = YLeaf(YType.uint32, "keep-alive-time")
-
-                        self.syn_wait_time = YLeaf(YType.uint32, "syn-wait-time")
-
-                        self.rxsy_naclname = YLeaf(YType.str, "rxsy-naclname")
-
-                        self.soft_error = YLeaf(YType.int32, "soft-error")
-
-                        self.sock_error = YLeaf(YType.int32, "sock-error")
-
-                        self.is_retrans_forever = YLeaf(YType.boolean, "is-retrans-forever")
-
-                        self.min_mss = YLeaf(YType.uint32, "min-mss")
-
-                        self.max_mss = YLeaf(YType.uint32, "max-mss")
-
-                        self.connect_retries = YLeaf(YType.uint16, "connect-retries")
-
-                        self.connect_retry_interval = YLeaf(YType.uint16, "connect-retry-interval")
-
-                        self.receive_window_scale = YLeaf(YType.uint32, "receive-window-scale")
-
-                        self.send_window_scale = YLeaf(YType.uint32, "send-window-scale")
-
-                        self.request_receive_window_scale = YLeaf(YType.uint32, "request-receive-window-scale")
-
-                        self.rqst_send_wnd_scale = YLeaf(YType.uint32, "rqst-send-wnd-scale")
-
-                        self.time_stamp_recent = YLeaf(YType.uint32, "time-stamp-recent")
-
-                        self.time_stamp_recent_age = YLeaf(YType.uint32, "time-stamp-recent-age")
-
-                        self.last_ack_sent = YLeaf(YType.uint32, "last-ack-sent")
-
-                        self.sendbuf_lowwat = YLeaf(YType.uint32, "sendbuf-lowwat")
-
-                        self.recvbuf_lowwat = YLeaf(YType.uint32, "recvbuf-lowwat")
-
-                        self.sendbuf_hiwat = YLeaf(YType.uint32, "sendbuf-hiwat")
-
-                        self.recvbuf_hiwat = YLeaf(YType.uint32, "recvbuf-hiwat")
-
-                        self.sendbuf_notify_thresh = YLeaf(YType.uint32, "sendbuf-notify-thresh")
-
-                        self.recvbuf_datasize = YLeaf(YType.uint32, "recvbuf-datasize")
-
-                        self.queue_length = YLeaf(YType.uint32, "queue-length")
-
-                        self.queue_zero_length = YLeaf(YType.uint32, "queue-zero-length")
-
-                        self.queue_limit = YLeaf(YType.uint32, "queue-limit")
-
-                        self.socket_error = YLeaf(YType.uint32, "socket-error")
-
-                        self.auto_rearm = YLeaf(YType.uint32, "auto-rearm")
-
-                        self.send_pdu_count = YLeaf(YType.uint32, "send-pdu-count")
-
-                        self.output_ifhandle = YLeaf(YType.uint32, "output-ifhandle")
-
-                        self.fib_pd_ctx_size = YLeaf(YType.uint32, "fib-pd-ctx-size")
-
-                        self.num_labels = YLeaf(YType.uint32, "num-labels")
-
-                        self.local_app_instance = YLeaf(YType.uint32, "local-app-instance")
-
-                        self.fib_pd_ctx = YLeafList(YType.uint32, "fib-pd-ctx")
-
-                        self.fib_label_output = YLeafList(YType.uint32, "fib-label-output")
+                        self.ylist_key_names = ['pcb_id']
+                        self._child_container_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress)), ("socket-option-flags", ("socket_option_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags)), ("socket-state-flags", ("socket_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags)), ("feature-flags", ("feature_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags)), ("state-flags", ("state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags)), ("request-flags", ("request_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags)), ("receive-buf-state-flags", ("receive_buf_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags)), ("send-buf-state-flags", ("send_buf_state_flags", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags))])
+                        self._child_list_classes = OrderedDict([("fib-pd-ctx", ("fib_pd_ctx", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx)), ("fib-label-output", ("fib_label_output", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput)), ("timer", ("timer", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer)), ("sack-blk", ("sack_blk", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk)), ("send-sack-hole", ("send_sack_hole", TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole))])
+                        self._leafs = OrderedDict([
+                            ('pcb_id', YLeaf(YType.str, 'pcb-id')),
+                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                            ('pcb', YLeaf(YType.uint64, 'pcb')),
+                            ('so', YLeaf(YType.uint64, 'so')),
+                            ('tcpcb', YLeaf(YType.uint64, 'tcpcb')),
+                            ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                            ('connection_state', YLeaf(YType.enumeration, 'connection-state')),
+                            ('established_time', YLeaf(YType.uint32, 'established-time')),
+                            ('local_pid', YLeaf(YType.uint32, 'local-pid')),
+                            ('local_port', YLeaf(YType.uint16, 'local-port')),
+                            ('foreign_port', YLeaf(YType.uint16, 'foreign-port')),
+                            ('packet_priority', YLeaf(YType.enumeration, 'packet-priority')),
+                            ('packet_tos', YLeaf(YType.uint16, 'packet-tos')),
+                            ('packet_ttl', YLeaf(YType.uint16, 'packet-ttl')),
+                            ('hash_index', YLeaf(YType.uint32, 'hash-index')),
+                            ('current_receive_queue_size', YLeaf(YType.uint32, 'current-receive-queue-size')),
+                            ('max_receive_queue_size', YLeaf(YType.uint32, 'max-receive-queue-size')),
+                            ('current_send_queue_size', YLeaf(YType.uint32, 'current-send-queue-size')),
+                            ('max_send_queue_size', YLeaf(YType.uint32, 'max-send-queue-size')),
+                            ('current_receive_queue_packet_size', YLeaf(YType.uint32, 'current-receive-queue-packet-size')),
+                            ('max_receive_queue_packet_size', YLeaf(YType.uint32, 'max-receive-queue-packet-size')),
+                            ('save_queue_size', YLeaf(YType.uint32, 'save-queue-size')),
+                            ('send_initial_sequence_num', YLeaf(YType.uint32, 'send-initial-sequence-num')),
+                            ('send_unack_sequence_num', YLeaf(YType.uint32, 'send-unack-sequence-num')),
+                            ('send_next_sequence_num', YLeaf(YType.uint32, 'send-next-sequence-num')),
+                            ('send_max_sequence_num', YLeaf(YType.uint32, 'send-max-sequence-num')),
+                            ('send_window_size', YLeaf(YType.uint32, 'send-window-size')),
+                            ('send_congestion_window_size', YLeaf(YType.uint32, 'send-congestion-window-size')),
+                            ('receive_initial_sequence_num', YLeaf(YType.uint32, 'receive-initial-sequence-num')),
+                            ('receive_next_sequence_num', YLeaf(YType.uint32, 'receive-next-sequence-num')),
+                            ('receive_adv_window_size', YLeaf(YType.uint32, 'receive-adv-window-size')),
+                            ('receive_window_size', YLeaf(YType.uint32, 'receive-window-size')),
+                            ('mss', YLeaf(YType.uint32, 'mss')),
+                            ('peer_mss', YLeaf(YType.uint32, 'peer-mss')),
+                            ('srtt', YLeaf(YType.uint32, 'srtt')),
+                            ('rtto', YLeaf(YType.uint32, 'rtto')),
+                            ('krtt', YLeaf(YType.uint32, 'krtt')),
+                            ('srtv', YLeaf(YType.uint32, 'srtv')),
+                            ('min_rtt', YLeaf(YType.uint32, 'min-rtt')),
+                            ('max_rtt', YLeaf(YType.uint32, 'max-rtt')),
+                            ('retries', YLeaf(YType.uint32, 'retries')),
+                            ('ack_hold_time', YLeaf(YType.uint32, 'ack-hold-time')),
+                            ('giveup_time', YLeaf(YType.uint32, 'giveup-time')),
+                            ('keep_alive_time', YLeaf(YType.uint32, 'keep-alive-time')),
+                            ('syn_wait_time', YLeaf(YType.uint32, 'syn-wait-time')),
+                            ('rxsy_naclname', YLeaf(YType.str, 'rxsy-naclname')),
+                            ('soft_error', YLeaf(YType.int32, 'soft-error')),
+                            ('sock_error', YLeaf(YType.int32, 'sock-error')),
+                            ('is_retrans_forever', YLeaf(YType.boolean, 'is-retrans-forever')),
+                            ('min_mss', YLeaf(YType.uint32, 'min-mss')),
+                            ('max_mss', YLeaf(YType.uint32, 'max-mss')),
+                            ('connect_retries', YLeaf(YType.uint16, 'connect-retries')),
+                            ('connect_retry_interval', YLeaf(YType.uint16, 'connect-retry-interval')),
+                            ('receive_window_scale', YLeaf(YType.uint32, 'receive-window-scale')),
+                            ('send_window_scale', YLeaf(YType.uint32, 'send-window-scale')),
+                            ('request_receive_window_scale', YLeaf(YType.uint32, 'request-receive-window-scale')),
+                            ('rqst_send_wnd_scale', YLeaf(YType.uint32, 'rqst-send-wnd-scale')),
+                            ('time_stamp_recent', YLeaf(YType.uint32, 'time-stamp-recent')),
+                            ('time_stamp_recent_age', YLeaf(YType.uint32, 'time-stamp-recent-age')),
+                            ('last_ack_sent', YLeaf(YType.uint32, 'last-ack-sent')),
+                            ('sendbuf_lowwat', YLeaf(YType.uint32, 'sendbuf-lowwat')),
+                            ('recvbuf_lowwat', YLeaf(YType.uint32, 'recvbuf-lowwat')),
+                            ('sendbuf_hiwat', YLeaf(YType.uint32, 'sendbuf-hiwat')),
+                            ('recvbuf_hiwat', YLeaf(YType.uint32, 'recvbuf-hiwat')),
+                            ('sendbuf_notify_thresh', YLeaf(YType.uint32, 'sendbuf-notify-thresh')),
+                            ('recvbuf_datasize', YLeaf(YType.uint32, 'recvbuf-datasize')),
+                            ('queue_length', YLeaf(YType.uint32, 'queue-length')),
+                            ('queue_zero_length', YLeaf(YType.uint32, 'queue-zero-length')),
+                            ('queue_limit', YLeaf(YType.uint32, 'queue-limit')),
+                            ('socket_error', YLeaf(YType.uint32, 'socket-error')),
+                            ('auto_rearm', YLeaf(YType.uint32, 'auto-rearm')),
+                            ('send_pdu_count', YLeaf(YType.uint32, 'send-pdu-count')),
+                            ('output_ifhandle', YLeaf(YType.uint32, 'output-ifhandle')),
+                            ('fib_pd_ctx_size', YLeaf(YType.uint32, 'fib-pd-ctx-size')),
+                            ('num_labels', YLeaf(YType.uint32, 'num-labels')),
+                            ('local_app_instance', YLeaf(YType.uint32, 'local-app-instance')),
+                        ])
+                        self.pcb_id = None
+                        self.address_family = None
+                        self.pcb = None
+                        self.so = None
+                        self.tcpcb = None
+                        self.vrf_id = None
+                        self.connection_state = None
+                        self.established_time = None
+                        self.local_pid = None
+                        self.local_port = None
+                        self.foreign_port = None
+                        self.packet_priority = None
+                        self.packet_tos = None
+                        self.packet_ttl = None
+                        self.hash_index = None
+                        self.current_receive_queue_size = None
+                        self.max_receive_queue_size = None
+                        self.current_send_queue_size = None
+                        self.max_send_queue_size = None
+                        self.current_receive_queue_packet_size = None
+                        self.max_receive_queue_packet_size = None
+                        self.save_queue_size = None
+                        self.send_initial_sequence_num = None
+                        self.send_unack_sequence_num = None
+                        self.send_next_sequence_num = None
+                        self.send_max_sequence_num = None
+                        self.send_window_size = None
+                        self.send_congestion_window_size = None
+                        self.receive_initial_sequence_num = None
+                        self.receive_next_sequence_num = None
+                        self.receive_adv_window_size = None
+                        self.receive_window_size = None
+                        self.mss = None
+                        self.peer_mss = None
+                        self.srtt = None
+                        self.rtto = None
+                        self.krtt = None
+                        self.srtv = None
+                        self.min_rtt = None
+                        self.max_rtt = None
+                        self.retries = None
+                        self.ack_hold_time = None
+                        self.giveup_time = None
+                        self.keep_alive_time = None
+                        self.syn_wait_time = None
+                        self.rxsy_naclname = None
+                        self.soft_error = None
+                        self.sock_error = None
+                        self.is_retrans_forever = None
+                        self.min_mss = None
+                        self.max_mss = None
+                        self.connect_retries = None
+                        self.connect_retry_interval = None
+                        self.receive_window_scale = None
+                        self.send_window_scale = None
+                        self.request_receive_window_scale = None
+                        self.rqst_send_wnd_scale = None
+                        self.time_stamp_recent = None
+                        self.time_stamp_recent_age = None
+                        self.last_ack_sent = None
+                        self.sendbuf_lowwat = None
+                        self.recvbuf_lowwat = None
+                        self.sendbuf_hiwat = None
+                        self.recvbuf_hiwat = None
+                        self.sendbuf_notify_thresh = None
+                        self.recvbuf_datasize = None
+                        self.queue_length = None
+                        self.queue_zero_length = None
+                        self.queue_limit = None
+                        self.socket_error = None
+                        self.auto_rearm = None
+                        self.send_pdu_count = None
+                        self.output_ifhandle = None
+                        self.fib_pd_ctx_size = None
+                        self.num_labels = None
+                        self.local_app_instance = None
 
                         self.local_address = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress()
                         self.local_address.parent = self
@@ -4767,13 +5280,15 @@ class TcpConnection(Entity):
                         self._children_name_map["send_buf_state_flags"] = "send-buf-state-flags"
                         self._children_yang_names.add("send-buf-state-flags")
 
+                        self.fib_pd_ctx = YList(self)
+                        self.fib_label_output = YList(self)
                         self.timer = YList(self)
                         self.sack_blk = YList(self)
                         self.send_sack_hole = YList(self)
-                        self._segment_path = lambda: "detail-information" + "[pcb-id='" + self.pcb_id.get() + "']"
+                        self._segment_path = lambda: "detail-information" + "[pcb-id='" + str(self.pcb_id) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, ['pcb_id', 'address_family', 'pcb', 'so', 'tcpcb', 'vrf_id', 'connection_state', 'established_time', 'local_pid', 'local_port', 'foreign_port', 'packet_priority', 'packet_tos', 'packet_ttl', 'hash_index', 'current_receive_queue_size', 'max_receive_queue_size', 'current_send_queue_size', 'max_send_queue_size', 'current_receive_queue_packet_size', 'max_receive_queue_packet_size', 'save_queue_size', 'send_initial_sequence_num', 'send_unack_sequence_num', 'send_next_sequence_num', 'send_max_sequence_num', 'send_window_size', 'send_congestion_window_size', 'receive_initial_sequence_num', 'receive_next_sequence_num', 'receive_adv_window_size', 'receive_window_size', 'mss', 'peer_mss', 'srtt', 'rtto', 'krtt', 'srtv', 'min_rtt', 'max_rtt', 'retries', 'ack_hold_time', 'giveup_time', 'keep_alive_time', 'syn_wait_time', 'rxsy_naclname', 'soft_error', 'sock_error', 'is_retrans_forever', 'min_mss', 'max_mss', 'connect_retries', 'connect_retry_interval', 'receive_window_scale', 'send_window_scale', 'request_receive_window_scale', 'rqst_send_wnd_scale', 'time_stamp_recent', 'time_stamp_recent_age', 'last_ack_sent', 'sendbuf_lowwat', 'recvbuf_lowwat', 'sendbuf_hiwat', 'recvbuf_hiwat', 'sendbuf_notify_thresh', 'recvbuf_datasize', 'queue_length', 'queue_zero_length', 'queue_limit', 'socket_error', 'auto_rearm', 'send_pdu_count', 'output_ifhandle', 'fib_pd_ctx_size', 'num_labels', 'local_app_instance', 'fib_pd_ctx', 'fib_label_output'], name, value)
+                        self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation, ['pcb_id', 'address_family', 'pcb', 'so', 'tcpcb', 'vrf_id', 'connection_state', 'established_time', 'local_pid', 'local_port', 'foreign_port', 'packet_priority', 'packet_tos', 'packet_ttl', 'hash_index', 'current_receive_queue_size', 'max_receive_queue_size', 'current_send_queue_size', 'max_send_queue_size', 'current_receive_queue_packet_size', 'max_receive_queue_packet_size', 'save_queue_size', 'send_initial_sequence_num', 'send_unack_sequence_num', 'send_next_sequence_num', 'send_max_sequence_num', 'send_window_size', 'send_congestion_window_size', 'receive_initial_sequence_num', 'receive_next_sequence_num', 'receive_adv_window_size', 'receive_window_size', 'mss', 'peer_mss', 'srtt', 'rtto', 'krtt', 'srtv', 'min_rtt', 'max_rtt', 'retries', 'ack_hold_time', 'giveup_time', 'keep_alive_time', 'syn_wait_time', 'rxsy_naclname', 'soft_error', 'sock_error', 'is_retrans_forever', 'min_mss', 'max_mss', 'connect_retries', 'connect_retry_interval', 'receive_window_scale', 'send_window_scale', 'request_receive_window_scale', 'rqst_send_wnd_scale', 'time_stamp_recent', 'time_stamp_recent_age', 'last_ack_sent', 'sendbuf_lowwat', 'recvbuf_lowwat', 'sendbuf_hiwat', 'recvbuf_hiwat', 'sendbuf_notify_thresh', 'recvbuf_datasize', 'queue_length', 'queue_zero_length', 'queue_limit', 'socket_error', 'auto_rearm', 'send_pdu_count', 'output_ifhandle', 'fib_pd_ctx_size', 'num_labels', 'local_app_instance'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -4804,7 +5319,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress, self).__init__()
@@ -4813,14 +5328,17 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
@@ -4855,7 +5373,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress, self).__init__()
@@ -4864,14 +5382,17 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "foreign-address"
 
                         def __setattr__(self, name, value):
@@ -4942,7 +5463,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags, self).__init__()
@@ -4951,30 +5472,33 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.debug = YLeaf(YType.boolean, "debug")
-
-                            self.accept_connection = YLeaf(YType.boolean, "accept-connection")
-
-                            self.reuse_address = YLeaf(YType.boolean, "reuse-address")
-
-                            self.keep_alive = YLeaf(YType.boolean, "keep-alive")
-
-                            self.dont_route = YLeaf(YType.boolean, "dont-route")
-
-                            self.broadcast = YLeaf(YType.boolean, "broadcast")
-
-                            self.use_loopback = YLeaf(YType.boolean, "use-loopback")
-
-                            self.linger = YLeaf(YType.boolean, "linger")
-
-                            self.out_of_band_inline = YLeaf(YType.boolean, "out-of-band-inline")
-
-                            self.reuse_port = YLeaf(YType.boolean, "reuse-port")
-
-                            self.nonblocking_io = YLeaf(YType.boolean, "nonblocking-io")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('debug', YLeaf(YType.boolean, 'debug')),
+                                ('accept_connection', YLeaf(YType.boolean, 'accept-connection')),
+                                ('reuse_address', YLeaf(YType.boolean, 'reuse-address')),
+                                ('keep_alive', YLeaf(YType.boolean, 'keep-alive')),
+                                ('dont_route', YLeaf(YType.boolean, 'dont-route')),
+                                ('broadcast', YLeaf(YType.boolean, 'broadcast')),
+                                ('use_loopback', YLeaf(YType.boolean, 'use-loopback')),
+                                ('linger', YLeaf(YType.boolean, 'linger')),
+                                ('out_of_band_inline', YLeaf(YType.boolean, 'out-of-band-inline')),
+                                ('reuse_port', YLeaf(YType.boolean, 'reuse-port')),
+                                ('nonblocking_io', YLeaf(YType.boolean, 'nonblocking-io')),
+                            ])
+                            self.debug = None
+                            self.accept_connection = None
+                            self.reuse_address = None
+                            self.keep_alive = None
+                            self.dont_route = None
+                            self.broadcast = None
+                            self.use_loopback = None
+                            self.linger = None
+                            self.out_of_band_inline = None
+                            self.reuse_port = None
+                            self.nonblocking_io = None
                             self._segment_path = lambda: "socket-option-flags"
 
                         def __setattr__(self, name, value):
@@ -5065,7 +5589,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags, self).__init__()
@@ -5074,38 +5598,41 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.no_file_descriptor_reference = YLeaf(YType.boolean, "no-file-descriptor-reference")
-
-                            self.is_connected = YLeaf(YType.boolean, "is-connected")
-
-                            self.is_connecting = YLeaf(YType.boolean, "is-connecting")
-
-                            self.is_disconnecting = YLeaf(YType.boolean, "is-disconnecting")
-
-                            self.cant_send_more = YLeaf(YType.boolean, "cant-send-more")
-
-                            self.cant_receive_more = YLeaf(YType.boolean, "cant-receive-more")
-
-                            self.received_at_mark = YLeaf(YType.boolean, "received-at-mark")
-
-                            self.privileged = YLeaf(YType.boolean, "privileged")
-
-                            self.block_close = YLeaf(YType.boolean, "block-close")
-
-                            self.async_io_notify = YLeaf(YType.boolean, "async-io-notify")
-
-                            self.is_confirming = YLeaf(YType.boolean, "is-confirming")
-
-                            self.is_solock = YLeaf(YType.boolean, "is-solock")
-
-                            self.is_detached = YLeaf(YType.boolean, "is-detached")
-
-                            self.block_receive = YLeaf(YType.boolean, "block-receive")
-
-                            self.block_send = YLeaf(YType.boolean, "block-send")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('no_file_descriptor_reference', YLeaf(YType.boolean, 'no-file-descriptor-reference')),
+                                ('is_connected', YLeaf(YType.boolean, 'is-connected')),
+                                ('is_connecting', YLeaf(YType.boolean, 'is-connecting')),
+                                ('is_disconnecting', YLeaf(YType.boolean, 'is-disconnecting')),
+                                ('cant_send_more', YLeaf(YType.boolean, 'cant-send-more')),
+                                ('cant_receive_more', YLeaf(YType.boolean, 'cant-receive-more')),
+                                ('received_at_mark', YLeaf(YType.boolean, 'received-at-mark')),
+                                ('privileged', YLeaf(YType.boolean, 'privileged')),
+                                ('block_close', YLeaf(YType.boolean, 'block-close')),
+                                ('async_io_notify', YLeaf(YType.boolean, 'async-io-notify')),
+                                ('is_confirming', YLeaf(YType.boolean, 'is-confirming')),
+                                ('is_solock', YLeaf(YType.boolean, 'is-solock')),
+                                ('is_detached', YLeaf(YType.boolean, 'is-detached')),
+                                ('block_receive', YLeaf(YType.boolean, 'block-receive')),
+                                ('block_send', YLeaf(YType.boolean, 'block-send')),
+                            ])
+                            self.no_file_descriptor_reference = None
+                            self.is_connected = None
+                            self.is_connecting = None
+                            self.is_disconnecting = None
+                            self.cant_send_more = None
+                            self.cant_receive_more = None
+                            self.received_at_mark = None
+                            self.privileged = None
+                            self.block_close = None
+                            self.async_io_notify = None
+                            self.is_confirming = None
+                            self.is_solock = None
+                            self.is_detached = None
+                            self.block_receive = None
+                            self.block_send = None
                             self._segment_path = lambda: "socket-state-flags"
 
                         def __setattr__(self, name, value):
@@ -5166,7 +5693,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags, self).__init__()
@@ -5175,26 +5702,29 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.selective_ack = YLeaf(YType.boolean, "selective-ack")
-
-                            self.md5 = YLeaf(YType.boolean, "md5")
-
-                            self.timestamps = YLeaf(YType.boolean, "timestamps")
-
-                            self.window_scaling = YLeaf(YType.boolean, "window-scaling")
-
-                            self.nagle = YLeaf(YType.boolean, "nagle")
-
-                            self.giveup_timer = YLeaf(YType.boolean, "giveup-timer")
-
-                            self.connection_keep_alive_timer = YLeaf(YType.boolean, "connection-keep-alive-timer")
-
-                            self.path_mtu_discovery = YLeaf(YType.boolean, "path-mtu-discovery")
-
-                            self.mss_cisco = YLeaf(YType.boolean, "mss-cisco")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('selective_ack', YLeaf(YType.boolean, 'selective-ack')),
+                                ('md5', YLeaf(YType.boolean, 'md5')),
+                                ('timestamps', YLeaf(YType.boolean, 'timestamps')),
+                                ('window_scaling', YLeaf(YType.boolean, 'window-scaling')),
+                                ('nagle', YLeaf(YType.boolean, 'nagle')),
+                                ('giveup_timer', YLeaf(YType.boolean, 'giveup-timer')),
+                                ('connection_keep_alive_timer', YLeaf(YType.boolean, 'connection-keep-alive-timer')),
+                                ('path_mtu_discovery', YLeaf(YType.boolean, 'path-mtu-discovery')),
+                                ('mss_cisco', YLeaf(YType.boolean, 'mss-cisco')),
+                            ])
+                            self.selective_ack = None
+                            self.md5 = None
+                            self.timestamps = None
+                            self.window_scaling = None
+                            self.nagle = None
+                            self.giveup_timer = None
+                            self.connection_keep_alive_timer = None
+                            self.path_mtu_discovery = None
+                            self.mss_cisco = None
                             self._segment_path = lambda: "feature-flags"
 
                         def __setattr__(self, name, value):
@@ -5250,7 +5780,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags, self).__init__()
@@ -5259,24 +5789,27 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.nagle_wait = YLeaf(YType.boolean, "nagle-wait")
-
-                            self.ack_needed = YLeaf(YType.boolean, "ack-needed")
-
-                            self.fin_sent = YLeaf(YType.boolean, "fin-sent")
-
-                            self.probing = YLeaf(YType.boolean, "probing")
-
-                            self.need_push = YLeaf(YType.boolean, "need-push")
-
-                            self.pushed = YLeaf(YType.boolean, "pushed")
-
-                            self.in_syn_cache = YLeaf(YType.boolean, "in-syn-cache")
-
-                            self.path_mtu_ager = YLeaf(YType.boolean, "path-mtu-ager")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('nagle_wait', YLeaf(YType.boolean, 'nagle-wait')),
+                                ('ack_needed', YLeaf(YType.boolean, 'ack-needed')),
+                                ('fin_sent', YLeaf(YType.boolean, 'fin-sent')),
+                                ('probing', YLeaf(YType.boolean, 'probing')),
+                                ('need_push', YLeaf(YType.boolean, 'need-push')),
+                                ('pushed', YLeaf(YType.boolean, 'pushed')),
+                                ('in_syn_cache', YLeaf(YType.boolean, 'in-syn-cache')),
+                                ('path_mtu_ager', YLeaf(YType.boolean, 'path-mtu-ager')),
+                            ])
+                            self.nagle_wait = None
+                            self.ack_needed = None
+                            self.fin_sent = None
+                            self.probing = None
+                            self.need_push = None
+                            self.pushed = None
+                            self.in_syn_cache = None
+                            self.path_mtu_ager = None
                             self._segment_path = lambda: "state-flags"
 
                         def __setattr__(self, name, value):
@@ -5337,7 +5870,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags, self).__init__()
@@ -5346,26 +5879,29 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.selective_ack = YLeaf(YType.boolean, "selective-ack")
-
-                            self.md5 = YLeaf(YType.boolean, "md5")
-
-                            self.timestamps = YLeaf(YType.boolean, "timestamps")
-
-                            self.window_scaling = YLeaf(YType.boolean, "window-scaling")
-
-                            self.nagle = YLeaf(YType.boolean, "nagle")
-
-                            self.giveup_timer = YLeaf(YType.boolean, "giveup-timer")
-
-                            self.connection_keep_alive_timer = YLeaf(YType.boolean, "connection-keep-alive-timer")
-
-                            self.path_mtu_discovery = YLeaf(YType.boolean, "path-mtu-discovery")
-
-                            self.mss_cisco = YLeaf(YType.boolean, "mss-cisco")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('selective_ack', YLeaf(YType.boolean, 'selective-ack')),
+                                ('md5', YLeaf(YType.boolean, 'md5')),
+                                ('timestamps', YLeaf(YType.boolean, 'timestamps')),
+                                ('window_scaling', YLeaf(YType.boolean, 'window-scaling')),
+                                ('nagle', YLeaf(YType.boolean, 'nagle')),
+                                ('giveup_timer', YLeaf(YType.boolean, 'giveup-timer')),
+                                ('connection_keep_alive_timer', YLeaf(YType.boolean, 'connection-keep-alive-timer')),
+                                ('path_mtu_discovery', YLeaf(YType.boolean, 'path-mtu-discovery')),
+                                ('mss_cisco', YLeaf(YType.boolean, 'mss-cisco')),
+                            ])
+                            self.selective_ack = None
+                            self.md5 = None
+                            self.timestamps = None
+                            self.window_scaling = None
+                            self.nagle = None
+                            self.giveup_timer = None
+                            self.connection_keep_alive_timer = None
+                            self.path_mtu_discovery = None
+                            self.mss_cisco = None
                             self._segment_path = lambda: "request-flags"
 
                         def __setattr__(self, name, value):
@@ -5441,7 +5977,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags, self).__init__()
@@ -5450,32 +5986,35 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.locked = YLeaf(YType.boolean, "locked")
-
-                            self.waiting_for_lock = YLeaf(YType.boolean, "waiting-for-lock")
-
-                            self.waiting_for_data = YLeaf(YType.boolean, "waiting-for-data")
-
-                            self.input_select = YLeaf(YType.boolean, "input-select")
-
-                            self.async_io = YLeaf(YType.boolean, "async-io")
-
-                            self.not_interruptible = YLeaf(YType.boolean, "not-interruptible")
-
-                            self.io_timer_set = YLeaf(YType.boolean, "io-timer-set")
-
-                            self.delayed_wakeup = YLeaf(YType.boolean, "delayed-wakeup")
-
-                            self.wakeup = YLeaf(YType.boolean, "wakeup")
-
-                            self.connect_wakeup = YLeaf(YType.boolean, "connect-wakeup")
-
-                            self.output_select = YLeaf(YType.boolean, "output-select")
-
-                            self.out_of_band_select = YLeaf(YType.boolean, "out-of-band-select")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('locked', YLeaf(YType.boolean, 'locked')),
+                                ('waiting_for_lock', YLeaf(YType.boolean, 'waiting-for-lock')),
+                                ('waiting_for_data', YLeaf(YType.boolean, 'waiting-for-data')),
+                                ('input_select', YLeaf(YType.boolean, 'input-select')),
+                                ('async_io', YLeaf(YType.boolean, 'async-io')),
+                                ('not_interruptible', YLeaf(YType.boolean, 'not-interruptible')),
+                                ('io_timer_set', YLeaf(YType.boolean, 'io-timer-set')),
+                                ('delayed_wakeup', YLeaf(YType.boolean, 'delayed-wakeup')),
+                                ('wakeup', YLeaf(YType.boolean, 'wakeup')),
+                                ('connect_wakeup', YLeaf(YType.boolean, 'connect-wakeup')),
+                                ('output_select', YLeaf(YType.boolean, 'output-select')),
+                                ('out_of_band_select', YLeaf(YType.boolean, 'out-of-band-select')),
+                            ])
+                            self.locked = None
+                            self.waiting_for_lock = None
+                            self.waiting_for_data = None
+                            self.input_select = None
+                            self.async_io = None
+                            self.not_interruptible = None
+                            self.io_timer_set = None
+                            self.delayed_wakeup = None
+                            self.wakeup = None
+                            self.connect_wakeup = None
+                            self.output_select = None
+                            self.out_of_band_select = None
                             self._segment_path = lambda: "receive-buf-state-flags"
 
                         def __setattr__(self, name, value):
@@ -5551,7 +6090,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, self).__init__()
@@ -5560,36 +6099,115 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.locked = YLeaf(YType.boolean, "locked")
-
-                            self.waiting_for_lock = YLeaf(YType.boolean, "waiting-for-lock")
-
-                            self.waiting_for_data = YLeaf(YType.boolean, "waiting-for-data")
-
-                            self.input_select = YLeaf(YType.boolean, "input-select")
-
-                            self.async_io = YLeaf(YType.boolean, "async-io")
-
-                            self.not_interruptible = YLeaf(YType.boolean, "not-interruptible")
-
-                            self.io_timer_set = YLeaf(YType.boolean, "io-timer-set")
-
-                            self.delayed_wakeup = YLeaf(YType.boolean, "delayed-wakeup")
-
-                            self.wakeup = YLeaf(YType.boolean, "wakeup")
-
-                            self.connect_wakeup = YLeaf(YType.boolean, "connect-wakeup")
-
-                            self.output_select = YLeaf(YType.boolean, "output-select")
-
-                            self.out_of_band_select = YLeaf(YType.boolean, "out-of-band-select")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('locked', YLeaf(YType.boolean, 'locked')),
+                                ('waiting_for_lock', YLeaf(YType.boolean, 'waiting-for-lock')),
+                                ('waiting_for_data', YLeaf(YType.boolean, 'waiting-for-data')),
+                                ('input_select', YLeaf(YType.boolean, 'input-select')),
+                                ('async_io', YLeaf(YType.boolean, 'async-io')),
+                                ('not_interruptible', YLeaf(YType.boolean, 'not-interruptible')),
+                                ('io_timer_set', YLeaf(YType.boolean, 'io-timer-set')),
+                                ('delayed_wakeup', YLeaf(YType.boolean, 'delayed-wakeup')),
+                                ('wakeup', YLeaf(YType.boolean, 'wakeup')),
+                                ('connect_wakeup', YLeaf(YType.boolean, 'connect-wakeup')),
+                                ('output_select', YLeaf(YType.boolean, 'output-select')),
+                                ('out_of_band_select', YLeaf(YType.boolean, 'out-of-band-select')),
+                            ])
+                            self.locked = None
+                            self.waiting_for_lock = None
+                            self.waiting_for_data = None
+                            self.input_select = None
+                            self.async_io = None
+                            self.not_interruptible = None
+                            self.io_timer_set = None
+                            self.delayed_wakeup = None
+                            self.wakeup = None
+                            self.connect_wakeup = None
+                            self.output_select = None
+                            self.out_of_band_select = None
                             self._segment_path = lambda: "send-buf-state-flags"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags, ['locked', 'waiting_for_lock', 'waiting_for_data', 'input_select', 'async_io', 'not_interruptible', 'io_timer_set', 'delayed_wakeup', 'wakeup', 'connect_wakeup', 'output_select', 'out_of_band_select'], name, value)
+
+
+                    class FibPdCtx(Entity):
+                        """
+                        Cached fib pd context
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-oper'
+                        _revision = '2018-02-14'
+
+                        def __init__(self):
+                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, self).__init__()
+
+                            self.yang_name = "fib-pd-ctx"
+                            self.yang_parent_name = "detail-information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
+                            self._segment_path = lambda: "fib-pd-ctx"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibPdCtx, ['entry'], name, value)
+
+
+                    class FibLabelOutput(Entity):
+                        """
+                        Cached Label stack
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-oper'
+                        _revision = '2018-02-14'
+
+                        def __init__(self):
+                            super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, self).__init__()
+
+                            self.yang_name = "fib-label-output"
+                            self.yang_parent_name = "detail-information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
+                            self._segment_path = lambda: "fib-label-output"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FibLabelOutput, ['entry'], name, value)
 
 
                     class Timer(Entity):
@@ -5627,7 +6245,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer, self).__init__()
@@ -5636,16 +6254,19 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.timer_type = YLeaf(YType.enumeration, "timer-type")
-
-                            self.timer_activations = YLeaf(YType.uint32, "timer-activations")
-
-                            self.timer_expirations = YLeaf(YType.uint32, "timer-expirations")
-
-                            self.timer_next_activation = YLeaf(YType.uint32, "timer-next-activation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('timer_type', YLeaf(YType.enumeration, 'timer-type')),
+                                ('timer_activations', YLeaf(YType.uint32, 'timer-activations')),
+                                ('timer_expirations', YLeaf(YType.uint32, 'timer-expirations')),
+                                ('timer_next_activation', YLeaf(YType.uint32, 'timer-next-activation')),
+                            ])
+                            self.timer_type = None
+                            self.timer_activations = None
+                            self.timer_expirations = None
+                            self.timer_next_activation = None
                             self._segment_path = lambda: "timer"
 
                         def __setattr__(self, name, value):
@@ -5675,7 +6296,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk, self).__init__()
@@ -5684,12 +6305,15 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.uint32, "start")
-
-                            self.end = YLeaf(YType.uint32, "end")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.uint32, 'start')),
+                                ('end', YLeaf(YType.uint32, 'end')),
+                            ])
+                            self.start = None
+                            self.end = None
                             self._segment_path = lambda: "sack-blk"
 
                         def __setattr__(self, name, value):
@@ -5733,7 +6357,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole, self).__init__()
@@ -5742,16 +6366,19 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "detail-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.uint32, "start")
-
-                            self.end = YLeaf(YType.uint32, "end")
-
-                            self.duplicated_ack = YLeaf(YType.uint32, "duplicated-ack")
-
-                            self.retransmitted = YLeaf(YType.uint32, "retransmitted")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.uint32, 'start')),
+                                ('end', YLeaf(YType.uint32, 'end')),
+                                ('duplicated_ack', YLeaf(YType.uint32, 'duplicated-ack')),
+                                ('retransmitted', YLeaf(YType.uint32, 'retransmitted')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.duplicated_ack = None
+                            self.retransmitted = None
                             self._segment_path = lambda: "send-sack-hole"
 
                         def __setattr__(self, name, value):
@@ -5774,7 +6401,7 @@ class TcpConnection(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(TcpConnection.Nodes.Node.BriefInformations, self).__init__()
@@ -5783,8 +6410,10 @@ class TcpConnection(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"brief-information" : ("brief_information", TcpConnection.Nodes.Node.BriefInformations.BriefInformation)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("brief-information", ("brief_information", TcpConnection.Nodes.Node.BriefInformations.BriefInformation))])
+                    self._leafs = OrderedDict()
 
                     self.brief_information = YList(self)
                     self._segment_path = lambda: "brief-informations"
@@ -5797,12 +6426,12 @@ class TcpConnection(Entity):
                     """
                     Brief information about a TCP connection
                     
-                    .. attribute:: pcb_id  <key>
+                    .. attribute:: pcb_id  (key)
                     
                     	Protocol Control Block ID
-                    	**type**\: int
+                    	**type**\: str
                     
-                    	**range:** 0..4294967295
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: local_address
                     
@@ -5882,7 +6511,7 @@ class TcpConnection(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, self).__init__()
@@ -5891,28 +6520,31 @@ class TcpConnection(Entity):
                         self.yang_parent_name = "brief-informations"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"local-address" : ("local_address", TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress), "foreign-address" : ("foreign_address", TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress)}
-                        self._child_list_classes = {}
-
-                        self.pcb_id = YLeaf(YType.uint32, "pcb-id")
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.pcb = YLeaf(YType.uint64, "pcb")
-
-                        self.connection_state = YLeaf(YType.enumeration, "connection-state")
-
-                        self.local_pid = YLeaf(YType.uint32, "local-pid")
-
-                        self.local_port = YLeaf(YType.uint16, "local-port")
-
-                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
-
-                        self.current_receive_queue_size = YLeaf(YType.uint32, "current-receive-queue-size")
-
-                        self.current_send_queue_size = YLeaf(YType.uint32, "current-send-queue-size")
-
-                        self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+                        self.ylist_key_names = ['pcb_id']
+                        self._child_container_classes = OrderedDict([("local-address", ("local_address", TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress)), ("foreign-address", ("foreign_address", TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pcb_id', YLeaf(YType.str, 'pcb-id')),
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('pcb', YLeaf(YType.uint64, 'pcb')),
+                            ('connection_state', YLeaf(YType.enumeration, 'connection-state')),
+                            ('local_pid', YLeaf(YType.uint32, 'local-pid')),
+                            ('local_port', YLeaf(YType.uint16, 'local-port')),
+                            ('foreign_port', YLeaf(YType.uint16, 'foreign-port')),
+                            ('current_receive_queue_size', YLeaf(YType.uint32, 'current-receive-queue-size')),
+                            ('current_send_queue_size', YLeaf(YType.uint32, 'current-send-queue-size')),
+                            ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                        ])
+                        self.pcb_id = None
+                        self.af_name = None
+                        self.pcb = None
+                        self.connection_state = None
+                        self.local_pid = None
+                        self.local_port = None
+                        self.foreign_port = None
+                        self.current_receive_queue_size = None
+                        self.current_send_queue_size = None
+                        self.vrf_id = None
 
                         self.local_address = TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress()
                         self.local_address.parent = self
@@ -5923,7 +6555,7 @@ class TcpConnection(Entity):
                         self.foreign_address.parent = self
                         self._children_name_map["foreign_address"] = "foreign-address"
                         self._children_yang_names.add("foreign-address")
-                        self._segment_path = lambda: "brief-information" + "[pcb-id='" + self.pcb_id.get() + "']"
+                        self._segment_path = lambda: "brief-information" + "[pcb-id='" + str(self.pcb_id) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TcpConnection.Nodes.Node.BriefInformations.BriefInformation, ['pcb_id', 'af_name', 'pcb', 'connection_state', 'local_pid', 'local_port', 'foreign_port', 'current_receive_queue_size', 'current_send_queue_size', 'vrf_id'], name, value)
@@ -5957,7 +6589,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress, self).__init__()
@@ -5966,14 +6598,17 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "brief-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
@@ -6008,7 +6643,7 @@ class TcpConnection(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress, self).__init__()
@@ -6017,14 +6652,17 @@ class TcpConnection(Entity):
                             self.yang_parent_name = "brief-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "foreign-address"
 
                         def __setattr__(self, name, value):
@@ -6048,7 +6686,7 @@ class Tcp(Entity):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2017-05-01'
+    _revision = '2018-02-14'
 
     def __init__(self):
         super(Tcp, self).__init__()
@@ -6058,8 +6696,10 @@ class Tcp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-tcp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Tcp.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Tcp.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Tcp.Nodes()
         self.nodes.parent = self
@@ -6082,7 +6722,7 @@ class Tcp(Entity):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2017-05-01'
+        _revision = '2018-02-14'
 
         def __init__(self):
             super(Tcp.Nodes, self).__init__()
@@ -6091,8 +6731,10 @@ class Tcp(Entity):
             self.yang_parent_name = "tcp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Tcp.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Tcp.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -6106,7 +6748,7 @@ class Tcp(Entity):
             """
             TCP operational data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -6123,7 +6765,7 @@ class Tcp(Entity):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2017-05-01'
+            _revision = '2018-02-14'
 
             def __init__(self):
                 super(Tcp.Nodes.Node, self).__init__()
@@ -6132,16 +6774,19 @@ class Tcp(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"statistics" : ("statistics", Tcp.Nodes.Node.Statistics)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("statistics", ("statistics", Tcp.Nodes.Node.Statistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.statistics = Tcp.Nodes.Node.Statistics()
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
                 self._children_yang_names.add("statistics")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -6167,7 +6812,7 @@ class Tcp(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(Tcp.Nodes.Node.Statistics, self).__init__()
@@ -6176,8 +6821,10 @@ class Tcp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"ipv4-traffic" : ("ipv4_traffic", Tcp.Nodes.Node.Statistics.Ipv4Traffic), "ipv6-traffic" : ("ipv6_traffic", Tcp.Nodes.Node.Statistics.Ipv6Traffic)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("ipv4-traffic", ("ipv4_traffic", Tcp.Nodes.Node.Statistics.Ipv4Traffic)), ("ipv6-traffic", ("ipv6_traffic", Tcp.Nodes.Node.Statistics.Ipv6Traffic))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.ipv4_traffic = Tcp.Nodes.Node.Statistics.Ipv4Traffic()
                     self.ipv4_traffic.parent = self
@@ -6235,7 +6882,7 @@ class Tcp(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(Tcp.Nodes.Node.Statistics.Ipv4Traffic, self).__init__()
@@ -6244,18 +6891,21 @@ class Tcp(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tcp_input_packets = YLeaf(YType.uint32, "tcp-input-packets")
-
-                        self.tcp_checksum_error_packets = YLeaf(YType.uint32, "tcp-checksum-error-packets")
-
-                        self.tcp_dropped_packets = YLeaf(YType.uint32, "tcp-dropped-packets")
-
-                        self.tcp_output_packets = YLeaf(YType.uint32, "tcp-output-packets")
-
-                        self.tcp_retransmitted_packets = YLeaf(YType.uint32, "tcp-retransmitted-packets")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tcp_input_packets', YLeaf(YType.uint32, 'tcp-input-packets')),
+                            ('tcp_checksum_error_packets', YLeaf(YType.uint32, 'tcp-checksum-error-packets')),
+                            ('tcp_dropped_packets', YLeaf(YType.uint32, 'tcp-dropped-packets')),
+                            ('tcp_output_packets', YLeaf(YType.uint32, 'tcp-output-packets')),
+                            ('tcp_retransmitted_packets', YLeaf(YType.uint32, 'tcp-retransmitted-packets')),
+                        ])
+                        self.tcp_input_packets = None
+                        self.tcp_checksum_error_packets = None
+                        self.tcp_dropped_packets = None
+                        self.tcp_output_packets = None
+                        self.tcp_retransmitted_packets = None
                         self._segment_path = lambda: "ipv4-traffic"
 
                     def __setattr__(self, name, value):
@@ -6306,7 +6956,7 @@ class Tcp(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(Tcp.Nodes.Node.Statistics.Ipv6Traffic, self).__init__()
@@ -6315,18 +6965,21 @@ class Tcp(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tcp_input_packets = YLeaf(YType.uint32, "tcp-input-packets")
-
-                        self.tcp_checksum_error_packets = YLeaf(YType.uint32, "tcp-checksum-error-packets")
-
-                        self.tcp_dropped_packets = YLeaf(YType.uint32, "tcp-dropped-packets")
-
-                        self.tcp_output_packets = YLeaf(YType.uint32, "tcp-output-packets")
-
-                        self.tcp_retransmitted_packets = YLeaf(YType.uint32, "tcp-retransmitted-packets")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tcp_input_packets', YLeaf(YType.uint32, 'tcp-input-packets')),
+                            ('tcp_checksum_error_packets', YLeaf(YType.uint32, 'tcp-checksum-error-packets')),
+                            ('tcp_dropped_packets', YLeaf(YType.uint32, 'tcp-dropped-packets')),
+                            ('tcp_output_packets', YLeaf(YType.uint32, 'tcp-output-packets')),
+                            ('tcp_retransmitted_packets', YLeaf(YType.uint32, 'tcp-retransmitted-packets')),
+                        ])
+                        self.tcp_input_packets = None
+                        self.tcp_checksum_error_packets = None
+                        self.tcp_dropped_packets = None
+                        self.tcp_output_packets = None
+                        self.tcp_retransmitted_packets = None
                         self._segment_path = lambda: "ipv6-traffic"
 
                     def __setattr__(self, name, value):
@@ -6350,7 +7003,7 @@ class TcpNsr(Entity):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2017-05-01'
+    _revision = '2018-02-14'
 
     def __init__(self):
         super(TcpNsr, self).__init__()
@@ -6360,8 +7013,10 @@ class TcpNsr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-tcp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", TcpNsr.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", TcpNsr.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = TcpNsr.Nodes()
         self.nodes.parent = self
@@ -6385,7 +7040,7 @@ class TcpNsr(Entity):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2017-05-01'
+        _revision = '2018-02-14'
 
         def __init__(self):
             super(TcpNsr.Nodes, self).__init__()
@@ -6394,8 +7049,10 @@ class TcpNsr(Entity):
             self.yang_parent_name = "tcp-nsr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", TcpNsr.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", TcpNsr.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -6409,7 +7066,7 @@ class TcpNsr(Entity):
             """
             Information about a single node
             
-            .. attribute:: id  <key>
+            .. attribute:: id  (key)
             
             	Describing a location
             	**type**\: str
@@ -6441,7 +7098,7 @@ class TcpNsr(Entity):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2017-05-01'
+            _revision = '2018-02-14'
 
             def __init__(self):
                 super(TcpNsr.Nodes.Node, self).__init__()
@@ -6450,10 +7107,13 @@ class TcpNsr(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"session" : ("session", TcpNsr.Nodes.Node.Session), "client" : ("client", TcpNsr.Nodes.Node.Client), "session-set" : ("session_set", TcpNsr.Nodes.Node.SessionSet), "statistics" : ("statistics", TcpNsr.Nodes.Node.Statistics)}
-                self._child_list_classes = {}
-
-                self.id = YLeaf(YType.str, "id")
+                self.ylist_key_names = ['id']
+                self._child_container_classes = OrderedDict([("session", ("session", TcpNsr.Nodes.Node.Session)), ("client", ("client", TcpNsr.Nodes.Node.Client)), ("session-set", ("session_set", TcpNsr.Nodes.Node.SessionSet)), ("statistics", ("statistics", TcpNsr.Nodes.Node.Statistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('id', YLeaf(YType.str, 'id')),
+                ])
+                self.id = None
 
                 self.session = TcpNsr.Nodes.Node.Session()
                 self.session.parent = self
@@ -6474,7 +7134,7 @@ class TcpNsr(Entity):
                 self.statistics.parent = self
                 self._children_name_map["statistics"] = "statistics"
                 self._children_yang_names.add("statistics")
-                self._segment_path = lambda: "node" + "[id='" + self.id.get() + "']"
+                self._segment_path = lambda: "node" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-oper:tcp-nsr/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -6500,7 +7160,7 @@ class TcpNsr(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(TcpNsr.Nodes.Node.Session, self).__init__()
@@ -6509,8 +7169,10 @@ class TcpNsr(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"brief-sessions" : ("brief_sessions", TcpNsr.Nodes.Node.Session.BriefSessions), "detail-sessions" : ("detail_sessions", TcpNsr.Nodes.Node.Session.DetailSessions)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("brief-sessions", ("brief_sessions", TcpNsr.Nodes.Node.Session.BriefSessions)), ("detail-sessions", ("detail_sessions", TcpNsr.Nodes.Node.Session.DetailSessions))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.brief_sessions = TcpNsr.Nodes.Node.Session.BriefSessions()
                     self.brief_sessions.parent = self
@@ -6538,7 +7200,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Session.BriefSessions, self).__init__()
@@ -6547,8 +7209,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "session"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"brief-session" : ("brief_session", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("brief-session", ("brief_session", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession))])
+                        self._leafs = OrderedDict()
 
                         self.brief_session = YList(self)
                         self._segment_path = lambda: "brief-sessions"
@@ -6561,7 +7225,7 @@ class TcpNsr(Entity):
                         """
                         Brief information about NSR Sessions
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of NSR Sesison
                         	**type**\: str
@@ -6631,23 +7295,19 @@ class TcpNsr(Entity):
                         .. attribute:: local_address
                         
                         	Local address
-                        	**type**\: list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**type**\: list of  		 :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress>`
                         
                         .. attribute:: foreign_address
                         
                         	Foreign address
-                        	**type**\: list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**type**\: list of  		 :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress>`
                         
                         
 
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, self).__init__()
@@ -6656,38 +7316,116 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "brief-sessions"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("local-address", ("local_address", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress)), ("foreign-address", ("foreign_address", TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress))])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                ('pcb', YLeaf(YType.uint64, 'pcb')),
+                                ('sscb', YLeaf(YType.uint64, 'sscb')),
+                                ('local_port', YLeaf(YType.uint16, 'local-port')),
+                                ('foreign_port', YLeaf(YType.uint16, 'foreign-port')),
+                                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                                ('is_admin_configured_up', YLeaf(YType.boolean, 'is-admin-configured-up')),
+                                ('is_us_operational_up', YLeaf(YType.enumeration, 'is-us-operational-up')),
+                                ('is_ds_operational_up', YLeaf(YType.enumeration, 'is-ds-operational-up')),
+                                ('is_only_receive_path_replication', YLeaf(YType.boolean, 'is-only-receive-path-replication')),
+                            ])
+                            self.id = None
+                            self.address_family = None
+                            self.pcb = None
+                            self.sscb = None
+                            self.local_port = None
+                            self.foreign_port = None
+                            self.vrf_id = None
+                            self.is_admin_configured_up = None
+                            self.is_us_operational_up = None
+                            self.is_ds_operational_up = None
+                            self.is_only_receive_path_replication = None
 
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                            self.pcb = YLeaf(YType.uint64, "pcb")
-
-                            self.sscb = YLeaf(YType.uint64, "sscb")
-
-                            self.local_port = YLeaf(YType.uint16, "local-port")
-
-                            self.foreign_port = YLeaf(YType.uint16, "foreign-port")
-
-                            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                            self.is_admin_configured_up = YLeaf(YType.boolean, "is-admin-configured-up")
-
-                            self.is_us_operational_up = YLeaf(YType.enumeration, "is-us-operational-up")
-
-                            self.is_ds_operational_up = YLeaf(YType.enumeration, "is-ds-operational-up")
-
-                            self.is_only_receive_path_replication = YLeaf(YType.boolean, "is-only-receive-path-replication")
-
-                            self.local_address = YLeafList(YType.str, "local-address")
-
-                            self.foreign_address = YLeafList(YType.str, "foreign-address")
-                            self._segment_path = lambda: "brief-session" + "[id='" + self.id.get() + "']"
+                            self.local_address = YList(self)
+                            self.foreign_address = YList(self)
+                            self._segment_path = lambda: "brief-session" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication', 'local_address', 'foreign_address'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication'], name, value)
+
+
+                        class LocalAddress(Entity):
+                            """
+                            Local address
+                            
+                            .. attribute:: entry
+                            
+                            	
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-tcp-oper'
+                            _revision = '2018-02-14'
+
+                            def __init__(self):
+                                super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, self).__init__()
+
+                                self.yang_name = "local-address"
+                                self.yang_parent_name = "brief-session"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.str, 'entry')),
+                                ])
+                                self.entry = None
+                                self._segment_path = lambda: "local-address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.LocalAddress, ['entry'], name, value)
+
+
+                        class ForeignAddress(Entity):
+                            """
+                            Foreign address
+                            
+                            .. attribute:: entry
+                            
+                            	
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-tcp-oper'
+                            _revision = '2018-02-14'
+
+                            def __init__(self):
+                                super(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, self).__init__()
+
+                                self.yang_name = "foreign-address"
+                                self.yang_parent_name = "brief-session"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.str, 'entry')),
+                                ])
+                                self.entry = None
+                                self._segment_path = lambda: "foreign-address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession.ForeignAddress, ['entry'], name, value)
 
 
                 class DetailSessions(Entity):
@@ -6704,7 +7442,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Session.DetailSessions, self).__init__()
@@ -6713,8 +7451,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "session"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"detail-session" : ("detail_session", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("detail-session", ("detail_session", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession))])
+                        self._leafs = OrderedDict()
 
                         self.detail_session = YList(self)
                         self._segment_path = lambda: "detail-sessions"
@@ -6727,7 +7467,7 @@ class TcpNsr(Entity):
                         """
                         showing detailed information of NSR Sessions
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of NSR Sesison
                         	**type**\: str
@@ -7027,16 +7767,12 @@ class TcpNsr(Entity):
                         .. attribute:: local_address
                         
                         	Local address
-                        	**type**\: list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**type**\: list of  		 :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress>`
                         
                         .. attribute:: foreign_address
                         
                         	Foreign address
-                        	**type**\: list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**type**\: list of  		 :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress>`
                         
                         .. attribute:: packet_hold_queue
                         
@@ -7053,7 +7789,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, self).__init__()
@@ -7062,112 +7798,113 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "detail-sessions"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"set-information" : ("set_information", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation)}
-                            self._child_list_classes = {"packet-hold-queue" : ("packet_hold_queue", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue), "internal-ack-hold-queue" : ("internal_ack_hold_queue", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue)}
-
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                            self.pcb = YLeaf(YType.uint64, "pcb")
-
-                            self.sscb = YLeaf(YType.uint64, "sscb")
-
-                            self.local_port = YLeaf(YType.uint16, "local-port")
-
-                            self.foreign_port = YLeaf(YType.uint16, "foreign-port")
-
-                            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                            self.is_admin_configured_up = YLeaf(YType.boolean, "is-admin-configured-up")
-
-                            self.is_us_operational_up = YLeaf(YType.enumeration, "is-us-operational-up")
-
-                            self.is_ds_operational_up = YLeaf(YType.enumeration, "is-ds-operational-up")
-
-                            self.is_only_receive_path_replication = YLeaf(YType.boolean, "is-only-receive-path-replication")
-
-                            self.cookie = YLeaf(YType.uint64, "cookie")
-
-                            self.is_session_replicated = YLeaf(YType.boolean, "is-session-replicated")
-
-                            self.is_session_synced = YLeaf(YType.boolean, "is-session-synced")
-
-                            self.fist_standby_sequence_number = YLeaf(YType.uint32, "fist-standby-sequence-number")
-
-                            self.fssn_offset = YLeaf(YType.uint32, "fssn-offset")
-
-                            self.nsr_down_reason = YLeaf(YType.enumeration, "nsr-down-reason")
-
-                            self.nsr_down_time = YLeaf(YType.uint32, "nsr-down-time")
-
-                            self.sequence_number_of_init_sync = YLeaf(YType.uint32, "sequence-number-of-init-sync")
-
-                            self.is_init_sync_in_progress = YLeaf(YType.boolean, "is-init-sync-in-progress")
-
-                            self.is_init_sync_second_phase = YLeaf(YType.boolean, "is-init-sync-second-phase")
-
-                            self.init_sync_error = YLeaf(YType.str, "init-sync-error")
-
-                            self.is_init_sync_error_local = YLeaf(YType.boolean, "is-init-sync-error-local")
-
-                            self.init_sync_start_time = YLeaf(YType.uint32, "init-sync-start-time")
-
-                            self.init_sync_end_time = YLeaf(YType.uint32, "init-sync-end-time")
-
-                            self.init_sync_flags = YLeaf(YType.uint32, "init-sync-flags")
-
-                            self.sequence_number_of_init_sync_up_stream = YLeaf(YType.uint32, "sequence-number-of-init-sync-up-stream")
-
-                            self.peer_endp_hdl_up_stream = YLeaf(YType.uint64, "peer-endp-hdl-up-stream")
-
-                            self.init_sync_start_time_up_stream = YLeaf(YType.uint32, "init-sync-start-time-up-stream")
-
-                            self.init_sync_end_time_up_stream = YLeaf(YType.uint32, "init-sync-end-time-up-stream")
-
-                            self.fist_standby_sequence_number_up_stream = YLeaf(YType.uint32, "fist-standby-sequence-number-up-stream")
-
-                            self.nsr_down_reason_up_stream = YLeaf(YType.enumeration, "nsr-down-reason-up-stream")
-
-                            self.nsr_down_time_up_stream = YLeaf(YType.uint32, "nsr-down-time-up-stream")
-
-                            self.sequence_number_of_init_sync_down_stream = YLeaf(YType.uint32, "sequence-number-of-init-sync-down-stream")
-
-                            self.peer_endp_hdl_down_stream = YLeaf(YType.uint64, "peer-endp-hdl-down-stream")
-
-                            self.init_sync_start_time_down_stream = YLeaf(YType.uint32, "init-sync-start-time-down-stream")
-
-                            self.init_sync_end_time_down_stream = YLeaf(YType.uint32, "init-sync-end-time-down-stream")
-
-                            self.fist_standby_sequence_number_down_stream = YLeaf(YType.uint32, "fist-standby-sequence-number-down-stream")
-
-                            self.nsr_down_reason_down_stream = YLeaf(YType.enumeration, "nsr-down-reason-down-stream")
-
-                            self.nsr_down_time_down_stream = YLeaf(YType.uint32, "nsr-down-time-down-stream")
-
-                            self.max_number_of_held_packet = YLeaf(YType.int32, "max-number-of-held-packet")
-
-                            self.max_number_of_held_packet_reach_time = YLeaf(YType.uint32, "max-number-of-held-packet-reach-time")
-
-                            self.max_number_of_held_internal_ack = YLeaf(YType.int32, "max-number-of-held-internal-ack")
-
-                            self.max_number_of_held_internal_ack_reach_time = YLeaf(YType.uint32, "max-number-of-held-internal-ack-reach-time")
-
-                            self.local_address = YLeafList(YType.str, "local-address")
-
-                            self.foreign_address = YLeafList(YType.str, "foreign-address")
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([("set-information", ("set_information", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation))])
+                            self._child_list_classes = OrderedDict([("local-address", ("local_address", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress)), ("foreign-address", ("foreign_address", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress)), ("packet-hold-queue", ("packet_hold_queue", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue)), ("internal-ack-hold-queue", ("internal_ack_hold_queue", TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue))])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                ('pcb', YLeaf(YType.uint64, 'pcb')),
+                                ('sscb', YLeaf(YType.uint64, 'sscb')),
+                                ('local_port', YLeaf(YType.uint16, 'local-port')),
+                                ('foreign_port', YLeaf(YType.uint16, 'foreign-port')),
+                                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                                ('is_admin_configured_up', YLeaf(YType.boolean, 'is-admin-configured-up')),
+                                ('is_us_operational_up', YLeaf(YType.enumeration, 'is-us-operational-up')),
+                                ('is_ds_operational_up', YLeaf(YType.enumeration, 'is-ds-operational-up')),
+                                ('is_only_receive_path_replication', YLeaf(YType.boolean, 'is-only-receive-path-replication')),
+                                ('cookie', YLeaf(YType.uint64, 'cookie')),
+                                ('is_session_replicated', YLeaf(YType.boolean, 'is-session-replicated')),
+                                ('is_session_synced', YLeaf(YType.boolean, 'is-session-synced')),
+                                ('fist_standby_sequence_number', YLeaf(YType.uint32, 'fist-standby-sequence-number')),
+                                ('fssn_offset', YLeaf(YType.uint32, 'fssn-offset')),
+                                ('nsr_down_reason', YLeaf(YType.enumeration, 'nsr-down-reason')),
+                                ('nsr_down_time', YLeaf(YType.uint32, 'nsr-down-time')),
+                                ('sequence_number_of_init_sync', YLeaf(YType.uint32, 'sequence-number-of-init-sync')),
+                                ('is_init_sync_in_progress', YLeaf(YType.boolean, 'is-init-sync-in-progress')),
+                                ('is_init_sync_second_phase', YLeaf(YType.boolean, 'is-init-sync-second-phase')),
+                                ('init_sync_error', YLeaf(YType.str, 'init-sync-error')),
+                                ('is_init_sync_error_local', YLeaf(YType.boolean, 'is-init-sync-error-local')),
+                                ('init_sync_start_time', YLeaf(YType.uint32, 'init-sync-start-time')),
+                                ('init_sync_end_time', YLeaf(YType.uint32, 'init-sync-end-time')),
+                                ('init_sync_flags', YLeaf(YType.uint32, 'init-sync-flags')),
+                                ('sequence_number_of_init_sync_up_stream', YLeaf(YType.uint32, 'sequence-number-of-init-sync-up-stream')),
+                                ('peer_endp_hdl_up_stream', YLeaf(YType.uint64, 'peer-endp-hdl-up-stream')),
+                                ('init_sync_start_time_up_stream', YLeaf(YType.uint32, 'init-sync-start-time-up-stream')),
+                                ('init_sync_end_time_up_stream', YLeaf(YType.uint32, 'init-sync-end-time-up-stream')),
+                                ('fist_standby_sequence_number_up_stream', YLeaf(YType.uint32, 'fist-standby-sequence-number-up-stream')),
+                                ('nsr_down_reason_up_stream', YLeaf(YType.enumeration, 'nsr-down-reason-up-stream')),
+                                ('nsr_down_time_up_stream', YLeaf(YType.uint32, 'nsr-down-time-up-stream')),
+                                ('sequence_number_of_init_sync_down_stream', YLeaf(YType.uint32, 'sequence-number-of-init-sync-down-stream')),
+                                ('peer_endp_hdl_down_stream', YLeaf(YType.uint64, 'peer-endp-hdl-down-stream')),
+                                ('init_sync_start_time_down_stream', YLeaf(YType.uint32, 'init-sync-start-time-down-stream')),
+                                ('init_sync_end_time_down_stream', YLeaf(YType.uint32, 'init-sync-end-time-down-stream')),
+                                ('fist_standby_sequence_number_down_stream', YLeaf(YType.uint32, 'fist-standby-sequence-number-down-stream')),
+                                ('nsr_down_reason_down_stream', YLeaf(YType.enumeration, 'nsr-down-reason-down-stream')),
+                                ('nsr_down_time_down_stream', YLeaf(YType.uint32, 'nsr-down-time-down-stream')),
+                                ('max_number_of_held_packet', YLeaf(YType.int32, 'max-number-of-held-packet')),
+                                ('max_number_of_held_packet_reach_time', YLeaf(YType.uint32, 'max-number-of-held-packet-reach-time')),
+                                ('max_number_of_held_internal_ack', YLeaf(YType.int32, 'max-number-of-held-internal-ack')),
+                                ('max_number_of_held_internal_ack_reach_time', YLeaf(YType.uint32, 'max-number-of-held-internal-ack-reach-time')),
+                            ])
+                            self.id = None
+                            self.address_family = None
+                            self.pcb = None
+                            self.sscb = None
+                            self.local_port = None
+                            self.foreign_port = None
+                            self.vrf_id = None
+                            self.is_admin_configured_up = None
+                            self.is_us_operational_up = None
+                            self.is_ds_operational_up = None
+                            self.is_only_receive_path_replication = None
+                            self.cookie = None
+                            self.is_session_replicated = None
+                            self.is_session_synced = None
+                            self.fist_standby_sequence_number = None
+                            self.fssn_offset = None
+                            self.nsr_down_reason = None
+                            self.nsr_down_time = None
+                            self.sequence_number_of_init_sync = None
+                            self.is_init_sync_in_progress = None
+                            self.is_init_sync_second_phase = None
+                            self.init_sync_error = None
+                            self.is_init_sync_error_local = None
+                            self.init_sync_start_time = None
+                            self.init_sync_end_time = None
+                            self.init_sync_flags = None
+                            self.sequence_number_of_init_sync_up_stream = None
+                            self.peer_endp_hdl_up_stream = None
+                            self.init_sync_start_time_up_stream = None
+                            self.init_sync_end_time_up_stream = None
+                            self.fist_standby_sequence_number_up_stream = None
+                            self.nsr_down_reason_up_stream = None
+                            self.nsr_down_time_up_stream = None
+                            self.sequence_number_of_init_sync_down_stream = None
+                            self.peer_endp_hdl_down_stream = None
+                            self.init_sync_start_time_down_stream = None
+                            self.init_sync_end_time_down_stream = None
+                            self.fist_standby_sequence_number_down_stream = None
+                            self.nsr_down_reason_down_stream = None
+                            self.nsr_down_time_down_stream = None
+                            self.max_number_of_held_packet = None
+                            self.max_number_of_held_packet_reach_time = None
+                            self.max_number_of_held_internal_ack = None
+                            self.max_number_of_held_internal_ack_reach_time = None
 
                             self.set_information = TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation()
                             self.set_information.parent = self
                             self._children_name_map["set_information"] = "set-information"
                             self._children_yang_names.add("set-information")
 
+                            self.local_address = YList(self)
+                            self.foreign_address = YList(self)
                             self.packet_hold_queue = YList(self)
                             self.internal_ack_hold_queue = YList(self)
-                            self._segment_path = lambda: "detail-session" + "[id='" + self.id.get() + "']"
+                            self._segment_path = lambda: "detail-session" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication', 'cookie', 'is_session_replicated', 'is_session_synced', 'fist_standby_sequence_number', 'fssn_offset', 'nsr_down_reason', 'nsr_down_time', 'sequence_number_of_init_sync', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'init_sync_flags', 'sequence_number_of_init_sync_up_stream', 'peer_endp_hdl_up_stream', 'init_sync_start_time_up_stream', 'init_sync_end_time_up_stream', 'fist_standby_sequence_number_up_stream', 'nsr_down_reason_up_stream', 'nsr_down_time_up_stream', 'sequence_number_of_init_sync_down_stream', 'peer_endp_hdl_down_stream', 'init_sync_start_time_down_stream', 'init_sync_end_time_down_stream', 'fist_standby_sequence_number_down_stream', 'nsr_down_reason_down_stream', 'nsr_down_time_down_stream', 'max_number_of_held_packet', 'max_number_of_held_packet_reach_time', 'max_number_of_held_internal_ack', 'max_number_of_held_internal_ack_reach_time', 'local_address', 'foreign_address'], name, value)
+                            self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession, ['id', 'address_family', 'pcb', 'sscb', 'local_port', 'foreign_port', 'vrf_id', 'is_admin_configured_up', 'is_us_operational_up', 'is_ds_operational_up', 'is_only_receive_path_replication', 'cookie', 'is_session_replicated', 'is_session_synced', 'fist_standby_sequence_number', 'fssn_offset', 'nsr_down_reason', 'nsr_down_time', 'sequence_number_of_init_sync', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'init_sync_flags', 'sequence_number_of_init_sync_up_stream', 'peer_endp_hdl_up_stream', 'init_sync_start_time_up_stream', 'init_sync_end_time_up_stream', 'fist_standby_sequence_number_up_stream', 'nsr_down_reason_up_stream', 'nsr_down_time_up_stream', 'sequence_number_of_init_sync_down_stream', 'peer_endp_hdl_down_stream', 'init_sync_start_time_down_stream', 'init_sync_end_time_down_stream', 'fist_standby_sequence_number_down_stream', 'nsr_down_reason_down_stream', 'nsr_down_time_down_stream', 'max_number_of_held_packet', 'max_number_of_held_packet_reach_time', 'max_number_of_held_internal_ack', 'max_number_of_held_internal_ack_reach_time'], name, value)
 
 
                         class SetInformation(Entity):
@@ -7297,7 +8034,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, self).__init__()
@@ -7306,48 +8043,127 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "detail-session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sscb = YLeaf(YType.uint64, "sscb")
-
-                                self.pid = YLeaf(YType.uint32, "pid")
-
-                                self.client_name = YLeaf(YType.str, "client-name")
-
-                                self.client_instance = YLeaf(YType.uint32, "client-instance")
-
-                                self.set_id = YLeaf(YType.uint32, "set-id")
-
-                                self.sso_role = YLeaf(YType.uint32, "sso-role")
-
-                                self.mode = YLeaf(YType.uint32, "mode")
-
-                                self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                self.well_known_port = YLeaf(YType.uint16, "well-known-port")
-
-                                self.local_node = YLeaf(YType.str, "local-node")
-
-                                self.local_instance = YLeaf(YType.uint32, "local-instance")
-
-                                self.protect_node = YLeaf(YType.str, "protect-node")
-
-                                self.protect_instance = YLeaf(YType.uint32, "protect-instance")
-
-                                self.number_of_sessions = YLeaf(YType.uint32, "number-of-sessions")
-
-                                self.number_of_synced_sessions_up_stream = YLeaf(YType.uint32, "number-of-synced-sessions-up-stream")
-
-                                self.number_of_synced_sessions_down_stream = YLeaf(YType.uint32, "number-of-synced-sessions-down-stream")
-
-                                self.is_init_sync_in_progress = YLeaf(YType.boolean, "is-init-sync-in-progress")
-
-                                self.is_sscb_init_sync_ready = YLeaf(YType.boolean, "is-sscb-init-sync-ready")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sscb', YLeaf(YType.uint64, 'sscb')),
+                                    ('pid', YLeaf(YType.uint32, 'pid')),
+                                    ('client_name', YLeaf(YType.str, 'client-name')),
+                                    ('client_instance', YLeaf(YType.uint32, 'client-instance')),
+                                    ('set_id', YLeaf(YType.uint32, 'set-id')),
+                                    ('sso_role', YLeaf(YType.uint32, 'sso-role')),
+                                    ('mode', YLeaf(YType.uint32, 'mode')),
+                                    ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                    ('well_known_port', YLeaf(YType.uint16, 'well-known-port')),
+                                    ('local_node', YLeaf(YType.str, 'local-node')),
+                                    ('local_instance', YLeaf(YType.uint32, 'local-instance')),
+                                    ('protect_node', YLeaf(YType.str, 'protect-node')),
+                                    ('protect_instance', YLeaf(YType.uint32, 'protect-instance')),
+                                    ('number_of_sessions', YLeaf(YType.uint32, 'number-of-sessions')),
+                                    ('number_of_synced_sessions_up_stream', YLeaf(YType.uint32, 'number-of-synced-sessions-up-stream')),
+                                    ('number_of_synced_sessions_down_stream', YLeaf(YType.uint32, 'number-of-synced-sessions-down-stream')),
+                                    ('is_init_sync_in_progress', YLeaf(YType.boolean, 'is-init-sync-in-progress')),
+                                    ('is_sscb_init_sync_ready', YLeaf(YType.boolean, 'is-sscb-init-sync-ready')),
+                                ])
+                                self.sscb = None
+                                self.pid = None
+                                self.client_name = None
+                                self.client_instance = None
+                                self.set_id = None
+                                self.sso_role = None
+                                self.mode = None
+                                self.address_family = None
+                                self.well_known_port = None
+                                self.local_node = None
+                                self.local_instance = None
+                                self.protect_node = None
+                                self.protect_instance = None
+                                self.number_of_sessions = None
+                                self.number_of_synced_sessions_up_stream = None
+                                self.number_of_synced_sessions_down_stream = None
+                                self.is_init_sync_in_progress = None
+                                self.is_sscb_init_sync_ready = None
                                 self._segment_path = lambda: "set-information"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation, ['sscb', 'pid', 'client_name', 'client_instance', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_sscb_init_sync_ready'], name, value)
+
+
+                        class LocalAddress(Entity):
+                            """
+                            Local address
+                            
+                            .. attribute:: entry
+                            
+                            	
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-tcp-oper'
+                            _revision = '2018-02-14'
+
+                            def __init__(self):
+                                super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, self).__init__()
+
+                                self.yang_name = "local-address"
+                                self.yang_parent_name = "detail-session"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.str, 'entry')),
+                                ])
+                                self.entry = None
+                                self._segment_path = lambda: "local-address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.LocalAddress, ['entry'], name, value)
+
+
+                        class ForeignAddress(Entity):
+                            """
+                            Foreign address
+                            
+                            .. attribute:: entry
+                            
+                            	
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-tcp-oper'
+                            _revision = '2018-02-14'
+
+                            def __init__(self):
+                                super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, self).__init__()
+
+                                self.yang_name = "foreign-address"
+                                self.yang_parent_name = "detail-session"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.str, 'entry')),
+                                ])
+                                self.entry = None
+                                self._segment_path = lambda: "foreign-address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.ForeignAddress, ['entry'], name, value)
 
 
                         class PacketHoldQueue(Entity):
@@ -7381,7 +8197,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue, self).__init__()
@@ -7390,14 +8206,17 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "detail-session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.data_length = YLeaf(YType.uint32, "data-length")
-
-                                self.acknoledgement_number = YLeaf(YType.uint32, "acknoledgement-number")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('data_length', YLeaf(YType.uint32, 'data-length')),
+                                    ('acknoledgement_number', YLeaf(YType.uint32, 'acknoledgement-number')),
+                                ])
+                                self.sequence_number = None
+                                self.data_length = None
+                                self.acknoledgement_number = None
                                 self._segment_path = lambda: "packet-hold-queue"
 
                             def __setattr__(self, name, value):
@@ -7435,7 +8254,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue, self).__init__()
@@ -7444,14 +8263,17 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "detail-session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.data_length = YLeaf(YType.uint32, "data-length")
-
-                                self.acknoledgement_number = YLeaf(YType.uint32, "acknoledgement-number")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('data_length', YLeaf(YType.uint32, 'data-length')),
+                                    ('acknoledgement_number', YLeaf(YType.uint32, 'acknoledgement-number')),
+                                ])
+                                self.sequence_number = None
+                                self.data_length = None
+                                self.acknoledgement_number = None
                                 self._segment_path = lambda: "internal-ack-hold-queue"
 
                             def __setattr__(self, name, value):
@@ -7477,7 +8299,7 @@ class TcpNsr(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(TcpNsr.Nodes.Node.Client, self).__init__()
@@ -7486,8 +8308,10 @@ class TcpNsr(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"detail-clients" : ("detail_clients", TcpNsr.Nodes.Node.Client.DetailClients), "brief-clients" : ("brief_clients", TcpNsr.Nodes.Node.Client.BriefClients)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("detail-clients", ("detail_clients", TcpNsr.Nodes.Node.Client.DetailClients)), ("brief-clients", ("brief_clients", TcpNsr.Nodes.Node.Client.BriefClients))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.detail_clients = TcpNsr.Nodes.Node.Client.DetailClients()
                     self.detail_clients.parent = self
@@ -7515,7 +8339,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Client.DetailClients, self).__init__()
@@ -7524,8 +8348,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "client"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"detail-client" : ("detail_client", TcpNsr.Nodes.Node.Client.DetailClients.DetailClient)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("detail-client", ("detail_client", TcpNsr.Nodes.Node.Client.DetailClients.DetailClient))])
+                        self._leafs = OrderedDict()
 
                         self.detail_client = YList(self)
                         self._segment_path = lambda: "detail-clients"
@@ -7538,7 +8364,7 @@ class TcpNsr(Entity):
                         """
                         showing detailed information of NSR Clients
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of NSR client
                         	**type**\: str
@@ -7618,7 +8444,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, self).__init__()
@@ -7627,31 +8453,34 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "detail-clients"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.ccb = YLeaf(YType.uint64, "ccb")
-
-                            self.pid = YLeaf(YType.uint32, "pid")
-
-                            self.process_name = YLeaf(YType.str, "process-name")
-
-                            self.job_id = YLeaf(YType.int32, "job-id")
-
-                            self.instance = YLeaf(YType.uint32, "instance")
-
-                            self.numberof_sets = YLeaf(YType.uint32, "numberof-sets")
-
-                            self.number_of_sessions = YLeaf(YType.uint32, "number-of-sessions")
-
-                            self.number_of_up_sessions = YLeaf(YType.uint32, "number-of-up-sessions")
-
-                            self.connected_at = YLeaf(YType.uint32, "connected-at")
-
-                            self.is_notification_registered = YLeaf(YType.boolean, "is-notification-registered")
-                            self._segment_path = lambda: "detail-client" + "[id='" + self.id.get() + "']"
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('ccb', YLeaf(YType.uint64, 'ccb')),
+                                ('pid', YLeaf(YType.uint32, 'pid')),
+                                ('process_name', YLeaf(YType.str, 'process-name')),
+                                ('job_id', YLeaf(YType.int32, 'job-id')),
+                                ('instance', YLeaf(YType.uint32, 'instance')),
+                                ('numberof_sets', YLeaf(YType.uint32, 'numberof-sets')),
+                                ('number_of_sessions', YLeaf(YType.uint32, 'number-of-sessions')),
+                                ('number_of_up_sessions', YLeaf(YType.uint32, 'number-of-up-sessions')),
+                                ('connected_at', YLeaf(YType.uint32, 'connected-at')),
+                                ('is_notification_registered', YLeaf(YType.boolean, 'is-notification-registered')),
+                            ])
+                            self.id = None
+                            self.ccb = None
+                            self.pid = None
+                            self.process_name = None
+                            self.job_id = None
+                            self.instance = None
+                            self.numberof_sets = None
+                            self.number_of_sessions = None
+                            self.number_of_up_sessions = None
+                            self.connected_at = None
+                            self.is_notification_registered = None
+                            self._segment_path = lambda: "detail-client" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Client.DetailClients.DetailClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'numberof_sets', 'number_of_sessions', 'number_of_up_sessions', 'connected_at', 'is_notification_registered'], name, value)
@@ -7671,7 +8500,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Client.BriefClients, self).__init__()
@@ -7680,8 +8509,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "client"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"brief-client" : ("brief_client", TcpNsr.Nodes.Node.Client.BriefClients.BriefClient)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("brief-client", ("brief_client", TcpNsr.Nodes.Node.Client.BriefClients.BriefClient))])
+                        self._leafs = OrderedDict()
 
                         self.brief_client = YList(self)
                         self._segment_path = lambda: "brief-clients"
@@ -7694,7 +8525,7 @@ class TcpNsr(Entity):
                         """
                         Brief information about NSR Client
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of NSR client
                         	**type**\: str
@@ -7760,7 +8591,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, self).__init__()
@@ -7769,27 +8600,30 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "brief-clients"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.ccb = YLeaf(YType.uint64, "ccb")
-
-                            self.pid = YLeaf(YType.uint32, "pid")
-
-                            self.process_name = YLeaf(YType.str, "process-name")
-
-                            self.job_id = YLeaf(YType.int32, "job-id")
-
-                            self.instance = YLeaf(YType.uint32, "instance")
-
-                            self.numberof_sets = YLeaf(YType.uint32, "numberof-sets")
-
-                            self.number_of_sessions = YLeaf(YType.uint32, "number-of-sessions")
-
-                            self.number_of_up_sessions = YLeaf(YType.uint32, "number-of-up-sessions")
-                            self._segment_path = lambda: "brief-client" + "[id='" + self.id.get() + "']"
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('ccb', YLeaf(YType.uint64, 'ccb')),
+                                ('pid', YLeaf(YType.uint32, 'pid')),
+                                ('process_name', YLeaf(YType.str, 'process-name')),
+                                ('job_id', YLeaf(YType.int32, 'job-id')),
+                                ('instance', YLeaf(YType.uint32, 'instance')),
+                                ('numberof_sets', YLeaf(YType.uint32, 'numberof-sets')),
+                                ('number_of_sessions', YLeaf(YType.uint32, 'number-of-sessions')),
+                                ('number_of_up_sessions', YLeaf(YType.uint32, 'number-of-up-sessions')),
+                            ])
+                            self.id = None
+                            self.ccb = None
+                            self.pid = None
+                            self.process_name = None
+                            self.job_id = None
+                            self.instance = None
+                            self.numberof_sets = None
+                            self.number_of_sessions = None
+                            self.number_of_up_sessions = None
+                            self._segment_path = lambda: "brief-client" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Client.BriefClients.BriefClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'numberof_sets', 'number_of_sessions', 'number_of_up_sessions'], name, value)
@@ -7814,7 +8648,7 @@ class TcpNsr(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(TcpNsr.Nodes.Node.SessionSet, self).__init__()
@@ -7823,8 +8657,10 @@ class TcpNsr(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"detail-sets" : ("detail_sets", TcpNsr.Nodes.Node.SessionSet.DetailSets), "brief-sets" : ("brief_sets", TcpNsr.Nodes.Node.SessionSet.BriefSets)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("detail-sets", ("detail_sets", TcpNsr.Nodes.Node.SessionSet.DetailSets)), ("brief-sets", ("brief_sets", TcpNsr.Nodes.Node.SessionSet.BriefSets))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.detail_sets = TcpNsr.Nodes.Node.SessionSet.DetailSets()
                     self.detail_sets.parent = self
@@ -7852,7 +8688,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.SessionSet.DetailSets, self).__init__()
@@ -7861,8 +8697,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "session-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"detail-set" : ("detail_set", TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("detail-set", ("detail_set", TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet))])
+                        self._leafs = OrderedDict()
 
                         self.detail_set = YList(self)
                         self._segment_path = lambda: "detail-sets"
@@ -7876,7 +8714,7 @@ class TcpNsr(Entity):
                         showing detailed information of NSR Session
                         Sets
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of NSR Sesison Set
                         	**type**\: str
@@ -8119,7 +8957,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, self).__init__()
@@ -8128,77 +8966,80 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "detail-sets"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.sscb = YLeaf(YType.uint64, "sscb")
-
-                            self.pid = YLeaf(YType.uint32, "pid")
-
-                            self.set_id = YLeaf(YType.uint32, "set-id")
-
-                            self.sso_role = YLeaf(YType.uint32, "sso-role")
-
-                            self.mode = YLeaf(YType.uint32, "mode")
-
-                            self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                            self.well_known_port = YLeaf(YType.uint16, "well-known-port")
-
-                            self.local_node = YLeaf(YType.str, "local-node")
-
-                            self.local_instance = YLeaf(YType.uint32, "local-instance")
-
-                            self.protect_node = YLeaf(YType.str, "protect-node")
-
-                            self.protect_instance = YLeaf(YType.uint32, "protect-instance")
-
-                            self.number_of_sessions = YLeaf(YType.uint32, "number-of-sessions")
-
-                            self.number_of_synced_sessions_up_stream = YLeaf(YType.uint32, "number-of-synced-sessions-up-stream")
-
-                            self.number_of_synced_sessions_down_stream = YLeaf(YType.uint32, "number-of-synced-sessions-down-stream")
-
-                            self.is_init_sync_in_progress = YLeaf(YType.boolean, "is-init-sync-in-progress")
-
-                            self.is_init_sync_second_phase = YLeaf(YType.boolean, "is-init-sync-second-phase")
-
-                            self.sequence_number_of_init_sync = YLeaf(YType.uint32, "sequence-number-of-init-sync")
-
-                            self.init_sync_timer = YLeaf(YType.uint32, "init-sync-timer")
-
-                            self.total_number_of_init_sync_sessions = YLeaf(YType.uint32, "total-number-of-init-sync-sessions")
-
-                            self.number_of_init_synced_sessions = YLeaf(YType.uint32, "number-of-init-synced-sessions")
-
-                            self.number_of_sessions_init_sync_failed = YLeaf(YType.uint32, "number-of-sessions-init-sync-failed")
-
-                            self.init_sync_error = YLeaf(YType.str, "init-sync-error")
-
-                            self.is_init_sync_error_local = YLeaf(YType.boolean, "is-init-sync-error-local")
-
-                            self.init_sync_start_time = YLeaf(YType.uint32, "init-sync-start-time")
-
-                            self.init_sync_end_time = YLeaf(YType.uint32, "init-sync-end-time")
-
-                            self.is_sscb_init_sync_ready = YLeaf(YType.boolean, "is-sscb-init-sync-ready")
-
-                            self.init_sync_ready_start_time = YLeaf(YType.uint32, "init-sync-ready-start-time")
-
-                            self.init_sync_ready_end_time = YLeaf(YType.uint32, "init-sync-ready-end-time")
-
-                            self.nsr_reset_time = YLeaf(YType.uint32, "nsr-reset-time")
-
-                            self.is_audit_in_progress = YLeaf(YType.boolean, "is-audit-in-progress")
-
-                            self.audit_seq_number = YLeaf(YType.uint32, "audit-seq-number")
-
-                            self.audit_start_time = YLeaf(YType.uint32, "audit-start-time")
-
-                            self.audit_end_time = YLeaf(YType.uint32, "audit-end-time")
-                            self._segment_path = lambda: "detail-set" + "[id='" + self.id.get() + "']"
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('sscb', YLeaf(YType.uint64, 'sscb')),
+                                ('pid', YLeaf(YType.uint32, 'pid')),
+                                ('set_id', YLeaf(YType.uint32, 'set-id')),
+                                ('sso_role', YLeaf(YType.uint32, 'sso-role')),
+                                ('mode', YLeaf(YType.uint32, 'mode')),
+                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                ('well_known_port', YLeaf(YType.uint16, 'well-known-port')),
+                                ('local_node', YLeaf(YType.str, 'local-node')),
+                                ('local_instance', YLeaf(YType.uint32, 'local-instance')),
+                                ('protect_node', YLeaf(YType.str, 'protect-node')),
+                                ('protect_instance', YLeaf(YType.uint32, 'protect-instance')),
+                                ('number_of_sessions', YLeaf(YType.uint32, 'number-of-sessions')),
+                                ('number_of_synced_sessions_up_stream', YLeaf(YType.uint32, 'number-of-synced-sessions-up-stream')),
+                                ('number_of_synced_sessions_down_stream', YLeaf(YType.uint32, 'number-of-synced-sessions-down-stream')),
+                                ('is_init_sync_in_progress', YLeaf(YType.boolean, 'is-init-sync-in-progress')),
+                                ('is_init_sync_second_phase', YLeaf(YType.boolean, 'is-init-sync-second-phase')),
+                                ('sequence_number_of_init_sync', YLeaf(YType.uint32, 'sequence-number-of-init-sync')),
+                                ('init_sync_timer', YLeaf(YType.uint32, 'init-sync-timer')),
+                                ('total_number_of_init_sync_sessions', YLeaf(YType.uint32, 'total-number-of-init-sync-sessions')),
+                                ('number_of_init_synced_sessions', YLeaf(YType.uint32, 'number-of-init-synced-sessions')),
+                                ('number_of_sessions_init_sync_failed', YLeaf(YType.uint32, 'number-of-sessions-init-sync-failed')),
+                                ('init_sync_error', YLeaf(YType.str, 'init-sync-error')),
+                                ('is_init_sync_error_local', YLeaf(YType.boolean, 'is-init-sync-error-local')),
+                                ('init_sync_start_time', YLeaf(YType.uint32, 'init-sync-start-time')),
+                                ('init_sync_end_time', YLeaf(YType.uint32, 'init-sync-end-time')),
+                                ('is_sscb_init_sync_ready', YLeaf(YType.boolean, 'is-sscb-init-sync-ready')),
+                                ('init_sync_ready_start_time', YLeaf(YType.uint32, 'init-sync-ready-start-time')),
+                                ('init_sync_ready_end_time', YLeaf(YType.uint32, 'init-sync-ready-end-time')),
+                                ('nsr_reset_time', YLeaf(YType.uint32, 'nsr-reset-time')),
+                                ('is_audit_in_progress', YLeaf(YType.boolean, 'is-audit-in-progress')),
+                                ('audit_seq_number', YLeaf(YType.uint32, 'audit-seq-number')),
+                                ('audit_start_time', YLeaf(YType.uint32, 'audit-start-time')),
+                                ('audit_end_time', YLeaf(YType.uint32, 'audit-end-time')),
+                            ])
+                            self.id = None
+                            self.sscb = None
+                            self.pid = None
+                            self.set_id = None
+                            self.sso_role = None
+                            self.mode = None
+                            self.address_family = None
+                            self.well_known_port = None
+                            self.local_node = None
+                            self.local_instance = None
+                            self.protect_node = None
+                            self.protect_instance = None
+                            self.number_of_sessions = None
+                            self.number_of_synced_sessions_up_stream = None
+                            self.number_of_synced_sessions_down_stream = None
+                            self.is_init_sync_in_progress = None
+                            self.is_init_sync_second_phase = None
+                            self.sequence_number_of_init_sync = None
+                            self.init_sync_timer = None
+                            self.total_number_of_init_sync_sessions = None
+                            self.number_of_init_synced_sessions = None
+                            self.number_of_sessions_init_sync_failed = None
+                            self.init_sync_error = None
+                            self.is_init_sync_error_local = None
+                            self.init_sync_start_time = None
+                            self.init_sync_end_time = None
+                            self.is_sscb_init_sync_ready = None
+                            self.init_sync_ready_start_time = None
+                            self.init_sync_ready_end_time = None
+                            self.nsr_reset_time = None
+                            self.is_audit_in_progress = None
+                            self.audit_seq_number = None
+                            self.audit_start_time = None
+                            self.audit_end_time = None
+                            self._segment_path = lambda: "detail-set" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet, ['id', 'sscb', 'pid', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_init_sync_second_phase', 'sequence_number_of_init_sync', 'init_sync_timer', 'total_number_of_init_sync_sessions', 'number_of_init_synced_sessions', 'number_of_sessions_init_sync_failed', 'init_sync_error', 'is_init_sync_error_local', 'init_sync_start_time', 'init_sync_end_time', 'is_sscb_init_sync_ready', 'init_sync_ready_start_time', 'init_sync_ready_end_time', 'nsr_reset_time', 'is_audit_in_progress', 'audit_seq_number', 'audit_start_time', 'audit_end_time'], name, value)
@@ -8218,7 +9059,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.SessionSet.BriefSets, self).__init__()
@@ -8227,8 +9068,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "session-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"brief-set" : ("brief_set", TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("brief-set", ("brief_set", TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet))])
+                        self._leafs = OrderedDict()
 
                         self.brief_set = YList(self)
                         self._segment_path = lambda: "brief-sets"
@@ -8241,7 +9084,7 @@ class TcpNsr(Entity):
                         """
                         Brief information about NSR Session Sets
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of NSR Session Set
                         	**type**\: str
@@ -8371,7 +9214,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, self).__init__()
@@ -8380,47 +9223,50 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "brief-sets"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.sscb = YLeaf(YType.uint64, "sscb")
-
-                            self.pid = YLeaf(YType.uint32, "pid")
-
-                            self.client_name = YLeaf(YType.str, "client-name")
-
-                            self.client_instance = YLeaf(YType.uint32, "client-instance")
-
-                            self.set_id = YLeaf(YType.uint32, "set-id")
-
-                            self.sso_role = YLeaf(YType.uint32, "sso-role")
-
-                            self.mode = YLeaf(YType.uint32, "mode")
-
-                            self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                            self.well_known_port = YLeaf(YType.uint16, "well-known-port")
-
-                            self.local_node = YLeaf(YType.str, "local-node")
-
-                            self.local_instance = YLeaf(YType.uint32, "local-instance")
-
-                            self.protect_node = YLeaf(YType.str, "protect-node")
-
-                            self.protect_instance = YLeaf(YType.uint32, "protect-instance")
-
-                            self.number_of_sessions = YLeaf(YType.uint32, "number-of-sessions")
-
-                            self.number_of_synced_sessions_up_stream = YLeaf(YType.uint32, "number-of-synced-sessions-up-stream")
-
-                            self.number_of_synced_sessions_down_stream = YLeaf(YType.uint32, "number-of-synced-sessions-down-stream")
-
-                            self.is_init_sync_in_progress = YLeaf(YType.boolean, "is-init-sync-in-progress")
-
-                            self.is_sscb_init_sync_ready = YLeaf(YType.boolean, "is-sscb-init-sync-ready")
-                            self._segment_path = lambda: "brief-set" + "[id='" + self.id.get() + "']"
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('sscb', YLeaf(YType.uint64, 'sscb')),
+                                ('pid', YLeaf(YType.uint32, 'pid')),
+                                ('client_name', YLeaf(YType.str, 'client-name')),
+                                ('client_instance', YLeaf(YType.uint32, 'client-instance')),
+                                ('set_id', YLeaf(YType.uint32, 'set-id')),
+                                ('sso_role', YLeaf(YType.uint32, 'sso-role')),
+                                ('mode', YLeaf(YType.uint32, 'mode')),
+                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                ('well_known_port', YLeaf(YType.uint16, 'well-known-port')),
+                                ('local_node', YLeaf(YType.str, 'local-node')),
+                                ('local_instance', YLeaf(YType.uint32, 'local-instance')),
+                                ('protect_node', YLeaf(YType.str, 'protect-node')),
+                                ('protect_instance', YLeaf(YType.uint32, 'protect-instance')),
+                                ('number_of_sessions', YLeaf(YType.uint32, 'number-of-sessions')),
+                                ('number_of_synced_sessions_up_stream', YLeaf(YType.uint32, 'number-of-synced-sessions-up-stream')),
+                                ('number_of_synced_sessions_down_stream', YLeaf(YType.uint32, 'number-of-synced-sessions-down-stream')),
+                                ('is_init_sync_in_progress', YLeaf(YType.boolean, 'is-init-sync-in-progress')),
+                                ('is_sscb_init_sync_ready', YLeaf(YType.boolean, 'is-sscb-init-sync-ready')),
+                            ])
+                            self.id = None
+                            self.sscb = None
+                            self.pid = None
+                            self.client_name = None
+                            self.client_instance = None
+                            self.set_id = None
+                            self.sso_role = None
+                            self.mode = None
+                            self.address_family = None
+                            self.well_known_port = None
+                            self.local_node = None
+                            self.local_instance = None
+                            self.protect_node = None
+                            self.protect_instance = None
+                            self.number_of_sessions = None
+                            self.number_of_synced_sessions_up_stream = None
+                            self.number_of_synced_sessions_down_stream = None
+                            self.is_init_sync_in_progress = None
+                            self.is_sscb_init_sync_ready = None
+                            self._segment_path = lambda: "brief-set" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet, ['id', 'sscb', 'pid', 'client_name', 'client_instance', 'set_id', 'sso_role', 'mode', 'address_family', 'well_known_port', 'local_node', 'local_instance', 'protect_node', 'protect_instance', 'number_of_sessions', 'number_of_synced_sessions_up_stream', 'number_of_synced_sessions_down_stream', 'is_init_sync_in_progress', 'is_sscb_init_sync_ready'], name, value)
@@ -8455,7 +9301,7 @@ class TcpNsr(Entity):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2017-05-01'
+                _revision = '2018-02-14'
 
                 def __init__(self):
                     super(TcpNsr.Nodes.Node.Statistics, self).__init__()
@@ -8464,8 +9310,10 @@ class TcpNsr(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"summary" : ("summary", TcpNsr.Nodes.Node.Statistics.Summary), "statistic-clients" : ("statistic_clients", TcpNsr.Nodes.Node.Statistics.StatisticClients), "statistic-sets" : ("statistic_sets", TcpNsr.Nodes.Node.Statistics.StatisticSets), "statistic-sessions" : ("statistic_sessions", TcpNsr.Nodes.Node.Statistics.StatisticSessions)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("summary", ("summary", TcpNsr.Nodes.Node.Statistics.Summary)), ("statistic-clients", ("statistic_clients", TcpNsr.Nodes.Node.Statistics.StatisticClients)), ("statistic-sets", ("statistic_sets", TcpNsr.Nodes.Node.Statistics.StatisticSets)), ("statistic-sessions", ("statistic_sessions", TcpNsr.Nodes.Node.Statistics.StatisticSessions))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.summary = TcpNsr.Nodes.Node.Statistics.Summary()
                     self.summary.parent = self
@@ -8746,7 +9594,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Statistics.Summary, self).__init__()
@@ -8755,74 +9603,77 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"snd-counters" : ("snd_counters", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters), "audit-counters" : ("audit_counters", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters)}
-                        self._child_list_classes = {"notification-statistic" : ("notification_statistic", TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic)}
-
-                        self.last_cleared_time = YLeaf(YType.uint32, "last-cleared-time")
-
-                        self.number_of_connected_clients = YLeaf(YType.uint32, "number-of-connected-clients")
-
-                        self.number_of_disconnected_clients = YLeaf(YType.uint32, "number-of-disconnected-clients")
-
-                        self.number_of_current_clients = YLeaf(YType.uint32, "number-of-current-clients")
-
-                        self.number_of_created_session_sets = YLeaf(YType.uint32, "number-of-created-session-sets")
-
-                        self.number_of_destroyed_session_sets = YLeaf(YType.uint32, "number-of-destroyed-session-sets")
-
-                        self.number_of_current_session_sets = YLeaf(YType.uint32, "number-of-current-session-sets")
-
-                        self.number_of_added_sessions = YLeaf(YType.uint32, "number-of-added-sessions")
-
-                        self.number_of_deleted_sessions = YLeaf(YType.uint32, "number-of-deleted-sessions")
-
-                        self.number_of_current_sessions = YLeaf(YType.uint32, "number-of-current-sessions")
-
-                        self.number_of_partner_node = YLeaf(YType.uint32, "number-of-partner-node")
-
-                        self.number_of_attempted_init_sync = YLeaf(YType.uint32, "number-of-attempted-init-sync")
-
-                        self.number_of_succeeded_init_sync = YLeaf(YType.uint32, "number-of-succeeded-init-sync")
-
-                        self.number_of_failed_init_sync = YLeaf(YType.uint32, "number-of-failed-init-sync")
-
-                        self.number_of_held_packets = YLeaf(YType.uint32, "number-of-held-packets")
-
-                        self.number_of_held_but_dropped_packets = YLeaf(YType.uint32, "number-of-held-but-dropped-packets")
-
-                        self.number_of_held_internal_acks = YLeaf(YType.uint32, "number-of-held-internal-acks")
-
-                        self.number_of_held_but_dropped_internal_acks = YLeaf(YType.uint32, "number-of-held-but-dropped-internal-acks")
-
-                        self.number_of_sent_internal_acks = YLeaf(YType.uint32, "number-of-sent-internal-acks")
-
-                        self.number_of_received_internal_acks = YLeaf(YType.uint32, "number-of-received-internal-acks")
-
-                        self.number_of_qad_receive_messages_drops = YLeaf(YType.uint32, "number-of-qad-receive-messages-drops")
-
-                        self.number_of_qad_receive_messages_unknowns = YLeaf(YType.uint32, "number-of-qad-receive-messages-unknowns")
-
-                        self.number_of_qad_receive_messages_accepts = YLeaf(YType.uint32, "number-of-qad-receive-messages-accepts")
-
-                        self.number_of_qad_stale_receive_messages_drops = YLeaf(YType.uint32, "number-of-qad-stale-receive-messages-drops")
-
-                        self.number_of_qad_transfer_message_sent = YLeaf(YType.uint32, "number-of-qad-transfer-message-sent")
-
-                        self.number_of_qad_transfer_message_drops = YLeaf(YType.uint32, "number-of-qad-transfer-message-drops")
-
-                        self.number_of_internal_ack_drops_no_pcb = YLeaf(YType.uint32, "number-of-internal-ack-drops-no-pcb")
-
-                        self.number_of_internal_ack_drops_no_scbdp = YLeaf(YType.uint32, "number-of-internal-ack-drops-no-scbdp")
-
-                        self.internal_ack_drops_not_replicated = YLeaf(YType.uint32, "internal-ack-drops-not-replicated")
-
-                        self.internal_ack_drops_initsync_first_phase = YLeaf(YType.uint32, "internal-ack-drops-initsync-first-phase")
-
-                        self.internal_ack_drops_stale = YLeaf(YType.uint32, "internal-ack-drops-stale")
-
-                        self.internal_ack_drops_immediate_match = YLeaf(YType.uint32, "internal-ack-drops-immediate-match")
-
-                        self.held_packet_drops = YLeaf(YType.uint32, "held-packet-drops")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("snd-counters", ("snd_counters", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters)), ("audit-counters", ("audit_counters", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters))])
+                        self._child_list_classes = OrderedDict([("notification-statistic", ("notification_statistic", TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic))])
+                        self._leafs = OrderedDict([
+                            ('last_cleared_time', YLeaf(YType.uint32, 'last-cleared-time')),
+                            ('number_of_connected_clients', YLeaf(YType.uint32, 'number-of-connected-clients')),
+                            ('number_of_disconnected_clients', YLeaf(YType.uint32, 'number-of-disconnected-clients')),
+                            ('number_of_current_clients', YLeaf(YType.uint32, 'number-of-current-clients')),
+                            ('number_of_created_session_sets', YLeaf(YType.uint32, 'number-of-created-session-sets')),
+                            ('number_of_destroyed_session_sets', YLeaf(YType.uint32, 'number-of-destroyed-session-sets')),
+                            ('number_of_current_session_sets', YLeaf(YType.uint32, 'number-of-current-session-sets')),
+                            ('number_of_added_sessions', YLeaf(YType.uint32, 'number-of-added-sessions')),
+                            ('number_of_deleted_sessions', YLeaf(YType.uint32, 'number-of-deleted-sessions')),
+                            ('number_of_current_sessions', YLeaf(YType.uint32, 'number-of-current-sessions')),
+                            ('number_of_partner_node', YLeaf(YType.uint32, 'number-of-partner-node')),
+                            ('number_of_attempted_init_sync', YLeaf(YType.uint32, 'number-of-attempted-init-sync')),
+                            ('number_of_succeeded_init_sync', YLeaf(YType.uint32, 'number-of-succeeded-init-sync')),
+                            ('number_of_failed_init_sync', YLeaf(YType.uint32, 'number-of-failed-init-sync')),
+                            ('number_of_held_packets', YLeaf(YType.uint32, 'number-of-held-packets')),
+                            ('number_of_held_but_dropped_packets', YLeaf(YType.uint32, 'number-of-held-but-dropped-packets')),
+                            ('number_of_held_internal_acks', YLeaf(YType.uint32, 'number-of-held-internal-acks')),
+                            ('number_of_held_but_dropped_internal_acks', YLeaf(YType.uint32, 'number-of-held-but-dropped-internal-acks')),
+                            ('number_of_sent_internal_acks', YLeaf(YType.uint32, 'number-of-sent-internal-acks')),
+                            ('number_of_received_internal_acks', YLeaf(YType.uint32, 'number-of-received-internal-acks')),
+                            ('number_of_qad_receive_messages_drops', YLeaf(YType.uint32, 'number-of-qad-receive-messages-drops')),
+                            ('number_of_qad_receive_messages_unknowns', YLeaf(YType.uint32, 'number-of-qad-receive-messages-unknowns')),
+                            ('number_of_qad_receive_messages_accepts', YLeaf(YType.uint32, 'number-of-qad-receive-messages-accepts')),
+                            ('number_of_qad_stale_receive_messages_drops', YLeaf(YType.uint32, 'number-of-qad-stale-receive-messages-drops')),
+                            ('number_of_qad_transfer_message_sent', YLeaf(YType.uint32, 'number-of-qad-transfer-message-sent')),
+                            ('number_of_qad_transfer_message_drops', YLeaf(YType.uint32, 'number-of-qad-transfer-message-drops')),
+                            ('number_of_internal_ack_drops_no_pcb', YLeaf(YType.uint32, 'number-of-internal-ack-drops-no-pcb')),
+                            ('number_of_internal_ack_drops_no_scbdp', YLeaf(YType.uint32, 'number-of-internal-ack-drops-no-scbdp')),
+                            ('internal_ack_drops_not_replicated', YLeaf(YType.uint32, 'internal-ack-drops-not-replicated')),
+                            ('internal_ack_drops_initsync_first_phase', YLeaf(YType.uint32, 'internal-ack-drops-initsync-first-phase')),
+                            ('internal_ack_drops_stale', YLeaf(YType.uint32, 'internal-ack-drops-stale')),
+                            ('internal_ack_drops_immediate_match', YLeaf(YType.uint32, 'internal-ack-drops-immediate-match')),
+                            ('held_packet_drops', YLeaf(YType.uint32, 'held-packet-drops')),
+                        ])
+                        self.last_cleared_time = None
+                        self.number_of_connected_clients = None
+                        self.number_of_disconnected_clients = None
+                        self.number_of_current_clients = None
+                        self.number_of_created_session_sets = None
+                        self.number_of_destroyed_session_sets = None
+                        self.number_of_current_session_sets = None
+                        self.number_of_added_sessions = None
+                        self.number_of_deleted_sessions = None
+                        self.number_of_current_sessions = None
+                        self.number_of_partner_node = None
+                        self.number_of_attempted_init_sync = None
+                        self.number_of_succeeded_init_sync = None
+                        self.number_of_failed_init_sync = None
+                        self.number_of_held_packets = None
+                        self.number_of_held_but_dropped_packets = None
+                        self.number_of_held_internal_acks = None
+                        self.number_of_held_but_dropped_internal_acks = None
+                        self.number_of_sent_internal_acks = None
+                        self.number_of_received_internal_acks = None
+                        self.number_of_qad_receive_messages_drops = None
+                        self.number_of_qad_receive_messages_unknowns = None
+                        self.number_of_qad_receive_messages_accepts = None
+                        self.number_of_qad_stale_receive_messages_drops = None
+                        self.number_of_qad_transfer_message_sent = None
+                        self.number_of_qad_transfer_message_drops = None
+                        self.number_of_internal_ack_drops_no_pcb = None
+                        self.number_of_internal_ack_drops_no_scbdp = None
+                        self.internal_ack_drops_not_replicated = None
+                        self.internal_ack_drops_initsync_first_phase = None
+                        self.internal_ack_drops_stale = None
+                        self.internal_ack_drops_immediate_match = None
+                        self.held_packet_drops = None
 
                         self.snd_counters = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters()
                         self.snd_counters.parent = self
@@ -8860,7 +9711,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters, self).__init__()
@@ -8869,8 +9720,10 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "summary"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"common" : ("common", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common), "aggr-only" : ("aggr_only", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("common", ("common", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common)), ("aggr-only", ("aggr_only", TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.common = TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common()
                             self.common.parent = self
@@ -9068,7 +9921,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common, self).__init__()
@@ -9077,58 +9930,61 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "snd-counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.data_xfer_send = YLeaf(YType.uint32, "data-xfer-send")
-
-                                self.data_xfer_send_total = YLeaf(YType.uint64, "data-xfer-send-total")
-
-                                self.data_xfer_send_drop = YLeaf(YType.uint32, "data-xfer-send-drop")
-
-                                self.data_xfer_send_iov_alloc = YLeaf(YType.uint32, "data-xfer-send-iov-alloc")
-
-                                self.data_xfer_rcv = YLeaf(YType.uint32, "data-xfer-rcv")
-
-                                self.data_xfer_rcv_success = YLeaf(YType.uint32, "data-xfer-rcv-success")
-
-                                self.data_xfer_rcv_fail_buffer_trim = YLeaf(YType.uint32, "data-xfer-rcv-fail-buffer-trim")
-
-                                self.data_xfer_rcv_fail_snd_una_out_of_sync = YLeaf(YType.uint32, "data-xfer-rcv-fail-snd-una-out-of-sync")
-
-                                self.seg_instr_send = YLeaf(YType.uint32, "seg-instr-send")
-
-                                self.seg_instr_send_units = YLeaf(YType.uint32, "seg-instr-send-units")
-
-                                self.seg_instr_send_drop = YLeaf(YType.uint32, "seg-instr-send-drop")
-
-                                self.seg_instr_rcv = YLeaf(YType.uint32, "seg-instr-rcv")
-
-                                self.seg_instr_rcv_success = YLeaf(YType.uint32, "seg-instr-rcv-success")
-
-                                self.seg_instr_rcv_fail_buffer_trim = YLeaf(YType.uint32, "seg-instr-rcv-fail-buffer-trim")
-
-                                self.seg_instr_rcv_fail_tcp_process = YLeaf(YType.uint32, "seg-instr-rcv-fail-tcp-process")
-
-                                self.nack_send = YLeaf(YType.uint32, "nack-send")
-
-                                self.nack_send_drop = YLeaf(YType.uint32, "nack-send-drop")
-
-                                self.nack_rcv = YLeaf(YType.uint32, "nack-rcv")
-
-                                self.nack_rcv_success = YLeaf(YType.uint32, "nack-rcv-success")
-
-                                self.nack_rcv_fail_data_send = YLeaf(YType.uint32, "nack-rcv-fail-data-send")
-
-                                self.cleanup_send = YLeaf(YType.uint32, "cleanup-send")
-
-                                self.cleanup_send_drop = YLeaf(YType.uint32, "cleanup-send-drop")
-
-                                self.cleanup_rcv = YLeaf(YType.uint32, "cleanup-rcv")
-
-                                self.cleanup_rcv_success = YLeaf(YType.uint32, "cleanup-rcv-success")
-
-                                self.cleanup_rcv_fail_buffer_trim = YLeaf(YType.uint32, "cleanup-rcv-fail-buffer-trim")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('data_xfer_send', YLeaf(YType.uint32, 'data-xfer-send')),
+                                    ('data_xfer_send_total', YLeaf(YType.uint64, 'data-xfer-send-total')),
+                                    ('data_xfer_send_drop', YLeaf(YType.uint32, 'data-xfer-send-drop')),
+                                    ('data_xfer_send_iov_alloc', YLeaf(YType.uint32, 'data-xfer-send-iov-alloc')),
+                                    ('data_xfer_rcv', YLeaf(YType.uint32, 'data-xfer-rcv')),
+                                    ('data_xfer_rcv_success', YLeaf(YType.uint32, 'data-xfer-rcv-success')),
+                                    ('data_xfer_rcv_fail_buffer_trim', YLeaf(YType.uint32, 'data-xfer-rcv-fail-buffer-trim')),
+                                    ('data_xfer_rcv_fail_snd_una_out_of_sync', YLeaf(YType.uint32, 'data-xfer-rcv-fail-snd-una-out-of-sync')),
+                                    ('seg_instr_send', YLeaf(YType.uint32, 'seg-instr-send')),
+                                    ('seg_instr_send_units', YLeaf(YType.uint32, 'seg-instr-send-units')),
+                                    ('seg_instr_send_drop', YLeaf(YType.uint32, 'seg-instr-send-drop')),
+                                    ('seg_instr_rcv', YLeaf(YType.uint32, 'seg-instr-rcv')),
+                                    ('seg_instr_rcv_success', YLeaf(YType.uint32, 'seg-instr-rcv-success')),
+                                    ('seg_instr_rcv_fail_buffer_trim', YLeaf(YType.uint32, 'seg-instr-rcv-fail-buffer-trim')),
+                                    ('seg_instr_rcv_fail_tcp_process', YLeaf(YType.uint32, 'seg-instr-rcv-fail-tcp-process')),
+                                    ('nack_send', YLeaf(YType.uint32, 'nack-send')),
+                                    ('nack_send_drop', YLeaf(YType.uint32, 'nack-send-drop')),
+                                    ('nack_rcv', YLeaf(YType.uint32, 'nack-rcv')),
+                                    ('nack_rcv_success', YLeaf(YType.uint32, 'nack-rcv-success')),
+                                    ('nack_rcv_fail_data_send', YLeaf(YType.uint32, 'nack-rcv-fail-data-send')),
+                                    ('cleanup_send', YLeaf(YType.uint32, 'cleanup-send')),
+                                    ('cleanup_send_drop', YLeaf(YType.uint32, 'cleanup-send-drop')),
+                                    ('cleanup_rcv', YLeaf(YType.uint32, 'cleanup-rcv')),
+                                    ('cleanup_rcv_success', YLeaf(YType.uint32, 'cleanup-rcv-success')),
+                                    ('cleanup_rcv_fail_buffer_trim', YLeaf(YType.uint32, 'cleanup-rcv-fail-buffer-trim')),
+                                ])
+                                self.data_xfer_send = None
+                                self.data_xfer_send_total = None
+                                self.data_xfer_send_drop = None
+                                self.data_xfer_send_iov_alloc = None
+                                self.data_xfer_rcv = None
+                                self.data_xfer_rcv_success = None
+                                self.data_xfer_rcv_fail_buffer_trim = None
+                                self.data_xfer_rcv_fail_snd_una_out_of_sync = None
+                                self.seg_instr_send = None
+                                self.seg_instr_send_units = None
+                                self.seg_instr_send_drop = None
+                                self.seg_instr_rcv = None
+                                self.seg_instr_rcv_success = None
+                                self.seg_instr_rcv_fail_buffer_trim = None
+                                self.seg_instr_rcv_fail_tcp_process = None
+                                self.nack_send = None
+                                self.nack_send_drop = None
+                                self.nack_rcv = None
+                                self.nack_rcv_success = None
+                                self.nack_rcv_fail_data_send = None
+                                self.cleanup_send = None
+                                self.cleanup_send_drop = None
+                                self.cleanup_rcv = None
+                                self.cleanup_rcv_success = None
+                                self.cleanup_rcv_fail_buffer_trim = None
                                 self._segment_path = lambda: "common"
 
                             def __setattr__(self, name, value):
@@ -9200,7 +10056,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly, self).__init__()
@@ -9209,24 +10065,27 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "snd-counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.data_xfer_rcv_drop_no_pcb = YLeaf(YType.uint32, "data-xfer-rcv-drop-no-pcb")
-
-                                self.data_xfer_rcv_drop_no_scb_dp = YLeaf(YType.uint32, "data-xfer-rcv-drop-no-scb-dp")
-
-                                self.seg_instr_rcv_drop_no_pcb = YLeaf(YType.uint32, "seg-instr-rcv-drop-no-pcb")
-
-                                self.seg_instr_rcv_drop_no_scb_dp = YLeaf(YType.uint32, "seg-instr-rcv-drop-no-scb-dp")
-
-                                self.nack_rcv_drop_no_pcb = YLeaf(YType.uint32, "nack-rcv-drop-no-pcb")
-
-                                self.nack_rcv_drop_no_scb_dp = YLeaf(YType.uint32, "nack-rcv-drop-no-scb-dp")
-
-                                self.cleanup_rcv_drop_no_pcb = YLeaf(YType.uint32, "cleanup-rcv-drop-no-pcb")
-
-                                self.cleanup_rcv_drop_no_scb_dp = YLeaf(YType.uint32, "cleanup-rcv-drop-no-scb-dp")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('data_xfer_rcv_drop_no_pcb', YLeaf(YType.uint32, 'data-xfer-rcv-drop-no-pcb')),
+                                    ('data_xfer_rcv_drop_no_scb_dp', YLeaf(YType.uint32, 'data-xfer-rcv-drop-no-scb-dp')),
+                                    ('seg_instr_rcv_drop_no_pcb', YLeaf(YType.uint32, 'seg-instr-rcv-drop-no-pcb')),
+                                    ('seg_instr_rcv_drop_no_scb_dp', YLeaf(YType.uint32, 'seg-instr-rcv-drop-no-scb-dp')),
+                                    ('nack_rcv_drop_no_pcb', YLeaf(YType.uint32, 'nack-rcv-drop-no-pcb')),
+                                    ('nack_rcv_drop_no_scb_dp', YLeaf(YType.uint32, 'nack-rcv-drop-no-scb-dp')),
+                                    ('cleanup_rcv_drop_no_pcb', YLeaf(YType.uint32, 'cleanup-rcv-drop-no-pcb')),
+                                    ('cleanup_rcv_drop_no_scb_dp', YLeaf(YType.uint32, 'cleanup-rcv-drop-no-scb-dp')),
+                                ])
+                                self.data_xfer_rcv_drop_no_pcb = None
+                                self.data_xfer_rcv_drop_no_scb_dp = None
+                                self.seg_instr_rcv_drop_no_pcb = None
+                                self.seg_instr_rcv_drop_no_scb_dp = None
+                                self.nack_rcv_drop_no_pcb = None
+                                self.nack_rcv_drop_no_scb_dp = None
+                                self.cleanup_rcv_drop_no_pcb = None
+                                self.cleanup_rcv_drop_no_scb_dp = None
                                 self._segment_path = lambda: "aggr-only"
 
                             def __setattr__(self, name, value):
@@ -9252,7 +10111,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters, self).__init__()
@@ -9261,8 +10120,10 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "summary"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"common" : ("common", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common), "aggr-only" : ("aggr_only", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("common", ("common", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common)), ("aggr-only", ("aggr_only", TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.common = TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common()
                             self.common.parent = self
@@ -9460,7 +10321,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common, self).__init__()
@@ -9469,58 +10330,61 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "audit-counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mark_session_set_send = YLeaf(YType.uint32, "mark-session-set-send")
-
-                                self.mark_session_set_send_drop = YLeaf(YType.uint32, "mark-session-set-send-drop")
-
-                                self.mark_session_set_rcv = YLeaf(YType.uint32, "mark-session-set-rcv")
-
-                                self.mark_session_set_rcv_drop = YLeaf(YType.uint32, "mark-session-set-rcv-drop")
-
-                                self.session_send = YLeaf(YType.uint32, "session-send")
-
-                                self.session_send_drop = YLeaf(YType.uint32, "session-send-drop")
-
-                                self.session_rcv = YLeaf(YType.uint32, "session-rcv")
-
-                                self.session_rcv_drop = YLeaf(YType.uint32, "session-rcv-drop")
-
-                                self.sweep_session_set_send = YLeaf(YType.uint32, "sweep-session-set-send")
-
-                                self.sweep_session_set_send_drop = YLeaf(YType.uint32, "sweep-session-set-send-drop")
-
-                                self.sweep_session_set_rcv = YLeaf(YType.uint32, "sweep-session-set-rcv")
-
-                                self.sweep_session_set_rcv_drop = YLeaf(YType.uint32, "sweep-session-set-rcv-drop")
-
-                                self.session_set_response_send = YLeaf(YType.uint32, "session-set-response-send")
-
-                                self.session_set_response_send_drop = YLeaf(YType.uint32, "session-set-response-send-drop")
-
-                                self.session_set_response_rcv = YLeaf(YType.uint32, "session-set-response-rcv")
-
-                                self.session_set_response_rcv_drop = YLeaf(YType.uint32, "session-set-response-rcv-drop")
-
-                                self.mark_session_set_ack_send = YLeaf(YType.uint32, "mark-session-set-ack-send")
-
-                                self.mark_session_set_ack_send_drop = YLeaf(YType.uint32, "mark-session-set-ack-send-drop")
-
-                                self.mark_session_set_ack_rcv = YLeaf(YType.uint32, "mark-session-set-ack-rcv")
-
-                                self.mark_session_set_ack_rcv_drop = YLeaf(YType.uint32, "mark-session-set-ack-rcv-drop")
-
-                                self.mark_session_set_nack_send = YLeaf(YType.uint32, "mark-session-set-nack-send")
-
-                                self.mark_session_set_nack_send_drop = YLeaf(YType.uint32, "mark-session-set-nack-send-drop")
-
-                                self.mark_session_set_nack_rcv = YLeaf(YType.uint32, "mark-session-set-nack-rcv")
-
-                                self.mark_session_set_nack_rcv_drop = YLeaf(YType.uint32, "mark-session-set-nack-rcv-drop")
-
-                                self.abort = YLeaf(YType.uint32, "abort")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mark_session_set_send', YLeaf(YType.uint32, 'mark-session-set-send')),
+                                    ('mark_session_set_send_drop', YLeaf(YType.uint32, 'mark-session-set-send-drop')),
+                                    ('mark_session_set_rcv', YLeaf(YType.uint32, 'mark-session-set-rcv')),
+                                    ('mark_session_set_rcv_drop', YLeaf(YType.uint32, 'mark-session-set-rcv-drop')),
+                                    ('session_send', YLeaf(YType.uint32, 'session-send')),
+                                    ('session_send_drop', YLeaf(YType.uint32, 'session-send-drop')),
+                                    ('session_rcv', YLeaf(YType.uint32, 'session-rcv')),
+                                    ('session_rcv_drop', YLeaf(YType.uint32, 'session-rcv-drop')),
+                                    ('sweep_session_set_send', YLeaf(YType.uint32, 'sweep-session-set-send')),
+                                    ('sweep_session_set_send_drop', YLeaf(YType.uint32, 'sweep-session-set-send-drop')),
+                                    ('sweep_session_set_rcv', YLeaf(YType.uint32, 'sweep-session-set-rcv')),
+                                    ('sweep_session_set_rcv_drop', YLeaf(YType.uint32, 'sweep-session-set-rcv-drop')),
+                                    ('session_set_response_send', YLeaf(YType.uint32, 'session-set-response-send')),
+                                    ('session_set_response_send_drop', YLeaf(YType.uint32, 'session-set-response-send-drop')),
+                                    ('session_set_response_rcv', YLeaf(YType.uint32, 'session-set-response-rcv')),
+                                    ('session_set_response_rcv_drop', YLeaf(YType.uint32, 'session-set-response-rcv-drop')),
+                                    ('mark_session_set_ack_send', YLeaf(YType.uint32, 'mark-session-set-ack-send')),
+                                    ('mark_session_set_ack_send_drop', YLeaf(YType.uint32, 'mark-session-set-ack-send-drop')),
+                                    ('mark_session_set_ack_rcv', YLeaf(YType.uint32, 'mark-session-set-ack-rcv')),
+                                    ('mark_session_set_ack_rcv_drop', YLeaf(YType.uint32, 'mark-session-set-ack-rcv-drop')),
+                                    ('mark_session_set_nack_send', YLeaf(YType.uint32, 'mark-session-set-nack-send')),
+                                    ('mark_session_set_nack_send_drop', YLeaf(YType.uint32, 'mark-session-set-nack-send-drop')),
+                                    ('mark_session_set_nack_rcv', YLeaf(YType.uint32, 'mark-session-set-nack-rcv')),
+                                    ('mark_session_set_nack_rcv_drop', YLeaf(YType.uint32, 'mark-session-set-nack-rcv-drop')),
+                                    ('abort', YLeaf(YType.uint32, 'abort')),
+                                ])
+                                self.mark_session_set_send = None
+                                self.mark_session_set_send_drop = None
+                                self.mark_session_set_rcv = None
+                                self.mark_session_set_rcv_drop = None
+                                self.session_send = None
+                                self.session_send_drop = None
+                                self.session_rcv = None
+                                self.session_rcv_drop = None
+                                self.sweep_session_set_send = None
+                                self.sweep_session_set_send_drop = None
+                                self.sweep_session_set_rcv = None
+                                self.sweep_session_set_rcv_drop = None
+                                self.session_set_response_send = None
+                                self.session_set_response_send_drop = None
+                                self.session_set_response_rcv = None
+                                self.session_set_response_rcv_drop = None
+                                self.mark_session_set_ack_send = None
+                                self.mark_session_set_ack_send_drop = None
+                                self.mark_session_set_ack_rcv = None
+                                self.mark_session_set_ack_rcv_drop = None
+                                self.mark_session_set_nack_send = None
+                                self.mark_session_set_nack_send_drop = None
+                                self.mark_session_set_nack_rcv = None
+                                self.mark_session_set_nack_rcv_drop = None
+                                self.abort = None
                                 self._segment_path = lambda: "common"
 
                             def __setattr__(self, name, value):
@@ -9578,7 +10442,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly, self).__init__()
@@ -9587,20 +10451,23 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "audit-counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mark_session_set_rcv_drop_aggr = YLeaf(YType.uint32, "mark-session-set-rcv-drop-aggr")
-
-                                self.session_rcv_drop_aggr = YLeaf(YType.uint32, "session-rcv-drop-aggr")
-
-                                self.sweep_session_set_rcv_drop_aggr = YLeaf(YType.uint32, "sweep-session-set-rcv-drop-aggr")
-
-                                self.session_set_response_rcv_drop_aggr = YLeaf(YType.uint32, "session-set-response-rcv-drop-aggr")
-
-                                self.mark_session_set_ack_rcv_drop_aggr = YLeaf(YType.uint32, "mark-session-set-ack-rcv-drop-aggr")
-
-                                self.mark_session_set_nack_rcv_drop_aggr = YLeaf(YType.uint32, "mark-session-set-nack-rcv-drop-aggr")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mark_session_set_rcv_drop_aggr', YLeaf(YType.uint32, 'mark-session-set-rcv-drop-aggr')),
+                                    ('session_rcv_drop_aggr', YLeaf(YType.uint32, 'session-rcv-drop-aggr')),
+                                    ('sweep_session_set_rcv_drop_aggr', YLeaf(YType.uint32, 'sweep-session-set-rcv-drop-aggr')),
+                                    ('session_set_response_rcv_drop_aggr', YLeaf(YType.uint32, 'session-set-response-rcv-drop-aggr')),
+                                    ('mark_session_set_ack_rcv_drop_aggr', YLeaf(YType.uint32, 'mark-session-set-ack-rcv-drop-aggr')),
+                                    ('mark_session_set_nack_rcv_drop_aggr', YLeaf(YType.uint32, 'mark-session-set-nack-rcv-drop-aggr')),
+                                ])
+                                self.mark_session_set_rcv_drop_aggr = None
+                                self.session_rcv_drop_aggr = None
+                                self.sweep_session_set_rcv_drop_aggr = None
+                                self.session_set_response_rcv_drop_aggr = None
+                                self.mark_session_set_ack_rcv_drop_aggr = None
+                                self.mark_session_set_nack_rcv_drop_aggr = None
                                 self._segment_path = lambda: "aggr-only"
 
                             def __setattr__(self, name, value):
@@ -9644,7 +10511,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic, self).__init__()
@@ -9653,16 +10520,19 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "summary"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.queued_count = YLeaf(YType.uint32, "queued-count")
-
-                            self.failed_count = YLeaf(YType.uint32, "failed-count")
-
-                            self.delivered_count = YLeaf(YType.uint32, "delivered-count")
-
-                            self.dropped_count = YLeaf(YType.uint32, "dropped-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('queued_count', YLeaf(YType.uint32, 'queued-count')),
+                                ('failed_count', YLeaf(YType.uint32, 'failed-count')),
+                                ('delivered_count', YLeaf(YType.uint32, 'delivered-count')),
+                                ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
+                            ])
+                            self.queued_count = None
+                            self.failed_count = None
+                            self.delivered_count = None
+                            self.dropped_count = None
                             self._segment_path = lambda: "notification-statistic"
 
                         def __setattr__(self, name, value):
@@ -9684,7 +10554,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Statistics.StatisticClients, self).__init__()
@@ -9693,8 +10563,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"statistic-client" : ("statistic_client", TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("statistic-client", ("statistic_client", TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient))])
+                        self._leafs = OrderedDict()
 
                         self.statistic_client = YList(self)
                         self._segment_path = lambda: "statistic-clients"
@@ -9707,7 +10579,7 @@ class TcpNsr(Entity):
                         """
                         showing statistic information of NSR Clients
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of NSR Client
                         	**type**\: str
@@ -9789,7 +10661,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, self).__init__()
@@ -9798,31 +10670,34 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "statistic-clients"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"notification-statistic" : ("notification_statistic", TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic)}
-
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.ccb = YLeaf(YType.uint64, "ccb")
-
-                            self.pid = YLeaf(YType.uint32, "pid")
-
-                            self.process_name = YLeaf(YType.str, "process-name")
-
-                            self.job_id = YLeaf(YType.int32, "job-id")
-
-                            self.instance = YLeaf(YType.uint32, "instance")
-
-                            self.connected_at = YLeaf(YType.uint32, "connected-at")
-
-                            self.number_of_created_sscb = YLeaf(YType.uint32, "number-of-created-sscb")
-
-                            self.number_of_deleted_sscb = YLeaf(YType.uint32, "number-of-deleted-sscb")
-
-                            self.last_cleared_time = YLeaf(YType.uint32, "last-cleared-time")
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("notification-statistic", ("notification_statistic", TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic))])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('ccb', YLeaf(YType.uint64, 'ccb')),
+                                ('pid', YLeaf(YType.uint32, 'pid')),
+                                ('process_name', YLeaf(YType.str, 'process-name')),
+                                ('job_id', YLeaf(YType.int32, 'job-id')),
+                                ('instance', YLeaf(YType.uint32, 'instance')),
+                                ('connected_at', YLeaf(YType.uint32, 'connected-at')),
+                                ('number_of_created_sscb', YLeaf(YType.uint32, 'number-of-created-sscb')),
+                                ('number_of_deleted_sscb', YLeaf(YType.uint32, 'number-of-deleted-sscb')),
+                                ('last_cleared_time', YLeaf(YType.uint32, 'last-cleared-time')),
+                            ])
+                            self.id = None
+                            self.ccb = None
+                            self.pid = None
+                            self.process_name = None
+                            self.job_id = None
+                            self.instance = None
+                            self.connected_at = None
+                            self.number_of_created_sscb = None
+                            self.number_of_deleted_sscb = None
+                            self.last_cleared_time = None
 
                             self.notification_statistic = YList(self)
-                            self._segment_path = lambda: "statistic-client" + "[id='" + self.id.get() + "']"
+                            self._segment_path = lambda: "statistic-client" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient, ['id', 'ccb', 'pid', 'process_name', 'job_id', 'instance', 'connected_at', 'number_of_created_sscb', 'number_of_deleted_sscb', 'last_cleared_time'], name, value)
@@ -9865,7 +10740,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic, self).__init__()
@@ -9874,16 +10749,19 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "statistic-client"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.queued_count = YLeaf(YType.uint32, "queued-count")
-
-                                self.failed_count = YLeaf(YType.uint32, "failed-count")
-
-                                self.delivered_count = YLeaf(YType.uint32, "delivered-count")
-
-                                self.dropped_count = YLeaf(YType.uint32, "dropped-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('queued_count', YLeaf(YType.uint32, 'queued-count')),
+                                    ('failed_count', YLeaf(YType.uint32, 'failed-count')),
+                                    ('delivered_count', YLeaf(YType.uint32, 'delivered-count')),
+                                    ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
+                                ])
+                                self.queued_count = None
+                                self.failed_count = None
+                                self.delivered_count = None
+                                self.dropped_count = None
                                 self._segment_path = lambda: "notification-statistic"
 
                             def __setattr__(self, name, value):
@@ -9905,7 +10783,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Statistics.StatisticSets, self).__init__()
@@ -9914,8 +10792,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"statistic-set" : ("statistic_set", TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("statistic-set", ("statistic_set", TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet))])
+                        self._leafs = OrderedDict()
 
                         self.statistic_set = YList(self)
                         self._segment_path = lambda: "statistic-sets"
@@ -9929,7 +10809,7 @@ class TcpNsr(Entity):
                         showing statistic information of NSR Session
                         Set
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of NSR Session Set
                         	**type**\: str
@@ -9999,7 +10879,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, self).__init__()
@@ -10008,27 +10888,30 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "statistic-sets"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.sscb = YLeaf(YType.uint64, "sscb")
-
-                            self.set_id = YLeaf(YType.uint32, "set-id")
-
-                            self.number_of_attempted_init_sync = YLeaf(YType.uint32, "number-of-attempted-init-sync")
-
-                            self.number_of_succeeded_init_sync = YLeaf(YType.uint32, "number-of-succeeded-init-sync")
-
-                            self.number_of_failed_init_sync = YLeaf(YType.uint32, "number-of-failed-init-sync")
-
-                            self.number_of_failover = YLeaf(YType.uint32, "number-of-failover")
-
-                            self.number_of_nsr_resets = YLeaf(YType.uint32, "number-of-nsr-resets")
-
-                            self.last_cleared_time = YLeaf(YType.uint32, "last-cleared-time")
-                            self._segment_path = lambda: "statistic-set" + "[id='" + self.id.get() + "']"
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('sscb', YLeaf(YType.uint64, 'sscb')),
+                                ('set_id', YLeaf(YType.uint32, 'set-id')),
+                                ('number_of_attempted_init_sync', YLeaf(YType.uint32, 'number-of-attempted-init-sync')),
+                                ('number_of_succeeded_init_sync', YLeaf(YType.uint32, 'number-of-succeeded-init-sync')),
+                                ('number_of_failed_init_sync', YLeaf(YType.uint32, 'number-of-failed-init-sync')),
+                                ('number_of_failover', YLeaf(YType.uint32, 'number-of-failover')),
+                                ('number_of_nsr_resets', YLeaf(YType.uint32, 'number-of-nsr-resets')),
+                                ('last_cleared_time', YLeaf(YType.uint32, 'last-cleared-time')),
+                            ])
+                            self.id = None
+                            self.sscb = None
+                            self.set_id = None
+                            self.number_of_attempted_init_sync = None
+                            self.number_of_succeeded_init_sync = None
+                            self.number_of_failed_init_sync = None
+                            self.number_of_failover = None
+                            self.number_of_nsr_resets = None
+                            self.last_cleared_time = None
+                            self._segment_path = lambda: "statistic-set" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet, ['id', 'sscb', 'set_id', 'number_of_attempted_init_sync', 'number_of_succeeded_init_sync', 'number_of_failed_init_sync', 'number_of_failover', 'number_of_nsr_resets', 'last_cleared_time'], name, value)
@@ -10049,7 +10932,7 @@ class TcpNsr(Entity):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2018-02-14'
 
                     def __init__(self):
                         super(TcpNsr.Nodes.Node.Statistics.StatisticSessions, self).__init__()
@@ -10058,8 +10941,10 @@ class TcpNsr(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"statistic-session" : ("statistic_session", TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("statistic-session", ("statistic_session", TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession))])
+                        self._leafs = OrderedDict()
 
                         self.statistic_session = YList(self)
                         self._segment_path = lambda: "statistic-sessions"
@@ -10073,7 +10958,7 @@ class TcpNsr(Entity):
                         showing statistic information of TCP
                         connections
                         
-                        .. attribute:: id  <key>
+                        .. attribute:: id  (key)
                         
                         	ID of TCP connection
                         	**type**\: str
@@ -10162,7 +11047,7 @@ class TcpNsr(Entity):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2018-02-14'
 
                         def __init__(self):
                             super(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, self).__init__()
@@ -10171,36 +11056,39 @@ class TcpNsr(Entity):
                             self.yang_parent_name = "statistic-sessions"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"snd-counters" : ("snd_counters", TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters)}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.str, "id")
-
-                            self.pcb = YLeaf(YType.uint64, "pcb")
-
-                            self.number_of_times_nsr_up = YLeaf(YType.uint32, "number-of-times-nsr-up")
-
-                            self.number_of_timers_nsr_down = YLeaf(YType.uint32, "number-of-timers-nsr-down")
-
-                            self.number_of_times_nsr_disabled = YLeaf(YType.uint32, "number-of-times-nsr-disabled")
-
-                            self.number_of_times_nsr_fail_over = YLeaf(YType.uint32, "number-of-times-nsr-fail-over")
-
-                            self.internal_ack_drops_not_replicated = YLeaf(YType.uint64, "internal-ack-drops-not-replicated")
-
-                            self.internal_ack_drops_initsync_first_phase = YLeaf(YType.uint64, "internal-ack-drops-initsync-first-phase")
-
-                            self.internal_ack_drops_stale = YLeaf(YType.uint64, "internal-ack-drops-stale")
-
-                            self.internal_ack_drops_immediate_match = YLeaf(YType.uint64, "internal-ack-drops-immediate-match")
-
-                            self.last_cleared_time = YLeaf(YType.uint32, "last-cleared-time")
+                            self.ylist_key_names = ['id']
+                            self._child_container_classes = OrderedDict([("snd-counters", ("snd_counters", TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.str, 'id')),
+                                ('pcb', YLeaf(YType.uint64, 'pcb')),
+                                ('number_of_times_nsr_up', YLeaf(YType.uint32, 'number-of-times-nsr-up')),
+                                ('number_of_timers_nsr_down', YLeaf(YType.uint32, 'number-of-timers-nsr-down')),
+                                ('number_of_times_nsr_disabled', YLeaf(YType.uint32, 'number-of-times-nsr-disabled')),
+                                ('number_of_times_nsr_fail_over', YLeaf(YType.uint32, 'number-of-times-nsr-fail-over')),
+                                ('internal_ack_drops_not_replicated', YLeaf(YType.uint64, 'internal-ack-drops-not-replicated')),
+                                ('internal_ack_drops_initsync_first_phase', YLeaf(YType.uint64, 'internal-ack-drops-initsync-first-phase')),
+                                ('internal_ack_drops_stale', YLeaf(YType.uint64, 'internal-ack-drops-stale')),
+                                ('internal_ack_drops_immediate_match', YLeaf(YType.uint64, 'internal-ack-drops-immediate-match')),
+                                ('last_cleared_time', YLeaf(YType.uint32, 'last-cleared-time')),
+                            ])
+                            self.id = None
+                            self.pcb = None
+                            self.number_of_times_nsr_up = None
+                            self.number_of_timers_nsr_down = None
+                            self.number_of_times_nsr_disabled = None
+                            self.number_of_times_nsr_fail_over = None
+                            self.internal_ack_drops_not_replicated = None
+                            self.internal_ack_drops_initsync_first_phase = None
+                            self.internal_ack_drops_stale = None
+                            self.internal_ack_drops_immediate_match = None
+                            self.last_cleared_time = None
 
                             self.snd_counters = TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters()
                             self.snd_counters.parent = self
                             self._children_name_map["snd_counters"] = "snd-counters"
                             self._children_yang_names.add("snd-counters")
-                            self._segment_path = lambda: "statistic-session" + "[id='" + self.id.get() + "']"
+                            self._segment_path = lambda: "statistic-session" + "[id='" + str(self.id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession, ['id', 'pcb', 'number_of_times_nsr_up', 'number_of_timers_nsr_down', 'number_of_times_nsr_disabled', 'number_of_times_nsr_fail_over', 'internal_ack_drops_not_replicated', 'internal_ack_drops_initsync_first_phase', 'internal_ack_drops_stale', 'internal_ack_drops_immediate_match', 'last_cleared_time'], name, value)
@@ -10390,7 +11278,7 @@ class TcpNsr(Entity):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2018-02-14'
 
                             def __init__(self):
                                 super(TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters, self).__init__()
@@ -10399,58 +11287,61 @@ class TcpNsr(Entity):
                                 self.yang_parent_name = "statistic-session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.data_xfer_send = YLeaf(YType.uint32, "data-xfer-send")
-
-                                self.data_xfer_send_total = YLeaf(YType.uint64, "data-xfer-send-total")
-
-                                self.data_xfer_send_drop = YLeaf(YType.uint32, "data-xfer-send-drop")
-
-                                self.data_xfer_send_iov_alloc = YLeaf(YType.uint32, "data-xfer-send-iov-alloc")
-
-                                self.data_xfer_rcv = YLeaf(YType.uint32, "data-xfer-rcv")
-
-                                self.data_xfer_rcv_success = YLeaf(YType.uint32, "data-xfer-rcv-success")
-
-                                self.data_xfer_rcv_fail_buffer_trim = YLeaf(YType.uint32, "data-xfer-rcv-fail-buffer-trim")
-
-                                self.data_xfer_rcv_fail_snd_una_out_of_sync = YLeaf(YType.uint32, "data-xfer-rcv-fail-snd-una-out-of-sync")
-
-                                self.seg_instr_send = YLeaf(YType.uint32, "seg-instr-send")
-
-                                self.seg_instr_send_units = YLeaf(YType.uint32, "seg-instr-send-units")
-
-                                self.seg_instr_send_drop = YLeaf(YType.uint32, "seg-instr-send-drop")
-
-                                self.seg_instr_rcv = YLeaf(YType.uint32, "seg-instr-rcv")
-
-                                self.seg_instr_rcv_success = YLeaf(YType.uint32, "seg-instr-rcv-success")
-
-                                self.seg_instr_rcv_fail_buffer_trim = YLeaf(YType.uint32, "seg-instr-rcv-fail-buffer-trim")
-
-                                self.seg_instr_rcv_fail_tcp_process = YLeaf(YType.uint32, "seg-instr-rcv-fail-tcp-process")
-
-                                self.nack_send = YLeaf(YType.uint32, "nack-send")
-
-                                self.nack_send_drop = YLeaf(YType.uint32, "nack-send-drop")
-
-                                self.nack_rcv = YLeaf(YType.uint32, "nack-rcv")
-
-                                self.nack_rcv_success = YLeaf(YType.uint32, "nack-rcv-success")
-
-                                self.nack_rcv_fail_data_send = YLeaf(YType.uint32, "nack-rcv-fail-data-send")
-
-                                self.cleanup_send = YLeaf(YType.uint32, "cleanup-send")
-
-                                self.cleanup_send_drop = YLeaf(YType.uint32, "cleanup-send-drop")
-
-                                self.cleanup_rcv = YLeaf(YType.uint32, "cleanup-rcv")
-
-                                self.cleanup_rcv_success = YLeaf(YType.uint32, "cleanup-rcv-success")
-
-                                self.cleanup_rcv_fail_buffer_trim = YLeaf(YType.uint32, "cleanup-rcv-fail-buffer-trim")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('data_xfer_send', YLeaf(YType.uint32, 'data-xfer-send')),
+                                    ('data_xfer_send_total', YLeaf(YType.uint64, 'data-xfer-send-total')),
+                                    ('data_xfer_send_drop', YLeaf(YType.uint32, 'data-xfer-send-drop')),
+                                    ('data_xfer_send_iov_alloc', YLeaf(YType.uint32, 'data-xfer-send-iov-alloc')),
+                                    ('data_xfer_rcv', YLeaf(YType.uint32, 'data-xfer-rcv')),
+                                    ('data_xfer_rcv_success', YLeaf(YType.uint32, 'data-xfer-rcv-success')),
+                                    ('data_xfer_rcv_fail_buffer_trim', YLeaf(YType.uint32, 'data-xfer-rcv-fail-buffer-trim')),
+                                    ('data_xfer_rcv_fail_snd_una_out_of_sync', YLeaf(YType.uint32, 'data-xfer-rcv-fail-snd-una-out-of-sync')),
+                                    ('seg_instr_send', YLeaf(YType.uint32, 'seg-instr-send')),
+                                    ('seg_instr_send_units', YLeaf(YType.uint32, 'seg-instr-send-units')),
+                                    ('seg_instr_send_drop', YLeaf(YType.uint32, 'seg-instr-send-drop')),
+                                    ('seg_instr_rcv', YLeaf(YType.uint32, 'seg-instr-rcv')),
+                                    ('seg_instr_rcv_success', YLeaf(YType.uint32, 'seg-instr-rcv-success')),
+                                    ('seg_instr_rcv_fail_buffer_trim', YLeaf(YType.uint32, 'seg-instr-rcv-fail-buffer-trim')),
+                                    ('seg_instr_rcv_fail_tcp_process', YLeaf(YType.uint32, 'seg-instr-rcv-fail-tcp-process')),
+                                    ('nack_send', YLeaf(YType.uint32, 'nack-send')),
+                                    ('nack_send_drop', YLeaf(YType.uint32, 'nack-send-drop')),
+                                    ('nack_rcv', YLeaf(YType.uint32, 'nack-rcv')),
+                                    ('nack_rcv_success', YLeaf(YType.uint32, 'nack-rcv-success')),
+                                    ('nack_rcv_fail_data_send', YLeaf(YType.uint32, 'nack-rcv-fail-data-send')),
+                                    ('cleanup_send', YLeaf(YType.uint32, 'cleanup-send')),
+                                    ('cleanup_send_drop', YLeaf(YType.uint32, 'cleanup-send-drop')),
+                                    ('cleanup_rcv', YLeaf(YType.uint32, 'cleanup-rcv')),
+                                    ('cleanup_rcv_success', YLeaf(YType.uint32, 'cleanup-rcv-success')),
+                                    ('cleanup_rcv_fail_buffer_trim', YLeaf(YType.uint32, 'cleanup-rcv-fail-buffer-trim')),
+                                ])
+                                self.data_xfer_send = None
+                                self.data_xfer_send_total = None
+                                self.data_xfer_send_drop = None
+                                self.data_xfer_send_iov_alloc = None
+                                self.data_xfer_rcv = None
+                                self.data_xfer_rcv_success = None
+                                self.data_xfer_rcv_fail_buffer_trim = None
+                                self.data_xfer_rcv_fail_snd_una_out_of_sync = None
+                                self.seg_instr_send = None
+                                self.seg_instr_send_units = None
+                                self.seg_instr_send_drop = None
+                                self.seg_instr_rcv = None
+                                self.seg_instr_rcv_success = None
+                                self.seg_instr_rcv_fail_buffer_trim = None
+                                self.seg_instr_rcv_fail_tcp_process = None
+                                self.nack_send = None
+                                self.nack_send_drop = None
+                                self.nack_rcv = None
+                                self.nack_rcv_success = None
+                                self.nack_rcv_fail_data_send = None
+                                self.cleanup_send = None
+                                self.cleanup_send_drop = None
+                                self.cleanup_rcv = None
+                                self.cleanup_rcv_success = None
+                                self.cleanup_rcv_fail_buffer_trim = None
                                 self._segment_path = lambda: "snd-counters"
 
                             def __setattr__(self, name, value):

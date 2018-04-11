@@ -4,15 +4,17 @@ This module contains conceptual YANG specifications
 for NETCONF Event Notifications.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class PushSource(Enum):
     """
-    PushSource
+    PushSource (Enum Class)
 
     Specifies from where notifications will be sourced when
 
@@ -175,8 +177,10 @@ class EstablishSubscription(Entity):
         self.yang_parent_name = "ietf-event-notifications"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EstablishSubscription.Input()
         self.input.parent = self
@@ -314,40 +318,43 @@ class EstablishSubscription(Entity):
             self.yang_parent_name = "establish-subscription"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stream = YLeaf(YType.identityref, "stream")
-
-            self.encoding = YLeaf(YType.identityref, "encoding")
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.filter_ref = YLeaf(YType.str, "filter-ref")
-
-            self.subtree_filter = YLeaf(YType.str, "ietf-yang-push:subtree-filter")
-
-            self.xpath_filter = YLeaf(YType.str, "ietf-yang-push:xpath-filter")
-
-            self.starttime = YLeaf(YType.str, "startTime")
-
-            self.stoptime = YLeaf(YType.str, "stopTime")
-
-            self.period = YLeaf(YType.uint32, "ietf-yang-push:period")
-
-            self.anchor_time = YLeaf(YType.str, "ietf-yang-push:anchor-time")
-
-            self.no_synch_on_start = YLeaf(YType.empty, "ietf-yang-push:no-synch-on-start")
-
-            self.dampening_period = YLeaf(YType.uint32, "ietf-yang-push:dampening-period")
-
-            self.excluded_change = YLeafList(YType.enumeration, "ietf-yang-push:excluded-change")
-
-            self.dscp = YLeaf(YType.uint8, "ietf-yang-push:dscp")
-
-            self.subscription_priority = YLeaf(YType.uint8, "ietf-yang-push:subscription-priority")
-
-            self.subscription_dependency = YLeaf(YType.str, "ietf-yang-push:subscription-dependency")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stream', YLeaf(YType.identityref, 'stream')),
+                ('encoding', YLeaf(YType.identityref, 'encoding')),
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
+                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
+                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
+                ('starttime', YLeaf(YType.str, 'startTime')),
+                ('stoptime', YLeaf(YType.str, 'stopTime')),
+                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
+                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
+                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
+                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
+                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
+                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
+                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
+                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+            ])
+            self.stream = None
+            self.encoding = None
+            self.filter = None
+            self.filter_ref = None
+            self.subtree_filter = None
+            self.xpath_filter = None
+            self.starttime = None
+            self.stoptime = None
+            self.period = None
+            self.anchor_time = None
+            self.no_synch_on_start = None
+            self.dampening_period = None
+            self.excluded_change = []
+            self.dscp = None
+            self.subscription_priority = None
+            self.subscription_dependency = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-event-notifications:establish-subscription/%s" % self._segment_path()
 
@@ -495,44 +502,47 @@ class EstablishSubscription(Entity):
             self.yang_parent_name = "establish-subscription"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.subscription_result = YLeaf(YType.identityref, "subscription-result")
-
-            self.subscription_id = YLeaf(YType.uint32, "subscription-id")
-
-            self.stream = YLeaf(YType.identityref, "stream")
-
-            self.encoding = YLeaf(YType.identityref, "encoding")
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.filter_ref = YLeaf(YType.str, "filter-ref")
-
-            self.subtree_filter = YLeaf(YType.str, "ietf-yang-push:subtree-filter")
-
-            self.xpath_filter = YLeaf(YType.str, "ietf-yang-push:xpath-filter")
-
-            self.starttime = YLeaf(YType.str, "startTime")
-
-            self.stoptime = YLeaf(YType.str, "stopTime")
-
-            self.period = YLeaf(YType.uint32, "ietf-yang-push:period")
-
-            self.anchor_time = YLeaf(YType.str, "ietf-yang-push:anchor-time")
-
-            self.no_synch_on_start = YLeaf(YType.empty, "ietf-yang-push:no-synch-on-start")
-
-            self.dampening_period = YLeaf(YType.uint32, "ietf-yang-push:dampening-period")
-
-            self.excluded_change = YLeafList(YType.enumeration, "ietf-yang-push:excluded-change")
-
-            self.dscp = YLeaf(YType.uint8, "ietf-yang-push:dscp")
-
-            self.subscription_priority = YLeaf(YType.uint8, "ietf-yang-push:subscription-priority")
-
-            self.subscription_dependency = YLeaf(YType.str, "ietf-yang-push:subscription-dependency")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
+                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+                ('stream', YLeaf(YType.identityref, 'stream')),
+                ('encoding', YLeaf(YType.identityref, 'encoding')),
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
+                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
+                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
+                ('starttime', YLeaf(YType.str, 'startTime')),
+                ('stoptime', YLeaf(YType.str, 'stopTime')),
+                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
+                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
+                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
+                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
+                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
+                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
+                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
+                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+            ])
+            self.subscription_result = None
+            self.subscription_id = None
+            self.stream = None
+            self.encoding = None
+            self.filter = None
+            self.filter_ref = None
+            self.subtree_filter = None
+            self.xpath_filter = None
+            self.starttime = None
+            self.stoptime = None
+            self.period = None
+            self.anchor_time = None
+            self.no_synch_on_start = None
+            self.dampening_period = None
+            self.excluded_change = []
+            self.dscp = None
+            self.subscription_priority = None
+            self.subscription_dependency = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-event-notifications:establish-subscription/%s" % self._segment_path()
 
@@ -573,8 +583,10 @@ class CreateSubscription(Entity):
         self.yang_parent_name = "ietf-event-notifications"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = CreateSubscription.Input()
         self.input.parent = self
@@ -634,18 +646,21 @@ class CreateSubscription(Entity):
             self.yang_parent_name = "create-subscription"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stream = YLeaf(YType.identityref, "stream")
-
-            self.encoding = YLeaf(YType.identityref, "encoding")
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.starttime = YLeaf(YType.str, "startTime")
-
-            self.stoptime = YLeaf(YType.str, "stopTime")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stream', YLeaf(YType.identityref, 'stream')),
+                ('encoding', YLeaf(YType.identityref, 'encoding')),
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('starttime', YLeaf(YType.str, 'startTime')),
+                ('stoptime', YLeaf(YType.str, 'stopTime')),
+            ])
+            self.stream = None
+            self.encoding = None
+            self.filter = None
+            self.starttime = None
+            self.stoptime = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-event-notifications:create-subscription/%s" % self._segment_path()
 
@@ -697,8 +712,10 @@ class ModifySubscription(Entity):
         self.yang_parent_name = "ietf-event-notifications"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ModifySubscription.Input()
         self.input.parent = self
@@ -810,32 +827,35 @@ class ModifySubscription(Entity):
             self.yang_parent_name = "modify-subscription"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.subscription_id = YLeaf(YType.uint32, "subscription-id")
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.filter_ref = YLeaf(YType.str, "filter-ref")
-
-            self.subtree_filter = YLeaf(YType.str, "ietf-yang-push:subtree-filter")
-
-            self.xpath_filter = YLeaf(YType.str, "ietf-yang-push:xpath-filter")
-
-            self.starttime = YLeaf(YType.str, "startTime")
-
-            self.stoptime = YLeaf(YType.str, "stopTime")
-
-            self.period = YLeaf(YType.uint32, "ietf-yang-push:period")
-
-            self.anchor_time = YLeaf(YType.str, "ietf-yang-push:anchor-time")
-
-            self.no_synch_on_start = YLeaf(YType.empty, "ietf-yang-push:no-synch-on-start")
-
-            self.dampening_period = YLeaf(YType.uint32, "ietf-yang-push:dampening-period")
-
-            self.excluded_change = YLeafList(YType.enumeration, "ietf-yang-push:excluded-change")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
+                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
+                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
+                ('starttime', YLeaf(YType.str, 'startTime')),
+                ('stoptime', YLeaf(YType.str, 'stopTime')),
+                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
+                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
+                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
+                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
+                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
+            ])
+            self.subscription_id = None
+            self.filter = None
+            self.filter_ref = None
+            self.subtree_filter = None
+            self.xpath_filter = None
+            self.starttime = None
+            self.stoptime = None
+            self.period = None
+            self.anchor_time = None
+            self.no_synch_on_start = None
+            self.dampening_period = None
+            self.excluded_change = []
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-event-notifications:modify-subscription/%s" % self._segment_path()
 
@@ -983,44 +1003,47 @@ class ModifySubscription(Entity):
             self.yang_parent_name = "modify-subscription"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.subscription_result = YLeaf(YType.identityref, "subscription-result")
-
-            self.subscription_id = YLeaf(YType.uint32, "subscription-id")
-
-            self.stream = YLeaf(YType.identityref, "stream")
-
-            self.encoding = YLeaf(YType.identityref, "encoding")
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.filter_ref = YLeaf(YType.str, "filter-ref")
-
-            self.subtree_filter = YLeaf(YType.str, "ietf-yang-push:subtree-filter")
-
-            self.xpath_filter = YLeaf(YType.str, "ietf-yang-push:xpath-filter")
-
-            self.starttime = YLeaf(YType.str, "startTime")
-
-            self.stoptime = YLeaf(YType.str, "stopTime")
-
-            self.period = YLeaf(YType.uint32, "ietf-yang-push:period")
-
-            self.anchor_time = YLeaf(YType.str, "ietf-yang-push:anchor-time")
-
-            self.no_synch_on_start = YLeaf(YType.empty, "ietf-yang-push:no-synch-on-start")
-
-            self.dampening_period = YLeaf(YType.uint32, "ietf-yang-push:dampening-period")
-
-            self.excluded_change = YLeafList(YType.enumeration, "ietf-yang-push:excluded-change")
-
-            self.dscp = YLeaf(YType.uint8, "ietf-yang-push:dscp")
-
-            self.subscription_priority = YLeaf(YType.uint8, "ietf-yang-push:subscription-priority")
-
-            self.subscription_dependency = YLeaf(YType.str, "ietf-yang-push:subscription-dependency")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
+                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+                ('stream', YLeaf(YType.identityref, 'stream')),
+                ('encoding', YLeaf(YType.identityref, 'encoding')),
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
+                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
+                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
+                ('starttime', YLeaf(YType.str, 'startTime')),
+                ('stoptime', YLeaf(YType.str, 'stopTime')),
+                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
+                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
+                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
+                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
+                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
+                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
+                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
+                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+            ])
+            self.subscription_result = None
+            self.subscription_id = None
+            self.stream = None
+            self.encoding = None
+            self.filter = None
+            self.filter_ref = None
+            self.subtree_filter = None
+            self.xpath_filter = None
+            self.starttime = None
+            self.stoptime = None
+            self.period = None
+            self.anchor_time = None
+            self.no_synch_on_start = None
+            self.dampening_period = None
+            self.excluded_change = []
+            self.dscp = None
+            self.subscription_priority = None
+            self.subscription_dependency = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-event-notifications:modify-subscription/%s" % self._segment_path()
 
@@ -1061,8 +1084,10 @@ class DeleteSubscription(Entity):
         self.yang_parent_name = "ietf-event-notifications"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = DeleteSubscription.Input()
         self.input.parent = self
@@ -1103,10 +1128,13 @@ class DeleteSubscription(Entity):
             self.yang_parent_name = "delete-subscription"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.subscription_id = YLeaf(YType.uint32, "subscription-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+            ])
+            self.subscription_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-event-notifications:delete-subscription/%s" % self._segment_path()
 
@@ -1139,10 +1167,13 @@ class DeleteSubscription(Entity):
             self.yang_parent_name = "delete-subscription"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.subscription_result = YLeaf(YType.identityref, "subscription-result")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
+            ])
+            self.subscription_result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-event-notifications:delete-subscription/%s" % self._segment_path()
 
@@ -1178,10 +1209,13 @@ class Streams(Entity):
         self.yang_parent_name = "ietf-event-notifications"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.stream = YLeafList(YType.identityref, "stream")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('stream', YLeafList(YType.identityref, 'stream')),
+        ])
+        self.stream = []
         self._segment_path = lambda: "ietf-event-notifications:streams"
 
     def __setattr__(self, name, value):
@@ -1217,8 +1251,10 @@ class Filters(Entity):
         self.yang_parent_name = "ietf-event-notifications"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"filter" : ("filter", Filters.Filter)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("filter", ("filter", Filters.Filter))])
+        self._leafs = OrderedDict()
 
         self.filter = YList(self)
         self._segment_path = lambda: "ietf-event-notifications:filters"
@@ -1232,7 +1268,7 @@ class Filters(Entity):
         A list of configurable filters that can be applied to
         subscriptions.
         
-        .. attribute:: filter_id  <key>
+        .. attribute:: filter_id  (key)
         
         	An identifier to differentiate between filters
         	**type**\: int
@@ -1268,17 +1304,20 @@ class Filters(Entity):
             self.yang_parent_name = "filters"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.filter_id = YLeaf(YType.uint32, "filter-id")
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.subtree_filter = YLeaf(YType.str, "ietf-yang-push:subtree-filter")
-
-            self.xpath_filter = YLeaf(YType.str, "ietf-yang-push:xpath-filter")
-            self._segment_path = lambda: "filter" + "[filter-id='" + self.filter_id.get() + "']"
+            self.ylist_key_names = ['filter_id']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('filter_id', YLeaf(YType.uint32, 'filter-id')),
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
+                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
+            ])
+            self.filter_id = None
+            self.filter = None
+            self.subtree_filter = None
+            self.xpath_filter = None
+            self._segment_path = lambda: "filter" + "[filter-id='" + str(self.filter_id) + "']"
             self._absolute_path = lambda: "ietf-event-notifications:filters/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -1313,8 +1352,10 @@ class SubscriptionConfig(Entity):
         self.yang_parent_name = "ietf-event-notifications"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"subscription" : ("subscription", SubscriptionConfig.Subscription)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("subscription", ("subscription", SubscriptionConfig.Subscription))])
+        self._leafs = OrderedDict()
 
         self.subscription = YList(self)
         self._segment_path = lambda: "ietf-event-notifications:subscription-config"
@@ -1327,7 +1368,7 @@ class SubscriptionConfig(Entity):
         """
         Content of a subscription.
         
-        .. attribute:: subscription_id  <key>
+        .. attribute:: subscription_id  (key)
         
         	Identifier to use for this subscription
         	**type**\: int
@@ -1488,54 +1529,57 @@ class SubscriptionConfig(Entity):
             self.yang_parent_name = "subscription-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"receivers" : ("receivers", SubscriptionConfig.Subscription.Receivers)}
-            self._child_list_classes = {}
-
-            self.subscription_id = YLeaf(YType.uint32, "subscription-id")
-
-            self.stream = YLeaf(YType.identityref, "stream")
-
-            self.encoding = YLeaf(YType.identityref, "encoding")
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.filter_ref = YLeaf(YType.str, "filter-ref")
-
-            self.subtree_filter = YLeaf(YType.str, "ietf-yang-push:subtree-filter")
-
-            self.xpath_filter = YLeaf(YType.str, "ietf-yang-push:xpath-filter")
-
-            self.starttime = YLeaf(YType.str, "startTime")
-
-            self.stoptime = YLeaf(YType.str, "stopTime")
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
-
-            self.source_vrf = YLeaf(YType.uint32, "source-vrf")
-
-            self.source_address = YLeaf(YType.str, "source-address")
-
-            self.period = YLeaf(YType.uint32, "ietf-yang-push:period")
-
-            self.anchor_time = YLeaf(YType.str, "ietf-yang-push:anchor-time")
-
-            self.no_synch_on_start = YLeaf(YType.empty, "ietf-yang-push:no-synch-on-start")
-
-            self.dampening_period = YLeaf(YType.uint32, "ietf-yang-push:dampening-period")
-
-            self.excluded_change = YLeafList(YType.enumeration, "ietf-yang-push:excluded-change")
-
-            self.dscp = YLeaf(YType.uint8, "ietf-yang-push:dscp")
-
-            self.subscription_priority = YLeaf(YType.uint8, "ietf-yang-push:subscription-priority")
-
-            self.subscription_dependency = YLeaf(YType.str, "ietf-yang-push:subscription-dependency")
+            self.ylist_key_names = ['subscription_id']
+            self._child_container_classes = OrderedDict([("receivers", ("receivers", SubscriptionConfig.Subscription.Receivers))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+                ('stream', YLeaf(YType.identityref, 'stream')),
+                ('encoding', YLeaf(YType.identityref, 'encoding')),
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
+                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
+                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
+                ('starttime', YLeaf(YType.str, 'startTime')),
+                ('stoptime', YLeaf(YType.str, 'stopTime')),
+                ('source_interface', YLeaf(YType.str, 'source-interface')),
+                ('source_vrf', YLeaf(YType.uint32, 'source-vrf')),
+                ('source_address', YLeaf(YType.str, 'source-address')),
+                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
+                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
+                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
+                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
+                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
+                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
+                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
+                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+            ])
+            self.subscription_id = None
+            self.stream = None
+            self.encoding = None
+            self.filter = None
+            self.filter_ref = None
+            self.subtree_filter = None
+            self.xpath_filter = None
+            self.starttime = None
+            self.stoptime = None
+            self.source_interface = None
+            self.source_vrf = None
+            self.source_address = None
+            self.period = None
+            self.anchor_time = None
+            self.no_synch_on_start = None
+            self.dampening_period = None
+            self.excluded_change = []
+            self.dscp = None
+            self.subscription_priority = None
+            self.subscription_dependency = None
 
             self.receivers = SubscriptionConfig.Subscription.Receivers()
             self.receivers.parent = self
             self._children_name_map["receivers"] = "receivers"
             self._children_yang_names.add("receivers")
-            self._segment_path = lambda: "subscription" + "[subscription-id='" + self.subscription_id.get() + "']"
+            self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
             self._absolute_path = lambda: "ietf-event-notifications:subscription-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -1565,8 +1609,10 @@ class SubscriptionConfig(Entity):
                 self.yang_parent_name = "subscription"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"receiver" : ("receiver", SubscriptionConfig.Subscription.Receivers.Receiver)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("receiver", ("receiver", SubscriptionConfig.Subscription.Receivers.Receiver))])
+                self._leafs = OrderedDict()
 
                 self.receiver = YList(self)
                 self._segment_path = lambda: "receivers"
@@ -1580,7 +1626,7 @@ class SubscriptionConfig(Entity):
                 A single host or multipoint address intended as a target
                 for the notifications for a subscription.
                 
-                .. attribute:: address  <key>
+                .. attribute:: address  (key)
                 
                 	Specifies the address for the traffic to reach a remote host. One of the following must be specified\: an ipv4 address, an ipv6 address, or a host name
                 	**type**\: union of the below types:
@@ -1629,15 +1675,18 @@ class SubscriptionConfig(Entity):
                     self.yang_parent_name = "receivers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.port = YLeaf(YType.uint16, "port")
-
-                    self.protocol = YLeaf(YType.identityref, "protocol")
-                    self._segment_path = lambda: "receiver" + "[address='" + self.address.get() + "']"
+                    self.ylist_key_names = ['address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('protocol', YLeaf(YType.identityref, 'protocol')),
+                    ])
+                    self.address = None
+                    self.port = None
+                    self.protocol = None
+                    self._segment_path = lambda: "receiver" + "[address='" + str(self.address) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
@@ -1677,8 +1726,10 @@ class Subscriptions(Entity):
         self.yang_parent_name = "ietf-event-notifications"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"subscription" : ("subscription", Subscriptions.Subscription)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("subscription", ("subscription", Subscriptions.Subscription))])
+        self._leafs = OrderedDict()
 
         self.subscription = YList(self)
         self._segment_path = lambda: "ietf-event-notifications:subscriptions"
@@ -1693,7 +1744,7 @@ class Subscriptions(Entity):
         Subscriptions can be created using a control channel
         or RPC, or be established through configuration.
         
-        .. attribute:: subscription_id  <key>
+        .. attribute:: subscription_id  (key)
         
         	Identifier of this subscription
         	**type**\: int
@@ -1864,58 +1915,61 @@ class Subscriptions(Entity):
             self.yang_parent_name = "subscriptions"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"receivers" : ("receivers", Subscriptions.Subscription.Receivers)}
-            self._child_list_classes = {}
-
-            self.subscription_id = YLeaf(YType.uint32, "subscription-id")
-
-            self.configured_subscription = YLeaf(YType.empty, "configured-subscription")
-
-            self.subscription_status = YLeaf(YType.identityref, "subscription-status")
-
-            self.stream = YLeaf(YType.identityref, "stream")
-
-            self.encoding = YLeaf(YType.identityref, "encoding")
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.filter_ref = YLeaf(YType.str, "filter-ref")
-
-            self.subtree_filter = YLeaf(YType.str, "ietf-yang-push:subtree-filter")
-
-            self.xpath_filter = YLeaf(YType.str, "ietf-yang-push:xpath-filter")
-
-            self.starttime = YLeaf(YType.str, "startTime")
-
-            self.stoptime = YLeaf(YType.str, "stopTime")
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
-
-            self.source_vrf = YLeaf(YType.uint32, "source-vrf")
-
-            self.source_address = YLeaf(YType.str, "source-address")
-
-            self.period = YLeaf(YType.uint32, "ietf-yang-push:period")
-
-            self.anchor_time = YLeaf(YType.str, "ietf-yang-push:anchor-time")
-
-            self.no_synch_on_start = YLeaf(YType.empty, "ietf-yang-push:no-synch-on-start")
-
-            self.dampening_period = YLeaf(YType.uint32, "ietf-yang-push:dampening-period")
-
-            self.excluded_change = YLeafList(YType.enumeration, "ietf-yang-push:excluded-change")
-
-            self.dscp = YLeaf(YType.uint8, "ietf-yang-push:dscp")
-
-            self.subscription_priority = YLeaf(YType.uint8, "ietf-yang-push:subscription-priority")
-
-            self.subscription_dependency = YLeaf(YType.str, "ietf-yang-push:subscription-dependency")
+            self.ylist_key_names = ['subscription_id']
+            self._child_container_classes = OrderedDict([("receivers", ("receivers", Subscriptions.Subscription.Receivers))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+                ('configured_subscription', YLeaf(YType.empty, 'configured-subscription')),
+                ('subscription_status', YLeaf(YType.identityref, 'subscription-status')),
+                ('stream', YLeaf(YType.identityref, 'stream')),
+                ('encoding', YLeaf(YType.identityref, 'encoding')),
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
+                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
+                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
+                ('starttime', YLeaf(YType.str, 'startTime')),
+                ('stoptime', YLeaf(YType.str, 'stopTime')),
+                ('source_interface', YLeaf(YType.str, 'source-interface')),
+                ('source_vrf', YLeaf(YType.uint32, 'source-vrf')),
+                ('source_address', YLeaf(YType.str, 'source-address')),
+                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
+                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
+                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
+                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
+                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
+                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
+                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
+                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+            ])
+            self.subscription_id = None
+            self.configured_subscription = None
+            self.subscription_status = None
+            self.stream = None
+            self.encoding = None
+            self.filter = None
+            self.filter_ref = None
+            self.subtree_filter = None
+            self.xpath_filter = None
+            self.starttime = None
+            self.stoptime = None
+            self.source_interface = None
+            self.source_vrf = None
+            self.source_address = None
+            self.period = None
+            self.anchor_time = None
+            self.no_synch_on_start = None
+            self.dampening_period = None
+            self.excluded_change = []
+            self.dscp = None
+            self.subscription_priority = None
+            self.subscription_dependency = None
 
             self.receivers = Subscriptions.Subscription.Receivers()
             self.receivers.parent = self
             self._children_name_map["receivers"] = "receivers"
             self._children_yang_names.add("receivers")
-            self._segment_path = lambda: "subscription" + "[subscription-id='" + self.subscription_id.get() + "']"
+            self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
             self._absolute_path = lambda: "ietf-event-notifications:subscriptions/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -1945,8 +1999,10 @@ class Subscriptions(Entity):
                 self.yang_parent_name = "subscription"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"receiver" : ("receiver", Subscriptions.Subscription.Receivers.Receiver)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("receiver", ("receiver", Subscriptions.Subscription.Receivers.Receiver))])
+                self._leafs = OrderedDict()
 
                 self.receiver = YList(self)
                 self._segment_path = lambda: "receivers"
@@ -1960,7 +2016,7 @@ class Subscriptions(Entity):
                 A single host or multipoint address intended as a target
                 for the notifications for a subscription.
                 
-                .. attribute:: address  <key>
+                .. attribute:: address  (key)
                 
                 	Specifies the address for the traffic to reach a remote host. One of the following must be specified\: an ipv4 address, an ipv6 address, or a host name
                 	**type**\: union of the below types:
@@ -2009,15 +2065,18 @@ class Subscriptions(Entity):
                     self.yang_parent_name = "receivers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.port = YLeaf(YType.uint16, "port")
-
-                    self.protocol = YLeaf(YType.identityref, "protocol")
-                    self._segment_path = lambda: "receiver" + "[address='" + self.address.get() + "']"
+                    self.ylist_key_names = ['address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('protocol', YLeaf(YType.identityref, 'protocol')),
+                    ])
+                    self.address = None
+                    self.port = None
+                    self.protocol = None
+                    self._segment_path = lambda: "receiver" + "[address='" + str(self.address) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)

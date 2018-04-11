@@ -1,288 +1,251 @@
 module openconfig-transport-types {
-
-  yang-version "1";
-
-  // namespace
+  yang-version 1;
   namespace "http://openconfig.net/yang/transport-types";
+  prefix oc-opt-types;
 
-  prefix "oc-opt-types";
+  import openconfig-platform-types {
+    prefix oc-platform-types;
+  }
+  import openconfig-extensions {
+    prefix oc-ext;
+  }
 
-  import openconfig-platform-types { prefix oc-platform-types; }
-  import openconfig-extensions { prefix oc-ext; }
-
-  // meta
-  organization "OpenConfig working group";
-
+  organization
+    "OpenConfig working group";
   contact
     "OpenConfig working group
-    www.openconfig.net";
-
+     www.openconfig.net";
   description
     "This module contains general type definitions and identities
-    for optical transport models.";
+     for optical transport models.";
 
-  oc-ext:openconfig-version "0.3.1";
-
-  revision "2016-06-17" {
+  revision 2016-06-17 {
     description
       "Public release";
     reference "0.3.1";
   }
 
-  // typedef statements
-
-  typedef frequency-type {
-    type uint64;
-    units "MHz";
-    description
-      "Type for optical spectrum frequency values";
-  }
-
-  typedef admin-state-type {
-    type enumeration {
-      enum ENABLED {
-        description
-        "Sets the channel admin state to enabled";
-      }
-      enum DISABLED {
-        description
-        "Sets the channel admin state to disabled";
-      }
-      enum MAINT {
-        description
-        "Sets the channel to maintenance / diagnostic mode";
-      }
-    }
-    description "Administrative state modes for
-    logical channels in the transponder model.";
-  }
-
-  typedef loopback-mode-type {
-    type enumeration {
-      enum NONE {
-        description
-          "No loopback is applied";
-      }
-      enum FACILITY {
-        description
-          "A loopback which directs traffic normally transmitted
-          on the port back to the device as if received on the same
-          port from an external source.";
-      }
-      enum TERMINAL {
-        description
-          "A loopback which directs traffic received from an external
-          source on the port back out the transmit side of the same
-          port.";
-      }
-    }
-    default NONE;
-    description
-      "Loopback modes for transponder logical channels";
-  }
-
-
-  // identity statements
-
   identity TRIBUTARY_PROTOCOL_TYPE {
     description
       "Base identity for protocol framing used by tributary
-      signals.";
+       signals.";
   }
 
   identity PROT_1GE {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "1G Ethernet protocol";
+    description
+      "1G Ethernet protocol";
   }
 
   identity PROT_OC48 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OC48 protocol";
+    description
+      "OC48 protocol";
   }
 
   identity PROT_STM16 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "STM 16 protocol";
+    description
+      "STM 16 protocol";
   }
 
   identity PROT_10GE_LAN {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "10G Ethernet LAN protocol";
+    description
+      "10G Ethernet LAN protocol";
   }
 
   identity PROT_10GE_WAN {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "10G Ethernet WAN protocol";
+    description
+      "10G Ethernet WAN protocol";
   }
 
   identity PROT_OC192 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OC 192 (9.6GB) port protocol";
+    description
+      "OC 192 (9.6GB) port protocol";
   }
 
   identity PROT_STM64 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "STM 64 protocol";
+    description
+      "STM 64 protocol";
   }
 
   identity PROT_OTU2 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OTU 2 protocol";
+    description
+      "OTU 2 protocol";
   }
 
   identity PROT_OTU2E {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OTU 2e protocol";
+    description
+      "OTU 2e protocol";
   }
 
   identity PROT_OTU1E {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OTU 1e protocol";
+    description
+      "OTU 1e protocol";
   }
 
   identity PROT_ODU2 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "ODU 2 protocol";
+    description
+      "ODU 2 protocol";
   }
 
   identity PROT_ODU2E {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "ODU 2e protocol";
+    description
+      "ODU 2e protocol";
   }
 
   identity PROT_40GE {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "40G Ethernet port protocol";
+    description
+      "40G Ethernet port protocol";
   }
 
   identity PROT_OC768 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OC 768 protocol";
+    description
+      "OC 768 protocol";
   }
 
   identity PROT_STM256 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "STM 256 protocol";
+    description
+      "STM 256 protocol";
   }
 
   identity PROT_OTU3 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OTU 3 protocol";
+    description
+      "OTU 3 protocol";
   }
 
   identity PROT_ODU3 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "ODU 3 protocol";
+    description
+      "ODU 3 protocol";
   }
 
   identity PROT_100GE {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "100G Ethernet protocol";
+    description
+      "100G Ethernet protocol";
   }
 
   identity PROT_100G_MLG {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "100G MLG protocol";
+    description
+      "100G MLG protocol";
   }
 
   identity PROT_OTU4 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OTU4 signal protocol (112G) for transporting
-    100GE signal";
+    description
+      "OTU4 signal protocol (112G) for transporting
+       100GE signal";
   }
 
   identity PROT_OTUCN {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "OTU Cn protocol";
+    description
+      "OTU Cn protocol";
   }
 
   identity PROT_ODU4 {
     base TRIBUTARY_PROTOCOL_TYPE;
-    description "ODU 4 protocol";
+    description
+      "ODU 4 protocol";
   }
 
   identity TRANSCEIVER_FORM_FACTOR_TYPE {
     description
       "Base identity for identifying the type of pluggable optic
-      transceiver (i.e,. form factor) used in a port.";
+       transceiver (i.e,. form factor) used in a port.";
   }
 
   identity CFP {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "C form-factor pluggable, that can support up to a
-      100 Gb/s signal with 10x10G or 4x25G physical channels";
+       100 Gb/s signal with 10x10G or 4x25G physical channels";
   }
 
   identity CFP2 {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "1/2 C form-factor pluggable, that can support up to a
-      200 Gb/s signal with 10x10G, 4x25G, or 8x25G physical
-      channels";
+       200 Gb/s signal with 10x10G, 4x25G, or 8x25G physical
+       channels";
   }
 
   identity CFP2_ACO {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "CFP2 analog coherent optics transceiver, supporting
-      100 Gb, 200Gb, and 250 Gb/s signal.";
+       100 Gb, 200Gb, and 250 Gb/s signal.";
   }
 
   identity CFP4 {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "1/4 C form-factor pluggable, that can support up to a
-      100 Gb/s signal with 10x10G or 4x25G physical channels";
+       100 Gb/s signal with 10x10G or 4x25G physical channels";
   }
 
   identity QSFP {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "Quad Small Form-factor Pluggable transceiver that can support
-      up to 4x10G physical channels";
+       up to 4x10G physical channels";
   }
 
   identity QSFP28 {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "QSFP pluggable optic with support for up to 4x28G physical
-      channels";
+       channels";
   }
 
   identity SFP {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "Small form-factor pluggable transceiver supporting up to
-      10 Gb/s signal";
+       10 Gb/s signal";
   }
 
   identity SFP_PLUS {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "Enhanced small form-factor pluggable transceiver supporting
-      up to 16 Gb/s signals, including 10 GbE and OTU2";
+       up to 16 Gb/s signals, including 10 GbE and OTU2";
   }
 
   identity XFP {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "10 Gigabit small form factor pluggable transceiver supporting
-      10 GbE and OTU2";
+       10 GbE and OTU2";
   }
 
   identity X2 {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "10 Gigabit small form factor pluggable transceiver supporting
-      10 GbE using a XAUI inerface and 4 data channels.";
+       10 GbE using a XAUI inerface and 4 data channels.";
   }
 
   identity NON_PLUGGABLE {
     base TRANSCEIVER_FORM_FACTOR_TYPE;
     description
       "Represents a port that does not require a pluggable optic,
-      e.g., with on-board optics like COBO";
+       e.g., with on-board optics like COBO";
   }
 
   identity OTHER {
@@ -312,7 +275,7 @@ module openconfig-transport-types {
     base FIBER_CONNECTOR_TYPE;
     description
       "MPO (multi-fiber push-on/pull-off) type fiber connector
-      1x12 fibers";
+       1x12 fibers";
   }
 
   identity ETHERNET_PMD_TYPE {
@@ -322,117 +285,140 @@ module openconfig-transport-types {
 
   identity ETH_10GBASE_LRM {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 10GBASE_LRM";
+    description
+      "Ethernet compliance code: 10GBASE_LRM";
   }
 
   identity ETH_10GBASE_LR {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 10GBASE_LR";
+    description
+      "Ethernet compliance code: 10GBASE_LR";
   }
 
   identity ETH_10GBASE_ZR {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 10GBASE_ZR";
+    description
+      "Ethernet compliance code: 10GBASE_ZR";
   }
 
   identity ETH_10GBASE_ER {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 10GBASE_ER";
+    description
+      "Ethernet compliance code: 10GBASE_ER";
   }
 
   identity ETH_10GBASE_SR {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 10GBASE_SR";
+    description
+      "Ethernet compliance code: 10GBASE_SR";
   }
 
   identity ETH_40GBASE_CR4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 40GBASE_CR4";
+    description
+      "Ethernet compliance code: 40GBASE_CR4";
   }
 
   identity ETH_40GBASE_SR4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 40GBASE_SR4";
+    description
+      "Ethernet compliance code: 40GBASE_SR4";
   }
 
   identity ETH_40GBASE_LR4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 40GBASE_LR4";
+    description
+      "Ethernet compliance code: 40GBASE_LR4";
   }
 
   identity ETH_40GBASE_ER4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 40GBASE_ER4";
+    description
+      "Ethernet compliance code: 40GBASE_ER4";
   }
 
   identity ETH_40GBASE_PSM4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 40GBASE_PSM4";
+    description
+      "Ethernet compliance code: 40GBASE_PSM4";
   }
 
   identity ETH_4X10GBASE_LR {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 4x10GBASE_LR";
+    description
+      "Ethernet compliance code: 4x10GBASE_LR";
   }
 
   identity ETH_4X10GBASE_SR {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 4x10GBASE_SR";
+    description
+      "Ethernet compliance code: 4x10GBASE_SR";
   }
 
   identity ETH_100G_AOC {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100G_AOC";
+    description
+      "Ethernet compliance code: 100G_AOC";
   }
 
   identity ETH_100G_ACC {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100G_ACC";
+    description
+      "Ethernet compliance code: 100G_ACC";
   }
 
   identity ETH_100GBASE_SR10 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100GBASE_SR10";
+    description
+      "Ethernet compliance code: 100GBASE_SR10";
   }
 
   identity ETH_100GBASE_SR4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100GBASE_SR4";
+    description
+      "Ethernet compliance code: 100GBASE_SR4";
   }
 
   identity ETH_100GBASE_LR4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100GBASE_LR4";
+    description
+      "Ethernet compliance code: 100GBASE_LR4";
   }
 
   identity ETH_100GBASE_ER4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100GBASE_ER4";
+    description
+      "Ethernet compliance code: 100GBASE_ER4";
   }
 
   identity ETH_100GBASE_CWDM4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100GBASE_CWDM4";
+    description
+      "Ethernet compliance code: 100GBASE_CWDM4";
   }
 
   identity ETH_100GBASE_CLR4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100GBASE_CLR4";
+    description
+      "Ethernet compliance code: 100GBASE_CLR4";
   }
 
   identity ETH_100GBASE_PSM4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100GBASE_PSM4";
+    description
+      "Ethernet compliance code: 100GBASE_PSM4";
   }
 
   identity ETH_100GBASE_CR4 {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: 100GBASE_CR4";
+    description
+      "Ethernet compliance code: 100GBASE_CR4";
   }
 
   identity ETH_UNDEFINED {
     base ETHERNET_PMD_TYPE;
-    description "Ethernet compliance code: undefined";
+    description
+      "Ethernet compliance code: undefined";
   }
 
   identity SONET_APPLICATION_CODE {
@@ -496,7 +482,7 @@ module openconfig-transport-types {
   identity TRIBUTARY_RATE_CLASS_TYPE {
     description
       "Rate of tributary signal _- identities will typically reflect
-      rounded bit rate.";
+       rounded bit rate.";
   }
 
   identity TRIB_RATE_1G {
@@ -532,7 +518,7 @@ module openconfig-transport-types {
   identity LOGICAL_ELEMENT_PROTOCOL_TYPE {
     description
       "Type of protocol framing used on the logical channel or
-      tributary";
+       tributary";
   }
 
   identity PROT_ETHERNET {
@@ -551,8 +537,59 @@ module openconfig-transport-types {
     base oc-platform-types:OPENCONFIG_HARDWARE_COMPONENT;
     description
       "Optical channels act as carriers for transport traffic
-      directed over a line system.  They are represented as
-      physical components in the physical inventory model.";
+       directed over a line system.  They are represented as
+       physical components in the physical inventory model.";
   }
 
+  typedef frequency-type {
+    type uint64;
+    units "MHz";
+    description
+      "Type for optical spectrum frequency values";
+  }
+
+  typedef admin-state-type {
+    type enumeration {
+      enum "ENABLED" {
+        description
+          "Sets the channel admin state to enabled";
+      }
+      enum "DISABLED" {
+        description
+          "Sets the channel admin state to disabled";
+      }
+      enum "MAINT" {
+        description
+          "Sets the channel to maintenance / diagnostic mode";
+      }
+    }
+    description
+      "Administrative state modes for
+       logical channels in the transponder model.";
+  }
+
+  typedef loopback-mode-type {
+    type enumeration {
+      enum "NONE" {
+        description
+          "No loopback is applied";
+      }
+      enum "FACILITY" {
+        description
+          "A loopback which directs traffic normally transmitted
+           on the port back to the device as if received on the same
+           port from an external source.";
+      }
+      enum "TERMINAL" {
+        description
+          "A loopback which directs traffic received from an external
+           source on the port back out the transmit side of the same
+           port.";
+      }
+    }
+    default "NONE";
+    description
+      "Loopback modes for transponder logical channels";
+  }
+  oc-ext:openconfig-version "0.3.1";
 }

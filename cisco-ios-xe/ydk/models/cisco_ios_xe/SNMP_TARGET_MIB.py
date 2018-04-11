@@ -5,9 +5,11 @@ mechanisms to remotely configure the parameters used
 by an SNMP entity for the generation of SNMP messages.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -46,8 +48,10 @@ class SNMPTARGETMIB(Entity):
         self.yang_parent_name = "SNMP-TARGET-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"snmpTargetObjects" : ("snmptargetobjects", SNMPTARGETMIB.Snmptargetobjects), "snmpTargetAddrTable" : ("snmptargetaddrtable", SNMPTARGETMIB.Snmptargetaddrtable), "snmpTargetParamsTable" : ("snmptargetparamstable", SNMPTARGETMIB.Snmptargetparamstable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("snmpTargetObjects", ("snmptargetobjects", SNMPTARGETMIB.Snmptargetobjects)), ("snmpTargetAddrTable", ("snmptargetaddrtable", SNMPTARGETMIB.Snmptargetaddrtable)), ("snmpTargetParamsTable", ("snmptargetparamstable", SNMPTARGETMIB.Snmptargetparamstable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.snmptargetobjects = SNMPTARGETMIB.Snmptargetobjects()
         self.snmptargetobjects.parent = self
@@ -105,14 +109,17 @@ class SNMPTARGETMIB(Entity):
             self.yang_parent_name = "SNMP-TARGET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.snmptargetspinlock = YLeaf(YType.int32, "snmpTargetSpinLock")
-
-            self.snmpunavailablecontexts = YLeaf(YType.uint32, "snmpUnavailableContexts")
-
-            self.snmpunknowncontexts = YLeaf(YType.uint32, "snmpUnknownContexts")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('snmptargetspinlock', YLeaf(YType.int32, 'snmpTargetSpinLock')),
+                ('snmpunavailablecontexts', YLeaf(YType.uint32, 'snmpUnavailableContexts')),
+                ('snmpunknowncontexts', YLeaf(YType.uint32, 'snmpUnknownContexts')),
+            ])
+            self.snmptargetspinlock = None
+            self.snmpunavailablecontexts = None
+            self.snmpunknowncontexts = None
             self._segment_path = lambda: "snmpTargetObjects"
             self._absolute_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB/%s" % self._segment_path()
 
@@ -144,8 +151,10 @@ class SNMPTARGETMIB(Entity):
             self.yang_parent_name = "SNMP-TARGET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"snmpTargetAddrEntry" : ("snmptargetaddrentry", SNMPTARGETMIB.Snmptargetaddrtable.Snmptargetaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("snmpTargetAddrEntry", ("snmptargetaddrentry", SNMPTARGETMIB.Snmptargetaddrtable.Snmptargetaddrentry))])
+            self._leafs = OrderedDict()
 
             self.snmptargetaddrentry = YList(self)
             self._segment_path = lambda: "snmpTargetAddrTable"
@@ -163,7 +172,7 @@ class SNMPTARGETMIB(Entity):
             Entries in the snmpTargetAddrTable are created and
             deleted using the snmpTargetAddrRowStatus object.
             
-            .. attribute:: snmptargetaddrname  <key>
+            .. attribute:: snmptargetaddrname  (key)
             
             	The locally arbitrary, but unique identifier associated with this snmpTargetAddrEntry
             	**type**\: str
@@ -234,27 +243,30 @@ class SNMPTARGETMIB(Entity):
                 self.yang_parent_name = "snmpTargetAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.snmptargetaddrname = YLeaf(YType.str, "snmpTargetAddrName")
-
-                self.snmptargetaddrtdomain = YLeaf(YType.str, "snmpTargetAddrTDomain")
-
-                self.snmptargetaddrtaddress = YLeaf(YType.str, "snmpTargetAddrTAddress")
-
-                self.snmptargetaddrtimeout = YLeaf(YType.int32, "snmpTargetAddrTimeout")
-
-                self.snmptargetaddrretrycount = YLeaf(YType.int32, "snmpTargetAddrRetryCount")
-
-                self.snmptargetaddrtaglist = YLeaf(YType.str, "snmpTargetAddrTagList")
-
-                self.snmptargetaddrparams = YLeaf(YType.str, "snmpTargetAddrParams")
-
-                self.snmptargetaddrstoragetype = YLeaf(YType.enumeration, "snmpTargetAddrStorageType")
-
-                self.snmptargetaddrrowstatus = YLeaf(YType.enumeration, "snmpTargetAddrRowStatus")
-                self._segment_path = lambda: "snmpTargetAddrEntry" + "[snmpTargetAddrName='" + self.snmptargetaddrname.get() + "']"
+                self.ylist_key_names = ['snmptargetaddrname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('snmptargetaddrname', YLeaf(YType.str, 'snmpTargetAddrName')),
+                    ('snmptargetaddrtdomain', YLeaf(YType.str, 'snmpTargetAddrTDomain')),
+                    ('snmptargetaddrtaddress', YLeaf(YType.str, 'snmpTargetAddrTAddress')),
+                    ('snmptargetaddrtimeout', YLeaf(YType.int32, 'snmpTargetAddrTimeout')),
+                    ('snmptargetaddrretrycount', YLeaf(YType.int32, 'snmpTargetAddrRetryCount')),
+                    ('snmptargetaddrtaglist', YLeaf(YType.str, 'snmpTargetAddrTagList')),
+                    ('snmptargetaddrparams', YLeaf(YType.str, 'snmpTargetAddrParams')),
+                    ('snmptargetaddrstoragetype', YLeaf(YType.enumeration, 'snmpTargetAddrStorageType')),
+                    ('snmptargetaddrrowstatus', YLeaf(YType.enumeration, 'snmpTargetAddrRowStatus')),
+                ])
+                self.snmptargetaddrname = None
+                self.snmptargetaddrtdomain = None
+                self.snmptargetaddrtaddress = None
+                self.snmptargetaddrtimeout = None
+                self.snmptargetaddrretrycount = None
+                self.snmptargetaddrtaglist = None
+                self.snmptargetaddrparams = None
+                self.snmptargetaddrstoragetype = None
+                self.snmptargetaddrrowstatus = None
+                self._segment_path = lambda: "snmpTargetAddrEntry" + "[snmpTargetAddrName='" + str(self.snmptargetaddrname) + "']"
                 self._absolute_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB/snmpTargetAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -285,8 +297,10 @@ class SNMPTARGETMIB(Entity):
             self.yang_parent_name = "SNMP-TARGET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"snmpTargetParamsEntry" : ("snmptargetparamsentry", SNMPTARGETMIB.Snmptargetparamstable.Snmptargetparamsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("snmpTargetParamsEntry", ("snmptargetparamsentry", SNMPTARGETMIB.Snmptargetparamstable.Snmptargetparamsentry))])
+            self._leafs = OrderedDict()
 
             self.snmptargetparamsentry = YList(self)
             self._segment_path = lambda: "snmpTargetParamsTable"
@@ -303,7 +317,7 @@ class SNMPTARGETMIB(Entity):
             Entries in the snmpTargetParamsTable are created and
             deleted using the snmpTargetParamsRowStatus object.
             
-            .. attribute:: snmptargetparamsname  <key>
+            .. attribute:: snmptargetparamsname  (key)
             
             	The locally arbitrary, but unique identifier associated with this snmpTargetParamsEntry
             	**type**\: str
@@ -358,23 +372,26 @@ class SNMPTARGETMIB(Entity):
                 self.yang_parent_name = "snmpTargetParamsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.snmptargetparamsname = YLeaf(YType.str, "snmpTargetParamsName")
-
-                self.snmptargetparamsmpmodel = YLeaf(YType.int32, "snmpTargetParamsMPModel")
-
-                self.snmptargetparamssecuritymodel = YLeaf(YType.int32, "snmpTargetParamsSecurityModel")
-
-                self.snmptargetparamssecurityname = YLeaf(YType.str, "snmpTargetParamsSecurityName")
-
-                self.snmptargetparamssecuritylevel = YLeaf(YType.enumeration, "snmpTargetParamsSecurityLevel")
-
-                self.snmptargetparamsstoragetype = YLeaf(YType.enumeration, "snmpTargetParamsStorageType")
-
-                self.snmptargetparamsrowstatus = YLeaf(YType.enumeration, "snmpTargetParamsRowStatus")
-                self._segment_path = lambda: "snmpTargetParamsEntry" + "[snmpTargetParamsName='" + self.snmptargetparamsname.get() + "']"
+                self.ylist_key_names = ['snmptargetparamsname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('snmptargetparamsname', YLeaf(YType.str, 'snmpTargetParamsName')),
+                    ('snmptargetparamsmpmodel', YLeaf(YType.int32, 'snmpTargetParamsMPModel')),
+                    ('snmptargetparamssecuritymodel', YLeaf(YType.int32, 'snmpTargetParamsSecurityModel')),
+                    ('snmptargetparamssecurityname', YLeaf(YType.str, 'snmpTargetParamsSecurityName')),
+                    ('snmptargetparamssecuritylevel', YLeaf(YType.enumeration, 'snmpTargetParamsSecurityLevel')),
+                    ('snmptargetparamsstoragetype', YLeaf(YType.enumeration, 'snmpTargetParamsStorageType')),
+                    ('snmptargetparamsrowstatus', YLeaf(YType.enumeration, 'snmpTargetParamsRowStatus')),
+                ])
+                self.snmptargetparamsname = None
+                self.snmptargetparamsmpmodel = None
+                self.snmptargetparamssecuritymodel = None
+                self.snmptargetparamssecurityname = None
+                self.snmptargetparamssecuritylevel = None
+                self.snmptargetparamsstoragetype = None
+                self.snmptargetparamsrowstatus = None
+                self._segment_path = lambda: "snmpTargetParamsEntry" + "[snmpTargetParamsName='" + str(self.snmptargetparamsname) + "']"
                 self._absolute_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB/snmpTargetParamsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

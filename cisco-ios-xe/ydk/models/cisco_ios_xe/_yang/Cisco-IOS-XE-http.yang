@@ -33,6 +33,16 @@ module Cisco-IOS-XE-http {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-01-24 {
+    description
+      "Updated ip http configurations to prevent full sync";
+  }
+
+  revision 2017-12-04 {
+    description
+      "Added ip http configurations to prevent full sync";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -139,6 +149,50 @@ module Cisco-IOS-XE-http {
               range "1..65535";
             }
           }
+        }
+      }
+
+      // ip http port - add to support DNA-C configuration
+      leaf port {
+        description
+          "http port number";
+        type uint16 {
+          range "1..65535";
+        }
+      }
+
+      // ip http max-connections - add to support DNA-C configuration
+      leaf max-connections {
+        description
+          "max http connections";
+        type uint16 {
+          range "1..50";
+        }
+      }
+
+      // ip http active-session-modules - add to support DNA-C configuration
+      leaf active-session-modules {
+        description
+          "Set active session modules";
+        type union {
+          type enumeration {
+            enum none;
+            enum all;
+          }
+          type string;
+        }
+      }
+
+      // ip http secure-active-session-modules - add to support DNA-C configuration
+      leaf secure-active-session-modules {
+        description
+          "Set secure active session modules";
+        type union {
+          type enumeration {
+            enum none;
+            enum all;
+          }
+          type string;
         }
       }
 

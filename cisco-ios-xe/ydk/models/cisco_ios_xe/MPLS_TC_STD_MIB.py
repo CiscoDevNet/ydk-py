@@ -11,15 +11,17 @@ for concepts used in Multiprotocol Label
 Switching (MPLS) networks.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class MplsLabelDistributionMethod(Enum):
     """
-    MplsLabelDistributionMethod
+    MplsLabelDistributionMethod (Enum Class)
 
     The label distribution method which is also called
 
@@ -44,7 +46,7 @@ class MplsLabelDistributionMethod(Enum):
 
 class MplsLdpLabelType(Enum):
     """
-    MplsLdpLabelType
+    MplsLdpLabelType (Enum Class)
 
     The Layer 2 label types which are defined for MPLS
 
@@ -69,7 +71,7 @@ class MplsLdpLabelType(Enum):
 
 class MplsLspType(Enum):
     """
-    MplsLspType
+    MplsLspType (Enum Class)
 
     Types of Label Switch Paths (LSPs)
 
@@ -130,7 +132,7 @@ class MplsLspType(Enum):
 
 class MplsOwner(Enum):
     """
-    MplsOwner
+    MplsOwner (Enum Class)
 
     This object indicates the local network
 
@@ -219,7 +221,7 @@ class MplsOwner(Enum):
 
 class MplsRetentionMode(Enum):
     """
-    MplsRetentionMode
+    MplsRetentionMode (Enum Class)
 
     The label retention mode which specifies whether
 
@@ -256,7 +258,7 @@ class MplsRetentionMode(Enum):
 
 class TeHopAddressType(Enum):
     """
-    TeHopAddressType
+    TeHopAddressType (Enum Class)
 
     A value that represents a type of address for a
 

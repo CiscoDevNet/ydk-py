@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class Coherent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs5500-coherent-node-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Coherent.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Coherent.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Coherent.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class Coherent(Entity):
             self.yang_parent_name = "coherent"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Coherent.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Coherent.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -91,7 +97,7 @@ class Coherent(Entity):
             Coherent discovery operational data for a
             particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	The node name
             	**type**\: str
@@ -132,10 +138,13 @@ class Coherent(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"coherent-time-stats" : ("coherent_time_stats", Coherent.Nodes.Node.CoherentTimeStats), "devicemapping" : ("devicemapping", Coherent.Nodes.Node.Devicemapping), "coherenthealth" : ("coherenthealth", Coherent.Nodes.Node.Coherenthealth), "port-mode-all-info" : ("port_mode_all_info", Coherent.Nodes.Node.PortModeAllInfo)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("coherent-time-stats", ("coherent_time_stats", Coherent.Nodes.Node.CoherentTimeStats)), ("devicemapping", ("devicemapping", Coherent.Nodes.Node.Devicemapping)), ("coherenthealth", ("coherenthealth", Coherent.Nodes.Node.Coherenthealth)), ("port-mode-all-info", ("port_mode_all_info", Coherent.Nodes.Node.PortModeAllInfo))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.coherent_time_stats = Coherent.Nodes.Node.CoherentTimeStats()
                 self.coherent_time_stats.parent = self
@@ -156,7 +165,7 @@ class Coherent(Entity):
                 self.port_mode_all_info.parent = self
                 self._children_name_map["port_mode_all_info"] = "port-mode-all-info"
                 self._children_yang_names.add("port-mode-all-info")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -248,20 +257,23 @@ class Coherent(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"opts-ea-bulk-create" : ("opts_ea_bulk_create", Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkCreate), "opts-ea-bulk-update" : ("opts_ea_bulk_update", Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkUpdate), "dsp-ea-bulk-create" : ("dsp_ea_bulk_create", Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkCreate), "dsp-ea-bulk-update" : ("dsp_ea_bulk_update", Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkUpdate)}
-                    self._child_list_classes = {"port-stat" : ("port_stat", Coherent.Nodes.Node.CoherentTimeStats.PortStat)}
-
-                    self.driver_init = YLeaf(YType.str, "driver-init")
-
-                    self.driver_operational = YLeaf(YType.str, "driver-operational")
-
-                    self.device_created = YLeaf(YType.str, "device-created")
-
-                    self.optics_controllers_created = YLeaf(YType.str, "optics-controllers-created")
-
-                    self.dsp_controllers_created = YLeaf(YType.str, "dsp-controllers-created")
-
-                    self.eth_intf_created = YLeaf(YType.str, "eth-intf-created")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("opts-ea-bulk-create", ("opts_ea_bulk_create", Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkCreate)), ("opts-ea-bulk-update", ("opts_ea_bulk_update", Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkUpdate)), ("dsp-ea-bulk-create", ("dsp_ea_bulk_create", Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkCreate)), ("dsp-ea-bulk-update", ("dsp_ea_bulk_update", Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkUpdate))])
+                    self._child_list_classes = OrderedDict([("port-stat", ("port_stat", Coherent.Nodes.Node.CoherentTimeStats.PortStat))])
+                    self._leafs = OrderedDict([
+                        ('driver_init', YLeaf(YType.str, 'driver-init')),
+                        ('driver_operational', YLeaf(YType.str, 'driver-operational')),
+                        ('device_created', YLeaf(YType.str, 'device-created')),
+                        ('optics_controllers_created', YLeaf(YType.str, 'optics-controllers-created')),
+                        ('dsp_controllers_created', YLeaf(YType.str, 'dsp-controllers-created')),
+                        ('eth_intf_created', YLeaf(YType.str, 'eth-intf-created')),
+                    ])
+                    self.driver_init = None
+                    self.driver_operational = None
+                    self.device_created = None
+                    self.optics_controllers_created = None
+                    self.dsp_controllers_created = None
+                    self.eth_intf_created = None
 
                     self.opts_ea_bulk_create = Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkCreate()
                     self.opts_ea_bulk_create.parent = self
@@ -336,16 +348,19 @@ class Coherent(Entity):
                         self.yang_parent_name = "coherent-time-stats"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.start = YLeaf(YType.str, "start")
-
-                        self.end = YLeaf(YType.str, "end")
-
-                        self.time_taken = YLeaf(YType.str, "time-taken")
-
-                        self.worst_time = YLeaf(YType.str, "worst-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start', YLeaf(YType.str, 'start')),
+                            ('end', YLeaf(YType.str, 'end')),
+                            ('time_taken', YLeaf(YType.str, 'time-taken')),
+                            ('worst_time', YLeaf(YType.str, 'worst-time')),
+                        ])
+                        self.start = None
+                        self.end = None
+                        self.time_taken = None
+                        self.worst_time = None
                         self._segment_path = lambda: "opts-ea-bulk-create"
 
                     def __setattr__(self, name, value):
@@ -398,16 +413,19 @@ class Coherent(Entity):
                         self.yang_parent_name = "coherent-time-stats"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.start = YLeaf(YType.str, "start")
-
-                        self.end = YLeaf(YType.str, "end")
-
-                        self.time_taken = YLeaf(YType.str, "time-taken")
-
-                        self.worst_time = YLeaf(YType.str, "worst-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start', YLeaf(YType.str, 'start')),
+                            ('end', YLeaf(YType.str, 'end')),
+                            ('time_taken', YLeaf(YType.str, 'time-taken')),
+                            ('worst_time', YLeaf(YType.str, 'worst-time')),
+                        ])
+                        self.start = None
+                        self.end = None
+                        self.time_taken = None
+                        self.worst_time = None
                         self._segment_path = lambda: "opts-ea-bulk-update"
 
                     def __setattr__(self, name, value):
@@ -460,16 +478,19 @@ class Coherent(Entity):
                         self.yang_parent_name = "coherent-time-stats"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.start = YLeaf(YType.str, "start")
-
-                        self.end = YLeaf(YType.str, "end")
-
-                        self.time_taken = YLeaf(YType.str, "time-taken")
-
-                        self.worst_time = YLeaf(YType.str, "worst-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start', YLeaf(YType.str, 'start')),
+                            ('end', YLeaf(YType.str, 'end')),
+                            ('time_taken', YLeaf(YType.str, 'time-taken')),
+                            ('worst_time', YLeaf(YType.str, 'worst-time')),
+                        ])
+                        self.start = None
+                        self.end = None
+                        self.time_taken = None
+                        self.worst_time = None
                         self._segment_path = lambda: "dsp-ea-bulk-create"
 
                     def __setattr__(self, name, value):
@@ -522,16 +543,19 @@ class Coherent(Entity):
                         self.yang_parent_name = "coherent-time-stats"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.start = YLeaf(YType.str, "start")
-
-                        self.end = YLeaf(YType.str, "end")
-
-                        self.time_taken = YLeaf(YType.str, "time-taken")
-
-                        self.worst_time = YLeaf(YType.str, "worst-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start', YLeaf(YType.str, 'start')),
+                            ('end', YLeaf(YType.str, 'end')),
+                            ('time_taken', YLeaf(YType.str, 'time-taken')),
+                            ('worst_time', YLeaf(YType.str, 'worst-time')),
+                        ])
+                        self.start = None
+                        self.end = None
+                        self.time_taken = None
+                        self.worst_time = None
                         self._segment_path = lambda: "dsp-ea-bulk-update"
 
                     def __setattr__(self, name, value):
@@ -631,20 +655,23 @@ class Coherent(Entity):
                         self.yang_parent_name = "coherent-time-stats"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"laser-on-stats" : ("laser_on_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOnStats), "laser-off-stats" : ("laser_off_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOffStats), "wl-op-stats" : ("wl_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.WlOpStats), "txpwr-op-stats" : ("txpwr_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.TxpwrOpStats), "cdmin-op-stats" : ("cdmin_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdminOpStats), "cdmax-op-stats" : ("cdmax_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdmaxOpStats), "traffictype-op-stats" : ("traffictype_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.TraffictypeOpStats)}
-                        self._child_list_classes = {}
-
-                        self.laser_state = YLeaf(YType.boolean, "laser-state")
-
-                        self.provisioned_frequency = YLeaf(YType.uint32, "provisioned-frequency")
-
-                        self.tx_power = YLeaf(YType.uint32, "tx-power")
-
-                        self.cd_min = YLeaf(YType.uint32, "cd-min")
-
-                        self.cd_max = YLeaf(YType.uint32, "cd-max")
-
-                        self.traffic_type = YLeaf(YType.str, "traffic-type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("laser-on-stats", ("laser_on_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOnStats)), ("laser-off-stats", ("laser_off_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOffStats)), ("wl-op-stats", ("wl_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.WlOpStats)), ("txpwr-op-stats", ("txpwr_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.TxpwrOpStats)), ("cdmin-op-stats", ("cdmin_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdminOpStats)), ("cdmax-op-stats", ("cdmax_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdmaxOpStats)), ("traffictype-op-stats", ("traffictype_op_stats", Coherent.Nodes.Node.CoherentTimeStats.PortStat.TraffictypeOpStats))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('laser_state', YLeaf(YType.boolean, 'laser-state')),
+                            ('provisioned_frequency', YLeaf(YType.uint32, 'provisioned-frequency')),
+                            ('tx_power', YLeaf(YType.uint32, 'tx-power')),
+                            ('cd_min', YLeaf(YType.uint32, 'cd-min')),
+                            ('cd_max', YLeaf(YType.uint32, 'cd-max')),
+                            ('traffic_type', YLeaf(YType.str, 'traffic-type')),
+                        ])
+                        self.laser_state = None
+                        self.provisioned_frequency = None
+                        self.tx_power = None
+                        self.cd_min = None
+                        self.cd_max = None
+                        self.traffic_type = None
 
                         self.laser_on_stats = Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOnStats()
                         self.laser_on_stats.parent = self
@@ -732,16 +759,19 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-stat"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.time_taken = YLeaf(YType.str, "time-taken")
-
-                            self.worst_time = YLeaf(YType.str, "worst-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('time_taken', YLeaf(YType.str, 'time-taken')),
+                                ('worst_time', YLeaf(YType.str, 'worst-time')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.time_taken = None
+                            self.worst_time = None
                             self._segment_path = lambda: "laser-on-stats"
 
                         def __setattr__(self, name, value):
@@ -794,16 +824,19 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-stat"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.time_taken = YLeaf(YType.str, "time-taken")
-
-                            self.worst_time = YLeaf(YType.str, "worst-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('time_taken', YLeaf(YType.str, 'time-taken')),
+                                ('worst_time', YLeaf(YType.str, 'worst-time')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.time_taken = None
+                            self.worst_time = None
                             self._segment_path = lambda: "laser-off-stats"
 
                         def __setattr__(self, name, value):
@@ -856,16 +889,19 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-stat"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.time_taken = YLeaf(YType.str, "time-taken")
-
-                            self.worst_time = YLeaf(YType.str, "worst-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('time_taken', YLeaf(YType.str, 'time-taken')),
+                                ('worst_time', YLeaf(YType.str, 'worst-time')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.time_taken = None
+                            self.worst_time = None
                             self._segment_path = lambda: "wl-op-stats"
 
                         def __setattr__(self, name, value):
@@ -918,16 +954,19 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-stat"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.time_taken = YLeaf(YType.str, "time-taken")
-
-                            self.worst_time = YLeaf(YType.str, "worst-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('time_taken', YLeaf(YType.str, 'time-taken')),
+                                ('worst_time', YLeaf(YType.str, 'worst-time')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.time_taken = None
+                            self.worst_time = None
                             self._segment_path = lambda: "txpwr-op-stats"
 
                         def __setattr__(self, name, value):
@@ -980,16 +1019,19 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-stat"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.time_taken = YLeaf(YType.str, "time-taken")
-
-                            self.worst_time = YLeaf(YType.str, "worst-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('time_taken', YLeaf(YType.str, 'time-taken')),
+                                ('worst_time', YLeaf(YType.str, 'worst-time')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.time_taken = None
+                            self.worst_time = None
                             self._segment_path = lambda: "cdmin-op-stats"
 
                         def __setattr__(self, name, value):
@@ -1042,16 +1084,19 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-stat"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.time_taken = YLeaf(YType.str, "time-taken")
-
-                            self.worst_time = YLeaf(YType.str, "worst-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('time_taken', YLeaf(YType.str, 'time-taken')),
+                                ('worst_time', YLeaf(YType.str, 'worst-time')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.time_taken = None
+                            self.worst_time = None
                             self._segment_path = lambda: "cdmax-op-stats"
 
                         def __setattr__(self, name, value):
@@ -1104,16 +1149,19 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-stat"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.time_taken = YLeaf(YType.str, "time-taken")
-
-                            self.worst_time = YLeaf(YType.str, "worst-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('time_taken', YLeaf(YType.str, 'time-taken')),
+                                ('worst_time', YLeaf(YType.str, 'worst-time')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.time_taken = None
+                            self.worst_time = None
                             self._segment_path = lambda: "traffictype-op-stats"
 
                         def __setattr__(self, name, value):
@@ -1150,10 +1198,13 @@ class Coherent(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"dev-map" : ("dev_map", Coherent.Nodes.Node.Devicemapping.DevMap)}
-
-                    self.idx = YLeaf(YType.uint32, "idx")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("dev-map", ("dev_map", Coherent.Nodes.Node.Devicemapping.DevMap))])
+                    self._leafs = OrderedDict([
+                        ('idx', YLeaf(YType.uint32, 'idx')),
+                    ])
+                    self.idx = None
 
                     self.dev_map = YList(self)
                     self._segment_path = lambda: "devicemapping"
@@ -1201,14 +1252,17 @@ class Coherent(Entity):
                         self.yang_parent_name = "devicemapping"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.device_address = YLeaf(YType.str, "device-address")
-
-                        self.ifhandle = YLeaf(YType.str, "ifhandle")
-
-                        self.intf_name = YLeaf(YType.str, "intf-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('device_address', YLeaf(YType.str, 'device-address')),
+                            ('ifhandle', YLeaf(YType.str, 'ifhandle')),
+                            ('intf_name', YLeaf(YType.str, 'intf-name')),
+                        ])
+                        self.device_address = None
+                        self.ifhandle = None
+                        self.intf_name = None
                         self._segment_path = lambda: "dev-map"
 
                     def __setattr__(self, name, value):
@@ -1378,56 +1432,59 @@ class Coherent(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"port-data" : ("port_data", Coherent.Nodes.Node.Coherenthealth.PortData)}
-
-                    self.im_state = YLeaf(YType.boolean, "im-state")
-
-                    self.aipc_srvr_state = YLeaf(YType.boolean, "aipc-srvr-state")
-
-                    self.sysdb_state = YLeaf(YType.boolean, "sysdb-state")
-
-                    self.pm_state = YLeaf(YType.boolean, "pm-state")
-
-                    self.optics_ea_conn = YLeaf(YType.boolean, "optics-ea-conn")
-
-                    self.dsp_ea_conn = YLeaf(YType.boolean, "dsp-ea-conn")
-
-                    self.vether_state = YLeaf(YType.boolean, "vether-state")
-
-                    self.morgoth_alive = YLeaf(YType.boolean, "morgoth-alive")
-
-                    self.prov_infra_state = YLeaf(YType.boolean, "prov-infra-state")
-
-                    self.sdk_fpga_compatible = YLeaf(YType.boolean, "sdk-fpga-compatible")
-
-                    self.pending_provision = YLeaf(YType.boolean, "pending-provision")
-
-                    self.pulse_sent = YLeaf(YType.boolean, "pulse-sent")
-
-                    self.inside_prov_loop = YLeaf(YType.boolean, "inside-prov-loop")
-
-                    self.fpd_in_progress = YLeaf(YType.boolean, "fpd-in-progress")
-
-                    self.prov_run_count = YLeaf(YType.uint32, "prov-run-count")
-
-                    self.sdk_version = YLeaf(YType.str, "sdk-version")
-
-                    self.morgoth_running_version = YLeaf(YType.str, "morgoth-running-version")
-
-                    self.morgoth_downloaded_version = YLeaf(YType.str, "morgoth-downloaded-version")
-
-                    self.morgoth_golden_version = YLeaf(YType.str, "morgoth-golden-version")
-
-                    self.denali0_version = YLeaf(YType.str, "denali0-version")
-
-                    self.denali1_version = YLeaf(YType.str, "denali1-version")
-
-                    self.denali2_version = YLeaf(YType.str, "denali2-version")
-
-                    self.board_type = YLeaf(YType.str, "board-type")
-
-                    self.jlink_op = YLeaf(YType.str, "jlink-op")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("port-data", ("port_data", Coherent.Nodes.Node.Coherenthealth.PortData))])
+                    self._leafs = OrderedDict([
+                        ('im_state', YLeaf(YType.boolean, 'im-state')),
+                        ('aipc_srvr_state', YLeaf(YType.boolean, 'aipc-srvr-state')),
+                        ('sysdb_state', YLeaf(YType.boolean, 'sysdb-state')),
+                        ('pm_state', YLeaf(YType.boolean, 'pm-state')),
+                        ('optics_ea_conn', YLeaf(YType.boolean, 'optics-ea-conn')),
+                        ('dsp_ea_conn', YLeaf(YType.boolean, 'dsp-ea-conn')),
+                        ('vether_state', YLeaf(YType.boolean, 'vether-state')),
+                        ('morgoth_alive', YLeaf(YType.boolean, 'morgoth-alive')),
+                        ('prov_infra_state', YLeaf(YType.boolean, 'prov-infra-state')),
+                        ('sdk_fpga_compatible', YLeaf(YType.boolean, 'sdk-fpga-compatible')),
+                        ('pending_provision', YLeaf(YType.boolean, 'pending-provision')),
+                        ('pulse_sent', YLeaf(YType.boolean, 'pulse-sent')),
+                        ('inside_prov_loop', YLeaf(YType.boolean, 'inside-prov-loop')),
+                        ('fpd_in_progress', YLeaf(YType.boolean, 'fpd-in-progress')),
+                        ('prov_run_count', YLeaf(YType.uint32, 'prov-run-count')),
+                        ('sdk_version', YLeaf(YType.str, 'sdk-version')),
+                        ('morgoth_running_version', YLeaf(YType.str, 'morgoth-running-version')),
+                        ('morgoth_downloaded_version', YLeaf(YType.str, 'morgoth-downloaded-version')),
+                        ('morgoth_golden_version', YLeaf(YType.str, 'morgoth-golden-version')),
+                        ('denali0_version', YLeaf(YType.str, 'denali0-version')),
+                        ('denali1_version', YLeaf(YType.str, 'denali1-version')),
+                        ('denali2_version', YLeaf(YType.str, 'denali2-version')),
+                        ('board_type', YLeaf(YType.str, 'board-type')),
+                        ('jlink_op', YLeaf(YType.str, 'jlink-op')),
+                    ])
+                    self.im_state = None
+                    self.aipc_srvr_state = None
+                    self.sysdb_state = None
+                    self.pm_state = None
+                    self.optics_ea_conn = None
+                    self.dsp_ea_conn = None
+                    self.vether_state = None
+                    self.morgoth_alive = None
+                    self.prov_infra_state = None
+                    self.sdk_fpga_compatible = None
+                    self.pending_provision = None
+                    self.pulse_sent = None
+                    self.inside_prov_loop = None
+                    self.fpd_in_progress = None
+                    self.prov_run_count = None
+                    self.sdk_version = None
+                    self.morgoth_running_version = None
+                    self.morgoth_downloaded_version = None
+                    self.morgoth_golden_version = None
+                    self.denali0_version = None
+                    self.denali1_version = None
+                    self.denali2_version = None
+                    self.board_type = None
+                    self.jlink_op = None
 
                     self.port_data = YList(self)
                     self._segment_path = lambda: "coherenthealth"
@@ -1765,102 +1822,105 @@ class Coherent(Entity):
                         self.yang_parent_name = "coherenthealth"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"ctp-info" : ("ctp_info", Coherent.Nodes.Node.Coherenthealth.PortData.CtpInfo), "interface-info" : ("interface_info", Coherent.Nodes.Node.Coherenthealth.PortData.InterfaceInfo)}
-                        self._child_list_classes = {}
-
-                        self.optics_ctrl_created = YLeaf(YType.boolean, "optics-ctrl-created")
-
-                        self.dsp_ctrl_created = YLeaf(YType.boolean, "dsp-ctrl-created")
-
-                        self.has_pluggable = YLeaf(YType.boolean, "has-pluggable")
-
-                        self.optics_admin_up = YLeaf(YType.boolean, "optics-admin-up")
-
-                        self.dsp_admin_up = YLeaf(YType.boolean, "dsp-admin-up")
-
-                        self.laser_state = YLeaf(YType.boolean, "laser-state")
-
-                        self.laser_on_pending = YLeaf(YType.boolean, "laser-on-pending")
-
-                        self.provisioning_needed = YLeaf(YType.boolean, "provisioning-needed")
-
-                        self.force_reprovision = YLeaf(YType.boolean, "force-reprovision")
-
-                        self.fp_port_idx = YLeaf(YType.uint32, "fp-port-idx")
-
-                        self.configured_frequency = YLeaf(YType.uint32, "configured-frequency")
-
-                        self.provisioned_frequency = YLeaf(YType.uint32, "provisioned-frequency")
-
-                        self.configured_tx_power = YLeaf(YType.str, "configured-tx-power")
-
-                        self.provisioned_tx_power = YLeaf(YType.str, "provisioned-tx-power")
-
-                        self.configured_cd_min = YLeaf(YType.str, "configured-cd-min")
-
-                        self.provisioned_cd_min = YLeaf(YType.str, "provisioned-cd-min")
-
-                        self.configured_cd_max = YLeaf(YType.str, "configured-cd-max")
-
-                        self.provisioned_cd_max = YLeaf(YType.str, "provisioned-cd-max")
-
-                        self.configured_traffic_type = YLeaf(YType.str, "configured-traffic-type")
-
-                        self.provisioned_traffic_type = YLeaf(YType.str, "provisioned-traffic-type")
-
-                        self.configured_loopback_mode = YLeaf(YType.str, "configured-loopback-mode")
-
-                        self.provisioned_loopback_mode = YLeaf(YType.str, "provisioned-loopback-mode")
-
-                        self.expected_ctp2_led_state = YLeaf(YType.str, "expected-ctp2-led-state")
-
-                        self.provisioned_ctp2_led_state = YLeaf(YType.str, "provisioned-ctp2-led-state")
-
-                        self.led_op_rc = YLeaf(YType.int32, "led-op-rc")
-
-                        self.laser_op_rc = YLeaf(YType.int32, "laser-op-rc")
-
-                        self.wlen_op_rc = YLeaf(YType.int32, "wlen-op-rc")
-
-                        self.traffic_op_rc = YLeaf(YType.int32, "traffic-op-rc")
-
-                        self.loopback_op_rc = YLeaf(YType.int32, "loopback-op-rc")
-
-                        self.tx_power_op_rc = YLeaf(YType.int32, "tx-power-op-rc")
-
-                        self.cd_min_op_rc = YLeaf(YType.int32, "cd-min-op-rc")
-
-                        self.cd_max_op_rc = YLeaf(YType.int32, "cd-max-op-rc")
-
-                        self.provisioning_failed = YLeaf(YType.boolean, "provisioning-failed")
-
-                        self.ctp2_hw_alarms = YLeaf(YType.str, "ctp2-hw-alarms")
-
-                        self.denali_hw_alarms = YLeaf(YType.str, "denali-hw-alarms")
-
-                        self.is_pm_port_created_opt = YLeaf(YType.boolean, "is-pm-port-created-opt")
-
-                        self.rc_pm_port_opt = YLeaf(YType.int32, "rc-pm-port-opt")
-
-                        self.pm_port_state_opt = YLeaf(YType.int32, "pm-port-state-opt")
-
-                        self.rc_pm_provision_opt = YLeaf(YType.int32, "rc-pm-provision-opt")
-
-                        self.is_alarm_port_created_opt = YLeaf(YType.boolean, "is-alarm-port-created-opt")
-
-                        self.rc_alarm_port_opt = YLeaf(YType.int32, "rc-alarm-port-opt")
-
-                        self.is_pm_port_created_dsp = YLeaf(YType.boolean, "is-pm-port-created-dsp")
-
-                        self.rc_pm_port_dsp = YLeaf(YType.int32, "rc-pm-port-dsp")
-
-                        self.pm_port_state_dsp = YLeaf(YType.int32, "pm-port-state-dsp")
-
-                        self.rc_pm_provision_dsp = YLeaf(YType.int32, "rc-pm-provision-dsp")
-
-                        self.is_alarm_port_created_dsp = YLeaf(YType.boolean, "is-alarm-port-created-dsp")
-
-                        self.rc_alarm_port_dsp = YLeaf(YType.int32, "rc-alarm-port-dsp")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("ctp-info", ("ctp_info", Coherent.Nodes.Node.Coherenthealth.PortData.CtpInfo)), ("interface-info", ("interface_info", Coherent.Nodes.Node.Coherenthealth.PortData.InterfaceInfo))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('optics_ctrl_created', YLeaf(YType.boolean, 'optics-ctrl-created')),
+                            ('dsp_ctrl_created', YLeaf(YType.boolean, 'dsp-ctrl-created')),
+                            ('has_pluggable', YLeaf(YType.boolean, 'has-pluggable')),
+                            ('optics_admin_up', YLeaf(YType.boolean, 'optics-admin-up')),
+                            ('dsp_admin_up', YLeaf(YType.boolean, 'dsp-admin-up')),
+                            ('laser_state', YLeaf(YType.boolean, 'laser-state')),
+                            ('laser_on_pending', YLeaf(YType.boolean, 'laser-on-pending')),
+                            ('provisioning_needed', YLeaf(YType.boolean, 'provisioning-needed')),
+                            ('force_reprovision', YLeaf(YType.boolean, 'force-reprovision')),
+                            ('fp_port_idx', YLeaf(YType.uint32, 'fp-port-idx')),
+                            ('configured_frequency', YLeaf(YType.uint32, 'configured-frequency')),
+                            ('provisioned_frequency', YLeaf(YType.uint32, 'provisioned-frequency')),
+                            ('configured_tx_power', YLeaf(YType.str, 'configured-tx-power')),
+                            ('provisioned_tx_power', YLeaf(YType.str, 'provisioned-tx-power')),
+                            ('configured_cd_min', YLeaf(YType.str, 'configured-cd-min')),
+                            ('provisioned_cd_min', YLeaf(YType.str, 'provisioned-cd-min')),
+                            ('configured_cd_max', YLeaf(YType.str, 'configured-cd-max')),
+                            ('provisioned_cd_max', YLeaf(YType.str, 'provisioned-cd-max')),
+                            ('configured_traffic_type', YLeaf(YType.str, 'configured-traffic-type')),
+                            ('provisioned_traffic_type', YLeaf(YType.str, 'provisioned-traffic-type')),
+                            ('configured_loopback_mode', YLeaf(YType.str, 'configured-loopback-mode')),
+                            ('provisioned_loopback_mode', YLeaf(YType.str, 'provisioned-loopback-mode')),
+                            ('expected_ctp2_led_state', YLeaf(YType.str, 'expected-ctp2-led-state')),
+                            ('provisioned_ctp2_led_state', YLeaf(YType.str, 'provisioned-ctp2-led-state')),
+                            ('led_op_rc', YLeaf(YType.int32, 'led-op-rc')),
+                            ('laser_op_rc', YLeaf(YType.int32, 'laser-op-rc')),
+                            ('wlen_op_rc', YLeaf(YType.int32, 'wlen-op-rc')),
+                            ('traffic_op_rc', YLeaf(YType.int32, 'traffic-op-rc')),
+                            ('loopback_op_rc', YLeaf(YType.int32, 'loopback-op-rc')),
+                            ('tx_power_op_rc', YLeaf(YType.int32, 'tx-power-op-rc')),
+                            ('cd_min_op_rc', YLeaf(YType.int32, 'cd-min-op-rc')),
+                            ('cd_max_op_rc', YLeaf(YType.int32, 'cd-max-op-rc')),
+                            ('provisioning_failed', YLeaf(YType.boolean, 'provisioning-failed')),
+                            ('ctp2_hw_alarms', YLeaf(YType.str, 'ctp2-hw-alarms')),
+                            ('denali_hw_alarms', YLeaf(YType.str, 'denali-hw-alarms')),
+                            ('is_pm_port_created_opt', YLeaf(YType.boolean, 'is-pm-port-created-opt')),
+                            ('rc_pm_port_opt', YLeaf(YType.int32, 'rc-pm-port-opt')),
+                            ('pm_port_state_opt', YLeaf(YType.int32, 'pm-port-state-opt')),
+                            ('rc_pm_provision_opt', YLeaf(YType.int32, 'rc-pm-provision-opt')),
+                            ('is_alarm_port_created_opt', YLeaf(YType.boolean, 'is-alarm-port-created-opt')),
+                            ('rc_alarm_port_opt', YLeaf(YType.int32, 'rc-alarm-port-opt')),
+                            ('is_pm_port_created_dsp', YLeaf(YType.boolean, 'is-pm-port-created-dsp')),
+                            ('rc_pm_port_dsp', YLeaf(YType.int32, 'rc-pm-port-dsp')),
+                            ('pm_port_state_dsp', YLeaf(YType.int32, 'pm-port-state-dsp')),
+                            ('rc_pm_provision_dsp', YLeaf(YType.int32, 'rc-pm-provision-dsp')),
+                            ('is_alarm_port_created_dsp', YLeaf(YType.boolean, 'is-alarm-port-created-dsp')),
+                            ('rc_alarm_port_dsp', YLeaf(YType.int32, 'rc-alarm-port-dsp')),
+                        ])
+                        self.optics_ctrl_created = None
+                        self.dsp_ctrl_created = None
+                        self.has_pluggable = None
+                        self.optics_admin_up = None
+                        self.dsp_admin_up = None
+                        self.laser_state = None
+                        self.laser_on_pending = None
+                        self.provisioning_needed = None
+                        self.force_reprovision = None
+                        self.fp_port_idx = None
+                        self.configured_frequency = None
+                        self.provisioned_frequency = None
+                        self.configured_tx_power = None
+                        self.provisioned_tx_power = None
+                        self.configured_cd_min = None
+                        self.provisioned_cd_min = None
+                        self.configured_cd_max = None
+                        self.provisioned_cd_max = None
+                        self.configured_traffic_type = None
+                        self.provisioned_traffic_type = None
+                        self.configured_loopback_mode = None
+                        self.provisioned_loopback_mode = None
+                        self.expected_ctp2_led_state = None
+                        self.provisioned_ctp2_led_state = None
+                        self.led_op_rc = None
+                        self.laser_op_rc = None
+                        self.wlen_op_rc = None
+                        self.traffic_op_rc = None
+                        self.loopback_op_rc = None
+                        self.tx_power_op_rc = None
+                        self.cd_min_op_rc = None
+                        self.cd_max_op_rc = None
+                        self.provisioning_failed = None
+                        self.ctp2_hw_alarms = None
+                        self.denali_hw_alarms = None
+                        self.is_pm_port_created_opt = None
+                        self.rc_pm_port_opt = None
+                        self.pm_port_state_opt = None
+                        self.rc_pm_provision_opt = None
+                        self.is_alarm_port_created_opt = None
+                        self.rc_alarm_port_opt = None
+                        self.is_pm_port_created_dsp = None
+                        self.rc_pm_port_dsp = None
+                        self.pm_port_state_dsp = None
+                        self.rc_pm_provision_dsp = None
+                        self.is_alarm_port_created_dsp = None
+                        self.rc_alarm_port_dsp = None
 
                         self.ctp_info = Coherent.Nodes.Node.Coherenthealth.PortData.CtpInfo()
                         self.ctp_info.parent = self
@@ -1986,34 +2046,37 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-data"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.deviation = YLeaf(YType.str, "deviation")
-
-                            self.part_number = YLeaf(YType.str, "part-number")
-
-                            self.serial_number = YLeaf(YType.str, "serial-number")
-
-                            self.date_code_number = YLeaf(YType.str, "date-code-number")
-
-                            self.clei_code_number = YLeaf(YType.str, "clei-code-number")
-
-                            self.vendorname = YLeaf(YType.str, "vendorname")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.pid = YLeaf(YType.str, "pid")
-
-                            self.vid = YLeaf(YType.str, "vid")
-
-                            self.module_hardware_version_number = YLeaf(YType.uint16, "module-hardware-version-number")
-
-                            self.module_firmware_running_version_number = YLeaf(YType.uint16, "module-firmware-running-version-number")
-
-                            self.module_firmware_committed_version_number = YLeaf(YType.uint16, "module-firmware-committed-version-number")
-
-                            self.ctp_type = YLeaf(YType.uint32, "ctp-type")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('deviation', YLeaf(YType.str, 'deviation')),
+                                ('part_number', YLeaf(YType.str, 'part-number')),
+                                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                ('date_code_number', YLeaf(YType.str, 'date-code-number')),
+                                ('clei_code_number', YLeaf(YType.str, 'clei-code-number')),
+                                ('vendorname', YLeaf(YType.str, 'vendorname')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('pid', YLeaf(YType.str, 'pid')),
+                                ('vid', YLeaf(YType.str, 'vid')),
+                                ('module_hardware_version_number', YLeaf(YType.uint16, 'module-hardware-version-number')),
+                                ('module_firmware_running_version_number', YLeaf(YType.uint16, 'module-firmware-running-version-number')),
+                                ('module_firmware_committed_version_number', YLeaf(YType.uint16, 'module-firmware-committed-version-number')),
+                                ('ctp_type', YLeaf(YType.uint32, 'ctp-type')),
+                            ])
+                            self.deviation = None
+                            self.part_number = None
+                            self.serial_number = None
+                            self.date_code_number = None
+                            self.clei_code_number = None
+                            self.vendorname = None
+                            self.description = None
+                            self.pid = None
+                            self.vid = None
+                            self.module_hardware_version_number = None
+                            self.module_firmware_running_version_number = None
+                            self.module_firmware_committed_version_number = None
+                            self.ctp_type = None
                             self._segment_path = lambda: "ctp-info"
 
                         def __setattr__(self, name, value):
@@ -2043,8 +2106,10 @@ class Coherent(Entity):
                             self.yang_parent_name = "port-data"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"eth-data" : ("eth_data", Coherent.Nodes.Node.Coherenthealth.PortData.InterfaceInfo.EthData)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("eth-data", ("eth_data", Coherent.Nodes.Node.Coherenthealth.PortData.InterfaceInfo.EthData))])
+                            self._leafs = OrderedDict()
 
                             self.eth_data = YList(self)
                             self._segment_path = lambda: "interface-info"
@@ -2102,18 +2167,21 @@ class Coherent(Entity):
                                 self.yang_parent_name = "interface-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ifname = YLeaf(YType.str, "ifname")
-
-                                self.intf_handle = YLeaf(YType.str, "intf-handle")
-
-                                self.admin_state = YLeaf(YType.str, "admin-state")
-
-                                self.admin_up = YLeaf(YType.boolean, "admin-up")
-
-                                self.is_created = YLeaf(YType.boolean, "is-created")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ifname', YLeaf(YType.str, 'ifname')),
+                                    ('intf_handle', YLeaf(YType.str, 'intf-handle')),
+                                    ('admin_state', YLeaf(YType.str, 'admin-state')),
+                                    ('admin_up', YLeaf(YType.boolean, 'admin-up')),
+                                    ('is_created', YLeaf(YType.boolean, 'is-created')),
+                                ])
+                                self.ifname = None
+                                self.intf_handle = None
+                                self.admin_state = None
+                                self.admin_up = None
+                                self.is_created = None
                                 self._segment_path = lambda: "eth-data"
 
                             def __setattr__(self, name, value):
@@ -2150,10 +2218,13 @@ class Coherent(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"portmode-entry" : ("portmode_entry", Coherent.Nodes.Node.PortModeAllInfo.PortmodeEntry)}
-
-                    self.idx = YLeaf(YType.uint32, "idx")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("portmode-entry", ("portmode_entry", Coherent.Nodes.Node.PortModeAllInfo.PortmodeEntry))])
+                    self._leafs = OrderedDict([
+                        ('idx', YLeaf(YType.uint32, 'idx')),
+                    ])
+                    self.idx = None
 
                     self.portmode_entry = YList(self)
                     self._segment_path = lambda: "port-mode-all-info"
@@ -2215,18 +2286,21 @@ class Coherent(Entity):
                         self.yang_parent_name = "port-mode-all-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.intf_name = YLeaf(YType.str, "intf-name")
-
-                        self.speed = YLeaf(YType.str, "speed")
-
-                        self.fec = YLeaf(YType.str, "fec")
-
-                        self.diff = YLeaf(YType.str, "diff")
-
-                        self.modulation = YLeaf(YType.str, "modulation")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('intf_name', YLeaf(YType.str, 'intf-name')),
+                            ('speed', YLeaf(YType.str, 'speed')),
+                            ('fec', YLeaf(YType.str, 'fec')),
+                            ('diff', YLeaf(YType.str, 'diff')),
+                            ('modulation', YLeaf(YType.str, 'modulation')),
+                        ])
+                        self.intf_name = None
+                        self.speed = None
+                        self.fec = None
+                        self.diff = None
+                        self.modulation = None
                         self._segment_path = lambda: "portmode-entry"
 
                     def __setattr__(self, name, value):

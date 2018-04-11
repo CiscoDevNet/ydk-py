@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class Sla(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-sla-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"protocols" : ("protocols", Sla.Protocols)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("protocols", ("protocols", Sla.Protocols))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.protocols = Sla.Protocols()
         self.protocols.parent = self
@@ -75,13 +79,15 @@ class Sla(Entity):
             self.yang_parent_name = "sla"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"Cisco-IOS-XR-ethernet-cfm-cfg:ethernet" : ("ethernet", Sla.Protocols.Ethernet)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("Cisco-IOS-XR-ethernet-cfm-cfg:ethernet", ("ethernet", Sla.Protocols.Ethernet))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.ethernet = Sla.Protocols.Ethernet()
             self.ethernet.parent = self
-            self._children_name_map["ethernet"] = "ethernet"
-            self._children_yang_names.add("ethernet")
+            self._children_name_map["ethernet"] = "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"
+            self._children_yang_names.add("Cisco-IOS-XR-ethernet-cfm-cfg:ethernet")
             self._segment_path = lambda: "protocols"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/%s" % self._segment_path()
 
@@ -109,8 +115,10 @@ class Sla(Entity):
                 self.yang_parent_name = "protocols"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"profiles" : ("profiles", Sla.Protocols.Ethernet.Profiles)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("profiles", ("profiles", Sla.Protocols.Ethernet.Profiles))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.profiles = Sla.Protocols.Ethernet.Profiles()
                 self.profiles.parent = self
@@ -143,8 +151,10 @@ class Sla(Entity):
                     self.yang_parent_name = "ethernet"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"profile" : ("profile", Sla.Protocols.Ethernet.Profiles.Profile)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("profile", ("profile", Sla.Protocols.Ethernet.Profiles.Profile))])
+                    self._leafs = OrderedDict()
 
                     self.profile = YList(self)
                     self._segment_path = lambda: "profiles"
@@ -158,7 +168,7 @@ class Sla(Entity):
                     """
                     Name of the profile
                     
-                    .. attribute:: profile_name  <key>
+                    .. attribute:: profile_name  (key)
                     
                     	Profile name
                     	**type**\: str
@@ -201,12 +211,15 @@ class Sla(Entity):
                         self.yang_parent_name = "profiles"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"statistics" : ("statistics", Sla.Protocols.Ethernet.Profiles.Profile.Statistics), "schedule" : ("schedule", Sla.Protocols.Ethernet.Profiles.Profile.Schedule), "probe" : ("probe", Sla.Protocols.Ethernet.Profiles.Profile.Probe)}
-                        self._child_list_classes = {}
-
-                        self.profile_name = YLeaf(YType.str, "profile-name")
-
-                        self.packet_type = YLeaf(YType.str, "packet-type")
+                        self.ylist_key_names = ['profile_name']
+                        self._child_container_classes = OrderedDict([("statistics", ("statistics", Sla.Protocols.Ethernet.Profiles.Profile.Statistics)), ("schedule", ("schedule", Sla.Protocols.Ethernet.Profiles.Profile.Schedule)), ("probe", ("probe", Sla.Protocols.Ethernet.Profiles.Profile.Probe))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('profile_name', YLeaf(YType.str, 'profile-name')),
+                            ('packet_type', YLeaf(YType.str, 'packet-type')),
+                        ])
+                        self.profile_name = None
+                        self.packet_type = None
 
                         self.statistics = Sla.Protocols.Ethernet.Profiles.Profile.Statistics()
                         self.statistics.parent = self
@@ -221,7 +234,7 @@ class Sla(Entity):
                         self.probe.parent = self
                         self._children_name_map["probe"] = "probe"
                         self._children_yang_names.add("probe")
-                        self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+                        self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -251,8 +264,10 @@ class Sla(Entity):
                             self.yang_parent_name = "profile"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"statistic" : ("statistic", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("statistic", ("statistic", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic))])
+                            self._leafs = OrderedDict()
 
                             self.statistic = YList(self)
                             self._segment_path = lambda: "statistics"
@@ -265,7 +280,7 @@ class Sla(Entity):
                             """
                             Type of statistic
                             
-                            .. attribute:: statistic_name  <key>
+                            .. attribute:: statistic_name  (key)
                             
                             	The type of statistic to measure
                             	**type**\:  :py:class:`SlaStatisticTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaStatisticTypeEnum>`
@@ -310,14 +325,17 @@ class Sla(Entity):
                                 self.yang_parent_name = "statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"buckets-size" : ("buckets_size", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize), "aggregation" : ("aggregation", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation)}
-                                self._child_list_classes = {}
-
-                                self.statistic_name = YLeaf(YType.enumeration, "statistic-name")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.buckets_archive = YLeaf(YType.uint32, "buckets-archive")
+                                self.ylist_key_names = ['statistic_name']
+                                self._child_container_classes = OrderedDict([("buckets-size", ("buckets_size", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize)), ("aggregation", ("aggregation", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('statistic_name', YLeaf(YType.enumeration, 'statistic-name')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('buckets_archive', YLeaf(YType.uint32, 'buckets-archive')),
+                                ])
+                                self.statistic_name = None
+                                self.enable = None
+                                self.buckets_archive = None
 
                                 self.buckets_size = None
                                 self._children_name_map["buckets_size"] = "buckets-size"
@@ -326,7 +344,7 @@ class Sla(Entity):
                                 self.aggregation = None
                                 self._children_name_map["aggregation"] = "aggregation"
                                 self._children_yang_names.add("aggregation")
-                                self._segment_path = lambda: "statistic" + "[statistic-name='" + self.statistic_name.get() + "']"
+                                self._segment_path = lambda: "statistic" + "[statistic-name='" + str(self.statistic_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, ['statistic_name', 'enable', 'buckets_archive'], name, value)
@@ -369,13 +387,16 @@ class Sla(Entity):
                                     self.yang_parent_name = "statistic"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.buckets_size = YLeaf(YType.uint32, "buckets-size")
-
-                                    self.buckets_size_unit = YLeaf(YType.enumeration, "buckets-size-unit")
+                                    self._leafs = OrderedDict([
+                                        ('buckets_size', YLeaf(YType.uint32, 'buckets-size')),
+                                        ('buckets_size_unit', YLeaf(YType.enumeration, 'buckets-size-unit')),
+                                    ])
+                                    self.buckets_size = None
+                                    self.buckets_size_unit = None
                                     self._segment_path = lambda: "buckets-size"
 
                                 def __setattr__(self, name, value):
@@ -426,15 +447,18 @@ class Sla(Entity):
                                     self.yang_parent_name = "statistic"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.bins_count = YLeaf(YType.uint32, "bins-count")
-
-                                    self.bins_width = YLeaf(YType.uint32, "bins-width")
-
-                                    self.bins_width_tenths = YLeaf(YType.uint32, "bins-width-tenths")
+                                    self._leafs = OrderedDict([
+                                        ('bins_count', YLeaf(YType.uint32, 'bins-count')),
+                                        ('bins_width', YLeaf(YType.uint32, 'bins-width')),
+                                        ('bins_width_tenths', YLeaf(YType.uint32, 'bins-width-tenths')),
+                                    ])
+                                    self.bins_count = None
+                                    self.bins_width = None
+                                    self.bins_width_tenths = None
                                     self._segment_path = lambda: "aggregation"
 
                                 def __setattr__(self, name, value):
@@ -514,25 +538,28 @@ class Sla(Entity):
                             self.yang_parent_name = "profile"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.probe_interval = YLeaf(YType.uint32, "probe-interval")
-
-                            self.probe_interval_day = YLeaf(YType.enumeration, "probe-interval-day")
-
-                            self.probe_interval_unit = YLeaf(YType.enumeration, "probe-interval-unit")
-
-                            self.start_time_hour = YLeaf(YType.uint32, "start-time-hour")
-
-                            self.start_time_minute = YLeaf(YType.uint32, "start-time-minute")
-
-                            self.start_time_second = YLeaf(YType.uint32, "start-time-second")
-
-                            self.probe_duration = YLeaf(YType.uint32, "probe-duration")
-
-                            self.probe_duration_unit = YLeaf(YType.enumeration, "probe-duration-unit")
+                            self._leafs = OrderedDict([
+                                ('probe_interval', YLeaf(YType.uint32, 'probe-interval')),
+                                ('probe_interval_day', YLeaf(YType.enumeration, 'probe-interval-day')),
+                                ('probe_interval_unit', YLeaf(YType.enumeration, 'probe-interval-unit')),
+                                ('start_time_hour', YLeaf(YType.uint32, 'start-time-hour')),
+                                ('start_time_minute', YLeaf(YType.uint32, 'start-time-minute')),
+                                ('start_time_second', YLeaf(YType.uint32, 'start-time-second')),
+                                ('probe_duration', YLeaf(YType.uint32, 'probe-duration')),
+                                ('probe_duration_unit', YLeaf(YType.enumeration, 'probe-duration-unit')),
+                            ])
+                            self.probe_interval = None
+                            self.probe_interval_day = None
+                            self.probe_interval_unit = None
+                            self.start_time_hour = None
+                            self.start_time_minute = None
+                            self.start_time_second = None
+                            self.probe_duration = None
+                            self.probe_duration_unit = None
                             self._segment_path = lambda: "schedule"
 
                         def __setattr__(self, name, value):
@@ -585,12 +612,15 @@ class Sla(Entity):
                             self.yang_parent_name = "profile"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"send" : ("send", Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send), "packet-size-and-padding" : ("packet_size_and_padding", Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding)}
-                            self._child_list_classes = {}
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-
-                            self.synthetic_loss_calculation_packets = YLeaf(YType.uint32, "synthetic-loss-calculation-packets")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("send", ("send", Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send)), ("packet-size-and-padding", ("packet_size_and_padding", Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                ('synthetic_loss_calculation_packets', YLeaf(YType.uint32, 'synthetic-loss-calculation-packets')),
+                            ])
+                            self.priority = None
+                            self.synthetic_loss_calculation_packets = None
 
                             self.send = None
                             self._children_name_map["send"] = "send"
@@ -667,21 +697,24 @@ class Sla(Entity):
                                 self.yang_parent_name = "probe"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.burst_interval = YLeaf(YType.uint32, "burst-interval")
-
-                                self.burst_interval_unit = YLeaf(YType.enumeration, "burst-interval-unit")
-
-                                self.packet_interval = YLeaf(YType.uint32, "packet-interval")
-
-                                self.packet_interval_unit = YLeaf(YType.enumeration, "packet-interval-unit")
-
-                                self.packet_count = YLeaf(YType.uint32, "packet-count")
-
-                                self.send_type = YLeaf(YType.enumeration, "send-type")
+                                self._leafs = OrderedDict([
+                                    ('burst_interval', YLeaf(YType.uint32, 'burst-interval')),
+                                    ('burst_interval_unit', YLeaf(YType.enumeration, 'burst-interval-unit')),
+                                    ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
+                                    ('packet_interval_unit', YLeaf(YType.enumeration, 'packet-interval-unit')),
+                                    ('packet_count', YLeaf(YType.uint32, 'packet-count')),
+                                    ('send_type', YLeaf(YType.enumeration, 'send-type')),
+                                ])
+                                self.burst_interval = None
+                                self.burst_interval_unit = None
+                                self.packet_interval = None
+                                self.packet_interval_unit = None
+                                self.packet_count = None
+                                self.send_type = None
                                 self._segment_path = lambda: "send"
 
                             def __setattr__(self, name, value):
@@ -729,15 +762,18 @@ class Sla(Entity):
                                 self.yang_parent_name = "probe"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.size = YLeaf(YType.uint32, "size")
-
-                                self.padding_type = YLeaf(YType.enumeration, "padding-type")
-
-                                self.padding_value = YLeaf(YType.str, "padding-value")
+                                self._leafs = OrderedDict([
+                                    ('size', YLeaf(YType.uint32, 'size')),
+                                    ('padding_type', YLeaf(YType.enumeration, 'padding-type')),
+                                    ('padding_value', YLeaf(YType.str, 'padding-value')),
+                                ])
+                                self.size = None
+                                self.padding_type = None
+                                self.padding_value = None
                                 self._segment_path = lambda: "packet-size-and-padding"
 
                             def __setattr__(self, name, value):

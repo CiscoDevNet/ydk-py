@@ -41,6 +41,47 @@ module Cisco-IOS-XE-aaa {
   // =========================================================================
   // REVISION
   // =========================================================================
+
+  revision 2018-01-11 {
+    description
+      "Changed aaa group radius ip source-interface to implement correct native interface model";
+  }
+ 
+  revision 2017-12-15 {
+    description
+      "Added aaa server group acct-port leaf";
+  }
+ 
+  revision 2017-12-04 {
+    description
+      "Added support back for aaa accounting dot1x required for DNA-C removed in revision below on 06-01";
+  }
+ 
+  revision 2017-11-17 {
+    description
+      "Added support for named tacacs and radius servers in both aaa groups for radius and tacacs";
+  }
+
+  revision 2017-11-16 {
+    description
+      "Support server-private <ip> key under aaa group server radius";
+  }
+  revision 2017-10-10 {
+    description
+      "Support new aaa local authorization auth-proxy";
+  }
+  revision 2017-10-06 {
+    description
+      "Add server-private list to radius server group";
+  }
+  revision 2017-10-05 {
+    description
+      "Add support for 'subscriber *' and 'mac-delimiter *' commands under aaa group server";
+  }
+  revision 2017-09-28 {
+    description
+      "Support wireless aaa misc commands";
+  }
   revision 2017-09-05 {
     description
       "Support new aaa login commands and aaa server commands";
@@ -79,6 +120,109 @@ module Cisco-IOS-XE-aaa {
   typedef ipv4-mask-slash-prefix-len-type {
     type string {
       pattern '/(([0-9])|([1-2][0-9])|(3[0-2]))';
+    }
+  }
+
+  grouping aaa-attribute-type-options {
+    leaf mandatory {
+      description
+        "Specify an AAA attribute as mandatory";
+      type empty;
+    } 
+    leaf tag {
+      description
+        "Specify an AAA attribute tag";
+      type uint8 {
+        range "1..31";
+      }
+    }
+  }
+
+  grouping aaa-accounting-identity {
+    container start-stop {
+      description
+        "Record start and stop without waiting";
+      leaf broadcast {
+        description
+          "Use Broadcast for Accounting";
+        type empty;
+      }
+      leaf group {
+        description
+          "Use Server-group";
+        type union {
+          type string;
+          type enumeration {
+            enum "radius";
+            enum "tacacs+";
+          }
+        }
+      }
+    }
+  }
+
+  grouping aaa-accounting-dot1x {
+    container start-stop {
+      description
+        "Record start and stop without waiting";
+      leaf broadcast {
+        description
+          "Use Broadcast for Accounting";
+        type empty;
+      }
+      leaf group {
+        description
+          "Use Server-group";
+        type union {
+          type string;
+          type enumeration {
+            enum "radius";
+            enum "tacacs+";
+          }
+        }
+      }
+    }
+  }
+
+  grouping aaa-authorization-cred-download {
+    leaf local {
+      description
+        "Use local database";
+      type empty;
+    }
+    leaf cache {
+      description
+        "Use Cached-group";
+      type union {
+        type string;
+        type enumeration {
+           enum "ldap";
+           enum "radius";
+           enum "tacacs+";
+         } 
+      }
+    }
+    leaf group {
+      description
+        "Use server-group";
+      type union {
+        type string;
+        type enumeration {
+           enum "ldap";
+           enum "radius";
+           enum "tacacs+";
+         } 
+      }
+    }
+    leaf if-authenticated {
+      description
+        "Succeed if user has authenticated";
+      type empty;
+    }
+    leaf none {
+      description
+        "No authorization (always succeeds)";
+      type empty;
     }
   }
 
@@ -458,7 +602,23 @@ module Cisco-IOS-XE-aaa {
         type string;
         type enumeration {
           enum "radius";
-          enum "tacacs+";
+          enum "ldap";
+        }
+      }
+    }
+    leaf local {
+      description
+        "Use local username authentication";
+      type empty;
+    }
+    leaf cache {
+      description
+        "Use Cased-group";
+      type union {
+        type string;
+        type enumeration {
+          enum "radius";
+          enum "ldap";
         }
       }
     }
@@ -536,10 +696,20 @@ module Cisco-IOS-XE-aaa {
           container server {
             description
               "Specify a TACACS server";
-            leaf name {
+            list name {
               description
                 "Name of tacacs server";
-              type string;
+              key "name";
+              leaf name {
+                type string;
+              }
+            }
+//added list for multiple tacacs servers in a group
+            list direct {
+              key "name";
+              leaf name {
+                type inet:host;
+              }
             }
           }
           list server-private {
@@ -548,6 +718,13 @@ module Cisco-IOS-XE-aaa {
             key "name";
             leaf name {
               type ios-types:host-type;
+            }
+            leaf port {
+              description
+                "TCP port for TACACS+ server (default is 49)";
+              type uint16 {
+                range "1..65535";
+              }
             }
             leaf timeout {
               description
@@ -570,7 +747,6 @@ module Cisco-IOS-XE-aaa {
               }
             }
             //nat  To send client's post NAT address to tacacs+ server
-            //port TCP port for TACACS+ server (default is 49)
             //single-connection Multiplex all packets over a single..
             //..tcp connection to server (for CiscoSecure)
           }
@@ -598,7 +774,7 @@ module Cisco-IOS-XE-aaa {
           description "Tacacs+ server-group definition";
           key "name";
           leaf name {
-            type string;
+            type string; 
           }
         }
         // aaa group server radius *
@@ -641,6 +817,84 @@ module Cisco-IOS-XE-aaa {
               }
             }
           }
+          container subscriber {
+            description
+              "Configures MAC Filtering RADIUS Compatibility mode";
+            container mac-filtering {
+              description
+                "MAC Filtering";
+              leaf security-mode {
+                description
+                  "Security Mode";
+                type enumeration {
+                  enum "mac";
+                  enum "none";
+                  enum "shared-secret";
+                }
+              }
+            }
+          }
+          leaf mac-delimiter {
+            description
+              "MAC Delimiter for Radius Compatibility Mode";
+            type enumeration {
+              enum "colon";
+              enum "hyphen";
+              enum "none";
+              enum "single-hyphen";
+            } 
+          }
+          list server-private {
+            description
+              "Define a private RADIUS server (per group)";
+            ordered-by user;
+            key "name";
+            leaf name {
+              type ios-types:host-type;
+            }
+            leaf auth-port {
+              description
+                "UDP port for RADIUS authentication server (default is 1645)";
+              type uint16 {
+                range "0..65534";
+              }
+            }
+            leaf acct-port {
+              description
+                "UDP port for RADIUS accounting server (default is 1646)";
+              type uint16 {
+                range "0..65534";
+              }
+            }
+            leaf timeout {
+              description
+                "Time to wait for this RADIUS server to reply (overrides default)";
+              type uint16 {
+                range "1..1000";
+              }
+            }
+            leaf retransmit {
+              description
+                "Number of retries to active server (overrides default)";
+              type uint8 {
+                range "0..100";
+              }
+            }
+            container key {
+              description
+                "per-server encryption key (overrides default)";
+              leaf encryption {
+                type enumeration {
+                  enum "0";
+                  enum "6";
+                  enum "7";
+                }
+              }
+              leaf key {
+                type string;
+              }
+            }
+          }
           leaf deadtime {
             description
               "Specify time in minutes to ignore an unresponsive server";
@@ -654,10 +908,10 @@ module Cisco-IOS-XE-aaa {
             container radius {
               description
                 "RADIUS configuration commands";
-              //Leave source-interface in aaa model
-              //Main raidus model uses container for source-interface
-              leaf source-interface {
-                type string;
+              container source-interface {
+                description
+                  "Specify interface for source address in RADIUS packets";
+                uses ios-ifc:interface-grouping;
               }
             }
             container vrf {
@@ -679,6 +933,7 @@ module Cisco-IOS-XE-aaa {
               container least-outstanding {
                 description
                   "Pick the server with the least transactions outstanding.";
+                presence "true";
                 leaf batch-size {
                   description
                     "Size of the transaction batch that should be load-balanced.";
@@ -694,12 +949,39 @@ module Cisco-IOS-XE-aaa {
               }
             }
           }
-          //  server-private Define a private RADIUS server (per group)
           //  subscriber Configures MAC Filtering RADIUS Compatibility mode
           //  throttle Throttle requests to radius server
         }
       }
     }
+    // aaa attribute
+    container attribute {
+      description
+        "AAA attribute definitions";
+      list list {
+        description
+          "AAA attribute list definition";
+        key "name";
+        leaf name {
+         type string;
+        }
+        container attribute {
+          description
+            "Specify an AAA attribute";
+          container type {
+            description
+              "Specify an AAA attribute type";
+            leaf password {
+              description
+                "The password of the user to be authenticated \
+                 string of hex characters";
+              type string;
+            }
+            uses aaa-attribute-type-options;
+          }
+        }
+      }  
+    } 
     // aaa authentication
     container authentication {
       description
@@ -1281,6 +1563,44 @@ module Cisco-IOS-XE-aaa {
         }
       }
     }
+    // aaa local 
+    container local {
+      description
+        "AAA Local method options";
+      container authentication {
+        description
+          "Local authentication options";
+        container authorization {
+          leaf authen-type {
+            type union {
+              type enumeration {
+                enum "default";
+              }
+              type string;
+            }
+          }
+          leaf authorization {
+            type union {
+              type enumeration {
+                enum "default";
+              }
+              type string;
+            }
+          }
+        }
+        container attempts {
+          description
+            "Local authentication attempts";
+          leaf max-fail {
+            description
+              "Max failed attempts to lock the user";
+            type uint16 {
+              range "1..65535";
+            }
+          }
+        }
+      } 
+    }
     // aaa authorization
     container authorization {
       description
@@ -1368,8 +1688,25 @@ module Cisco-IOS-XE-aaa {
         }
       }
       //  console For enabling console authorization
-      //  credential-download  For downloading EAP credential
-      //                       from Local/RADIUS/LDAP
+      container credential-download {
+        description
+          "For downloading EAP credential from Local/RADIUS/LDAP";
+        container default {
+          description
+            "The default authorization list";
+          uses aaa-authorization-cred-download;
+        }
+        list authorization-list {
+          description
+            "Named authorization list (max 31 characters, \
+             longer will be rejected)";
+          key "name";
+          leaf name {
+            type string;
+          }
+          uses aaa-authorization-cred-download;
+        }
+      }
 
       // aaa authorization exec *
       list exec {
@@ -1800,16 +2137,20 @@ module Cisco-IOS-XE-aaa {
           description "For Authentication Proxy Services";
           container default {
               description "The default authorization list.";
-              container group {
-                  description "Use server-group.";
-                  leaf radius {
-                      description "Use list of all Radius hosts.";
-                      type empty;
-                  }
-          leaf group-name {
-                    type string;
-                  }
+              leaf local {
+                description "Local authorization.";
+                type empty;
               }
+              leaf group {
+                description
+                  "Use Server-group";
+                type union {
+                  type string;
+                  type enumeration {
+                    enum "radius";
+                  }
+                }
+              }            
           }
       }
       // aaa authorization onep *
@@ -1901,34 +2242,45 @@ module Cisco-IOS-XE-aaa {
           type empty;
         }
       }
-      list identity {
+      container dot1x {
         description
-          "For identity sessions.";
-        key "name";
-        leaf name {
-          type string;
-        }
-        container start-stop {
+          "For dot1x sessions.";
+        container default {
           description
-            "Record start and stop without waiting";
-          leaf broadcast {
-            description
-              "Use Broadcast for Accounting";
-            type empty;
+            "The default authorization list";
+          uses aaa-accounting-dot1x;
+        }
+        list accounting-list {
+          description
+            "Named authorization list (max 31 characters, \
+             longer will be rejected)";
+          key "name";
+          leaf name {
+            type string;
           }
-          leaf group {
-            description
-              "Use Server-group";
-            type union {
-              type string;
-              type enumeration {
-                enum "radius";
-                enum "tacacs+";
-              }
-            }
-          }
+          uses aaa-accounting-dot1x;
         }
       }
+      container identity {
+        description
+          "For identity sessions.";
+        container default {
+          description
+            "The default authorization list";
+          uses aaa-accounting-identity;
+        }
+        list accounting-list {
+          description
+            "Named authorization list (max 31 characters, \
+             longer will be rejected)";
+          key "name";
+          leaf name {
+            type string;
+          }
+          uses aaa-accounting-identity;
+        }
+      }
+
       list exec {
         description
           "For starting an exec (shell).";
@@ -2691,6 +3043,15 @@ time-period";
           }
         }
       }
+      // radius server timeout
+      leaf timeout {
+        description
+          "Time to wait for a RADIUS server to reply (overrides default)";
+        type uint16 {
+          range "1..1000";
+        }
+      }
+
       container automate-tester {
         description
           "Configure server automated testing.";
@@ -3107,6 +3468,20 @@ time-period";
             type string;
             type inet:ipv4-address;
           }
+        }
+      }
+      leaf port {
+        description
+          "Configure port for tacacs server";
+        type uint16 {
+          range "1..65535";
+        }
+      }
+      leaf timeout {
+        description
+          "Configure timeout for tacacs server";
+        type uint16 {
+          range "1..1000";
         }
       }
       container key {

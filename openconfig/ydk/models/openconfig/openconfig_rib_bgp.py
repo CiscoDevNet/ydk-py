@@ -28,9 +28,11 @@ eligible for sending (advertising) to the neighbor after output
 policy rules have been applied.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -59,8 +61,10 @@ class BgpRib(Entity):
         self.yang_parent_name = "openconfig-rib-bgp"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"afi-safis" : ("afi_safis", BgpRib.AfiSafis)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("afi-safis", ("afi_safis", BgpRib.AfiSafis))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.afi_safis = BgpRib.AfiSafis()
         self.afi_safis.parent = self
@@ -92,8 +96,10 @@ class BgpRib(Entity):
             self.yang_parent_name = "bgp-rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"afi-safi" : ("afi_safi", BgpRib.AfiSafis.AfiSafi)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("afi-safi", ("afi_safi", BgpRib.AfiSafis.AfiSafi))])
+            self._leafs = OrderedDict()
 
             self.afi_safi = YList(self)
             self._segment_path = lambda: "afi-safis"
@@ -107,7 +113,7 @@ class BgpRib(Entity):
             """
             list of afi\-safi types
             
-            .. attribute:: afi_safi_name  <key>
+            .. attribute:: afi_safi_name  (key)
             
             	AFI,SAFI
             	**type**\:  :py:class:`AFISAFITYPE <ydk.models.openconfig.openconfig_bgp_types.AFISAFITYPE>`
@@ -136,10 +142,13 @@ class BgpRib(Entity):
                 self.yang_parent_name = "afi-safis"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ipv4-unicast" : ("ipv4_unicast", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast), "ipv6-unicast" : ("ipv6_unicast", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast)}
-                self._child_list_classes = {}
-
-                self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
+                self.ylist_key_names = ['afi_safi_name']
+                self._child_container_classes = OrderedDict([("ipv4-unicast", ("ipv4_unicast", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast)), ("ipv6-unicast", ("ipv6_unicast", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                ])
+                self.afi_safi_name = None
 
                 self.ipv4_unicast = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast()
                 self.ipv4_unicast.parent = self
@@ -150,7 +159,7 @@ class BgpRib(Entity):
                 self.ipv6_unicast.parent = self
                 self._children_name_map["ipv6_unicast"] = "ipv6-unicast"
                 self._children_yang_names.add("ipv6-unicast")
-                self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + self.afi_safi_name.get() + "']"
+                self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + str(self.afi_safi_name) + "']"
                 self._absolute_path = lambda: "openconfig-rib-bgp:bgp-rib/afi-safis/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -186,8 +195,10 @@ class BgpRib(Entity):
                     self.yang_parent_name = "afi-safi"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"loc-rib" : ("loc_rib", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib), "neighbors" : ("neighbors", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("loc-rib", ("loc_rib", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib)), ("neighbors", ("neighbors", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.loc_rib = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib()
                     self.loc_rib.parent = self
@@ -240,10 +251,13 @@ class BgpRib(Entity):
                         self.yang_parent_name = "ipv4-unicast"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes)}
-                        self._child_list_classes = {}
-
-                        self.num_routes = YLeaf(YType.uint64, "num-routes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                        ])
+                        self.num_routes = None
 
                         self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes()
                         self.routes.parent = self
@@ -279,8 +293,10 @@ class BgpRib(Entity):
                             self.yang_parent_name = "loc-rib"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route))])
+                            self._leafs = OrderedDict()
 
                             self.route = YList(self)
                             self._segment_path = lambda: "routes"
@@ -353,20 +369,23 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "routes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes)}
-                                self._child_list_classes = {}
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                self.best_path = YLeaf(YType.boolean, "best-path")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                    ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                    ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                    ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                    ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                    ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                ])
+                                self.prefix = None
+                                self.last_modified_date = None
+                                self.last_update_received = None
+                                self.valid_route = None
+                                self.invalid_reason = None
+                                self.best_path = None
 
                                 self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes()
                                 self.attributes.parent = self
@@ -466,24 +485,27 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "route"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator)}
-                                    self._child_list_classes = {}
-
-                                    self.origin = YLeaf(YType.enumeration, "origin")
-
-                                    self.as_path = YLeaf(YType.str, "as-path")
-
-                                    self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                    self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                    self.med = YLeaf(YType.uint32, "med")
-
-                                    self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                    self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                    self.community = YLeafList(YType.str, "community")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('origin', YLeaf(YType.enumeration, 'origin')),
+                                        ('as_path', YLeaf(YType.str, 'as-path')),
+                                        ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                        ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                        ('med', YLeaf(YType.uint32, 'med')),
+                                        ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                        ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                        ('community', YLeafList(YType.str, 'community')),
+                                    ])
+                                    self.origin = None
+                                    self.as_path = None
+                                    self.as4_path = None
+                                    self.next_hop = None
+                                    self.med = None
+                                    self.local_pref = None
+                                    self.atomic_aggr = None
+                                    self.community = []
 
                                     self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator()
                                     self.aggregator.parent = self
@@ -535,14 +557,17 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "attributes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_ = YLeaf(YType.uint32, "as")
-
-                                        self.as4 = YLeaf(YType.uint32, "as4")
-
-                                        self.address = YLeaf(YType.str, "address")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_', YLeaf(YType.uint32, 'as')),
+                                            ('as4', YLeaf(YType.uint32, 'as4')),
+                                            ('address', YLeaf(YType.str, 'address')),
+                                        ])
+                                        self.as_ = None
+                                        self.as4 = None
+                                        self.address = None
                                         self._segment_path = lambda: "aggregator"
 
                                     def __setattr__(self, name, value):
@@ -630,18 +655,21 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "route"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                    self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                    self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                    self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                    self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                    self.path_id = YLeaf(YType.uint32, "path-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                    self._leafs = OrderedDict([
+                                        ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                        ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                        ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                        ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                        ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                    ])
+                                    self.originator_id = None
+                                    self.cluster_list = []
+                                    self.ext_community = []
+                                    self.aigp = None
+                                    self.path_id = None
 
                                     self.unknown_attribute = YList(self)
                                     self._segment_path = lambda: "ext-attributes"
@@ -655,7 +683,7 @@ class BgpRib(Entity):
                                     This list contains received attributes that are unrecognized
                                     or unsupported by the local router.  The list may be empty.
                                     
-                                    .. attribute:: attr_type  <key>
+                                    .. attribute:: attr_type  (key)
                                     
                                     	2\-octet value encoding the attribute flags and the attribute type code
                                     	**type**\: int
@@ -690,15 +718,18 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "ext-attributes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                        self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                        self.attr_value = YLeaf(YType.str, "attr-value")
-                                        self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                        self.ylist_key_names = ['attr_type']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                            ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                            ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                        ])
+                                        self.attr_type = None
+                                        self.attr_len = None
+                                        self.attr_value = None
+                                        self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -727,8 +758,10 @@ class BgpRib(Entity):
                         self.yang_parent_name = "ipv4-unicast"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"neighbor" : ("neighbor", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor))])
+                        self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
                         self._segment_path = lambda: "neighbors"
@@ -741,7 +774,7 @@ class BgpRib(Entity):
                         """
                         List of neighbors (peers) of the local BGP speaker
                         
-                        .. attribute:: neighbor_address  <key>
+                        .. attribute:: neighbor_address  (key)
                         
                         	IP address of the BGP neighbor or peer
                         	**type**\: union of the below types:
@@ -788,10 +821,13 @@ class BgpRib(Entity):
                             self.yang_parent_name = "neighbors"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"adj-rib-in-pre" : ("adj_rib_in_pre", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre), "adj-rib-in-post" : ("adj_rib_in_post", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost), "adj-rib-out-pre" : ("adj_rib_out_pre", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre), "adj-rib-out-post" : ("adj_rib_out_post", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost)}
-                            self._child_list_classes = {}
-
-                            self.neighbor_address = YLeaf(YType.str, "neighbor-address")
+                            self.ylist_key_names = ['neighbor_address']
+                            self._child_container_classes = OrderedDict([("adj-rib-in-pre", ("adj_rib_in_pre", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre)), ("adj-rib-in-post", ("adj_rib_in_post", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre)), ("adj-rib-out-post", ("adj_rib_out_post", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                            ])
+                            self.neighbor_address = None
 
                             self.adj_rib_in_pre = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre()
                             self.adj_rib_in_pre.parent = self
@@ -812,7 +848,7 @@ class BgpRib(Entity):
                             self.adj_rib_out_post.parent = self
                             self._children_name_map["adj_rib_out_post"] = "adj-rib-out-post"
                             self._children_yang_names.add("adj-rib-out-post")
-                            self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']"
+                            self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor, ['neighbor_address'], name, value)
@@ -851,10 +887,13 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "neighbor"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes)}
-                                self._child_list_classes = {}
-
-                                self.num_routes = YLeaf(YType.uint64, "num-routes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ])
+                                self.num_routes = None
 
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes()
                                 self.routes.parent = self
@@ -890,8 +929,10 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "adj-rib-in-pre"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route))])
+                                    self._leafs = OrderedDict()
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
@@ -964,20 +1005,23 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "routes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                        self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                        self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                        self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                        self.best_path = YLeaf(YType.boolean, "best-path")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                            ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                            ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                        ])
+                                        self.prefix = None
+                                        self.last_modified_date = None
+                                        self.last_update_received = None
+                                        self.valid_route = None
+                                        self.invalid_reason = None
+                                        self.best_path = None
 
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes()
                                         self.attributes.parent = self
@@ -1077,24 +1121,27 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator)}
-                                            self._child_list_classes = {}
-
-                                            self.origin = YLeaf(YType.enumeration, "origin")
-
-                                            self.as_path = YLeaf(YType.str, "as-path")
-
-                                            self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                            self.med = YLeaf(YType.uint32, "med")
-
-                                            self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                            self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                            self.community = YLeafList(YType.str, "community")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                ('as_path', YLeaf(YType.str, 'as-path')),
+                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                                ('med', YLeaf(YType.uint32, 'med')),
+                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('community', YLeafList(YType.str, 'community')),
+                                            ])
+                                            self.origin = None
+                                            self.as_path = None
+                                            self.as4_path = None
+                                            self.next_hop = None
+                                            self.med = None
+                                            self.local_pref = None
+                                            self.atomic_aggr = None
+                                            self.community = []
 
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
@@ -1146,14 +1193,17 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as4 = YLeaf(YType.uint32, "as4")
-
-                                                self.address = YLeaf(YType.str, "address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as4', YLeaf(YType.uint32, 'as4')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                ])
+                                                self.as_ = None
+                                                self.as4 = None
+                                                self.address = None
                                                 self._segment_path = lambda: "aggregator"
 
                                             def __setattr__(self, name, value):
@@ -1241,18 +1291,21 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                            self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                            self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                            self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                            self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                            self.path_id = YLeaf(YType.uint32, "path-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._leafs = OrderedDict([
+                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                                ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                            ])
+                                            self.originator_id = None
+                                            self.cluster_list = []
+                                            self.ext_community = []
+                                            self.aigp = None
+                                            self.path_id = None
 
                                             self.unknown_attribute = YList(self)
                                             self._segment_path = lambda: "ext-attributes"
@@ -1266,7 +1319,7 @@ class BgpRib(Entity):
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
                                             
-                                            .. attribute:: attr_type  <key>
+                                            .. attribute:: attr_type  (key)
                                             
                                             	2\-octet value encoding the attribute flags and the attribute type code
                                             	**type**\: int
@@ -1301,15 +1354,18 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "ext-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                                self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                                self.attr_value = YLeaf(YType.str, "attr-value")
-                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                                self.ylist_key_names = ['attr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                                    ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                                    ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                                ])
+                                                self.attr_type = None
+                                                self.attr_len = None
+                                                self.attr_value = None
+                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -1347,10 +1403,13 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "neighbor"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes)}
-                                self._child_list_classes = {}
-
-                                self.num_routes = YLeaf(YType.uint64, "num-routes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ])
+                                self.num_routes = None
 
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes()
                                 self.routes.parent = self
@@ -1386,8 +1445,10 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "adj-rib-in-post"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route))])
+                                    self._leafs = OrderedDict()
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
@@ -1460,20 +1521,23 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "routes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                        self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                        self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                        self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                        self.best_path = YLeaf(YType.boolean, "best-path")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                            ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                            ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                        ])
+                                        self.prefix = None
+                                        self.last_modified_date = None
+                                        self.last_update_received = None
+                                        self.valid_route = None
+                                        self.invalid_reason = None
+                                        self.best_path = None
 
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes()
                                         self.attributes.parent = self
@@ -1573,24 +1637,27 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator)}
-                                            self._child_list_classes = {}
-
-                                            self.origin = YLeaf(YType.enumeration, "origin")
-
-                                            self.as_path = YLeaf(YType.str, "as-path")
-
-                                            self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                            self.med = YLeaf(YType.uint32, "med")
-
-                                            self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                            self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                            self.community = YLeafList(YType.str, "community")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                ('as_path', YLeaf(YType.str, 'as-path')),
+                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                                ('med', YLeaf(YType.uint32, 'med')),
+                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('community', YLeafList(YType.str, 'community')),
+                                            ])
+                                            self.origin = None
+                                            self.as_path = None
+                                            self.as4_path = None
+                                            self.next_hop = None
+                                            self.med = None
+                                            self.local_pref = None
+                                            self.atomic_aggr = None
+                                            self.community = []
 
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
@@ -1642,14 +1709,17 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as4 = YLeaf(YType.uint32, "as4")
-
-                                                self.address = YLeaf(YType.str, "address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as4', YLeaf(YType.uint32, 'as4')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                ])
+                                                self.as_ = None
+                                                self.as4 = None
+                                                self.address = None
                                                 self._segment_path = lambda: "aggregator"
 
                                             def __setattr__(self, name, value):
@@ -1737,18 +1807,21 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                            self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                            self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                            self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                            self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                            self.path_id = YLeaf(YType.uint32, "path-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._leafs = OrderedDict([
+                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                                ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                            ])
+                                            self.originator_id = None
+                                            self.cluster_list = []
+                                            self.ext_community = []
+                                            self.aigp = None
+                                            self.path_id = None
 
                                             self.unknown_attribute = YList(self)
                                             self._segment_path = lambda: "ext-attributes"
@@ -1762,7 +1835,7 @@ class BgpRib(Entity):
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
                                             
-                                            .. attribute:: attr_type  <key>
+                                            .. attribute:: attr_type  (key)
                                             
                                             	2\-octet value encoding the attribute flags and the attribute type code
                                             	**type**\: int
@@ -1797,15 +1870,18 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "ext-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                                self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                                self.attr_value = YLeaf(YType.str, "attr-value")
-                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                                self.ylist_key_names = ['attr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                                    ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                                    ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                                ])
+                                                self.attr_type = None
+                                                self.attr_len = None
+                                                self.attr_value = None
+                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -1843,10 +1919,13 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "neighbor"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes)}
-                                self._child_list_classes = {}
-
-                                self.num_routes = YLeaf(YType.uint64, "num-routes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ])
+                                self.num_routes = None
 
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes()
                                 self.routes.parent = self
@@ -1882,8 +1961,10 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "adj-rib-out-pre"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route))])
+                                    self._leafs = OrderedDict()
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
@@ -1956,20 +2037,23 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "routes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                        self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                        self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                        self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                        self.best_path = YLeaf(YType.boolean, "best-path")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                            ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                            ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                        ])
+                                        self.prefix = None
+                                        self.last_modified_date = None
+                                        self.last_update_received = None
+                                        self.valid_route = None
+                                        self.invalid_reason = None
+                                        self.best_path = None
 
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes()
                                         self.attributes.parent = self
@@ -2069,24 +2153,27 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator)}
-                                            self._child_list_classes = {}
-
-                                            self.origin = YLeaf(YType.enumeration, "origin")
-
-                                            self.as_path = YLeaf(YType.str, "as-path")
-
-                                            self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                            self.med = YLeaf(YType.uint32, "med")
-
-                                            self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                            self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                            self.community = YLeafList(YType.str, "community")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                ('as_path', YLeaf(YType.str, 'as-path')),
+                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                                ('med', YLeaf(YType.uint32, 'med')),
+                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('community', YLeafList(YType.str, 'community')),
+                                            ])
+                                            self.origin = None
+                                            self.as_path = None
+                                            self.as4_path = None
+                                            self.next_hop = None
+                                            self.med = None
+                                            self.local_pref = None
+                                            self.atomic_aggr = None
+                                            self.community = []
 
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
@@ -2138,14 +2225,17 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as4 = YLeaf(YType.uint32, "as4")
-
-                                                self.address = YLeaf(YType.str, "address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as4', YLeaf(YType.uint32, 'as4')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                ])
+                                                self.as_ = None
+                                                self.as4 = None
+                                                self.address = None
                                                 self._segment_path = lambda: "aggregator"
 
                                             def __setattr__(self, name, value):
@@ -2233,18 +2323,21 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                            self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                            self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                            self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                            self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                            self.path_id = YLeaf(YType.uint32, "path-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._leafs = OrderedDict([
+                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                                ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                            ])
+                                            self.originator_id = None
+                                            self.cluster_list = []
+                                            self.ext_community = []
+                                            self.aigp = None
+                                            self.path_id = None
 
                                             self.unknown_attribute = YList(self)
                                             self._segment_path = lambda: "ext-attributes"
@@ -2258,7 +2351,7 @@ class BgpRib(Entity):
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
                                             
-                                            .. attribute:: attr_type  <key>
+                                            .. attribute:: attr_type  (key)
                                             
                                             	2\-octet value encoding the attribute flags and the attribute type code
                                             	**type**\: int
@@ -2293,15 +2386,18 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "ext-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                                self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                                self.attr_value = YLeaf(YType.str, "attr-value")
-                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                                self.ylist_key_names = ['attr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                                    ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                                    ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                                ])
+                                                self.attr_type = None
+                                                self.attr_len = None
+                                                self.attr_value = None
+                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -2339,10 +2435,13 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "neighbor"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes)}
-                                self._child_list_classes = {}
-
-                                self.num_routes = YLeaf(YType.uint64, "num-routes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ])
+                                self.num_routes = None
 
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes()
                                 self.routes.parent = self
@@ -2378,8 +2477,10 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "adj-rib-out-post"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route))])
+                                    self._leafs = OrderedDict()
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
@@ -2452,20 +2553,23 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "routes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                        self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                        self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                        self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                        self.best_path = YLeaf(YType.boolean, "best-path")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                            ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                            ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                        ])
+                                        self.prefix = None
+                                        self.last_modified_date = None
+                                        self.last_update_received = None
+                                        self.valid_route = None
+                                        self.invalid_reason = None
+                                        self.best_path = None
 
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes()
                                         self.attributes.parent = self
@@ -2565,24 +2669,27 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator)}
-                                            self._child_list_classes = {}
-
-                                            self.origin = YLeaf(YType.enumeration, "origin")
-
-                                            self.as_path = YLeaf(YType.str, "as-path")
-
-                                            self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                            self.med = YLeaf(YType.uint32, "med")
-
-                                            self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                            self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                            self.community = YLeafList(YType.str, "community")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                ('as_path', YLeaf(YType.str, 'as-path')),
+                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                                ('med', YLeaf(YType.uint32, 'med')),
+                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('community', YLeafList(YType.str, 'community')),
+                                            ])
+                                            self.origin = None
+                                            self.as_path = None
+                                            self.as4_path = None
+                                            self.next_hop = None
+                                            self.med = None
+                                            self.local_pref = None
+                                            self.atomic_aggr = None
+                                            self.community = []
 
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
@@ -2634,14 +2741,17 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as4 = YLeaf(YType.uint32, "as4")
-
-                                                self.address = YLeaf(YType.str, "address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as4', YLeaf(YType.uint32, 'as4')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                ])
+                                                self.as_ = None
+                                                self.as4 = None
+                                                self.address = None
                                                 self._segment_path = lambda: "aggregator"
 
                                             def __setattr__(self, name, value):
@@ -2729,18 +2839,21 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                            self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                            self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                            self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                            self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                            self.path_id = YLeaf(YType.uint32, "path-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._leafs = OrderedDict([
+                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                                ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                            ])
+                                            self.originator_id = None
+                                            self.cluster_list = []
+                                            self.ext_community = []
+                                            self.aigp = None
+                                            self.path_id = None
 
                                             self.unknown_attribute = YList(self)
                                             self._segment_path = lambda: "ext-attributes"
@@ -2754,7 +2867,7 @@ class BgpRib(Entity):
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
                                             
-                                            .. attribute:: attr_type  <key>
+                                            .. attribute:: attr_type  (key)
                                             
                                             	2\-octet value encoding the attribute flags and the attribute type code
                                             	**type**\: int
@@ -2789,15 +2902,18 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "ext-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                                self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                                self.attr_value = YLeaf(YType.str, "attr-value")
-                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                                self.ylist_key_names = ['attr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                                    ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                                    ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                                ])
+                                                self.attr_type = None
+                                                self.attr_len = None
+                                                self.attr_value = None
+                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -2832,8 +2948,10 @@ class BgpRib(Entity):
                     self.yang_parent_name = "afi-safi"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"loc-rib" : ("loc_rib", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib), "neighbors" : ("neighbors", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("loc-rib", ("loc_rib", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib)), ("neighbors", ("neighbors", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.loc_rib = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib()
                     self.loc_rib.parent = self
@@ -2886,10 +3004,13 @@ class BgpRib(Entity):
                         self.yang_parent_name = "ipv6-unicast"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes)}
-                        self._child_list_classes = {}
-
-                        self.num_routes = YLeaf(YType.uint64, "num-routes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                        ])
+                        self.num_routes = None
 
                         self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes()
                         self.routes.parent = self
@@ -2925,8 +3046,10 @@ class BgpRib(Entity):
                             self.yang_parent_name = "loc-rib"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route))])
+                            self._leafs = OrderedDict()
 
                             self.route = YList(self)
                             self._segment_path = lambda: "routes"
@@ -2999,20 +3122,23 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "routes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes)}
-                                self._child_list_classes = {}
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                self.best_path = YLeaf(YType.boolean, "best-path")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                    ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                    ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                    ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                    ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                    ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                ])
+                                self.prefix = None
+                                self.last_modified_date = None
+                                self.last_update_received = None
+                                self.valid_route = None
+                                self.invalid_reason = None
+                                self.best_path = None
 
                                 self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes()
                                 self.attributes.parent = self
@@ -3112,24 +3238,27 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "route"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator)}
-                                    self._child_list_classes = {}
-
-                                    self.origin = YLeaf(YType.enumeration, "origin")
-
-                                    self.as_path = YLeaf(YType.str, "as-path")
-
-                                    self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                    self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                    self.med = YLeaf(YType.uint32, "med")
-
-                                    self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                    self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                    self.community = YLeafList(YType.str, "community")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('origin', YLeaf(YType.enumeration, 'origin')),
+                                        ('as_path', YLeaf(YType.str, 'as-path')),
+                                        ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                        ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                        ('med', YLeaf(YType.uint32, 'med')),
+                                        ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                        ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                        ('community', YLeafList(YType.str, 'community')),
+                                    ])
+                                    self.origin = None
+                                    self.as_path = None
+                                    self.as4_path = None
+                                    self.next_hop = None
+                                    self.med = None
+                                    self.local_pref = None
+                                    self.atomic_aggr = None
+                                    self.community = []
 
                                     self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator()
                                     self.aggregator.parent = self
@@ -3181,14 +3310,17 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "attributes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_ = YLeaf(YType.uint32, "as")
-
-                                        self.as4 = YLeaf(YType.uint32, "as4")
-
-                                        self.address = YLeaf(YType.str, "address")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_', YLeaf(YType.uint32, 'as')),
+                                            ('as4', YLeaf(YType.uint32, 'as4')),
+                                            ('address', YLeaf(YType.str, 'address')),
+                                        ])
+                                        self.as_ = None
+                                        self.as4 = None
+                                        self.address = None
                                         self._segment_path = lambda: "aggregator"
 
                                     def __setattr__(self, name, value):
@@ -3276,18 +3408,21 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "route"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                    self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                    self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                    self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                    self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                    self.path_id = YLeaf(YType.uint32, "path-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                    self._leafs = OrderedDict([
+                                        ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                        ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                        ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                        ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                        ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                    ])
+                                    self.originator_id = None
+                                    self.cluster_list = []
+                                    self.ext_community = []
+                                    self.aigp = None
+                                    self.path_id = None
 
                                     self.unknown_attribute = YList(self)
                                     self._segment_path = lambda: "ext-attributes"
@@ -3301,7 +3436,7 @@ class BgpRib(Entity):
                                     This list contains received attributes that are unrecognized
                                     or unsupported by the local router.  The list may be empty.
                                     
-                                    .. attribute:: attr_type  <key>
+                                    .. attribute:: attr_type  (key)
                                     
                                     	2\-octet value encoding the attribute flags and the attribute type code
                                     	**type**\: int
@@ -3336,15 +3471,18 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "ext-attributes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                        self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                        self.attr_value = YLeaf(YType.str, "attr-value")
-                                        self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                        self.ylist_key_names = ['attr_type']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                            ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                            ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                        ])
+                                        self.attr_type = None
+                                        self.attr_len = None
+                                        self.attr_value = None
+                                        self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -3373,8 +3511,10 @@ class BgpRib(Entity):
                         self.yang_parent_name = "ipv6-unicast"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"neighbor" : ("neighbor", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor))])
+                        self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
                         self._segment_path = lambda: "neighbors"
@@ -3387,7 +3527,7 @@ class BgpRib(Entity):
                         """
                         List of neighbors (peers) of the local BGP speaker
                         
-                        .. attribute:: neighbor_address  <key>
+                        .. attribute:: neighbor_address  (key)
                         
                         	IP address of the BGP neighbor or peer
                         	**type**\: union of the below types:
@@ -3434,10 +3574,13 @@ class BgpRib(Entity):
                             self.yang_parent_name = "neighbors"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"adj-rib-in-pre" : ("adj_rib_in_pre", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre), "adj-rib-in-post" : ("adj_rib_in_post", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost), "adj-rib-out-pre" : ("adj_rib_out_pre", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre), "adj-rib-out-post" : ("adj_rib_out_post", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost)}
-                            self._child_list_classes = {}
-
-                            self.neighbor_address = YLeaf(YType.str, "neighbor-address")
+                            self.ylist_key_names = ['neighbor_address']
+                            self._child_container_classes = OrderedDict([("adj-rib-in-pre", ("adj_rib_in_pre", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre)), ("adj-rib-in-post", ("adj_rib_in_post", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre)), ("adj-rib-out-post", ("adj_rib_out_post", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                            ])
+                            self.neighbor_address = None
 
                             self.adj_rib_in_pre = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre()
                             self.adj_rib_in_pre.parent = self
@@ -3458,7 +3601,7 @@ class BgpRib(Entity):
                             self.adj_rib_out_post.parent = self
                             self._children_name_map["adj_rib_out_post"] = "adj-rib-out-post"
                             self._children_yang_names.add("adj-rib-out-post")
-                            self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']"
+                            self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor, ['neighbor_address'], name, value)
@@ -3497,10 +3640,13 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "neighbor"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes)}
-                                self._child_list_classes = {}
-
-                                self.num_routes = YLeaf(YType.uint64, "num-routes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ])
+                                self.num_routes = None
 
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes()
                                 self.routes.parent = self
@@ -3536,8 +3682,10 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "adj-rib-in-pre"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route))])
+                                    self._leafs = OrderedDict()
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
@@ -3610,20 +3758,23 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "routes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                        self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                        self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                        self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                        self.best_path = YLeaf(YType.boolean, "best-path")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                            ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                            ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                        ])
+                                        self.prefix = None
+                                        self.last_modified_date = None
+                                        self.last_update_received = None
+                                        self.valid_route = None
+                                        self.invalid_reason = None
+                                        self.best_path = None
 
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes()
                                         self.attributes.parent = self
@@ -3723,24 +3874,27 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator)}
-                                            self._child_list_classes = {}
-
-                                            self.origin = YLeaf(YType.enumeration, "origin")
-
-                                            self.as_path = YLeaf(YType.str, "as-path")
-
-                                            self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                            self.med = YLeaf(YType.uint32, "med")
-
-                                            self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                            self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                            self.community = YLeafList(YType.str, "community")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                ('as_path', YLeaf(YType.str, 'as-path')),
+                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                                ('med', YLeaf(YType.uint32, 'med')),
+                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('community', YLeafList(YType.str, 'community')),
+                                            ])
+                                            self.origin = None
+                                            self.as_path = None
+                                            self.as4_path = None
+                                            self.next_hop = None
+                                            self.med = None
+                                            self.local_pref = None
+                                            self.atomic_aggr = None
+                                            self.community = []
 
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
@@ -3792,14 +3946,17 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as4 = YLeaf(YType.uint32, "as4")
-
-                                                self.address = YLeaf(YType.str, "address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as4', YLeaf(YType.uint32, 'as4')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                ])
+                                                self.as_ = None
+                                                self.as4 = None
+                                                self.address = None
                                                 self._segment_path = lambda: "aggregator"
 
                                             def __setattr__(self, name, value):
@@ -3887,18 +4044,21 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                            self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                            self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                            self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                            self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                            self.path_id = YLeaf(YType.uint32, "path-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._leafs = OrderedDict([
+                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                                ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                            ])
+                                            self.originator_id = None
+                                            self.cluster_list = []
+                                            self.ext_community = []
+                                            self.aigp = None
+                                            self.path_id = None
 
                                             self.unknown_attribute = YList(self)
                                             self._segment_path = lambda: "ext-attributes"
@@ -3912,7 +4072,7 @@ class BgpRib(Entity):
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
                                             
-                                            .. attribute:: attr_type  <key>
+                                            .. attribute:: attr_type  (key)
                                             
                                             	2\-octet value encoding the attribute flags and the attribute type code
                                             	**type**\: int
@@ -3947,15 +4107,18 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "ext-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                                self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                                self.attr_value = YLeaf(YType.str, "attr-value")
-                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                                self.ylist_key_names = ['attr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                                    ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                                    ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                                ])
+                                                self.attr_type = None
+                                                self.attr_len = None
+                                                self.attr_value = None
+                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -3993,10 +4156,13 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "neighbor"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes)}
-                                self._child_list_classes = {}
-
-                                self.num_routes = YLeaf(YType.uint64, "num-routes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ])
+                                self.num_routes = None
 
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes()
                                 self.routes.parent = self
@@ -4032,8 +4198,10 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "adj-rib-in-post"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route))])
+                                    self._leafs = OrderedDict()
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
@@ -4106,20 +4274,23 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "routes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                        self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                        self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                        self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                        self.best_path = YLeaf(YType.boolean, "best-path")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                            ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                            ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                        ])
+                                        self.prefix = None
+                                        self.last_modified_date = None
+                                        self.last_update_received = None
+                                        self.valid_route = None
+                                        self.invalid_reason = None
+                                        self.best_path = None
 
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes()
                                         self.attributes.parent = self
@@ -4219,24 +4390,27 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator)}
-                                            self._child_list_classes = {}
-
-                                            self.origin = YLeaf(YType.enumeration, "origin")
-
-                                            self.as_path = YLeaf(YType.str, "as-path")
-
-                                            self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                            self.med = YLeaf(YType.uint32, "med")
-
-                                            self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                            self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                            self.community = YLeafList(YType.str, "community")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                ('as_path', YLeaf(YType.str, 'as-path')),
+                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                                ('med', YLeaf(YType.uint32, 'med')),
+                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('community', YLeafList(YType.str, 'community')),
+                                            ])
+                                            self.origin = None
+                                            self.as_path = None
+                                            self.as4_path = None
+                                            self.next_hop = None
+                                            self.med = None
+                                            self.local_pref = None
+                                            self.atomic_aggr = None
+                                            self.community = []
 
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
@@ -4288,14 +4462,17 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as4 = YLeaf(YType.uint32, "as4")
-
-                                                self.address = YLeaf(YType.str, "address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as4', YLeaf(YType.uint32, 'as4')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                ])
+                                                self.as_ = None
+                                                self.as4 = None
+                                                self.address = None
                                                 self._segment_path = lambda: "aggregator"
 
                                             def __setattr__(self, name, value):
@@ -4383,18 +4560,21 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                            self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                            self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                            self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                            self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                            self.path_id = YLeaf(YType.uint32, "path-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._leafs = OrderedDict([
+                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                                ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                            ])
+                                            self.originator_id = None
+                                            self.cluster_list = []
+                                            self.ext_community = []
+                                            self.aigp = None
+                                            self.path_id = None
 
                                             self.unknown_attribute = YList(self)
                                             self._segment_path = lambda: "ext-attributes"
@@ -4408,7 +4588,7 @@ class BgpRib(Entity):
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
                                             
-                                            .. attribute:: attr_type  <key>
+                                            .. attribute:: attr_type  (key)
                                             
                                             	2\-octet value encoding the attribute flags and the attribute type code
                                             	**type**\: int
@@ -4443,15 +4623,18 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "ext-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                                self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                                self.attr_value = YLeaf(YType.str, "attr-value")
-                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                                self.ylist_key_names = ['attr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                                    ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                                    ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                                ])
+                                                self.attr_type = None
+                                                self.attr_len = None
+                                                self.attr_value = None
+                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -4489,10 +4672,13 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "neighbor"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes)}
-                                self._child_list_classes = {}
-
-                                self.num_routes = YLeaf(YType.uint64, "num-routes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ])
+                                self.num_routes = None
 
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes()
                                 self.routes.parent = self
@@ -4528,8 +4714,10 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "adj-rib-out-pre"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route))])
+                                    self._leafs = OrderedDict()
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
@@ -4602,20 +4790,23 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "routes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                        self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                        self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                        self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                        self.best_path = YLeaf(YType.boolean, "best-path")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                            ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                            ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                        ])
+                                        self.prefix = None
+                                        self.last_modified_date = None
+                                        self.last_update_received = None
+                                        self.valid_route = None
+                                        self.invalid_reason = None
+                                        self.best_path = None
 
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes()
                                         self.attributes.parent = self
@@ -4715,24 +4906,27 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator)}
-                                            self._child_list_classes = {}
-
-                                            self.origin = YLeaf(YType.enumeration, "origin")
-
-                                            self.as_path = YLeaf(YType.str, "as-path")
-
-                                            self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                            self.med = YLeaf(YType.uint32, "med")
-
-                                            self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                            self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                            self.community = YLeafList(YType.str, "community")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                ('as_path', YLeaf(YType.str, 'as-path')),
+                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                                ('med', YLeaf(YType.uint32, 'med')),
+                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('community', YLeafList(YType.str, 'community')),
+                                            ])
+                                            self.origin = None
+                                            self.as_path = None
+                                            self.as4_path = None
+                                            self.next_hop = None
+                                            self.med = None
+                                            self.local_pref = None
+                                            self.atomic_aggr = None
+                                            self.community = []
 
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
@@ -4784,14 +4978,17 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as4 = YLeaf(YType.uint32, "as4")
-
-                                                self.address = YLeaf(YType.str, "address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as4', YLeaf(YType.uint32, 'as4')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                ])
+                                                self.as_ = None
+                                                self.as4 = None
+                                                self.address = None
                                                 self._segment_path = lambda: "aggregator"
 
                                             def __setattr__(self, name, value):
@@ -4879,18 +5076,21 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                            self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                            self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                            self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                            self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                            self.path_id = YLeaf(YType.uint32, "path-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._leafs = OrderedDict([
+                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                                ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                            ])
+                                            self.originator_id = None
+                                            self.cluster_list = []
+                                            self.ext_community = []
+                                            self.aigp = None
+                                            self.path_id = None
 
                                             self.unknown_attribute = YList(self)
                                             self._segment_path = lambda: "ext-attributes"
@@ -4904,7 +5104,7 @@ class BgpRib(Entity):
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
                                             
-                                            .. attribute:: attr_type  <key>
+                                            .. attribute:: attr_type  (key)
                                             
                                             	2\-octet value encoding the attribute flags and the attribute type code
                                             	**type**\: int
@@ -4939,15 +5139,18 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "ext-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                                self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                                self.attr_value = YLeaf(YType.str, "attr-value")
-                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                                self.ylist_key_names = ['attr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                                    ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                                    ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                                ])
+                                                self.attr_type = None
+                                                self.attr_len = None
+                                                self.attr_value = None
+                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
@@ -4985,10 +5188,13 @@ class BgpRib(Entity):
                                 self.yang_parent_name = "neighbor"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"routes" : ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes)}
-                                self._child_list_classes = {}
-
-                                self.num_routes = YLeaf(YType.uint64, "num-routes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("routes", ("routes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ])
+                                self.num_routes = None
 
                                 self.routes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes()
                                 self.routes.parent = self
@@ -5024,8 +5230,10 @@ class BgpRib(Entity):
                                     self.yang_parent_name = "adj-rib-out-post"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"route" : ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("route", ("route", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route))])
+                                    self._leafs = OrderedDict()
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
@@ -5098,20 +5306,23 @@ class BgpRib(Entity):
                                         self.yang_parent_name = "routes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"attributes" : ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes), "ext-attributes" : ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes)}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.last_modified_date = YLeaf(YType.str, "last-modified-date")
-
-                                        self.last_update_received = YLeaf(YType.str, "last-update-received")
-
-                                        self.valid_route = YLeaf(YType.boolean, "valid-route")
-
-                                        self.invalid_reason = YLeaf(YType.identityref, "invalid-reason")
-
-                                        self.best_path = YLeaf(YType.boolean, "best-path")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("attributes", ("attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes)), ("ext-attributes", ("ext_attributes", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('last_modified_date', YLeaf(YType.str, 'last-modified-date')),
+                                            ('last_update_received', YLeaf(YType.str, 'last-update-received')),
+                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
+                                            ('invalid_reason', YLeaf(YType.identityref, 'invalid-reason')),
+                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                        ])
+                                        self.prefix = None
+                                        self.last_modified_date = None
+                                        self.last_update_received = None
+                                        self.valid_route = None
+                                        self.invalid_reason = None
+                                        self.best_path = None
 
                                         self.attributes = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes()
                                         self.attributes.parent = self
@@ -5211,24 +5422,27 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"aggregator" : ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator)}
-                                            self._child_list_classes = {}
-
-                                            self.origin = YLeaf(YType.enumeration, "origin")
-
-                                            self.as_path = YLeaf(YType.str, "as-path")
-
-                                            self.as4_path = YLeaf(YType.str, "as4-path")
-
-                                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                            self.med = YLeaf(YType.uint32, "med")
-
-                                            self.local_pref = YLeaf(YType.uint32, "local-pref")
-
-                                            self.atomic_aggr = YLeaf(YType.boolean, "atomic-aggr")
-
-                                            self.community = YLeafList(YType.str, "community")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("aggregator", ("aggregator", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('origin', YLeaf(YType.enumeration, 'origin')),
+                                                ('as_path', YLeaf(YType.str, 'as-path')),
+                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
+                                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                                ('med', YLeaf(YType.uint32, 'med')),
+                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
+                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('community', YLeafList(YType.str, 'community')),
+                                            ])
+                                            self.origin = None
+                                            self.as_path = None
+                                            self.as4_path = None
+                                            self.next_hop = None
+                                            self.med = None
+                                            self.local_pref = None
+                                            self.atomic_aggr = None
+                                            self.community = []
 
                                             self.aggregator = BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator()
                                             self.aggregator.parent = self
@@ -5280,14 +5494,17 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as4 = YLeaf(YType.uint32, "as4")
-
-                                                self.address = YLeaf(YType.str, "address")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as4', YLeaf(YType.uint32, 'as4')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                ])
+                                                self.as_ = None
+                                                self.as4 = None
+                                                self.address = None
                                                 self._segment_path = lambda: "aggregator"
 
                                             def __setattr__(self, name, value):
@@ -5375,18 +5592,21 @@ class BgpRib(Entity):
                                             self.yang_parent_name = "route"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"unknown-attribute" : ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute)}
-
-                                            self.originator_id = YLeaf(YType.str, "originator-id")
-
-                                            self.cluster_list = YLeafList(YType.str, "cluster-list")
-
-                                            self.ext_community = YLeafList(YType.str, "ext-community")
-
-                                            self.aigp = YLeaf(YType.uint64, "aigp")
-
-                                            self.path_id = YLeaf(YType.uint32, "path-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("unknown-attribute", ("unknown_attribute", BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute))])
+                                            self._leafs = OrderedDict([
+                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                                                ('cluster_list', YLeafList(YType.str, 'cluster-list')),
+                                                ('ext_community', YLeafList(YType.str, 'ext-community')),
+                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
+                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                            ])
+                                            self.originator_id = None
+                                            self.cluster_list = []
+                                            self.ext_community = []
+                                            self.aigp = None
+                                            self.path_id = None
 
                                             self.unknown_attribute = YList(self)
                                             self._segment_path = lambda: "ext-attributes"
@@ -5400,7 +5620,7 @@ class BgpRib(Entity):
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
                                             
-                                            .. attribute:: attr_type  <key>
+                                            .. attribute:: attr_type  (key)
                                             
                                             	2\-octet value encoding the attribute flags and the attribute type code
                                             	**type**\: int
@@ -5435,15 +5655,18 @@ class BgpRib(Entity):
                                                 self.yang_parent_name = "ext-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.attr_type = YLeaf(YType.uint16, "attr-type")
-
-                                                self.attr_len = YLeaf(YType.uint16, "attr-len")
-
-                                                self.attr_value = YLeaf(YType.str, "attr-value")
-                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + self.attr_type.get() + "']"
+                                                self.ylist_key_names = ['attr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('attr_type', YLeaf(YType.uint16, 'attr-type')),
+                                                    ('attr_len', YLeaf(YType.uint16, 'attr-len')),
+                                                    ('attr_value', YLeaf(YType.str, 'attr-value')),
+                                                ])
+                                                self.attr_type = None
+                                                self.attr_len = None
+                                                self.attr_value = None
+                                                self._segment_path = lambda: "unknown-attribute" + "[attr-type='" + str(self.attr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)

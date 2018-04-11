@@ -31,9 +31,11 @@ of this MIB module is part of RFC 3637;  see the RFC
 itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -77,8 +79,10 @@ class ETHERWIS(Entity):
         self.yang_parent_name = "ETHER-WIS"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"etherWisDeviceTable" : ("etherwisdevicetable", ETHERWIS.Etherwisdevicetable), "etherWisSectionCurrentTable" : ("etherwissectioncurrenttable", ETHERWIS.Etherwissectioncurrenttable), "etherWisPathCurrentTable" : ("etherwispathcurrenttable", ETHERWIS.Etherwispathcurrenttable), "etherWisFarEndPathCurrentTable" : ("etherwisfarendpathcurrenttable", ETHERWIS.Etherwisfarendpathcurrenttable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("etherWisDeviceTable", ("etherwisdevicetable", ETHERWIS.Etherwisdevicetable)), ("etherWisSectionCurrentTable", ("etherwissectioncurrenttable", ETHERWIS.Etherwissectioncurrenttable)), ("etherWisPathCurrentTable", ("etherwispathcurrenttable", ETHERWIS.Etherwispathcurrenttable)), ("etherWisFarEndPathCurrentTable", ("etherwisfarendpathcurrenttable", ETHERWIS.Etherwisfarendpathcurrenttable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.etherwisdevicetable = ETHERWIS.Etherwisdevicetable()
         self.etherwisdevicetable.parent = self
@@ -125,8 +129,10 @@ class ETHERWIS(Entity):
             self.yang_parent_name = "ETHER-WIS"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"etherWisDeviceEntry" : ("etherwisdeviceentry", ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("etherWisDeviceEntry", ("etherwisdeviceentry", ETHERWIS.Etherwisdevicetable.Etherwisdeviceentry))])
+            self._leafs = OrderedDict()
 
             self.etherwisdeviceentry = YList(self)
             self._segment_path = lambda: "etherWisDeviceTable"
@@ -142,7 +148,7 @@ class ETHERWIS(Entity):
             instance of this object there MUST be a corresponding
             instance of sonetMediumEntry.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -182,17 +188,20 @@ class ETHERWIS(Entity):
                 self.yang_parent_name = "etherWisDeviceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.etherwisdevicetxtestpatternmode = YLeaf(YType.enumeration, "etherWisDeviceTxTestPatternMode")
-
-                self.etherwisdevicerxtestpatternmode = YLeaf(YType.enumeration, "etherWisDeviceRxTestPatternMode")
-
-                self.etherwisdevicerxtestpatternerrors = YLeaf(YType.uint32, "etherWisDeviceRxTestPatternErrors")
-                self._segment_path = lambda: "etherWisDeviceEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('etherwisdevicetxtestpatternmode', YLeaf(YType.enumeration, 'etherWisDeviceTxTestPatternMode')),
+                    ('etherwisdevicerxtestpatternmode', YLeaf(YType.enumeration, 'etherWisDeviceRxTestPatternMode')),
+                    ('etherwisdevicerxtestpatternerrors', YLeaf(YType.uint32, 'etherWisDeviceRxTestPatternErrors')),
+                ])
+                self.ifindex = None
+                self.etherwisdevicetxtestpatternmode = None
+                self.etherwisdevicerxtestpatternmode = None
+                self.etherwisdevicerxtestpatternerrors = None
+                self._segment_path = lambda: "etherWisDeviceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisDeviceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -200,7 +209,7 @@ class ETHERWIS(Entity):
 
             class Etherwisdevicerxtestpatternmode(Enum):
                 """
-                Etherwisdevicerxtestpatternmode
+                Etherwisdevicerxtestpatternmode (Enum Class)
 
                 This variable controls the receive test pattern mode.
 
@@ -247,7 +256,7 @@ class ETHERWIS(Entity):
 
             class Etherwisdevicetxtestpatternmode(Enum):
                 """
-                Etherwisdevicetxtestpatternmode
+                Etherwisdevicetxtestpatternmode (Enum Class)
 
                 This variable controls the transmit test pattern mode.
 
@@ -326,8 +335,10 @@ class ETHERWIS(Entity):
             self.yang_parent_name = "ETHER-WIS"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"etherWisSectionCurrentEntry" : ("etherwissectioncurrententry", ETHERWIS.Etherwissectioncurrenttable.Etherwissectioncurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("etherWisSectionCurrentEntry", ("etherwissectioncurrententry", ETHERWIS.Etherwissectioncurrenttable.Etherwissectioncurrententry))])
+            self._leafs = OrderedDict()
 
             self.etherwissectioncurrententry = YList(self)
             self._segment_path = lambda: "etherWisSectionCurrentTable"
@@ -343,7 +354,7 @@ class ETHERWIS(Entity):
             instance of this object there MUST be a corresponding
             instance of sonetSectionCurrentEntry.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -380,15 +391,18 @@ class ETHERWIS(Entity):
                 self.yang_parent_name = "etherWisSectionCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.etherwissectioncurrentj0transmitted = YLeaf(YType.str, "etherWisSectionCurrentJ0Transmitted")
-
-                self.etherwissectioncurrentj0received = YLeaf(YType.str, "etherWisSectionCurrentJ0Received")
-                self._segment_path = lambda: "etherWisSectionCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('etherwissectioncurrentj0transmitted', YLeaf(YType.str, 'etherWisSectionCurrentJ0Transmitted')),
+                    ('etherwissectioncurrentj0received', YLeaf(YType.str, 'etherWisSectionCurrentJ0Received')),
+                ])
+                self.ifindex = None
+                self.etherwissectioncurrentj0transmitted = None
+                self.etherwissectioncurrentj0received = None
+                self._segment_path = lambda: "etherWisSectionCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisSectionCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -418,8 +432,10 @@ class ETHERWIS(Entity):
             self.yang_parent_name = "ETHER-WIS"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"etherWisPathCurrentEntry" : ("etherwispathcurrententry", ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("etherWisPathCurrentEntry", ("etherwispathcurrententry", ETHERWIS.Etherwispathcurrenttable.Etherwispathcurrententry))])
+            self._leafs = OrderedDict()
 
             self.etherwispathcurrententry = YList(self)
             self._segment_path = lambda: "etherWisPathCurrentTable"
@@ -435,7 +451,7 @@ class ETHERWIS(Entity):
             instance of this object there MUST be a corresponding
             instance of sonetPathCurrentEntry.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -477,17 +493,20 @@ class ETHERWIS(Entity):
                 self.yang_parent_name = "etherWisPathCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.etherwispathcurrentstatus = YLeaf(YType.bits, "etherWisPathCurrentStatus")
-
-                self.etherwispathcurrentj1transmitted = YLeaf(YType.str, "etherWisPathCurrentJ1Transmitted")
-
-                self.etherwispathcurrentj1received = YLeaf(YType.str, "etherWisPathCurrentJ1Received")
-                self._segment_path = lambda: "etherWisPathCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('etherwispathcurrentstatus', YLeaf(YType.bits, 'etherWisPathCurrentStatus')),
+                    ('etherwispathcurrentj1transmitted', YLeaf(YType.str, 'etherWisPathCurrentJ1Transmitted')),
+                    ('etherwispathcurrentj1received', YLeaf(YType.str, 'etherWisPathCurrentJ1Received')),
+                ])
+                self.ifindex = None
+                self.etherwispathcurrentstatus = Bits()
+                self.etherwispathcurrentj1transmitted = None
+                self.etherwispathcurrentj1received = None
+                self._segment_path = lambda: "etherWisPathCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisPathCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -518,8 +537,10 @@ class ETHERWIS(Entity):
             self.yang_parent_name = "ETHER-WIS"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"etherWisFarEndPathCurrentEntry" : ("etherwisfarendpathcurrententry", ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("etherWisFarEndPathCurrentEntry", ("etherwisfarendpathcurrententry", ETHERWIS.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry))])
+            self._leafs = OrderedDict()
 
             self.etherwisfarendpathcurrententry = YList(self)
             self._segment_path = lambda: "etherWisFarEndPathCurrentTable"
@@ -535,7 +556,7 @@ class ETHERWIS(Entity):
             instance of this object there MUST be a corresponding
             instance of sonetFarEndPathCurrentEntry.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -563,13 +584,16 @@ class ETHERWIS(Entity):
                 self.yang_parent_name = "etherWisFarEndPathCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.etherwisfarendpathcurrentstatus = YLeaf(YType.bits, "etherWisFarEndPathCurrentStatus")
-                self._segment_path = lambda: "etherWisFarEndPathCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('etherwisfarendpathcurrentstatus', YLeaf(YType.bits, 'etherWisFarEndPathCurrentStatus')),
+                ])
+                self.ifindex = None
+                self.etherwisfarendpathcurrentstatus = Bits()
+                self._segment_path = lambda: "etherWisFarEndPathCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisFarEndPathCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

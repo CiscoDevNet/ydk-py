@@ -6,15 +6,17 @@ uses the Differentiated Services Architecture described in RFC
 provides supporting information on how such a router is modeled.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class IfDirection(Enum):
     """
-    IfDirection
+    IfDirection (Enum Class)
 
     IfDirection specifies a direction of data travel on an
 
@@ -339,8 +341,10 @@ class DIFFSERVMIB(Entity):
         self.yang_parent_name = "DIFFSERV-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"diffServClassifier" : ("diffservclassifier", DIFFSERVMIB.Diffservclassifier), "diffServMeter" : ("diffservmeter", DIFFSERVMIB.Diffservmeter), "diffServTBParam" : ("diffservtbparam", DIFFSERVMIB.Diffservtbparam), "diffServAction" : ("diffservaction", DIFFSERVMIB.Diffservaction), "diffServAlgDrop" : ("diffservalgdrop", DIFFSERVMIB.Diffservalgdrop), "diffServQueue" : ("diffservqueue", DIFFSERVMIB.Diffservqueue), "diffServScheduler" : ("diffservscheduler", DIFFSERVMIB.Diffservscheduler), "diffServDataPathTable" : ("diffservdatapathtable", DIFFSERVMIB.Diffservdatapathtable), "diffServClfrTable" : ("diffservclfrtable", DIFFSERVMIB.Diffservclfrtable), "diffServClfrElementTable" : ("diffservclfrelementtable", DIFFSERVMIB.Diffservclfrelementtable), "diffServMultiFieldClfrTable" : ("diffservmultifieldclfrtable", DIFFSERVMIB.Diffservmultifieldclfrtable), "diffServMeterTable" : ("diffservmetertable", DIFFSERVMIB.Diffservmetertable), "diffServTBParamTable" : ("diffservtbparamtable", DIFFSERVMIB.Diffservtbparamtable), "diffServActionTable" : ("diffservactiontable", DIFFSERVMIB.Diffservactiontable), "diffServDscpMarkActTable" : ("diffservdscpmarkacttable", DIFFSERVMIB.Diffservdscpmarkacttable), "diffServCountActTable" : ("diffservcountacttable", DIFFSERVMIB.Diffservcountacttable), "diffServAlgDropTable" : ("diffservalgdroptable", DIFFSERVMIB.Diffservalgdroptable), "diffServRandomDropTable" : ("diffservrandomdroptable", DIFFSERVMIB.Diffservrandomdroptable), "diffServQTable" : ("diffservqtable", DIFFSERVMIB.Diffservqtable), "diffServSchedulerTable" : ("diffservschedulertable", DIFFSERVMIB.Diffservschedulertable), "diffServMinRateTable" : ("diffservminratetable", DIFFSERVMIB.Diffservminratetable), "diffServMaxRateTable" : ("diffservmaxratetable", DIFFSERVMIB.Diffservmaxratetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("diffServClassifier", ("diffservclassifier", DIFFSERVMIB.Diffservclassifier)), ("diffServMeter", ("diffservmeter", DIFFSERVMIB.Diffservmeter)), ("diffServTBParam", ("diffservtbparam", DIFFSERVMIB.Diffservtbparam)), ("diffServAction", ("diffservaction", DIFFSERVMIB.Diffservaction)), ("diffServAlgDrop", ("diffservalgdrop", DIFFSERVMIB.Diffservalgdrop)), ("diffServQueue", ("diffservqueue", DIFFSERVMIB.Diffservqueue)), ("diffServScheduler", ("diffservscheduler", DIFFSERVMIB.Diffservscheduler)), ("diffServDataPathTable", ("diffservdatapathtable", DIFFSERVMIB.Diffservdatapathtable)), ("diffServClfrTable", ("diffservclfrtable", DIFFSERVMIB.Diffservclfrtable)), ("diffServClfrElementTable", ("diffservclfrelementtable", DIFFSERVMIB.Diffservclfrelementtable)), ("diffServMultiFieldClfrTable", ("diffservmultifieldclfrtable", DIFFSERVMIB.Diffservmultifieldclfrtable)), ("diffServMeterTable", ("diffservmetertable", DIFFSERVMIB.Diffservmetertable)), ("diffServTBParamTable", ("diffservtbparamtable", DIFFSERVMIB.Diffservtbparamtable)), ("diffServActionTable", ("diffservactiontable", DIFFSERVMIB.Diffservactiontable)), ("diffServDscpMarkActTable", ("diffservdscpmarkacttable", DIFFSERVMIB.Diffservdscpmarkacttable)), ("diffServCountActTable", ("diffservcountacttable", DIFFSERVMIB.Diffservcountacttable)), ("diffServAlgDropTable", ("diffservalgdroptable", DIFFSERVMIB.Diffservalgdroptable)), ("diffServRandomDropTable", ("diffservrandomdroptable", DIFFSERVMIB.Diffservrandomdroptable)), ("diffServQTable", ("diffservqtable", DIFFSERVMIB.Diffservqtable)), ("diffServSchedulerTable", ("diffservschedulertable", DIFFSERVMIB.Diffservschedulertable)), ("diffServMinRateTable", ("diffservminratetable", DIFFSERVMIB.Diffservminratetable)), ("diffServMaxRateTable", ("diffservmaxratetable", DIFFSERVMIB.Diffservmaxratetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.diffservclassifier = DIFFSERVMIB.Diffservclassifier()
         self.diffservclassifier.parent = self
@@ -493,14 +497,17 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.diffservclfrnextfree = YLeaf(YType.uint32, "diffServClfrNextFree")
-
-            self.diffservclfrelementnextfree = YLeaf(YType.uint32, "diffServClfrElementNextFree")
-
-            self.diffservmultifieldclfrnextfree = YLeaf(YType.uint32, "diffServMultiFieldClfrNextFree")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('diffservclfrnextfree', YLeaf(YType.uint32, 'diffServClfrNextFree')),
+                ('diffservclfrelementnextfree', YLeaf(YType.uint32, 'diffServClfrElementNextFree')),
+                ('diffservmultifieldclfrnextfree', YLeaf(YType.uint32, 'diffServMultiFieldClfrNextFree')),
+            ])
+            self.diffservclfrnextfree = None
+            self.diffservclfrelementnextfree = None
+            self.diffservmultifieldclfrnextfree = None
             self._segment_path = lambda: "diffServClassifier"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
 
@@ -533,10 +540,13 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.diffservmeternextfree = YLeaf(YType.uint32, "diffServMeterNextFree")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('diffservmeternextfree', YLeaf(YType.uint32, 'diffServMeterNextFree')),
+            ])
+            self.diffservmeternextfree = None
             self._segment_path = lambda: "diffServMeter"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
 
@@ -569,10 +579,13 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.diffservtbparamnextfree = YLeaf(YType.uint32, "diffServTBParamNextFree")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('diffservtbparamnextfree', YLeaf(YType.uint32, 'diffServTBParamNextFree')),
+            ])
+            self.diffservtbparamnextfree = None
             self._segment_path = lambda: "diffServTBParam"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
 
@@ -612,12 +625,15 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.diffservactionnextfree = YLeaf(YType.uint32, "diffServActionNextFree")
-
-            self.diffservcountactnextfree = YLeaf(YType.uint32, "diffServCountActNextFree")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('diffservactionnextfree', YLeaf(YType.uint32, 'diffServActionNextFree')),
+                ('diffservcountactnextfree', YLeaf(YType.uint32, 'diffServCountActNextFree')),
+            ])
+            self.diffservactionnextfree = None
+            self.diffservcountactnextfree = None
             self._segment_path = lambda: "diffServAction"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
 
@@ -657,12 +673,15 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.diffservalgdropnextfree = YLeaf(YType.uint32, "diffServAlgDropNextFree")
-
-            self.diffservrandomdropnextfree = YLeaf(YType.uint32, "diffServRandomDropNextFree")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('diffservalgdropnextfree', YLeaf(YType.uint32, 'diffServAlgDropNextFree')),
+                ('diffservrandomdropnextfree', YLeaf(YType.uint32, 'diffServRandomDropNextFree')),
+            ])
+            self.diffservalgdropnextfree = None
+            self.diffservrandomdropnextfree = None
             self._segment_path = lambda: "diffServAlgDrop"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
 
@@ -695,10 +714,13 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.diffservqnextfree = YLeaf(YType.uint32, "diffServQNextFree")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('diffservqnextfree', YLeaf(YType.uint32, 'diffServQNextFree')),
+            ])
+            self.diffservqnextfree = None
             self._segment_path = lambda: "diffServQueue"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
 
@@ -745,14 +767,17 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.diffservschedulernextfree = YLeaf(YType.uint32, "diffServSchedulerNextFree")
-
-            self.diffservminratenextfree = YLeaf(YType.uint32, "diffServMinRateNextFree")
-
-            self.diffservmaxratenextfree = YLeaf(YType.uint32, "diffServMaxRateNextFree")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('diffservschedulernextfree', YLeaf(YType.uint32, 'diffServSchedulerNextFree')),
+                ('diffservminratenextfree', YLeaf(YType.uint32, 'diffServMinRateNextFree')),
+                ('diffservmaxratenextfree', YLeaf(YType.uint32, 'diffServMaxRateNextFree')),
+            ])
+            self.diffservschedulernextfree = None
+            self.diffservminratenextfree = None
+            self.diffservmaxratenextfree = None
             self._segment_path = lambda: "diffServScheduler"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
 
@@ -786,8 +811,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServDataPathEntry" : ("diffservdatapathentry", DIFFSERVMIB.Diffservdatapathtable.Diffservdatapathentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServDataPathEntry", ("diffservdatapathentry", DIFFSERVMIB.Diffservdatapathtable.Diffservdatapathentry))])
+            self._leafs = OrderedDict()
 
             self.diffservdatapathentry = YList(self)
             self._segment_path = lambda: "diffServDataPathTable"
@@ -813,7 +840,7 @@ class DIFFSERVMIB(Entity):
             has been assigned but for which the supporting implementation is
             not currently present.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -822,7 +849,7 @@ class DIFFSERVMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: diffservdatapathifdirection  <key>
+            .. attribute:: diffservdatapathifdirection  (key)
             
             	IfDirection specifies whether the reception or transmission path for this interface is in view
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DIFFSERV_MIB.IfDirection>`
@@ -858,19 +885,22 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServDataPathTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.diffservdatapathifdirection = YLeaf(YType.enumeration, "diffServDataPathIfDirection")
-
-                self.diffservdatapathstart = YLeaf(YType.str, "diffServDataPathStart")
-
-                self.diffservdatapathstorage = YLeaf(YType.enumeration, "diffServDataPathStorage")
-
-                self.diffservdatapathstatus = YLeaf(YType.enumeration, "diffServDataPathStatus")
-                self._segment_path = lambda: "diffServDataPathEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[diffServDataPathIfDirection='" + self.diffservdatapathifdirection.get() + "']"
+                self.ylist_key_names = ['ifindex','diffservdatapathifdirection']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('diffservdatapathifdirection', YLeaf(YType.enumeration, 'diffServDataPathIfDirection')),
+                    ('diffservdatapathstart', YLeaf(YType.str, 'diffServDataPathStart')),
+                    ('diffservdatapathstorage', YLeaf(YType.enumeration, 'diffServDataPathStorage')),
+                    ('diffservdatapathstatus', YLeaf(YType.enumeration, 'diffServDataPathStatus')),
+                ])
+                self.ifindex = None
+                self.diffservdatapathifdirection = None
+                self.diffservdatapathstart = None
+                self.diffservdatapathstorage = None
+                self.diffservdatapathstatus = None
+                self._segment_path = lambda: "diffServDataPathEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[diffServDataPathIfDirection='" + str(self.diffservdatapathifdirection) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServDataPathTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -920,8 +950,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServClfrEntry" : ("diffservclfrentry", DIFFSERVMIB.Diffservclfrtable.Diffservclfrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServClfrEntry", ("diffservclfrentry", DIFFSERVMIB.Diffservclfrtable.Diffservclfrentry))])
+            self._leafs = OrderedDict()
 
             self.diffservclfrentry = YList(self)
             self._segment_path = lambda: "diffServClfrTable"
@@ -937,7 +969,7 @@ class DIFFSERVMIB(Entity):
             All classifier elements belonging to the same classifier use the
             classifier's diffServClfrId as part of their index.
             
-            .. attribute:: diffservclfrid  <key>
+            .. attribute:: diffservclfrid  (key)
             
             	An index that enumerates the classifier entries.  Managers should obtain new values for row creation in this table by reading diffServClfrNextFree
             	**type**\: int
@@ -968,15 +1000,18 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServClfrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservclfrid = YLeaf(YType.uint32, "diffServClfrId")
-
-                self.diffservclfrstorage = YLeaf(YType.enumeration, "diffServClfrStorage")
-
-                self.diffservclfrstatus = YLeaf(YType.enumeration, "diffServClfrStatus")
-                self._segment_path = lambda: "diffServClfrEntry" + "[diffServClfrId='" + self.diffservclfrid.get() + "']"
+                self.ylist_key_names = ['diffservclfrid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservclfrid', YLeaf(YType.uint32, 'diffServClfrId')),
+                    ('diffservclfrstorage', YLeaf(YType.enumeration, 'diffServClfrStorage')),
+                    ('diffservclfrstatus', YLeaf(YType.enumeration, 'diffServClfrStatus')),
+                ])
+                self.diffservclfrid = None
+                self.diffservclfrstorage = None
+                self.diffservclfrstatus = None
+                self._segment_path = lambda: "diffServClfrEntry" + "[diffServClfrId='" + str(self.diffservclfrid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServClfrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1025,8 +1060,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServClfrElementEntry" : ("diffservclfrelemententry", DIFFSERVMIB.Diffservclfrelementtable.Diffservclfrelemententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServClfrElementEntry", ("diffservclfrelemententry", DIFFSERVMIB.Diffservclfrelementtable.Diffservclfrelemententry))])
+            self._leafs = OrderedDict()
 
             self.diffservclfrelemententry = YList(self)
             self._segment_path = lambda: "diffServClfrElementTable"
@@ -1041,7 +1078,7 @@ class DIFFSERVMIB(Entity):
             An entry in the classifier element table describes a single
             element of the classifier.
             
-            .. attribute:: diffservclfrid  <key>
+            .. attribute:: diffservclfrid  (key)
             
             	
             	**type**\: int
@@ -1050,7 +1087,7 @@ class DIFFSERVMIB(Entity):
             
             	**refers to**\:  :py:class:`diffservclfrid <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.Diffservclfrtable.Diffservclfrentry>`
             
-            .. attribute:: diffservclfrelementid  <key>
+            .. attribute:: diffservclfrelementid  (key)
             
             	An index that enumerates the Classifier Element entries. Managers obtain new values for row creation in this table by reading diffServClfrElementNextFree
             	**type**\: int
@@ -1102,23 +1139,26 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServClfrElementTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservclfrid = YLeaf(YType.str, "diffServClfrId")
-
-                self.diffservclfrelementid = YLeaf(YType.uint32, "diffServClfrElementId")
-
-                self.diffservclfrelementprecedence = YLeaf(YType.uint32, "diffServClfrElementPrecedence")
-
-                self.diffservclfrelementnext = YLeaf(YType.str, "diffServClfrElementNext")
-
-                self.diffservclfrelementspecific = YLeaf(YType.str, "diffServClfrElementSpecific")
-
-                self.diffservclfrelementstorage = YLeaf(YType.enumeration, "diffServClfrElementStorage")
-
-                self.diffservclfrelementstatus = YLeaf(YType.enumeration, "diffServClfrElementStatus")
-                self._segment_path = lambda: "diffServClfrElementEntry" + "[diffServClfrId='" + self.diffservclfrid.get() + "']" + "[diffServClfrElementId='" + self.diffservclfrelementid.get() + "']"
+                self.ylist_key_names = ['diffservclfrid','diffservclfrelementid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservclfrid', YLeaf(YType.str, 'diffServClfrId')),
+                    ('diffservclfrelementid', YLeaf(YType.uint32, 'diffServClfrElementId')),
+                    ('diffservclfrelementprecedence', YLeaf(YType.uint32, 'diffServClfrElementPrecedence')),
+                    ('diffservclfrelementnext', YLeaf(YType.str, 'diffServClfrElementNext')),
+                    ('diffservclfrelementspecific', YLeaf(YType.str, 'diffServClfrElementSpecific')),
+                    ('diffservclfrelementstorage', YLeaf(YType.enumeration, 'diffServClfrElementStorage')),
+                    ('diffservclfrelementstatus', YLeaf(YType.enumeration, 'diffServClfrElementStatus')),
+                ])
+                self.diffservclfrid = None
+                self.diffservclfrelementid = None
+                self.diffservclfrelementprecedence = None
+                self.diffservclfrelementnext = None
+                self.diffservclfrelementspecific = None
+                self.diffservclfrelementstorage = None
+                self.diffservclfrelementstatus = None
+                self._segment_path = lambda: "diffServClfrElementEntry" + "[diffServClfrId='" + str(self.diffservclfrid) + "']" + "[diffServClfrElementId='" + str(self.diffservclfrelementid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServClfrElementTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1152,8 +1192,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServMultiFieldClfrEntry" : ("diffservmultifieldclfrentry", DIFFSERVMIB.Diffservmultifieldclfrtable.Diffservmultifieldclfrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServMultiFieldClfrEntry", ("diffservmultifieldclfrentry", DIFFSERVMIB.Diffservmultifieldclfrtable.Diffservmultifieldclfrentry))])
+            self._leafs = OrderedDict()
 
             self.diffservmultifieldclfrentry = YList(self)
             self._segment_path = lambda: "diffServMultiFieldClfrTable"
@@ -1167,7 +1209,7 @@ class DIFFSERVMIB(Entity):
             """
             An IP Multi\-field Classifier entry describes a single filter.
             
-            .. attribute:: diffservmultifieldclfrid  <key>
+            .. attribute:: diffservmultifieldclfrid  (key)
             
             	An index that enumerates the MultiField Classifier filter entries.  Managers obtain new values for row creation in this table by reading diffServMultiFieldClfrNextFree
             	**type**\: int
@@ -1284,39 +1326,42 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServMultiFieldClfrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservmultifieldclfrid = YLeaf(YType.uint32, "diffServMultiFieldClfrId")
-
-                self.diffservmultifieldclfraddrtype = YLeaf(YType.enumeration, "diffServMultiFieldClfrAddrType")
-
-                self.diffservmultifieldclfrdstaddr = YLeaf(YType.str, "diffServMultiFieldClfrDstAddr")
-
-                self.diffservmultifieldclfrdstprefixlength = YLeaf(YType.uint32, "diffServMultiFieldClfrDstPrefixLength")
-
-                self.diffservmultifieldclfrsrcaddr = YLeaf(YType.str, "diffServMultiFieldClfrSrcAddr")
-
-                self.diffservmultifieldclfrsrcprefixlength = YLeaf(YType.uint32, "diffServMultiFieldClfrSrcPrefixLength")
-
-                self.diffservmultifieldclfrdscp = YLeaf(YType.int32, "diffServMultiFieldClfrDscp")
-
-                self.diffservmultifieldclfrflowid = YLeaf(YType.uint32, "diffServMultiFieldClfrFlowId")
-
-                self.diffservmultifieldclfrprotocol = YLeaf(YType.uint32, "diffServMultiFieldClfrProtocol")
-
-                self.diffservmultifieldclfrdstl4portmin = YLeaf(YType.uint16, "diffServMultiFieldClfrDstL4PortMin")
-
-                self.diffservmultifieldclfrdstl4portmax = YLeaf(YType.uint16, "diffServMultiFieldClfrDstL4PortMax")
-
-                self.diffservmultifieldclfrsrcl4portmin = YLeaf(YType.uint16, "diffServMultiFieldClfrSrcL4PortMin")
-
-                self.diffservmultifieldclfrsrcl4portmax = YLeaf(YType.uint16, "diffServMultiFieldClfrSrcL4PortMax")
-
-                self.diffservmultifieldclfrstorage = YLeaf(YType.enumeration, "diffServMultiFieldClfrStorage")
-
-                self.diffservmultifieldclfrstatus = YLeaf(YType.enumeration, "diffServMultiFieldClfrStatus")
-                self._segment_path = lambda: "diffServMultiFieldClfrEntry" + "[diffServMultiFieldClfrId='" + self.diffservmultifieldclfrid.get() + "']"
+                self.ylist_key_names = ['diffservmultifieldclfrid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservmultifieldclfrid', YLeaf(YType.uint32, 'diffServMultiFieldClfrId')),
+                    ('diffservmultifieldclfraddrtype', YLeaf(YType.enumeration, 'diffServMultiFieldClfrAddrType')),
+                    ('diffservmultifieldclfrdstaddr', YLeaf(YType.str, 'diffServMultiFieldClfrDstAddr')),
+                    ('diffservmultifieldclfrdstprefixlength', YLeaf(YType.uint32, 'diffServMultiFieldClfrDstPrefixLength')),
+                    ('diffservmultifieldclfrsrcaddr', YLeaf(YType.str, 'diffServMultiFieldClfrSrcAddr')),
+                    ('diffservmultifieldclfrsrcprefixlength', YLeaf(YType.uint32, 'diffServMultiFieldClfrSrcPrefixLength')),
+                    ('diffservmultifieldclfrdscp', YLeaf(YType.int32, 'diffServMultiFieldClfrDscp')),
+                    ('diffservmultifieldclfrflowid', YLeaf(YType.uint32, 'diffServMultiFieldClfrFlowId')),
+                    ('diffservmultifieldclfrprotocol', YLeaf(YType.uint32, 'diffServMultiFieldClfrProtocol')),
+                    ('diffservmultifieldclfrdstl4portmin', YLeaf(YType.uint16, 'diffServMultiFieldClfrDstL4PortMin')),
+                    ('diffservmultifieldclfrdstl4portmax', YLeaf(YType.uint16, 'diffServMultiFieldClfrDstL4PortMax')),
+                    ('diffservmultifieldclfrsrcl4portmin', YLeaf(YType.uint16, 'diffServMultiFieldClfrSrcL4PortMin')),
+                    ('diffservmultifieldclfrsrcl4portmax', YLeaf(YType.uint16, 'diffServMultiFieldClfrSrcL4PortMax')),
+                    ('diffservmultifieldclfrstorage', YLeaf(YType.enumeration, 'diffServMultiFieldClfrStorage')),
+                    ('diffservmultifieldclfrstatus', YLeaf(YType.enumeration, 'diffServMultiFieldClfrStatus')),
+                ])
+                self.diffservmultifieldclfrid = None
+                self.diffservmultifieldclfraddrtype = None
+                self.diffservmultifieldclfrdstaddr = None
+                self.diffservmultifieldclfrdstprefixlength = None
+                self.diffservmultifieldclfrsrcaddr = None
+                self.diffservmultifieldclfrsrcprefixlength = None
+                self.diffservmultifieldclfrdscp = None
+                self.diffservmultifieldclfrflowid = None
+                self.diffservmultifieldclfrprotocol = None
+                self.diffservmultifieldclfrdstl4portmin = None
+                self.diffservmultifieldclfrdstl4portmax = None
+                self.diffservmultifieldclfrsrcl4portmin = None
+                self.diffservmultifieldclfrsrcl4portmax = None
+                self.diffservmultifieldclfrstorage = None
+                self.diffservmultifieldclfrstatus = None
+                self._segment_path = lambda: "diffServMultiFieldClfrEntry" + "[diffServMultiFieldClfrId='" + str(self.diffservmultifieldclfrid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServMultiFieldClfrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1354,8 +1399,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServMeterEntry" : ("diffservmeterentry", DIFFSERVMIB.Diffservmetertable.Diffservmeterentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServMeterEntry", ("diffservmeterentry", DIFFSERVMIB.Diffservmetertable.Diffservmeterentry))])
+            self._leafs = OrderedDict()
 
             self.diffservmeterentry = YList(self)
             self._segment_path = lambda: "diffServMeterTable"
@@ -1370,7 +1417,7 @@ class DIFFSERVMIB(Entity):
             An entry in the meter table describes a single conformance level
             of a meter.
             
-            .. attribute:: diffservmeterid  <key>
+            .. attribute:: diffservmeterid  (key)
             
             	An index that enumerates the Meter entries.  Managers obtain new values for row creation in this table by reading diffServMeterNextFree
             	**type**\: int
@@ -1422,21 +1469,24 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServMeterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservmeterid = YLeaf(YType.uint32, "diffServMeterId")
-
-                self.diffservmetersucceednext = YLeaf(YType.str, "diffServMeterSucceedNext")
-
-                self.diffservmeterfailnext = YLeaf(YType.str, "diffServMeterFailNext")
-
-                self.diffservmeterspecific = YLeaf(YType.str, "diffServMeterSpecific")
-
-                self.diffservmeterstorage = YLeaf(YType.enumeration, "diffServMeterStorage")
-
-                self.diffservmeterstatus = YLeaf(YType.enumeration, "diffServMeterStatus")
-                self._segment_path = lambda: "diffServMeterEntry" + "[diffServMeterId='" + self.diffservmeterid.get() + "']"
+                self.ylist_key_names = ['diffservmeterid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservmeterid', YLeaf(YType.uint32, 'diffServMeterId')),
+                    ('diffservmetersucceednext', YLeaf(YType.str, 'diffServMeterSucceedNext')),
+                    ('diffservmeterfailnext', YLeaf(YType.str, 'diffServMeterFailNext')),
+                    ('diffservmeterspecific', YLeaf(YType.str, 'diffServMeterSpecific')),
+                    ('diffservmeterstorage', YLeaf(YType.enumeration, 'diffServMeterStorage')),
+                    ('diffservmeterstatus', YLeaf(YType.enumeration, 'diffServMeterStatus')),
+                ])
+                self.diffservmeterid = None
+                self.diffservmetersucceednext = None
+                self.diffservmeterfailnext = None
+                self.diffservmeterspecific = None
+                self.diffservmeterstorage = None
+                self.diffservmeterstatus = None
+                self._segment_path = lambda: "diffServMeterEntry" + "[diffServMeterId='" + str(self.diffservmeterid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServMeterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1470,8 +1520,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServTBParamEntry" : ("diffservtbparamentry", DIFFSERVMIB.Diffservtbparamtable.Diffservtbparamentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServTBParamEntry", ("diffservtbparamentry", DIFFSERVMIB.Diffservtbparamtable.Diffservtbparamentry))])
+            self._leafs = OrderedDict()
 
             self.diffservtbparamentry = YList(self)
             self._segment_path = lambda: "diffServTBParamTable"
@@ -1486,7 +1538,7 @@ class DIFFSERVMIB(Entity):
             An entry that describes a single set of token bucket
             parameters.
             
-            .. attribute:: diffservtbparamid  <key>
+            .. attribute:: diffservtbparamid  (key)
             
             	An index that enumerates the Token Bucket Parameter entries. Managers obtain new values for row creation in this table by reading diffServTBParamNextFree
             	**type**\: int
@@ -1551,23 +1603,26 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServTBParamTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservtbparamid = YLeaf(YType.uint32, "diffServTBParamId")
-
-                self.diffservtbparamtype = YLeaf(YType.str, "diffServTBParamType")
-
-                self.diffservtbparamrate = YLeaf(YType.uint32, "diffServTBParamRate")
-
-                self.diffservtbparamburstsize = YLeaf(YType.int32, "diffServTBParamBurstSize")
-
-                self.diffservtbparaminterval = YLeaf(YType.uint32, "diffServTBParamInterval")
-
-                self.diffservtbparamstorage = YLeaf(YType.enumeration, "diffServTBParamStorage")
-
-                self.diffservtbparamstatus = YLeaf(YType.enumeration, "diffServTBParamStatus")
-                self._segment_path = lambda: "diffServTBParamEntry" + "[diffServTBParamId='" + self.diffservtbparamid.get() + "']"
+                self.ylist_key_names = ['diffservtbparamid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservtbparamid', YLeaf(YType.uint32, 'diffServTBParamId')),
+                    ('diffservtbparamtype', YLeaf(YType.str, 'diffServTBParamType')),
+                    ('diffservtbparamrate', YLeaf(YType.uint32, 'diffServTBParamRate')),
+                    ('diffservtbparamburstsize', YLeaf(YType.int32, 'diffServTBParamBurstSize')),
+                    ('diffservtbparaminterval', YLeaf(YType.uint32, 'diffServTBParamInterval')),
+                    ('diffservtbparamstorage', YLeaf(YType.enumeration, 'diffServTBParamStorage')),
+                    ('diffservtbparamstatus', YLeaf(YType.enumeration, 'diffServTBParamStatus')),
+                ])
+                self.diffservtbparamid = None
+                self.diffservtbparamtype = None
+                self.diffservtbparamrate = None
+                self.diffservtbparamburstsize = None
+                self.diffservtbparaminterval = None
+                self.diffservtbparamstorage = None
+                self.diffservtbparamstatus = None
+                self._segment_path = lambda: "diffServTBParamEntry" + "[diffServTBParamId='" + str(self.diffservtbparamid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServTBParamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1604,8 +1659,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServActionEntry" : ("diffservactionentry", DIFFSERVMIB.Diffservactiontable.Diffservactionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServActionEntry", ("diffservactionentry", DIFFSERVMIB.Diffservactiontable.Diffservactionentry))])
+            self._leafs = OrderedDict()
 
             self.diffservactionentry = YList(self)
             self._segment_path = lambda: "diffServActionTable"
@@ -1620,7 +1677,7 @@ class DIFFSERVMIB(Entity):
             Each entry in the action table allows description of one
             specific action to be applied to traffic.
             
-            .. attribute:: diffservactionid  <key>
+            .. attribute:: diffservactionid  (key)
             
             	An index that enumerates the Action entries.  Managers obtain new values for row creation in this table by reading diffServActionNextFree
             	**type**\: int
@@ -1672,21 +1729,24 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServActionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservactionid = YLeaf(YType.uint32, "diffServActionId")
-
-                self.diffservactioninterface = YLeaf(YType.int32, "diffServActionInterface")
-
-                self.diffservactionnext = YLeaf(YType.str, "diffServActionNext")
-
-                self.diffservactionspecific = YLeaf(YType.str, "diffServActionSpecific")
-
-                self.diffservactionstorage = YLeaf(YType.enumeration, "diffServActionStorage")
-
-                self.diffservactionstatus = YLeaf(YType.enumeration, "diffServActionStatus")
-                self._segment_path = lambda: "diffServActionEntry" + "[diffServActionId='" + self.diffservactionid.get() + "']"
+                self.ylist_key_names = ['diffservactionid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservactionid', YLeaf(YType.uint32, 'diffServActionId')),
+                    ('diffservactioninterface', YLeaf(YType.int32, 'diffServActionInterface')),
+                    ('diffservactionnext', YLeaf(YType.str, 'diffServActionNext')),
+                    ('diffservactionspecific', YLeaf(YType.str, 'diffServActionSpecific')),
+                    ('diffservactionstorage', YLeaf(YType.enumeration, 'diffServActionStorage')),
+                    ('diffservactionstatus', YLeaf(YType.enumeration, 'diffServActionStatus')),
+                ])
+                self.diffservactionid = None
+                self.diffservactioninterface = None
+                self.diffservactionnext = None
+                self.diffservactionspecific = None
+                self.diffservactionstorage = None
+                self.diffservactionstatus = None
+                self._segment_path = lambda: "diffServActionEntry" + "[diffServActionId='" + str(self.diffservactionid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServActionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1718,8 +1778,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServDscpMarkActEntry" : ("diffservdscpmarkactentry", DIFFSERVMIB.Diffservdscpmarkacttable.Diffservdscpmarkactentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServDscpMarkActEntry", ("diffservdscpmarkactentry", DIFFSERVMIB.Diffservdscpmarkacttable.Diffservdscpmarkactentry))])
+            self._leafs = OrderedDict()
 
             self.diffservdscpmarkactentry = YList(self)
             self._segment_path = lambda: "diffServDscpMarkActTable"
@@ -1734,7 +1796,7 @@ class DIFFSERVMIB(Entity):
             An entry in the DSCP mark action table that describes a single
             DSCP used for marking.
             
-            .. attribute:: diffservdscpmarkactdscp  <key>
+            .. attribute:: diffservdscpmarkactdscp  (key)
             
             	The DSCP that this Action will store into the DSCP field of the subject. It is quite possible that the only packets subject to this Action are already marked with this DSCP. Note also that Differentiated Services processing may result in packet being marked on both ingress to a network and on egress from it, and that ingress and egress can occur in the same router
             	**type**\: int
@@ -1755,11 +1817,14 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServDscpMarkActTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservdscpmarkactdscp = YLeaf(YType.uint8, "diffServDscpMarkActDscp")
-                self._segment_path = lambda: "diffServDscpMarkActEntry" + "[diffServDscpMarkActDscp='" + self.diffservdscpmarkactdscp.get() + "']"
+                self.ylist_key_names = ['diffservdscpmarkactdscp']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservdscpmarkactdscp', YLeaf(YType.uint8, 'diffServDscpMarkActDscp')),
+                ])
+                self.diffservdscpmarkactdscp = None
+                self._segment_path = lambda: "diffServDscpMarkActEntry" + "[diffServDscpMarkActDscp='" + str(self.diffservdscpmarkactdscp) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServDscpMarkActTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1790,8 +1855,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServCountActEntry" : ("diffservcountactentry", DIFFSERVMIB.Diffservcountacttable.Diffservcountactentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServCountActEntry", ("diffservcountactentry", DIFFSERVMIB.Diffservcountacttable.Diffservcountactentry))])
+            self._leafs = OrderedDict()
 
             self.diffservcountactentry = YList(self)
             self._segment_path = lambda: "diffServCountActTable"
@@ -1806,7 +1873,7 @@ class DIFFSERVMIB(Entity):
             An entry in the count action table describes a single set of
             traffic counters.
             
-            .. attribute:: diffservcountactid  <key>
+            .. attribute:: diffservcountactid  (key)
             
             	An index that enumerates the Count Action entries.  Managers obtain new values for row creation in this table by reading    diffServCountActNextFree
             	**type**\: int
@@ -1851,19 +1918,22 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServCountActTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservcountactid = YLeaf(YType.uint32, "diffServCountActId")
-
-                self.diffservcountactoctets = YLeaf(YType.uint64, "diffServCountActOctets")
-
-                self.diffservcountactpkts = YLeaf(YType.uint64, "diffServCountActPkts")
-
-                self.diffservcountactstorage = YLeaf(YType.enumeration, "diffServCountActStorage")
-
-                self.diffservcountactstatus = YLeaf(YType.enumeration, "diffServCountActStatus")
-                self._segment_path = lambda: "diffServCountActEntry" + "[diffServCountActId='" + self.diffservcountactid.get() + "']"
+                self.ylist_key_names = ['diffservcountactid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservcountactid', YLeaf(YType.uint32, 'diffServCountActId')),
+                    ('diffservcountactoctets', YLeaf(YType.uint64, 'diffServCountActOctets')),
+                    ('diffservcountactpkts', YLeaf(YType.uint64, 'diffServCountActPkts')),
+                    ('diffservcountactstorage', YLeaf(YType.enumeration, 'diffServCountActStorage')),
+                    ('diffservcountactstatus', YLeaf(YType.enumeration, 'diffServCountActStatus')),
+                ])
+                self.diffservcountactid = None
+                self.diffservcountactoctets = None
+                self.diffservcountactpkts = None
+                self.diffservcountactstorage = None
+                self.diffservcountactstatus = None
+                self._segment_path = lambda: "diffServCountActEntry" + "[diffServCountActId='" + str(self.diffservcountactid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServCountActTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1894,8 +1964,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServAlgDropEntry" : ("diffservalgdropentry", DIFFSERVMIB.Diffservalgdroptable.Diffservalgdropentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServAlgDropEntry", ("diffservalgdropentry", DIFFSERVMIB.Diffservalgdroptable.Diffservalgdropentry))])
+            self._leafs = OrderedDict()
 
             self.diffservalgdropentry = YList(self)
             self._segment_path = lambda: "diffServAlgDropTable"
@@ -1912,7 +1984,7 @@ class DIFFSERVMIB(Entity):
             found in diffServAlgDropType and with more detail parameter entry
             pointed to by diffServAlgDropSpecific when necessary.
             
-            .. attribute:: diffservalgdropid  <key>
+            .. attribute:: diffservalgdropid  (key)
             
             	An index that enumerates the Algorithmic Dropper entries. Managers obtain new values for row creation in this table by reading diffServAlgDropNextFree
             	**type**\: int
@@ -2006,33 +2078,36 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServAlgDropTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservalgdropid = YLeaf(YType.uint32, "diffServAlgDropId")
-
-                self.diffservalgdroptype = YLeaf(YType.enumeration, "diffServAlgDropType")
-
-                self.diffservalgdropnext = YLeaf(YType.str, "diffServAlgDropNext")
-
-                self.diffservalgdropqmeasure = YLeaf(YType.str, "diffServAlgDropQMeasure")
-
-                self.diffservalgdropqthreshold = YLeaf(YType.uint32, "diffServAlgDropQThreshold")
-
-                self.diffservalgdropspecific = YLeaf(YType.str, "diffServAlgDropSpecific")
-
-                self.diffservalgdropoctets = YLeaf(YType.uint64, "diffServAlgDropOctets")
-
-                self.diffservalgdroppkts = YLeaf(YType.uint64, "diffServAlgDropPkts")
-
-                self.diffservalgrandomdropoctets = YLeaf(YType.uint64, "diffServAlgRandomDropOctets")
-
-                self.diffservalgrandomdroppkts = YLeaf(YType.uint64, "diffServAlgRandomDropPkts")
-
-                self.diffservalgdropstorage = YLeaf(YType.enumeration, "diffServAlgDropStorage")
-
-                self.diffservalgdropstatus = YLeaf(YType.enumeration, "diffServAlgDropStatus")
-                self._segment_path = lambda: "diffServAlgDropEntry" + "[diffServAlgDropId='" + self.diffservalgdropid.get() + "']"
+                self.ylist_key_names = ['diffservalgdropid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservalgdropid', YLeaf(YType.uint32, 'diffServAlgDropId')),
+                    ('diffservalgdroptype', YLeaf(YType.enumeration, 'diffServAlgDropType')),
+                    ('diffservalgdropnext', YLeaf(YType.str, 'diffServAlgDropNext')),
+                    ('diffservalgdropqmeasure', YLeaf(YType.str, 'diffServAlgDropQMeasure')),
+                    ('diffservalgdropqthreshold', YLeaf(YType.uint32, 'diffServAlgDropQThreshold')),
+                    ('diffservalgdropspecific', YLeaf(YType.str, 'diffServAlgDropSpecific')),
+                    ('diffservalgdropoctets', YLeaf(YType.uint64, 'diffServAlgDropOctets')),
+                    ('diffservalgdroppkts', YLeaf(YType.uint64, 'diffServAlgDropPkts')),
+                    ('diffservalgrandomdropoctets', YLeaf(YType.uint64, 'diffServAlgRandomDropOctets')),
+                    ('diffservalgrandomdroppkts', YLeaf(YType.uint64, 'diffServAlgRandomDropPkts')),
+                    ('diffservalgdropstorage', YLeaf(YType.enumeration, 'diffServAlgDropStorage')),
+                    ('diffservalgdropstatus', YLeaf(YType.enumeration, 'diffServAlgDropStatus')),
+                ])
+                self.diffservalgdropid = None
+                self.diffservalgdroptype = None
+                self.diffservalgdropnext = None
+                self.diffservalgdropqmeasure = None
+                self.diffservalgdropqthreshold = None
+                self.diffservalgdropspecific = None
+                self.diffservalgdropoctets = None
+                self.diffservalgdroppkts = None
+                self.diffservalgrandomdropoctets = None
+                self.diffservalgrandomdroppkts = None
+                self.diffservalgdropstorage = None
+                self.diffservalgdropstatus = None
+                self._segment_path = lambda: "diffServAlgDropEntry" + "[diffServAlgDropId='" + str(self.diffservalgdropid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServAlgDropTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2040,7 +2115,7 @@ class DIFFSERVMIB(Entity):
 
             class Diffservalgdroptype(Enum):
                 """
-                Diffservalgdroptype
+                Diffservalgdroptype (Enum Class)
 
                 The type of algorithm used by this dropper. The value other(1)
 
@@ -2143,8 +2218,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServRandomDropEntry" : ("diffservrandomdropentry", DIFFSERVMIB.Diffservrandomdroptable.Diffservrandomdropentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServRandomDropEntry", ("diffservrandomdropentry", DIFFSERVMIB.Diffservrandomdroptable.Diffservrandomdropentry))])
+            self._leafs = OrderedDict()
 
             self.diffservrandomdropentry = YList(self)
             self._segment_path = lambda: "diffServRandomDropTable"
@@ -2159,7 +2236,7 @@ class DIFFSERVMIB(Entity):
             An entry describes a process that drops packets according to a
             random algorithm.
             
-            .. attribute:: diffservrandomdropid  <key>
+            .. attribute:: diffservrandomdropid  (key)
             
             	An index that enumerates the Random Drop entries.  Managers obtain new values for row creation in this table by reading diffServRandomDropNextFree
             	**type**\: int
@@ -2247,29 +2324,32 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServRandomDropTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservrandomdropid = YLeaf(YType.uint32, "diffServRandomDropId")
-
-                self.diffservrandomdropminthreshbytes = YLeaf(YType.uint32, "diffServRandomDropMinThreshBytes")
-
-                self.diffservrandomdropminthreshpkts = YLeaf(YType.uint32, "diffServRandomDropMinThreshPkts")
-
-                self.diffservrandomdropmaxthreshbytes = YLeaf(YType.uint32, "diffServRandomDropMaxThreshBytes")
-
-                self.diffservrandomdropmaxthreshpkts = YLeaf(YType.uint32, "diffServRandomDropMaxThreshPkts")
-
-                self.diffservrandomdropprobmax = YLeaf(YType.uint32, "diffServRandomDropProbMax")
-
-                self.diffservrandomdropweight = YLeaf(YType.uint32, "diffServRandomDropWeight")
-
-                self.diffservrandomdropsamplingrate = YLeaf(YType.uint32, "diffServRandomDropSamplingRate")
-
-                self.diffservrandomdropstorage = YLeaf(YType.enumeration, "diffServRandomDropStorage")
-
-                self.diffservrandomdropstatus = YLeaf(YType.enumeration, "diffServRandomDropStatus")
-                self._segment_path = lambda: "diffServRandomDropEntry" + "[diffServRandomDropId='" + self.diffservrandomdropid.get() + "']"
+                self.ylist_key_names = ['diffservrandomdropid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservrandomdropid', YLeaf(YType.uint32, 'diffServRandomDropId')),
+                    ('diffservrandomdropminthreshbytes', YLeaf(YType.uint32, 'diffServRandomDropMinThreshBytes')),
+                    ('diffservrandomdropminthreshpkts', YLeaf(YType.uint32, 'diffServRandomDropMinThreshPkts')),
+                    ('diffservrandomdropmaxthreshbytes', YLeaf(YType.uint32, 'diffServRandomDropMaxThreshBytes')),
+                    ('diffservrandomdropmaxthreshpkts', YLeaf(YType.uint32, 'diffServRandomDropMaxThreshPkts')),
+                    ('diffservrandomdropprobmax', YLeaf(YType.uint32, 'diffServRandomDropProbMax')),
+                    ('diffservrandomdropweight', YLeaf(YType.uint32, 'diffServRandomDropWeight')),
+                    ('diffservrandomdropsamplingrate', YLeaf(YType.uint32, 'diffServRandomDropSamplingRate')),
+                    ('diffservrandomdropstorage', YLeaf(YType.enumeration, 'diffServRandomDropStorage')),
+                    ('diffservrandomdropstatus', YLeaf(YType.enumeration, 'diffServRandomDropStatus')),
+                ])
+                self.diffservrandomdropid = None
+                self.diffservrandomdropminthreshbytes = None
+                self.diffservrandomdropminthreshpkts = None
+                self.diffservrandomdropmaxthreshbytes = None
+                self.diffservrandomdropmaxthreshpkts = None
+                self.diffservrandomdropprobmax = None
+                self.diffservrandomdropweight = None
+                self.diffservrandomdropsamplingrate = None
+                self.diffservrandomdropstorage = None
+                self.diffservrandomdropstatus = None
+                self._segment_path = lambda: "diffServRandomDropEntry" + "[diffServRandomDropId='" + str(self.diffservrandomdropid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServRandomDropTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2303,8 +2383,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServQEntry" : ("diffservqentry", DIFFSERVMIB.Diffservqtable.Diffservqentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServQEntry", ("diffservqentry", DIFFSERVMIB.Diffservqtable.Diffservqentry))])
+            self._leafs = OrderedDict()
 
             self.diffservqentry = YList(self)
             self._segment_path = lambda: "diffServQTable"
@@ -2319,7 +2401,7 @@ class DIFFSERVMIB(Entity):
             An entry in the Queue Table describes a single queue or class of
             traffic.
             
-            .. attribute:: diffservqid  <key>
+            .. attribute:: diffservqid  (key)
             
             	An index that enumerates the Queue entries.  Managers obtain new values for row creation in this table by reading diffServQNextFree
             	**type**\: int
@@ -2371,21 +2453,24 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServQTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservqid = YLeaf(YType.uint32, "diffServQId")
-
-                self.diffservqnext = YLeaf(YType.str, "diffServQNext")
-
-                self.diffservqminrate = YLeaf(YType.str, "diffServQMinRate")
-
-                self.diffservqmaxrate = YLeaf(YType.str, "diffServQMaxRate")
-
-                self.diffservqstorage = YLeaf(YType.enumeration, "diffServQStorage")
-
-                self.diffservqstatus = YLeaf(YType.enumeration, "diffServQStatus")
-                self._segment_path = lambda: "diffServQEntry" + "[diffServQId='" + self.diffservqid.get() + "']"
+                self.ylist_key_names = ['diffservqid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservqid', YLeaf(YType.uint32, 'diffServQId')),
+                    ('diffservqnext', YLeaf(YType.str, 'diffServQNext')),
+                    ('diffservqminrate', YLeaf(YType.str, 'diffServQMinRate')),
+                    ('diffservqmaxrate', YLeaf(YType.str, 'diffServQMaxRate')),
+                    ('diffservqstorage', YLeaf(YType.enumeration, 'diffServQStorage')),
+                    ('diffservqstatus', YLeaf(YType.enumeration, 'diffServQStatus')),
+                ])
+                self.diffservqid = None
+                self.diffservqnext = None
+                self.diffservqminrate = None
+                self.diffservqmaxrate = None
+                self.diffservqstorage = None
+                self.diffservqstatus = None
+                self._segment_path = lambda: "diffServQEntry" + "[diffServQId='" + str(self.diffservqid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServQTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2417,8 +2502,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServSchedulerEntry" : ("diffservschedulerentry", DIFFSERVMIB.Diffservschedulertable.Diffservschedulerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServSchedulerEntry", ("diffservschedulerentry", DIFFSERVMIB.Diffservschedulertable.Diffservschedulerentry))])
+            self._leafs = OrderedDict()
 
             self.diffservschedulerentry = YList(self)
             self._segment_path = lambda: "diffServSchedulerTable"
@@ -2433,7 +2520,7 @@ class DIFFSERVMIB(Entity):
             An entry in the Scheduler Table describing a single instance of
             a scheduling algorithm.
             
-            .. attribute:: diffservschedulerid  <key>
+            .. attribute:: diffservschedulerid  (key)
             
             	An index that enumerates the Scheduler entries.  Managers obtain new values for row creation in this table by reading diffServSchedulerNextFree
             	**type**\: int
@@ -2492,23 +2579,26 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServSchedulerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservschedulerid = YLeaf(YType.uint32, "diffServSchedulerId")
-
-                self.diffservschedulernext = YLeaf(YType.str, "diffServSchedulerNext")
-
-                self.diffservschedulermethod = YLeaf(YType.str, "diffServSchedulerMethod")
-
-                self.diffservschedulerminrate = YLeaf(YType.str, "diffServSchedulerMinRate")
-
-                self.diffservschedulermaxrate = YLeaf(YType.str, "diffServSchedulerMaxRate")
-
-                self.diffservschedulerstorage = YLeaf(YType.enumeration, "diffServSchedulerStorage")
-
-                self.diffservschedulerstatus = YLeaf(YType.enumeration, "diffServSchedulerStatus")
-                self._segment_path = lambda: "diffServSchedulerEntry" + "[diffServSchedulerId='" + self.diffservschedulerid.get() + "']"
+                self.ylist_key_names = ['diffservschedulerid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservschedulerid', YLeaf(YType.uint32, 'diffServSchedulerId')),
+                    ('diffservschedulernext', YLeaf(YType.str, 'diffServSchedulerNext')),
+                    ('diffservschedulermethod', YLeaf(YType.str, 'diffServSchedulerMethod')),
+                    ('diffservschedulerminrate', YLeaf(YType.str, 'diffServSchedulerMinRate')),
+                    ('diffservschedulermaxrate', YLeaf(YType.str, 'diffServSchedulerMaxRate')),
+                    ('diffservschedulerstorage', YLeaf(YType.enumeration, 'diffServSchedulerStorage')),
+                    ('diffservschedulerstatus', YLeaf(YType.enumeration, 'diffServSchedulerStatus')),
+                ])
+                self.diffservschedulerid = None
+                self.diffservschedulernext = None
+                self.diffservschedulermethod = None
+                self.diffservschedulerminrate = None
+                self.diffservschedulermaxrate = None
+                self.diffservschedulerstorage = None
+                self.diffservschedulerstatus = None
+                self._segment_path = lambda: "diffServSchedulerEntry" + "[diffServSchedulerId='" + str(self.diffservschedulerid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServSchedulerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2540,8 +2630,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServMinRateEntry" : ("diffservminrateentry", DIFFSERVMIB.Diffservminratetable.Diffservminrateentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServMinRateEntry", ("diffservminrateentry", DIFFSERVMIB.Diffservminratetable.Diffservminrateentry))])
+            self._leafs = OrderedDict()
 
             self.diffservminrateentry = YList(self)
             self._segment_path = lambda: "diffServMinRateTable"
@@ -2557,7 +2649,7 @@ class DIFFSERVMIB(Entity):
             set of scheduling parameters for use by one or more queues or
             schedulers.
             
-            .. attribute:: diffservminrateid  <key>
+            .. attribute:: diffservminrateid  (key)
             
             	An index that enumerates the Scheduler Parameter entries. Managers obtain new values for row creation in this table by reading diffServMinRateNextFree
             	**type**\: int
@@ -2611,21 +2703,24 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServMinRateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservminrateid = YLeaf(YType.uint32, "diffServMinRateId")
-
-                self.diffservminratepriority = YLeaf(YType.uint32, "diffServMinRatePriority")
-
-                self.diffservminrateabsolute = YLeaf(YType.uint32, "diffServMinRateAbsolute")
-
-                self.diffservminraterelative = YLeaf(YType.uint32, "diffServMinRateRelative")
-
-                self.diffservminratestorage = YLeaf(YType.enumeration, "diffServMinRateStorage")
-
-                self.diffservminratestatus = YLeaf(YType.enumeration, "diffServMinRateStatus")
-                self._segment_path = lambda: "diffServMinRateEntry" + "[diffServMinRateId='" + self.diffservminrateid.get() + "']"
+                self.ylist_key_names = ['diffservminrateid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservminrateid', YLeaf(YType.uint32, 'diffServMinRateId')),
+                    ('diffservminratepriority', YLeaf(YType.uint32, 'diffServMinRatePriority')),
+                    ('diffservminrateabsolute', YLeaf(YType.uint32, 'diffServMinRateAbsolute')),
+                    ('diffservminraterelative', YLeaf(YType.uint32, 'diffServMinRateRelative')),
+                    ('diffservminratestorage', YLeaf(YType.enumeration, 'diffServMinRateStorage')),
+                    ('diffservminratestatus', YLeaf(YType.enumeration, 'diffServMinRateStatus')),
+                ])
+                self.diffservminrateid = None
+                self.diffservminratepriority = None
+                self.diffservminrateabsolute = None
+                self.diffservminraterelative = None
+                self.diffservminratestorage = None
+                self.diffservminratestatus = None
+                self._segment_path = lambda: "diffServMinRateEntry" + "[diffServMinRateId='" + str(self.diffservminrateid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServMinRateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2657,8 +2752,10 @@ class DIFFSERVMIB(Entity):
             self.yang_parent_name = "DIFFSERV-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"diffServMaxRateEntry" : ("diffservmaxrateentry", DIFFSERVMIB.Diffservmaxratetable.Diffservmaxrateentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("diffServMaxRateEntry", ("diffservmaxrateentry", DIFFSERVMIB.Diffservmaxratetable.Diffservmaxrateentry))])
+            self._leafs = OrderedDict()
 
             self.diffservmaxrateentry = YList(self)
             self._segment_path = lambda: "diffServMaxRateTable"
@@ -2674,14 +2771,14 @@ class DIFFSERVMIB(Entity):
             set of scheduling parameters for use by one or more queues or
             schedulers.
             
-            .. attribute:: diffservmaxrateid  <key>
+            .. attribute:: diffservmaxrateid  (key)
             
             	An index that enumerates the Maximum Rate Parameter entries. Managers obtain new values for row creation in this table by reading diffServMaxRateNextFree
             	**type**\: int
             
             	**range:** 1..4294967295
             
-            .. attribute:: diffservmaxratelevel  <key>
+            .. attribute:: diffservmaxratelevel  (key)
             
             	An index that indicates which level of a multi\-rate shaper is being given its parameters. A multi\-rate shaper has some number of rate levels. Frame Relay's dual rate specification refers to a 'committed' and an 'excess' rate; ATM's dual rate specification refers to a 'mean' and a 'peak' rate. This table is generalized to support an arbitrary number of rates. The committed or mean rate is level 1, the peak rate (if any) is the highest level rate configured, and if there are other rates they are distributed in monotonically increasing order between them
             	**type**\: int
@@ -2737,23 +2834,26 @@ class DIFFSERVMIB(Entity):
                 self.yang_parent_name = "diffServMaxRateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.diffservmaxrateid = YLeaf(YType.uint32, "diffServMaxRateId")
-
-                self.diffservmaxratelevel = YLeaf(YType.uint32, "diffServMaxRateLevel")
-
-                self.diffservmaxrateabsolute = YLeaf(YType.uint32, "diffServMaxRateAbsolute")
-
-                self.diffservmaxraterelative = YLeaf(YType.uint32, "diffServMaxRateRelative")
-
-                self.diffservmaxratethreshold = YLeaf(YType.int32, "diffServMaxRateThreshold")
-
-                self.diffservmaxratestorage = YLeaf(YType.enumeration, "diffServMaxRateStorage")
-
-                self.diffservmaxratestatus = YLeaf(YType.enumeration, "diffServMaxRateStatus")
-                self._segment_path = lambda: "diffServMaxRateEntry" + "[diffServMaxRateId='" + self.diffservmaxrateid.get() + "']" + "[diffServMaxRateLevel='" + self.diffservmaxratelevel.get() + "']"
+                self.ylist_key_names = ['diffservmaxrateid','diffservmaxratelevel']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('diffservmaxrateid', YLeaf(YType.uint32, 'diffServMaxRateId')),
+                    ('diffservmaxratelevel', YLeaf(YType.uint32, 'diffServMaxRateLevel')),
+                    ('diffservmaxrateabsolute', YLeaf(YType.uint32, 'diffServMaxRateAbsolute')),
+                    ('diffservmaxraterelative', YLeaf(YType.uint32, 'diffServMaxRateRelative')),
+                    ('diffservmaxratethreshold', YLeaf(YType.int32, 'diffServMaxRateThreshold')),
+                    ('diffservmaxratestorage', YLeaf(YType.enumeration, 'diffServMaxRateStorage')),
+                    ('diffservmaxratestatus', YLeaf(YType.enumeration, 'diffServMaxRateStatus')),
+                ])
+                self.diffservmaxrateid = None
+                self.diffservmaxratelevel = None
+                self.diffservmaxrateabsolute = None
+                self.diffservmaxraterelative = None
+                self.diffservmaxratethreshold = None
+                self.diffservmaxratestorage = None
+                self.diffservmaxratestatus = None
+                self._segment_path = lambda: "diffServMaxRateEntry" + "[diffServMaxRateId='" + str(self.diffservmaxrateid) + "']" + "[diffServMaxRateLevel='" + str(self.diffservmaxratelevel) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServMaxRateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

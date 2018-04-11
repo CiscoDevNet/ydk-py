@@ -4,15 +4,17 @@ This module defines textual conventions used throughout
 cisco enterprise mibs.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CiscoAlarmSeverity(Enum):
     """
-    CiscoAlarmSeverity
+    CiscoAlarmSeverity (Enum Class)
 
     Represents the perceived alarm severity associated
 
@@ -119,7 +121,7 @@ class CiscoAlarmSeverity(Enum):
 
 class CiscoLocationClass(Enum):
     """
-    CiscoLocationClass
+    CiscoLocationClass (Enum Class)
 
     An enumerated value which provides an indication of
 
@@ -186,7 +188,7 @@ class CiscoLocationClass(Enum):
 
 class CiscoNetworkProtocol(Enum):
     """
-    CiscoNetworkProtocol
+    CiscoNetworkProtocol (Enum Class)
 
     Represents the different types of network layer protocols.
 
@@ -299,7 +301,7 @@ class CiscoNetworkProtocol(Enum):
 
 class CiscoPortListRange(Enum):
     """
-    CiscoPortListRange
+    CiscoPortListRange (Enum Class)
 
     Indicates the port range.
 
@@ -378,7 +380,7 @@ class CiscoPortListRange(Enum):
 
 class CiscoRowOperStatus(Enum):
     """
-    CiscoRowOperStatus
+    CiscoRowOperStatus (Enum Class)
 
     Represents the operational status of an table entry.
 
@@ -431,7 +433,7 @@ class CiscoRowOperStatus(Enum):
 
 class IfOperStatusReason(Enum):
     """
-    IfOperStatusReason
+    IfOperStatusReason (Enum Class)
 
     The cause of current operational state of the
 

@@ -2,9 +2,11 @@
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -109,8 +111,10 @@ class RFC1213MIB(Entity):
         self.yang_parent_name = "RFC1213-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"system" : ("system", RFC1213MIB.System), "interfaces" : ("interfaces", RFC1213MIB.Interfaces), "ip" : ("ip", RFC1213MIB.Ip), "icmp" : ("icmp", RFC1213MIB.Icmp), "tcp" : ("tcp", RFC1213MIB.Tcp), "udp" : ("udp", RFC1213MIB.Udp), "egp" : ("egp", RFC1213MIB.Egp), "snmp" : ("snmp", RFC1213MIB.Snmp), "ifTable" : ("iftable", RFC1213MIB.Iftable), "atTable" : ("attable", RFC1213MIB.Attable), "ipAddrTable" : ("ipaddrtable", RFC1213MIB.Ipaddrtable), "ipRouteTable" : ("iproutetable", RFC1213MIB.Iproutetable), "ipNetToMediaTable" : ("ipnettomediatable", RFC1213MIB.Ipnettomediatable), "tcpConnTable" : ("tcpconntable", RFC1213MIB.Tcpconntable), "udpTable" : ("udptable", RFC1213MIB.Udptable), "egpNeighTable" : ("egpneightable", RFC1213MIB.Egpneightable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("system", ("system", RFC1213MIB.System)), ("interfaces", ("interfaces", RFC1213MIB.Interfaces)), ("ip", ("ip", RFC1213MIB.Ip)), ("icmp", ("icmp", RFC1213MIB.Icmp)), ("tcp", ("tcp", RFC1213MIB.Tcp)), ("udp", ("udp", RFC1213MIB.Udp)), ("egp", ("egp", RFC1213MIB.Egp)), ("snmp", ("snmp", RFC1213MIB.Snmp)), ("ifTable", ("iftable", RFC1213MIB.Iftable)), ("atTable", ("attable", RFC1213MIB.Attable)), ("ipAddrTable", ("ipaddrtable", RFC1213MIB.Ipaddrtable)), ("ipRouteTable", ("iproutetable", RFC1213MIB.Iproutetable)), ("ipNetToMediaTable", ("ipnettomediatable", RFC1213MIB.Ipnettomediatable)), ("tcpConnTable", ("tcpconntable", RFC1213MIB.Tcpconntable)), ("udpTable", ("udptable", RFC1213MIB.Udptable)), ("egpNeighTable", ("egpneightable", RFC1213MIB.Egpneightable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.system = RFC1213MIB.System()
         self.system.parent = self
@@ -260,22 +264,25 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.sysdescr = YLeaf(YType.str, "sysDescr")
-
-            self.sysobjectid = YLeaf(YType.str, "sysObjectID")
-
-            self.sysuptime = YLeaf(YType.uint32, "sysUpTime")
-
-            self.syscontact = YLeaf(YType.str, "sysContact")
-
-            self.sysname = YLeaf(YType.str, "sysName")
-
-            self.syslocation = YLeaf(YType.str, "sysLocation")
-
-            self.sysservices = YLeaf(YType.int32, "sysServices")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('sysdescr', YLeaf(YType.str, 'sysDescr')),
+                ('sysobjectid', YLeaf(YType.str, 'sysObjectID')),
+                ('sysuptime', YLeaf(YType.uint32, 'sysUpTime')),
+                ('syscontact', YLeaf(YType.str, 'sysContact')),
+                ('sysname', YLeaf(YType.str, 'sysName')),
+                ('syslocation', YLeaf(YType.str, 'sysLocation')),
+                ('sysservices', YLeaf(YType.int32, 'sysServices')),
+            ])
+            self.sysdescr = None
+            self.sysobjectid = None
+            self.sysuptime = None
+            self.syscontact = None
+            self.sysname = None
+            self.syslocation = None
+            self.sysservices = None
             self._segment_path = lambda: "system"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
@@ -307,10 +314,13 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifnumber = YLeaf(YType.int32, "ifNumber")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ifnumber', YLeaf(YType.int32, 'ifNumber')),
+            ])
+            self.ifnumber = None
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
@@ -473,48 +483,51 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ipforwarding = YLeaf(YType.enumeration, "ipForwarding")
-
-            self.ipdefaultttl = YLeaf(YType.int32, "ipDefaultTTL")
-
-            self.ipinreceives = YLeaf(YType.uint32, "ipInReceives")
-
-            self.ipinhdrerrors = YLeaf(YType.uint32, "ipInHdrErrors")
-
-            self.ipinaddrerrors = YLeaf(YType.uint32, "ipInAddrErrors")
-
-            self.ipforwdatagrams = YLeaf(YType.uint32, "ipForwDatagrams")
-
-            self.ipinunknownprotos = YLeaf(YType.uint32, "ipInUnknownProtos")
-
-            self.ipindiscards = YLeaf(YType.uint32, "ipInDiscards")
-
-            self.ipindelivers = YLeaf(YType.uint32, "ipInDelivers")
-
-            self.ipoutrequests = YLeaf(YType.uint32, "ipOutRequests")
-
-            self.ipoutdiscards = YLeaf(YType.uint32, "ipOutDiscards")
-
-            self.ipoutnoroutes = YLeaf(YType.uint32, "ipOutNoRoutes")
-
-            self.ipreasmtimeout = YLeaf(YType.int32, "ipReasmTimeout")
-
-            self.ipreasmreqds = YLeaf(YType.uint32, "ipReasmReqds")
-
-            self.ipreasmoks = YLeaf(YType.uint32, "ipReasmOKs")
-
-            self.ipreasmfails = YLeaf(YType.uint32, "ipReasmFails")
-
-            self.ipfragoks = YLeaf(YType.uint32, "ipFragOKs")
-
-            self.ipfragfails = YLeaf(YType.uint32, "ipFragFails")
-
-            self.ipfragcreates = YLeaf(YType.uint32, "ipFragCreates")
-
-            self.iproutingdiscards = YLeaf(YType.uint32, "ipRoutingDiscards")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ipforwarding', YLeaf(YType.enumeration, 'ipForwarding')),
+                ('ipdefaultttl', YLeaf(YType.int32, 'ipDefaultTTL')),
+                ('ipinreceives', YLeaf(YType.uint32, 'ipInReceives')),
+                ('ipinhdrerrors', YLeaf(YType.uint32, 'ipInHdrErrors')),
+                ('ipinaddrerrors', YLeaf(YType.uint32, 'ipInAddrErrors')),
+                ('ipforwdatagrams', YLeaf(YType.uint32, 'ipForwDatagrams')),
+                ('ipinunknownprotos', YLeaf(YType.uint32, 'ipInUnknownProtos')),
+                ('ipindiscards', YLeaf(YType.uint32, 'ipInDiscards')),
+                ('ipindelivers', YLeaf(YType.uint32, 'ipInDelivers')),
+                ('ipoutrequests', YLeaf(YType.uint32, 'ipOutRequests')),
+                ('ipoutdiscards', YLeaf(YType.uint32, 'ipOutDiscards')),
+                ('ipoutnoroutes', YLeaf(YType.uint32, 'ipOutNoRoutes')),
+                ('ipreasmtimeout', YLeaf(YType.int32, 'ipReasmTimeout')),
+                ('ipreasmreqds', YLeaf(YType.uint32, 'ipReasmReqds')),
+                ('ipreasmoks', YLeaf(YType.uint32, 'ipReasmOKs')),
+                ('ipreasmfails', YLeaf(YType.uint32, 'ipReasmFails')),
+                ('ipfragoks', YLeaf(YType.uint32, 'ipFragOKs')),
+                ('ipfragfails', YLeaf(YType.uint32, 'ipFragFails')),
+                ('ipfragcreates', YLeaf(YType.uint32, 'ipFragCreates')),
+                ('iproutingdiscards', YLeaf(YType.uint32, 'ipRoutingDiscards')),
+            ])
+            self.ipforwarding = None
+            self.ipdefaultttl = None
+            self.ipinreceives = None
+            self.ipinhdrerrors = None
+            self.ipinaddrerrors = None
+            self.ipforwdatagrams = None
+            self.ipinunknownprotos = None
+            self.ipindiscards = None
+            self.ipindelivers = None
+            self.ipoutrequests = None
+            self.ipoutdiscards = None
+            self.ipoutnoroutes = None
+            self.ipreasmtimeout = None
+            self.ipreasmreqds = None
+            self.ipreasmoks = None
+            self.ipreasmfails = None
+            self.ipfragoks = None
+            self.ipfragfails = None
+            self.ipfragcreates = None
+            self.iproutingdiscards = None
             self._segment_path = lambda: "ip"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
@@ -523,7 +536,7 @@ class RFC1213MIB(Entity):
 
         class Ipforwarding(Enum):
             """
-            Ipforwarding
+            Ipforwarding (Enum Class)
 
             The indication of whether this entity is acting
 
@@ -758,60 +771,63 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.icmpinmsgs = YLeaf(YType.uint32, "icmpInMsgs")
-
-            self.icmpinerrors = YLeaf(YType.uint32, "icmpInErrors")
-
-            self.icmpindestunreachs = YLeaf(YType.uint32, "icmpInDestUnreachs")
-
-            self.icmpintimeexcds = YLeaf(YType.uint32, "icmpInTimeExcds")
-
-            self.icmpinparmprobs = YLeaf(YType.uint32, "icmpInParmProbs")
-
-            self.icmpinsrcquenchs = YLeaf(YType.uint32, "icmpInSrcQuenchs")
-
-            self.icmpinredirects = YLeaf(YType.uint32, "icmpInRedirects")
-
-            self.icmpinechos = YLeaf(YType.uint32, "icmpInEchos")
-
-            self.icmpinechoreps = YLeaf(YType.uint32, "icmpInEchoReps")
-
-            self.icmpintimestamps = YLeaf(YType.uint32, "icmpInTimestamps")
-
-            self.icmpintimestampreps = YLeaf(YType.uint32, "icmpInTimestampReps")
-
-            self.icmpinaddrmasks = YLeaf(YType.uint32, "icmpInAddrMasks")
-
-            self.icmpinaddrmaskreps = YLeaf(YType.uint32, "icmpInAddrMaskReps")
-
-            self.icmpoutmsgs = YLeaf(YType.uint32, "icmpOutMsgs")
-
-            self.icmpouterrors = YLeaf(YType.uint32, "icmpOutErrors")
-
-            self.icmpoutdestunreachs = YLeaf(YType.uint32, "icmpOutDestUnreachs")
-
-            self.icmpouttimeexcds = YLeaf(YType.uint32, "icmpOutTimeExcds")
-
-            self.icmpoutparmprobs = YLeaf(YType.uint32, "icmpOutParmProbs")
-
-            self.icmpoutsrcquenchs = YLeaf(YType.uint32, "icmpOutSrcQuenchs")
-
-            self.icmpoutredirects = YLeaf(YType.uint32, "icmpOutRedirects")
-
-            self.icmpoutechos = YLeaf(YType.uint32, "icmpOutEchos")
-
-            self.icmpoutechoreps = YLeaf(YType.uint32, "icmpOutEchoReps")
-
-            self.icmpouttimestamps = YLeaf(YType.uint32, "icmpOutTimestamps")
-
-            self.icmpouttimestampreps = YLeaf(YType.uint32, "icmpOutTimestampReps")
-
-            self.icmpoutaddrmasks = YLeaf(YType.uint32, "icmpOutAddrMasks")
-
-            self.icmpoutaddrmaskreps = YLeaf(YType.uint32, "icmpOutAddrMaskReps")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('icmpinmsgs', YLeaf(YType.uint32, 'icmpInMsgs')),
+                ('icmpinerrors', YLeaf(YType.uint32, 'icmpInErrors')),
+                ('icmpindestunreachs', YLeaf(YType.uint32, 'icmpInDestUnreachs')),
+                ('icmpintimeexcds', YLeaf(YType.uint32, 'icmpInTimeExcds')),
+                ('icmpinparmprobs', YLeaf(YType.uint32, 'icmpInParmProbs')),
+                ('icmpinsrcquenchs', YLeaf(YType.uint32, 'icmpInSrcQuenchs')),
+                ('icmpinredirects', YLeaf(YType.uint32, 'icmpInRedirects')),
+                ('icmpinechos', YLeaf(YType.uint32, 'icmpInEchos')),
+                ('icmpinechoreps', YLeaf(YType.uint32, 'icmpInEchoReps')),
+                ('icmpintimestamps', YLeaf(YType.uint32, 'icmpInTimestamps')),
+                ('icmpintimestampreps', YLeaf(YType.uint32, 'icmpInTimestampReps')),
+                ('icmpinaddrmasks', YLeaf(YType.uint32, 'icmpInAddrMasks')),
+                ('icmpinaddrmaskreps', YLeaf(YType.uint32, 'icmpInAddrMaskReps')),
+                ('icmpoutmsgs', YLeaf(YType.uint32, 'icmpOutMsgs')),
+                ('icmpouterrors', YLeaf(YType.uint32, 'icmpOutErrors')),
+                ('icmpoutdestunreachs', YLeaf(YType.uint32, 'icmpOutDestUnreachs')),
+                ('icmpouttimeexcds', YLeaf(YType.uint32, 'icmpOutTimeExcds')),
+                ('icmpoutparmprobs', YLeaf(YType.uint32, 'icmpOutParmProbs')),
+                ('icmpoutsrcquenchs', YLeaf(YType.uint32, 'icmpOutSrcQuenchs')),
+                ('icmpoutredirects', YLeaf(YType.uint32, 'icmpOutRedirects')),
+                ('icmpoutechos', YLeaf(YType.uint32, 'icmpOutEchos')),
+                ('icmpoutechoreps', YLeaf(YType.uint32, 'icmpOutEchoReps')),
+                ('icmpouttimestamps', YLeaf(YType.uint32, 'icmpOutTimestamps')),
+                ('icmpouttimestampreps', YLeaf(YType.uint32, 'icmpOutTimestampReps')),
+                ('icmpoutaddrmasks', YLeaf(YType.uint32, 'icmpOutAddrMasks')),
+                ('icmpoutaddrmaskreps', YLeaf(YType.uint32, 'icmpOutAddrMaskReps')),
+            ])
+            self.icmpinmsgs = None
+            self.icmpinerrors = None
+            self.icmpindestunreachs = None
+            self.icmpintimeexcds = None
+            self.icmpinparmprobs = None
+            self.icmpinsrcquenchs = None
+            self.icmpinredirects = None
+            self.icmpinechos = None
+            self.icmpinechoreps = None
+            self.icmpintimestamps = None
+            self.icmpintimestampreps = None
+            self.icmpinaddrmasks = None
+            self.icmpinaddrmaskreps = None
+            self.icmpoutmsgs = None
+            self.icmpouterrors = None
+            self.icmpoutdestunreachs = None
+            self.icmpouttimeexcds = None
+            self.icmpoutparmprobs = None
+            self.icmpoutsrcquenchs = None
+            self.icmpoutredirects = None
+            self.icmpoutechos = None
+            self.icmpoutechoreps = None
+            self.icmpouttimestamps = None
+            self.icmpouttimestampreps = None
+            self.icmpoutaddrmasks = None
+            self.icmpoutaddrmaskreps = None
             self._segment_path = lambda: "icmp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
@@ -932,36 +948,39 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.tcprtoalgorithm = YLeaf(YType.enumeration, "tcpRtoAlgorithm")
-
-            self.tcprtomin = YLeaf(YType.int32, "tcpRtoMin")
-
-            self.tcprtomax = YLeaf(YType.int32, "tcpRtoMax")
-
-            self.tcpmaxconn = YLeaf(YType.int32, "tcpMaxConn")
-
-            self.tcpactiveopens = YLeaf(YType.uint32, "tcpActiveOpens")
-
-            self.tcppassiveopens = YLeaf(YType.uint32, "tcpPassiveOpens")
-
-            self.tcpattemptfails = YLeaf(YType.uint32, "tcpAttemptFails")
-
-            self.tcpestabresets = YLeaf(YType.uint32, "tcpEstabResets")
-
-            self.tcpcurrestab = YLeaf(YType.uint32, "tcpCurrEstab")
-
-            self.tcpinsegs = YLeaf(YType.uint32, "tcpInSegs")
-
-            self.tcpoutsegs = YLeaf(YType.uint32, "tcpOutSegs")
-
-            self.tcpretranssegs = YLeaf(YType.uint32, "tcpRetransSegs")
-
-            self.tcpinerrs = YLeaf(YType.uint32, "tcpInErrs")
-
-            self.tcpoutrsts = YLeaf(YType.uint32, "tcpOutRsts")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('tcprtoalgorithm', YLeaf(YType.enumeration, 'tcpRtoAlgorithm')),
+                ('tcprtomin', YLeaf(YType.int32, 'tcpRtoMin')),
+                ('tcprtomax', YLeaf(YType.int32, 'tcpRtoMax')),
+                ('tcpmaxconn', YLeaf(YType.int32, 'tcpMaxConn')),
+                ('tcpactiveopens', YLeaf(YType.uint32, 'tcpActiveOpens')),
+                ('tcppassiveopens', YLeaf(YType.uint32, 'tcpPassiveOpens')),
+                ('tcpattemptfails', YLeaf(YType.uint32, 'tcpAttemptFails')),
+                ('tcpestabresets', YLeaf(YType.uint32, 'tcpEstabResets')),
+                ('tcpcurrestab', YLeaf(YType.uint32, 'tcpCurrEstab')),
+                ('tcpinsegs', YLeaf(YType.uint32, 'tcpInSegs')),
+                ('tcpoutsegs', YLeaf(YType.uint32, 'tcpOutSegs')),
+                ('tcpretranssegs', YLeaf(YType.uint32, 'tcpRetransSegs')),
+                ('tcpinerrs', YLeaf(YType.uint32, 'tcpInErrs')),
+                ('tcpoutrsts', YLeaf(YType.uint32, 'tcpOutRsts')),
+            ])
+            self.tcprtoalgorithm = None
+            self.tcprtomin = None
+            self.tcprtomax = None
+            self.tcpmaxconn = None
+            self.tcpactiveopens = None
+            self.tcppassiveopens = None
+            self.tcpattemptfails = None
+            self.tcpestabresets = None
+            self.tcpcurrestab = None
+            self.tcpinsegs = None
+            self.tcpoutsegs = None
+            self.tcpretranssegs = None
+            self.tcpinerrs = None
+            self.tcpoutrsts = None
             self._segment_path = lambda: "tcp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
@@ -970,7 +989,7 @@ class RFC1213MIB(Entity):
 
         class Tcprtoalgorithm(Enum):
             """
-            Tcprtoalgorithm
+            Tcprtoalgorithm (Enum Class)
 
             The algorithm used to determine the timeout value
 
@@ -1045,16 +1064,19 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.udpindatagrams = YLeaf(YType.uint32, "udpInDatagrams")
-
-            self.udpnoports = YLeaf(YType.uint32, "udpNoPorts")
-
-            self.udpinerrors = YLeaf(YType.uint32, "udpInErrors")
-
-            self.udpoutdatagrams = YLeaf(YType.uint32, "udpOutDatagrams")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('udpindatagrams', YLeaf(YType.uint32, 'udpInDatagrams')),
+                ('udpnoports', YLeaf(YType.uint32, 'udpNoPorts')),
+                ('udpinerrors', YLeaf(YType.uint32, 'udpInErrors')),
+                ('udpoutdatagrams', YLeaf(YType.uint32, 'udpOutDatagrams')),
+            ])
+            self.udpindatagrams = None
+            self.udpnoports = None
+            self.udpinerrors = None
+            self.udpoutdatagrams = None
             self._segment_path = lambda: "udp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
@@ -1114,18 +1136,21 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.egpinmsgs = YLeaf(YType.uint32, "egpInMsgs")
-
-            self.egpinerrors = YLeaf(YType.uint32, "egpInErrors")
-
-            self.egpoutmsgs = YLeaf(YType.uint32, "egpOutMsgs")
-
-            self.egpouterrors = YLeaf(YType.uint32, "egpOutErrors")
-
-            self.egpas = YLeaf(YType.int32, "egpAs")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('egpinmsgs', YLeaf(YType.uint32, 'egpInMsgs')),
+                ('egpinerrors', YLeaf(YType.uint32, 'egpInErrors')),
+                ('egpoutmsgs', YLeaf(YType.uint32, 'egpOutMsgs')),
+                ('egpouterrors', YLeaf(YType.uint32, 'egpOutErrors')),
+                ('egpas', YLeaf(YType.int32, 'egpAs')),
+            ])
+            self.egpinmsgs = None
+            self.egpinerrors = None
+            self.egpoutmsgs = None
+            self.egpouterrors = None
+            self.egpas = None
             self._segment_path = lambda: "egp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
@@ -1344,64 +1369,67 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.snmpinpkts = YLeaf(YType.uint32, "snmpInPkts")
-
-            self.snmpoutpkts = YLeaf(YType.uint32, "snmpOutPkts")
-
-            self.snmpinbadversions = YLeaf(YType.uint32, "snmpInBadVersions")
-
-            self.snmpinbadcommunitynames = YLeaf(YType.uint32, "snmpInBadCommunityNames")
-
-            self.snmpinbadcommunityuses = YLeaf(YType.uint32, "snmpInBadCommunityUses")
-
-            self.snmpinasnparseerrs = YLeaf(YType.uint32, "snmpInASNParseErrs")
-
-            self.snmpintoobigs = YLeaf(YType.uint32, "snmpInTooBigs")
-
-            self.snmpinnosuchnames = YLeaf(YType.uint32, "snmpInNoSuchNames")
-
-            self.snmpinbadvalues = YLeaf(YType.uint32, "snmpInBadValues")
-
-            self.snmpinreadonlys = YLeaf(YType.uint32, "snmpInReadOnlys")
-
-            self.snmpingenerrs = YLeaf(YType.uint32, "snmpInGenErrs")
-
-            self.snmpintotalreqvars = YLeaf(YType.uint32, "snmpInTotalReqVars")
-
-            self.snmpintotalsetvars = YLeaf(YType.uint32, "snmpInTotalSetVars")
-
-            self.snmpingetrequests = YLeaf(YType.uint32, "snmpInGetRequests")
-
-            self.snmpingetnexts = YLeaf(YType.uint32, "snmpInGetNexts")
-
-            self.snmpinsetrequests = YLeaf(YType.uint32, "snmpInSetRequests")
-
-            self.snmpingetresponses = YLeaf(YType.uint32, "snmpInGetResponses")
-
-            self.snmpintraps = YLeaf(YType.uint32, "snmpInTraps")
-
-            self.snmpouttoobigs = YLeaf(YType.uint32, "snmpOutTooBigs")
-
-            self.snmpoutnosuchnames = YLeaf(YType.uint32, "snmpOutNoSuchNames")
-
-            self.snmpoutbadvalues = YLeaf(YType.uint32, "snmpOutBadValues")
-
-            self.snmpoutgenerrs = YLeaf(YType.uint32, "snmpOutGenErrs")
-
-            self.snmpoutgetrequests = YLeaf(YType.uint32, "snmpOutGetRequests")
-
-            self.snmpoutgetnexts = YLeaf(YType.uint32, "snmpOutGetNexts")
-
-            self.snmpoutsetrequests = YLeaf(YType.uint32, "snmpOutSetRequests")
-
-            self.snmpoutgetresponses = YLeaf(YType.uint32, "snmpOutGetResponses")
-
-            self.snmpouttraps = YLeaf(YType.uint32, "snmpOutTraps")
-
-            self.snmpenableauthentraps = YLeaf(YType.enumeration, "snmpEnableAuthenTraps")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('snmpinpkts', YLeaf(YType.uint32, 'snmpInPkts')),
+                ('snmpoutpkts', YLeaf(YType.uint32, 'snmpOutPkts')),
+                ('snmpinbadversions', YLeaf(YType.uint32, 'snmpInBadVersions')),
+                ('snmpinbadcommunitynames', YLeaf(YType.uint32, 'snmpInBadCommunityNames')),
+                ('snmpinbadcommunityuses', YLeaf(YType.uint32, 'snmpInBadCommunityUses')),
+                ('snmpinasnparseerrs', YLeaf(YType.uint32, 'snmpInASNParseErrs')),
+                ('snmpintoobigs', YLeaf(YType.uint32, 'snmpInTooBigs')),
+                ('snmpinnosuchnames', YLeaf(YType.uint32, 'snmpInNoSuchNames')),
+                ('snmpinbadvalues', YLeaf(YType.uint32, 'snmpInBadValues')),
+                ('snmpinreadonlys', YLeaf(YType.uint32, 'snmpInReadOnlys')),
+                ('snmpingenerrs', YLeaf(YType.uint32, 'snmpInGenErrs')),
+                ('snmpintotalreqvars', YLeaf(YType.uint32, 'snmpInTotalReqVars')),
+                ('snmpintotalsetvars', YLeaf(YType.uint32, 'snmpInTotalSetVars')),
+                ('snmpingetrequests', YLeaf(YType.uint32, 'snmpInGetRequests')),
+                ('snmpingetnexts', YLeaf(YType.uint32, 'snmpInGetNexts')),
+                ('snmpinsetrequests', YLeaf(YType.uint32, 'snmpInSetRequests')),
+                ('snmpingetresponses', YLeaf(YType.uint32, 'snmpInGetResponses')),
+                ('snmpintraps', YLeaf(YType.uint32, 'snmpInTraps')),
+                ('snmpouttoobigs', YLeaf(YType.uint32, 'snmpOutTooBigs')),
+                ('snmpoutnosuchnames', YLeaf(YType.uint32, 'snmpOutNoSuchNames')),
+                ('snmpoutbadvalues', YLeaf(YType.uint32, 'snmpOutBadValues')),
+                ('snmpoutgenerrs', YLeaf(YType.uint32, 'snmpOutGenErrs')),
+                ('snmpoutgetrequests', YLeaf(YType.uint32, 'snmpOutGetRequests')),
+                ('snmpoutgetnexts', YLeaf(YType.uint32, 'snmpOutGetNexts')),
+                ('snmpoutsetrequests', YLeaf(YType.uint32, 'snmpOutSetRequests')),
+                ('snmpoutgetresponses', YLeaf(YType.uint32, 'snmpOutGetResponses')),
+                ('snmpouttraps', YLeaf(YType.uint32, 'snmpOutTraps')),
+                ('snmpenableauthentraps', YLeaf(YType.enumeration, 'snmpEnableAuthenTraps')),
+            ])
+            self.snmpinpkts = None
+            self.snmpoutpkts = None
+            self.snmpinbadversions = None
+            self.snmpinbadcommunitynames = None
+            self.snmpinbadcommunityuses = None
+            self.snmpinasnparseerrs = None
+            self.snmpintoobigs = None
+            self.snmpinnosuchnames = None
+            self.snmpinbadvalues = None
+            self.snmpinreadonlys = None
+            self.snmpingenerrs = None
+            self.snmpintotalreqvars = None
+            self.snmpintotalsetvars = None
+            self.snmpingetrequests = None
+            self.snmpingetnexts = None
+            self.snmpinsetrequests = None
+            self.snmpingetresponses = None
+            self.snmpintraps = None
+            self.snmpouttoobigs = None
+            self.snmpoutnosuchnames = None
+            self.snmpoutbadvalues = None
+            self.snmpoutgenerrs = None
+            self.snmpoutgetrequests = None
+            self.snmpoutgetnexts = None
+            self.snmpoutsetrequests = None
+            self.snmpoutgetresponses = None
+            self.snmpouttraps = None
+            self.snmpenableauthentraps = None
             self._segment_path = lambda: "snmp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
 
@@ -1410,7 +1438,7 @@ class RFC1213MIB(Entity):
 
         class Snmpenableauthentraps(Enum):
             """
-            Snmpenableauthentraps
+            Snmpenableauthentraps (Enum Class)
 
             Indicates whether the SNMP agent process is
 
@@ -1467,8 +1495,10 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ifEntry" : ("ifentry", RFC1213MIB.Iftable.Ifentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ifEntry", ("ifentry", RFC1213MIB.Iftable.Ifentry))])
+            self._leafs = OrderedDict()
 
             self.ifentry = YList(self)
             self._segment_path = lambda: "ifTable"
@@ -1484,7 +1514,7 @@ class RFC1213MIB(Entity):
             subnetwork layer and below for a particular
             interface.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	A unique value for each interface.  Its value ranges between 1 and the value of ifNumber.  The value for each interface must remain constant at least from one re\-initialization of the entity's network management system to the next re\- initialization
             	**type**\: int
@@ -1643,53 +1673,56 @@ class RFC1213MIB(Entity):
                 self.yang_parent_name = "ifTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.int32, "ifIndex")
-
-                self.ifdescr = YLeaf(YType.str, "ifDescr")
-
-                self.iftype = YLeaf(YType.enumeration, "ifType")
-
-                self.ifmtu = YLeaf(YType.int32, "ifMtu")
-
-                self.ifspeed = YLeaf(YType.uint32, "ifSpeed")
-
-                self.ifphysaddress = YLeaf(YType.str, "ifPhysAddress")
-
-                self.ifadminstatus = YLeaf(YType.enumeration, "ifAdminStatus")
-
-                self.ifoperstatus = YLeaf(YType.enumeration, "ifOperStatus")
-
-                self.iflastchange = YLeaf(YType.uint32, "ifLastChange")
-
-                self.ifinoctets = YLeaf(YType.uint32, "ifInOctets")
-
-                self.ifinucastpkts = YLeaf(YType.uint32, "ifInUcastPkts")
-
-                self.ifinnucastpkts = YLeaf(YType.uint32, "ifInNUcastPkts")
-
-                self.ifindiscards = YLeaf(YType.uint32, "ifInDiscards")
-
-                self.ifinerrors = YLeaf(YType.uint32, "ifInErrors")
-
-                self.ifinunknownprotos = YLeaf(YType.uint32, "ifInUnknownProtos")
-
-                self.ifoutoctets = YLeaf(YType.uint32, "ifOutOctets")
-
-                self.ifoutucastpkts = YLeaf(YType.uint32, "ifOutUcastPkts")
-
-                self.ifoutnucastpkts = YLeaf(YType.uint32, "ifOutNUcastPkts")
-
-                self.ifoutdiscards = YLeaf(YType.uint32, "ifOutDiscards")
-
-                self.ifouterrors = YLeaf(YType.uint32, "ifOutErrors")
-
-                self.ifoutqlen = YLeaf(YType.uint32, "ifOutQLen")
-
-                self.ifspecific = YLeaf(YType.str, "ifSpecific")
-                self._segment_path = lambda: "ifEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.int32, 'ifIndex')),
+                    ('ifdescr', YLeaf(YType.str, 'ifDescr')),
+                    ('iftype', YLeaf(YType.enumeration, 'ifType')),
+                    ('ifmtu', YLeaf(YType.int32, 'ifMtu')),
+                    ('ifspeed', YLeaf(YType.uint32, 'ifSpeed')),
+                    ('ifphysaddress', YLeaf(YType.str, 'ifPhysAddress')),
+                    ('ifadminstatus', YLeaf(YType.enumeration, 'ifAdminStatus')),
+                    ('ifoperstatus', YLeaf(YType.enumeration, 'ifOperStatus')),
+                    ('iflastchange', YLeaf(YType.uint32, 'ifLastChange')),
+                    ('ifinoctets', YLeaf(YType.uint32, 'ifInOctets')),
+                    ('ifinucastpkts', YLeaf(YType.uint32, 'ifInUcastPkts')),
+                    ('ifinnucastpkts', YLeaf(YType.uint32, 'ifInNUcastPkts')),
+                    ('ifindiscards', YLeaf(YType.uint32, 'ifInDiscards')),
+                    ('ifinerrors', YLeaf(YType.uint32, 'ifInErrors')),
+                    ('ifinunknownprotos', YLeaf(YType.uint32, 'ifInUnknownProtos')),
+                    ('ifoutoctets', YLeaf(YType.uint32, 'ifOutOctets')),
+                    ('ifoutucastpkts', YLeaf(YType.uint32, 'ifOutUcastPkts')),
+                    ('ifoutnucastpkts', YLeaf(YType.uint32, 'ifOutNUcastPkts')),
+                    ('ifoutdiscards', YLeaf(YType.uint32, 'ifOutDiscards')),
+                    ('ifouterrors', YLeaf(YType.uint32, 'ifOutErrors')),
+                    ('ifoutqlen', YLeaf(YType.uint32, 'ifOutQLen')),
+                    ('ifspecific', YLeaf(YType.str, 'ifSpecific')),
+                ])
+                self.ifindex = None
+                self.ifdescr = None
+                self.iftype = None
+                self.ifmtu = None
+                self.ifspeed = None
+                self.ifphysaddress = None
+                self.ifadminstatus = None
+                self.ifoperstatus = None
+                self.iflastchange = None
+                self.ifinoctets = None
+                self.ifinucastpkts = None
+                self.ifinnucastpkts = None
+                self.ifindiscards = None
+                self.ifinerrors = None
+                self.ifinunknownprotos = None
+                self.ifoutoctets = None
+                self.ifoutucastpkts = None
+                self.ifoutnucastpkts = None
+                self.ifoutdiscards = None
+                self.ifouterrors = None
+                self.ifoutqlen = None
+                self.ifspecific = None
+                self._segment_path = lambda: "ifEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ifTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1697,7 +1730,7 @@ class RFC1213MIB(Entity):
 
             class Ifadminstatus(Enum):
                 """
-                Ifadminstatus
+                Ifadminstatus (Enum Class)
 
                 The desired state of the interface.  The
 
@@ -1722,7 +1755,7 @@ class RFC1213MIB(Entity):
 
             class Ifoperstatus(Enum):
                 """
-                Ifoperstatus
+                Ifoperstatus (Enum Class)
 
                 The current operational state of the interface.
 
@@ -1784,8 +1817,10 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"atEntry" : ("atentry", RFC1213MIB.Attable.Atentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("atEntry", ("atentry", RFC1213MIB.Attable.Atentry))])
+            self._leafs = OrderedDict()
 
             self.atentry = YList(self)
             self._segment_path = lambda: "atTable"
@@ -1800,7 +1835,7 @@ class RFC1213MIB(Entity):
             Each entry contains one NetworkAddress to
             `physical' address equivalence.
             
-            .. attribute:: atifindex  <key>
+            .. attribute:: atifindex  (key)
             
             	The interface on which this entry's equivalence is effective.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
             	**type**\: int
@@ -1809,7 +1844,7 @@ class RFC1213MIB(Entity):
             
             	**status**\: obsolete
             
-            .. attribute:: atifindex_2  <key>
+            .. attribute:: atifindex_2  (key)
             
             	The interface on which this entry's equivalence is effective.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
             	**type**\: int
@@ -1818,7 +1853,7 @@ class RFC1213MIB(Entity):
             
             	**status**\: obsolete
             
-            .. attribute:: atnetaddress  <key>
+            .. attribute:: atnetaddress  (key)
             
             	The NetworkAddress (e.g., the IP address) corresponding to the media\-dependent `physical' address
             	**type**\: str
@@ -1847,17 +1882,20 @@ class RFC1213MIB(Entity):
                 self.yang_parent_name = "atTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.atifindex = YLeaf(YType.int32, "atIfIndex")
-
-                self.atifindex_2 = YLeaf(YType.int32, "atIfIndex_2")
-
-                self.atnetaddress = YLeaf(YType.str, "atNetAddress")
-
-                self.atphysaddress = YLeaf(YType.str, "atPhysAddress")
-                self._segment_path = lambda: "atEntry" + "[atIfIndex='" + self.atifindex.get() + "']" + "[atIfIndex_2='" + self.atifindex_2.get() + "']" + "[atNetAddress='" + self.atnetaddress.get() + "']"
+                self.ylist_key_names = ['atifindex','atifindex_2','atnetaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('atifindex', YLeaf(YType.int32, 'atIfIndex')),
+                    ('atifindex_2', YLeaf(YType.int32, 'atIfIndex_2')),
+                    ('atnetaddress', YLeaf(YType.str, 'atNetAddress')),
+                    ('atphysaddress', YLeaf(YType.str, 'atPhysAddress')),
+                ])
+                self.atifindex = None
+                self.atifindex_2 = None
+                self.atnetaddress = None
+                self.atphysaddress = None
+                self._segment_path = lambda: "atEntry" + "[atIfIndex='" + str(self.atifindex) + "']" + "[atIfIndex_2='" + str(self.atifindex_2) + "']" + "[atNetAddress='" + str(self.atnetaddress) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/atTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1887,8 +1925,10 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipAddrEntry" : ("ipaddrentry", RFC1213MIB.Ipaddrtable.Ipaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipAddrEntry", ("ipaddrentry", RFC1213MIB.Ipaddrtable.Ipaddrentry))])
+            self._leafs = OrderedDict()
 
             self.ipaddrentry = YList(self)
             self._segment_path = lambda: "ipAddrTable"
@@ -1903,7 +1943,7 @@ class RFC1213MIB(Entity):
             The addressing information for one of this
             entity's IP addresses.
             
-            .. attribute:: ipadentaddr  <key>
+            .. attribute:: ipadentaddr  (key)
             
             	The IP address to which this entry's addressing information pertains
             	**type**\: str
@@ -1951,19 +1991,22 @@ class RFC1213MIB(Entity):
                 self.yang_parent_name = "ipAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipadentaddr = YLeaf(YType.str, "ipAdEntAddr")
-
-                self.ipadentifindex = YLeaf(YType.int32, "ipAdEntIfIndex")
-
-                self.ipadentnetmask = YLeaf(YType.str, "ipAdEntNetMask")
-
-                self.ipadentbcastaddr = YLeaf(YType.int32, "ipAdEntBcastAddr")
-
-                self.ipadentreasmmaxsize = YLeaf(YType.int32, "ipAdEntReasmMaxSize")
-                self._segment_path = lambda: "ipAddrEntry" + "[ipAdEntAddr='" + self.ipadentaddr.get() + "']"
+                self.ylist_key_names = ['ipadentaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipadentaddr', YLeaf(YType.str, 'ipAdEntAddr')),
+                    ('ipadentifindex', YLeaf(YType.int32, 'ipAdEntIfIndex')),
+                    ('ipadentnetmask', YLeaf(YType.str, 'ipAdEntNetMask')),
+                    ('ipadentbcastaddr', YLeaf(YType.int32, 'ipAdEntBcastAddr')),
+                    ('ipadentreasmmaxsize', YLeaf(YType.int32, 'ipAdEntReasmMaxSize')),
+                ])
+                self.ipadentaddr = None
+                self.ipadentifindex = None
+                self.ipadentnetmask = None
+                self.ipadentbcastaddr = None
+                self.ipadentreasmmaxsize = None
+                self._segment_path = lambda: "ipAddrEntry" + "[ipAdEntAddr='" + str(self.ipadentaddr) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1992,8 +2035,10 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipRouteEntry" : ("iprouteentry", RFC1213MIB.Iproutetable.Iprouteentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipRouteEntry", ("iprouteentry", RFC1213MIB.Iproutetable.Iprouteentry))])
+            self._leafs = OrderedDict()
 
             self.iprouteentry = YList(self)
             self._segment_path = lambda: "ipRouteTable"
@@ -2007,7 +2052,7 @@ class RFC1213MIB(Entity):
             """
             A route to a particular destination.
             
-            .. attribute:: iproutedest  <key>
+            .. attribute:: iproutedest  (key)
             
             	The destination IP address of this route.  An entry with a value of 0.0.0.0 is considered a default route.  Multiple routes to a single destination can appear in the table, but access to such multiple entries is dependent on the table\- access mechanisms defined by the network management protocol in use
             	**type**\: str
@@ -2107,35 +2152,38 @@ class RFC1213MIB(Entity):
                 self.yang_parent_name = "ipRouteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.iproutedest = YLeaf(YType.str, "ipRouteDest")
-
-                self.iprouteifindex = YLeaf(YType.int32, "ipRouteIfIndex")
-
-                self.iproutemetric1 = YLeaf(YType.int32, "ipRouteMetric1")
-
-                self.iproutemetric2 = YLeaf(YType.int32, "ipRouteMetric2")
-
-                self.iproutemetric3 = YLeaf(YType.int32, "ipRouteMetric3")
-
-                self.iproutemetric4 = YLeaf(YType.int32, "ipRouteMetric4")
-
-                self.iproutenexthop = YLeaf(YType.str, "ipRouteNextHop")
-
-                self.iproutetype = YLeaf(YType.enumeration, "ipRouteType")
-
-                self.iprouteproto = YLeaf(YType.enumeration, "ipRouteProto")
-
-                self.iprouteage = YLeaf(YType.int32, "ipRouteAge")
-
-                self.iproutemask = YLeaf(YType.str, "ipRouteMask")
-
-                self.iproutemetric5 = YLeaf(YType.int32, "ipRouteMetric5")
-
-                self.iprouteinfo = YLeaf(YType.str, "ipRouteInfo")
-                self._segment_path = lambda: "ipRouteEntry" + "[ipRouteDest='" + self.iproutedest.get() + "']"
+                self.ylist_key_names = ['iproutedest']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('iproutedest', YLeaf(YType.str, 'ipRouteDest')),
+                    ('iprouteifindex', YLeaf(YType.int32, 'ipRouteIfIndex')),
+                    ('iproutemetric1', YLeaf(YType.int32, 'ipRouteMetric1')),
+                    ('iproutemetric2', YLeaf(YType.int32, 'ipRouteMetric2')),
+                    ('iproutemetric3', YLeaf(YType.int32, 'ipRouteMetric3')),
+                    ('iproutemetric4', YLeaf(YType.int32, 'ipRouteMetric4')),
+                    ('iproutenexthop', YLeaf(YType.str, 'ipRouteNextHop')),
+                    ('iproutetype', YLeaf(YType.enumeration, 'ipRouteType')),
+                    ('iprouteproto', YLeaf(YType.enumeration, 'ipRouteProto')),
+                    ('iprouteage', YLeaf(YType.int32, 'ipRouteAge')),
+                    ('iproutemask', YLeaf(YType.str, 'ipRouteMask')),
+                    ('iproutemetric5', YLeaf(YType.int32, 'ipRouteMetric5')),
+                    ('iprouteinfo', YLeaf(YType.str, 'ipRouteInfo')),
+                ])
+                self.iproutedest = None
+                self.iprouteifindex = None
+                self.iproutemetric1 = None
+                self.iproutemetric2 = None
+                self.iproutemetric3 = None
+                self.iproutemetric4 = None
+                self.iproutenexthop = None
+                self.iproutetype = None
+                self.iprouteproto = None
+                self.iprouteage = None
+                self.iproutemask = None
+                self.iproutemetric5 = None
+                self.iprouteinfo = None
+                self._segment_path = lambda: "ipRouteEntry" + "[ipRouteDest='" + str(self.iproutedest) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipRouteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2143,7 +2191,7 @@ class RFC1213MIB(Entity):
 
             class Iprouteproto(Enum):
                 """
-                Iprouteproto
+                Iprouteproto (Enum Class)
 
                 The routing mechanism via which this route was
 
@@ -2214,7 +2262,7 @@ class RFC1213MIB(Entity):
 
             class Iproutetype(Enum):
                 """
-                Iproutetype
+                Iproutetype (Enum Class)
 
                 The type of route.  Note that the values
 
@@ -2293,8 +2341,10 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipNetToMediaEntry" : ("ipnettomediaentry", RFC1213MIB.Ipnettomediatable.Ipnettomediaentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipNetToMediaEntry", ("ipnettomediaentry", RFC1213MIB.Ipnettomediatable.Ipnettomediaentry))])
+            self._leafs = OrderedDict()
 
             self.ipnettomediaentry = YList(self)
             self._segment_path = lambda: "ipNetToMediaTable"
@@ -2309,14 +2359,14 @@ class RFC1213MIB(Entity):
             Each entry contains one IpAddress to `physical'
             address equivalence.
             
-            .. attribute:: ipnettomediaifindex  <key>
+            .. attribute:: ipnettomediaifindex  (key)
             
             	The interface on which this entry's equivalence is effective.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: ipnettomedianetaddress  <key>
+            .. attribute:: ipnettomedianetaddress  (key)
             
             	The IpAddress corresponding to the media\- dependent `physical' address
             	**type**\: str
@@ -2346,17 +2396,20 @@ class RFC1213MIB(Entity):
                 self.yang_parent_name = "ipNetToMediaTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipnettomediaifindex = YLeaf(YType.int32, "ipNetToMediaIfIndex")
-
-                self.ipnettomedianetaddress = YLeaf(YType.str, "ipNetToMediaNetAddress")
-
-                self.ipnettomediaphysaddress = YLeaf(YType.str, "ipNetToMediaPhysAddress")
-
-                self.ipnettomediatype = YLeaf(YType.enumeration, "ipNetToMediaType")
-                self._segment_path = lambda: "ipNetToMediaEntry" + "[ipNetToMediaIfIndex='" + self.ipnettomediaifindex.get() + "']" + "[ipNetToMediaNetAddress='" + self.ipnettomedianetaddress.get() + "']"
+                self.ylist_key_names = ['ipnettomediaifindex','ipnettomedianetaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipnettomediaifindex', YLeaf(YType.int32, 'ipNetToMediaIfIndex')),
+                    ('ipnettomedianetaddress', YLeaf(YType.str, 'ipNetToMediaNetAddress')),
+                    ('ipnettomediaphysaddress', YLeaf(YType.str, 'ipNetToMediaPhysAddress')),
+                    ('ipnettomediatype', YLeaf(YType.enumeration, 'ipNetToMediaType')),
+                ])
+                self.ipnettomediaifindex = None
+                self.ipnettomedianetaddress = None
+                self.ipnettomediaphysaddress = None
+                self.ipnettomediatype = None
+                self._segment_path = lambda: "ipNetToMediaEntry" + "[ipNetToMediaIfIndex='" + str(self.ipnettomediaifindex) + "']" + "[ipNetToMediaNetAddress='" + str(self.ipnettomedianetaddress) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipNetToMediaTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2364,7 +2417,7 @@ class RFC1213MIB(Entity):
 
             class Ipnettomediatype(Enum):
                 """
-                Ipnettomediatype
+                Ipnettomediatype (Enum Class)
 
                 The type of mapping.
 
@@ -2437,8 +2490,10 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"tcpConnEntry" : ("tcpconnentry", RFC1213MIB.Tcpconntable.Tcpconnentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("tcpConnEntry", ("tcpconnentry", RFC1213MIB.Tcpconntable.Tcpconnentry))])
+            self._leafs = OrderedDict()
 
             self.tcpconnentry = YList(self)
             self._segment_path = lambda: "tcpConnTable"
@@ -2456,28 +2511,28 @@ class RFC1213MIB(Entity):
             the connection makes the transition to the CLOSED
             state.
             
-            .. attribute:: tcpconnlocaladdress  <key>
+            .. attribute:: tcpconnlocaladdress  (key)
             
             	The local IP address for this TCP connection.  In the case of a connection in the listen state which is willing to accept connections for any IP interface associated with the node, the value 0.0.0.0 is used
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: tcpconnlocalport  <key>
+            .. attribute:: tcpconnlocalport  (key)
             
             	The local port number for this TCP connection
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: tcpconnremaddress  <key>
+            .. attribute:: tcpconnremaddress  (key)
             
             	The remote IP address for this TCP connection
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: tcpconnremport  <key>
+            .. attribute:: tcpconnremport  (key)
             
             	The remote port number for this TCP connection
             	**type**\: int
@@ -2502,19 +2557,22 @@ class RFC1213MIB(Entity):
                 self.yang_parent_name = "tcpConnTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.tcpconnlocaladdress = YLeaf(YType.str, "tcpConnLocalAddress")
-
-                self.tcpconnlocalport = YLeaf(YType.int32, "tcpConnLocalPort")
-
-                self.tcpconnremaddress = YLeaf(YType.str, "tcpConnRemAddress")
-
-                self.tcpconnremport = YLeaf(YType.int32, "tcpConnRemPort")
-
-                self.tcpconnstate = YLeaf(YType.enumeration, "tcpConnState")
-                self._segment_path = lambda: "tcpConnEntry" + "[tcpConnLocalAddress='" + self.tcpconnlocaladdress.get() + "']" + "[tcpConnLocalPort='" + self.tcpconnlocalport.get() + "']" + "[tcpConnRemAddress='" + self.tcpconnremaddress.get() + "']" + "[tcpConnRemPort='" + self.tcpconnremport.get() + "']"
+                self.ylist_key_names = ['tcpconnlocaladdress','tcpconnlocalport','tcpconnremaddress','tcpconnremport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('tcpconnlocaladdress', YLeaf(YType.str, 'tcpConnLocalAddress')),
+                    ('tcpconnlocalport', YLeaf(YType.int32, 'tcpConnLocalPort')),
+                    ('tcpconnremaddress', YLeaf(YType.str, 'tcpConnRemAddress')),
+                    ('tcpconnremport', YLeaf(YType.int32, 'tcpConnRemPort')),
+                    ('tcpconnstate', YLeaf(YType.enumeration, 'tcpConnState')),
+                ])
+                self.tcpconnlocaladdress = None
+                self.tcpconnlocalport = None
+                self.tcpconnremaddress = None
+                self.tcpconnremport = None
+                self.tcpconnstate = None
+                self._segment_path = lambda: "tcpConnEntry" + "[tcpConnLocalAddress='" + str(self.tcpconnlocaladdress) + "']" + "[tcpConnLocalPort='" + str(self.tcpconnlocalport) + "']" + "[tcpConnRemAddress='" + str(self.tcpconnremaddress) + "']" + "[tcpConnRemPort='" + str(self.tcpconnremport) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/tcpConnTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2522,7 +2580,7 @@ class RFC1213MIB(Entity):
 
             class Tcpconnstate(Enum):
                 """
-                Tcpconnstate
+                Tcpconnstate (Enum Class)
 
                 The state of this TCP connection.
 
@@ -2630,8 +2688,10 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"udpEntry" : ("udpentry", RFC1213MIB.Udptable.Udpentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("udpEntry", ("udpentry", RFC1213MIB.Udptable.Udpentry))])
+            self._leafs = OrderedDict()
 
             self.udpentry = YList(self)
             self._segment_path = lambda: "udpTable"
@@ -2646,14 +2706,14 @@ class RFC1213MIB(Entity):
             Information about a particular current UDP
             listener.
             
-            .. attribute:: udplocaladdress  <key>
+            .. attribute:: udplocaladdress  (key)
             
             	The local IP address for this UDP listener.  In the case of a UDP listener which is willing to accept datagrams for any IP interface associated with the node, the value 0.0.0.0 is used
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: udplocalport  <key>
+            .. attribute:: udplocalport  (key)
             
             	The local port number for this UDP listener
             	**type**\: int
@@ -2673,13 +2733,16 @@ class RFC1213MIB(Entity):
                 self.yang_parent_name = "udpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.udplocaladdress = YLeaf(YType.str, "udpLocalAddress")
-
-                self.udplocalport = YLeaf(YType.int32, "udpLocalPort")
-                self._segment_path = lambda: "udpEntry" + "[udpLocalAddress='" + self.udplocaladdress.get() + "']" + "[udpLocalPort='" + self.udplocalport.get() + "']"
+                self.ylist_key_names = ['udplocaladdress','udplocalport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('udplocaladdress', YLeaf(YType.str, 'udpLocalAddress')),
+                    ('udplocalport', YLeaf(YType.int32, 'udpLocalPort')),
+                ])
+                self.udplocaladdress = None
+                self.udplocalport = None
+                self._segment_path = lambda: "udpEntry" + "[udpLocalAddress='" + str(self.udplocaladdress) + "']" + "[udpLocalPort='" + str(self.udplocalport) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/udpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2708,8 +2771,10 @@ class RFC1213MIB(Entity):
             self.yang_parent_name = "RFC1213-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"egpNeighEntry" : ("egpneighentry", RFC1213MIB.Egpneightable.Egpneighentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("egpNeighEntry", ("egpneighentry", RFC1213MIB.Egpneightable.Egpneighentry))])
+            self._leafs = OrderedDict()
 
             self.egpneighentry = YList(self)
             self._segment_path = lambda: "egpNeighTable"
@@ -2724,7 +2789,7 @@ class RFC1213MIB(Entity):
             Information about this entity's relationship with
             a particular EGP neighbor.
             
-            .. attribute:: egpneighaddr  <key>
+            .. attribute:: egpneighaddr  (key)
             
             	The IP address of this entry's EGP neighbor
             	**type**\: str
@@ -2836,39 +2901,42 @@ class RFC1213MIB(Entity):
                 self.yang_parent_name = "egpNeighTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.egpneighaddr = YLeaf(YType.str, "egpNeighAddr")
-
-                self.egpneighstate = YLeaf(YType.enumeration, "egpNeighState")
-
-                self.egpneighas = YLeaf(YType.int32, "egpNeighAs")
-
-                self.egpneighinmsgs = YLeaf(YType.uint32, "egpNeighInMsgs")
-
-                self.egpneighinerrs = YLeaf(YType.uint32, "egpNeighInErrs")
-
-                self.egpneighoutmsgs = YLeaf(YType.uint32, "egpNeighOutMsgs")
-
-                self.egpneighouterrs = YLeaf(YType.uint32, "egpNeighOutErrs")
-
-                self.egpneighinerrmsgs = YLeaf(YType.uint32, "egpNeighInErrMsgs")
-
-                self.egpneighouterrmsgs = YLeaf(YType.uint32, "egpNeighOutErrMsgs")
-
-                self.egpneighstateups = YLeaf(YType.uint32, "egpNeighStateUps")
-
-                self.egpneighstatedowns = YLeaf(YType.uint32, "egpNeighStateDowns")
-
-                self.egpneighintervalhello = YLeaf(YType.int32, "egpNeighIntervalHello")
-
-                self.egpneighintervalpoll = YLeaf(YType.int32, "egpNeighIntervalPoll")
-
-                self.egpneighmode = YLeaf(YType.enumeration, "egpNeighMode")
-
-                self.egpneigheventtrigger = YLeaf(YType.enumeration, "egpNeighEventTrigger")
-                self._segment_path = lambda: "egpNeighEntry" + "[egpNeighAddr='" + self.egpneighaddr.get() + "']"
+                self.ylist_key_names = ['egpneighaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('egpneighaddr', YLeaf(YType.str, 'egpNeighAddr')),
+                    ('egpneighstate', YLeaf(YType.enumeration, 'egpNeighState')),
+                    ('egpneighas', YLeaf(YType.int32, 'egpNeighAs')),
+                    ('egpneighinmsgs', YLeaf(YType.uint32, 'egpNeighInMsgs')),
+                    ('egpneighinerrs', YLeaf(YType.uint32, 'egpNeighInErrs')),
+                    ('egpneighoutmsgs', YLeaf(YType.uint32, 'egpNeighOutMsgs')),
+                    ('egpneighouterrs', YLeaf(YType.uint32, 'egpNeighOutErrs')),
+                    ('egpneighinerrmsgs', YLeaf(YType.uint32, 'egpNeighInErrMsgs')),
+                    ('egpneighouterrmsgs', YLeaf(YType.uint32, 'egpNeighOutErrMsgs')),
+                    ('egpneighstateups', YLeaf(YType.uint32, 'egpNeighStateUps')),
+                    ('egpneighstatedowns', YLeaf(YType.uint32, 'egpNeighStateDowns')),
+                    ('egpneighintervalhello', YLeaf(YType.int32, 'egpNeighIntervalHello')),
+                    ('egpneighintervalpoll', YLeaf(YType.int32, 'egpNeighIntervalPoll')),
+                    ('egpneighmode', YLeaf(YType.enumeration, 'egpNeighMode')),
+                    ('egpneigheventtrigger', YLeaf(YType.enumeration, 'egpNeighEventTrigger')),
+                ])
+                self.egpneighaddr = None
+                self.egpneighstate = None
+                self.egpneighas = None
+                self.egpneighinmsgs = None
+                self.egpneighinerrs = None
+                self.egpneighoutmsgs = None
+                self.egpneighouterrs = None
+                self.egpneighinerrmsgs = None
+                self.egpneighouterrmsgs = None
+                self.egpneighstateups = None
+                self.egpneighstatedowns = None
+                self.egpneighintervalhello = None
+                self.egpneighintervalpoll = None
+                self.egpneighmode = None
+                self.egpneigheventtrigger = None
+                self._segment_path = lambda: "egpNeighEntry" + "[egpNeighAddr='" + str(self.egpneighaddr) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/egpNeighTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2876,7 +2944,7 @@ class RFC1213MIB(Entity):
 
             class Egpneigheventtrigger(Enum):
                 """
-                Egpneigheventtrigger
+                Egpneigheventtrigger (Enum Class)
 
                 A control variable used to trigger operator\-
 
@@ -2923,7 +2991,7 @@ class RFC1213MIB(Entity):
 
             class Egpneighmode(Enum):
                 """
-                Egpneighmode
+                Egpneighmode (Enum Class)
 
                 The polling mode of this EGP entity, either
 
@@ -2942,7 +3010,7 @@ class RFC1213MIB(Entity):
 
             class Egpneighstate(Enum):
                 """
-                Egpneighstate
+                Egpneighstate (Enum Class)
 
                 The EGP state of the local system with respect to
 

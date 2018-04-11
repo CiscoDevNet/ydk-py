@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -44,8 +46,10 @@ class Clock(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-infra-clock-linux-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"time-zone" : ("time_zone", Clock.TimeZone)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("time-zone", ("time_zone", Clock.TimeZone))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.time_zone = None
         self._children_name_map["time_zone"] = "time-zone"
@@ -87,13 +91,16 @@ class Clock(Entity):
             self.yang_parent_name = "clock"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.time_zone_name = YLeaf(YType.str, "time-zone-name")
-
-            self.area_name = YLeaf(YType.str, "area-name")
+            self._leafs = OrderedDict([
+                ('time_zone_name', YLeaf(YType.str, 'time-zone-name')),
+                ('area_name', YLeaf(YType.str, 'area-name')),
+            ])
+            self.time_zone_name = None
+            self.area_name = None
             self._segment_path = lambda: "time-zone"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock/%s" % self._segment_path()
 

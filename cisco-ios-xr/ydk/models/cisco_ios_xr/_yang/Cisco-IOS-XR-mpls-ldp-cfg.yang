@@ -1,604 +1,683 @@
 module Cisco-IOS-XR-mpls-ldp-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-ldp-cfg";
+  prefix mpls-ldp-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-snmp-agent-cfg {
+    prefix a1;
+  }
 
-  prefix "mpls-ldp-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-snmp-agent-cfg { prefix "a1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR mpls-ldp package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        mpls-ldp: MPLS LDP configuration
-
+     
      This YANG module augments the
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-06-26" {
+  revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
   }
-
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Mpls-ldp-nbr-password {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 1;
         description
           "Disable the global default password for this
-          neighbor";
+           neighbor";
       }
-      enum specified {
+      enum "specified" {
         value 2;
-        description "Specify a password for this neighbor";
+        description
+          "Specify a password for this neighbor";
       }
     }
-    description "Mpls ldp nbr password";
+    description
+      "Mpls ldp nbr password";
   }
+
   typedef Mpls-ldp-label-allocation {
     type enumeration {
-      enum acl {
+      enum "acl" {
         value 1;
-        description "Allocate label for prefixes permitted by ACL";
+        description
+          "Allocate label for prefixes permitted by ACL";
       }
-      enum host {
+      enum "host" {
         value 2;
-        description "Allocate label for host routes only";
+        description
+          "Allocate label for host routes only";
       }
     }
-    description "Mpls ldp label allocation";
+    description
+      "Mpls ldp label allocation";
   }
+
   typedef Mpls-ldp-downstream-on-demand {
     type enumeration {
-      enum peer-acl {
+      enum "peer-acl" {
         value 1;
-        description "Downstream on Demand peers permitted by ACL";
+        description
+          "Downstream on Demand peers permitted by ACL";
       }
     }
-    description "Mpls ldp downstream on demand";
+    description
+      "Mpls ldp downstream on demand";
   }
+
   typedef Mldp-policy-mode {
     type enumeration {
-      enum inbound {
+      enum "inbound" {
         value 1;
-        description "Inbound route policy";
+        description
+          "Inbound route policy";
       }
-      enum outbound {
+      enum "outbound" {
         value 2;
-        description "Outbound route policy";
+        description
+          "Outbound route policy";
       }
     }
-    description "Mldp policy mode";
+    description
+      "Mldp policy mode";
   }
+
   typedef Mpls-ldp-targeted-accept {
     type enumeration {
-      enum all {
+      enum "all" {
         value 1;
-        description "Accept targeted hello from all";
+        description
+          "Accept targeted hello from all";
       }
-      enum from {
+      enum "from" {
         value 2;
-        description "Accept targeted hello from peer ACL";
+        description
+          "Accept targeted hello from peer ACL";
       }
     }
-    description "Mpls ldp targeted accept";
+    description
+      "Mpls ldp targeted accept";
   }
+
   typedef Mpls-ldp-interval-time {
     type uint32 {
       range "1..65535";
     }
-    description "Mpls ldp interval time";
+    description
+      "Mpls ldp interval time";
   }
+
   typedef Mpls-ldp-mesh-group-id {
     type uint32 {
       range "0..4294967295";
     }
-    description "Mpls ldp mesh group id";
+    description
+      "Mpls ldp mesh group id";
   }
+
   typedef Mpls-ldp-exp-null {
     type enumeration {
-      enum all {
+      enum "all" {
         value 1;
         description
           "Advertise explicit-null for all connected
-          prefixes to all peers";
+           prefixes to all peers";
       }
-      enum for {
+      enum "for" {
         value 2;
         description
           "Advertise explicit-null for prefix(es)
-          permitted by prefix ACL";
+           permitted by prefix ACL";
       }
-      enum to {
+      enum "to" {
         value 3;
         description
           "Advertise explicit-null for all connected
-          prefixes to peer(s) permitted by peer ACL";
+           prefixes to peer(s) permitted by peer ACL";
       }
-      enum for-to {
+      enum "for-to" {
         value 4;
         description
           "Advertise explicit-null for prefix(es)
-          permitted by prefix ACL to peer(s) permitted by
-          peer ACL";
+           permitted by prefix ACL to peer(s) permitted by
+           peer ACL";
       }
     }
-    description "Mpls ldp exp null";
+    description
+      "Mpls ldp exp null";
   }
+
   typedef Mpls-ldp-hold-time {
     type uint32 {
       range "1..65535";
     }
-    description "Mpls ldp hold time";
+    description
+      "Mpls ldp hold time";
   }
+
   typedef Mpls-ldp-dscp {
     type uint32 {
       range "0..63";
     }
-    description "Mpls ldp dscp";
+    description
+      "Mpls ldp dscp";
   }
+
   typedef Mpls-ldpaf-name {
     type enumeration {
-      enum ipv4 {
+      enum "ipv4" {
         value 4;
-        description "IPv4";
+        description
+          "IPv4";
       }
-      enum ipv6 {
+      enum "ipv6" {
         value 6;
-        description "IPv6";
+        description
+          "IPv6";
       }
     }
-    description "Mpls ldpaf name";
+    description
+      "Mpls ldpaf name";
   }
+
   typedef Mpls-ldp-transport-address {
     type enumeration {
-      enum interface {
+      enum "interface" {
         value 1;
-        description "Use interface IP address";
+        description
+          "Use interface IP address";
       }
-      enum address {
+      enum "address" {
         value 2;
-        description "Use given IP address";
+        description
+          "Use given IP address";
       }
     }
-    description "Mpls ldp transport address";
+    description
+      "Mpls ldp transport address";
   }
+
   typedef Mpls-ldp-session-protection {
     type enumeration {
-      enum all {
+      enum "all" {
         value 1;
-        description "Protect all peer sessions";
+        description
+          "Protect all peer sessions";
       }
-      enum for {
+      enum "for" {
         value 2;
-        description "Protect peer session(s) permitted by peer ACL";
+        description
+          "Protect peer session(s) permitted by peer ACL";
       }
-      enum all-with-duration {
+      enum "all-with-duration" {
         value 3;
         description
           "Protect all peer sessions and holdup protection
-          for given duration";
+           for given duration";
       }
-      enum for-with-duration {
+      enum "for-with-duration" {
         value 4;
         description
           "Protect peer session(s) permitted by peer ACL
-          and holdup protection for given duration";
+           and holdup protection for given duration";
       }
-      enum all-with-forever {
+      enum "all-with-forever" {
         value 5;
         description
           "Protect all peer sessions and holdup protection
-          forever";
+           forever";
       }
-      enum for-with-forever {
+      enum "for-with-forever" {
         value 6;
         description
           "Protect peer session(s) permitted by peer ACL
-          and holdup protection forever";
+           and holdup protection forever";
       }
     }
-    description "Mpls ldp session protection";
+    description
+      "Mpls ldp session protection";
   }
+
   typedef Mpls-ldp-label-advertise {
     type enumeration {
-      enum for {
+      enum "for" {
         value 1;
         description
           "Advertise label for prefix(es) permitted by
-          prefix ACL";
+           prefix ACL";
       }
-      enum for-to {
+      enum "for-to" {
         value 2;
         description
           "Advertise label for prefix(es) permitted by
-          prefix ACL to peer(s) permitted by peer ACL";
+           prefix ACL to peer(s) permitted by peer ACL";
       }
     }
-    description "Mpls ldp label advertise";
+    description
+      "Mpls ldp label advertise";
   }
+
   typedef Mpls-ldp-advertise-bgp-acl {
     type enumeration {
-      enum peer-acl {
+      enum "peer-acl" {
         value 1;
         description
           "BGP prefixes advertised to peers permitted by
-          ACL";
+           ACL";
       }
     }
-    description "Mpls ldp advertise bgp acl";
+    description
+      "Mpls ldp advertise bgp acl";
   }
 
   grouping ENABLE {
-    description "Common node of mldp, vrf";
+    description
+      "Common node of mldp, vrf";
     leaf enable {
       type empty;
       description
         "Enable Multicast Label Distribution Protocol
-        (mLDP)";
+         (mLDP)";
     }
   }
 
   grouping AF-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container afs {
-      description "Address Family specific operational data";
-
+      description
+        "Address Family specific operational data";
       list af {
         key "af-name";
-        description "Operational data for given Address Family";
-
+        description
+          "Operational data for given Address Family";
         container recursive-forwarding {
-          description "Enable recursive forwarding";
+          description
+            "Enable recursive forwarding";
           leaf enable {
             type empty;
-            description "Enable recursive forwarding";
+            description
+              "Enable recursive forwarding";
           }
           leaf policy {
             type string {
               length "1..64";
             }
-            description "Recursive forwarding policy name";
+            description
+              "Recursive forwarding policy name";
           }
         }
-
         container mldp-recursive-fec {
-          description "MPLS mLDP Recursive FEC";
+          description
+            "MPLS mLDP Recursive FEC";
           leaf enable {
             type empty;
-            description "Enable MPLS mLDP Recursive FEC";
+            description
+              "Enable MPLS mLDP Recursive FEC";
           }
           leaf policy {
             type string {
               length "1..64";
             }
-            description "Route policy name";
+            description
+              "Route policy name";
           }
         }
-
         container neighbor-policies {
-          description "MLDP neighbor policies";
-
+          description
+            "MLDP neighbor policies";
           list neighbor-policy {
             key "root-address policy-mode";
-            description "Route Policy";
+            description
+              "Route Policy";
             leaf root-address {
               type inet:ipv4-address-no-zone;
-              description "Neighbor Address";
+              description
+                "Neighbor Address";
             }
             leaf policy-mode {
               type Mldp-policy-mode;
-              description "Inbound/Outbound Policy";
+              description
+                "Inbound/Outbound Policy";
             }
             leaf route-policy {
               type string {
                 length "1..64";
               }
               mandatory true;
-              description "Route policy name";
+              description
+                "Route policy name";
             }
           }
         }
-
         container mo-frr {
-          description "MPLS mLDP MoFRR";
+          description
+            "MPLS mLDP MoFRR";
           leaf enable {
             type empty;
-            description "Enable MPLS mLDP MoFRR";
+            description
+              "Enable MPLS mLDP MoFRR";
           }
           leaf policy {
             type string {
               length "1..64";
             }
-            description "Route policy name";
+            description
+              "Route policy name";
           }
         }
-
         container make-before-break {
-          description "MPLS mLDP Make-Before-Break configuration";
-
+          description
+            "MPLS mLDP Make-Before-Break configuration";
           container signaling {
-            description "Enable MPLS mLDP MBB signaling";
+            description
+              "Enable MPLS mLDP MBB signaling";
             leaf forward-delay {
               type uint32 {
                 range "0..600";
               }
               units "second";
-              description "Forwarding Delay in Seconds";
+              description
+                "Forwarding Delay in Seconds";
             }
             leaf delete-delay {
               type uint32 {
                 range "0..60";
               }
               units "second";
-              description "Delete Delay in seconds";
+              description
+                "Delete Delay in seconds";
             }
           }
           leaf policy {
             type string {
               length "1..64";
             }
-            description "Route policy name";
+            description
+              "Route policy name";
           }
         }
-
         container csc {
-          description "MPLS mLDP CSC";
+          description
+            "MPLS mLDP CSC";
           leaf enable {
             type empty;
-            description "Enable MPLS mLDP CSC";
+            description
+              "Enable MPLS mLDP CSC";
           }
         }
         leaf enable {
           type empty;
           description
             "Enable Multicast Label Distribution Protocol
-            (mLDP) under AF.";
+             (mLDP) under AF.";
         }
         leaf mldp-rib-unicast-always {
           type empty;
           description
             "Enable MPLS MLDP RIB unicast-always
-            configuration";
+             configuration";
         }
         leaf af-name {
           type Mpls-ldpaf-name;
-          description "Address Family name";
+          description
+            "Address Family name";
         }
       }
     }
   }
 
+  augment "/a1:snmp/a1:notification" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-snmp-agent-cfg'";
+    container mpls-ldp {
+      description
+        "MPLS-LDP-STD-MIB notification configuration";
+      leaf session-up {
+        type empty;
+        description
+          "Enable mplsLdpSessionUp notification";
+      }
+      leaf init-session-threshold-exceeded {
+        type empty;
+        description
+          "Enable mplsLdpInitSessionThresholdExceeded
+           notification";
+      }
+      leaf session-down {
+        type empty;
+        description
+          "Enable mplsLdpSessionDown notification";
+      }
+    }
+  }
   container mpls-ldp {
-    description "MPLS LDP configuration";
-
+    description
+      "MPLS LDP configuration";
     container default-vrf {
-      description "Global VRF attribute configuration for MPLS LDP";
-
+      description
+        "Global VRF attribute configuration for MPLS LDP";
       container afs {
         description
           "Address Family specific configuration for MPLS
-          LDP";
-
+           LDP";
         list af {
           key "af-name";
-          description "Configure data for given Address Family";
-
+          description
+            "Configure data for given Address Family";
           container label {
-            description "Configure Label policies and control";
-
+            description
+              "Configure Label policies and control";
             container remote {
               description
                 "Configure remote/peer label policies and
-                control";
-
+                 control";
               container accept {
-                description "Configure inbound label acceptance";
-
+                description
+                  "Configure inbound label acceptance";
                 container peer-accept-policies {
                   description
                     "Configuration related to neighbors for
-                    inbound label acceptance";
-
+                     inbound label acceptance";
                   list peer-accept-policy {
                     key "lsr-id label-space-id";
                     description
                       "Control acceptance of labels from a
-                      neighbor for prefix(es) using ACL";
+                       neighbor for prefix(es) using ACL";
                     leaf lsr-id {
                       type inet:ipv4-address-no-zone;
-                      description "LSR ID of neighbor";
+                      description
+                        "LSR ID of neighbor";
                     }
                     leaf label-space-id {
                       type uint32;
-                      description "Label space ID of neighbor";
+                      description
+                        "Label space ID of neighbor";
                     }
                     leaf prefix-acl-name {
                       type string;
                       mandatory true;
-                      description "Name of prefix ACL";
+                      description
+                        "Name of prefix ACL";
                     }
                   }
                 }
               }
             }
-
             container local {
               description
                 "Configure local label policies and control";
-
               container advertise {
                 description
                   "Configure outbound label advertisement";
-
                 container peer-advertise-policies {
                   description
                     "Configure peer centric outbound label
-                    advertisement using ACL";
-
+                     advertisement using ACL";
                   list peer-advertise-policy {
                     key "lsr-id label-space-id";
                     description
                       "Control advertisement of prefix(es) using
-                      ACL";
+                       ACL";
                     leaf lsr-id {
                       type inet:ipv4-address-no-zone;
-                      description "LSR ID of neighbor";
+                      description
+                        "LSR ID of neighbor";
                     }
                     leaf label-space-id {
                       type uint32;
-                      description "Label space ID of neighbor";
+                      description
+                        "Label space ID of neighbor";
                     }
                     leaf prefix-acl-name {
                       type string;
                       mandatory true;
-                      description "Name of prefix ACL";
+                      description
+                        "Name of prefix ACL";
                     }
                   }
                 }
-
                 container prefix-advertise-policies {
                   description
                     "Configure prefix centric outbound label
-                    advertisement using ACL";
-
+                     advertisement using ACL";
                   list prefix-advertise-policy {
                     key "prefix-acl-name";
                     description
                       "Control advertisement of prefix(es) using
-                      ACL";
+                       ACL";
                     leaf prefix-acl-name {
                       type xr:Cisco-ios-xr-string;
-                      description "Name of prefix ACL";
+                      description
+                        "Name of prefix ACL";
                     }
                     leaf advertise-type {
                       type Mpls-ldp-label-advertise;
-                      description "Label advertise type";
+                      description
+                        "Label advertise type";
                     }
                     leaf peer-acl-name {
                       when "../advertise-type = 'for-to'" {
-                        description "../AdvertiseType = ForTo";
+                        description
+                          "../AdvertiseType = ForTo";
                       }
                       type string;
-                      description "Name of peer ACL";
+                      description
+                        "Name of peer ACL";
                     }
                   }
                 }
-
                 container explicit-null {
                   description
                     "Configure advertisment of explicit-null
-                    for connected prefixes.";
+                     for connected prefixes.";
                   leaf explicit-null-type {
                     type Mpls-ldp-exp-null;
-                    description "Explicit Null command variant";
+                    description
+                      "Explicit Null command variant";
                   }
                   leaf prefix-acl-name {
-                    when "../explicit-null-type = 'for' or"+
-                      " ../explicit-null-type = 'for-to'" {
-                        description
-                          "../ExplicitNullType = For or .
-                          ./ExplicitNullType = ForTo";
+                    when "../explicit-null-type = 'for' or ../explicit-null-type = 'for-to'" {
+                      description
+                        "../ExplicitNullType = For or .
+                         ./ExplicitNullType = ForTo";
                     }
                     type string;
-                    description "Name of prefix ACL";
+                    description
+                      "Name of prefix ACL";
                   }
                   leaf peer-acl-name {
-                    when "../explicit-null-type = 'to' or"+
-                      " ../explicit-null-type = 'for-to'" {
-                        description
-                          "../ExplicitNullType = To or .
-                          ./ExplicitNullType = ForTo";
+                    when "../explicit-null-type = 'to' or ../explicit-null-type = 'for-to'" {
+                      description
+                        "../ExplicitNullType = To or .
+                         ./ExplicitNullType = ForTo";
                     }
                     type string;
-                    description "Name of peer ACL";
+                    description
+                      "Name of peer ACL";
                   }
                 }
-
                 container interfaces {
                   description
                     "Configure outbound label advertisement for
-                    an interface";
-
+                     an interface";
                   list interface {
                     key "interface-name";
                     description
                       "Control advertisement of interface's host
-                      IP address";
+                       IP address";
                     leaf interface-name {
                       type xr:Interface-name;
-                      description "Name of interface";
+                      description
+                        "Name of interface";
                     }
                   }
                 }
                 leaf disable {
                   type empty;
-                  description "Disable label advertisement";
+                  description
+                    "Disable label advertisement";
                 }
               }
-
               container allocate {
                 description
                   "Control local label allocation for
-                  prefix(es)";
+                   prefix(es)";
                 leaf allocation-type {
                   type Mpls-ldp-label-allocation;
-                  description "Label allocation type";
+                  description
+                    "Label allocation type";
                 }
                 leaf prefix-acl-name {
                   when "../allocation-type = 'acl'" {
-                    description "../AllocationType = ACL";
+                    description
+                      "../AllocationType = ACL";
                   }
                   type string;
-                  description "Name of prefix ACL";
+                  description
+                    "Name of prefix ACL";
                 }
               }
               leaf implicit-null-override {
                 type string;
                 description
                   "Control use of implicit-null label for set
-                  of prefix(es)";
+                   of prefix(es)";
               }
               leaf default-route {
                 type empty;
@@ -607,55 +686,54 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
               }
             }
           }
-
           container discovery {
-            description "Configure Discovery parameters";
-
+            description
+              "Configure Discovery parameters";
             container targeted-hello-accept {
               description
                 "Configure acceptance from and responding to
-                targeted hellos.";
+                 targeted hellos.";
               leaf accept-type {
                 type Mpls-ldp-targeted-accept;
-                description "Type of acceptance";
+                description
+                  "Type of acceptance";
               }
               leaf peer-acl-name {
                 when "../accept-type = 'from'" {
-                  description "../AcceptType = From";
+                  description
+                    "../AcceptType = From";
                 }
                 type string;
-                description "Name of peer ACL";
+                description
+                  "Name of peer ACL";
               }
             }
             leaf transport-address {
               type inet:ip-address-no-zone;
               description
                 "Global discovery transport address for
-                address family";
+                 address family";
             }
           }
-
           container traffic-engineering {
             description
               "MPLS Traffic Engingeering parameters for LDP";
-
             container auto-tunnel-mesh {
               description
                 "MPLS Traffic Engineering auto-tunnel mesh
-                parameters for LDP";
-
+                 parameters for LDP";
               container group-ids {
                 description
                   "Enable interfaces in specific MPLS TE
-                  auto-tunnel mesh-groups";
-
+                   auto-tunnel mesh-groups";
                 list group-id {
                   key "mesh-group-id";
                   description
                     "Auto-mesh group identifier to enable";
                   leaf mesh-group-id {
                     type Mpls-ldp-mesh-group-id;
-                    description "Mesh group ID";
+                    description
+                      "Mesh group ID";
                   }
                 }
               }
@@ -663,60 +741,56 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                 type empty;
                 description
                   "Enable all MPLS TE auto-tunnel mesh-group
-                  interfaces";
+                   interfaces";
               }
             }
           }
-
           container neighbor {
-            description "Configuration related to Neighbors";
-
+            description
+              "Configuration related to Neighbors";
             container addresses {
               description
                 "Configuration related to neighbors using
-                neighbor address";
-
+                 neighbor address";
               list address {
                 key "ip-address";
                 description
                   "IP address based configuration related to a
-                  neighbor";
+                   neighbor";
                 leaf targeted {
                   type empty;
                   description
                     "Establish targeted session with given
-                    address";
+                     address";
                 }
                 leaf ip-address {
                   type inet:ip-address-no-zone;
-                  description "The IP address";
+                  description
+                    "The IP address";
                 }
               }
             }
           }
-
           container redistribution-protocol {
             description
               "MPLS LDP configuration for protocol
-              redistribution";
-
+               redistribution";
             container bgp {
               description
                 "MPLS LDP configuration for protocol
-                redistribution";
-
+                 redistribution";
               container as {
                 description
                   "MPLS LDP configuration for protocol
-                  redistribution";
+                   redistribution";
                 leaf as-xx {
                   type uint32 {
                     range "0..65535";
                   }
                   description
                     "First half of BGP AS number in XX.YY
-                    format.  Mandatory Must be a non-zero
-                    value if second half is zero.";
+                     format.  Mandatory Must be a non-zero
+                     value if second half is zero.";
                 }
                 leaf as-yy {
                   type uint32 {
@@ -724,114 +798,117 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                   }
                   description
                     "Second half of BGP AS number in XX.YY
-                    format. Mandatory Must be a non-zero value
-                    if first half is zero.";
+                     format. Mandatory Must be a non-zero value
+                     if first half is zero.";
                 }
               }
-
               container advertise-to {
                 description
                   "ACL containing list of neighbors for BGP
-                  route redistribution";
+                   route redistribution";
                 leaf type {
                   type Mpls-ldp-advertise-bgp-acl;
-                  description "advertise to peer acl type";
+                  description
+                    "advertise to peer acl type";
                 }
                 leaf peer-acl-name {
                   when "../type = 'peer-acl'" {
-                    description "../Type = PeerACL";
+                    description
+                      "../Type = PeerACL";
                   }
                   type string;
-                  description "Name of peer ACL";
+                  description
+                    "Name of peer ACL";
                 }
               }
             }
           }
           leaf enable {
             type empty;
-            description "Enable Address Family";
+            description
+              "Enable Address Family";
           }
           leaf af-name {
             type Mpls-ldpaf-name;
-            description "Address Family type";
+            description
+              "Address Family type";
           }
         }
       }
-
       container global {
-        description "Default VRF Global configuration for MPLS LDP";
-
+        description
+          "Default VRF Global configuration for MPLS LDP";
         container session {
-          description "LDP Session parameters";
-
+          description
+            "LDP Session parameters";
           container protection {
-            description "Configure Session Protection parameters";
+            description
+              "Configure Session Protection parameters";
             leaf protection-type {
               type Mpls-ldp-session-protection;
-              description "Session protection type";
+              description
+                "Session protection type";
             }
             leaf peer-acl-name {
-              when "../protection-type = 'for' or"+
-                " ../protection-type = 'for-with-duration' or"+
-                " ../protection-type = 'for-with-forever'" {
-                  description
-                    "../ProtectionType = For or .
-                    ./ProtectionType = ForWithDuration or .
-                    ./ProtectionType = ForWithForever";
+              when "../protection-type = 'for' or ../protection-type = 'for-with-duration' or ../protection-type = 'for-with-forever'" {
+                description
+                  "../ProtectionType = For or .
+                   ./ProtectionType = ForWithDuration or .
+                   ./ProtectionType = ForWithForever";
               }
               type string;
-              description "Name of peer ACL";
+              description
+                "Name of peer ACL";
             }
             leaf duration {
-              when "../protection-type = 'all-with-duration' or"+
-                " ../protection-type = 'for-with-duration'" {
-                  description
-                    "../ProtectionType = AllWithDuration or .
-                    ./ProtectionType = ForWithDuration";
+              when "../protection-type = 'all-with-duration' or ../protection-type = 'for-with-duration'" {
+                description
+                  "../ProtectionType = AllWithDuration or .
+                   ./ProtectionType = ForWithDuration";
               }
               type uint32 {
                 range "30..2147483";
               }
-              description "Holdup duration";
+              description
+                "Holdup duration";
             }
           }
-
           container downstream-on-demand {
             description
               "ACL with the list of neighbors configured for
-              Downstream on Demand";
+               Downstream on Demand";
             leaf type {
               type Mpls-ldp-downstream-on-demand;
-              description "Downstream on demand type";
+              description
+                "Downstream on demand type";
             }
             leaf peer-acl-name {
               when "../type = 'peer-acl'" {
-                description "../Type = PeerACL";
+                description
+                  "../Type = PeerACL";
               }
               type string;
-              description "Name of peer ACL";
+              description
+                "Name of peer ACL";
             }
           }
         }
-
         container neighbor {
-          description "Configuration related to Neighbors";
-
+          description
+            "Configuration related to Neighbors";
           container ldp-ids {
             description
               "Configuration related to Neighbors using LDP
-              Id";
-
+               Id";
             list ldp-id {
               key "lsr-id label-space-id";
               description
                 "LDP ID based configuration related to a
-                neigbor";
-
+                 neigbor";
               container password {
                 description
                   "Password for MD5 authentication for this
-                  neighbor";
+                   neighbor";
                 leaf command-type {
                   type Mpls-ldp-nbr-password;
                   description
@@ -839,41 +916,42 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                 }
                 leaf password {
                   when "../command-type = 'specified'" {
-                    description "../CommandType = Specified";
+                    description
+                      "../CommandType = Specified";
                   }
                   type xr:Proprietary-password;
-                  description "The neighbor password";
+                  description
+                    "The neighbor password";
                 }
               }
               leaf lsr-id {
                 type inet:ipv4-address-no-zone;
-                description "LSR ID of neighbor";
+                description
+                  "LSR ID of neighbor";
               }
               leaf label-space-id {
                 type uint32;
-                description "Label space ID of neighbor";
+                description
+                  "Label space ID of neighbor";
               }
             }
           }
-
           container dual-stack {
             description
               "Configuration related to neighbor transport";
-
             container transport-connection {
               description
                 "Configuration related to neighbor transport";
-
               container prefer {
                 description
                   "Configuration related to neighbor
-                  dual-stack xport-connection preference";
+                   dual-stack xport-connection preference";
                 leaf ipv4 {
                   type empty;
                   description
                     "Configuration related to neighbor
-                    dual-stack xport-connection preference
-                    ipv4";
+                     dual-stack xport-connection preference
+                     ipv4";
                 }
               }
               leaf max-wait {
@@ -883,95 +961,92 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                 units "second";
                 description
                   "Configuration related to neighbor
-                  dual-stack xport-connection max-wait";
+                   dual-stack xport-connection max-wait";
               }
             }
             leaf tlv-compliance {
               type empty;
               description
                 "Configuration to enable neighbor dual-stack
-                tlv-compliance";
+                 tlv-compliance";
             }
           }
           leaf password {
             type xr:Proprietary-password;
-            description "Default password for all neigbors";
+            description
+              "Default password for all neigbors";
           }
         }
-
         container graceful-restart {
           description
             "Configuration for per-VRF LDP Graceful Restart
-            parameters";
-
+             parameters";
           container helper-peer {
             description
               "Configure parameters related to GR peer(s)
-              opearating in helper mode";
+               opearating in helper mode";
             leaf maintain-on-local-reset {
               type string;
               description
                 "Maintain the state of a GR peer upon a local
-                reset";
+                 reset";
             }
           }
         }
         leaf router-id {
           type inet:ipv4-address-no-zone;
-          description "Configuration for LDP Router ID (LDP ID)";
+          description
+            "Configuration for LDP Router ID (LDP ID)";
         }
       }
-
       container interfaces {
         description
           "MPLS LDP configuration pertaining to interfaces";
-
         list interface {
           key "interface-name";
           description
             "MPLS LDP configuration for a particular
-            interface";
-
+             interface";
           container afs {
             description
               "Address Family specific configuration for
-              MPLS LDP intf";
-
+               MPLS LDP intf";
             list af {
               key "af-name";
-              description "Configure data for given Address Family";
-
+              description
+                "Configure data for given Address Family";
               container discovery {
                 description
                   "Configure interface discovery parameters";
-
                 container transport-address {
                   description
                     "MPLS LDP configuration for interface
-                    discovery transportaddress.";
+                     discovery transportaddress.";
                   leaf address-type {
                     type Mpls-ldp-transport-address;
-                    description "Transport address option";
+                    description
+                      "Transport address option";
                   }
                   leaf address {
                     when "../address-type = 'address'" {
-                      description "../AddressType = Address";
+                      description
+                        "../AddressType = Address";
                     }
                     type inet:ip-address-no-zone;
-                    description "IP address";
+                    description
+                      "IP address";
                   }
                 }
               }
-
               container igp {
-                description "LDP interface IGP configuration";
+                description
+                  "LDP interface IGP configuration";
                 leaf disable-auto-config {
                   type empty;
                   description
                     "Disable IGP Auto-config on this interface";
                 }
               }
-
               container mldp {
                 description
                   "Interface configuration parameters for mLDP";
@@ -983,31 +1058,32 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
               }
               leaf enable {
                 type empty;
-                description "Enable Address Family";
+                description
+                  "Enable Address Family";
               }
               leaf af-name {
                 type Mpls-ldpaf-name;
-                description "Address Family name";
+                description
+                  "Address Family name";
               }
             }
           }
-
           container global {
             description
               "Per VRF interface Global configuration for
-              MPLS LDP";
-
+               MPLS LDP";
             container discovery {
               description
                 "Configure interface discovery parameters";
-
               container link-hello {
-                description "LDP Link Hellos";
+                description
+                  "LDP Link Hellos";
                 leaf interval {
                   type Mpls-ldp-interval-time;
                   units "second";
                   default "5";
-                  description "Link Hello interval";
+                  description
+                    "Link Hello interval";
                 }
                 leaf dual-stack {
                   type Mpls-ldpaf-name;
@@ -1025,32 +1101,34 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
               }
               leaf disable-quick-start {
                 type empty;
-                description "Disable discovery's quick start mode";
+                description
+                  "Disable discovery's quick start mode";
               }
             }
-
             container igp {
-              description "LDP IGP configuration";
-
+              description
+                "LDP IGP configuration";
               container sync {
-                description "LDP IGP synchronization";
-
+                description
+                  "LDP IGP synchronization";
                 container delay {
-                  description "LDP IGP synchronization delay time";
-
+                  description
+                    "LDP IGP synchronization delay time";
                   container on-session-up {
                     description
                       "Interface sync up delay after session up";
                     leaf disable {
                       type empty;
-                      description "Disable delay after session up";
+                      description
+                        "Disable delay after session up";
                     }
                     leaf timeout {
                       type uint32 {
                         range "5..300";
                       }
                       units "second";
-                      description "Time (seconds)";
+                      description
+                        "Time (seconds)";
                     }
                   }
                 }
@@ -1061,65 +1139,65 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
             type empty;
             description
               "Enable Label Distribution Protocol (LDP) on
-              thisinterface";
+               thisinterface";
           }
           leaf interface-name {
             type xr:Interface-name;
-            description "Name of interface";
+            description
+              "Name of interface";
           }
         }
       }
     }
-
     container vrfs {
-      description "VRF Table attribute configuration for MPLS LDP";
-
+      description
+        "VRF Table attribute configuration for MPLS LDP";
       list vrf {
         key "vrf-name";
-        description "VRF attribute configuration for MPLS LDP";
-
+        description
+          "VRF attribute configuration for MPLS LDP";
         container global {
-          description "Per VRF Global configuration for MPLS LDP";
-
+          description
+            "Per VRF Global configuration for MPLS LDP";
           container session {
-            description "LDP Session parameters";
-
+            description
+              "LDP Session parameters";
             container downstream-on-demand {
               description
                 "ACL with the list of neighbors configured
-                for Downstream on Demand";
+                 for Downstream on Demand";
               leaf type {
                 type Mpls-ldp-downstream-on-demand;
-                description "Downstream on demand type";
+                description
+                  "Downstream on demand type";
               }
               leaf peer-acl-name {
                 when "../type = 'peer-acl'" {
-                  description "../Type = PeerACL";
+                  description
+                    "../Type = PeerACL";
                 }
                 type string;
-                description "Name of peer ACL";
+                description
+                  "Name of peer ACL";
               }
             }
           }
-
           container neighbor {
-            description "Configuration related to Neighbors";
-
+            description
+              "Configuration related to Neighbors";
             container ldp-ids {
               description
                 "Configuration related to Neighbors using LDP
-                Id";
-
+                 Id";
               list ldp-id {
                 key "lsr-id label-space-id";
                 description
                   "LDP ID based configuration related to a
-                  neigbor";
-
+                   neigbor";
                 container password {
                   description
                     "Password for MD5 authentication for this
-                    neighbor";
+                     neighbor";
                   leaf command-type {
                     type Mpls-ldp-nbr-password;
                     description
@@ -1127,121 +1205,125 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                   }
                   leaf password {
                     when "../command-type = 'specified'" {
-                      description "../CommandType = Specified";
+                      description
+                        "../CommandType = Specified";
                     }
                     type xr:Proprietary-password;
-                    description "The neighbor password";
+                    description
+                      "The neighbor password";
                   }
                 }
                 leaf lsr-id {
                   type inet:ipv4-address-no-zone;
-                  description "LSR ID of neighbor";
+                  description
+                    "LSR ID of neighbor";
                 }
                 leaf label-space-id {
                   type uint32;
-                  description "Label space ID of neighbor";
+                  description
+                    "Label space ID of neighbor";
                 }
               }
             }
             leaf password {
               type xr:Proprietary-password;
-              description "Default password for all neigbors";
+              description
+                "Default password for all neigbors";
             }
           }
-
           container graceful-restart {
             description
               "Configuration for per-VRF LDP Graceful
-              Restart parameters";
-
+               Restart parameters";
             container helper-peer {
               description
                 "Configure parameters related to GR peer(s)
-                opearating in helper mode";
+                 opearating in helper mode";
               leaf maintain-on-local-reset {
                 type string;
                 description
                   "Maintain the state of a GR peer upon a
-                  local reset";
+                   local reset";
               }
             }
           }
           leaf router-id {
             type inet:ipv4-address-no-zone;
-            description "Configuration for LDP Router ID (LDP ID)";
+            description
+              "Configuration for LDP Router ID (LDP ID)";
           }
         }
-
         container afs {
           description
             "Address Family specific configuration for MPLS
-            LDP vrf";
-
+             LDP vrf";
           list af {
             key "af-name";
-            description "Configure data for given Address Family";
-
+            description
+              "Configure data for given Address Family";
             container discovery {
-              description "Configure Discovery parameters";
+              description
+                "Configure Discovery parameters";
               leaf transport-address {
                 type inet:ip-address-no-zone;
                 description
                   "Global discovery transport address for
-                  address family";
+                   address family";
               }
             }
-
             container label {
-              description "Configure Label policies and control";
-
+              description
+                "Configure Label policies and control";
               container remote {
                 description
                   "Configure remote/peer label policies and
-                  control";
-
+                   control";
                 container accept {
-                  description "Configure inbound label acceptance";
-
+                  description
+                    "Configure inbound label acceptance";
                   container peer-accept-policies {
                     description
                       "Configuration related to Neighbors for
-                      inbound label acceptance";
-
+                       inbound label acceptance";
                     list peer-accept-policy {
                       must "peer-accept-policy-data or lsr-id" {
                         description
                           "peer-accept-policy-data or lsr-id must
-                          be present.";
+                           be present.";
                       }
                       key "label-space-id";
                       description
                         "Control acceptasnce of labels from a
-                        neighbor for prefix(es) using ACL";
+                         neighbor for prefix(es) using ACL";
 
                       grouping PEER-ACCEPT-POLICY-CONTENT {
-                        description "Content grouping.";
+                        description
+                          "Content grouping.";
                         leaf prefix-acl-name {
                           type string;
                           mandatory true;
-                          description "Name of prefix ACL";
+                          description
+                            "Name of prefix ACL";
                         }
                       }
-
                       container peer-accept-policy-data {
-                        description "Data container.";
+                        description
+                          "Data container.";
                         uses PEER-ACCEPT-POLICY-CONTENT;
                       }
                       leaf label-space-id {
                         type uint32;
-                        description "Label space ID of neighbor";
+                        description
+                          "Label space ID of neighbor";
                       }
-
                       list lsr-id {
                         key "lsr-id";
-                        description "keys: lsr-id";
+                        description
+                          "keys: lsr-id";
                         leaf lsr-id {
                           type inet:ipv4-address-no-zone;
-                          description "LSR ID of neighbor";
+                          description
+                            "LSR ID of neighbor";
                         }
                         uses PEER-ACCEPT-POLICY-CONTENT;
                       }
@@ -1249,134 +1331,136 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                   }
                 }
               }
-
               container local {
                 description
                   "Configure local label policies and control";
-
                 container advertise {
                   description
                     "Configure outbound label advertisement";
-
                   container peer-advertise-policies {
                     description
                       "Configure peer centric outbound label
-                      advertisement using ACL";
-
+                       advertisement using ACL";
                     list peer-advertise-policy {
                       must "peer-advertise-policy-data or lsr-id" {
                         description
                           "peer-advertise-policy-data or lsr-id
-                          must be present.";
+                           must be present.";
                       }
                       key "label-space-id";
                       description
                         "Control advertisement of prefix(es)
-                        using ACL";
+                         using ACL";
 
                       grouping PEER-ADVERTISE-POLICY-CONTENT {
-                        description "Content grouping.";
+                        description
+                          "Content grouping.";
                         leaf prefix-acl-name {
                           type string;
                           mandatory true;
-                          description "Name of prefix ACL";
+                          description
+                            "Name of prefix ACL";
                         }
                       }
-
                       container peer-advertise-policy-data {
-                        description "Data container.";
+                        description
+                          "Data container.";
                         uses PEER-ADVERTISE-POLICY-CONTENT;
                       }
                       leaf label-space-id {
                         type uint32;
-                        description "Label space ID of neighbor";
+                        description
+                          "Label space ID of neighbor";
                       }
-
                       list lsr-id {
                         key "lsr-id";
-                        description "keys: lsr-id";
+                        description
+                          "keys: lsr-id";
                         leaf lsr-id {
                           type inet:ipv4-address-no-zone;
-                          description "LSR ID of neighbor";
+                          description
+                            "LSR ID of neighbor";
                         }
                         uses PEER-ADVERTISE-POLICY-CONTENT;
                       }
                     }
                   }
-
                   container interfaces {
                     description
                       "Configure outbound label advertisement
-                      for an interface";
-
+                       for an interface";
                     list interface {
                       key "interface-name";
                       description
                         "Control advertisement of interface's
-                        host IP address";
+                         host IP address";
                       leaf interface-name {
                         type xr:Interface-name;
-                        description "Name of interface";
+                        description
+                          "Name of interface";
                       }
                     }
                   }
-
                   container explicit-null {
                     description
                       "Configure advertisment of explicit-null
-                      for connected prefixes.";
+                       for connected prefixes.";
                     leaf explicit-null-type {
                       type Mpls-ldp-exp-null;
-                      description "Explicit Null command variant";
+                      description
+                        "Explicit Null command variant";
                     }
                     leaf prefix-acl-name {
-                      when "../explicit-null-type = 'for' or"+
-                        " ../explicit-null-type = 'for-to'" {
-                          description
-                            "../ExplicitNullType = For or .
-                            ./ExplicitNullType = ForTo";
+                      when "../explicit-null-type = 'for' or ../explicit-null-type = 'for-to'" {
+                        description
+                          "../ExplicitNullType = For or .
+                           ./ExplicitNullType = ForTo";
                       }
                       type string;
-                      description "Name of prefix ACL";
+                      description
+                        "Name of prefix ACL";
                     }
                     leaf peer-acl-name {
-                      when "../explicit-null-type = 'to' or"+
-                        " ../explicit-null-type = 'for-to'" {
-                          description
-                            "../ExplicitNullType = To or .
-                            ./ExplicitNullType = ForTo";
+                      when "../explicit-null-type = 'to' or ../explicit-null-type = 'for-to'" {
+                        description
+                          "../ExplicitNullType = To or .
+                           ./ExplicitNullType = ForTo";
                       }
                       type string;
-                      description "Name of peer ACL";
+                      description
+                        "Name of peer ACL";
                     }
                   }
                   leaf disable {
                     type empty;
-                    description "Disable label advertisement";
+                    description
+                      "Disable label advertisement";
                   }
                 }
-
                 container allocate {
                   description
                     "Control local label allocation for
-                    prefix(es)";
+                     prefix(es)";
                   leaf allocation-type {
                     type Mpls-ldp-label-allocation;
-                    description "Label allocation type";
+                    description
+                      "Label allocation type";
                   }
                   leaf prefix-acl-name {
                     when "../allocation-type = 'acl'" {
-                      description "../AllocationType = ACL";
+                      description
+                        "../AllocationType = ACL";
                     }
                     type string;
-                    description "Name of prefix ACL";
+                    description
+                      "Name of prefix ACL";
                   }
                 }
                 leaf implicit-null-override {
                   type string;
                   description
                     "Control use of implicit-null label for set
-                    of prefix(es)";
+                     of prefix(es)";
                 }
                 leaf default-route {
                   type empty;
@@ -1387,64 +1471,65 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
             }
             leaf enable {
               type empty;
-              description "Enable Address Family";
+              description
+                "Enable Address Family";
             }
             leaf af-name {
               type Mpls-ldpaf-name;
-              description "Address Family name";
+              description
+                "Address Family name";
             }
           }
         }
-
         container interfaces {
           description
             "MPLS LDP configuration pertaining to
-            interfaces";
-
+             interfaces";
           list interface {
             key "interface-name";
             description
               "MPLS LDP configuration for a particular
-              interface";
-
+               interface";
             container afs {
               description
                 "Address Family specific configuration for
-                MPLS LDP vrf intf";
-
+                 MPLS LDP vrf intf";
               list af {
                 key "af-name";
                 description
                   "Configure data for given Address Family";
-
                 container discovery {
                   description
                     "Configure interface discovery parameters";
-
                   container transport-address {
                     description
                       "MPLS LDP configuration for interface
-                      discovery transportaddress.";
+                       discovery transportaddress.";
                     leaf address-type {
                       type Mpls-ldp-transport-address;
-                      description "Transport address option";
+                      description
+                        "Transport address option";
                     }
                     leaf address {
                       when "../address-type = 'address'" {
-                        description "../AddressType = Address";
+                        description
+                          "../AddressType = Address";
                       }
                       type inet:ip-address-no-zone;
-                      description "IP address";
+                      description
+                        "IP address";
                     }
                   }
                 }
                 leaf enable {
                   type empty;
-                  description "Enable Address Family";
+                  description
+                    "Enable Address Family";
                 }
                 leaf af-name {
                   type Mpls-ldpaf-name;
-                  description "Address Family name";
+                  description
+                    "Address Family name";
                 }
               }
             }
@@ -1452,48 +1537,53 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
               type empty;
               description
                 "Enable Label Distribution Protocol (LDP) on
-                thisinterface";
+                 thisinterface";
             }
             leaf interface-name {
               type xr:Interface-name;
-              description "Name of interface";
+              description
+                "Name of interface";
             }
           }
         }
         leaf enable {
           type empty;
-          description "Enable VRF";
+          description
+            "Enable VRF";
         }
         leaf vrf-name {
           type xr:Cisco-ios-xr-string;
-          description "VRF Name";
+          description
+            "VRF Name";
         }
       }
     }
-
     container global {
-      description "Global configuration for MPLS LDP";
-
+      description
+        "Global configuration for MPLS LDP";
       container entropy-label {
-        description "Configure for LDP Entropy-Label";
+        description
+          "Configure for LDP Entropy-Label";
         leaf enable {
           type empty;
-          description "none";
+          description
+            "none";
         }
       }
-
       container session {
-        description "LDP Session parameters";
-
+        description
+          "LDP Session parameters";
         container backoff-time {
-          description "Configure Session Backoff parameters";
+          description
+            "Configure Session Backoff parameters";
           leaf initial-backoff-time {
             type uint32 {
               range "5..2147483";
             }
             units "second";
             default "15";
-            description "Initial session backoff time (seconds)";
+            description
+              "Initial session backoff time (seconds)";
           }
           leaf max-backoff-time {
             type uint32 {
@@ -1501,7 +1591,8 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
             }
             units "second";
             default "120";
-            description "Maximum session backoff time (seconds)";
+            description
+              "Maximum session backoff time (seconds)";
           }
         }
         leaf hold-time {
@@ -1510,18 +1601,19 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
           }
           units "second";
           default "180";
-          description "LDP Session holdtime";
+          description
+            "LDP Session holdtime";
         }
       }
-
       container igp {
-        description "LDP IGP configuration";
-
+        description
+          "LDP IGP configuration";
         container sync {
-          description "LDP IGP synchronization";
-
+          description
+            "LDP IGP synchronization";
           container delay {
-            description "LDP IGP synchronization delay time";
+            description
+              "LDP IGP synchronization delay time";
             leaf on-session-up {
               type uint32 {
                 range "5..300";
@@ -1537,29 +1629,33 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
               units "second";
               description
                 "Global sync up delay to be used after
-                process restart";
+                 process restart";
             }
           }
         }
       }
-
       container enable-logging {
-        description "Enable logging of events";
+        description
+          "Enable logging of events";
         leaf nsr {
           type empty;
-          description "Enable logging of NSR events";
+          description
+            "Enable logging of NSR events";
         }
         leaf neighbor-changes {
           type empty;
-          description "Enable logging of neighbor events";
+          description
+            "Enable logging of neighbor events";
         }
         leaf adjacency {
           type empty;
-          description "Enable logging of adjacency events";
+          description
+            "Enable logging of adjacency events";
         }
         leaf session-protection {
           type empty;
-          description "Enable logging of session protection events";
+          description
+            "Enable logging of session protection events";
         }
         leaf gr-session-changes {
           type empty;
@@ -1567,28 +1663,29 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
             "Enable logging of Graceful Restart (GR) events";
         }
       }
-
       container signalling {
-        description "Configure LDP signalling parameters";
+        description
+          "Configure LDP signalling parameters";
         leaf dscp {
           type Mpls-ldp-dscp;
           default "48";
-          description "DSCP for control packets";
+          description
+            "DSCP for control packets";
         }
       }
-
       container nsr {
-        description "Configure LDP Non-Stop Routing";
+        description
+          "Configure LDP Non-Stop Routing";
         leaf enable {
           type empty;
-          description "none";
+          description
+            "none";
         }
       }
-
       container graceful-restart {
         description
           "Configuration for LDP Graceful Restart
-          parameters";
+           parameters";
         leaf reconnect-timeout {
           type uint32 {
             range "60..1800";
@@ -1597,11 +1694,12 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
           default "120";
           description
             "Configure Graceful Restart Reconnect Timeout
-            value";
+             value";
         }
         leaf enable {
           type empty;
-          description "none";
+          description
+            "none";
         }
         leaf forwarding-hold-time {
           type uint32 {
@@ -1609,92 +1707,98 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
           }
           units "second";
           default "180";
-          description "Configure Graceful Restart Session holdtime";
+          description
+            "Configure Graceful Restart Session holdtime";
         }
       }
-
       container discovery {
-        description "Configure Discovery parameters";
-
+        description
+          "Configure Discovery parameters";
         container link-hello {
-          description "LDP Link Hellos";
+          description
+            "LDP Link Hellos";
           leaf interval {
             type Mpls-ldp-interval-time;
             units "second";
             default "5";
-            description "Link Hello interval";
+            description
+              "Link Hello interval";
           }
           leaf hold-time {
             type Mpls-ldp-hold-time;
             units "second";
             default "15";
-            description "Time (seconds) - 65535 implies infinite";
+            description
+              "Time (seconds) - 65535 implies infinite";
           }
         }
-
         container targeted-hello {
-          description "LDP Targeted Hellos";
+          description
+            "LDP Targeted Hellos";
           leaf interval {
             type Mpls-ldp-interval-time;
             units "second";
             default "10";
-            description "Targeted Hello interval";
+            description
+              "Targeted Hello interval";
           }
           leaf hold-time {
             type Mpls-ldp-hold-time;
             units "second";
             default "90";
-            description "Time (seconds) - 65535 implies infinite";
+            description
+              "Time (seconds) - 65535 implies infinite";
           }
         }
         leaf disable-instance-tlv {
           type empty;
           description
             "Disable transmit and receive processing for
-            private Instance TLV in LDP discovery hello
-            messages";
+             private Instance TLV in LDP discovery hello
+             messages";
         }
         leaf disable-quick-start {
           type empty;
-          description "Disable discovery's quick start mode";
+          description
+            "Disable discovery's quick start mode";
         }
       }
-
       container mldp {
-        description "MPLS mLDP configuration";
-
+        description
+          "MPLS mLDP configuration";
         container vrfs {
           description
             "VRF Table attribute configuration for MPLS LDP";
-
           list vrf {
             key "vrf-name";
-            description "VRF attribute configuration for MPLS LDP";
+            description
+              "VRF attribute configuration for MPLS LDP";
             leaf vrf-name {
               type xr:Cisco-ios-xr-string {
                 length "1..32";
               }
-              description "VRF Name";
+              description
+                "VRF Name";
             }
             uses ENABLE;
             uses AF-TABLE;
           }
         }
-
         container default-vrf {
           description
             "Default VRF attribute configuration for mLDP";
           uses AF-TABLE;
         }
-
         container mldp-global {
-          description "Global configuration for mLDP";
-
+          description
+            "Global configuration for mLDP";
           container logging {
-            description "MPLS mLDP logging";
+            description
+              "MPLS mLDP logging";
             leaf notifications {
               type empty;
-              description "MPLS mLDP logging notifications";
+              description
+                "MPLS mLDP logging notifications";
             }
           }
         }
@@ -1704,47 +1808,24 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
         type empty;
         description
           "Disable the implicit enabling for IPv4 address
-          family";
+           family";
       }
       leaf ltrace-buf-multiplier {
         type uint32 {
           range "1..5";
         }
         default "1";
-        description "Configure Ltrace Buffer Multiplier";
+        description
+          "Configure Ltrace Buffer Multiplier";
       }
     }
     leaf enable {
       type empty;
       description
         "Enable Label Distribution Protocol (LDP)
-        globally.Without creating this object the LDP
-        feature will not be enabled. Deleting this
-        object will stop the LDP feature.";
+         globally.Without creating this object the LDP
+         feature will not be enabled. Deleting this
+         object will stop the LDP feature.";
     }
-  }
-
-  augment "/a1:snmp/a1:notification" {
-
-    container mpls-ldp {
-      description "MPLS-LDP-STD-MIB notification configuration";
-      leaf session-up {
-        type empty;
-        description "Enable mplsLdpSessionUp notification";
-      }
-      leaf init-session-threshold-exceeded {
-        type empty;
-        description
-          "Enable mplsLdpInitSessionThresholdExceeded
-          notification";
-      }
-      leaf session-down {
-        type empty;
-        description "Enable mplsLdpSessionDown notification";
-      }
-    }
-    description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-snmp-agent-cfg'";
   }
 }

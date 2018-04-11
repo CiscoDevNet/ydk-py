@@ -3,9 +3,11 @@
 This module defines status objects for monitoring of ConfD.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -113,18 +115,21 @@ class ConfdState(Entity):
         self.yang_parent_name = "tailf-confd-monitoring"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"smp" : ("smp", ConfdState.Smp), "ha" : ("ha", ConfdState.Ha), "loaded-data-models" : ("loaded_data_models", ConfdState.LoadedDataModels), "netconf" : ("netconf", ConfdState.Netconf), "cli" : ("cli", ConfdState.Cli), "webui" : ("webui", ConfdState.Webui), "rest" : ("rest", ConfdState.Rest), "snmp" : ("snmp", ConfdState.Snmp), "internal" : ("internal", ConfdState.Internal)}
-        self._child_list_classes = {}
-
-        self.version = YLeaf(YType.str, "version")
-
-        self.epoll = YLeaf(YType.boolean, "epoll")
-
-        self.daemon_status = YLeaf(YType.enumeration, "daemon-status")
-
-        self.read_only_mode = YLeaf(YType.empty, "read-only-mode")
-
-        self.upgrade_mode = YLeaf(YType.empty, "upgrade-mode")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("smp", ("smp", ConfdState.Smp)), ("ha", ("ha", ConfdState.Ha)), ("loaded-data-models", ("loaded_data_models", ConfdState.LoadedDataModels)), ("netconf", ("netconf", ConfdState.Netconf)), ("cli", ("cli", ConfdState.Cli)), ("webui", ("webui", ConfdState.Webui)), ("rest", ("rest", ConfdState.Rest)), ("snmp", ("snmp", ConfdState.Snmp)), ("internal", ("internal", ConfdState.Internal))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('version', YLeaf(YType.str, 'version')),
+            ('epoll', YLeaf(YType.boolean, 'epoll')),
+            ('daemon_status', YLeaf(YType.enumeration, 'daemon-status')),
+            ('read_only_mode', YLeaf(YType.empty, 'read-only-mode')),
+            ('upgrade_mode', YLeaf(YType.empty, 'upgrade-mode')),
+        ])
+        self.version = None
+        self.epoll = None
+        self.daemon_status = None
+        self.read_only_mode = None
+        self.upgrade_mode = None
 
         self.smp = None
         self._children_name_map["smp"] = "smp"
@@ -170,7 +175,7 @@ class ConfdState(Entity):
 
     class DaemonStatus(Enum):
         """
-        DaemonStatus
+        DaemonStatus (Enum Class)
 
         .. data:: starting = 0
 
@@ -233,11 +238,14 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.number_of_threads = YLeaf(YType.uint16, "number-of-threads")
+            self._leafs = OrderedDict([
+                ('number_of_threads', YLeaf(YType.uint16, 'number-of-threads')),
+            ])
+            self.number_of_threads = None
             self._segment_path = lambda: "smp"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
 
@@ -290,19 +298,22 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.mode = YLeaf(YType.enumeration, "mode")
-
-            self.node_id = YLeaf(YType.str, "node-id")
-
-            self.master_node_id = YLeaf(YType.str, "master-node-id")
-
-            self.connected_slave = YLeafList(YType.str, "connected-slave")
-
-            self.pending_slave = YLeafList(YType.str, "pending-slave")
+            self._leafs = OrderedDict([
+                ('mode', YLeaf(YType.enumeration, 'mode')),
+                ('node_id', YLeaf(YType.str, 'node-id')),
+                ('master_node_id', YLeaf(YType.str, 'master-node-id')),
+                ('connected_slave', YLeafList(YType.str, 'connected-slave')),
+                ('pending_slave', YLeafList(YType.str, 'pending-slave')),
+            ])
+            self.mode = None
+            self.node_id = None
+            self.master_node_id = None
+            self.connected_slave = []
+            self.pending_slave = []
             self._segment_path = lambda: "ha"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
 
@@ -311,7 +322,7 @@ class ConfdState(Entity):
 
         class Mode(Enum):
             """
-            Mode
+            Mode (Enum Class)
 
             The current HA mode of the node in the HA cluster.
 
@@ -358,8 +369,10 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"data-model" : ("data_model", ConfdState.LoadedDataModels.DataModel)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("data-model", ("data_model", ConfdState.LoadedDataModels.DataModel))])
+            self._leafs = OrderedDict()
 
             self.data_model = YList(self)
             self._segment_path = lambda: "loaded-data-models"
@@ -377,7 +390,7 @@ class ConfdState(Entity):
             ietf\-netconf\-monitoring, which only lists modules exported
             through NETCONF.
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	The YANG module name
             	**type**\: str
@@ -425,21 +438,24 @@ class ConfdState(Entity):
                 self.yang_parent_name = "loaded-data-models"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.revision = YLeaf(YType.str, "revision")
-
-                self.namespace = YLeaf(YType.str, "namespace")
-
-                self.prefix = YLeaf(YType.str, "prefix")
-
-                self.exported_to_all = YLeaf(YType.empty, "exported-to-all")
-
-                self.exported_to = YLeafList(YType.str, "exported-to")
-                self._segment_path = lambda: "data-model" + "[name='" + self.name.get() + "']"
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('revision', YLeaf(YType.str, 'revision')),
+                    ('namespace', YLeaf(YType.str, 'namespace')),
+                    ('prefix', YLeaf(YType.str, 'prefix')),
+                    ('exported_to_all', YLeaf(YType.empty, 'exported-to-all')),
+                    ('exported_to', YLeafList(YType.str, 'exported-to')),
+                ])
+                self.name = None
+                self.revision = None
+                self.namespace = None
+                self.prefix = None
+                self.exported_to_all = None
+                self.exported_to = []
+                self._segment_path = lambda: "data-model" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/loaded-data-models/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -447,7 +463,7 @@ class ConfdState(Entity):
 
             class ExportedTo(Enum):
                 """
-                ExportedTo
+                ExportedTo (Enum Class)
 
                 A list of the contexts (northbound interfaces) this module
 
@@ -502,9 +518,11 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"listen" : ("listen", ConfdState.Netconf.Listen)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Netconf.Listen))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
+            self._leafs = OrderedDict()
 
             self.listen = ConfdState.Netconf.Listen()
             self.listen.parent = self
@@ -546,8 +564,10 @@ class ConfdState(Entity):
                 self.yang_parent_name = "netconf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tcp" : ("tcp", ConfdState.Netconf.Listen.Tcp), "ssh" : ("ssh", ConfdState.Netconf.Listen.Ssh)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tcp", ("tcp", ConfdState.Netconf.Listen.Tcp)), ("ssh", ("ssh", ConfdState.Netconf.Listen.Ssh))])
+                self._leafs = OrderedDict()
 
                 self.tcp = YList(self)
                 self.ssh = YList(self)
@@ -596,12 +616,15 @@ class ConfdState(Entity):
                     self.yang_parent_name = "listen"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.port = YLeaf(YType.uint16, "port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                    ])
+                    self.ip = None
+                    self.port = None
                     self._segment_path = lambda: "tcp"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/netconf/listen/%s" % self._segment_path()
 
@@ -647,12 +670,15 @@ class ConfdState(Entity):
                     self.yang_parent_name = "listen"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.port = YLeaf(YType.uint16, "port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                    ])
+                    self.ip = None
+                    self.port = None
                     self._segment_path = lambda: "ssh"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/netconf/listen/%s" % self._segment_path()
 
@@ -685,9 +711,11 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"listen" : ("listen", ConfdState.Cli.Listen)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Cli.Listen))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
+            self._leafs = OrderedDict()
 
             self.listen = ConfdState.Cli.Listen()
             self.listen.parent = self
@@ -727,8 +755,10 @@ class ConfdState(Entity):
                 self.yang_parent_name = "cli"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ssh" : ("ssh", ConfdState.Cli.Listen.Ssh)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ssh", ("ssh", ConfdState.Cli.Listen.Ssh))])
+                self._leafs = OrderedDict()
 
                 self.ssh = YList(self)
                 self._segment_path = lambda: "listen"
@@ -776,12 +806,15 @@ class ConfdState(Entity):
                     self.yang_parent_name = "listen"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.port = YLeaf(YType.uint16, "port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                    ])
+                    self.ip = None
+                    self.port = None
                     self._segment_path = lambda: "ssh"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/cli/listen/%s" % self._segment_path()
 
@@ -814,9 +847,11 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"listen" : ("listen", ConfdState.Webui.Listen)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Webui.Listen))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
+            self._leafs = OrderedDict()
 
             self.listen = ConfdState.Webui.Listen()
             self.listen.parent = self
@@ -854,8 +889,10 @@ class ConfdState(Entity):
                 self.yang_parent_name = "webui"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tcp" : ("tcp", ConfdState.Webui.Listen.Tcp), "ssl" : ("ssl", ConfdState.Webui.Listen.Ssl)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tcp", ("tcp", ConfdState.Webui.Listen.Tcp)), ("ssl", ("ssl", ConfdState.Webui.Listen.Ssl))])
+                self._leafs = OrderedDict()
 
                 self.tcp = YList(self)
                 self.ssl = YList(self)
@@ -904,12 +941,15 @@ class ConfdState(Entity):
                     self.yang_parent_name = "listen"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.port = YLeaf(YType.uint16, "port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                    ])
+                    self.ip = None
+                    self.port = None
                     self._segment_path = lambda: "tcp"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/webui/listen/%s" % self._segment_path()
 
@@ -955,12 +995,15 @@ class ConfdState(Entity):
                     self.yang_parent_name = "listen"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.port = YLeaf(YType.uint16, "port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                    ])
+                    self.ip = None
+                    self.port = None
                     self._segment_path = lambda: "ssl"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/webui/listen/%s" % self._segment_path()
 
@@ -993,9 +1036,11 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"listen" : ("listen", ConfdState.Rest.Listen)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Rest.Listen))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
+            self._leafs = OrderedDict()
 
             self.listen = ConfdState.Rest.Listen()
             self.listen.parent = self
@@ -1033,8 +1078,10 @@ class ConfdState(Entity):
                 self.yang_parent_name = "rest"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tcp" : ("tcp", ConfdState.Rest.Listen.Tcp), "ssl" : ("ssl", ConfdState.Rest.Listen.Ssl)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tcp", ("tcp", ConfdState.Rest.Listen.Tcp)), ("ssl", ("ssl", ConfdState.Rest.Listen.Ssl))])
+                self._leafs = OrderedDict()
 
                 self.tcp = YList(self)
                 self.ssl = YList(self)
@@ -1083,12 +1130,15 @@ class ConfdState(Entity):
                     self.yang_parent_name = "listen"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.port = YLeaf(YType.uint16, "port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                    ])
+                    self.ip = None
+                    self.port = None
                     self._segment_path = lambda: "tcp"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/rest/listen/%s" % self._segment_path()
 
@@ -1134,12 +1184,15 @@ class ConfdState(Entity):
                     self.yang_parent_name = "listen"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.port = YLeaf(YType.uint16, "port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                    ])
+                    self.ip = None
+                    self.port = None
                     self._segment_path = lambda: "ssl"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/rest/listen/%s" % self._segment_path()
 
@@ -1189,13 +1242,16 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"listen" : ("listen", ConfdState.Snmp.Listen), "version" : ("version", ConfdState.Snmp.Version)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("listen", ("listen", ConfdState.Snmp.Listen)), ("version", ("version", ConfdState.Snmp.Version))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.mib = YLeafList(YType.str, "mib")
-
-            self.engine_id = YLeaf(YType.str, "engine-id")
+            self._leafs = OrderedDict([
+                ('mib', YLeafList(YType.str, 'mib')),
+                ('engine_id', YLeaf(YType.str, 'engine-id')),
+            ])
+            self.mib = []
+            self.engine_id = None
 
             self.listen = ConfdState.Snmp.Listen()
             self.listen.parent = self
@@ -1236,8 +1292,10 @@ class ConfdState(Entity):
                 self.yang_parent_name = "snmp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"udp" : ("udp", ConfdState.Snmp.Listen.Udp)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("udp", ("udp", ConfdState.Snmp.Listen.Udp))])
+                self._leafs = OrderedDict()
 
                 self.udp = YList(self)
                 self._segment_path = lambda: "listen"
@@ -1285,12 +1343,15 @@ class ConfdState(Entity):
                     self.yang_parent_name = "listen"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.port = YLeaf(YType.uint16, "port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                    ])
+                    self.ip = None
+                    self.port = None
                     self._segment_path = lambda: "udp"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/snmp/listen/%s" % self._segment_path()
 
@@ -1331,14 +1392,17 @@ class ConfdState(Entity):
                 self.yang_parent_name = "snmp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.v1 = YLeaf(YType.empty, "v1")
-
-                self.v2c = YLeaf(YType.empty, "v2c")
-
-                self.v3 = YLeaf(YType.empty, "v3")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('v1', YLeaf(YType.empty, 'v1')),
+                    ('v2c', YLeaf(YType.empty, 'v2c')),
+                    ('v3', YLeaf(YType.empty, 'v3')),
+                ])
+                self.v1 = None
+                self.v2c = None
+                self.v3 = None
                 self._segment_path = lambda: "version"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/snmp/%s" % self._segment_path()
 
@@ -1374,8 +1438,10 @@ class ConfdState(Entity):
             self.yang_parent_name = "confd-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"callpoints" : ("callpoints", ConfdState.Internal.Callpoints), "cdb" : ("cdb", ConfdState.Internal.Cdb)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("callpoints", ("callpoints", ConfdState.Internal.Callpoints)), ("cdb", ("cdb", ConfdState.Internal.Cdb))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.callpoints = ConfdState.Internal.Callpoints()
             self.callpoints.parent = self
@@ -1391,7 +1457,7 @@ class ConfdState(Entity):
 
         class DatastoreName(Enum):
             """
-            DatastoreName
+            DatastoreName (Enum Class)
 
             Name of one of the datastores implemented by CDB.
 
@@ -1483,8 +1549,10 @@ class ConfdState(Entity):
                 self.yang_parent_name = "internal"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"authentication-callback" : ("authentication_callback", ConfdState.Internal.Callpoints.AuthenticationCallback), "authorization-callbacks" : ("authorization_callbacks", ConfdState.Internal.Callpoints.AuthorizationCallbacks)}
-                self._child_list_classes = {"callpoint" : ("callpoint", ConfdState.Internal.Callpoints.Callpoint), "validationpoint" : ("validationpoint", ConfdState.Internal.Callpoints.Validationpoint), "actionpoint" : ("actionpoint", ConfdState.Internal.Callpoints.Actionpoint), "snmp-inform-callback" : ("snmp_inform_callback", ConfdState.Internal.Callpoints.SnmpInformCallback), "snmp-notification-subscription" : ("snmp_notification_subscription", ConfdState.Internal.Callpoints.SnmpNotificationSubscription), "error-formatting-callback" : ("error_formatting_callback", ConfdState.Internal.Callpoints.ErrorFormattingCallback), "typepoint" : ("typepoint", ConfdState.Internal.Callpoints.Typepoint), "notification-stream-replay" : ("notification_stream_replay", ConfdState.Internal.Callpoints.NotificationStreamReplay)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("authentication-callback", ("authentication_callback", ConfdState.Internal.Callpoints.AuthenticationCallback)), ("authorization-callbacks", ("authorization_callbacks", ConfdState.Internal.Callpoints.AuthorizationCallbacks))])
+                self._child_list_classes = OrderedDict([("callpoint", ("callpoint", ConfdState.Internal.Callpoints.Callpoint)), ("validationpoint", ("validationpoint", ConfdState.Internal.Callpoints.Validationpoint)), ("actionpoint", ("actionpoint", ConfdState.Internal.Callpoints.Actionpoint)), ("snmp-inform-callback", ("snmp_inform_callback", ConfdState.Internal.Callpoints.SnmpInformCallback)), ("snmp-notification-subscription", ("snmp_notification_subscription", ConfdState.Internal.Callpoints.SnmpNotificationSubscription)), ("error-formatting-callback", ("error_formatting_callback", ConfdState.Internal.Callpoints.ErrorFormattingCallback)), ("typepoint", ("typepoint", ConfdState.Internal.Callpoints.Typepoint)), ("notification-stream-replay", ("notification_stream_replay", ConfdState.Internal.Callpoints.NotificationStreamReplay))])
+                self._leafs = OrderedDict()
 
                 self.authentication_callback = None
                 self._children_name_map["authentication_callback"] = "authentication-callback"
@@ -1513,7 +1581,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: id  <key>
+                .. attribute:: id  (key)
                 
                 	Callpoint id
                 	**type**\: str
@@ -1557,16 +1625,19 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.Callpoint.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.Callpoint.Range)}
-
-                    self.id = YLeaf(YType.str, "id")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self.ylist_key_names = ['id']
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Callpoint.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.Callpoint.Range))])
+                    self._leafs = OrderedDict([
+                        ('id', YLeaf(YType.str, 'id')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.id = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.Callpoint.Daemon()
                     self.daemon.parent = self
@@ -1574,7 +1645,7 @@ class ConfdState(Entity):
                     self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
-                    self._segment_path = lambda: "callpoint" + "[id='" + self.id.get() + "']"
+                    self._segment_path = lambda: "callpoint" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1582,7 +1653,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -1643,14 +1714,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "callpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
 
                     def __setattr__(self, name, value):
@@ -1658,7 +1732,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -1714,14 +1788,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "callpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.Callpoint.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Callpoint.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.Callpoint.Range.Daemon()
                         self.daemon.parent = self
@@ -1768,14 +1845,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
 
                         def __setattr__(self, name, value):
@@ -1783,7 +1863,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -1805,7 +1885,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: id  <key>
+                .. attribute:: id  (key)
                 
                 	Callpoint id
                 	**type**\: str
@@ -1849,16 +1929,19 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.Validationpoint.Range)}
-
-                    self.id = YLeaf(YType.str, "id")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self.ylist_key_names = ['id']
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.Validationpoint.Range))])
+                    self._leafs = OrderedDict([
+                        ('id', YLeaf(YType.str, 'id')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.id = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.Validationpoint.Daemon()
                     self.daemon.parent = self
@@ -1866,7 +1949,7 @@ class ConfdState(Entity):
                     self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
-                    self._segment_path = lambda: "validationpoint" + "[id='" + self.id.get() + "']"
+                    self._segment_path = lambda: "validationpoint" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1874,7 +1957,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -1935,14 +2018,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "validationpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
 
                     def __setattr__(self, name, value):
@@ -1950,7 +2036,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -2006,14 +2092,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "validationpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon()
                         self.daemon.parent = self
@@ -2060,14 +2149,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
 
                         def __setattr__(self, name, value):
@@ -2075,7 +2167,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -2097,7 +2189,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: id  <key>
+                .. attribute:: id  (key)
                 
                 	Callpoint id
                 	**type**\: str
@@ -2141,16 +2233,19 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.Actionpoint.Range)}
-
-                    self.id = YLeaf(YType.str, "id")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self.ylist_key_names = ['id']
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.Actionpoint.Range))])
+                    self._leafs = OrderedDict([
+                        ('id', YLeaf(YType.str, 'id')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.id = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.Actionpoint.Daemon()
                     self.daemon.parent = self
@@ -2158,7 +2253,7 @@ class ConfdState(Entity):
                     self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
-                    self._segment_path = lambda: "actionpoint" + "[id='" + self.id.get() + "']"
+                    self._segment_path = lambda: "actionpoint" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2166,7 +2261,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -2227,14 +2322,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "actionpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
 
                     def __setattr__(self, name, value):
@@ -2242,7 +2340,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -2298,14 +2396,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "actionpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon()
                         self.daemon.parent = self
@@ -2352,14 +2453,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
 
                         def __setattr__(self, name, value):
@@ -2367,7 +2471,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -2389,7 +2493,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: id  <key>
+                .. attribute:: id  (key)
                 
                 	Callpoint id
                 	**type**\: str
@@ -2433,16 +2537,19 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.SnmpInformCallback.Range)}
-
-                    self.id = YLeaf(YType.str, "id")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self.ylist_key_names = ['id']
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.SnmpInformCallback.Range))])
+                    self._leafs = OrderedDict([
+                        ('id', YLeaf(YType.str, 'id')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.id = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon()
                     self.daemon.parent = self
@@ -2450,7 +2557,7 @@ class ConfdState(Entity):
                     self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
-                    self._segment_path = lambda: "snmp-inform-callback" + "[id='" + self.id.get() + "']"
+                    self._segment_path = lambda: "snmp-inform-callback" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2458,7 +2565,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -2519,14 +2626,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "snmp-inform-callback"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
 
                     def __setattr__(self, name, value):
@@ -2534,7 +2644,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -2590,14 +2700,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "snmp-inform-callback"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon()
                         self.daemon.parent = self
@@ -2644,14 +2757,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
 
                         def __setattr__(self, name, value):
@@ -2659,7 +2775,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -2681,7 +2797,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: id  <key>
+                .. attribute:: id  (key)
                 
                 	Callpoint id
                 	**type**\: str
@@ -2725,16 +2841,19 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range)}
-
-                    self.id = YLeaf(YType.str, "id")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self.ylist_key_names = ['id']
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range))])
+                    self._leafs = OrderedDict([
+                        ('id', YLeaf(YType.str, 'id')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.id = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon()
                     self.daemon.parent = self
@@ -2742,7 +2861,7 @@ class ConfdState(Entity):
                     self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
-                    self._segment_path = lambda: "snmp-notification-subscription" + "[id='" + self.id.get() + "']"
+                    self._segment_path = lambda: "snmp-notification-subscription" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2750,7 +2869,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -2811,14 +2930,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "snmp-notification-subscription"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
 
                     def __setattr__(self, name, value):
@@ -2826,7 +2948,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -2882,14 +3004,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "snmp-notification-subscription"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon()
                         self.daemon.parent = self
@@ -2936,14 +3061,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
 
                         def __setattr__(self, name, value):
@@ -2951,7 +3079,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -2973,7 +3101,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: id  <key>
+                .. attribute:: id  (key)
                 
                 	Callpoint id
                 	**type**\: str
@@ -3017,16 +3145,19 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range)}
-
-                    self.id = YLeaf(YType.str, "id")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self.ylist_key_names = ['id']
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range))])
+                    self._leafs = OrderedDict([
+                        ('id', YLeaf(YType.str, 'id')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.id = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon()
                     self.daemon.parent = self
@@ -3034,7 +3165,7 @@ class ConfdState(Entity):
                     self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
-                    self._segment_path = lambda: "error-formatting-callback" + "[id='" + self.id.get() + "']"
+                    self._segment_path = lambda: "error-formatting-callback" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3042,7 +3173,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -3103,14 +3234,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "error-formatting-callback"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
 
                     def __setattr__(self, name, value):
@@ -3118,7 +3252,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -3174,14 +3308,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "error-formatting-callback"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon()
                         self.daemon.parent = self
@@ -3228,14 +3365,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
 
                         def __setattr__(self, name, value):
@@ -3243,7 +3383,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -3265,7 +3405,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: id  <key>
+                .. attribute:: id  (key)
                 
                 	Callpoint id
                 	**type**\: str
@@ -3309,16 +3449,19 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.Typepoint.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.Typepoint.Range)}
-
-                    self.id = YLeaf(YType.str, "id")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self.ylist_key_names = ['id']
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Typepoint.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.Typepoint.Range))])
+                    self._leafs = OrderedDict([
+                        ('id', YLeaf(YType.str, 'id')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.id = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.Typepoint.Daemon()
                     self.daemon.parent = self
@@ -3326,7 +3469,7 @@ class ConfdState(Entity):
                     self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
-                    self._segment_path = lambda: "typepoint" + "[id='" + self.id.get() + "']"
+                    self._segment_path = lambda: "typepoint" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3334,7 +3477,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -3395,14 +3538,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "typepoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
 
                     def __setattr__(self, name, value):
@@ -3410,7 +3556,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -3466,14 +3612,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "typepoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.Typepoint.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Typepoint.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.Typepoint.Range.Daemon()
                         self.daemon.parent = self
@@ -3520,14 +3669,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
 
                         def __setattr__(self, name, value):
@@ -3535,7 +3687,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -3557,7 +3709,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Name of the notification stream
                 	**type**\: str
@@ -3606,18 +3758,21 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range)}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.replay_support = YLeaf(YType.enumeration, "replay-support")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range))])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('replay_support', YLeaf(YType.enumeration, 'replay-support')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.name = None
+                    self.replay_support = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon()
                     self.daemon.parent = self
@@ -3625,7 +3780,7 @@ class ConfdState(Entity):
                     self._children_yang_names.add("daemon")
 
                     self.range = YList(self)
-                    self._segment_path = lambda: "notification-stream-replay" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "notification-stream-replay" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3633,7 +3788,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -3660,7 +3815,7 @@ class ConfdState(Entity):
 
                 class ReplaySupport(Enum):
                     """
-                    ReplaySupport
+                    ReplaySupport (Enum Class)
 
                     .. data:: none = 0
 
@@ -3713,14 +3868,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "notification-stream-replay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
 
                     def __setattr__(self, name, value):
@@ -3728,7 +3886,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -3784,14 +3942,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "notification-stream-replay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon()
                         self.daemon.parent = self
@@ -3838,14 +3999,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
 
                         def __setattr__(self, name, value):
@@ -3853,7 +4017,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -3921,17 +4085,20 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.AuthenticationCallback.Range)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.AuthenticationCallback.Range))])
                     self.is_presence_container = True
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.enabled = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon()
                     self.daemon.parent = self
@@ -3947,7 +4114,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -4008,14 +4175,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "authentication-callback"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/%s" % self._segment_path()
 
@@ -4024,7 +4194,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -4080,14 +4250,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "authentication-callback"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon()
                         self.daemon.parent = self
@@ -4135,14 +4308,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
                             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/range/%s" % self._segment_path()
 
@@ -4151,7 +4327,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -4219,17 +4395,20 @@ class ConfdState(Entity):
                     self.yang_parent_name = "callpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon)}
-                    self._child_list_classes = {"range" : ("range", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon))])
+                    self._child_list_classes = OrderedDict([("range", ("range", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range))])
                     self.is_presence_container = True
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.path = YLeaf(YType.str, "path")
-
-                    self.file = YLeaf(YType.str, "file")
-
-                    self.error = YLeaf(YType.enumeration, "error")
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('path', YLeaf(YType.str, 'path')),
+                        ('file', YLeaf(YType.str, 'file')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                    ])
+                    self.enabled = None
+                    self.path = None
+                    self.file = None
+                    self.error = None
 
                     self.daemon = ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon()
                     self.daemon.parent = self
@@ -4245,7 +4424,7 @@ class ConfdState(Entity):
 
                 class Error(Enum):
                     """
-                    Error
+                    Error (Enum Class)
 
                     If this leaf exists, there is a problem
 
@@ -4306,14 +4485,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "authorization-callbacks"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.id = None
+                        self.name = None
+                        self.error = None
                         self._segment_path = lambda: "daemon"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/%s" % self._segment_path()
 
@@ -4322,7 +4504,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 
@@ -4378,14 +4560,17 @@ class ConfdState(Entity):
                         self.yang_parent_name = "authorization-callbacks"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"daemon" : ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon)}
-                        self._child_list_classes = {}
-
-                        self.lower = YLeaf(YType.str, "lower")
-
-                        self.upper = YLeaf(YType.str, "upper")
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower', YLeaf(YType.str, 'lower')),
+                            ('upper', YLeaf(YType.str, 'upper')),
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.lower = None
+                        self.upper = None
+                        self.default = None
 
                         self.daemon = ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon()
                         self.daemon.parent = self
@@ -4433,14 +4618,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "range"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.error = YLeaf(YType.enumeration, "error")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('error', YLeaf(YType.enumeration, 'error')),
+                            ])
+                            self.id = None
+                            self.name = None
+                            self.error = None
                             self._segment_path = lambda: "daemon"
                             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/range/%s" % self._segment_path()
 
@@ -4449,7 +4637,7 @@ class ConfdState(Entity):
 
                         class Error(Enum):
                             """
-                            Error
+                            Error (Enum Class)
 
                             If this leaf exists, there is a problem
 
@@ -4495,8 +4683,10 @@ class ConfdState(Entity):
                 self.yang_parent_name = "internal"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"datastore" : ("datastore", ConfdState.Internal.Cdb.Datastore), "client" : ("client", ConfdState.Internal.Cdb.Client)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("datastore", ("datastore", ConfdState.Internal.Cdb.Datastore)), ("client", ("client", ConfdState.Internal.Cdb.Client))])
+                self._leafs = OrderedDict()
 
                 self.datastore = YList(self)
                 self.client = YList(self)
@@ -4511,7 +4701,7 @@ class ConfdState(Entity):
                 """
                 
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	
                 	**type**\:  :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
@@ -4595,35 +4785,38 @@ class ConfdState(Entity):
                     self.yang_parent_name = "cdb"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"pending-subscription-sync" : ("pending_subscription_sync", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync)}
-                    self._child_list_classes = {"pending-notification-queue" : ("pending_notification_queue", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue)}
-
-                    self.name = YLeaf(YType.enumeration, "name")
-
-                    self.transaction_id = YLeaf(YType.str, "transaction-id")
-
-                    self.write_queue = YLeaf(YType.uint32, "write-queue")
-
-                    self.filename = YLeaf(YType.str, "filename")
-
-                    self.disk_size = YLeaf(YType.uint64, "disk-size")
-
-                    self.ram_size = YLeaf(YType.uint64, "ram-size")
-
-                    self.read_locks = YLeaf(YType.uint32, "read-locks")
-
-                    self.write_lock_set = YLeaf(YType.boolean, "write-lock-set")
-
-                    self.subscription_lock_set = YLeaf(YType.boolean, "subscription-lock-set")
-
-                    self.waiting_for_replication_sync = YLeaf(YType.boolean, "waiting-for-replication-sync")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("pending-subscription-sync", ("pending_subscription_sync", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync))])
+                    self._child_list_classes = OrderedDict([("pending-notification-queue", ("pending_notification_queue", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue))])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.enumeration, 'name')),
+                        ('transaction_id', YLeaf(YType.str, 'transaction-id')),
+                        ('write_queue', YLeaf(YType.uint32, 'write-queue')),
+                        ('filename', YLeaf(YType.str, 'filename')),
+                        ('disk_size', YLeaf(YType.uint64, 'disk-size')),
+                        ('ram_size', YLeaf(YType.uint64, 'ram-size')),
+                        ('read_locks', YLeaf(YType.uint32, 'read-locks')),
+                        ('write_lock_set', YLeaf(YType.boolean, 'write-lock-set')),
+                        ('subscription_lock_set', YLeaf(YType.boolean, 'subscription-lock-set')),
+                        ('waiting_for_replication_sync', YLeaf(YType.boolean, 'waiting-for-replication-sync')),
+                    ])
+                    self.name = None
+                    self.transaction_id = None
+                    self.write_queue = None
+                    self.filename = None
+                    self.disk_size = None
+                    self.ram_size = None
+                    self.read_locks = None
+                    self.write_lock_set = None
+                    self.subscription_lock_set = None
+                    self.waiting_for_replication_sync = None
 
                     self.pending_subscription_sync = None
                     self._children_name_map["pending_subscription_sync"] = "pending-subscription-sync"
                     self._children_yang_names.add("pending-subscription-sync")
 
                     self.pending_notification_queue = YList(self)
-                    self._segment_path = lambda: "datastore" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "datastore" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/cdb/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4675,13 +4868,16 @@ class ConfdState(Entity):
                         self.yang_parent_name = "datastore"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"notification" : ("notification", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("notification", ("notification", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification))])
                         self.is_presence_container = True
-
-                        self.priority = YLeaf(YType.int32, "priority")
-
-                        self.time_remaining = YLeaf(YType.str, "time-remaining")
+                        self._leafs = OrderedDict([
+                            ('priority', YLeaf(YType.int32, 'priority')),
+                            ('time_remaining', YLeaf(YType.str, 'time-remaining')),
+                        ])
+                        self.priority = None
+                        self.time_remaining = None
 
                         self.notification = YList(self)
                         self._segment_path = lambda: "pending-subscription-sync"
@@ -4691,7 +4887,7 @@ class ConfdState(Entity):
 
                     class TimeRemaining(Enum):
                         """
-                        TimeRemaining
+                        TimeRemaining (Enum Class)
 
                         The remaining time in seconds until subscribing clients
 
@@ -4743,12 +4939,15 @@ class ConfdState(Entity):
                             self.yang_parent_name = "pending-subscription-sync"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.client_name = YLeaf(YType.str, "client-name")
-
-                            self.subscription_ids = YLeafList(YType.uint32, "subscription-ids")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('client_name', YLeaf(YType.str, 'client-name')),
+                                ('subscription_ids', YLeafList(YType.uint32, 'subscription-ids')),
+                            ])
+                            self.client_name = None
+                            self.subscription_ids = []
                             self._segment_path = lambda: "notification"
 
                         def __setattr__(self, name, value):
@@ -4780,8 +4979,10 @@ class ConfdState(Entity):
                         self.yang_parent_name = "datastore"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"notification" : ("notification", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("notification", ("notification", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification))])
+                        self._leafs = OrderedDict()
 
                         self.notification = YList(self)
                         self._segment_path = lambda: "pending-notification-queue"
@@ -4827,14 +5028,17 @@ class ConfdState(Entity):
                             self.yang_parent_name = "pending-notification-queue"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.priority = YLeaf(YType.int32, "priority")
-
-                            self.client_name = YLeaf(YType.str, "client-name")
-
-                            self.subscription_ids = YLeafList(YType.uint32, "subscription-ids")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('priority', YLeaf(YType.int32, 'priority')),
+                                ('client_name', YLeaf(YType.str, 'client-name')),
+                                ('subscription_ids', YLeafList(YType.uint32, 'subscription-ids')),
+                            ])
+                            self.priority = None
+                            self.client_name = None
+                            self.subscription_ids = []
                             self._segment_path = lambda: "notification"
 
                         def __setattr__(self, name, value):
@@ -4893,18 +5097,21 @@ class ConfdState(Entity):
                     self.yang_parent_name = "cdb"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"subscription" : ("subscription", ConfdState.Internal.Cdb.Client.Subscription)}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.info = YLeaf(YType.str, "info")
-
-                    self.type = YLeaf(YType.enumeration, "type")
-
-                    self.datastore = YLeaf(YType.str, "datastore")
-
-                    self.lock = YLeaf(YType.enumeration, "lock")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("subscription", ("subscription", ConfdState.Internal.Cdb.Client.Subscription))])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('info', YLeaf(YType.str, 'info')),
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                        ('datastore', YLeaf(YType.str, 'datastore')),
+                        ('lock', YLeaf(YType.enumeration, 'lock')),
+                    ])
+                    self.name = None
+                    self.info = None
+                    self.type = None
+                    self.datastore = None
+                    self.lock = None
 
                     self.subscription = YList(self)
                     self._segment_path = lambda: "client"
@@ -4915,7 +5122,7 @@ class ConfdState(Entity):
 
                 class Datastore(Enum):
                     """
-                    Datastore
+                    Datastore (Enum Class)
 
                     The name of the datastore when 'type' = 'client'. The value
 
@@ -4932,7 +5139,7 @@ class ConfdState(Entity):
 
                 class Lock(Enum):
                     """
-                    Lock
+                    Lock (Enum Class)
 
                     Set when 'type' = 'client' and the client has requested or
 
@@ -4969,7 +5176,7 @@ class ConfdState(Entity):
 
                 class Type(Enum):
                     """
-                    Type
+                    Type (Enum Class)
 
                     The type of client\: 'inactive' is a client connection without
 
@@ -5053,20 +5260,23 @@ class ConfdState(Entity):
                         self.yang_parent_name = "client"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.datastore = YLeaf(YType.enumeration, "datastore")
-
-                        self.twophase = YLeaf(YType.empty, "twophase")
-
-                        self.priority = YLeaf(YType.int32, "priority")
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.path = YLeaf(YType.str, "path")
-
-                        self.error = YLeaf(YType.enumeration, "error")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('datastore', YLeaf(YType.enumeration, 'datastore')),
+                            ('twophase', YLeaf(YType.empty, 'twophase')),
+                            ('priority', YLeaf(YType.int32, 'priority')),
+                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('path', YLeaf(YType.str, 'path')),
+                            ('error', YLeaf(YType.enumeration, 'error')),
+                        ])
+                        self.datastore = None
+                        self.twophase = None
+                        self.priority = None
+                        self.id = None
+                        self.path = None
+                        self.error = None
                         self._segment_path = lambda: "subscription"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/cdb/client/%s" % self._segment_path()
 
@@ -5075,7 +5285,7 @@ class ConfdState(Entity):
 
                     class Error(Enum):
                         """
-                        Error
+                        Error (Enum Class)
 
                         If this leaf exists, there is a problem
 

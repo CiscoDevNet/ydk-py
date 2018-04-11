@@ -7,9 +7,11 @@ of this MIB module is part of RFC 3592;  see the RFC
 itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -113,8 +115,10 @@ class SONETMIB(Entity):
         self.yang_parent_name = "SONET-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"sonetMedium" : ("sonetmedium", SONETMIB.Sonetmedium), "sonetMediumTable" : ("sonetmediumtable", SONETMIB.Sonetmediumtable), "sonetSectionCurrentTable" : ("sonetsectioncurrenttable", SONETMIB.Sonetsectioncurrenttable), "sonetSectionIntervalTable" : ("sonetsectionintervaltable", SONETMIB.Sonetsectionintervaltable), "sonetLineCurrentTable" : ("sonetlinecurrenttable", SONETMIB.Sonetlinecurrenttable), "sonetLineIntervalTable" : ("sonetlineintervaltable", SONETMIB.Sonetlineintervaltable), "sonetFarEndLineCurrentTable" : ("sonetfarendlinecurrenttable", SONETMIB.Sonetfarendlinecurrenttable), "sonetFarEndLineIntervalTable" : ("sonetfarendlineintervaltable", SONETMIB.Sonetfarendlineintervaltable), "sonetPathCurrentTable" : ("sonetpathcurrenttable", SONETMIB.Sonetpathcurrenttable), "sonetPathIntervalTable" : ("sonetpathintervaltable", SONETMIB.Sonetpathintervaltable), "sonetFarEndPathCurrentTable" : ("sonetfarendpathcurrenttable", SONETMIB.Sonetfarendpathcurrenttable), "sonetFarEndPathIntervalTable" : ("sonetfarendpathintervaltable", SONETMIB.Sonetfarendpathintervaltable), "sonetVTCurrentTable" : ("sonetvtcurrenttable", SONETMIB.Sonetvtcurrenttable), "sonetVTIntervalTable" : ("sonetvtintervaltable", SONETMIB.Sonetvtintervaltable), "sonetFarEndVTCurrentTable" : ("sonetfarendvtcurrenttable", SONETMIB.Sonetfarendvtcurrenttable), "sonetFarEndVTIntervalTable" : ("sonetfarendvtintervaltable", SONETMIB.Sonetfarendvtintervaltable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("sonetMedium", ("sonetmedium", SONETMIB.Sonetmedium)), ("sonetMediumTable", ("sonetmediumtable", SONETMIB.Sonetmediumtable)), ("sonetSectionCurrentTable", ("sonetsectioncurrenttable", SONETMIB.Sonetsectioncurrenttable)), ("sonetSectionIntervalTable", ("sonetsectionintervaltable", SONETMIB.Sonetsectionintervaltable)), ("sonetLineCurrentTable", ("sonetlinecurrenttable", SONETMIB.Sonetlinecurrenttable)), ("sonetLineIntervalTable", ("sonetlineintervaltable", SONETMIB.Sonetlineintervaltable)), ("sonetFarEndLineCurrentTable", ("sonetfarendlinecurrenttable", SONETMIB.Sonetfarendlinecurrenttable)), ("sonetFarEndLineIntervalTable", ("sonetfarendlineintervaltable", SONETMIB.Sonetfarendlineintervaltable)), ("sonetPathCurrentTable", ("sonetpathcurrenttable", SONETMIB.Sonetpathcurrenttable)), ("sonetPathIntervalTable", ("sonetpathintervaltable", SONETMIB.Sonetpathintervaltable)), ("sonetFarEndPathCurrentTable", ("sonetfarendpathcurrenttable", SONETMIB.Sonetfarendpathcurrenttable)), ("sonetFarEndPathIntervalTable", ("sonetfarendpathintervaltable", SONETMIB.Sonetfarendpathintervaltable)), ("sonetVTCurrentTable", ("sonetvtcurrenttable", SONETMIB.Sonetvtcurrenttable)), ("sonetVTIntervalTable", ("sonetvtintervaltable", SONETMIB.Sonetvtintervaltable)), ("sonetFarEndVTCurrentTable", ("sonetfarendvtcurrenttable", SONETMIB.Sonetfarendvtcurrenttable)), ("sonetFarEndVTIntervalTable", ("sonetfarendvtintervaltable", SONETMIB.Sonetfarendvtintervaltable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.sonetmedium = SONETMIB.Sonetmedium()
         self.sonetmedium.parent = self
@@ -221,10 +225,13 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.sonetsesthresholdset = YLeaf(YType.enumeration, "sonetSESthresholdSet")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('sonetsesthresholdset', YLeaf(YType.enumeration, 'sonetSESthresholdSet')),
+            ])
+            self.sonetsesthresholdset = None
             self._segment_path = lambda: "sonetMedium"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
 
@@ -233,7 +240,7 @@ class SONETMIB(Entity):
 
         class Sonetsesthresholdset(Enum):
             """
-            Sonetsesthresholdset
+            Sonetsesthresholdset (Enum Class)
 
             An enumerated integer indicating which
 
@@ -322,8 +329,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetMediumEntry" : ("sonetmediumentry", SONETMIB.Sonetmediumtable.Sonetmediumentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetMediumEntry", ("sonetmediumentry", SONETMIB.Sonetmediumtable.Sonetmediumentry))])
+            self._leafs = OrderedDict()
 
             self.sonetmediumentry = YList(self)
             self._segment_path = lambda: "sonetMediumTable"
@@ -337,7 +346,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Medium table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -408,27 +417,30 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetMediumTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetmediumtype = YLeaf(YType.enumeration, "sonetMediumType")
-
-                self.sonetmediumtimeelapsed = YLeaf(YType.int32, "sonetMediumTimeElapsed")
-
-                self.sonetmediumvalidintervals = YLeaf(YType.int32, "sonetMediumValidIntervals")
-
-                self.sonetmediumlinecoding = YLeaf(YType.enumeration, "sonetMediumLineCoding")
-
-                self.sonetmediumlinetype = YLeaf(YType.enumeration, "sonetMediumLineType")
-
-                self.sonetmediumcircuitidentifier = YLeaf(YType.str, "sonetMediumCircuitIdentifier")
-
-                self.sonetmediuminvalidintervals = YLeaf(YType.int32, "sonetMediumInvalidIntervals")
-
-                self.sonetmediumloopbackconfig = YLeaf(YType.bits, "sonetMediumLoopbackConfig")
-                self._segment_path = lambda: "sonetMediumEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetmediumtype', YLeaf(YType.enumeration, 'sonetMediumType')),
+                    ('sonetmediumtimeelapsed', YLeaf(YType.int32, 'sonetMediumTimeElapsed')),
+                    ('sonetmediumvalidintervals', YLeaf(YType.int32, 'sonetMediumValidIntervals')),
+                    ('sonetmediumlinecoding', YLeaf(YType.enumeration, 'sonetMediumLineCoding')),
+                    ('sonetmediumlinetype', YLeaf(YType.enumeration, 'sonetMediumLineType')),
+                    ('sonetmediumcircuitidentifier', YLeaf(YType.str, 'sonetMediumCircuitIdentifier')),
+                    ('sonetmediuminvalidintervals', YLeaf(YType.int32, 'sonetMediumInvalidIntervals')),
+                    ('sonetmediumloopbackconfig', YLeaf(YType.bits, 'sonetMediumLoopbackConfig')),
+                ])
+                self.ifindex = None
+                self.sonetmediumtype = None
+                self.sonetmediumtimeelapsed = None
+                self.sonetmediumvalidintervals = None
+                self.sonetmediumlinecoding = None
+                self.sonetmediumlinetype = None
+                self.sonetmediumcircuitidentifier = None
+                self.sonetmediuminvalidintervals = None
+                self.sonetmediumloopbackconfig = Bits()
+                self._segment_path = lambda: "sonetMediumEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetMediumTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -436,7 +448,7 @@ class SONETMIB(Entity):
 
             class Sonetmediumlinecoding(Enum):
                 """
-                Sonetmediumlinecoding
+                Sonetmediumlinecoding (Enum Class)
 
                 This variable describes the line coding for
 
@@ -473,7 +485,7 @@ class SONETMIB(Entity):
 
             class Sonetmediumlinetype(Enum):
                 """
-                Sonetmediumlinetype
+                Sonetmediumlinetype (Enum Class)
 
                 This variable describes the line type for
 
@@ -518,7 +530,7 @@ class SONETMIB(Entity):
 
             class Sonetmediumtype(Enum):
                 """
-                Sonetmediumtype
+                Sonetmediumtype (Enum Class)
 
                 This variable identifies whether a SONET
 
@@ -559,8 +571,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetSectionCurrentEntry" : ("sonetsectioncurrententry", SONETMIB.Sonetsectioncurrenttable.Sonetsectioncurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetSectionCurrentEntry", ("sonetsectioncurrententry", SONETMIB.Sonetsectioncurrenttable.Sonetsectioncurrententry))])
+            self._leafs = OrderedDict()
 
             self.sonetsectioncurrententry = YList(self)
             self._segment_path = lambda: "sonetSectionCurrentTable"
@@ -574,7 +588,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Section Current table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -632,21 +646,24 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetSectionCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetsectioncurrentstatus = YLeaf(YType.int32, "sonetSectionCurrentStatus")
-
-                self.sonetsectioncurrentess = YLeaf(YType.uint32, "sonetSectionCurrentESs")
-
-                self.sonetsectioncurrentsess = YLeaf(YType.uint32, "sonetSectionCurrentSESs")
-
-                self.sonetsectioncurrentsefss = YLeaf(YType.uint32, "sonetSectionCurrentSEFSs")
-
-                self.sonetsectioncurrentcvs = YLeaf(YType.uint32, "sonetSectionCurrentCVs")
-                self._segment_path = lambda: "sonetSectionCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetsectioncurrentstatus', YLeaf(YType.int32, 'sonetSectionCurrentStatus')),
+                    ('sonetsectioncurrentess', YLeaf(YType.uint32, 'sonetSectionCurrentESs')),
+                    ('sonetsectioncurrentsess', YLeaf(YType.uint32, 'sonetSectionCurrentSESs')),
+                    ('sonetsectioncurrentsefss', YLeaf(YType.uint32, 'sonetSectionCurrentSEFSs')),
+                    ('sonetsectioncurrentcvs', YLeaf(YType.uint32, 'sonetSectionCurrentCVs')),
+                ])
+                self.ifindex = None
+                self.sonetsectioncurrentstatus = None
+                self.sonetsectioncurrentess = None
+                self.sonetsectioncurrentsess = None
+                self.sonetsectioncurrentsefss = None
+                self.sonetsectioncurrentcvs = None
+                self._segment_path = lambda: "sonetSectionCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetSectionCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -676,8 +693,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetSectionIntervalEntry" : ("sonetsectionintervalentry", SONETMIB.Sonetsectionintervaltable.Sonetsectionintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetSectionIntervalEntry", ("sonetsectionintervalentry", SONETMIB.Sonetsectionintervaltable.Sonetsectionintervalentry))])
+            self._leafs = OrderedDict()
 
             self.sonetsectionintervalentry = YList(self)
             self._segment_path = lambda: "sonetSectionIntervalTable"
@@ -691,7 +710,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Section Interval table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -700,7 +719,7 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: sonetsectionintervalnumber  <key>
+            .. attribute:: sonetsectionintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
@@ -754,23 +773,26 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetSectionIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetsectionintervalnumber = YLeaf(YType.int32, "sonetSectionIntervalNumber")
-
-                self.sonetsectionintervaless = YLeaf(YType.uint32, "sonetSectionIntervalESs")
-
-                self.sonetsectionintervalsess = YLeaf(YType.uint32, "sonetSectionIntervalSESs")
-
-                self.sonetsectionintervalsefss = YLeaf(YType.uint32, "sonetSectionIntervalSEFSs")
-
-                self.sonetsectionintervalcvs = YLeaf(YType.uint32, "sonetSectionIntervalCVs")
-
-                self.sonetsectionintervalvaliddata = YLeaf(YType.boolean, "sonetSectionIntervalValidData")
-                self._segment_path = lambda: "sonetSectionIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetSectionIntervalNumber='" + self.sonetsectionintervalnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','sonetsectionintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetsectionintervalnumber', YLeaf(YType.int32, 'sonetSectionIntervalNumber')),
+                    ('sonetsectionintervaless', YLeaf(YType.uint32, 'sonetSectionIntervalESs')),
+                    ('sonetsectionintervalsess', YLeaf(YType.uint32, 'sonetSectionIntervalSESs')),
+                    ('sonetsectionintervalsefss', YLeaf(YType.uint32, 'sonetSectionIntervalSEFSs')),
+                    ('sonetsectionintervalcvs', YLeaf(YType.uint32, 'sonetSectionIntervalCVs')),
+                    ('sonetsectionintervalvaliddata', YLeaf(YType.boolean, 'sonetSectionIntervalValidData')),
+                ])
+                self.ifindex = None
+                self.sonetsectionintervalnumber = None
+                self.sonetsectionintervaless = None
+                self.sonetsectionintervalsess = None
+                self.sonetsectionintervalsefss = None
+                self.sonetsectionintervalcvs = None
+                self.sonetsectionintervalvaliddata = None
+                self._segment_path = lambda: "sonetSectionIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetSectionIntervalNumber='" + str(self.sonetsectionintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetSectionIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -800,8 +822,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetLineCurrentEntry" : ("sonetlinecurrententry", SONETMIB.Sonetlinecurrenttable.Sonetlinecurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetLineCurrentEntry", ("sonetlinecurrententry", SONETMIB.Sonetlinecurrenttable.Sonetlinecurrententry))])
+            self._leafs = OrderedDict()
 
             self.sonetlinecurrententry = YList(self)
             self._segment_path = lambda: "sonetLineCurrentTable"
@@ -815,7 +839,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Line Current table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -873,21 +897,24 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetLineCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetlinecurrentstatus = YLeaf(YType.int32, "sonetLineCurrentStatus")
-
-                self.sonetlinecurrentess = YLeaf(YType.uint32, "sonetLineCurrentESs")
-
-                self.sonetlinecurrentsess = YLeaf(YType.uint32, "sonetLineCurrentSESs")
-
-                self.sonetlinecurrentcvs = YLeaf(YType.uint32, "sonetLineCurrentCVs")
-
-                self.sonetlinecurrentuass = YLeaf(YType.uint32, "sonetLineCurrentUASs")
-                self._segment_path = lambda: "sonetLineCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetlinecurrentstatus', YLeaf(YType.int32, 'sonetLineCurrentStatus')),
+                    ('sonetlinecurrentess', YLeaf(YType.uint32, 'sonetLineCurrentESs')),
+                    ('sonetlinecurrentsess', YLeaf(YType.uint32, 'sonetLineCurrentSESs')),
+                    ('sonetlinecurrentcvs', YLeaf(YType.uint32, 'sonetLineCurrentCVs')),
+                    ('sonetlinecurrentuass', YLeaf(YType.uint32, 'sonetLineCurrentUASs')),
+                ])
+                self.ifindex = None
+                self.sonetlinecurrentstatus = None
+                self.sonetlinecurrentess = None
+                self.sonetlinecurrentsess = None
+                self.sonetlinecurrentcvs = None
+                self.sonetlinecurrentuass = None
+                self._segment_path = lambda: "sonetLineCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetLineCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -917,8 +944,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetLineIntervalEntry" : ("sonetlineintervalentry", SONETMIB.Sonetlineintervaltable.Sonetlineintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetLineIntervalEntry", ("sonetlineintervalentry", SONETMIB.Sonetlineintervaltable.Sonetlineintervalentry))])
+            self._leafs = OrderedDict()
 
             self.sonetlineintervalentry = YList(self)
             self._segment_path = lambda: "sonetLineIntervalTable"
@@ -932,7 +961,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Line Interval table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -941,7 +970,7 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: sonetlineintervalnumber  <key>
+            .. attribute:: sonetlineintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
@@ -995,23 +1024,26 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetLineIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetlineintervalnumber = YLeaf(YType.int32, "sonetLineIntervalNumber")
-
-                self.sonetlineintervaless = YLeaf(YType.uint32, "sonetLineIntervalESs")
-
-                self.sonetlineintervalsess = YLeaf(YType.uint32, "sonetLineIntervalSESs")
-
-                self.sonetlineintervalcvs = YLeaf(YType.uint32, "sonetLineIntervalCVs")
-
-                self.sonetlineintervaluass = YLeaf(YType.uint32, "sonetLineIntervalUASs")
-
-                self.sonetlineintervalvaliddata = YLeaf(YType.boolean, "sonetLineIntervalValidData")
-                self._segment_path = lambda: "sonetLineIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetLineIntervalNumber='" + self.sonetlineintervalnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','sonetlineintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetlineintervalnumber', YLeaf(YType.int32, 'sonetLineIntervalNumber')),
+                    ('sonetlineintervaless', YLeaf(YType.uint32, 'sonetLineIntervalESs')),
+                    ('sonetlineintervalsess', YLeaf(YType.uint32, 'sonetLineIntervalSESs')),
+                    ('sonetlineintervalcvs', YLeaf(YType.uint32, 'sonetLineIntervalCVs')),
+                    ('sonetlineintervaluass', YLeaf(YType.uint32, 'sonetLineIntervalUASs')),
+                    ('sonetlineintervalvaliddata', YLeaf(YType.boolean, 'sonetLineIntervalValidData')),
+                ])
+                self.ifindex = None
+                self.sonetlineintervalnumber = None
+                self.sonetlineintervaless = None
+                self.sonetlineintervalsess = None
+                self.sonetlineintervalcvs = None
+                self.sonetlineintervaluass = None
+                self.sonetlineintervalvaliddata = None
+                self._segment_path = lambda: "sonetLineIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetLineIntervalNumber='" + str(self.sonetlineintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetLineIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1041,8 +1073,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetFarEndLineCurrentEntry" : ("sonetfarendlinecurrententry", SONETMIB.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetFarEndLineCurrentEntry", ("sonetfarendlinecurrententry", SONETMIB.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry))])
+            self._leafs = OrderedDict()
 
             self.sonetfarendlinecurrententry = YList(self)
             self._segment_path = lambda: "sonetFarEndLineCurrentTable"
@@ -1056,7 +1090,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Far End Line Current table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1107,19 +1141,22 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetFarEndLineCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetfarendlinecurrentess = YLeaf(YType.uint32, "sonetFarEndLineCurrentESs")
-
-                self.sonetfarendlinecurrentsess = YLeaf(YType.uint32, "sonetFarEndLineCurrentSESs")
-
-                self.sonetfarendlinecurrentcvs = YLeaf(YType.uint32, "sonetFarEndLineCurrentCVs")
-
-                self.sonetfarendlinecurrentuass = YLeaf(YType.uint32, "sonetFarEndLineCurrentUASs")
-                self._segment_path = lambda: "sonetFarEndLineCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetfarendlinecurrentess', YLeaf(YType.uint32, 'sonetFarEndLineCurrentESs')),
+                    ('sonetfarendlinecurrentsess', YLeaf(YType.uint32, 'sonetFarEndLineCurrentSESs')),
+                    ('sonetfarendlinecurrentcvs', YLeaf(YType.uint32, 'sonetFarEndLineCurrentCVs')),
+                    ('sonetfarendlinecurrentuass', YLeaf(YType.uint32, 'sonetFarEndLineCurrentUASs')),
+                ])
+                self.ifindex = None
+                self.sonetfarendlinecurrentess = None
+                self.sonetfarendlinecurrentsess = None
+                self.sonetfarendlinecurrentcvs = None
+                self.sonetfarendlinecurrentuass = None
+                self._segment_path = lambda: "sonetFarEndLineCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndLineCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1149,8 +1186,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetFarEndLineIntervalEntry" : ("sonetfarendlineintervalentry", SONETMIB.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetFarEndLineIntervalEntry", ("sonetfarendlineintervalentry", SONETMIB.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry))])
+            self._leafs = OrderedDict()
 
             self.sonetfarendlineintervalentry = YList(self)
             self._segment_path = lambda: "sonetFarEndLineIntervalTable"
@@ -1165,7 +1204,7 @@ class SONETMIB(Entity):
             An entry in the SONET/SDH Far
             End Line Interval table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1174,7 +1213,7 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: sonetfarendlineintervalnumber  <key>
+            .. attribute:: sonetfarendlineintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
@@ -1228,23 +1267,26 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetFarEndLineIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetfarendlineintervalnumber = YLeaf(YType.int32, "sonetFarEndLineIntervalNumber")
-
-                self.sonetfarendlineintervaless = YLeaf(YType.uint32, "sonetFarEndLineIntervalESs")
-
-                self.sonetfarendlineintervalsess = YLeaf(YType.uint32, "sonetFarEndLineIntervalSESs")
-
-                self.sonetfarendlineintervalcvs = YLeaf(YType.uint32, "sonetFarEndLineIntervalCVs")
-
-                self.sonetfarendlineintervaluass = YLeaf(YType.uint32, "sonetFarEndLineIntervalUASs")
-
-                self.sonetfarendlineintervalvaliddata = YLeaf(YType.boolean, "sonetFarEndLineIntervalValidData")
-                self._segment_path = lambda: "sonetFarEndLineIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetFarEndLineIntervalNumber='" + self.sonetfarendlineintervalnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','sonetfarendlineintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetfarendlineintervalnumber', YLeaf(YType.int32, 'sonetFarEndLineIntervalNumber')),
+                    ('sonetfarendlineintervaless', YLeaf(YType.uint32, 'sonetFarEndLineIntervalESs')),
+                    ('sonetfarendlineintervalsess', YLeaf(YType.uint32, 'sonetFarEndLineIntervalSESs')),
+                    ('sonetfarendlineintervalcvs', YLeaf(YType.uint32, 'sonetFarEndLineIntervalCVs')),
+                    ('sonetfarendlineintervaluass', YLeaf(YType.uint32, 'sonetFarEndLineIntervalUASs')),
+                    ('sonetfarendlineintervalvaliddata', YLeaf(YType.boolean, 'sonetFarEndLineIntervalValidData')),
+                ])
+                self.ifindex = None
+                self.sonetfarendlineintervalnumber = None
+                self.sonetfarendlineintervaless = None
+                self.sonetfarendlineintervalsess = None
+                self.sonetfarendlineintervalcvs = None
+                self.sonetfarendlineintervaluass = None
+                self.sonetfarendlineintervalvaliddata = None
+                self._segment_path = lambda: "sonetFarEndLineIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetFarEndLineIntervalNumber='" + str(self.sonetfarendlineintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndLineIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1274,8 +1316,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetPathCurrentEntry" : ("sonetpathcurrententry", SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetPathCurrentEntry", ("sonetpathcurrententry", SONETMIB.Sonetpathcurrenttable.Sonetpathcurrententry))])
+            self._leafs = OrderedDict()
 
             self.sonetpathcurrententry = YList(self)
             self._segment_path = lambda: "sonetPathCurrentTable"
@@ -1289,7 +1333,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Path Current table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1372,31 +1416,34 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetPathCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetpathcurrentwidth = YLeaf(YType.enumeration, "sonetPathCurrentWidth")
-
-                self.sonetpathcurrentstatus = YLeaf(YType.int32, "sonetPathCurrentStatus")
-
-                self.sonetpathcurrentess = YLeaf(YType.uint32, "sonetPathCurrentESs")
-
-                self.sonetpathcurrentsess = YLeaf(YType.uint32, "sonetPathCurrentSESs")
-
-                self.sonetpathcurrentcvs = YLeaf(YType.uint32, "sonetPathCurrentCVs")
-
-                self.sonetpathcurrentuass = YLeaf(YType.uint32, "sonetPathCurrentUASs")
-
-                self.cspsonetpathpayload = YLeaf(YType.enumeration, "CISCO-SONET-MIB:cspSonetPathPayload")
-
-                self.csptributarymappingtype = YLeaf(YType.enumeration, "CISCO-SONET-MIB:cspTributaryMappingType")
-
-                self.cspsignallingtransportmode = YLeaf(YType.enumeration, "CISCO-SONET-MIB:cspSignallingTransportMode")
-
-                self.csptributarygroupingtype = YLeaf(YType.enumeration, "CISCO-SONET-MIB:cspTributaryGroupingType")
-                self._segment_path = lambda: "sonetPathCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetpathcurrentwidth', YLeaf(YType.enumeration, 'sonetPathCurrentWidth')),
+                    ('sonetpathcurrentstatus', YLeaf(YType.int32, 'sonetPathCurrentStatus')),
+                    ('sonetpathcurrentess', YLeaf(YType.uint32, 'sonetPathCurrentESs')),
+                    ('sonetpathcurrentsess', YLeaf(YType.uint32, 'sonetPathCurrentSESs')),
+                    ('sonetpathcurrentcvs', YLeaf(YType.uint32, 'sonetPathCurrentCVs')),
+                    ('sonetpathcurrentuass', YLeaf(YType.uint32, 'sonetPathCurrentUASs')),
+                    ('cspsonetpathpayload', YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspSonetPathPayload')),
+                    ('csptributarymappingtype', YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspTributaryMappingType')),
+                    ('cspsignallingtransportmode', YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspSignallingTransportMode')),
+                    ('csptributarygroupingtype', YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspTributaryGroupingType')),
+                ])
+                self.ifindex = None
+                self.sonetpathcurrentwidth = None
+                self.sonetpathcurrentstatus = None
+                self.sonetpathcurrentess = None
+                self.sonetpathcurrentsess = None
+                self.sonetpathcurrentcvs = None
+                self.sonetpathcurrentuass = None
+                self.cspsonetpathpayload = None
+                self.csptributarymappingtype = None
+                self.cspsignallingtransportmode = None
+                self.csptributarygroupingtype = None
+                self._segment_path = lambda: "sonetPathCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetPathCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1404,7 +1451,7 @@ class SONETMIB(Entity):
 
             class Cspsignallingtransportmode(Enum):
                 """
-                Cspsignallingtransportmode
+                Cspsignallingtransportmode (Enum Class)
 
                 This object represents the mode used to transport DS0 
 
@@ -1445,7 +1492,7 @@ class SONETMIB(Entity):
 
             class Cspsonetpathpayload(Enum):
                 """
-                Cspsonetpathpayload
+                Cspsonetpathpayload (Enum Class)
 
                 Specifies the payload carried by the SONET/SDH Path.
 
@@ -1518,7 +1565,7 @@ class SONETMIB(Entity):
 
             class Csptributarygroupingtype(Enum):
                 """
-                Csptributarygroupingtype
+                Csptributarygroupingtype (Enum Class)
 
                 This object represents the method used to group VCs into
 
@@ -1553,7 +1600,7 @@ class SONETMIB(Entity):
 
             class Csptributarymappingtype(Enum):
                 """
-                Csptributarymappingtype
+                Csptributarymappingtype (Enum Class)
 
                 This object represents the VT/VC mapping type.
 
@@ -1582,7 +1629,7 @@ class SONETMIB(Entity):
 
             class Sonetpathcurrentwidth(Enum):
                 """
-                Sonetpathcurrentwidth
+                Sonetpathcurrentwidth (Enum Class)
 
                 A value that indicates the type of the SONET/SDH
 
@@ -1649,8 +1696,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetPathIntervalEntry" : ("sonetpathintervalentry", SONETMIB.Sonetpathintervaltable.Sonetpathintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetPathIntervalEntry", ("sonetpathintervalentry", SONETMIB.Sonetpathintervaltable.Sonetpathintervalentry))])
+            self._leafs = OrderedDict()
 
             self.sonetpathintervalentry = YList(self)
             self._segment_path = lambda: "sonetPathIntervalTable"
@@ -1664,7 +1713,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Path Interval table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1673,7 +1722,7 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: sonetpathintervalnumber  <key>
+            .. attribute:: sonetpathintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
@@ -1727,23 +1776,26 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetPathIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetpathintervalnumber = YLeaf(YType.int32, "sonetPathIntervalNumber")
-
-                self.sonetpathintervaless = YLeaf(YType.uint32, "sonetPathIntervalESs")
-
-                self.sonetpathintervalsess = YLeaf(YType.uint32, "sonetPathIntervalSESs")
-
-                self.sonetpathintervalcvs = YLeaf(YType.uint32, "sonetPathIntervalCVs")
-
-                self.sonetpathintervaluass = YLeaf(YType.uint32, "sonetPathIntervalUASs")
-
-                self.sonetpathintervalvaliddata = YLeaf(YType.boolean, "sonetPathIntervalValidData")
-                self._segment_path = lambda: "sonetPathIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetPathIntervalNumber='" + self.sonetpathintervalnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','sonetpathintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetpathintervalnumber', YLeaf(YType.int32, 'sonetPathIntervalNumber')),
+                    ('sonetpathintervaless', YLeaf(YType.uint32, 'sonetPathIntervalESs')),
+                    ('sonetpathintervalsess', YLeaf(YType.uint32, 'sonetPathIntervalSESs')),
+                    ('sonetpathintervalcvs', YLeaf(YType.uint32, 'sonetPathIntervalCVs')),
+                    ('sonetpathintervaluass', YLeaf(YType.uint32, 'sonetPathIntervalUASs')),
+                    ('sonetpathintervalvaliddata', YLeaf(YType.boolean, 'sonetPathIntervalValidData')),
+                ])
+                self.ifindex = None
+                self.sonetpathintervalnumber = None
+                self.sonetpathintervaless = None
+                self.sonetpathintervalsess = None
+                self.sonetpathintervalcvs = None
+                self.sonetpathintervaluass = None
+                self.sonetpathintervalvaliddata = None
+                self._segment_path = lambda: "sonetPathIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetPathIntervalNumber='" + str(self.sonetpathintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetPathIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1773,8 +1825,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetFarEndPathCurrentEntry" : ("sonetfarendpathcurrententry", SONETMIB.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetFarEndPathCurrentEntry", ("sonetfarendpathcurrententry", SONETMIB.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry))])
+            self._leafs = OrderedDict()
 
             self.sonetfarendpathcurrententry = YList(self)
             self._segment_path = lambda: "sonetFarEndPathCurrentTable"
@@ -1788,7 +1842,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Far End Path Current table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1839,19 +1893,22 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetFarEndPathCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetfarendpathcurrentess = YLeaf(YType.uint32, "sonetFarEndPathCurrentESs")
-
-                self.sonetfarendpathcurrentsess = YLeaf(YType.uint32, "sonetFarEndPathCurrentSESs")
-
-                self.sonetfarendpathcurrentcvs = YLeaf(YType.uint32, "sonetFarEndPathCurrentCVs")
-
-                self.sonetfarendpathcurrentuass = YLeaf(YType.uint32, "sonetFarEndPathCurrentUASs")
-                self._segment_path = lambda: "sonetFarEndPathCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetfarendpathcurrentess', YLeaf(YType.uint32, 'sonetFarEndPathCurrentESs')),
+                    ('sonetfarendpathcurrentsess', YLeaf(YType.uint32, 'sonetFarEndPathCurrentSESs')),
+                    ('sonetfarendpathcurrentcvs', YLeaf(YType.uint32, 'sonetFarEndPathCurrentCVs')),
+                    ('sonetfarendpathcurrentuass', YLeaf(YType.uint32, 'sonetFarEndPathCurrentUASs')),
+                ])
+                self.ifindex = None
+                self.sonetfarendpathcurrentess = None
+                self.sonetfarendpathcurrentsess = None
+                self.sonetfarendpathcurrentcvs = None
+                self.sonetfarendpathcurrentuass = None
+                self._segment_path = lambda: "sonetFarEndPathCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndPathCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1881,8 +1938,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetFarEndPathIntervalEntry" : ("sonetfarendpathintervalentry", SONETMIB.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetFarEndPathIntervalEntry", ("sonetfarendpathintervalentry", SONETMIB.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry))])
+            self._leafs = OrderedDict()
 
             self.sonetfarendpathintervalentry = YList(self)
             self._segment_path = lambda: "sonetFarEndPathIntervalTable"
@@ -1897,7 +1956,7 @@ class SONETMIB(Entity):
             An entry in the SONET/SDH Far
             End Path Interval table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1906,7 +1965,7 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: sonetfarendpathintervalnumber  <key>
+            .. attribute:: sonetfarendpathintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
@@ -1960,23 +2019,26 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetFarEndPathIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetfarendpathintervalnumber = YLeaf(YType.int32, "sonetFarEndPathIntervalNumber")
-
-                self.sonetfarendpathintervaless = YLeaf(YType.uint32, "sonetFarEndPathIntervalESs")
-
-                self.sonetfarendpathintervalsess = YLeaf(YType.uint32, "sonetFarEndPathIntervalSESs")
-
-                self.sonetfarendpathintervalcvs = YLeaf(YType.uint32, "sonetFarEndPathIntervalCVs")
-
-                self.sonetfarendpathintervaluass = YLeaf(YType.uint32, "sonetFarEndPathIntervalUASs")
-
-                self.sonetfarendpathintervalvaliddata = YLeaf(YType.boolean, "sonetFarEndPathIntervalValidData")
-                self._segment_path = lambda: "sonetFarEndPathIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetFarEndPathIntervalNumber='" + self.sonetfarendpathintervalnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','sonetfarendpathintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetfarendpathintervalnumber', YLeaf(YType.int32, 'sonetFarEndPathIntervalNumber')),
+                    ('sonetfarendpathintervaless', YLeaf(YType.uint32, 'sonetFarEndPathIntervalESs')),
+                    ('sonetfarendpathintervalsess', YLeaf(YType.uint32, 'sonetFarEndPathIntervalSESs')),
+                    ('sonetfarendpathintervalcvs', YLeaf(YType.uint32, 'sonetFarEndPathIntervalCVs')),
+                    ('sonetfarendpathintervaluass', YLeaf(YType.uint32, 'sonetFarEndPathIntervalUASs')),
+                    ('sonetfarendpathintervalvaliddata', YLeaf(YType.boolean, 'sonetFarEndPathIntervalValidData')),
+                ])
+                self.ifindex = None
+                self.sonetfarendpathintervalnumber = None
+                self.sonetfarendpathintervaless = None
+                self.sonetfarendpathintervalsess = None
+                self.sonetfarendpathintervalcvs = None
+                self.sonetfarendpathintervaluass = None
+                self.sonetfarendpathintervalvaliddata = None
+                self._segment_path = lambda: "sonetFarEndPathIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetFarEndPathIntervalNumber='" + str(self.sonetfarendpathintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndPathIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2006,8 +2068,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetVTCurrentEntry" : ("sonetvtcurrententry", SONETMIB.Sonetvtcurrenttable.Sonetvtcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetVTCurrentEntry", ("sonetvtcurrententry", SONETMIB.Sonetvtcurrenttable.Sonetvtcurrententry))])
+            self._leafs = OrderedDict()
 
             self.sonetvtcurrententry = YList(self)
             self._segment_path = lambda: "sonetVTCurrentTable"
@@ -2021,7 +2085,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH VT Current table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2084,23 +2148,26 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetVTCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetvtcurrentwidth = YLeaf(YType.enumeration, "sonetVTCurrentWidth")
-
-                self.sonetvtcurrentstatus = YLeaf(YType.int32, "sonetVTCurrentStatus")
-
-                self.sonetvtcurrentess = YLeaf(YType.uint32, "sonetVTCurrentESs")
-
-                self.sonetvtcurrentsess = YLeaf(YType.uint32, "sonetVTCurrentSESs")
-
-                self.sonetvtcurrentcvs = YLeaf(YType.uint32, "sonetVTCurrentCVs")
-
-                self.sonetvtcurrentuass = YLeaf(YType.uint32, "sonetVTCurrentUASs")
-                self._segment_path = lambda: "sonetVTCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetvtcurrentwidth', YLeaf(YType.enumeration, 'sonetVTCurrentWidth')),
+                    ('sonetvtcurrentstatus', YLeaf(YType.int32, 'sonetVTCurrentStatus')),
+                    ('sonetvtcurrentess', YLeaf(YType.uint32, 'sonetVTCurrentESs')),
+                    ('sonetvtcurrentsess', YLeaf(YType.uint32, 'sonetVTCurrentSESs')),
+                    ('sonetvtcurrentcvs', YLeaf(YType.uint32, 'sonetVTCurrentCVs')),
+                    ('sonetvtcurrentuass', YLeaf(YType.uint32, 'sonetVTCurrentUASs')),
+                ])
+                self.ifindex = None
+                self.sonetvtcurrentwidth = None
+                self.sonetvtcurrentstatus = None
+                self.sonetvtcurrentess = None
+                self.sonetvtcurrentsess = None
+                self.sonetvtcurrentcvs = None
+                self.sonetvtcurrentuass = None
+                self._segment_path = lambda: "sonetVTCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetVTCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2108,7 +2175,7 @@ class SONETMIB(Entity):
 
             class Sonetvtcurrentwidth(Enum):
                 """
-                Sonetvtcurrentwidth
+                Sonetvtcurrentwidth (Enum Class)
 
                 A value that indicates the type of the SONET
 
@@ -2163,8 +2230,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetVTIntervalEntry" : ("sonetvtintervalentry", SONETMIB.Sonetvtintervaltable.Sonetvtintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetVTIntervalEntry", ("sonetvtintervalentry", SONETMIB.Sonetvtintervaltable.Sonetvtintervalentry))])
+            self._leafs = OrderedDict()
 
             self.sonetvtintervalentry = YList(self)
             self._segment_path = lambda: "sonetVTIntervalTable"
@@ -2178,7 +2247,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH VT Interval table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2187,7 +2256,7 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: sonetvtintervalnumber  <key>
+            .. attribute:: sonetvtintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
@@ -2241,23 +2310,26 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetVTIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetvtintervalnumber = YLeaf(YType.int32, "sonetVTIntervalNumber")
-
-                self.sonetvtintervaless = YLeaf(YType.uint32, "sonetVTIntervalESs")
-
-                self.sonetvtintervalsess = YLeaf(YType.uint32, "sonetVTIntervalSESs")
-
-                self.sonetvtintervalcvs = YLeaf(YType.uint32, "sonetVTIntervalCVs")
-
-                self.sonetvtintervaluass = YLeaf(YType.uint32, "sonetVTIntervalUASs")
-
-                self.sonetvtintervalvaliddata = YLeaf(YType.boolean, "sonetVTIntervalValidData")
-                self._segment_path = lambda: "sonetVTIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetVTIntervalNumber='" + self.sonetvtintervalnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','sonetvtintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetvtintervalnumber', YLeaf(YType.int32, 'sonetVTIntervalNumber')),
+                    ('sonetvtintervaless', YLeaf(YType.uint32, 'sonetVTIntervalESs')),
+                    ('sonetvtintervalsess', YLeaf(YType.uint32, 'sonetVTIntervalSESs')),
+                    ('sonetvtintervalcvs', YLeaf(YType.uint32, 'sonetVTIntervalCVs')),
+                    ('sonetvtintervaluass', YLeaf(YType.uint32, 'sonetVTIntervalUASs')),
+                    ('sonetvtintervalvaliddata', YLeaf(YType.boolean, 'sonetVTIntervalValidData')),
+                ])
+                self.ifindex = None
+                self.sonetvtintervalnumber = None
+                self.sonetvtintervaless = None
+                self.sonetvtintervalsess = None
+                self.sonetvtintervalcvs = None
+                self.sonetvtintervaluass = None
+                self.sonetvtintervalvaliddata = None
+                self._segment_path = lambda: "sonetVTIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetVTIntervalNumber='" + str(self.sonetvtintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetVTIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2287,8 +2359,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetFarEndVTCurrentEntry" : ("sonetfarendvtcurrententry", SONETMIB.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetFarEndVTCurrentEntry", ("sonetfarendvtcurrententry", SONETMIB.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry))])
+            self._leafs = OrderedDict()
 
             self.sonetfarendvtcurrententry = YList(self)
             self._segment_path = lambda: "sonetFarEndVTCurrentTable"
@@ -2302,7 +2376,7 @@ class SONETMIB(Entity):
             """
             An entry in the SONET/SDH Far End VT Current table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2353,19 +2427,22 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetFarEndVTCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetfarendvtcurrentess = YLeaf(YType.uint32, "sonetFarEndVTCurrentESs")
-
-                self.sonetfarendvtcurrentsess = YLeaf(YType.uint32, "sonetFarEndVTCurrentSESs")
-
-                self.sonetfarendvtcurrentcvs = YLeaf(YType.uint32, "sonetFarEndVTCurrentCVs")
-
-                self.sonetfarendvtcurrentuass = YLeaf(YType.uint32, "sonetFarEndVTCurrentUASs")
-                self._segment_path = lambda: "sonetFarEndVTCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetfarendvtcurrentess', YLeaf(YType.uint32, 'sonetFarEndVTCurrentESs')),
+                    ('sonetfarendvtcurrentsess', YLeaf(YType.uint32, 'sonetFarEndVTCurrentSESs')),
+                    ('sonetfarendvtcurrentcvs', YLeaf(YType.uint32, 'sonetFarEndVTCurrentCVs')),
+                    ('sonetfarendvtcurrentuass', YLeaf(YType.uint32, 'sonetFarEndVTCurrentUASs')),
+                ])
+                self.ifindex = None
+                self.sonetfarendvtcurrentess = None
+                self.sonetfarendvtcurrentsess = None
+                self.sonetfarendvtcurrentcvs = None
+                self.sonetfarendvtcurrentuass = None
+                self._segment_path = lambda: "sonetFarEndVTCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndVTCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2395,8 +2472,10 @@ class SONETMIB(Entity):
             self.yang_parent_name = "SONET-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"sonetFarEndVTIntervalEntry" : ("sonetfarendvtintervalentry", SONETMIB.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("sonetFarEndVTIntervalEntry", ("sonetfarendvtintervalentry", SONETMIB.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry))])
+            self._leafs = OrderedDict()
 
             self.sonetfarendvtintervalentry = YList(self)
             self._segment_path = lambda: "sonetFarEndVTIntervalTable"
@@ -2411,7 +2490,7 @@ class SONETMIB(Entity):
             An entry in the SONET/SDH Far
             End VT Interval table.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2420,7 +2499,7 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: sonetfarendvtintervalnumber  <key>
+            .. attribute:: sonetfarendvtintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
@@ -2474,23 +2553,26 @@ class SONETMIB(Entity):
                 self.yang_parent_name = "sonetFarEndVTIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.sonetfarendvtintervalnumber = YLeaf(YType.int32, "sonetFarEndVTIntervalNumber")
-
-                self.sonetfarendvtintervaless = YLeaf(YType.uint32, "sonetFarEndVTIntervalESs")
-
-                self.sonetfarendvtintervalsess = YLeaf(YType.uint32, "sonetFarEndVTIntervalSESs")
-
-                self.sonetfarendvtintervalcvs = YLeaf(YType.uint32, "sonetFarEndVTIntervalCVs")
-
-                self.sonetfarendvtintervaluass = YLeaf(YType.uint32, "sonetFarEndVTIntervalUASs")
-
-                self.sonetfarendvtintervalvaliddata = YLeaf(YType.boolean, "sonetFarEndVTIntervalValidData")
-                self._segment_path = lambda: "sonetFarEndVTIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetFarEndVTIntervalNumber='" + self.sonetfarendvtintervalnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','sonetfarendvtintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('sonetfarendvtintervalnumber', YLeaf(YType.int32, 'sonetFarEndVTIntervalNumber')),
+                    ('sonetfarendvtintervaless', YLeaf(YType.uint32, 'sonetFarEndVTIntervalESs')),
+                    ('sonetfarendvtintervalsess', YLeaf(YType.uint32, 'sonetFarEndVTIntervalSESs')),
+                    ('sonetfarendvtintervalcvs', YLeaf(YType.uint32, 'sonetFarEndVTIntervalCVs')),
+                    ('sonetfarendvtintervaluass', YLeaf(YType.uint32, 'sonetFarEndVTIntervalUASs')),
+                    ('sonetfarendvtintervalvaliddata', YLeaf(YType.boolean, 'sonetFarEndVTIntervalValidData')),
+                ])
+                self.ifindex = None
+                self.sonetfarendvtintervalnumber = None
+                self.sonetfarendvtintervaless = None
+                self.sonetfarendvtintervalsess = None
+                self.sonetfarendvtintervalcvs = None
+                self.sonetfarendvtintervaluass = None
+                self.sonetfarendvtintervalvaliddata = None
+                self._segment_path = lambda: "sonetFarEndVTIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetFarEndVTIntervalNumber='" + str(self.sonetfarendvtintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndVTIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

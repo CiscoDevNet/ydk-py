@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AutorpProtocolMode(Enum):
     """
-    AutorpProtocolMode
+    AutorpProtocolMode (Enum Class)
 
     Autorp protocol mode
 
@@ -68,8 +70,10 @@ class AutoRp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-autorp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"standby" : ("standby", AutoRp.Standby), "active" : ("active", AutoRp.Active)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("standby", ("standby", AutoRp.Standby)), ("active", ("active", AutoRp.Active))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.standby = AutoRp.Standby()
         self.standby.parent = self
@@ -111,8 +115,10 @@ class AutoRp(Entity):
             self.yang_parent_name = "auto-rp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"candidate-rp" : ("candidate_rp", AutoRp.Standby.CandidateRp), "mapping-agent" : ("mapping_agent", AutoRp.Standby.MappingAgent)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("candidate-rp", ("candidate_rp", AutoRp.Standby.CandidateRp)), ("mapping-agent", ("mapping_agent", AutoRp.Standby.MappingAgent))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.candidate_rp = AutoRp.Standby.CandidateRp()
             self.candidate_rp.parent = self
@@ -155,8 +161,10 @@ class AutoRp(Entity):
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"traffic" : ("traffic", AutoRp.Standby.CandidateRp.Traffic), "rps" : ("rps", AutoRp.Standby.CandidateRp.Rps)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("traffic", ("traffic", AutoRp.Standby.CandidateRp.Traffic)), ("rps", ("rps", AutoRp.Standby.CandidateRp.Rps))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.traffic = AutoRp.Standby.CandidateRp.Traffic()
                 self.traffic.parent = self
@@ -203,12 +211,15 @@ class AutoRp(Entity):
                     self.yang_parent_name = "candidate-rp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.active_sent_packets = YLeaf(YType.uint32, "active-sent-packets")
-
-                    self.standby_sent_packets = YLeaf(YType.uint32, "standby-sent-packets")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('active_sent_packets', YLeaf(YType.uint32, 'active-sent-packets')),
+                        ('standby_sent_packets', YLeaf(YType.uint32, 'standby-sent-packets')),
+                    ])
+                    self.active_sent_packets = None
+                    self.standby_sent_packets = None
                     self._segment_path = lambda: "traffic"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/candidate-rp/%s" % self._segment_path()
 
@@ -239,8 +250,10 @@ class AutoRp(Entity):
                     self.yang_parent_name = "candidate-rp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"rp" : ("rp", AutoRp.Standby.CandidateRp.Rps.Rp)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("rp", ("rp", AutoRp.Standby.CandidateRp.Rps.Rp))])
+                    self._leafs = OrderedDict()
 
                     self.rp = YList(self)
                     self._segment_path = lambda: "rps"
@@ -311,22 +324,25 @@ class AutoRp(Entity):
                         self.yang_parent_name = "rps"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.protocol_mode = YLeaf(YType.enumeration, "protocol-mode")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                        self.candidate_rp_address = YLeaf(YType.str, "candidate-rp-address")
-
-                        self.ttl = YLeaf(YType.int32, "ttl")
-
-                        self.announce_period = YLeaf(YType.int32, "announce-period")
-
-                        self.protocol_mode_xr = YLeaf(YType.enumeration, "protocol-mode-xr")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('candidate_rp_address', YLeaf(YType.str, 'candidate-rp-address')),
+                            ('ttl', YLeaf(YType.int32, 'ttl')),
+                            ('announce_period', YLeaf(YType.int32, 'announce-period')),
+                            ('protocol_mode_xr', YLeaf(YType.enumeration, 'protocol-mode-xr')),
+                        ])
+                        self.interface_name = None
+                        self.protocol_mode = None
+                        self.access_list_name = None
+                        self.candidate_rp_address = None
+                        self.ttl = None
+                        self.announce_period = None
+                        self.protocol_mode_xr = None
                         self._segment_path = lambda: "rp"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/candidate-rp/rps/%s" % self._segment_path()
 
@@ -367,8 +383,10 @@ class AutoRp(Entity):
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"traffic" : ("traffic", AutoRp.Standby.MappingAgent.Traffic), "rp-addresses" : ("rp_addresses", AutoRp.Standby.MappingAgent.RpAddresses), "summary" : ("summary", AutoRp.Standby.MappingAgent.Summary)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("traffic", ("traffic", AutoRp.Standby.MappingAgent.Traffic)), ("rp-addresses", ("rp_addresses", AutoRp.Standby.MappingAgent.RpAddresses)), ("summary", ("summary", AutoRp.Standby.MappingAgent.Summary))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.traffic = AutoRp.Standby.MappingAgent.Traffic()
                 self.traffic.parent = self
@@ -434,16 +452,19 @@ class AutoRp(Entity):
                     self.yang_parent_name = "mapping-agent"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.active_sent_packets = YLeaf(YType.uint32, "active-sent-packets")
-
-                    self.standby_sent_packets = YLeaf(YType.uint32, "standby-sent-packets")
-
-                    self.active_received_packets = YLeaf(YType.uint32, "active-received-packets")
-
-                    self.standby_received_packets = YLeaf(YType.uint32, "standby-received-packets")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('active_sent_packets', YLeaf(YType.uint32, 'active-sent-packets')),
+                        ('standby_sent_packets', YLeaf(YType.uint32, 'standby-sent-packets')),
+                        ('active_received_packets', YLeaf(YType.uint32, 'active-received-packets')),
+                        ('standby_received_packets', YLeaf(YType.uint32, 'standby-received-packets')),
+                    ])
+                    self.active_sent_packets = None
+                    self.standby_sent_packets = None
+                    self.active_received_packets = None
+                    self.standby_received_packets = None
                     self._segment_path = lambda: "traffic"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/%s" % self._segment_path()
 
@@ -474,8 +495,10 @@ class AutoRp(Entity):
                     self.yang_parent_name = "mapping-agent"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"rp-address" : ("rp_address", AutoRp.Standby.MappingAgent.RpAddresses.RpAddress)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("rp-address", ("rp_address", AutoRp.Standby.MappingAgent.RpAddresses.RpAddress))])
+                    self._leafs = OrderedDict()
 
                     self.rp_address = YList(self)
                     self._segment_path = lambda: "rp-addresses"
@@ -489,7 +512,7 @@ class AutoRp(Entity):
                     """
                     AutoRP Mapping Agent Entry
                     
-                    .. attribute:: rp_address  <key>
+                    .. attribute:: rp_address  (key)
                     
                     	RP Address
                     	**type**\: str
@@ -538,19 +561,22 @@ class AutoRp(Entity):
                         self.yang_parent_name = "rp-addresses"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"range" : ("range", AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range)}
-
-                        self.rp_address = YLeaf(YType.str, "rp-address")
-
-                        self.rp_address_xr = YLeaf(YType.str, "rp-address-xr")
-
-                        self.expiry_time = YLeaf(YType.uint64, "expiry-time")
-
-                        self.pim_version = YLeaf(YType.uint8, "pim-version")
+                        self.ylist_key_names = ['rp_address']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("range", ("range", AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range))])
+                        self._leafs = OrderedDict([
+                            ('rp_address', YLeaf(YType.str, 'rp-address')),
+                            ('rp_address_xr', YLeaf(YType.str, 'rp-address-xr')),
+                            ('expiry_time', YLeaf(YType.uint64, 'expiry-time')),
+                            ('pim_version', YLeaf(YType.uint8, 'pim-version')),
+                        ])
+                        self.rp_address = None
+                        self.rp_address_xr = None
+                        self.expiry_time = None
+                        self.pim_version = None
 
                         self.range = YList(self)
-                        self._segment_path = lambda: "rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+                        self._segment_path = lambda: "rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/rp-addresses/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -622,22 +648,25 @@ class AutoRp(Entity):
                             self.yang_parent_name = "rp-address"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                            self.protocol_mode = YLeaf(YType.enumeration, "protocol-mode")
-
-                            self.is_advertised = YLeaf(YType.boolean, "is-advertised")
-
-                            self.create_type = YLeaf(YType.uint8, "create-type")
-
-                            self.check_point_object_id = YLeaf(YType.uint32, "check-point-object-id")
-
-                            self.uptime = YLeaf(YType.uint64, "uptime")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
+                                ('is_advertised', YLeaf(YType.boolean, 'is-advertised')),
+                                ('create_type', YLeaf(YType.uint8, 'create-type')),
+                                ('check_point_object_id', YLeaf(YType.uint32, 'check-point-object-id')),
+                                ('uptime', YLeaf(YType.uint64, 'uptime')),
+                            ])
+                            self.prefix = None
+                            self.prefix_length = None
+                            self.protocol_mode = None
+                            self.is_advertised = None
+                            self.create_type = None
+                            self.check_point_object_id = None
+                            self.uptime = None
                             self._segment_path = lambda: "range"
 
                         def __setattr__(self, name, value):
@@ -681,14 +710,17 @@ class AutoRp(Entity):
                     self.yang_parent_name = "mapping-agent"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.is_maximum_disabled = YLeaf(YType.boolean, "is-maximum-disabled")
-
-                    self.cache_limit = YLeaf(YType.uint32, "cache-limit")
-
-                    self.cache_count = YLeaf(YType.uint32, "cache-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('is_maximum_disabled', YLeaf(YType.boolean, 'is-maximum-disabled')),
+                        ('cache_limit', YLeaf(YType.uint32, 'cache-limit')),
+                        ('cache_count', YLeaf(YType.uint32, 'cache-count')),
+                    ])
+                    self.is_maximum_disabled = None
+                    self.cache_limit = None
+                    self.cache_count = None
                     self._segment_path = lambda: "summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/%s" % self._segment_path()
 
@@ -724,8 +756,10 @@ class AutoRp(Entity):
             self.yang_parent_name = "auto-rp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"candidate-rp" : ("candidate_rp", AutoRp.Active.CandidateRp), "mapping-agent" : ("mapping_agent", AutoRp.Active.MappingAgent)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("candidate-rp", ("candidate_rp", AutoRp.Active.CandidateRp)), ("mapping-agent", ("mapping_agent", AutoRp.Active.MappingAgent))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.candidate_rp = AutoRp.Active.CandidateRp()
             self.candidate_rp.parent = self
@@ -768,8 +802,10 @@ class AutoRp(Entity):
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"traffic" : ("traffic", AutoRp.Active.CandidateRp.Traffic), "rps" : ("rps", AutoRp.Active.CandidateRp.Rps)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("traffic", ("traffic", AutoRp.Active.CandidateRp.Traffic)), ("rps", ("rps", AutoRp.Active.CandidateRp.Rps))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.traffic = AutoRp.Active.CandidateRp.Traffic()
                 self.traffic.parent = self
@@ -816,12 +852,15 @@ class AutoRp(Entity):
                     self.yang_parent_name = "candidate-rp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.active_sent_packets = YLeaf(YType.uint32, "active-sent-packets")
-
-                    self.standby_sent_packets = YLeaf(YType.uint32, "standby-sent-packets")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('active_sent_packets', YLeaf(YType.uint32, 'active-sent-packets')),
+                        ('standby_sent_packets', YLeaf(YType.uint32, 'standby-sent-packets')),
+                    ])
+                    self.active_sent_packets = None
+                    self.standby_sent_packets = None
                     self._segment_path = lambda: "traffic"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/candidate-rp/%s" % self._segment_path()
 
@@ -852,8 +891,10 @@ class AutoRp(Entity):
                     self.yang_parent_name = "candidate-rp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"rp" : ("rp", AutoRp.Active.CandidateRp.Rps.Rp)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("rp", ("rp", AutoRp.Active.CandidateRp.Rps.Rp))])
+                    self._leafs = OrderedDict()
 
                     self.rp = YList(self)
                     self._segment_path = lambda: "rps"
@@ -924,22 +965,25 @@ class AutoRp(Entity):
                         self.yang_parent_name = "rps"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.protocol_mode = YLeaf(YType.enumeration, "protocol-mode")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                        self.candidate_rp_address = YLeaf(YType.str, "candidate-rp-address")
-
-                        self.ttl = YLeaf(YType.int32, "ttl")
-
-                        self.announce_period = YLeaf(YType.int32, "announce-period")
-
-                        self.protocol_mode_xr = YLeaf(YType.enumeration, "protocol-mode-xr")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('candidate_rp_address', YLeaf(YType.str, 'candidate-rp-address')),
+                            ('ttl', YLeaf(YType.int32, 'ttl')),
+                            ('announce_period', YLeaf(YType.int32, 'announce-period')),
+                            ('protocol_mode_xr', YLeaf(YType.enumeration, 'protocol-mode-xr')),
+                        ])
+                        self.interface_name = None
+                        self.protocol_mode = None
+                        self.access_list_name = None
+                        self.candidate_rp_address = None
+                        self.ttl = None
+                        self.announce_period = None
+                        self.protocol_mode_xr = None
                         self._segment_path = lambda: "rp"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/candidate-rp/rps/%s" % self._segment_path()
 
@@ -980,8 +1024,10 @@ class AutoRp(Entity):
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"traffic" : ("traffic", AutoRp.Active.MappingAgent.Traffic), "rp-addresses" : ("rp_addresses", AutoRp.Active.MappingAgent.RpAddresses), "summary" : ("summary", AutoRp.Active.MappingAgent.Summary)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("traffic", ("traffic", AutoRp.Active.MappingAgent.Traffic)), ("rp-addresses", ("rp_addresses", AutoRp.Active.MappingAgent.RpAddresses)), ("summary", ("summary", AutoRp.Active.MappingAgent.Summary))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.traffic = AutoRp.Active.MappingAgent.Traffic()
                 self.traffic.parent = self
@@ -1047,16 +1093,19 @@ class AutoRp(Entity):
                     self.yang_parent_name = "mapping-agent"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.active_sent_packets = YLeaf(YType.uint32, "active-sent-packets")
-
-                    self.standby_sent_packets = YLeaf(YType.uint32, "standby-sent-packets")
-
-                    self.active_received_packets = YLeaf(YType.uint32, "active-received-packets")
-
-                    self.standby_received_packets = YLeaf(YType.uint32, "standby-received-packets")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('active_sent_packets', YLeaf(YType.uint32, 'active-sent-packets')),
+                        ('standby_sent_packets', YLeaf(YType.uint32, 'standby-sent-packets')),
+                        ('active_received_packets', YLeaf(YType.uint32, 'active-received-packets')),
+                        ('standby_received_packets', YLeaf(YType.uint32, 'standby-received-packets')),
+                    ])
+                    self.active_sent_packets = None
+                    self.standby_sent_packets = None
+                    self.active_received_packets = None
+                    self.standby_received_packets = None
                     self._segment_path = lambda: "traffic"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/%s" % self._segment_path()
 
@@ -1087,8 +1136,10 @@ class AutoRp(Entity):
                     self.yang_parent_name = "mapping-agent"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"rp-address" : ("rp_address", AutoRp.Active.MappingAgent.RpAddresses.RpAddress)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("rp-address", ("rp_address", AutoRp.Active.MappingAgent.RpAddresses.RpAddress))])
+                    self._leafs = OrderedDict()
 
                     self.rp_address = YList(self)
                     self._segment_path = lambda: "rp-addresses"
@@ -1102,7 +1153,7 @@ class AutoRp(Entity):
                     """
                     AutoRP Mapping Agent Entry
                     
-                    .. attribute:: rp_address  <key>
+                    .. attribute:: rp_address  (key)
                     
                     	RP Address
                     	**type**\: str
@@ -1151,19 +1202,22 @@ class AutoRp(Entity):
                         self.yang_parent_name = "rp-addresses"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"range" : ("range", AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range)}
-
-                        self.rp_address = YLeaf(YType.str, "rp-address")
-
-                        self.rp_address_xr = YLeaf(YType.str, "rp-address-xr")
-
-                        self.expiry_time = YLeaf(YType.uint64, "expiry-time")
-
-                        self.pim_version = YLeaf(YType.uint8, "pim-version")
+                        self.ylist_key_names = ['rp_address']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("range", ("range", AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range))])
+                        self._leafs = OrderedDict([
+                            ('rp_address', YLeaf(YType.str, 'rp-address')),
+                            ('rp_address_xr', YLeaf(YType.str, 'rp-address-xr')),
+                            ('expiry_time', YLeaf(YType.uint64, 'expiry-time')),
+                            ('pim_version', YLeaf(YType.uint8, 'pim-version')),
+                        ])
+                        self.rp_address = None
+                        self.rp_address_xr = None
+                        self.expiry_time = None
+                        self.pim_version = None
 
                         self.range = YList(self)
-                        self._segment_path = lambda: "rp-address" + "[rp-address='" + self.rp_address.get() + "']"
+                        self._segment_path = lambda: "rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/rp-addresses/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -1235,22 +1289,25 @@ class AutoRp(Entity):
                             self.yang_parent_name = "rp-address"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                            self.protocol_mode = YLeaf(YType.enumeration, "protocol-mode")
-
-                            self.is_advertised = YLeaf(YType.boolean, "is-advertised")
-
-                            self.create_type = YLeaf(YType.uint8, "create-type")
-
-                            self.check_point_object_id = YLeaf(YType.uint32, "check-point-object-id")
-
-                            self.uptime = YLeaf(YType.uint64, "uptime")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
+                                ('is_advertised', YLeaf(YType.boolean, 'is-advertised')),
+                                ('create_type', YLeaf(YType.uint8, 'create-type')),
+                                ('check_point_object_id', YLeaf(YType.uint32, 'check-point-object-id')),
+                                ('uptime', YLeaf(YType.uint64, 'uptime')),
+                            ])
+                            self.prefix = None
+                            self.prefix_length = None
+                            self.protocol_mode = None
+                            self.is_advertised = None
+                            self.create_type = None
+                            self.check_point_object_id = None
+                            self.uptime = None
                             self._segment_path = lambda: "range"
 
                         def __setattr__(self, name, value):
@@ -1294,14 +1351,17 @@ class AutoRp(Entity):
                     self.yang_parent_name = "mapping-agent"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.is_maximum_disabled = YLeaf(YType.boolean, "is-maximum-disabled")
-
-                    self.cache_limit = YLeaf(YType.uint32, "cache-limit")
-
-                    self.cache_count = YLeaf(YType.uint32, "cache-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('is_maximum_disabled', YLeaf(YType.boolean, 'is-maximum-disabled')),
+                        ('cache_limit', YLeaf(YType.uint32, 'cache-limit')),
+                        ('cache_count', YLeaf(YType.uint32, 'cache-count')),
+                    ])
+                    self.is_maximum_disabled = None
+                    self.cache_limit = None
+                    self.cache_count = None
                     self._segment_path = lambda: "summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/%s" % self._segment_path()
 

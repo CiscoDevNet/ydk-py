@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class MacsecCtrlrCiphersuit(Enum):
     """
-    MacsecCtrlrCiphersuit
+    MacsecCtrlrCiphersuit (Enum Class)
 
     Macsec ctrlr ciphersuit
 
@@ -46,7 +48,7 @@ class MacsecCtrlrCiphersuit(Enum):
 
 class MacsecCtrlrState(Enum):
     """
-    MacsecCtrlrState
+    MacsecCtrlrState (Enum Class)
 
     Macsec ctrlr state
 
@@ -96,8 +98,10 @@ class MacsecCtrlrOper(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-macsec-ctrlr-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"macsec-ctrlr-ports" : ("macsec_ctrlr_ports", MacsecCtrlrOper.MacsecCtrlrPorts)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("macsec-ctrlr-ports", ("macsec_ctrlr_ports", MacsecCtrlrOper.MacsecCtrlrPorts))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.macsec_ctrlr_ports = MacsecCtrlrOper.MacsecCtrlrPorts()
         self.macsec_ctrlr_ports.parent = self
@@ -129,8 +133,10 @@ class MacsecCtrlrOper(Entity):
             self.yang_parent_name = "macsec-ctrlr-oper"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"macsec-ctrlr-port" : ("macsec_ctrlr_port", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("macsec-ctrlr-port", ("macsec_ctrlr_port", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort))])
+            self._leafs = OrderedDict()
 
             self.macsec_ctrlr_port = YList(self)
             self._segment_path = lambda: "macsec-ctrlr-ports"
@@ -144,7 +150,7 @@ class MacsecCtrlrOper(Entity):
             """
             Controller name
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Port name
             	**type**\: str
@@ -170,16 +176,19 @@ class MacsecCtrlrOper(Entity):
                 self.yang_parent_name = "macsec-ctrlr-ports"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"macsec-ctrlr-info" : ("macsec_ctrlr_info", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("macsec-ctrlr-info", ("macsec_ctrlr_info", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.macsec_ctrlr_info = MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo()
                 self.macsec_ctrlr_info.parent = self
                 self._children_name_map["macsec_ctrlr_info"] = "macsec-ctrlr-info"
                 self._children_yang_names.add("macsec-ctrlr-info")
-                self._segment_path = lambda: "macsec-ctrlr-port" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "macsec-ctrlr-port" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-macsec-ctrlr-oper:macsec-ctrlr-oper/macsec-ctrlr-ports/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -238,16 +247,19 @@ class MacsecCtrlrOper(Entity):
                     self.yang_parent_name = "macsec-ctrlr-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"encrypt-sc-status" : ("encrypt_sc_status", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus), "decrypt-sc-status" : ("decrypt_sc_status", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus)}
-                    self._child_list_classes = {}
-
-                    self.state = YLeaf(YType.enumeration, "state")
-
-                    self.replay_window_size = YLeaf(YType.uint32, "replay-window-size")
-
-                    self.must_secure = YLeaf(YType.boolean, "must-secure")
-
-                    self.secure_mode = YLeaf(YType.uint32, "secure-mode")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("encrypt-sc-status", ("encrypt_sc_status", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus)), ("decrypt-sc-status", ("decrypt_sc_status", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('state', YLeaf(YType.enumeration, 'state')),
+                        ('replay_window_size', YLeaf(YType.uint32, 'replay-window-size')),
+                        ('must_secure', YLeaf(YType.boolean, 'must-secure')),
+                        ('secure_mode', YLeaf(YType.uint32, 'secure-mode')),
+                    ])
+                    self.state = None
+                    self.replay_window_size = None
+                    self.must_secure = None
+                    self.secure_mode = None
 
                     self.encrypt_sc_status = MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus()
                     self.encrypt_sc_status.parent = self
@@ -323,20 +335,23 @@ class MacsecCtrlrOper(Entity):
                         self.yang_parent_name = "macsec-ctrlr-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"active-association" : ("active_association", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation)}
-
-                        self.protection_enabled = YLeaf(YType.boolean, "protection-enabled")
-
-                        self.secure_channel_id = YLeaf(YType.str, "secure-channel-id")
-
-                        self.confidentiality_offset = YLeaf(YType.uint32, "confidentiality-offset")
-
-                        self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
-
-                        self.max_packet_number = YLeaf(YType.uint64, "max-packet-number")
-
-                        self.recent_packet_number = YLeaf(YType.uint64, "recent-packet-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("active-association", ("active_association", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation))])
+                        self._leafs = OrderedDict([
+                            ('protection_enabled', YLeaf(YType.boolean, 'protection-enabled')),
+                            ('secure_channel_id', YLeaf(YType.str, 'secure-channel-id')),
+                            ('confidentiality_offset', YLeaf(YType.uint32, 'confidentiality-offset')),
+                            ('cipher_suite', YLeaf(YType.enumeration, 'cipher-suite')),
+                            ('max_packet_number', YLeaf(YType.uint64, 'max-packet-number')),
+                            ('recent_packet_number', YLeaf(YType.uint64, 'recent-packet-number')),
+                        ])
+                        self.protection_enabled = None
+                        self.secure_channel_id = None
+                        self.confidentiality_offset = None
+                        self.cipher_suite = None
+                        self.max_packet_number = None
+                        self.recent_packet_number = None
 
                         self.active_association = YList(self)
                         self._segment_path = lambda: "encrypt-sc-status"
@@ -377,12 +392,15 @@ class MacsecCtrlrOper(Entity):
                             self.yang_parent_name = "encrypt-sc-status"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.association_number = YLeaf(YType.uint8, "association-number")
-
-                            self.short_secure_channel_id = YLeaf(YType.uint32, "short-secure-channel-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('association_number', YLeaf(YType.uint8, 'association-number')),
+                                ('short_secure_channel_id', YLeaf(YType.uint32, 'short-secure-channel-id')),
+                            ])
+                            self.association_number = None
+                            self.short_secure_channel_id = None
                             self._segment_path = lambda: "active-association"
 
                         def __setattr__(self, name, value):
@@ -448,20 +466,23 @@ class MacsecCtrlrOper(Entity):
                         self.yang_parent_name = "macsec-ctrlr-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"active-association" : ("active_association", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation)}
-
-                        self.protection_enabled = YLeaf(YType.boolean, "protection-enabled")
-
-                        self.secure_channel_id = YLeaf(YType.str, "secure-channel-id")
-
-                        self.confidentiality_offset = YLeaf(YType.uint32, "confidentiality-offset")
-
-                        self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
-
-                        self.max_packet_number = YLeaf(YType.uint64, "max-packet-number")
-
-                        self.recent_packet_number = YLeaf(YType.uint64, "recent-packet-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("active-association", ("active_association", MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation))])
+                        self._leafs = OrderedDict([
+                            ('protection_enabled', YLeaf(YType.boolean, 'protection-enabled')),
+                            ('secure_channel_id', YLeaf(YType.str, 'secure-channel-id')),
+                            ('confidentiality_offset', YLeaf(YType.uint32, 'confidentiality-offset')),
+                            ('cipher_suite', YLeaf(YType.enumeration, 'cipher-suite')),
+                            ('max_packet_number', YLeaf(YType.uint64, 'max-packet-number')),
+                            ('recent_packet_number', YLeaf(YType.uint64, 'recent-packet-number')),
+                        ])
+                        self.protection_enabled = None
+                        self.secure_channel_id = None
+                        self.confidentiality_offset = None
+                        self.cipher_suite = None
+                        self.max_packet_number = None
+                        self.recent_packet_number = None
 
                         self.active_association = YList(self)
                         self._segment_path = lambda: "decrypt-sc-status"
@@ -502,12 +523,15 @@ class MacsecCtrlrOper(Entity):
                             self.yang_parent_name = "decrypt-sc-status"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.association_number = YLeaf(YType.uint8, "association-number")
-
-                            self.short_secure_channel_id = YLeaf(YType.uint32, "short-secure-channel-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('association_number', YLeaf(YType.uint8, 'association-number')),
+                                ('short_secure_channel_id', YLeaf(YType.uint32, 'short-secure-channel-id')),
+                            ])
+                            self.association_number = None
+                            self.short_secure_channel_id = None
                             self._segment_path = lambda: "active-association"
 
                         def __setattr__(self, name, value):

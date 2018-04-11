@@ -1,19 +1,21 @@
 """ cisco_ia 
 
 DMI self\-management YANG module for IOS
-Copyright (c) 2016 by Cisco Systems, Inc.
+Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CiaLogLevel(Enum):
     """
-    CiaLogLevel
+    CiaLogLevel (Enum Class)
 
     Logging levels for DMI
 
@@ -54,7 +56,7 @@ class CiaLogLevel(Enum):
 
 class CiaSyncType(Enum):
     """
-    CiaSyncType
+    CiaSyncType (Enum Class)
 
     Controls the elements sent to the DMI 
 
@@ -89,7 +91,7 @@ class CiaSyncType(Enum):
 
 class OnepLogLevel(Enum):
     """
-    OnepLogLevel
+    OnepLogLevel (Enum Class)
 
     Logging levels for Onep
 
@@ -144,7 +146,7 @@ class OnepLogLevel(Enum):
 
 class SyslogSeverity(Enum):
     """
-    SyslogSeverity
+    SyslogSeverity (Enum Class)
 
     Standard Syslog logging levels)
 
@@ -226,7 +228,7 @@ class SyncFrom(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2017-03-02'
+    _revision = '2018-01-22'
 
     def __init__(self):
         super(SyncFrom, self).__init__()
@@ -236,8 +238,10 @@ class SyncFrom(Entity):
         self.yang_parent_name = "cisco-ia"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = SyncFrom.Input()
         self.input.parent = self
@@ -270,7 +274,7 @@ class SyncFrom(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(SyncFrom.Input, self).__init__()
@@ -279,12 +283,15 @@ class SyncFrom(Entity):
             self.yang_parent_name = "sync-from"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.sync_defaults = YLeaf(YType.empty, "sync-defaults")
-
-            self.ignore_presrv_paths = YLeaf(YType.empty, "ignore-presrv-paths")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('sync_defaults', YLeaf(YType.empty, 'sync-defaults')),
+                ('ignore_presrv_paths', YLeaf(YType.empty, 'ignore-presrv-paths')),
+            ])
+            self.sync_defaults = None
+            self.ignore_presrv_paths = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-ia:sync-from/%s" % self._segment_path()
 
@@ -306,7 +313,7 @@ class SyncFrom(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(SyncFrom.Output, self).__init__()
@@ -315,10 +322,13 @@ class SyncFrom(Entity):
             self.yang_parent_name = "sync-from"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', YLeaf(YType.str, 'result')),
+            ])
+            self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:sync-from/%s" % self._segment_path()
 
@@ -345,7 +355,7 @@ class SaveConfig(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2017-03-02'
+    _revision = '2018-01-22'
 
     def __init__(self):
         super(SaveConfig, self).__init__()
@@ -355,8 +365,10 @@ class SaveConfig(Entity):
         self.yang_parent_name = "cisco-ia"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.output = SaveConfig.Output()
         self.output.parent = self
@@ -379,7 +391,7 @@ class SaveConfig(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(SaveConfig.Output, self).__init__()
@@ -388,10 +400,13 @@ class SaveConfig(Entity):
             self.yang_parent_name = "save-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', YLeaf(YType.str, 'result')),
+            ])
+            self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:save-config/%s" % self._segment_path()
 
@@ -418,7 +433,7 @@ class IsSyncing(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2017-03-02'
+    _revision = '2018-01-22'
 
     def __init__(self):
         super(IsSyncing, self).__init__()
@@ -428,8 +443,10 @@ class IsSyncing(Entity):
         self.yang_parent_name = "cisco-ia"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.output = IsSyncing.Output()
         self.output.parent = self
@@ -452,7 +469,7 @@ class IsSyncing(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(IsSyncing.Output, self).__init__()
@@ -461,10 +478,13 @@ class IsSyncing(Entity):
             self.yang_parent_name = "is-syncing"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', YLeaf(YType.str, 'result')),
+            ])
+            self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:is-syncing/%s" % self._segment_path()
 
@@ -490,7 +510,7 @@ class Checkpoint(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2017-03-02'
+    _revision = '2018-01-22'
 
     def __init__(self):
         super(Checkpoint, self).__init__()
@@ -500,8 +520,10 @@ class Checkpoint(Entity):
         self.yang_parent_name = "cisco-ia"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.output = Checkpoint.Output()
         self.output.parent = self
@@ -524,7 +546,7 @@ class Checkpoint(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(Checkpoint.Output, self).__init__()
@@ -533,10 +555,13 @@ class Checkpoint(Entity):
             self.yang_parent_name = "checkpoint"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', YLeaf(YType.str, 'result')),
+            ])
+            self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:checkpoint/%s" % self._segment_path()
 
@@ -568,7 +593,7 @@ class Revert(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2017-03-02'
+    _revision = '2018-01-22'
 
     def __init__(self):
         super(Revert, self).__init__()
@@ -578,8 +603,10 @@ class Revert(Entity):
         self.yang_parent_name = "cisco-ia"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Revert.Input()
         self.input.parent = self
@@ -621,7 +648,7 @@ class Revert(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(Revert.Input, self).__init__()
@@ -630,14 +657,17 @@ class Revert(Entity):
             self.yang_parent_name = "revert"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.now = YLeaf(YType.empty, "now")
-
-            self.timer = YLeaf(YType.int16, "timer")
-
-            self.idle = YLeaf(YType.int16, "idle")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('now', YLeaf(YType.empty, 'now')),
+                ('timer', YLeaf(YType.int16, 'timer')),
+                ('idle', YLeaf(YType.int16, 'idle')),
+            ])
+            self.now = None
+            self.timer = None
+            self.idle = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-ia:revert/%s" % self._segment_path()
 
@@ -659,7 +689,7 @@ class Revert(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(Revert.Output, self).__init__()
@@ -668,10 +698,13 @@ class Revert(Entity):
             self.yang_parent_name = "revert"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', YLeaf(YType.str, 'result')),
+            ])
+            self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:revert/%s" % self._segment_path()
 
@@ -702,7 +735,7 @@ class Rollback(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2017-03-02'
+    _revision = '2018-01-22'
 
     def __init__(self):
         super(Rollback, self).__init__()
@@ -712,8 +745,10 @@ class Rollback(Entity):
         self.yang_parent_name = "cisco-ia"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Rollback.Input()
         self.input.parent = self
@@ -769,7 +804,7 @@ class Rollback(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(Rollback.Input, self).__init__()
@@ -778,18 +813,21 @@ class Rollback(Entity):
             self.yang_parent_name = "rollback"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.target_url = YLeaf(YType.str, "target-url")
-
-            self.verbose = YLeaf(YType.boolean, "verbose")
-
-            self.nolock = YLeaf(YType.boolean, "nolock")
-
-            self.revert_on_error = YLeaf(YType.empty, "revert-on-error")
-
-            self.revert_timer = YLeaf(YType.int16, "revert-timer")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('target_url', YLeaf(YType.str, 'target-url')),
+                ('verbose', YLeaf(YType.boolean, 'verbose')),
+                ('nolock', YLeaf(YType.boolean, 'nolock')),
+                ('revert_on_error', YLeaf(YType.empty, 'revert-on-error')),
+                ('revert_timer', YLeaf(YType.int16, 'revert-timer')),
+            ])
+            self.target_url = None
+            self.verbose = None
+            self.nolock = None
+            self.revert_on_error = None
+            self.revert_timer = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-ia:rollback/%s" % self._segment_path()
 
@@ -811,7 +849,7 @@ class Rollback(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2017-03-02'
+        _revision = '2018-01-22'
 
         def __init__(self):
             super(Rollback.Output, self).__init__()
@@ -820,10 +858,13 @@ class Rollback(Entity):
             self.yang_parent_name = "rollback"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', YLeaf(YType.str, 'result')),
+            ])
+            self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:rollback/%s" % self._segment_path()
 

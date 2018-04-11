@@ -1,157 +1,170 @@
 submodule Cisco-IOS-XR-l2vpn-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-l2vpn-oper {
     prefix Cisco-IOS-XR-l2vpn-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR l2vpn package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-06-26" {
+  revision 2017-06-26 {
     description
       "Change identifiers to be more readable.";
   }
-
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Iflist-rep-status {
     type enumeration {
-      enum invalid {
+      enum "invalid" {
         value 0;
-        description "Invalid";
+        description
+          "Invalid";
       }
-      enum pending {
+      enum "pending" {
         value 1;
-        description "Pending";
+        description
+          "Pending";
       }
-      enum done {
+      enum "done" {
         value 2;
-        description "Done";
+        description
+          "Done";
       }
-      enum not-supported {
+      enum "not-supported" {
         value 3;
-        description "Not supported";
+        description
+          "Not supported";
       }
-      enum failed {
+      enum "failed" {
         value 4;
-        description "Failed";
+        description
+          "Failed";
       }
     }
-    description "Interface list replication status";
+    description
+      "Interface list replication status";
   }
 
   grouping IFLIST-IFL {
-    description "Generic interface list info";
+    description
+      "Generic interface list info";
     leaf interface-list-name {
       type string {
         length "0..33";
       }
-      description "Interface-list name";
+      description
+        "Interface-list name";
     }
     leaf interface-list-id {
       type uint32;
-      description "Interface internal ID";
+      description
+        "Interface internal ID";
     }
     leaf items {
       type uint32;
       description
         "Number of items on which interface list is
-        replicated";
+         replicated";
     }
     leaf is-provisioned {
       type boolean;
-      description "Is Provisioned";
+      description
+        "Is Provisioned";
     }
     leaf is-fib-downloaded {
       type boolean;
-      description "Is Interface list downloaded to FIB";
+      description
+        "Is Interface list downloaded to FIB";
     }
-
     list interface {
-      description "Interfaces";
+      description
+        "Interfaces";
       uses IFLIST-IF;
     }
   }
 
   grouping IFLIST-IF {
-    description "Interface info for Generic interface list";
+    description
+      "Interface info for Generic interface list";
     leaf interface-name {
       type string;
-      description "Interface name";
+      description
+        "Interface name";
     }
     leaf pending-replications {
       type uint32;
-      description "Number of pending replications";
+      description
+        "Number of pending replications";
     }
     leaf not-supported-replications {
       type uint32;
       description
         "Number of replications failed because
-        unsupported";
+         unsupported";
     }
     leaf is-fib-downloaded {
       type boolean;
-      description "Is interface downloaded to FIB";
+      description
+        "Is interface downloaded to FIB";
     }
   }
 
   grouping ITEM-IFLIST-IF {
-    description "Interface info for Generic interface list";
+    description
+      "Interface info for Generic interface list";
     leaf interface-name {
       type string;
-      description "Interface name";
+      description
+        "Interface name";
     }
     leaf replicate-status {
       type Iflist-rep-status;
-      description "Replicate status";
+      description
+        "Replicate status";
     }
   }
 
   grouping ITEM-IFLIST-IFL {
-    description "Generic interface list info";
+    description
+      "Generic interface list info";
     leaf interface-list-name {
       type string {
         length "0..33";
       }
-      description "Interface-list name";
+      description
+        "Interface-list name";
     }
     leaf interface-list-id {
       type uint32;
-      description "Interface internal ID";
+      description
+        "Interface internal ID";
     }
-
     list interface {
       max-elements "8";
-      description "Interfaces";
+      description
+        "Interfaces";
       uses ITEM-IFLIST-IF;
     }
   }

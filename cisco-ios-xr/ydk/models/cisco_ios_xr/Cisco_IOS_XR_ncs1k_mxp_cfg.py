@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class ClientDataRate(Enum):
     """
-    ClientDataRate
+    ClientDataRate (Enum Class)
 
     Client data rate
 
@@ -52,7 +54,7 @@ class ClientDataRate(Enum):
 
 class Fec(Enum):
     """
-    Fec
+    Fec (Enum Class)
 
     Fec
 
@@ -73,7 +75,7 @@ class Fec(Enum):
 
 class TrunkDataRate(Enum):
     """
-    TrunkDataRate
+    TrunkDataRate (Enum Class)
 
     Trunk data rate
 
@@ -123,8 +125,10 @@ class HardwareModule(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs1k-mxp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"node" : ("node", HardwareModule.Node)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("node", ("node", HardwareModule.Node))])
+        self._leafs = OrderedDict()
 
         self.node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-cfg:hardware-module"
@@ -137,7 +141,7 @@ class HardwareModule(Entity):
         """
         Node
         
-        .. attribute:: location  <key>
+        .. attribute:: location  (key)
         
         	Fully qualified line card specification
         	**type**\: str
@@ -163,13 +167,16 @@ class HardwareModule(Entity):
             self.yang_parent_name = "hardware-module"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"slice" : ("slice", HardwareModule.Node.Slice)}
-
-            self.location = YLeaf(YType.str, "location")
+            self.ylist_key_names = ['location']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("slice", ("slice", HardwareModule.Node.Slice))])
+            self._leafs = OrderedDict([
+                ('location', YLeaf(YType.str, 'location')),
+            ])
+            self.location = None
 
             self.slice = YList(self)
-            self._segment_path = lambda: "node" + "[location='" + self.location.get() + "']"
+            self._segment_path = lambda: "node" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-cfg:hardware-module/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -180,7 +187,7 @@ class HardwareModule(Entity):
             """
             Slice to be Provisioned
             
-            .. attribute:: slice_id  <key>
+            .. attribute:: slice_id  (key)
             
             	Set Slice
             	**type**\: str
@@ -211,18 +218,21 @@ class HardwareModule(Entity):
                 self.yang_parent_name = "node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"values" : ("values", HardwareModule.Node.Slice.Values)}
-                self._child_list_classes = {}
-
-                self.slice_id = YLeaf(YType.str, "slice-id")
-
-                self.lldp = YLeaf(YType.boolean, "lldp")
+                self.ylist_key_names = ['slice_id']
+                self._child_container_classes = OrderedDict([("values", ("values", HardwareModule.Node.Slice.Values))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('slice_id', YLeaf(YType.str, 'slice-id')),
+                    ('lldp', YLeaf(YType.boolean, 'lldp')),
+                ])
+                self.slice_id = None
+                self.lldp = None
 
                 self.values = HardwareModule.Node.Slice.Values()
                 self.values.parent = self
                 self._children_name_map["values"] = "values"
                 self._children_yang_names.add("values")
-                self._segment_path = lambda: "slice" + "[slice-id='" + self.slice_id.get() + "']"
+                self._segment_path = lambda: "slice" + "[slice-id='" + str(self.slice_id) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModule.Node.Slice, ['slice_id', 'lldp'], name, value)
@@ -268,16 +278,19 @@ class HardwareModule(Entity):
                     self.yang_parent_name = "slice"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.client_rate = YLeaf(YType.enumeration, "client-rate")
-
-                    self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
-
-                    self.fec = YLeaf(YType.enumeration, "fec")
-
-                    self.encrypted = YLeaf(YType.boolean, "encrypted")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('client_rate', YLeaf(YType.enumeration, 'client-rate')),
+                        ('trunk_rate', YLeaf(YType.enumeration, 'trunk-rate')),
+                        ('fec', YLeaf(YType.enumeration, 'fec')),
+                        ('encrypted', YLeaf(YType.boolean, 'encrypted')),
+                    ])
+                    self.client_rate = None
+                    self.trunk_rate = None
+                    self.fec = None
+                    self.encrypted = None
                     self._segment_path = lambda: "values"
 
                 def __setattr__(self, name, value):

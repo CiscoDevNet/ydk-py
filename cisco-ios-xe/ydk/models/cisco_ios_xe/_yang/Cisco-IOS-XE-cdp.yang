@@ -29,6 +29,20 @@ module Cisco-IOS-XE-cdp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-14 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -132,10 +146,21 @@ module Cisco-IOS-XE-cdp {
     uses config-interface-cdp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-interface-cdp-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-cdp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-cdp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-cdp-grouping;
+  }
 
   augment "/ios:native/ios:interface/ios:Tunnel" {
     uses config-interface-cdp-grouping;

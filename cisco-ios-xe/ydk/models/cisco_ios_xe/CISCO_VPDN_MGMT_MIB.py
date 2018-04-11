@@ -53,15 +53,17 @@ User ===== Cisco A ===== IP Network ===== Cisco B ===== Server
    recorded per user and provides relevant information.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class EndpointClass(Enum):
     """
-    EndpointClass
+    EndpointClass (Enum Class)
 
     The endpoint discriminator class supplied by the remote peer in
 
@@ -158,7 +160,7 @@ class EndpointClass(Enum):
 
 class TunnelType(Enum):
     """
-    TunnelType
+    TunnelType (Enum Class)
 
     The tunnel type.  This is the tunnel protocol of a VPDN
 
@@ -263,8 +265,10 @@ class CISCOVPDNMGMTMIB(Entity):
         self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciscoVpdnMgmtMIBNotifs" : ("ciscovpdnmgmtmibnotifs", CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs), "cvpdnSystemInfo" : ("cvpdnsysteminfo", CISCOVPDNMGMTMIB.Cvpdnsysteminfo), "cvpdnMultilinkInfo" : ("cvpdnmultilinkinfo", CISCOVPDNMGMTMIB.Cvpdnmultilinkinfo), "cvpdnSystemTable" : ("cvpdnsystemtable", CISCOVPDNMGMTMIB.Cvpdnsystemtable), "cvpdnTunnelTable" : ("cvpdntunneltable", CISCOVPDNMGMTMIB.Cvpdntunneltable), "cvpdnTunnelAttrTable" : ("cvpdntunnelattrtable", CISCOVPDNMGMTMIB.Cvpdntunnelattrtable), "cvpdnTunnelSessionTable" : ("cvpdntunnelsessiontable", CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable), "cvpdnSessionAttrTable" : ("cvpdnsessionattrtable", CISCOVPDNMGMTMIB.Cvpdnsessionattrtable), "cvpdnUserToFailHistInfoTable" : ("cvpdnusertofailhistinfotable", CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable), "cvpdnTemplateTable" : ("cvpdntemplatetable", CISCOVPDNMGMTMIB.Cvpdntemplatetable), "cvpdnBundleTable" : ("cvpdnbundletable", CISCOVPDNMGMTMIB.Cvpdnbundletable), "cvpdnBundleChildTable" : ("cvpdnbundlechildtable", CISCOVPDNMGMTMIB.Cvpdnbundlechildtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ciscoVpdnMgmtMIBNotifs", ("ciscovpdnmgmtmibnotifs", CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs)), ("cvpdnSystemInfo", ("cvpdnsysteminfo", CISCOVPDNMGMTMIB.Cvpdnsysteminfo)), ("cvpdnMultilinkInfo", ("cvpdnmultilinkinfo", CISCOVPDNMGMTMIB.Cvpdnmultilinkinfo)), ("cvpdnSystemTable", ("cvpdnsystemtable", CISCOVPDNMGMTMIB.Cvpdnsystemtable)), ("cvpdnTunnelTable", ("cvpdntunneltable", CISCOVPDNMGMTMIB.Cvpdntunneltable)), ("cvpdnTunnelAttrTable", ("cvpdntunnelattrtable", CISCOVPDNMGMTMIB.Cvpdntunnelattrtable)), ("cvpdnTunnelSessionTable", ("cvpdntunnelsessiontable", CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable)), ("cvpdnSessionAttrTable", ("cvpdnsessionattrtable", CISCOVPDNMGMTMIB.Cvpdnsessionattrtable)), ("cvpdnUserToFailHistInfoTable", ("cvpdnusertofailhistinfotable", CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable)), ("cvpdnTemplateTable", ("cvpdntemplatetable", CISCOVPDNMGMTMIB.Cvpdntemplatetable)), ("cvpdnBundleTable", ("cvpdnbundletable", CISCOVPDNMGMTMIB.Cvpdnbundletable)), ("cvpdnBundleChildTable", ("cvpdnbundlechildtable", CISCOVPDNMGMTMIB.Cvpdnbundlechildtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ciscovpdnmgmtmibnotifs = CISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs()
         self.ciscovpdnmgmtmibnotifs.parent = self
@@ -358,12 +362,15 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cvpdnnotifsessionid = YLeaf(YType.int32, "cvpdnNotifSessionID")
-
-            self.cvpdnnotifsessionevent = YLeaf(YType.enumeration, "cvpdnNotifSessionEvent")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cvpdnnotifsessionid', YLeaf(YType.int32, 'cvpdnNotifSessionID')),
+                ('cvpdnnotifsessionevent', YLeaf(YType.enumeration, 'cvpdnNotifSessionEvent')),
+            ])
+            self.cvpdnnotifsessionid = None
+            self.cvpdnnotifsessionevent = None
             self._segment_path = lambda: "ciscoVpdnMgmtMIBNotifs"
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
@@ -372,7 +379,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
         class Cvpdnnotifsessionevent(Enum):
             """
-            Cvpdnnotifsessionevent
+            Cvpdnnotifsessionevent (Enum Class)
 
             Indicates the event that generated the L2X session
 
@@ -473,18 +480,21 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cvpdntunneltotal = YLeaf(YType.uint32, "cvpdnTunnelTotal")
-
-            self.cvpdnsessiontotal = YLeaf(YType.uint32, "cvpdnSessionTotal")
-
-            self.cvpdndenieduserstotal = YLeaf(YType.uint32, "cvpdnDeniedUsersTotal")
-
-            self.cvpdnsystemnotifsessionenabled = YLeaf(YType.boolean, "cvpdnSystemNotifSessionEnabled")
-
-            self.cvpdnsystemclearsessions = YLeaf(YType.enumeration, "cvpdnSystemClearSessions")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cvpdntunneltotal', YLeaf(YType.uint32, 'cvpdnTunnelTotal')),
+                ('cvpdnsessiontotal', YLeaf(YType.uint32, 'cvpdnSessionTotal')),
+                ('cvpdndenieduserstotal', YLeaf(YType.uint32, 'cvpdnDeniedUsersTotal')),
+                ('cvpdnsystemnotifsessionenabled', YLeaf(YType.boolean, 'cvpdnSystemNotifSessionEnabled')),
+                ('cvpdnsystemclearsessions', YLeaf(YType.enumeration, 'cvpdnSystemClearSessions')),
+            ])
+            self.cvpdntunneltotal = None
+            self.cvpdnsessiontotal = None
+            self.cvpdndenieduserstotal = None
+            self.cvpdnsystemnotifsessionenabled = None
+            self.cvpdnsystemclearsessions = None
             self._segment_path = lambda: "cvpdnSystemInfo"
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
@@ -493,7 +503,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
         class Cvpdnsystemclearsessions(Enum):
             """
-            Cvpdnsystemclearsessions
+            Cvpdnsystemclearsessions (Enum Class)
 
             Clears all the sessions in a given tunnel type.  When
 
@@ -585,16 +595,19 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cvpdnbundleswithonelink = YLeaf(YType.uint32, "cvpdnBundlesWithOneLink")
-
-            self.cvpdnbundleswithtwolinks = YLeaf(YType.uint32, "cvpdnBundlesWithTwoLinks")
-
-            self.cvpdnbundleswithmorethantwolinks = YLeaf(YType.uint32, "cvpdnBundlesWithMoreThanTwoLinks")
-
-            self.cvpdnbundlelastchanged = YLeaf(YType.uint32, "cvpdnBundleLastChanged")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cvpdnbundleswithonelink', YLeaf(YType.uint32, 'cvpdnBundlesWithOneLink')),
+                ('cvpdnbundleswithtwolinks', YLeaf(YType.uint32, 'cvpdnBundlesWithTwoLinks')),
+                ('cvpdnbundleswithmorethantwolinks', YLeaf(YType.uint32, 'cvpdnBundlesWithMoreThanTwoLinks')),
+                ('cvpdnbundlelastchanged', YLeaf(YType.uint32, 'cvpdnBundleLastChanged')),
+            ])
+            self.cvpdnbundleswithonelink = None
+            self.cvpdnbundleswithtwolinks = None
+            self.cvpdnbundleswithmorethantwolinks = None
+            self.cvpdnbundlelastchanged = None
             self._segment_path = lambda: "cvpdnMultilinkInfo"
             self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self._segment_path()
 
@@ -626,8 +639,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnSystemEntry" : ("cvpdnsystementry", CISCOVPDNMGMTMIB.Cvpdnsystemtable.Cvpdnsystementry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnSystemEntry", ("cvpdnsystementry", CISCOVPDNMGMTMIB.Cvpdnsystemtable.Cvpdnsystementry))])
+            self._leafs = OrderedDict()
 
             self.cvpdnsystementry = YList(self)
             self._segment_path = lambda: "cvpdnSystemTable"
@@ -642,7 +657,7 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in the table, containing information about a
             single type of VPDN tunnel.
             
-            .. attribute:: cvpdnsystemtunneltype  <key>
+            .. attribute:: cvpdnsystemtunneltype  (key)
             
             	The tunnel type.  This is the tunnel protocol
             	**type**\:  :py:class:`TunnelType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunnelType>`
@@ -715,23 +730,26 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnSystemTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdnsystemtunneltype = YLeaf(YType.enumeration, "cvpdnSystemTunnelType")
-
-                self.cvpdnsystemtunneltotal = YLeaf(YType.uint32, "cvpdnSystemTunnelTotal")
-
-                self.cvpdnsystemsessiontotal = YLeaf(YType.uint32, "cvpdnSystemSessionTotal")
-
-                self.cvpdnsystemdenieduserstotal = YLeaf(YType.uint32, "cvpdnSystemDeniedUsersTotal")
-
-                self.cvpdnsysteminitialconnreq = YLeaf(YType.uint32, "cvpdnSystemInitialConnReq")
-
-                self.cvpdnsystemsuccessconnreq = YLeaf(YType.uint32, "cvpdnSystemSuccessConnReq")
-
-                self.cvpdnsystemfailedconnreq = YLeaf(YType.uint32, "cvpdnSystemFailedConnReq")
-                self._segment_path = lambda: "cvpdnSystemEntry" + "[cvpdnSystemTunnelType='" + self.cvpdnsystemtunneltype.get() + "']"
+                self.ylist_key_names = ['cvpdnsystemtunneltype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdnsystemtunneltype', YLeaf(YType.enumeration, 'cvpdnSystemTunnelType')),
+                    ('cvpdnsystemtunneltotal', YLeaf(YType.uint32, 'cvpdnSystemTunnelTotal')),
+                    ('cvpdnsystemsessiontotal', YLeaf(YType.uint32, 'cvpdnSystemSessionTotal')),
+                    ('cvpdnsystemdenieduserstotal', YLeaf(YType.uint32, 'cvpdnSystemDeniedUsersTotal')),
+                    ('cvpdnsysteminitialconnreq', YLeaf(YType.uint32, 'cvpdnSystemInitialConnReq')),
+                    ('cvpdnsystemsuccessconnreq', YLeaf(YType.uint32, 'cvpdnSystemSuccessConnReq')),
+                    ('cvpdnsystemfailedconnreq', YLeaf(YType.uint32, 'cvpdnSystemFailedConnReq')),
+                ])
+                self.cvpdnsystemtunneltype = None
+                self.cvpdnsystemtunneltotal = None
+                self.cvpdnsystemsessiontotal = None
+                self.cvpdnsystemdenieduserstotal = None
+                self.cvpdnsysteminitialconnreq = None
+                self.cvpdnsystemsuccessconnreq = None
+                self.cvpdnsystemfailedconnreq = None
+                self._segment_path = lambda: "cvpdnSystemEntry" + "[cvpdnSystemTunnelType='" + str(self.cvpdnsystemtunneltype) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnSystemTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -763,8 +781,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnTunnelEntry" : ("cvpdntunnelentry", CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnTunnelEntry", ("cvpdntunnelentry", CISCOVPDNMGMTMIB.Cvpdntunneltable.Cvpdntunnelentry))])
+            self._leafs = OrderedDict()
 
             self.cvpdntunnelentry = YList(self)
             self._segment_path = lambda: "cvpdnTunnelTable"
@@ -779,7 +799,7 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in the table, containing information about a
             single active VPDN tunnel.
             
-            .. attribute:: cvpdntunneltunnelid  <key>
+            .. attribute:: cvpdntunneltunnelid  (key)
             
             	The Tunnel ID of an active VPDN tunnel.  If it is the instigator of the tunnel, the ID is the HGW/LNS tunnel ID, otherwise it is the NAS/LAC tunnel ID
             	**type**\: int
@@ -922,39 +942,42 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnTunnelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdntunneltunnelid = YLeaf(YType.uint32, "cvpdnTunnelTunnelId")
-
-                self.cvpdntunnelremotetunnelid = YLeaf(YType.uint32, "cvpdnTunnelRemoteTunnelId")
-
-                self.cvpdntunnellocalname = YLeaf(YType.str, "cvpdnTunnelLocalName")
-
-                self.cvpdntunnelremotename = YLeaf(YType.str, "cvpdnTunnelRemoteName")
-
-                self.cvpdntunnelremoteendpointname = YLeaf(YType.str, "cvpdnTunnelRemoteEndpointName")
-
-                self.cvpdntunnellocalinitconnection = YLeaf(YType.boolean, "cvpdnTunnelLocalInitConnection")
-
-                self.cvpdntunnelorigcause = YLeaf(YType.enumeration, "cvpdnTunnelOrigCause")
-
-                self.cvpdntunnelstate = YLeaf(YType.enumeration, "cvpdnTunnelState")
-
-                self.cvpdntunnelactivesessions = YLeaf(YType.uint32, "cvpdnTunnelActiveSessions")
-
-                self.cvpdntunneldeniedusers = YLeaf(YType.uint32, "cvpdnTunnelDeniedUsers")
-
-                self.cvpdntunnelsoftshut = YLeaf(YType.boolean, "cvpdnTunnelSoftshut")
-
-                self.cvpdntunnelnetworkservicetype = YLeaf(YType.enumeration, "cvpdnTunnelNetworkServiceType")
-
-                self.cvpdntunnellocalipaddress = YLeaf(YType.str, "cvpdnTunnelLocalIpAddress")
-
-                self.cvpdntunnelsourceipaddress = YLeaf(YType.str, "cvpdnTunnelSourceIpAddress")
-
-                self.cvpdntunnelremoteipaddress = YLeaf(YType.str, "cvpdnTunnelRemoteIpAddress")
-                self._segment_path = lambda: "cvpdnTunnelEntry" + "[cvpdnTunnelTunnelId='" + self.cvpdntunneltunnelid.get() + "']"
+                self.ylist_key_names = ['cvpdntunneltunnelid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdntunneltunnelid', YLeaf(YType.uint32, 'cvpdnTunnelTunnelId')),
+                    ('cvpdntunnelremotetunnelid', YLeaf(YType.uint32, 'cvpdnTunnelRemoteTunnelId')),
+                    ('cvpdntunnellocalname', YLeaf(YType.str, 'cvpdnTunnelLocalName')),
+                    ('cvpdntunnelremotename', YLeaf(YType.str, 'cvpdnTunnelRemoteName')),
+                    ('cvpdntunnelremoteendpointname', YLeaf(YType.str, 'cvpdnTunnelRemoteEndpointName')),
+                    ('cvpdntunnellocalinitconnection', YLeaf(YType.boolean, 'cvpdnTunnelLocalInitConnection')),
+                    ('cvpdntunnelorigcause', YLeaf(YType.enumeration, 'cvpdnTunnelOrigCause')),
+                    ('cvpdntunnelstate', YLeaf(YType.enumeration, 'cvpdnTunnelState')),
+                    ('cvpdntunnelactivesessions', YLeaf(YType.uint32, 'cvpdnTunnelActiveSessions')),
+                    ('cvpdntunneldeniedusers', YLeaf(YType.uint32, 'cvpdnTunnelDeniedUsers')),
+                    ('cvpdntunnelsoftshut', YLeaf(YType.boolean, 'cvpdnTunnelSoftshut')),
+                    ('cvpdntunnelnetworkservicetype', YLeaf(YType.enumeration, 'cvpdnTunnelNetworkServiceType')),
+                    ('cvpdntunnellocalipaddress', YLeaf(YType.str, 'cvpdnTunnelLocalIpAddress')),
+                    ('cvpdntunnelsourceipaddress', YLeaf(YType.str, 'cvpdnTunnelSourceIpAddress')),
+                    ('cvpdntunnelremoteipaddress', YLeaf(YType.str, 'cvpdnTunnelRemoteIpAddress')),
+                ])
+                self.cvpdntunneltunnelid = None
+                self.cvpdntunnelremotetunnelid = None
+                self.cvpdntunnellocalname = None
+                self.cvpdntunnelremotename = None
+                self.cvpdntunnelremoteendpointname = None
+                self.cvpdntunnellocalinitconnection = None
+                self.cvpdntunnelorigcause = None
+                self.cvpdntunnelstate = None
+                self.cvpdntunnelactivesessions = None
+                self.cvpdntunneldeniedusers = None
+                self.cvpdntunnelsoftshut = None
+                self.cvpdntunnelnetworkservicetype = None
+                self.cvpdntunnellocalipaddress = None
+                self.cvpdntunnelsourceipaddress = None
+                self.cvpdntunnelremoteipaddress = None
+                self._segment_path = lambda: "cvpdnTunnelEntry" + "[cvpdnTunnelTunnelId='" + str(self.cvpdntunneltunnelid) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -962,7 +985,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdntunnelnetworkservicetype(Enum):
                 """
-                Cvpdntunnelnetworkservicetype
+                Cvpdntunnelnetworkservicetype (Enum Class)
 
                 The type of network service used in the active tunnel.
 
@@ -977,7 +1000,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdntunnelorigcause(Enum):
                 """
-                Cvpdntunnelorigcause
+                Cvpdntunnelorigcause (Enum Class)
 
                 The cause which originated an active VPDN tunnel.  The
 
@@ -1002,7 +1025,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdntunnelstate(Enum):
                 """
-                Cvpdntunnelstate
+                Cvpdntunnelstate (Enum Class)
 
                 The current state of an active VPDN tunnel.  Each state
 
@@ -1071,8 +1094,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnTunnelAttrEntry" : ("cvpdntunnelattrentry", CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnTunnelAttrEntry", ("cvpdntunnelattrentry", CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry))])
+            self._leafs = OrderedDict()
 
             self.cvpdntunnelattrentry = YList(self)
             self._segment_path = lambda: "cvpdnTunnelAttrTable"
@@ -1087,12 +1112,12 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in the table, containing information about a
             single active VPDN tunnel.
             
-            .. attribute:: cvpdnsystemtunneltype  <key>
+            .. attribute:: cvpdnsystemtunneltype  (key)
             
             	
             	**type**\:  :py:class:`TunnelType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunnelType>`
             
-            .. attribute:: cvpdntunnelattrtunnelid  <key>
+            .. attribute:: cvpdntunnelattrtunnelid  (key)
             
             	The Tunnel ID of an active VPDN tunnel.  If this end is the instigator of the tunnel, the ID is the TS tunnel ID, otherwise it is the NAS tunnel ID.  Two distinct tunnels with the same tunnel ID may exist, but with different tunnel types
             	**type**\: int
@@ -1247,53 +1272,56 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnTunnelAttrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdnsystemtunneltype = YLeaf(YType.enumeration, "cvpdnSystemTunnelType")
-
-                self.cvpdntunnelattrtunnelid = YLeaf(YType.int32, "cvpdnTunnelAttrTunnelId")
-
-                self.cvpdntunnelattrremotetunnelid = YLeaf(YType.int32, "cvpdnTunnelAttrRemoteTunnelId")
-
-                self.cvpdntunnelattrlocalname = YLeaf(YType.str, "cvpdnTunnelAttrLocalName")
-
-                self.cvpdntunnelattrremotename = YLeaf(YType.str, "cvpdnTunnelAttrRemoteName")
-
-                self.cvpdntunnelattrremoteendpointname = YLeaf(YType.str, "cvpdnTunnelAttrRemoteEndpointName")
-
-                self.cvpdntunnelattrlocalinitconnection = YLeaf(YType.boolean, "cvpdnTunnelAttrLocalInitConnection")
-
-                self.cvpdntunnelattrorigcause = YLeaf(YType.enumeration, "cvpdnTunnelAttrOrigCause")
-
-                self.cvpdntunnelattrstate = YLeaf(YType.enumeration, "cvpdnTunnelAttrState")
-
-                self.cvpdntunnelattractivesessions = YLeaf(YType.uint32, "cvpdnTunnelAttrActiveSessions")
-
-                self.cvpdntunnelattrdeniedusers = YLeaf(YType.uint32, "cvpdnTunnelAttrDeniedUsers")
-
-                self.cvpdntunnelattrsoftshut = YLeaf(YType.boolean, "cvpdnTunnelAttrSoftshut")
-
-                self.cvpdntunnelattrnetworkservicetype = YLeaf(YType.enumeration, "cvpdnTunnelAttrNetworkServiceType")
-
-                self.cvpdntunnelattrlocalipaddress = YLeaf(YType.str, "cvpdnTunnelAttrLocalIpAddress")
-
-                self.cvpdntunnelattrsourceipaddress = YLeaf(YType.str, "cvpdnTunnelAttrSourceIpAddress")
-
-                self.cvpdntunnelattrremoteipaddress = YLeaf(YType.str, "cvpdnTunnelAttrRemoteIpAddress")
-
-                self.cvpdntunnelattrlocalinetaddresstype = YLeaf(YType.enumeration, "cvpdnTunnelAttrLocalInetAddressType")
-
-                self.cvpdntunnelattrlocalinetaddress = YLeaf(YType.str, "cvpdnTunnelAttrLocalInetAddress")
-
-                self.cvpdntunnelattrsourceinetaddresstype = YLeaf(YType.enumeration, "cvpdnTunnelAttrSourceInetAddressType")
-
-                self.cvpdntunnelattrsourceinetaddress = YLeaf(YType.str, "cvpdnTunnelAttrSourceInetAddress")
-
-                self.cvpdntunnelattrremoteinetaddresstype = YLeaf(YType.enumeration, "cvpdnTunnelAttrRemoteInetAddressType")
-
-                self.cvpdntunnelattrremoteinetaddress = YLeaf(YType.str, "cvpdnTunnelAttrRemoteInetAddress")
-                self._segment_path = lambda: "cvpdnTunnelAttrEntry" + "[cvpdnSystemTunnelType='" + self.cvpdnsystemtunneltype.get() + "']" + "[cvpdnTunnelAttrTunnelId='" + self.cvpdntunnelattrtunnelid.get() + "']"
+                self.ylist_key_names = ['cvpdnsystemtunneltype','cvpdntunnelattrtunnelid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdnsystemtunneltype', YLeaf(YType.enumeration, 'cvpdnSystemTunnelType')),
+                    ('cvpdntunnelattrtunnelid', YLeaf(YType.int32, 'cvpdnTunnelAttrTunnelId')),
+                    ('cvpdntunnelattrremotetunnelid', YLeaf(YType.int32, 'cvpdnTunnelAttrRemoteTunnelId')),
+                    ('cvpdntunnelattrlocalname', YLeaf(YType.str, 'cvpdnTunnelAttrLocalName')),
+                    ('cvpdntunnelattrremotename', YLeaf(YType.str, 'cvpdnTunnelAttrRemoteName')),
+                    ('cvpdntunnelattrremoteendpointname', YLeaf(YType.str, 'cvpdnTunnelAttrRemoteEndpointName')),
+                    ('cvpdntunnelattrlocalinitconnection', YLeaf(YType.boolean, 'cvpdnTunnelAttrLocalInitConnection')),
+                    ('cvpdntunnelattrorigcause', YLeaf(YType.enumeration, 'cvpdnTunnelAttrOrigCause')),
+                    ('cvpdntunnelattrstate', YLeaf(YType.enumeration, 'cvpdnTunnelAttrState')),
+                    ('cvpdntunnelattractivesessions', YLeaf(YType.uint32, 'cvpdnTunnelAttrActiveSessions')),
+                    ('cvpdntunnelattrdeniedusers', YLeaf(YType.uint32, 'cvpdnTunnelAttrDeniedUsers')),
+                    ('cvpdntunnelattrsoftshut', YLeaf(YType.boolean, 'cvpdnTunnelAttrSoftshut')),
+                    ('cvpdntunnelattrnetworkservicetype', YLeaf(YType.enumeration, 'cvpdnTunnelAttrNetworkServiceType')),
+                    ('cvpdntunnelattrlocalipaddress', YLeaf(YType.str, 'cvpdnTunnelAttrLocalIpAddress')),
+                    ('cvpdntunnelattrsourceipaddress', YLeaf(YType.str, 'cvpdnTunnelAttrSourceIpAddress')),
+                    ('cvpdntunnelattrremoteipaddress', YLeaf(YType.str, 'cvpdnTunnelAttrRemoteIpAddress')),
+                    ('cvpdntunnelattrlocalinetaddresstype', YLeaf(YType.enumeration, 'cvpdnTunnelAttrLocalInetAddressType')),
+                    ('cvpdntunnelattrlocalinetaddress', YLeaf(YType.str, 'cvpdnTunnelAttrLocalInetAddress')),
+                    ('cvpdntunnelattrsourceinetaddresstype', YLeaf(YType.enumeration, 'cvpdnTunnelAttrSourceInetAddressType')),
+                    ('cvpdntunnelattrsourceinetaddress', YLeaf(YType.str, 'cvpdnTunnelAttrSourceInetAddress')),
+                    ('cvpdntunnelattrremoteinetaddresstype', YLeaf(YType.enumeration, 'cvpdnTunnelAttrRemoteInetAddressType')),
+                    ('cvpdntunnelattrremoteinetaddress', YLeaf(YType.str, 'cvpdnTunnelAttrRemoteInetAddress')),
+                ])
+                self.cvpdnsystemtunneltype = None
+                self.cvpdntunnelattrtunnelid = None
+                self.cvpdntunnelattrremotetunnelid = None
+                self.cvpdntunnelattrlocalname = None
+                self.cvpdntunnelattrremotename = None
+                self.cvpdntunnelattrremoteendpointname = None
+                self.cvpdntunnelattrlocalinitconnection = None
+                self.cvpdntunnelattrorigcause = None
+                self.cvpdntunnelattrstate = None
+                self.cvpdntunnelattractivesessions = None
+                self.cvpdntunnelattrdeniedusers = None
+                self.cvpdntunnelattrsoftshut = None
+                self.cvpdntunnelattrnetworkservicetype = None
+                self.cvpdntunnelattrlocalipaddress = None
+                self.cvpdntunnelattrsourceipaddress = None
+                self.cvpdntunnelattrremoteipaddress = None
+                self.cvpdntunnelattrlocalinetaddresstype = None
+                self.cvpdntunnelattrlocalinetaddress = None
+                self.cvpdntunnelattrsourceinetaddresstype = None
+                self.cvpdntunnelattrsourceinetaddress = None
+                self.cvpdntunnelattrremoteinetaddresstype = None
+                self.cvpdntunnelattrremoteinetaddress = None
+                self._segment_path = lambda: "cvpdnTunnelAttrEntry" + "[cvpdnSystemTunnelType='" + str(self.cvpdnsystemtunneltype) + "']" + "[cvpdnTunnelAttrTunnelId='" + str(self.cvpdntunnelattrtunnelid) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelAttrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1301,7 +1329,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdntunnelattrnetworkservicetype(Enum):
                 """
-                Cvpdntunnelattrnetworkservicetype
+                Cvpdntunnelattrnetworkservicetype (Enum Class)
 
                 The type of network service used in the active tunnel.
 
@@ -1314,7 +1342,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdntunnelattrorigcause(Enum):
                 """
-                Cvpdntunnelattrorigcause
+                Cvpdntunnelattrorigcause (Enum Class)
 
                 The cause which originated an active VPDN tunnel.  The
 
@@ -1343,7 +1371,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdntunnelattrstate(Enum):
                 """
-                Cvpdntunnelattrstate
+                Cvpdntunnelattrstate (Enum Class)
 
                 The current state of an active VPDN tunnel.
 
@@ -1535,8 +1563,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnTunnelSessionEntry" : ("cvpdntunnelsessionentry", CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnTunnelSessionEntry", ("cvpdntunnelsessionentry", CISCOVPDNMGMTMIB.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry))])
+            self._leafs = OrderedDict()
 
             self.cvpdntunnelsessionentry = YList(self)
             self._segment_path = lambda: "cvpdnTunnelSessionTable"
@@ -1551,7 +1581,7 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in the table, containing information about a
             single user session within the tunnel.
             
-            .. attribute:: cvpdntunneltunnelid  <key>
+            .. attribute:: cvpdntunneltunnelid  (key)
             
             	
             	**type**\: int
@@ -1562,7 +1592,7 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**status**\: obsolete
             
-            .. attribute:: cvpdntunnelsessionid  <key>
+            .. attribute:: cvpdntunnelsessionid  (key)
             
             	The ID of an active VPDN tunnel user session
             	**type**\: int
@@ -1747,49 +1777,52 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnTunnelSessionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdntunneltunnelid = YLeaf(YType.str, "cvpdnTunnelTunnelId")
-
-                self.cvpdntunnelsessionid = YLeaf(YType.uint32, "cvpdnTunnelSessionId")
-
-                self.cvpdntunnelsessionusername = YLeaf(YType.str, "cvpdnTunnelSessionUserName")
-
-                self.cvpdntunnelsessionstate = YLeaf(YType.enumeration, "cvpdnTunnelSessionState")
-
-                self.cvpdntunnelsessioncallduration = YLeaf(YType.uint32, "cvpdnTunnelSessionCallDuration")
-
-                self.cvpdntunnelsessionpacketsout = YLeaf(YType.uint32, "cvpdnTunnelSessionPacketsOut")
-
-                self.cvpdntunnelsessionbytesout = YLeaf(YType.uint32, "cvpdnTunnelSessionBytesOut")
-
-                self.cvpdntunnelsessionpacketsin = YLeaf(YType.uint32, "cvpdnTunnelSessionPacketsIn")
-
-                self.cvpdntunnelsessionbytesin = YLeaf(YType.uint32, "cvpdnTunnelSessionBytesIn")
-
-                self.cvpdntunnelsessiondevicetype = YLeaf(YType.enumeration, "cvpdnTunnelSessionDeviceType")
-
-                self.cvpdntunnelsessiondevicecallerid = YLeaf(YType.str, "cvpdnTunnelSessionDeviceCallerId")
-
-                self.cvpdntunnelsessiondevicephyid = YLeaf(YType.int32, "cvpdnTunnelSessionDevicePhyId")
-
-                self.cvpdntunnelsessionmultilink = YLeaf(YType.boolean, "cvpdnTunnelSessionMultilink")
-
-                self.cvpdntunnelsessionmodemslotindex = YLeaf(YType.uint32, "cvpdnTunnelSessionModemSlotIndex")
-
-                self.cvpdntunnelsessionmodemportindex = YLeaf(YType.uint32, "cvpdnTunnelSessionModemPortIndex")
-
-                self.cvpdntunnelsessionds1slotindex = YLeaf(YType.uint32, "cvpdnTunnelSessionDS1SlotIndex")
-
-                self.cvpdntunnelsessionds1portindex = YLeaf(YType.uint32, "cvpdnTunnelSessionDS1PortIndex")
-
-                self.cvpdntunnelsessionds1channelindex = YLeaf(YType.uint32, "cvpdnTunnelSessionDS1ChannelIndex")
-
-                self.cvpdntunnelsessionmodemcallstarttime = YLeaf(YType.uint32, "cvpdnTunnelSessionModemCallStartTime")
-
-                self.cvpdntunnelsessionmodemcallstartindex = YLeaf(YType.uint32, "cvpdnTunnelSessionModemCallStartIndex")
-                self._segment_path = lambda: "cvpdnTunnelSessionEntry" + "[cvpdnTunnelTunnelId='" + self.cvpdntunneltunnelid.get() + "']" + "[cvpdnTunnelSessionId='" + self.cvpdntunnelsessionid.get() + "']"
+                self.ylist_key_names = ['cvpdntunneltunnelid','cvpdntunnelsessionid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdntunneltunnelid', YLeaf(YType.str, 'cvpdnTunnelTunnelId')),
+                    ('cvpdntunnelsessionid', YLeaf(YType.uint32, 'cvpdnTunnelSessionId')),
+                    ('cvpdntunnelsessionusername', YLeaf(YType.str, 'cvpdnTunnelSessionUserName')),
+                    ('cvpdntunnelsessionstate', YLeaf(YType.enumeration, 'cvpdnTunnelSessionState')),
+                    ('cvpdntunnelsessioncallduration', YLeaf(YType.uint32, 'cvpdnTunnelSessionCallDuration')),
+                    ('cvpdntunnelsessionpacketsout', YLeaf(YType.uint32, 'cvpdnTunnelSessionPacketsOut')),
+                    ('cvpdntunnelsessionbytesout', YLeaf(YType.uint32, 'cvpdnTunnelSessionBytesOut')),
+                    ('cvpdntunnelsessionpacketsin', YLeaf(YType.uint32, 'cvpdnTunnelSessionPacketsIn')),
+                    ('cvpdntunnelsessionbytesin', YLeaf(YType.uint32, 'cvpdnTunnelSessionBytesIn')),
+                    ('cvpdntunnelsessiondevicetype', YLeaf(YType.enumeration, 'cvpdnTunnelSessionDeviceType')),
+                    ('cvpdntunnelsessiondevicecallerid', YLeaf(YType.str, 'cvpdnTunnelSessionDeviceCallerId')),
+                    ('cvpdntunnelsessiondevicephyid', YLeaf(YType.int32, 'cvpdnTunnelSessionDevicePhyId')),
+                    ('cvpdntunnelsessionmultilink', YLeaf(YType.boolean, 'cvpdnTunnelSessionMultilink')),
+                    ('cvpdntunnelsessionmodemslotindex', YLeaf(YType.uint32, 'cvpdnTunnelSessionModemSlotIndex')),
+                    ('cvpdntunnelsessionmodemportindex', YLeaf(YType.uint32, 'cvpdnTunnelSessionModemPortIndex')),
+                    ('cvpdntunnelsessionds1slotindex', YLeaf(YType.uint32, 'cvpdnTunnelSessionDS1SlotIndex')),
+                    ('cvpdntunnelsessionds1portindex', YLeaf(YType.uint32, 'cvpdnTunnelSessionDS1PortIndex')),
+                    ('cvpdntunnelsessionds1channelindex', YLeaf(YType.uint32, 'cvpdnTunnelSessionDS1ChannelIndex')),
+                    ('cvpdntunnelsessionmodemcallstarttime', YLeaf(YType.uint32, 'cvpdnTunnelSessionModemCallStartTime')),
+                    ('cvpdntunnelsessionmodemcallstartindex', YLeaf(YType.uint32, 'cvpdnTunnelSessionModemCallStartIndex')),
+                ])
+                self.cvpdntunneltunnelid = None
+                self.cvpdntunnelsessionid = None
+                self.cvpdntunnelsessionusername = None
+                self.cvpdntunnelsessionstate = None
+                self.cvpdntunnelsessioncallduration = None
+                self.cvpdntunnelsessionpacketsout = None
+                self.cvpdntunnelsessionbytesout = None
+                self.cvpdntunnelsessionpacketsin = None
+                self.cvpdntunnelsessionbytesin = None
+                self.cvpdntunnelsessiondevicetype = None
+                self.cvpdntunnelsessiondevicecallerid = None
+                self.cvpdntunnelsessiondevicephyid = None
+                self.cvpdntunnelsessionmultilink = None
+                self.cvpdntunnelsessionmodemslotindex = None
+                self.cvpdntunnelsessionmodemportindex = None
+                self.cvpdntunnelsessionds1slotindex = None
+                self.cvpdntunnelsessionds1portindex = None
+                self.cvpdntunnelsessionds1channelindex = None
+                self.cvpdntunnelsessionmodemcallstarttime = None
+                self.cvpdntunnelsessionmodemcallstartindex = None
+                self._segment_path = lambda: "cvpdnTunnelSessionEntry" + "[cvpdnTunnelTunnelId='" + str(self.cvpdntunneltunnelid) + "']" + "[cvpdnTunnelSessionId='" + str(self.cvpdntunnelsessionid) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelSessionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1797,7 +1830,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdntunnelsessiondevicetype(Enum):
                 """
-                Cvpdntunnelsessiondevicetype
+                Cvpdntunnelsessiondevicetype (Enum Class)
 
                 The type of physical devices that this user session
 
@@ -1868,7 +1901,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdntunnelsessionstate(Enum):
                 """
-                Cvpdntunnelsessionstate
+                Cvpdntunnelsessionstate (Enum Class)
 
                 The current state of an active user session.  Each state
 
@@ -1960,8 +1993,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnSessionAttrEntry" : ("cvpdnsessionattrentry", CISCOVPDNMGMTMIB.Cvpdnsessionattrtable.Cvpdnsessionattrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnSessionAttrEntry", ("cvpdnsessionattrentry", CISCOVPDNMGMTMIB.Cvpdnsessionattrtable.Cvpdnsessionattrentry))])
+            self._leafs = OrderedDict()
 
             self.cvpdnsessionattrentry = YList(self)
             self._segment_path = lambda: "cvpdnSessionAttrTable"
@@ -1976,12 +2011,12 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in the table, containing information about a
             single session within the tunnel.
             
-            .. attribute:: cvpdnsystemtunneltype  <key>
+            .. attribute:: cvpdnsystemtunneltype  (key)
             
             	
             	**type**\:  :py:class:`TunnelType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunnelType>`
             
-            .. attribute:: cvpdntunnelattrtunnelid  <key>
+            .. attribute:: cvpdntunnelattrtunnelid  (key)
             
             	
             	**type**\: int
@@ -1990,7 +2025,7 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`cvpdntunnelattrtunnelid <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdntunnelattrtable.Cvpdntunnelattrentry>`
             
-            .. attribute:: cvpdnsessionattrsessionid  <key>
+            .. attribute:: cvpdnsessionattrsessionid  (key)
             
             	The ID of an active VPDN session
             	**type**\: int
@@ -2176,61 +2211,64 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnSessionAttrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdnsystemtunneltype = YLeaf(YType.enumeration, "cvpdnSystemTunnelType")
-
-                self.cvpdntunnelattrtunnelid = YLeaf(YType.str, "cvpdnTunnelAttrTunnelId")
-
-                self.cvpdnsessionattrsessionid = YLeaf(YType.int32, "cvpdnSessionAttrSessionId")
-
-                self.cvpdnsessionattrusername = YLeaf(YType.str, "cvpdnSessionAttrUserName")
-
-                self.cvpdnsessionattrstate = YLeaf(YType.enumeration, "cvpdnSessionAttrState")
-
-                self.cvpdnsessionattrcallduration = YLeaf(YType.uint32, "cvpdnSessionAttrCallDuration")
-
-                self.cvpdnsessionattrpacketsout = YLeaf(YType.uint32, "cvpdnSessionAttrPacketsOut")
-
-                self.cvpdnsessionattrbytesout = YLeaf(YType.uint32, "cvpdnSessionAttrBytesOut")
-
-                self.cvpdnsessionattrpacketsin = YLeaf(YType.uint32, "cvpdnSessionAttrPacketsIn")
-
-                self.cvpdnsessionattrbytesin = YLeaf(YType.uint32, "cvpdnSessionAttrBytesIn")
-
-                self.cvpdnsessionattrdevicetype = YLeaf(YType.enumeration, "cvpdnSessionAttrDeviceType")
-
-                self.cvpdnsessionattrdevicecallerid = YLeaf(YType.str, "cvpdnSessionAttrDeviceCallerId")
-
-                self.cvpdnsessionattrdevicephyid = YLeaf(YType.int32, "cvpdnSessionAttrDevicePhyId")
-
-                self.cvpdnsessionattrmultilink = YLeaf(YType.boolean, "cvpdnSessionAttrMultilink")
-
-                self.cvpdnsessionattrmodemslotindex = YLeaf(YType.uint32, "cvpdnSessionAttrModemSlotIndex")
-
-                self.cvpdnsessionattrmodemportindex = YLeaf(YType.uint32, "cvpdnSessionAttrModemPortIndex")
-
-                self.cvpdnsessionattrds1slotindex = YLeaf(YType.uint32, "cvpdnSessionAttrDS1SlotIndex")
-
-                self.cvpdnsessionattrds1portindex = YLeaf(YType.uint32, "cvpdnSessionAttrDS1PortIndex")
-
-                self.cvpdnsessionattrds1channelindex = YLeaf(YType.uint32, "cvpdnSessionAttrDS1ChannelIndex")
-
-                self.cvpdnsessionattrmodemcallstarttime = YLeaf(YType.uint32, "cvpdnSessionAttrModemCallStartTime")
-
-                self.cvpdnsessionattrmodemcallstartindex = YLeaf(YType.uint32, "cvpdnSessionAttrModemCallStartIndex")
-
-                self.cvpdnsessionattrvirtualcircuitid = YLeaf(YType.uint32, "cvpdnSessionAttrVirtualCircuitID")
-
-                self.cvpdnsessionattrsentpktsdropped = YLeaf(YType.uint32, "cvpdnSessionAttrSentPktsDropped")
-
-                self.cvpdnsessionattrrecvpktsdropped = YLeaf(YType.uint32, "cvpdnSessionAttrRecvPktsDropped")
-
-                self.cvpdnsessionattrmultilinkbundle = YLeaf(YType.str, "cvpdnSessionAttrMultilinkBundle")
-
-                self.cvpdnsessionattrmultilinkifindex = YLeaf(YType.int32, "cvpdnSessionAttrMultilinkIfIndex")
-                self._segment_path = lambda: "cvpdnSessionAttrEntry" + "[cvpdnSystemTunnelType='" + self.cvpdnsystemtunneltype.get() + "']" + "[cvpdnTunnelAttrTunnelId='" + self.cvpdntunnelattrtunnelid.get() + "']" + "[cvpdnSessionAttrSessionId='" + self.cvpdnsessionattrsessionid.get() + "']"
+                self.ylist_key_names = ['cvpdnsystemtunneltype','cvpdntunnelattrtunnelid','cvpdnsessionattrsessionid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdnsystemtunneltype', YLeaf(YType.enumeration, 'cvpdnSystemTunnelType')),
+                    ('cvpdntunnelattrtunnelid', YLeaf(YType.str, 'cvpdnTunnelAttrTunnelId')),
+                    ('cvpdnsessionattrsessionid', YLeaf(YType.int32, 'cvpdnSessionAttrSessionId')),
+                    ('cvpdnsessionattrusername', YLeaf(YType.str, 'cvpdnSessionAttrUserName')),
+                    ('cvpdnsessionattrstate', YLeaf(YType.enumeration, 'cvpdnSessionAttrState')),
+                    ('cvpdnsessionattrcallduration', YLeaf(YType.uint32, 'cvpdnSessionAttrCallDuration')),
+                    ('cvpdnsessionattrpacketsout', YLeaf(YType.uint32, 'cvpdnSessionAttrPacketsOut')),
+                    ('cvpdnsessionattrbytesout', YLeaf(YType.uint32, 'cvpdnSessionAttrBytesOut')),
+                    ('cvpdnsessionattrpacketsin', YLeaf(YType.uint32, 'cvpdnSessionAttrPacketsIn')),
+                    ('cvpdnsessionattrbytesin', YLeaf(YType.uint32, 'cvpdnSessionAttrBytesIn')),
+                    ('cvpdnsessionattrdevicetype', YLeaf(YType.enumeration, 'cvpdnSessionAttrDeviceType')),
+                    ('cvpdnsessionattrdevicecallerid', YLeaf(YType.str, 'cvpdnSessionAttrDeviceCallerId')),
+                    ('cvpdnsessionattrdevicephyid', YLeaf(YType.int32, 'cvpdnSessionAttrDevicePhyId')),
+                    ('cvpdnsessionattrmultilink', YLeaf(YType.boolean, 'cvpdnSessionAttrMultilink')),
+                    ('cvpdnsessionattrmodemslotindex', YLeaf(YType.uint32, 'cvpdnSessionAttrModemSlotIndex')),
+                    ('cvpdnsessionattrmodemportindex', YLeaf(YType.uint32, 'cvpdnSessionAttrModemPortIndex')),
+                    ('cvpdnsessionattrds1slotindex', YLeaf(YType.uint32, 'cvpdnSessionAttrDS1SlotIndex')),
+                    ('cvpdnsessionattrds1portindex', YLeaf(YType.uint32, 'cvpdnSessionAttrDS1PortIndex')),
+                    ('cvpdnsessionattrds1channelindex', YLeaf(YType.uint32, 'cvpdnSessionAttrDS1ChannelIndex')),
+                    ('cvpdnsessionattrmodemcallstarttime', YLeaf(YType.uint32, 'cvpdnSessionAttrModemCallStartTime')),
+                    ('cvpdnsessionattrmodemcallstartindex', YLeaf(YType.uint32, 'cvpdnSessionAttrModemCallStartIndex')),
+                    ('cvpdnsessionattrvirtualcircuitid', YLeaf(YType.uint32, 'cvpdnSessionAttrVirtualCircuitID')),
+                    ('cvpdnsessionattrsentpktsdropped', YLeaf(YType.uint32, 'cvpdnSessionAttrSentPktsDropped')),
+                    ('cvpdnsessionattrrecvpktsdropped', YLeaf(YType.uint32, 'cvpdnSessionAttrRecvPktsDropped')),
+                    ('cvpdnsessionattrmultilinkbundle', YLeaf(YType.str, 'cvpdnSessionAttrMultilinkBundle')),
+                    ('cvpdnsessionattrmultilinkifindex', YLeaf(YType.int32, 'cvpdnSessionAttrMultilinkIfIndex')),
+                ])
+                self.cvpdnsystemtunneltype = None
+                self.cvpdntunnelattrtunnelid = None
+                self.cvpdnsessionattrsessionid = None
+                self.cvpdnsessionattrusername = None
+                self.cvpdnsessionattrstate = None
+                self.cvpdnsessionattrcallduration = None
+                self.cvpdnsessionattrpacketsout = None
+                self.cvpdnsessionattrbytesout = None
+                self.cvpdnsessionattrpacketsin = None
+                self.cvpdnsessionattrbytesin = None
+                self.cvpdnsessionattrdevicetype = None
+                self.cvpdnsessionattrdevicecallerid = None
+                self.cvpdnsessionattrdevicephyid = None
+                self.cvpdnsessionattrmultilink = None
+                self.cvpdnsessionattrmodemslotindex = None
+                self.cvpdnsessionattrmodemportindex = None
+                self.cvpdnsessionattrds1slotindex = None
+                self.cvpdnsessionattrds1portindex = None
+                self.cvpdnsessionattrds1channelindex = None
+                self.cvpdnsessionattrmodemcallstarttime = None
+                self.cvpdnsessionattrmodemcallstartindex = None
+                self.cvpdnsessionattrvirtualcircuitid = None
+                self.cvpdnsessionattrsentpktsdropped = None
+                self.cvpdnsessionattrrecvpktsdropped = None
+                self.cvpdnsessionattrmultilinkbundle = None
+                self.cvpdnsessionattrmultilinkifindex = None
+                self._segment_path = lambda: "cvpdnSessionAttrEntry" + "[cvpdnSystemTunnelType='" + str(self.cvpdnsystemtunneltype) + "']" + "[cvpdnTunnelAttrTunnelId='" + str(self.cvpdntunnelattrtunnelid) + "']" + "[cvpdnSessionAttrSessionId='" + str(self.cvpdnsessionattrsessionid) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnSessionAttrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2238,7 +2276,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdnsessionattrdevicetype(Enum):
                 """
-                Cvpdnsessionattrdevicetype
+                Cvpdnsessionattrdevicetype (Enum Class)
 
                 The type of physical devices that this session is attached
 
@@ -2305,7 +2343,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdnsessionattrstate(Enum):
                 """
-                Cvpdnsessionattrstate
+                Cvpdnsessionattrstate (Enum Class)
 
                 The current state of a tunnel session.
 
@@ -2499,8 +2537,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnUserToFailHistInfoEntry" : ("cvpdnusertofailhistinfoentry", CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnUserToFailHistInfoEntry", ("cvpdnusertofailhistinfoentry", CISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry))])
+            self._leafs = OrderedDict()
 
             self.cvpdnusertofailhistinfoentry = YList(self)
             self._segment_path = lambda: "cvpdnUserToFailHistInfoTable"
@@ -2515,14 +2555,14 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in the table, containing failure history
             relevant to an user name.
             
-            .. attribute:: cvpdnunametofailhistuname  <key>
+            .. attribute:: cvpdnunametofailhistuname  (key)
             
             	The user name for this failure entry
             	**type**\: str
             
             	**length:** 1..255
             
-            .. attribute:: cvpdnunametofailhisttunnelid  <key>
+            .. attribute:: cvpdnunametofailhisttunnelid  (key)
             
             	The Tunnel ID for this failure entry.  If it is the instigator of the tunnel, the ID is the TS tunnel ID, otherwise it is the NAS tunnel ID
             	**type**\: int
@@ -2637,41 +2677,44 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnUserToFailHistInfoTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdnunametofailhistuname = YLeaf(YType.str, "cvpdnUnameToFailHistUname")
-
-                self.cvpdnunametofailhisttunnelid = YLeaf(YType.uint32, "cvpdnUnameToFailHistTunnelId")
-
-                self.cvpdnunametofailhistuserid = YLeaf(YType.uint32, "cvpdnUnameToFailHistUserId")
-
-                self.cvpdnunametofailhistlocalinitconn = YLeaf(YType.boolean, "cvpdnUnameToFailHistLocalInitConn")
-
-                self.cvpdnunametofailhistlocalname = YLeaf(YType.str, "cvpdnUnameToFailHistLocalName")
-
-                self.cvpdnunametofailhistremotename = YLeaf(YType.str, "cvpdnUnameToFailHistRemoteName")
-
-                self.cvpdnunametofailhistsourceip = YLeaf(YType.str, "cvpdnUnameToFailHistSourceIp")
-
-                self.cvpdnunametofailhistdestip = YLeaf(YType.str, "cvpdnUnameToFailHistDestIp")
-
-                self.cvpdnunametofailhistcount = YLeaf(YType.uint32, "cvpdnUnameToFailHistCount")
-
-                self.cvpdnunametofailhistfailtime = YLeaf(YType.uint32, "cvpdnUnameToFailHistFailTime")
-
-                self.cvpdnunametofailhistfailtype = YLeaf(YType.str, "cvpdnUnameToFailHistFailType")
-
-                self.cvpdnunametofailhistfailreason = YLeaf(YType.str, "cvpdnUnameToFailHistFailReason")
-
-                self.cvpdnunametofailhistsourceinettype = YLeaf(YType.enumeration, "cvpdnUnameToFailHistSourceInetType")
-
-                self.cvpdnunametofailhistsourceinetaddr = YLeaf(YType.str, "cvpdnUnameToFailHistSourceInetAddr")
-
-                self.cvpdnunametofailhistdestinettype = YLeaf(YType.enumeration, "cvpdnUnameToFailHistDestInetType")
-
-                self.cvpdnunametofailhistdestinetaddr = YLeaf(YType.str, "cvpdnUnameToFailHistDestInetAddr")
-                self._segment_path = lambda: "cvpdnUserToFailHistInfoEntry" + "[cvpdnUnameToFailHistUname='" + self.cvpdnunametofailhistuname.get() + "']" + "[cvpdnUnameToFailHistTunnelId='" + self.cvpdnunametofailhisttunnelid.get() + "']"
+                self.ylist_key_names = ['cvpdnunametofailhistuname','cvpdnunametofailhisttunnelid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdnunametofailhistuname', YLeaf(YType.str, 'cvpdnUnameToFailHistUname')),
+                    ('cvpdnunametofailhisttunnelid', YLeaf(YType.uint32, 'cvpdnUnameToFailHistTunnelId')),
+                    ('cvpdnunametofailhistuserid', YLeaf(YType.uint32, 'cvpdnUnameToFailHistUserId')),
+                    ('cvpdnunametofailhistlocalinitconn', YLeaf(YType.boolean, 'cvpdnUnameToFailHistLocalInitConn')),
+                    ('cvpdnunametofailhistlocalname', YLeaf(YType.str, 'cvpdnUnameToFailHistLocalName')),
+                    ('cvpdnunametofailhistremotename', YLeaf(YType.str, 'cvpdnUnameToFailHistRemoteName')),
+                    ('cvpdnunametofailhistsourceip', YLeaf(YType.str, 'cvpdnUnameToFailHistSourceIp')),
+                    ('cvpdnunametofailhistdestip', YLeaf(YType.str, 'cvpdnUnameToFailHistDestIp')),
+                    ('cvpdnunametofailhistcount', YLeaf(YType.uint32, 'cvpdnUnameToFailHistCount')),
+                    ('cvpdnunametofailhistfailtime', YLeaf(YType.uint32, 'cvpdnUnameToFailHistFailTime')),
+                    ('cvpdnunametofailhistfailtype', YLeaf(YType.str, 'cvpdnUnameToFailHistFailType')),
+                    ('cvpdnunametofailhistfailreason', YLeaf(YType.str, 'cvpdnUnameToFailHistFailReason')),
+                    ('cvpdnunametofailhistsourceinettype', YLeaf(YType.enumeration, 'cvpdnUnameToFailHistSourceInetType')),
+                    ('cvpdnunametofailhistsourceinetaddr', YLeaf(YType.str, 'cvpdnUnameToFailHistSourceInetAddr')),
+                    ('cvpdnunametofailhistdestinettype', YLeaf(YType.enumeration, 'cvpdnUnameToFailHistDestInetType')),
+                    ('cvpdnunametofailhistdestinetaddr', YLeaf(YType.str, 'cvpdnUnameToFailHistDestInetAddr')),
+                ])
+                self.cvpdnunametofailhistuname = None
+                self.cvpdnunametofailhisttunnelid = None
+                self.cvpdnunametofailhistuserid = None
+                self.cvpdnunametofailhistlocalinitconn = None
+                self.cvpdnunametofailhistlocalname = None
+                self.cvpdnunametofailhistremotename = None
+                self.cvpdnunametofailhistsourceip = None
+                self.cvpdnunametofailhistdestip = None
+                self.cvpdnunametofailhistcount = None
+                self.cvpdnunametofailhistfailtime = None
+                self.cvpdnunametofailhistfailtype = None
+                self.cvpdnunametofailhistfailreason = None
+                self.cvpdnunametofailhistsourceinettype = None
+                self.cvpdnunametofailhistsourceinetaddr = None
+                self.cvpdnunametofailhistdestinettype = None
+                self.cvpdnunametofailhistdestinetaddr = None
+                self._segment_path = lambda: "cvpdnUserToFailHistInfoEntry" + "[cvpdnUnameToFailHistUname='" + str(self.cvpdnunametofailhistuname) + "']" + "[cvpdnUnameToFailHistTunnelId='" + str(self.cvpdnunametofailhisttunnelid) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnUserToFailHistInfoTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2708,8 +2751,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnTemplateEntry" : ("cvpdntemplateentry", CISCOVPDNMGMTMIB.Cvpdntemplatetable.Cvpdntemplateentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnTemplateEntry", ("cvpdntemplateentry", CISCOVPDNMGMTMIB.Cvpdntemplatetable.Cvpdntemplateentry))])
+            self._leafs = OrderedDict()
 
             self.cvpdntemplateentry = YList(self)
             self._segment_path = lambda: "cvpdnTemplateTable"
@@ -2724,7 +2769,7 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in the table, containing information about a
             single VPDN template.
             
-            .. attribute:: cvpdntemplatename  <key>
+            .. attribute:: cvpdntemplatename  (key)
             
             	The name of the VPDN template
             	**type**\: str
@@ -2754,13 +2799,16 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnTemplateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdntemplatename = YLeaf(YType.str, "cvpdnTemplateName")
-
-                self.cvpdntemplateactivesessions = YLeaf(YType.uint32, "cvpdnTemplateActiveSessions")
-                self._segment_path = lambda: "cvpdnTemplateEntry" + "[cvpdnTemplateName='" + self.cvpdntemplatename.get() + "']"
+                self.ylist_key_names = ['cvpdntemplatename']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdntemplatename', YLeaf(YType.str, 'cvpdnTemplateName')),
+                    ('cvpdntemplateactivesessions', YLeaf(YType.uint32, 'cvpdnTemplateActiveSessions')),
+                ])
+                self.cvpdntemplatename = None
+                self.cvpdntemplateactivesessions = None
+                self._segment_path = lambda: "cvpdnTemplateEntry" + "[cvpdnTemplateName='" + str(self.cvpdntemplatename) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTemplateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2791,8 +2839,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnBundleEntry" : ("cvpdnbundleentry", CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnBundleEntry", ("cvpdnbundleentry", CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry))])
+            self._leafs = OrderedDict()
 
             self.cvpdnbundleentry = YList(self)
             self._segment_path = lambda: "cvpdnBundleTable"
@@ -2807,7 +2857,7 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in this table represents an active multilink PPP
             bundle that belongs to a VPDN tunnel.
             
-            .. attribute:: cvpdnbundlename  <key>
+            .. attribute:: cvpdnbundlename  (key)
             
             	The name of the multilink PPP bundle associated with a VPDN tunnel
             	**type**\: str
@@ -2868,23 +2918,26 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnBundleTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdnbundlename = YLeaf(YType.str, "cvpdnBundleName")
-
-                self.cvpdnbundlelinkcount = YLeaf(YType.uint32, "cvpdnBundleLinkCount")
-
-                self.cvpdnbundleendpointtype = YLeaf(YType.enumeration, "cvpdnBundleEndpointType")
-
-                self.cvpdnbundleendpoint = YLeaf(YType.str, "cvpdnBundleEndpoint")
-
-                self.cvpdnbundlepeeripaddrtype = YLeaf(YType.enumeration, "cvpdnBundlePeerIpAddrType")
-
-                self.cvpdnbundlepeeripaddr = YLeaf(YType.str, "cvpdnBundlePeerIpAddr")
-
-                self.cvpdnbundleendpointclass = YLeaf(YType.enumeration, "cvpdnBundleEndpointClass")
-                self._segment_path = lambda: "cvpdnBundleEntry" + "[cvpdnBundleName='" + self.cvpdnbundlename.get() + "']"
+                self.ylist_key_names = ['cvpdnbundlename']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdnbundlename', YLeaf(YType.str, 'cvpdnBundleName')),
+                    ('cvpdnbundlelinkcount', YLeaf(YType.uint32, 'cvpdnBundleLinkCount')),
+                    ('cvpdnbundleendpointtype', YLeaf(YType.enumeration, 'cvpdnBundleEndpointType')),
+                    ('cvpdnbundleendpoint', YLeaf(YType.str, 'cvpdnBundleEndpoint')),
+                    ('cvpdnbundlepeeripaddrtype', YLeaf(YType.enumeration, 'cvpdnBundlePeerIpAddrType')),
+                    ('cvpdnbundlepeeripaddr', YLeaf(YType.str, 'cvpdnBundlePeerIpAddr')),
+                    ('cvpdnbundleendpointclass', YLeaf(YType.enumeration, 'cvpdnBundleEndpointClass')),
+                ])
+                self.cvpdnbundlename = None
+                self.cvpdnbundlelinkcount = None
+                self.cvpdnbundleendpointtype = None
+                self.cvpdnbundleendpoint = None
+                self.cvpdnbundlepeeripaddrtype = None
+                self.cvpdnbundlepeeripaddr = None
+                self.cvpdnbundleendpointclass = None
+                self._segment_path = lambda: "cvpdnBundleEntry" + "[cvpdnBundleName='" + str(self.cvpdnbundlename) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnBundleTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2892,7 +2945,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
             class Cvpdnbundleendpointtype(Enum):
                 """
-                Cvpdnbundleendpointtype
+                Cvpdnbundleendpointtype (Enum Class)
 
                 The multilink PPP bundle discriminator type associated with
 
@@ -2998,8 +3051,10 @@ class CISCOVPDNMGMTMIB(Entity):
             self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvpdnBundleChildEntry" : ("cvpdnbundlechildentry", CISCOVPDNMGMTMIB.Cvpdnbundlechildtable.Cvpdnbundlechildentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvpdnBundleChildEntry", ("cvpdnbundlechildentry", CISCOVPDNMGMTMIB.Cvpdnbundlechildtable.Cvpdnbundlechildentry))])
+            self._leafs = OrderedDict()
 
             self.cvpdnbundlechildentry = YList(self)
             self._segment_path = lambda: "cvpdnBundleChildTable"
@@ -3014,7 +3069,7 @@ class CISCOVPDNMGMTMIB(Entity):
             An entry in this table represents a session that belongs to
             a VPDN tunnel and to a multilink PPP bundle.
             
-            .. attribute:: cvpdnbundlename  <key>
+            .. attribute:: cvpdnbundlename  (key)
             
             	
             	**type**\: str
@@ -3023,19 +3078,19 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`cvpdnbundlename <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.Cvpdnbundletable.Cvpdnbundleentry>`
             
-            .. attribute:: cvpdnbundlechildtunneltype  <key>
+            .. attribute:: cvpdnbundlechildtunneltype  (key)
             
             	The tunnel type.  This is the tunnel protocol of an active VPDN session that is associated with a multilink PPP bundle
             	**type**\:  :py:class:`TunnelType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunnelType>`
             
-            .. attribute:: cvpdnbundlechildtunnelid  <key>
+            .. attribute:: cvpdnbundlechildtunnelid  (key)
             
             	The Tunnel ID of an active VPDN session that is associated with a multilink PPP bundle
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cvpdnbundlechildsessionid  <key>
+            .. attribute:: cvpdnbundlechildsessionid  (key)
             
             	The ID of an active VPDN session that is associated with a multilink PPP bundle
             	**type**\: int
@@ -3056,17 +3111,20 @@ class CISCOVPDNMGMTMIB(Entity):
                 self.yang_parent_name = "cvpdnBundleChildTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpdnbundlename = YLeaf(YType.str, "cvpdnBundleName")
-
-                self.cvpdnbundlechildtunneltype = YLeaf(YType.enumeration, "cvpdnBundleChildTunnelType")
-
-                self.cvpdnbundlechildtunnelid = YLeaf(YType.uint32, "cvpdnBundleChildTunnelId")
-
-                self.cvpdnbundlechildsessionid = YLeaf(YType.uint32, "cvpdnBundleChildSessionId")
-                self._segment_path = lambda: "cvpdnBundleChildEntry" + "[cvpdnBundleName='" + self.cvpdnbundlename.get() + "']" + "[cvpdnBundleChildTunnelType='" + self.cvpdnbundlechildtunneltype.get() + "']" + "[cvpdnBundleChildTunnelId='" + self.cvpdnbundlechildtunnelid.get() + "']" + "[cvpdnBundleChildSessionId='" + self.cvpdnbundlechildsessionid.get() + "']"
+                self.ylist_key_names = ['cvpdnbundlename','cvpdnbundlechildtunneltype','cvpdnbundlechildtunnelid','cvpdnbundlechildsessionid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpdnbundlename', YLeaf(YType.str, 'cvpdnBundleName')),
+                    ('cvpdnbundlechildtunneltype', YLeaf(YType.enumeration, 'cvpdnBundleChildTunnelType')),
+                    ('cvpdnbundlechildtunnelid', YLeaf(YType.uint32, 'cvpdnBundleChildTunnelId')),
+                    ('cvpdnbundlechildsessionid', YLeaf(YType.uint32, 'cvpdnBundleChildSessionId')),
+                ])
+                self.cvpdnbundlename = None
+                self.cvpdnbundlechildtunneltype = None
+                self.cvpdnbundlechildtunnelid = None
+                self.cvpdnbundlechildsessionid = None
+                self._segment_path = lambda: "cvpdnBundleChildEntry" + "[cvpdnBundleName='" + str(self.cvpdnbundlename) + "']" + "[cvpdnBundleChildTunnelType='" + str(self.cvpdnbundlechildtunneltype) + "']" + "[cvpdnBundleChildTunnelId='" + str(self.cvpdnbundlechildtunnelid) + "']" + "[cvpdnBundleChildSessionId='" + str(self.cvpdnbundlechildsessionid) + "']"
                 self._absolute_path = lambda: "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnBundleChildTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

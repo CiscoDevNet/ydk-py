@@ -1,115 +1,116 @@
 module Cisco-IOS-XR-infra-tc-oper {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-infra-tc-oper";
+  prefix infra-tc-oper;
 
-
-  prefix "infra-tc-oper";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   include Cisco-IOS-XR-infra-tc-oper-sub1 {
     revision-date 2015-11-09;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR infra-tc package operational data.
-
+     
      This module contains definitions
      for the following management objects:
        traffic-collector: Global Traffic Collector configuration
          commands
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Tc-oper-af-name {
     type enumeration {
-      enum ipv4 {
+      enum "ipv4" {
         value 0;
-        description "IPv4";
+        description
+          "IPv4";
       }
-      enum ipv6 {
+      enum "ipv6" {
         value 1;
-        description "IPv6";
+        description
+          "IPv6";
       }
     }
-    description "Tc oper af name";
+    description
+      "Tc oper af name";
   }
+
   typedef Tc-oper-local-label {
     type uint32 {
       range "16..1048575";
     }
-    description "Tc oper local label";
+    description
+      "Tc oper local label";
   }
 
   grouping AF-TABLE {
-    description "Common node of default-vrf, traffic-collector";
-
+    description
+      "Common node of default-vrf, traffic-collector";
     container afs {
-      description "Address Family specific operational data";
-
+      description
+        "Address Family specific operational data";
       list af {
         key "af-name";
-        description "Operational data for given Address Family";
-
+        description
+          "Operational data for given Address Family";
         container counters {
-          description "Show Counters";
-
+          description
+            "Show Counters";
           container prefixes {
-            description "Prefix Database";
-
+            description
+              "Prefix Database";
             list prefix {
-              description "Show Prefix Counter";
+              description
+                "Show Prefix Counter";
               leaf ipaddr {
                 type xr:Cisco-ios-xr-string;
-                description "IP Address";
+                description
+                  "IP Address";
               }
               leaf mask {
                 type xr:Cisco-ios-xr-string;
-                description "Prefix Mask";
+                description
+                  "Prefix Mask";
               }
               leaf label {
                 type Tc-oper-local-label;
-                description "Local Label";
+                description
+                  "Local Label";
               }
               uses TC-MGMT-PREFIX-DATA;
             }
           }
-
           container tunnels {
-            description "Tunnels";
-
+            description
+              "Tunnels";
             list tunnel {
               key "interface-name";
-              description "Tunnel information";
+              description
+                "Tunnel information";
               leaf interface-name {
                 type xr:Interface-name;
-                description "The Interface Name";
+                description
+                  "The Interface Name";
               }
               uses TC-MGMT-TUNNEL-DATA;
             }
@@ -117,7 +118,8 @@ module Cisco-IOS-XR-infra-tc-oper {
         }
         leaf af-name {
           type Tc-oper-af-name;
-          description "Address Family name";
+          description
+            "Address Family name";
         }
       }
     }
@@ -125,32 +127,34 @@ module Cisco-IOS-XR-infra-tc-oper {
 
   container traffic-collector {
     config false;
-    description "Global Traffic Collector configuration commands";
-
+    description
+      "Global Traffic Collector configuration commands";
     container external-interfaces {
-      description "External Interface";
-
+      description
+        "External Interface";
       list external-interface {
         key "interface-name";
-        description "External Interface ";
+        description
+          "External Interface ";
         leaf interface-name {
           type xr:Interface-name;
-          description "The Interface Name";
+          description
+            "The Interface Name";
         }
         uses TC-MGMT-EXT-IF-DATA;
       }
     }
-
     container summary {
-      description "Traffic Collector summary";
+      description
+        "Traffic Collector summary";
       uses TC-MGMT-SUMMARY;
     }
-
     container vrf-table {
-      description "VRF specific operational data";
-
+      description
+        "VRF specific operational data";
       container default-vrf {
-        description "DefaultVRF specific operational data";
+        description
+          "DefaultVRF specific operational data";
         uses AF-TABLE;
       }
     }

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class PolicyState(Enum):
     """
-    PolicyState
+    PolicyState (Enum Class)
 
     Different Interface states
 
@@ -63,8 +65,10 @@ class Pbr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-pbr-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Pbr.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Pbr.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Pbr.Nodes()
         self.nodes.parent = self
@@ -96,8 +100,10 @@ class Pbr(Entity):
             self.yang_parent_name = "pbr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Pbr.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Pbr.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -111,7 +117,7 @@ class Pbr(Entity):
             """
             PBR operational data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	The node
             	**type**\: str
@@ -137,16 +143,19 @@ class Pbr(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"policy-map" : ("policy_map", Pbr.Nodes.Node.PolicyMap)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("policy-map", ("policy_map", Pbr.Nodes.Node.PolicyMap))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.policy_map = Pbr.Nodes.Node.PolicyMap()
                 self.policy_map.parent = self
                 self._children_name_map["policy_map"] = "policy-map"
                 self._children_yang_names.add("policy-map")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pbr-oper:pbr/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -176,8 +185,10 @@ class Pbr(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"interfaces" : ("interfaces", Pbr.Nodes.Node.PolicyMap.Interfaces)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Pbr.Nodes.Node.PolicyMap.Interfaces))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.interfaces = Pbr.Nodes.Node.PolicyMap.Interfaces()
                     self.interfaces.parent = self
@@ -209,8 +220,10 @@ class Pbr(Entity):
                         self.yang_parent_name = "policy-map"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("interface", ("interface", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface))])
+                        self._leafs = OrderedDict()
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
@@ -223,7 +236,7 @@ class Pbr(Entity):
                         """
                         PBR action data for a particular interface
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	Name of the interface
                         	**type**\: str
@@ -249,16 +262,19 @@ class Pbr(Entity):
                             self.yang_parent_name = "interfaces"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"direction" : ("direction", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([("direction", ("direction", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ])
+                            self.interface_name = None
 
                             self.direction = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction()
                             self.direction.parent = self
                             self._children_name_map["direction"] = "direction"
                             self._children_yang_names.add("direction")
-                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                            self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface, ['interface_name'], name, value)
@@ -287,8 +303,10 @@ class Pbr(Entity):
                                 self.yang_parent_name = "interface"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"input" : ("input", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("input", ("input", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.input = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input()
                                 self.input.parent = self
@@ -346,16 +364,19 @@ class Pbr(Entity):
                                     self.yang_parent_name = "direction"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"class-stat" : ("class_stat", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat)}
-
-                                    self.node_name = YLeaf(YType.str, "node-name")
-
-                                    self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                    self.state = YLeaf(YType.enumeration, "state")
-
-                                    self.state_description = YLeaf(YType.str, "state-description")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("class-stat", ("class_stat", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat))])
+                                    self._leafs = OrderedDict([
+                                        ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                        ('state', YLeaf(YType.enumeration, 'state')),
+                                        ('state_description', YLeaf(YType.str, 'state-description')),
+                                    ])
+                                    self.node_name = None
+                                    self.policy_name = None
+                                    self.state = None
+                                    self.state_description = None
 
                                     self.class_stat = YList(self)
                                     self._segment_path = lambda: "input"
@@ -415,14 +436,17 @@ class Pbr(Entity):
                                         self.yang_parent_name = "input"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"general-stats" : ("general_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats), "httpr-stats" : ("httpr_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats)}
-                                        self._child_list_classes = {}
-
-                                        self.counter_validity_bitmask = YLeaf(YType.uint64, "counter-validity-bitmask")
-
-                                        self.class_name = YLeaf(YType.str, "class-name")
-
-                                        self.class_id = YLeaf(YType.uint32, "class-id")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("general-stats", ("general_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats)), ("httpr-stats", ("httpr_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('counter_validity_bitmask', YLeaf(YType.uint64, 'counter-validity-bitmask')),
+                                            ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ('class_id', YLeaf(YType.uint32, 'class-id')),
+                                        ])
+                                        self.counter_validity_bitmask = None
+                                        self.class_name = None
+                                        self.class_id = None
 
                                         self.general_stats = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats()
                                         self.general_stats.parent = self
@@ -536,26 +560,29 @@ class Pbr(Entity):
                                             self.yang_parent_name = "class-stat"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.transmit_packets = YLeaf(YType.uint64, "transmit-packets")
-
-                                            self.transmit_bytes = YLeaf(YType.uint64, "transmit-bytes")
-
-                                            self.total_drop_packets = YLeaf(YType.uint64, "total-drop-packets")
-
-                                            self.total_drop_bytes = YLeaf(YType.uint64, "total-drop-bytes")
-
-                                            self.total_drop_rate = YLeaf(YType.uint32, "total-drop-rate")
-
-                                            self.match_data_rate = YLeaf(YType.uint32, "match-data-rate")
-
-                                            self.total_transmit_rate = YLeaf(YType.uint32, "total-transmit-rate")
-
-                                            self.pre_policy_matched_packets = YLeaf(YType.uint64, "pre-policy-matched-packets")
-
-                                            self.pre_policy_matched_bytes = YLeaf(YType.uint64, "pre-policy-matched-bytes")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('transmit_packets', YLeaf(YType.uint64, 'transmit-packets')),
+                                                ('transmit_bytes', YLeaf(YType.uint64, 'transmit-bytes')),
+                                                ('total_drop_packets', YLeaf(YType.uint64, 'total-drop-packets')),
+                                                ('total_drop_bytes', YLeaf(YType.uint64, 'total-drop-bytes')),
+                                                ('total_drop_rate', YLeaf(YType.uint32, 'total-drop-rate')),
+                                                ('match_data_rate', YLeaf(YType.uint32, 'match-data-rate')),
+                                                ('total_transmit_rate', YLeaf(YType.uint32, 'total-transmit-rate')),
+                                                ('pre_policy_matched_packets', YLeaf(YType.uint64, 'pre-policy-matched-packets')),
+                                                ('pre_policy_matched_bytes', YLeaf(YType.uint64, 'pre-policy-matched-bytes')),
+                                            ])
+                                            self.transmit_packets = None
+                                            self.transmit_bytes = None
+                                            self.total_drop_packets = None
+                                            self.total_drop_bytes = None
+                                            self.total_drop_rate = None
+                                            self.match_data_rate = None
+                                            self.total_transmit_rate = None
+                                            self.pre_policy_matched_packets = None
+                                            self.pre_policy_matched_bytes = None
                                             self._segment_path = lambda: "general-stats"
 
                                         def __setattr__(self, name, value):
@@ -628,20 +655,23 @@ class Pbr(Entity):
                                             self.yang_parent_name = "class-stat"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.rqst_rcvd_packets = YLeaf(YType.uint64, "rqst-rcvd-packets")
-
-                                            self.rqst_rcvd_bytes = YLeaf(YType.uint64, "rqst-rcvd-bytes")
-
-                                            self.drop_packets = YLeaf(YType.uint64, "drop-packets")
-
-                                            self.drop_bytes = YLeaf(YType.uint64, "drop-bytes")
-
-                                            self.resp_sent_packets = YLeaf(YType.uint64, "resp-sent-packets")
-
-                                            self.resp_sent_bytes = YLeaf(YType.uint64, "resp-sent-bytes")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('rqst_rcvd_packets', YLeaf(YType.uint64, 'rqst-rcvd-packets')),
+                                                ('rqst_rcvd_bytes', YLeaf(YType.uint64, 'rqst-rcvd-bytes')),
+                                                ('drop_packets', YLeaf(YType.uint64, 'drop-packets')),
+                                                ('drop_bytes', YLeaf(YType.uint64, 'drop-bytes')),
+                                                ('resp_sent_packets', YLeaf(YType.uint64, 'resp-sent-packets')),
+                                                ('resp_sent_bytes', YLeaf(YType.uint64, 'resp-sent-bytes')),
+                                            ])
+                                            self.rqst_rcvd_packets = None
+                                            self.rqst_rcvd_bytes = None
+                                            self.drop_packets = None
+                                            self.drop_bytes = None
+                                            self.resp_sent_packets = None
+                                            self.resp_sent_bytes = None
                                             self._segment_path = lambda: "httpr-stats"
 
                                         def __setattr__(self, name, value):

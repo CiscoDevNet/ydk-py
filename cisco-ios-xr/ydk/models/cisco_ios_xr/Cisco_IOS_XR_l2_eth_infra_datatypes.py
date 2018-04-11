@@ -7,15 +7,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class EthertypeMatch(Enum):
     """
-    EthertypeMatch
+    EthertypeMatch (Enum Class)
 
     Ethertype match
 
@@ -30,7 +32,7 @@ class EthertypeMatch(Enum):
 
 class Match(Enum):
     """
-    Match
+    Match (Enum Class)
 
     Match
 
@@ -75,7 +77,7 @@ class Match(Enum):
 
 class Rewrite(Enum):
     """
-    Rewrite
+    Rewrite (Enum Class)
 
     Rewrite
 
@@ -132,7 +134,7 @@ class Rewrite(Enum):
 
 class Vlan(Enum):
     """
-    Vlan
+    Vlan (Enum Class)
 
     Vlan
 
@@ -153,7 +155,7 @@ class Vlan(Enum):
 
 class VlanTagOrAny(Enum):
     """
-    VlanTagOrAny
+    VlanTagOrAny (Enum Class)
 
     Vlan tag or any
 
@@ -168,7 +170,7 @@ class VlanTagOrAny(Enum):
 
 class VlanTagOrCvp(Enum):
     """
-    VlanTagOrCvp
+    VlanTagOrCvp (Enum Class)
 
     Vlan tag or cvp
 
@@ -185,7 +187,7 @@ class VlanTagOrCvp(Enum):
 
 class VlanTagOrNative(Enum):
     """
-    VlanTagOrNative
+    VlanTagOrNative (Enum Class)
 
     Vlan tag or native
 
@@ -208,7 +210,7 @@ class VlanTagOrNative(Enum):
 
 class VlanTagOrNull(Enum):
     """
-    VlanTagOrNull
+    VlanTagOrNull (Enum Class)
 
     Vlan tag or null
 

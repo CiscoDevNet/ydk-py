@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CryptoAlg(Enum):
     """
-    CryptoAlg
+    CryptoAlg (Enum Class)
 
     Crypto alg
 
@@ -58,7 +60,7 @@ class CryptoAlg(Enum):
 
 class KeyChainMonth(Enum):
     """
-    KeyChainMonth
+    KeyChainMonth (Enum Class)
 
     Key chain month
 
@@ -137,6 +139,48 @@ class KeyChainMonth(Enum):
     dec = Enum.YLeaf(11, "dec")
 
 
+class MacsecCryptoAlg(Enum):
+    """
+    MacsecCryptoAlg (Enum Class)
+
+    Macsec crypto alg
+
+    .. data:: aes_128_cmac = 7
+
+    	aes 128 cmac
+
+    .. data:: aes_256_cmac = 8
+
+    	aes 256 cmac
+
+    """
+
+    aes_128_cmac = Enum.YLeaf(7, "aes-128-cmac")
+
+    aes_256_cmac = Enum.YLeaf(8, "aes-256-cmac")
+
+
+class MacsecEncryption(Enum):
+    """
+    MacsecEncryption (Enum Class)
+
+    Macsec encryption
+
+    .. data:: type7 = 0
+
+    	Type7
+
+    .. data:: type6 = 2
+
+    	Type6
+
+    """
+
+    type7 = Enum.YLeaf(0, "type7")
+
+    type6 = Enum.YLeaf(2, "type6")
+
+
 
 class Keychains(Entity):
     """
@@ -152,7 +196,7 @@ class Keychains(Entity):
     """
 
     _prefix = 'lib-keychain-cfg'
-    _revision = '2017-05-01'
+    _revision = '2017-07-19'
 
     def __init__(self):
         super(Keychains, self).__init__()
@@ -162,8 +206,10 @@ class Keychains(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"keychain" : ("keychain", Keychains.Keychain)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("keychain", ("keychain", Keychains.Keychain))])
+        self._leafs = OrderedDict()
 
         self.keychain = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-cfg:keychains"
@@ -176,7 +222,7 @@ class Keychains(Entity):
         """
         Name of the key chain
         
-        .. attribute:: chain_name  <key>
+        .. attribute:: chain_name  (key)
         
         	Name of the key chain
         	**type**\: str
@@ -188,6 +234,13 @@ class Keychains(Entity):
         	Accept Tolerance in seconds or infinite
         	**type**\:  :py:class:`AcceptTolerance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.AcceptTolerance>`
         
+        .. attribute:: macsec_keychain
+        
+        	Name of the key chain for MACSec
+        	**type**\:  :py:class:`MacsecKeychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.MacsecKeychain>`
+        
+        	**presence node**\: True
+        
         .. attribute:: keies
         
         	Configure a Key
@@ -198,7 +251,7 @@ class Keychains(Entity):
         """
 
         _prefix = 'lib-keychain-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-07-19'
 
         def __init__(self):
             super(Keychains.Keychain, self).__init__()
@@ -207,21 +260,28 @@ class Keychains(Entity):
             self.yang_parent_name = "keychains"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"accept-tolerance" : ("accept_tolerance", Keychains.Keychain.AcceptTolerance), "keies" : ("keies", Keychains.Keychain.Keies)}
-            self._child_list_classes = {}
-
-            self.chain_name = YLeaf(YType.str, "chain-name")
+            self.ylist_key_names = ['chain_name']
+            self._child_container_classes = OrderedDict([("accept-tolerance", ("accept_tolerance", Keychains.Keychain.AcceptTolerance)), ("macsec-keychain", ("macsec_keychain", Keychains.Keychain.MacsecKeychain)), ("keies", ("keies", Keychains.Keychain.Keies))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('chain_name', YLeaf(YType.str, 'chain-name')),
+            ])
+            self.chain_name = None
 
             self.accept_tolerance = Keychains.Keychain.AcceptTolerance()
             self.accept_tolerance.parent = self
             self._children_name_map["accept_tolerance"] = "accept-tolerance"
             self._children_yang_names.add("accept-tolerance")
 
+            self.macsec_keychain = None
+            self._children_name_map["macsec_keychain"] = "macsec-keychain"
+            self._children_yang_names.add("macsec-keychain")
+
             self.keies = Keychains.Keychain.Keies()
             self.keies.parent = self
             self._children_name_map["keies"] = "keies"
             self._children_yang_names.add("keies")
-            self._segment_path = lambda: "keychain" + "[chain-name='" + self.chain_name.get() + "']"
+            self._segment_path = lambda: "keychain" + "[chain-name='" + str(self.chain_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-cfg:keychains/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -251,7 +311,7 @@ class Keychains(Entity):
             """
 
             _prefix = 'lib-keychain-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-07-19'
 
             def __init__(self):
                 super(Keychains.Keychain.AcceptTolerance, self).__init__()
@@ -260,16 +320,372 @@ class Keychains(Entity):
                 self.yang_parent_name = "keychain"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.value = YLeaf(YType.uint32, "value")
-
-                self.infinite = YLeaf(YType.boolean, "infinite")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('value', YLeaf(YType.uint32, 'value')),
+                    ('infinite', YLeaf(YType.boolean, 'infinite')),
+                ])
+                self.value = None
+                self.infinite = None
                 self._segment_path = lambda: "accept-tolerance"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Keychains.Keychain.AcceptTolerance, ['value', 'infinite'], name, value)
+
+
+        class MacsecKeychain(Entity):
+            """
+            Name of the key chain for MACSec
+            
+            .. attribute:: macsec_keies
+            
+            	Configure a Key
+            	**type**\:  :py:class:`MacsecKeies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.MacsecKeychain.MacsecKeies>`
+            
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'lib-keychain-cfg'
+            _revision = '2017-07-19'
+
+            def __init__(self):
+                super(Keychains.Keychain.MacsecKeychain, self).__init__()
+
+                self.yang_name = "macsec-keychain"
+                self.yang_parent_name = "keychain"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("macsec-keies", ("macsec_keies", Keychains.Keychain.MacsecKeychain.MacsecKeies))])
+                self._child_list_classes = OrderedDict([])
+                self.is_presence_container = True
+                self._leafs = OrderedDict()
+
+                self.macsec_keies = Keychains.Keychain.MacsecKeychain.MacsecKeies()
+                self.macsec_keies.parent = self
+                self._children_name_map["macsec_keies"] = "macsec-keies"
+                self._children_yang_names.add("macsec-keies")
+                self._segment_path = lambda: "macsec-keychain"
+
+
+            class MacsecKeies(Entity):
+                """
+                Configure a Key
+                
+                .. attribute:: macsec_key
+                
+                	Key Identifier
+                	**type**\: list of  		 :py:class:`MacsecKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey>`
+                
+                
+
+                """
+
+                _prefix = 'lib-keychain-cfg'
+                _revision = '2017-07-19'
+
+                def __init__(self):
+                    super(Keychains.Keychain.MacsecKeychain.MacsecKeies, self).__init__()
+
+                    self.yang_name = "macsec-keies"
+                    self.yang_parent_name = "macsec-keychain"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("macsec-key", ("macsec_key", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey))])
+                    self._leafs = OrderedDict()
+
+                    self.macsec_key = YList(self)
+                    self._segment_path = lambda: "macsec-keies"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Keychains.Keychain.MacsecKeychain.MacsecKeies, [], name, value)
+
+
+                class MacsecKey(Entity):
+                    """
+                    Key Identifier
+                    
+                    .. attribute:: key_id  (key)
+                    
+                    	48\-bit Key identifier
+                    	**type**\: str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: macsec_lifetime
+                    
+                    	Configure a key Lifetime
+                    	**type**\:  :py:class:`MacsecLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime>`
+                    
+                    .. attribute:: macsec_key_string
+                    
+                    	Configure a clear text/encrypted Key string along with cryptographic algorithm
+                    	**type**\:  :py:class:`MacsecKeyString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecKeyString>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'lib-keychain-cfg'
+                    _revision = '2017-07-19'
+
+                    def __init__(self):
+                        super(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey, self).__init__()
+
+                        self.yang_name = "macsec-key"
+                        self.yang_parent_name = "macsec-keies"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['key_id']
+                        self._child_container_classes = OrderedDict([("macsec-lifetime", ("macsec_lifetime", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime)), ("macsec-key-string", ("macsec_key_string", Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecKeyString))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('key_id', YLeaf(YType.str, 'key-id')),
+                        ])
+                        self.key_id = None
+
+                        self.macsec_lifetime = Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime()
+                        self.macsec_lifetime.parent = self
+                        self._children_name_map["macsec_lifetime"] = "macsec-lifetime"
+                        self._children_yang_names.add("macsec-lifetime")
+
+                        self.macsec_key_string = None
+                        self._children_name_map["macsec_key_string"] = "macsec-key-string"
+                        self._children_yang_names.add("macsec-key-string")
+                        self._segment_path = lambda: "macsec-key" + "[key-id='" + str(self.key_id) + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey, ['key_id'], name, value)
+
+
+                    class MacsecLifetime(Entity):
+                        """
+                        Configure a key Lifetime
+                        
+                        .. attribute:: start_hour
+                        
+                        	Start Hour
+                        	**type**\: int
+                        
+                        	**range:** 0..23
+                        
+                        .. attribute:: start_minutes
+                        
+                        	Start Minutes
+                        	**type**\: int
+                        
+                        	**range:** 0..59
+                        
+                        	**units**\: minute
+                        
+                        .. attribute:: start_seconds
+                        
+                        	Start Seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..59
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: start_date
+                        
+                        	Start Date
+                        	**type**\: int
+                        
+                        	**range:** 1..31
+                        
+                        .. attribute:: start_month
+                        
+                        	Start Month
+                        	**type**\:  :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                        
+                        .. attribute:: start_year
+                        
+                        	Start Year
+                        	**type**\: int
+                        
+                        	**range:** 1993..2035
+                        
+                        .. attribute:: life_time
+                        
+                        	Lifetime duration in seconds
+                        	**type**\: int
+                        
+                        	**range:** 1..2147483647
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: infinite_flag
+                        
+                        	Infinite Lifetime flag
+                        	**type**\: bool
+                        
+                        .. attribute:: end_hour
+                        
+                        	End Hour
+                        	**type**\: int
+                        
+                        	**range:** 0..23
+                        
+                        .. attribute:: end_minutes
+                        
+                        	End Minutes
+                        	**type**\: int
+                        
+                        	**range:** 0..59
+                        
+                        	**units**\: minute
+                        
+                        .. attribute:: end_seconds
+                        
+                        	End Seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..59
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: end_date
+                        
+                        	End Date
+                        	**type**\: int
+                        
+                        	**range:** 1..31
+                        
+                        .. attribute:: end_month
+                        
+                        	End Month
+                        	**type**\:  :py:class:`KeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonth>`
+                        
+                        .. attribute:: end_year
+                        
+                        	End Year
+                        	**type**\: int
+                        
+                        	**range:** 1993..2035
+                        
+                        
+
+                        """
+
+                        _prefix = 'lib-keychain-cfg'
+                        _revision = '2017-07-19'
+
+                        def __init__(self):
+                            super(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime, self).__init__()
+
+                            self.yang_name = "macsec-lifetime"
+                            self.yang_parent_name = "macsec-key"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start_hour', YLeaf(YType.uint32, 'start-hour')),
+                                ('start_minutes', YLeaf(YType.uint32, 'start-minutes')),
+                                ('start_seconds', YLeaf(YType.uint32, 'start-seconds')),
+                                ('start_date', YLeaf(YType.uint32, 'start-date')),
+                                ('start_month', YLeaf(YType.enumeration, 'start-month')),
+                                ('start_year', YLeaf(YType.uint32, 'start-year')),
+                                ('life_time', YLeaf(YType.uint32, 'life-time')),
+                                ('infinite_flag', YLeaf(YType.boolean, 'infinite-flag')),
+                                ('end_hour', YLeaf(YType.uint32, 'end-hour')),
+                                ('end_minutes', YLeaf(YType.uint32, 'end-minutes')),
+                                ('end_seconds', YLeaf(YType.uint32, 'end-seconds')),
+                                ('end_date', YLeaf(YType.uint32, 'end-date')),
+                                ('end_month', YLeaf(YType.enumeration, 'end-month')),
+                                ('end_year', YLeaf(YType.uint32, 'end-year')),
+                            ])
+                            self.start_hour = None
+                            self.start_minutes = None
+                            self.start_seconds = None
+                            self.start_date = None
+                            self.start_month = None
+                            self.start_year = None
+                            self.life_time = None
+                            self.infinite_flag = None
+                            self.end_hour = None
+                            self.end_minutes = None
+                            self.end_seconds = None
+                            self.end_date = None
+                            self.end_month = None
+                            self.end_year = None
+                            self._segment_path = lambda: "macsec-lifetime"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecLifetime, ['start_hour', 'start_minutes', 'start_seconds', 'start_date', 'start_month', 'start_year', 'life_time', 'infinite_flag', 'end_hour', 'end_minutes', 'end_seconds', 'end_date', 'end_month', 'end_year'], name, value)
+
+
+                    class MacsecKeyString(Entity):
+                        """
+                        Configure a clear text/encrypted Key string
+                        along with cryptographic algorithm
+                        
+                        .. attribute:: string
+                        
+                        	Key String
+                        	**type**\: str
+                        
+                        	**pattern:** (!.+)\|([^!].+)
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: cryptographic_algorithm
+                        
+                        	Cryptographic Algorithm
+                        	**type**\:  :py:class:`MacsecCryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.MacsecCryptoAlg>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: encryption_type
+                        
+                        	encryption type used to store key
+                        	**type**\:  :py:class:`MacsecEncryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.MacsecEncryption>`
+                        
+                        	**default value**\: type7
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'lib-keychain-cfg'
+                        _revision = '2017-07-19'
+
+                        def __init__(self):
+                            super(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecKeyString, self).__init__()
+
+                            self.yang_name = "macsec-key-string"
+                            self.yang_parent_name = "macsec-key"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('string', YLeaf(YType.str, 'string')),
+                                ('cryptographic_algorithm', YLeaf(YType.enumeration, 'cryptographic-algorithm')),
+                                ('encryption_type', YLeaf(YType.enumeration, 'encryption-type')),
+                            ])
+                            self.string = None
+                            self.cryptographic_algorithm = None
+                            self.encryption_type = None
+                            self._segment_path = lambda: "macsec-key-string"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Keychains.Keychain.MacsecKeychain.MacsecKeies.MacsecKey.MacsecKeyString, ['string', 'cryptographic_algorithm', 'encryption_type'], name, value)
 
 
         class Keies(Entity):
@@ -286,7 +702,7 @@ class Keychains(Entity):
             """
 
             _prefix = 'lib-keychain-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-07-19'
 
             def __init__(self):
                 super(Keychains.Keychain.Keies, self).__init__()
@@ -295,8 +711,10 @@ class Keychains(Entity):
                 self.yang_parent_name = "keychain"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"key" : ("key", Keychains.Keychain.Keies.Key)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("key", ("key", Keychains.Keychain.Keies.Key))])
+                self._leafs = OrderedDict()
 
                 self.key = YList(self)
                 self._segment_path = lambda: "keies"
@@ -309,7 +727,7 @@ class Keychains(Entity):
                 """
                 Key Identifier
                 
-                .. attribute:: key_id  <key>
+                .. attribute:: key_id  (key)
                 
                 	48\-bit Key identifier
                 	**type**\: str
@@ -343,7 +761,7 @@ class Keychains(Entity):
                 """
 
                 _prefix = 'lib-keychain-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-07-19'
 
                 def __init__(self):
                     super(Keychains.Keychain.Keies.Key, self).__init__()
@@ -352,14 +770,17 @@ class Keychains(Entity):
                     self.yang_parent_name = "keies"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"accept-lifetime" : ("accept_lifetime", Keychains.Keychain.Keies.Key.AcceptLifetime), "send-lifetime" : ("send_lifetime", Keychains.Keychain.Keies.Key.SendLifetime)}
-                    self._child_list_classes = {}
-
-                    self.key_id = YLeaf(YType.str, "key-id")
-
-                    self.key_string = YLeaf(YType.str, "key-string")
-
-                    self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
+                    self.ylist_key_names = ['key_id']
+                    self._child_container_classes = OrderedDict([("accept-lifetime", ("accept_lifetime", Keychains.Keychain.Keies.Key.AcceptLifetime)), ("send-lifetime", ("send_lifetime", Keychains.Keychain.Keies.Key.SendLifetime))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('key_id', YLeaf(YType.str, 'key-id')),
+                        ('key_string', YLeaf(YType.str, 'key-string')),
+                        ('cryptographic_algorithm', YLeaf(YType.enumeration, 'cryptographic-algorithm')),
+                    ])
+                    self.key_id = None
+                    self.key_string = None
+                    self.cryptographic_algorithm = None
 
                     self.accept_lifetime = Keychains.Keychain.Keies.Key.AcceptLifetime()
                     self.accept_lifetime.parent = self
@@ -370,7 +791,7 @@ class Keychains(Entity):
                     self.send_lifetime.parent = self
                     self._children_name_map["send_lifetime"] = "send-lifetime"
                     self._children_yang_names.add("send-lifetime")
-                    self._segment_path = lambda: "key" + "[key-id='" + self.key_id.get() + "']"
+                    self._segment_path = lambda: "key" + "[key-id='" + str(self.key_id) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Keychains.Keychain.Keies.Key, ['key_id', 'key_string', 'cryptographic_algorithm'], name, value)
@@ -487,7 +908,7 @@ class Keychains(Entity):
                     """
 
                     _prefix = 'lib-keychain-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-07-19'
 
                     def __init__(self):
                         super(Keychains.Keychain.Keies.Key.AcceptLifetime, self).__init__()
@@ -496,36 +917,39 @@ class Keychains(Entity):
                         self.yang_parent_name = "key"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.start_hour = YLeaf(YType.uint32, "start-hour")
-
-                        self.start_minutes = YLeaf(YType.uint32, "start-minutes")
-
-                        self.start_seconds = YLeaf(YType.uint32, "start-seconds")
-
-                        self.start_date = YLeaf(YType.uint32, "start-date")
-
-                        self.start_month = YLeaf(YType.enumeration, "start-month")
-
-                        self.start_year = YLeaf(YType.uint32, "start-year")
-
-                        self.life_time = YLeaf(YType.uint32, "life-time")
-
-                        self.infinite_flag = YLeaf(YType.boolean, "infinite-flag")
-
-                        self.end_hour = YLeaf(YType.uint32, "end-hour")
-
-                        self.end_minutes = YLeaf(YType.uint32, "end-minutes")
-
-                        self.end_seconds = YLeaf(YType.uint32, "end-seconds")
-
-                        self.end_date = YLeaf(YType.uint32, "end-date")
-
-                        self.end_month = YLeaf(YType.enumeration, "end-month")
-
-                        self.end_year = YLeaf(YType.uint32, "end-year")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start_hour', YLeaf(YType.uint32, 'start-hour')),
+                            ('start_minutes', YLeaf(YType.uint32, 'start-minutes')),
+                            ('start_seconds', YLeaf(YType.uint32, 'start-seconds')),
+                            ('start_date', YLeaf(YType.uint32, 'start-date')),
+                            ('start_month', YLeaf(YType.enumeration, 'start-month')),
+                            ('start_year', YLeaf(YType.uint32, 'start-year')),
+                            ('life_time', YLeaf(YType.uint32, 'life-time')),
+                            ('infinite_flag', YLeaf(YType.boolean, 'infinite-flag')),
+                            ('end_hour', YLeaf(YType.uint32, 'end-hour')),
+                            ('end_minutes', YLeaf(YType.uint32, 'end-minutes')),
+                            ('end_seconds', YLeaf(YType.uint32, 'end-seconds')),
+                            ('end_date', YLeaf(YType.uint32, 'end-date')),
+                            ('end_month', YLeaf(YType.enumeration, 'end-month')),
+                            ('end_year', YLeaf(YType.uint32, 'end-year')),
+                        ])
+                        self.start_hour = None
+                        self.start_minutes = None
+                        self.start_seconds = None
+                        self.start_date = None
+                        self.start_month = None
+                        self.start_year = None
+                        self.life_time = None
+                        self.infinite_flag = None
+                        self.end_hour = None
+                        self.end_minutes = None
+                        self.end_seconds = None
+                        self.end_date = None
+                        self.end_month = None
+                        self.end_year = None
                         self._segment_path = lambda: "accept-lifetime"
 
                     def __setattr__(self, name, value):
@@ -643,7 +1067,7 @@ class Keychains(Entity):
                     """
 
                     _prefix = 'lib-keychain-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-07-19'
 
                     def __init__(self):
                         super(Keychains.Keychain.Keies.Key.SendLifetime, self).__init__()
@@ -652,36 +1076,39 @@ class Keychains(Entity):
                         self.yang_parent_name = "key"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.start_hour = YLeaf(YType.uint32, "start-hour")
-
-                        self.start_minutes = YLeaf(YType.uint32, "start-minutes")
-
-                        self.start_seconds = YLeaf(YType.uint32, "start-seconds")
-
-                        self.start_date = YLeaf(YType.uint32, "start-date")
-
-                        self.start_month = YLeaf(YType.enumeration, "start-month")
-
-                        self.start_year = YLeaf(YType.uint32, "start-year")
-
-                        self.life_time = YLeaf(YType.uint32, "life-time")
-
-                        self.infinite_flag = YLeaf(YType.boolean, "infinite-flag")
-
-                        self.end_hour = YLeaf(YType.uint32, "end-hour")
-
-                        self.end_minutes = YLeaf(YType.uint32, "end-minutes")
-
-                        self.end_seconds = YLeaf(YType.uint32, "end-seconds")
-
-                        self.end_date = YLeaf(YType.uint32, "end-date")
-
-                        self.end_month = YLeaf(YType.enumeration, "end-month")
-
-                        self.end_year = YLeaf(YType.uint32, "end-year")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start_hour', YLeaf(YType.uint32, 'start-hour')),
+                            ('start_minutes', YLeaf(YType.uint32, 'start-minutes')),
+                            ('start_seconds', YLeaf(YType.uint32, 'start-seconds')),
+                            ('start_date', YLeaf(YType.uint32, 'start-date')),
+                            ('start_month', YLeaf(YType.enumeration, 'start-month')),
+                            ('start_year', YLeaf(YType.uint32, 'start-year')),
+                            ('life_time', YLeaf(YType.uint32, 'life-time')),
+                            ('infinite_flag', YLeaf(YType.boolean, 'infinite-flag')),
+                            ('end_hour', YLeaf(YType.uint32, 'end-hour')),
+                            ('end_minutes', YLeaf(YType.uint32, 'end-minutes')),
+                            ('end_seconds', YLeaf(YType.uint32, 'end-seconds')),
+                            ('end_date', YLeaf(YType.uint32, 'end-date')),
+                            ('end_month', YLeaf(YType.enumeration, 'end-month')),
+                            ('end_year', YLeaf(YType.uint32, 'end-year')),
+                        ])
+                        self.start_hour = None
+                        self.start_minutes = None
+                        self.start_seconds = None
+                        self.start_date = None
+                        self.start_month = None
+                        self.start_year = None
+                        self.life_time = None
+                        self.infinite_flag = None
+                        self.end_hour = None
+                        self.end_minutes = None
+                        self.end_seconds = None
+                        self.end_date = None
+                        self.end_month = None
+                        self.end_year = None
                         self._segment_path = lambda: "send-lifetime"
 
                     def __setattr__(self, name, value):

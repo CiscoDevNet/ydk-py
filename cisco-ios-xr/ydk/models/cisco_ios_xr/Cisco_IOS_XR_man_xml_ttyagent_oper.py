@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class XrXmlSessionAlarmRegister(Enum):
     """
-    XrXmlSessionAlarmRegister
+    XrXmlSessionAlarmRegister (Enum Class)
 
     AlarmNotify
 
@@ -41,7 +43,7 @@ class XrXmlSessionAlarmRegister(Enum):
 
 class XrXmlSessionState(Enum):
     """
-    XrXmlSessionState
+    XrXmlSessionState (Enum Class)
 
     SessionState
 
@@ -85,8 +87,10 @@ class Netconf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-man-xml-ttyagent-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"agent" : ("agent", Netconf.Agent)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("agent", ("agent", Netconf.Agent))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.agent = Netconf.Agent()
         self.agent.parent = self
@@ -118,8 +122,10 @@ class Netconf(Entity):
             self.yang_parent_name = "netconf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"tty" : ("tty", Netconf.Agent.Tty)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("tty", ("tty", Netconf.Agent.Tty))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.tty = Netconf.Agent.Tty()
             self.tty.parent = self
@@ -152,8 +158,10 @@ class Netconf(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sessions" : ("sessions", Netconf.Agent.Tty.Sessions)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sessions", ("sessions", Netconf.Agent.Tty.Sessions))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.sessions = Netconf.Agent.Tty.Sessions()
                 self.sessions.parent = self
@@ -186,8 +194,10 @@ class Netconf(Entity):
                     self.yang_parent_name = "tty"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session" : ("session", Netconf.Agent.Tty.Sessions.Session)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session", ("session", Netconf.Agent.Tty.Sessions.Session))])
+                    self._leafs = OrderedDict()
 
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
@@ -201,7 +211,7 @@ class Netconf(Entity):
                     """
                     Session information
                     
-                    .. attribute:: session_id  <key>
+                    .. attribute:: session_id  (key)
                     
                     	Session ID
                     	**type**\: int
@@ -291,33 +301,36 @@ class Netconf(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.int32, "session-id")
-
-                        self.username = YLeaf(YType.str, "username")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.client_address = YLeaf(YType.str, "client-address")
-
-                        self.client_port = YLeaf(YType.uint32, "client-port")
-
-                        self.config_session_id = YLeaf(YType.str, "config-session-id")
-
-                        self.admin_config_session_id = YLeaf(YType.str, "admin-config-session-id")
-
-                        self.alarm_notification = YLeaf(YType.enumeration, "alarm-notification")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.start_time = YLeaf(YType.uint32, "start-time")
-
-                        self.elapsed_time = YLeaf(YType.uint32, "elapsed-time")
-
-                        self.last_state_change = YLeaf(YType.uint32, "last-state-change")
-                        self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
+                        self.ylist_key_names = ['session_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.int32, 'session-id')),
+                            ('username', YLeaf(YType.str, 'username')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('client_address', YLeaf(YType.str, 'client-address')),
+                            ('client_port', YLeaf(YType.uint32, 'client-port')),
+                            ('config_session_id', YLeaf(YType.str, 'config-session-id')),
+                            ('admin_config_session_id', YLeaf(YType.str, 'admin-config-session-id')),
+                            ('alarm_notification', YLeaf(YType.enumeration, 'alarm-notification')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('start_time', YLeaf(YType.uint32, 'start-time')),
+                            ('elapsed_time', YLeaf(YType.uint32, 'elapsed-time')),
+                            ('last_state_change', YLeaf(YType.uint32, 'last-state-change')),
+                        ])
+                        self.session_id = None
+                        self.username = None
+                        self.state = None
+                        self.client_address = None
+                        self.client_port = None
+                        self.config_session_id = None
+                        self.admin_config_session_id = None
+                        self.alarm_notification = None
+                        self.vrf_name = None
+                        self.start_time = None
+                        self.elapsed_time = None
+                        self.last_state_change = None
+                        self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/tty/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -351,8 +364,10 @@ class XrXml(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-man-xml-ttyagent-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"agent" : ("agent", XrXml.Agent)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("agent", ("agent", XrXml.Agent))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.agent = XrXml.Agent()
         self.agent.parent = self
@@ -394,8 +409,10 @@ class XrXml(Entity):
             self.yang_parent_name = "xr-xml"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"tty" : ("tty", XrXml.Agent.Tty), "default" : ("default", XrXml.Agent.Default), "ssl" : ("ssl", XrXml.Agent.Ssl)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("tty", ("tty", XrXml.Agent.Tty)), ("default", ("default", XrXml.Agent.Default)), ("ssl", ("ssl", XrXml.Agent.Ssl))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.tty = XrXml.Agent.Tty()
             self.tty.parent = self
@@ -438,8 +455,10 @@ class XrXml(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sessions" : ("sessions", XrXml.Agent.Tty.Sessions)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Tty.Sessions))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.sessions = XrXml.Agent.Tty.Sessions()
                 self.sessions.parent = self
@@ -472,8 +491,10 @@ class XrXml(Entity):
                     self.yang_parent_name = "tty"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session" : ("session", XrXml.Agent.Tty.Sessions.Session)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session", ("session", XrXml.Agent.Tty.Sessions.Session))])
+                    self._leafs = OrderedDict()
 
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
@@ -487,7 +508,7 @@ class XrXml(Entity):
                     """
                     xml sessions information
                     
-                    .. attribute:: session_id  <key>
+                    .. attribute:: session_id  (key)
                     
                     	Session Id
                     	**type**\: int
@@ -577,33 +598,36 @@ class XrXml(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.int32, "session-id")
-
-                        self.username = YLeaf(YType.str, "username")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.client_address = YLeaf(YType.str, "client-address")
-
-                        self.client_port = YLeaf(YType.uint32, "client-port")
-
-                        self.config_session_id = YLeaf(YType.str, "config-session-id")
-
-                        self.admin_config_session_id = YLeaf(YType.str, "admin-config-session-id")
-
-                        self.alarm_notification = YLeaf(YType.enumeration, "alarm-notification")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.start_time = YLeaf(YType.uint32, "start-time")
-
-                        self.elapsed_time = YLeaf(YType.uint32, "elapsed-time")
-
-                        self.last_state_change = YLeaf(YType.uint32, "last-state-change")
-                        self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
+                        self.ylist_key_names = ['session_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.int32, 'session-id')),
+                            ('username', YLeaf(YType.str, 'username')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('client_address', YLeaf(YType.str, 'client-address')),
+                            ('client_port', YLeaf(YType.uint32, 'client-port')),
+                            ('config_session_id', YLeaf(YType.str, 'config-session-id')),
+                            ('admin_config_session_id', YLeaf(YType.str, 'admin-config-session-id')),
+                            ('alarm_notification', YLeaf(YType.enumeration, 'alarm-notification')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('start_time', YLeaf(YType.uint32, 'start-time')),
+                            ('elapsed_time', YLeaf(YType.uint32, 'elapsed-time')),
+                            ('last_state_change', YLeaf(YType.uint32, 'last-state-change')),
+                        ])
+                        self.session_id = None
+                        self.username = None
+                        self.state = None
+                        self.client_address = None
+                        self.client_port = None
+                        self.config_session_id = None
+                        self.admin_config_session_id = None
+                        self.alarm_notification = None
+                        self.vrf_name = None
+                        self.start_time = None
+                        self.elapsed_time = None
+                        self.last_state_change = None
+                        self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/tty/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -633,8 +657,10 @@ class XrXml(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sessions" : ("sessions", XrXml.Agent.Default.Sessions)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Default.Sessions))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.sessions = XrXml.Agent.Default.Sessions()
                 self.sessions.parent = self
@@ -667,8 +693,10 @@ class XrXml(Entity):
                     self.yang_parent_name = "default"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session" : ("session", XrXml.Agent.Default.Sessions.Session)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session", ("session", XrXml.Agent.Default.Sessions.Session))])
+                    self._leafs = OrderedDict()
 
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
@@ -682,7 +710,7 @@ class XrXml(Entity):
                     """
                     xml sessions information
                     
-                    .. attribute:: session_id  <key>
+                    .. attribute:: session_id  (key)
                     
                     	Session Id
                     	**type**\: int
@@ -772,33 +800,36 @@ class XrXml(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.int32, "session-id")
-
-                        self.username = YLeaf(YType.str, "username")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.client_address = YLeaf(YType.str, "client-address")
-
-                        self.client_port = YLeaf(YType.uint32, "client-port")
-
-                        self.config_session_id = YLeaf(YType.str, "config-session-id")
-
-                        self.admin_config_session_id = YLeaf(YType.str, "admin-config-session-id")
-
-                        self.alarm_notification = YLeaf(YType.enumeration, "alarm-notification")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.start_time = YLeaf(YType.uint32, "start-time")
-
-                        self.elapsed_time = YLeaf(YType.uint32, "elapsed-time")
-
-                        self.last_state_change = YLeaf(YType.uint32, "last-state-change")
-                        self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
+                        self.ylist_key_names = ['session_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.int32, 'session-id')),
+                            ('username', YLeaf(YType.str, 'username')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('client_address', YLeaf(YType.str, 'client-address')),
+                            ('client_port', YLeaf(YType.uint32, 'client-port')),
+                            ('config_session_id', YLeaf(YType.str, 'config-session-id')),
+                            ('admin_config_session_id', YLeaf(YType.str, 'admin-config-session-id')),
+                            ('alarm_notification', YLeaf(YType.enumeration, 'alarm-notification')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('start_time', YLeaf(YType.uint32, 'start-time')),
+                            ('elapsed_time', YLeaf(YType.uint32, 'elapsed-time')),
+                            ('last_state_change', YLeaf(YType.uint32, 'last-state-change')),
+                        ])
+                        self.session_id = None
+                        self.username = None
+                        self.state = None
+                        self.client_address = None
+                        self.client_port = None
+                        self.config_session_id = None
+                        self.admin_config_session_id = None
+                        self.alarm_notification = None
+                        self.vrf_name = None
+                        self.start_time = None
+                        self.elapsed_time = None
+                        self.last_state_change = None
+                        self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/default/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -828,8 +859,10 @@ class XrXml(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sessions" : ("sessions", XrXml.Agent.Ssl.Sessions)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sessions", ("sessions", XrXml.Agent.Ssl.Sessions))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.sessions = XrXml.Agent.Ssl.Sessions()
                 self.sessions.parent = self
@@ -862,8 +895,10 @@ class XrXml(Entity):
                     self.yang_parent_name = "ssl"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session" : ("session", XrXml.Agent.Ssl.Sessions.Session)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session", ("session", XrXml.Agent.Ssl.Sessions.Session))])
+                    self._leafs = OrderedDict()
 
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
@@ -877,7 +912,7 @@ class XrXml(Entity):
                     """
                     xml sessions information
                     
-                    .. attribute:: session_id  <key>
+                    .. attribute:: session_id  (key)
                     
                     	Session Id
                     	**type**\: int
@@ -967,33 +1002,36 @@ class XrXml(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.int32, "session-id")
-
-                        self.username = YLeaf(YType.str, "username")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.client_address = YLeaf(YType.str, "client-address")
-
-                        self.client_port = YLeaf(YType.uint32, "client-port")
-
-                        self.config_session_id = YLeaf(YType.str, "config-session-id")
-
-                        self.admin_config_session_id = YLeaf(YType.str, "admin-config-session-id")
-
-                        self.alarm_notification = YLeaf(YType.enumeration, "alarm-notification")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.start_time = YLeaf(YType.uint32, "start-time")
-
-                        self.elapsed_time = YLeaf(YType.uint32, "elapsed-time")
-
-                        self.last_state_change = YLeaf(YType.uint32, "last-state-change")
-                        self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
+                        self.ylist_key_names = ['session_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.int32, 'session-id')),
+                            ('username', YLeaf(YType.str, 'username')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('client_address', YLeaf(YType.str, 'client-address')),
+                            ('client_port', YLeaf(YType.uint32, 'client-port')),
+                            ('config_session_id', YLeaf(YType.str, 'config-session-id')),
+                            ('admin_config_session_id', YLeaf(YType.str, 'admin-config-session-id')),
+                            ('alarm_notification', YLeaf(YType.enumeration, 'alarm-notification')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('start_time', YLeaf(YType.uint32, 'start-time')),
+                            ('elapsed_time', YLeaf(YType.uint32, 'elapsed-time')),
+                            ('last_state_change', YLeaf(YType.uint32, 'last-state-change')),
+                        ])
+                        self.session_id = None
+                        self.username = None
+                        self.state = None
+                        self.client_address = None
+                        self.client_port = None
+                        self.config_session_id = None
+                        self.admin_config_session_id = None
+                        self.alarm_notification = None
+                        self.vrf_name = None
+                        self.start_time = None
+                        self.elapsed_time = None
+                        self.last_state_change = None
+                        self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/ssl/sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):

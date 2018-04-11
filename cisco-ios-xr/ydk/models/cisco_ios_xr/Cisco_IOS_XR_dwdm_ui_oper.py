@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class DwdmControllerState(Enum):
     """
-    DwdmControllerState
+    DwdmControllerState (Enum Class)
 
     Dwdm controller state
 
@@ -47,7 +49,7 @@ class DwdmControllerState(Enum):
 
 class DwdmWaveChannelOwner(Enum):
     """
-    DwdmWaveChannelOwner
+    DwdmWaveChannelOwner (Enum Class)
 
     Dwdm wave channel owner
 
@@ -74,7 +76,7 @@ class DwdmWaveChannelOwner(Enum):
 
 class DwdmtasState(Enum):
     """
-    DwdmtasState
+    DwdmtasState (Enum Class)
 
     Dwdmtas state
 
@@ -107,7 +109,7 @@ class DwdmtasState(Enum):
 
 class G709apsByte(Enum):
     """
-    G709apsByte
+    G709apsByte (Enum Class)
 
     G709aps byte
 
@@ -152,7 +154,7 @@ class G709apsByte(Enum):
 
 class G709efecMode(Enum):
     """
-    G709efecMode
+    G709efecMode (Enum Class)
 
     G709efec mode
 
@@ -177,7 +179,7 @@ class G709efecMode(Enum):
 
 class G709ppfsmMode(Enum):
     """
-    G709ppfsmMode
+    G709ppfsmMode (Enum Class)
 
     G709ppfsm mode
 
@@ -204,7 +206,7 @@ class G709ppfsmMode(Enum):
 
 class G709ppfsmState(Enum):
     """
-    G709ppfsmState
+    G709ppfsmState (Enum Class)
 
     G709ppfsm state
 
@@ -279,7 +281,7 @@ class G709ppfsmState(Enum):
 
 class G709ppintfState(Enum):
     """
-    G709ppintfState
+    G709ppintfState (Enum Class)
 
     G709ppintf state
 
@@ -306,7 +308,7 @@ class G709ppintfState(Enum):
 
 class G709prbsInterval(Enum):
     """
-    G709prbsInterval
+    G709prbsInterval (Enum Class)
 
     PRBS test interval information
 
@@ -513,7 +515,7 @@ class G709prbsInterval(Enum):
 
 class G709prbsMode(Enum):
     """
-    G709prbsMode
+    G709prbsMode (Enum Class)
 
     G709prbs mode
 
@@ -546,7 +548,7 @@ class G709prbsMode(Enum):
 
 class G709prbsPattern(Enum):
     """
-    G709prbsPattern
+    G709prbsPattern (Enum Class)
 
     G709prbs pattern
 
@@ -608,8 +610,10 @@ class Dwdm(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-dwdm-ui-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ports" : ("ports", Dwdm.Ports)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ports", ("ports", Dwdm.Ports))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ports = Dwdm.Ports()
         self.ports.parent = self
@@ -641,8 +645,10 @@ class Dwdm(Entity):
             self.yang_parent_name = "dwdm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"port" : ("port", Dwdm.Ports.Port)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("port", ("port", Dwdm.Ports.Port))])
+            self._leafs = OrderedDict()
 
             self.port = YList(self)
             self._segment_path = lambda: "ports"
@@ -656,7 +662,7 @@ class Dwdm(Entity):
             """
             DWDM Port operational data
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Port name
             	**type**\: str
@@ -692,10 +698,13 @@ class Dwdm(Entity):
                 self.yang_parent_name = "ports"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"prbs" : ("prbs", Dwdm.Ports.Port.Prbs), "optics" : ("optics", Dwdm.Ports.Port.Optics), "info" : ("info", Dwdm.Ports.Port.Info)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("prbs", ("prbs", Dwdm.Ports.Port.Prbs)), ("optics", ("optics", Dwdm.Ports.Port.Optics)), ("info", ("info", Dwdm.Ports.Port.Info))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.prbs = Dwdm.Ports.Port.Prbs()
                 self.prbs.parent = self
@@ -711,7 +720,7 @@ class Dwdm(Entity):
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
                 self._children_yang_names.add("info")
-                self._segment_path = lambda: "port" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "port" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dwdm-ui-oper:dwdm/ports/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -746,8 +755,10 @@ class Dwdm(Entity):
                     self.yang_parent_name = "port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"twenty-four-hours-bucket" : ("twenty_four_hours_bucket", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket), "fifteen-minutes-bucket" : ("fifteen_minutes_bucket", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("twenty-four-hours-bucket", ("twenty_four_hours_bucket", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket)), ("fifteen-minutes-bucket", ("fifteen_minutes_bucket", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.twenty_four_hours_bucket = Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket()
                     self.twenty_four_hours_bucket.parent = self
@@ -784,8 +795,10 @@ class Dwdm(Entity):
                         self.yang_parent_name = "prbs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"twenty-four-hours-statistics" : ("twenty_four_hours_statistics", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("twenty-four-hours-statistics", ("twenty_four_hours_statistics", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.twenty_four_hours_statistics = Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics()
                         self.twenty_four_hours_statistics.parent = self
@@ -827,12 +840,15 @@ class Dwdm(Entity):
                             self.yang_parent_name = "twenty-four-hours-bucket"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"prbs-entry" : ("prbs_entry", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry)}
-
-                            self.is_prbs_enabled = YLeaf(YType.boolean, "is-prbs-enabled")
-
-                            self.prbs_config_mode = YLeaf(YType.enumeration, "prbs-config-mode")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("prbs-entry", ("prbs_entry", Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry))])
+                            self._leafs = OrderedDict([
+                                ('is_prbs_enabled', YLeaf(YType.boolean, 'is-prbs-enabled')),
+                                ('prbs_config_mode', YLeaf(YType.enumeration, 'prbs-config-mode')),
+                            ])
+                            self.is_prbs_enabled = None
+                            self.prbs_config_mode = None
 
                             self.prbs_entry = YList(self)
                             self._segment_path = lambda: "twenty-four-hours-statistics"
@@ -923,28 +939,31 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "twenty-four-hours-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interval_index = YLeaf(YType.enumeration, "interval-index")
-
-                                self.configured_pattern = YLeaf(YType.enumeration, "configured-pattern")
-
-                                self.start_at = YLeaf(YType.str, "start-at")
-
-                                self.stop_at = YLeaf(YType.str, "stop-at")
-
-                                self.received_pattern = YLeaf(YType.enumeration, "received-pattern")
-
-                                self.bit_error_count = YLeaf(YType.uint64, "bit-error-count")
-
-                                self.found_count = YLeaf(YType.uint64, "found-count")
-
-                                self.lost_count = YLeaf(YType.uint64, "lost-count")
-
-                                self.found_at = YLeaf(YType.str, "found-at")
-
-                                self.lost_at = YLeaf(YType.str, "lost-at")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interval_index', YLeaf(YType.enumeration, 'interval-index')),
+                                    ('configured_pattern', YLeaf(YType.enumeration, 'configured-pattern')),
+                                    ('start_at', YLeaf(YType.str, 'start-at')),
+                                    ('stop_at', YLeaf(YType.str, 'stop-at')),
+                                    ('received_pattern', YLeaf(YType.enumeration, 'received-pattern')),
+                                    ('bit_error_count', YLeaf(YType.uint64, 'bit-error-count')),
+                                    ('found_count', YLeaf(YType.uint64, 'found-count')),
+                                    ('lost_count', YLeaf(YType.uint64, 'lost-count')),
+                                    ('found_at', YLeaf(YType.str, 'found-at')),
+                                    ('lost_at', YLeaf(YType.str, 'lost-at')),
+                                ])
+                                self.interval_index = None
+                                self.configured_pattern = None
+                                self.start_at = None
+                                self.stop_at = None
+                                self.received_pattern = None
+                                self.bit_error_count = None
+                                self.found_count = None
+                                self.lost_count = None
+                                self.found_at = None
+                                self.lost_at = None
                                 self._segment_path = lambda: "prbs-entry"
 
                             def __setattr__(self, name, value):
@@ -974,8 +993,10 @@ class Dwdm(Entity):
                         self.yang_parent_name = "prbs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"fifteen-minutes-statistics" : ("fifteen_minutes_statistics", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("fifteen-minutes-statistics", ("fifteen_minutes_statistics", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.fifteen_minutes_statistics = Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics()
                         self.fifteen_minutes_statistics.parent = self
@@ -1017,12 +1038,15 @@ class Dwdm(Entity):
                             self.yang_parent_name = "fifteen-minutes-bucket"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"prbs-entry" : ("prbs_entry", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry)}
-
-                            self.is_prbs_enabled = YLeaf(YType.boolean, "is-prbs-enabled")
-
-                            self.prbs_config_mode = YLeaf(YType.enumeration, "prbs-config-mode")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("prbs-entry", ("prbs_entry", Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry))])
+                            self._leafs = OrderedDict([
+                                ('is_prbs_enabled', YLeaf(YType.boolean, 'is-prbs-enabled')),
+                                ('prbs_config_mode', YLeaf(YType.enumeration, 'prbs-config-mode')),
+                            ])
+                            self.is_prbs_enabled = None
+                            self.prbs_config_mode = None
 
                             self.prbs_entry = YList(self)
                             self._segment_path = lambda: "fifteen-minutes-statistics"
@@ -1113,28 +1137,31 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "fifteen-minutes-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interval_index = YLeaf(YType.enumeration, "interval-index")
-
-                                self.configured_pattern = YLeaf(YType.enumeration, "configured-pattern")
-
-                                self.start_at = YLeaf(YType.str, "start-at")
-
-                                self.stop_at = YLeaf(YType.str, "stop-at")
-
-                                self.received_pattern = YLeaf(YType.enumeration, "received-pattern")
-
-                                self.bit_error_count = YLeaf(YType.uint64, "bit-error-count")
-
-                                self.found_count = YLeaf(YType.uint64, "found-count")
-
-                                self.lost_count = YLeaf(YType.uint64, "lost-count")
-
-                                self.found_at = YLeaf(YType.str, "found-at")
-
-                                self.lost_at = YLeaf(YType.str, "lost-at")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interval_index', YLeaf(YType.enumeration, 'interval-index')),
+                                    ('configured_pattern', YLeaf(YType.enumeration, 'configured-pattern')),
+                                    ('start_at', YLeaf(YType.str, 'start-at')),
+                                    ('stop_at', YLeaf(YType.str, 'stop-at')),
+                                    ('received_pattern', YLeaf(YType.enumeration, 'received-pattern')),
+                                    ('bit_error_count', YLeaf(YType.uint64, 'bit-error-count')),
+                                    ('found_count', YLeaf(YType.uint64, 'found-count')),
+                                    ('lost_count', YLeaf(YType.uint64, 'lost-count')),
+                                    ('found_at', YLeaf(YType.str, 'found-at')),
+                                    ('lost_at', YLeaf(YType.str, 'lost-at')),
+                                ])
+                                self.interval_index = None
+                                self.configured_pattern = None
+                                self.start_at = None
+                                self.stop_at = None
+                                self.received_pattern = None
+                                self.bit_error_count = None
+                                self.found_count = None
+                                self.lost_count = None
+                                self.found_at = None
+                                self.lost_at = None
                                 self._segment_path = lambda: "prbs-entry"
 
                             def __setattr__(self, name, value):
@@ -1164,8 +1191,10 @@ class Dwdm(Entity):
                     self.yang_parent_name = "port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"wave-info" : ("wave_info", Dwdm.Ports.Port.Optics.WaveInfo)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("wave-info", ("wave_info", Dwdm.Ports.Port.Optics.WaveInfo))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.wave_info = Dwdm.Ports.Port.Optics.WaveInfo()
                     self.wave_info.parent = self
@@ -1213,14 +1242,17 @@ class Dwdm(Entity):
                         self.yang_parent_name = "optics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.wave_band = YLeaf(YType.uint32, "wave-band")
-
-                        self.wave_channel_min = YLeaf(YType.uint32, "wave-channel-min")
-
-                        self.wave_channel_max = YLeaf(YType.uint32, "wave-channel-max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('wave_band', YLeaf(YType.uint32, 'wave-band')),
+                            ('wave_channel_min', YLeaf(YType.uint32, 'wave-channel-min')),
+                            ('wave_channel_max', YLeaf(YType.uint32, 'wave-channel-max')),
+                        ])
+                        self.wave_band = None
+                        self.wave_channel_min = None
+                        self.wave_channel_max = None
                         self._segment_path = lambda: "wave-info"
 
                     def __setattr__(self, name, value):
@@ -1290,14 +1322,17 @@ class Dwdm(Entity):
                     self.yang_parent_name = "port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"g709-info" : ("g709_info", Dwdm.Ports.Port.Info.G709Info), "optics-info" : ("optics_info", Dwdm.Ports.Port.Info.OpticsInfo), "tdc-info" : ("tdc_info", Dwdm.Ports.Port.Info.TdcInfo), "network-srlg-info" : ("network_srlg_info", Dwdm.Ports.Port.Info.NetworkSrlgInfo), "proactive" : ("proactive", Dwdm.Ports.Port.Info.Proactive), "signal-log" : ("signal_log", Dwdm.Ports.Port.Info.SignalLog)}
-                    self._child_list_classes = {}
-
-                    self.controller_state = YLeaf(YType.enumeration, "controller-state")
-
-                    self.transport_admin_state = YLeaf(YType.enumeration, "transport-admin-state")
-
-                    self.slice_state = YLeaf(YType.boolean, "slice-state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("g709-info", ("g709_info", Dwdm.Ports.Port.Info.G709Info)), ("optics-info", ("optics_info", Dwdm.Ports.Port.Info.OpticsInfo)), ("tdc-info", ("tdc_info", Dwdm.Ports.Port.Info.TdcInfo)), ("network-srlg-info", ("network_srlg_info", Dwdm.Ports.Port.Info.NetworkSrlgInfo)), ("proactive", ("proactive", Dwdm.Ports.Port.Info.Proactive)), ("signal-log", ("signal_log", Dwdm.Ports.Port.Info.SignalLog))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('controller_state', YLeaf(YType.enumeration, 'controller-state')),
+                        ('transport_admin_state', YLeaf(YType.enumeration, 'transport-admin-state')),
+                        ('slice_state', YLeaf(YType.boolean, 'slice-state')),
+                    ])
+                    self.controller_state = None
+                    self.transport_admin_state = None
+                    self.slice_state = None
 
                     self.g709_info = Dwdm.Ports.Port.Info.G709Info()
                     self.g709_info.parent = self
@@ -1519,52 +1554,55 @@ class Dwdm(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"fec-mismatch" : ("fec_mismatch", Dwdm.Ports.Port.Info.G709Info.FecMismatch), "ec-tca" : ("ec_tca", Dwdm.Ports.Port.Info.G709Info.EcTca), "uc-tca" : ("uc_tca", Dwdm.Ports.Port.Info.G709Info.UcTca), "otu-info" : ("otu_info", Dwdm.Ports.Port.Info.G709Info.OtuInfo), "odu-info" : ("odu_info", Dwdm.Ports.Port.Info.G709Info.OduInfo)}
-                        self._child_list_classes = {}
-
-                        self.is_g709_enabled = YLeaf(YType.boolean, "is-g709-enabled")
-
-                        self.is_fec_mode_default = YLeaf(YType.boolean, "is-fec-mode-default")
-
-                        self.fec_mode = YLeaf(YType.int32, "fec-mode")
-
-                        self.remote_fec_mode = YLeaf(YType.int32, "remote-fec-mode")
-
-                        self.efec_mode = YLeaf(YType.enumeration, "efec-mode")
-
-                        self.loopback_mode = YLeaf(YType.int32, "loopback-mode")
-
-                        self.ec = YLeaf(YType.uint64, "ec")
-
-                        self.ec_accum = YLeaf(YType.uint64, "ec-accum")
-
-                        self.uc = YLeaf(YType.uint64, "uc")
-
-                        self.fec_ber = YLeaf(YType.uint64, "fec-ber")
-
-                        self.fec_ber_man = YLeaf(YType.int32, "fec-ber-man")
-
-                        self.q = YLeaf(YType.uint64, "q")
-
-                        self.q_margin = YLeaf(YType.uint64, "q-margin")
-
-                        self.fe_cstr = YLeaf(YType.str, "fe-cstr")
-
-                        self.qstr = YLeaf(YType.str, "qstr")
-
-                        self.qmargin_str = YLeaf(YType.str, "qmargin-str")
-
-                        self.network_port_id = YLeaf(YType.str, "network-port-id")
-
-                        self.network_conn_id = YLeaf(YType.str, "network-conn-id")
-
-                        self.is_prbs_enabled = YLeaf(YType.boolean, "is-prbs-enabled")
-
-                        self.g709_prbs_mode = YLeaf(YType.enumeration, "g709-prbs-mode")
-
-                        self.g709_prbs_pattern = YLeaf(YType.enumeration, "g709-prbs-pattern")
-
-                        self.prbs_time_stamp = YLeaf(YType.uint64, "prbs-time-stamp")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("fec-mismatch", ("fec_mismatch", Dwdm.Ports.Port.Info.G709Info.FecMismatch)), ("ec-tca", ("ec_tca", Dwdm.Ports.Port.Info.G709Info.EcTca)), ("uc-tca", ("uc_tca", Dwdm.Ports.Port.Info.G709Info.UcTca)), ("otu-info", ("otu_info", Dwdm.Ports.Port.Info.G709Info.OtuInfo)), ("odu-info", ("odu_info", Dwdm.Ports.Port.Info.G709Info.OduInfo))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('is_g709_enabled', YLeaf(YType.boolean, 'is-g709-enabled')),
+                            ('is_fec_mode_default', YLeaf(YType.boolean, 'is-fec-mode-default')),
+                            ('fec_mode', YLeaf(YType.int32, 'fec-mode')),
+                            ('remote_fec_mode', YLeaf(YType.int32, 'remote-fec-mode')),
+                            ('efec_mode', YLeaf(YType.enumeration, 'efec-mode')),
+                            ('loopback_mode', YLeaf(YType.int32, 'loopback-mode')),
+                            ('ec', YLeaf(YType.uint64, 'ec')),
+                            ('ec_accum', YLeaf(YType.uint64, 'ec-accum')),
+                            ('uc', YLeaf(YType.uint64, 'uc')),
+                            ('fec_ber', YLeaf(YType.uint64, 'fec-ber')),
+                            ('fec_ber_man', YLeaf(YType.int32, 'fec-ber-man')),
+                            ('q', YLeaf(YType.uint64, 'q')),
+                            ('q_margin', YLeaf(YType.uint64, 'q-margin')),
+                            ('fe_cstr', YLeaf(YType.str, 'fe-cstr')),
+                            ('qstr', YLeaf(YType.str, 'qstr')),
+                            ('qmargin_str', YLeaf(YType.str, 'qmargin-str')),
+                            ('network_port_id', YLeaf(YType.str, 'network-port-id')),
+                            ('network_conn_id', YLeaf(YType.str, 'network-conn-id')),
+                            ('is_prbs_enabled', YLeaf(YType.boolean, 'is-prbs-enabled')),
+                            ('g709_prbs_mode', YLeaf(YType.enumeration, 'g709-prbs-mode')),
+                            ('g709_prbs_pattern', YLeaf(YType.enumeration, 'g709-prbs-pattern')),
+                            ('prbs_time_stamp', YLeaf(YType.uint64, 'prbs-time-stamp')),
+                        ])
+                        self.is_g709_enabled = None
+                        self.is_fec_mode_default = None
+                        self.fec_mode = None
+                        self.remote_fec_mode = None
+                        self.efec_mode = None
+                        self.loopback_mode = None
+                        self.ec = None
+                        self.ec_accum = None
+                        self.uc = None
+                        self.fec_ber = None
+                        self.fec_ber_man = None
+                        self.q = None
+                        self.q_margin = None
+                        self.fe_cstr = None
+                        self.qstr = None
+                        self.qmargin_str = None
+                        self.network_port_id = None
+                        self.network_conn_id = None
+                        self.is_prbs_enabled = None
+                        self.g709_prbs_mode = None
+                        self.g709_prbs_pattern = None
+                        self.prbs_time_stamp = None
 
                         self.fec_mismatch = Dwdm.Ports.Port.Info.G709Info.FecMismatch()
                         self.fec_mismatch.parent = self
@@ -1636,16 +1674,19 @@ class Dwdm(Entity):
                             self.yang_parent_name = "g709-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "fec-mismatch"
 
                         def __setattr__(self, name, value):
@@ -1699,18 +1740,21 @@ class Dwdm(Entity):
                             self.yang_parent_name = "g709-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.threshold = YLeaf(YType.int32, "threshold")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('threshold', YLeaf(YType.int32, 'threshold')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.threshold = None
+                            self.counter = None
                             self._segment_path = lambda: "ec-tca"
 
                         def __setattr__(self, name, value):
@@ -1764,18 +1808,21 @@ class Dwdm(Entity):
                             self.yang_parent_name = "g709-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.threshold = YLeaf(YType.int32, "threshold")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('threshold', YLeaf(YType.int32, 'threshold')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.threshold = None
+                            self.counter = None
                             self._segment_path = lambda: "uc-tca"
 
                         def __setattr__(self, name, value):
@@ -1939,12 +1986,15 @@ class Dwdm(Entity):
                             self.yang_parent_name = "g709-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"los" : ("los", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los), "lof" : ("lof", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof), "lom" : ("lom", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom), "oof" : ("oof", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof), "oom" : ("oom", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom), "ais" : ("ais", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais), "iae" : ("iae", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae), "bdi" : ("bdi", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi), "tim" : ("tim", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim), "eoc" : ("eoc", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc), "sf-ber" : ("sf_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer), "sd-ber" : ("sd_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer), "prefec-sf-ber" : ("prefec_sf_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer), "prefec-sd-ber" : ("prefec_sd_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer), "bbe-tca" : ("bbe_tca", Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca), "es-tca" : ("es_tca", Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca), "bbe" : ("bbe", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe), "es" : ("es", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es), "ses" : ("ses", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses), "uas" : ("uas", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas), "fc" : ("fc", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc), "bber" : ("bber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber), "esr" : ("esr", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr), "sesr" : ("sesr", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr), "tti" : ("tti", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti)}
-                            self._child_list_classes = {}
-
-                            self.bei = YLeaf(YType.uint64, "bei")
-
-                            self.bip = YLeaf(YType.uint64, "bip")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("los", ("los", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los)), ("lof", ("lof", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof)), ("lom", ("lom", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom)), ("oof", ("oof", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof)), ("oom", ("oom", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom)), ("ais", ("ais", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais)), ("iae", ("iae", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae)), ("bdi", ("bdi", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi)), ("tim", ("tim", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim)), ("eoc", ("eoc", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc)), ("sf-ber", ("sf_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer)), ("sd-ber", ("sd_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer)), ("prefec-sf-ber", ("prefec_sf_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer)), ("prefec-sd-ber", ("prefec_sd_ber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer)), ("bbe-tca", ("bbe_tca", Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca)), ("es-tca", ("es_tca", Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca)), ("bbe", ("bbe", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe)), ("es", ("es", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es)), ("ses", ("ses", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses)), ("uas", ("uas", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas)), ("fc", ("fc", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc)), ("bber", ("bber", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber)), ("esr", ("esr", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr)), ("sesr", ("sesr", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr)), ("tti", ("tti", Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('bei', YLeaf(YType.uint64, 'bei')),
+                                ('bip', YLeaf(YType.uint64, 'bip')),
+                            ])
+                            self.bei = None
+                            self.bip = None
 
                             self.los = Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los()
                             self.los.parent = self
@@ -2116,16 +2166,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "los"
 
                             def __setattr__(self, name, value):
@@ -2172,16 +2225,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "lof"
 
                             def __setattr__(self, name, value):
@@ -2228,16 +2284,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "lom"
 
                             def __setattr__(self, name, value):
@@ -2284,16 +2343,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "oof"
 
                             def __setattr__(self, name, value):
@@ -2340,16 +2402,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "oom"
 
                             def __setattr__(self, name, value):
@@ -2396,16 +2461,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "ais"
 
                             def __setattr__(self, name, value):
@@ -2452,16 +2520,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "iae"
 
                             def __setattr__(self, name, value):
@@ -2508,16 +2579,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "bdi"
 
                             def __setattr__(self, name, value):
@@ -2564,16 +2638,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "tim"
 
                             def __setattr__(self, name, value):
@@ -2620,16 +2697,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "eoc"
 
                             def __setattr__(self, name, value):
@@ -2683,18 +2763,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "sf-ber"
 
                             def __setattr__(self, name, value):
@@ -2748,18 +2831,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "sd-ber"
 
                             def __setattr__(self, name, value):
@@ -2813,18 +2899,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "prefec-sf-ber"
 
                             def __setattr__(self, name, value):
@@ -2878,18 +2967,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "prefec-sd-ber"
 
                             def __setattr__(self, name, value):
@@ -2943,18 +3035,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "bbe-tca"
 
                             def __setattr__(self, name, value):
@@ -3008,18 +3103,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "es-tca"
 
                             def __setattr__(self, name, value):
@@ -3051,10 +3149,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "bbe"
 
                             def __setattr__(self, name, value):
@@ -3086,10 +3187,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "es"
 
                             def __setattr__(self, name, value):
@@ -3121,10 +3225,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "ses"
 
                             def __setattr__(self, name, value):
@@ -3156,10 +3263,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "uas"
 
                             def __setattr__(self, name, value):
@@ -3191,10 +3301,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "fc"
 
                             def __setattr__(self, name, value):
@@ -3226,10 +3339,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "bber"
 
                             def __setattr__(self, name, value):
@@ -3261,10 +3377,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "esr"
 
                             def __setattr__(self, name, value):
@@ -3296,10 +3415,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "sesr"
 
                             def __setattr__(self, name, value):
@@ -3534,68 +3656,71 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "otu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.tx_string_type = YLeaf(YType.uint32, "tx-string-type")
-
-                                self.expected_string_type = YLeaf(YType.uint32, "expected-string-type")
-
-                                self.rx_string_type = YLeaf(YType.uint32, "rx-string-type")
-
-                                self.tx_tti = YLeaf(YType.str, "tx-tti")
-
-                                self.tx_sapi0 = YLeaf(YType.str, "tx-sapi0")
-
-                                self.tx_sapi = YLeaf(YType.str, "tx-sapi")
-
-                                self.tx_sapi_range = YLeaf(YType.str, "tx-sapi-range")
-
-                                self.tx_dapi0 = YLeaf(YType.str, "tx-dapi0")
-
-                                self.tx_dapi = YLeaf(YType.str, "tx-dapi")
-
-                                self.tx_dapi_range = YLeaf(YType.str, "tx-dapi-range")
-
-                                self.tx_oper_spec = YLeaf(YType.str, "tx-oper-spec")
-
-                                self.tx_oper_spec_range = YLeaf(YType.str, "tx-oper-spec-range")
-
-                                self.rx_tti = YLeaf(YType.str, "rx-tti")
-
-                                self.rx_sapi0 = YLeaf(YType.str, "rx-sapi0")
-
-                                self.rx_sapi = YLeaf(YType.str, "rx-sapi")
-
-                                self.rx_sapi_range = YLeaf(YType.str, "rx-sapi-range")
-
-                                self.rx_dapi0 = YLeaf(YType.str, "rx-dapi0")
-
-                                self.rx_dapi = YLeaf(YType.str, "rx-dapi")
-
-                                self.rx_dapi_range = YLeaf(YType.str, "rx-dapi-range")
-
-                                self.rx_oper_spec_range = YLeaf(YType.str, "rx-oper-spec-range")
-
-                                self.rx_oper_spec = YLeaf(YType.str, "rx-oper-spec")
-
-                                self.expected_tti = YLeaf(YType.str, "expected-tti")
-
-                                self.expected_sapi0 = YLeaf(YType.str, "expected-sapi0")
-
-                                self.expected_sapi = YLeaf(YType.str, "expected-sapi")
-
-                                self.exp_sapi_range = YLeaf(YType.str, "exp-sapi-range")
-
-                                self.expected_dapi0 = YLeaf(YType.str, "expected-dapi0")
-
-                                self.expected_dapi = YLeaf(YType.str, "expected-dapi")
-
-                                self.exp_dapi_range = YLeaf(YType.str, "exp-dapi-range")
-
-                                self.expected_oper_spec = YLeaf(YType.str, "expected-oper-spec")
-
-                                self.exp_oper_spec_range = YLeaf(YType.str, "exp-oper-spec-range")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('tx_string_type', YLeaf(YType.uint32, 'tx-string-type')),
+                                    ('expected_string_type', YLeaf(YType.uint32, 'expected-string-type')),
+                                    ('rx_string_type', YLeaf(YType.uint32, 'rx-string-type')),
+                                    ('tx_tti', YLeaf(YType.str, 'tx-tti')),
+                                    ('tx_sapi0', YLeaf(YType.str, 'tx-sapi0')),
+                                    ('tx_sapi', YLeaf(YType.str, 'tx-sapi')),
+                                    ('tx_sapi_range', YLeaf(YType.str, 'tx-sapi-range')),
+                                    ('tx_dapi0', YLeaf(YType.str, 'tx-dapi0')),
+                                    ('tx_dapi', YLeaf(YType.str, 'tx-dapi')),
+                                    ('tx_dapi_range', YLeaf(YType.str, 'tx-dapi-range')),
+                                    ('tx_oper_spec', YLeaf(YType.str, 'tx-oper-spec')),
+                                    ('tx_oper_spec_range', YLeaf(YType.str, 'tx-oper-spec-range')),
+                                    ('rx_tti', YLeaf(YType.str, 'rx-tti')),
+                                    ('rx_sapi0', YLeaf(YType.str, 'rx-sapi0')),
+                                    ('rx_sapi', YLeaf(YType.str, 'rx-sapi')),
+                                    ('rx_sapi_range', YLeaf(YType.str, 'rx-sapi-range')),
+                                    ('rx_dapi0', YLeaf(YType.str, 'rx-dapi0')),
+                                    ('rx_dapi', YLeaf(YType.str, 'rx-dapi')),
+                                    ('rx_dapi_range', YLeaf(YType.str, 'rx-dapi-range')),
+                                    ('rx_oper_spec_range', YLeaf(YType.str, 'rx-oper-spec-range')),
+                                    ('rx_oper_spec', YLeaf(YType.str, 'rx-oper-spec')),
+                                    ('expected_tti', YLeaf(YType.str, 'expected-tti')),
+                                    ('expected_sapi0', YLeaf(YType.str, 'expected-sapi0')),
+                                    ('expected_sapi', YLeaf(YType.str, 'expected-sapi')),
+                                    ('exp_sapi_range', YLeaf(YType.str, 'exp-sapi-range')),
+                                    ('expected_dapi0', YLeaf(YType.str, 'expected-dapi0')),
+                                    ('expected_dapi', YLeaf(YType.str, 'expected-dapi')),
+                                    ('exp_dapi_range', YLeaf(YType.str, 'exp-dapi-range')),
+                                    ('expected_oper_spec', YLeaf(YType.str, 'expected-oper-spec')),
+                                    ('exp_oper_spec_range', YLeaf(YType.str, 'exp-oper-spec-range')),
+                                ])
+                                self.tx_string_type = None
+                                self.expected_string_type = None
+                                self.rx_string_type = None
+                                self.tx_tti = None
+                                self.tx_sapi0 = None
+                                self.tx_sapi = None
+                                self.tx_sapi_range = None
+                                self.tx_dapi0 = None
+                                self.tx_dapi = None
+                                self.tx_dapi_range = None
+                                self.tx_oper_spec = None
+                                self.tx_oper_spec_range = None
+                                self.rx_tti = None
+                                self.rx_sapi0 = None
+                                self.rx_sapi = None
+                                self.rx_sapi_range = None
+                                self.rx_dapi0 = None
+                                self.rx_dapi = None
+                                self.rx_dapi_range = None
+                                self.rx_oper_spec_range = None
+                                self.rx_oper_spec = None
+                                self.expected_tti = None
+                                self.expected_sapi0 = None
+                                self.expected_sapi = None
+                                self.exp_sapi_range = None
+                                self.expected_dapi0 = None
+                                self.expected_dapi = None
+                                self.exp_dapi_range = None
+                                self.expected_oper_spec = None
+                                self.exp_oper_spec_range = None
                                 self._segment_path = lambda: "tti"
 
                             def __setattr__(self, name, value):
@@ -3734,12 +3859,15 @@ class Dwdm(Entity):
                             self.yang_parent_name = "g709-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"oci" : ("oci", Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci), "ais" : ("ais", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais), "lck" : ("lck", Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck), "bdi" : ("bdi", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi), "eoc" : ("eoc", Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc), "ptim" : ("ptim", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim), "tim" : ("tim", Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim), "sf-ber" : ("sf_ber", Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer), "sd-ber" : ("sd_ber", Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer), "bbe-tca" : ("bbe_tca", Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca), "es-tca" : ("es_tca", Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca), "bbe" : ("bbe", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe), "es" : ("es", Dwdm.Ports.Port.Info.G709Info.OduInfo.Es), "ses" : ("ses", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses), "uas" : ("uas", Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas), "fc" : ("fc", Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc), "bber" : ("bber", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber), "esr" : ("esr", Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr), "sesr" : ("sesr", Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr), "tti" : ("tti", Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti)}
-                            self._child_list_classes = {}
-
-                            self.bip = YLeaf(YType.uint64, "bip")
-
-                            self.bei = YLeaf(YType.uint64, "bei")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("oci", ("oci", Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci)), ("ais", ("ais", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais)), ("lck", ("lck", Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck)), ("bdi", ("bdi", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi)), ("eoc", ("eoc", Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc)), ("ptim", ("ptim", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim)), ("tim", ("tim", Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim)), ("sf-ber", ("sf_ber", Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer)), ("sd-ber", ("sd_ber", Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer)), ("bbe-tca", ("bbe_tca", Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca)), ("es-tca", ("es_tca", Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca)), ("bbe", ("bbe", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe)), ("es", ("es", Dwdm.Ports.Port.Info.G709Info.OduInfo.Es)), ("ses", ("ses", Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses)), ("uas", ("uas", Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas)), ("fc", ("fc", Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc)), ("bber", ("bber", Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber)), ("esr", ("esr", Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr)), ("sesr", ("sesr", Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr)), ("tti", ("tti", Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('bip', YLeaf(YType.uint64, 'bip')),
+                                ('bei', YLeaf(YType.uint64, 'bei')),
+                            ])
+                            self.bip = None
+                            self.bei = None
 
                             self.oci = Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci()
                             self.oci.parent = self
@@ -3886,16 +4014,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "oci"
 
                             def __setattr__(self, name, value):
@@ -3942,16 +4073,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "ais"
 
                             def __setattr__(self, name, value):
@@ -3998,16 +4132,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "lck"
 
                             def __setattr__(self, name, value):
@@ -4054,16 +4191,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "bdi"
 
                             def __setattr__(self, name, value):
@@ -4110,16 +4250,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "eoc"
 
                             def __setattr__(self, name, value):
@@ -4166,16 +4309,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "ptim"
 
                             def __setattr__(self, name, value):
@@ -4222,16 +4368,19 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.counter = None
                                 self._segment_path = lambda: "tim"
 
                             def __setattr__(self, name, value):
@@ -4285,18 +4434,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "sf-ber"
 
                             def __setattr__(self, name, value):
@@ -4350,18 +4502,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "sd-ber"
 
                             def __setattr__(self, name, value):
@@ -4415,18 +4570,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "bbe-tca"
 
                             def __setattr__(self, name, value):
@@ -4480,18 +4638,21 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                                self.threshold = YLeaf(YType.int32, "threshold")
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                    ('threshold', YLeaf(YType.int32, 'threshold')),
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.reporting_enabled = None
+                                self.is_detected = None
+                                self.is_asserted = None
+                                self.threshold = None
+                                self.counter = None
                                 self._segment_path = lambda: "es-tca"
 
                             def __setattr__(self, name, value):
@@ -4523,10 +4684,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "bbe"
 
                             def __setattr__(self, name, value):
@@ -4558,10 +4722,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "es"
 
                             def __setattr__(self, name, value):
@@ -4593,10 +4760,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "ses"
 
                             def __setattr__(self, name, value):
@@ -4628,10 +4798,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "uas"
 
                             def __setattr__(self, name, value):
@@ -4663,10 +4836,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "fc"
 
                             def __setattr__(self, name, value):
@@ -4698,10 +4874,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "bber"
 
                             def __setattr__(self, name, value):
@@ -4733,10 +4912,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "esr"
 
                             def __setattr__(self, name, value):
@@ -4768,10 +4950,13 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter = YLeaf(YType.uint64, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter', YLeaf(YType.uint64, 'counter')),
+                                ])
+                                self.counter = None
                                 self._segment_path = lambda: "sesr"
 
                             def __setattr__(self, name, value):
@@ -5006,68 +5191,71 @@ class Dwdm(Entity):
                                 self.yang_parent_name = "odu-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.tx_string_type = YLeaf(YType.uint32, "tx-string-type")
-
-                                self.expected_string_type = YLeaf(YType.uint32, "expected-string-type")
-
-                                self.rx_string_type = YLeaf(YType.uint32, "rx-string-type")
-
-                                self.tx_tti = YLeaf(YType.str, "tx-tti")
-
-                                self.tx_sapi0 = YLeaf(YType.str, "tx-sapi0")
-
-                                self.tx_sapi = YLeaf(YType.str, "tx-sapi")
-
-                                self.tx_sapi_range = YLeaf(YType.str, "tx-sapi-range")
-
-                                self.tx_dapi0 = YLeaf(YType.str, "tx-dapi0")
-
-                                self.tx_dapi = YLeaf(YType.str, "tx-dapi")
-
-                                self.tx_dapi_range = YLeaf(YType.str, "tx-dapi-range")
-
-                                self.tx_oper_spec = YLeaf(YType.str, "tx-oper-spec")
-
-                                self.tx_oper_spec_range = YLeaf(YType.str, "tx-oper-spec-range")
-
-                                self.rx_tti = YLeaf(YType.str, "rx-tti")
-
-                                self.rx_sapi0 = YLeaf(YType.str, "rx-sapi0")
-
-                                self.rx_sapi = YLeaf(YType.str, "rx-sapi")
-
-                                self.rx_sapi_range = YLeaf(YType.str, "rx-sapi-range")
-
-                                self.rx_dapi0 = YLeaf(YType.str, "rx-dapi0")
-
-                                self.rx_dapi = YLeaf(YType.str, "rx-dapi")
-
-                                self.rx_dapi_range = YLeaf(YType.str, "rx-dapi-range")
-
-                                self.rx_oper_spec_range = YLeaf(YType.str, "rx-oper-spec-range")
-
-                                self.rx_oper_spec = YLeaf(YType.str, "rx-oper-spec")
-
-                                self.expected_tti = YLeaf(YType.str, "expected-tti")
-
-                                self.expected_sapi0 = YLeaf(YType.str, "expected-sapi0")
-
-                                self.expected_sapi = YLeaf(YType.str, "expected-sapi")
-
-                                self.exp_sapi_range = YLeaf(YType.str, "exp-sapi-range")
-
-                                self.expected_dapi0 = YLeaf(YType.str, "expected-dapi0")
-
-                                self.expected_dapi = YLeaf(YType.str, "expected-dapi")
-
-                                self.exp_dapi_range = YLeaf(YType.str, "exp-dapi-range")
-
-                                self.expected_oper_spec = YLeaf(YType.str, "expected-oper-spec")
-
-                                self.exp_oper_spec_range = YLeaf(YType.str, "exp-oper-spec-range")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('tx_string_type', YLeaf(YType.uint32, 'tx-string-type')),
+                                    ('expected_string_type', YLeaf(YType.uint32, 'expected-string-type')),
+                                    ('rx_string_type', YLeaf(YType.uint32, 'rx-string-type')),
+                                    ('tx_tti', YLeaf(YType.str, 'tx-tti')),
+                                    ('tx_sapi0', YLeaf(YType.str, 'tx-sapi0')),
+                                    ('tx_sapi', YLeaf(YType.str, 'tx-sapi')),
+                                    ('tx_sapi_range', YLeaf(YType.str, 'tx-sapi-range')),
+                                    ('tx_dapi0', YLeaf(YType.str, 'tx-dapi0')),
+                                    ('tx_dapi', YLeaf(YType.str, 'tx-dapi')),
+                                    ('tx_dapi_range', YLeaf(YType.str, 'tx-dapi-range')),
+                                    ('tx_oper_spec', YLeaf(YType.str, 'tx-oper-spec')),
+                                    ('tx_oper_spec_range', YLeaf(YType.str, 'tx-oper-spec-range')),
+                                    ('rx_tti', YLeaf(YType.str, 'rx-tti')),
+                                    ('rx_sapi0', YLeaf(YType.str, 'rx-sapi0')),
+                                    ('rx_sapi', YLeaf(YType.str, 'rx-sapi')),
+                                    ('rx_sapi_range', YLeaf(YType.str, 'rx-sapi-range')),
+                                    ('rx_dapi0', YLeaf(YType.str, 'rx-dapi0')),
+                                    ('rx_dapi', YLeaf(YType.str, 'rx-dapi')),
+                                    ('rx_dapi_range', YLeaf(YType.str, 'rx-dapi-range')),
+                                    ('rx_oper_spec_range', YLeaf(YType.str, 'rx-oper-spec-range')),
+                                    ('rx_oper_spec', YLeaf(YType.str, 'rx-oper-spec')),
+                                    ('expected_tti', YLeaf(YType.str, 'expected-tti')),
+                                    ('expected_sapi0', YLeaf(YType.str, 'expected-sapi0')),
+                                    ('expected_sapi', YLeaf(YType.str, 'expected-sapi')),
+                                    ('exp_sapi_range', YLeaf(YType.str, 'exp-sapi-range')),
+                                    ('expected_dapi0', YLeaf(YType.str, 'expected-dapi0')),
+                                    ('expected_dapi', YLeaf(YType.str, 'expected-dapi')),
+                                    ('exp_dapi_range', YLeaf(YType.str, 'exp-dapi-range')),
+                                    ('expected_oper_spec', YLeaf(YType.str, 'expected-oper-spec')),
+                                    ('exp_oper_spec_range', YLeaf(YType.str, 'exp-oper-spec-range')),
+                                ])
+                                self.tx_string_type = None
+                                self.expected_string_type = None
+                                self.rx_string_type = None
+                                self.tx_tti = None
+                                self.tx_sapi0 = None
+                                self.tx_sapi = None
+                                self.tx_sapi_range = None
+                                self.tx_dapi0 = None
+                                self.tx_dapi = None
+                                self.tx_dapi_range = None
+                                self.tx_oper_spec = None
+                                self.tx_oper_spec_range = None
+                                self.rx_tti = None
+                                self.rx_sapi0 = None
+                                self.rx_sapi = None
+                                self.rx_sapi_range = None
+                                self.rx_dapi0 = None
+                                self.rx_dapi = None
+                                self.rx_dapi_range = None
+                                self.rx_oper_spec_range = None
+                                self.rx_oper_spec = None
+                                self.expected_tti = None
+                                self.expected_sapi0 = None
+                                self.expected_sapi = None
+                                self.exp_sapi_range = None
+                                self.expected_dapi0 = None
+                                self.expected_dapi = None
+                                self.exp_dapi_range = None
+                                self.expected_oper_spec = None
+                                self.exp_oper_spec_range = None
                                 self._segment_path = lambda: "tti"
 
                             def __setattr__(self, name, value):
@@ -5357,86 +5545,89 @@ class Dwdm(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.optics_type = YLeaf(YType.str, "optics-type")
-
-                        self.clock_source = YLeaf(YType.uint8, "clock-source")
-
-                        self.wave_frequency_progressive_string = YLeaf(YType.str, "wave-frequency-progressive-string")
-
-                        self.wavelength_progressive_string = YLeaf(YType.str, "wavelength-progressive-string")
-
-                        self.is_wave_frequency_progressive_valid = YLeaf(YType.boolean, "is-wave-frequency-progressive-valid")
-
-                        self.wavelength_progressive = YLeaf(YType.uint32, "wavelength-progressive")
-
-                        self.wave_band = YLeaf(YType.uint32, "wave-band")
-
-                        self.wave_channel = YLeaf(YType.uint32, "wave-channel")
-
-                        self.wave_frequency = YLeaf(YType.uint32, "wave-frequency")
-
-                        self.is_wave_frequency_valid = YLeaf(YType.boolean, "is-wave-frequency-valid")
-
-                        self.wave_channel_owner = YLeaf(YType.enumeration, "wave-channel-owner")
-
-                        self.gmpls_set_wave_channel = YLeaf(YType.uint16, "gmpls-set-wave-channel")
-
-                        self.configured_wave_channel = YLeaf(YType.uint16, "configured-wave-channel")
-
-                        self.default_wave_channel = YLeaf(YType.uint16, "default-wave-channel")
-
-                        self.transmit_power = YLeaf(YType.int32, "transmit-power")
-
-                        self.transmit_power_threshold = YLeaf(YType.int32, "transmit-power-threshold")
-
-                        self.laser_current_bias = YLeaf(YType.int32, "laser-current-bias")
-
-                        self.laser_current_bias_threshold = YLeaf(YType.int32, "laser-current-bias-threshold")
-
-                        self.receive_power = YLeaf(YType.int32, "receive-power")
-
-                        self.is_rx_los_threshold_supported = YLeaf(YType.boolean, "is-rx-los-threshold-supported")
-
-                        self.rx_los_threshold = YLeaf(YType.int32, "rx-los-threshold")
-
-                        self.transmit_power_min = YLeaf(YType.int32, "transmit-power-min")
-
-                        self.transmit_power_max = YLeaf(YType.int32, "transmit-power-max")
-
-                        self.transmit_power_avg = YLeaf(YType.int32, "transmit-power-avg")
-
-                        self.receive_power_min = YLeaf(YType.int32, "receive-power-min")
-
-                        self.receive_power_max = YLeaf(YType.int32, "receive-power-max")
-
-                        self.receive_power_avg = YLeaf(YType.int32, "receive-power-avg")
-
-                        self.laser_bias_current_min = YLeaf(YType.int32, "laser-bias-current-min")
-
-                        self.laser_bias_current_max = YLeaf(YType.int32, "laser-bias-current-max")
-
-                        self.laser_bias_current_avg = YLeaf(YType.int32, "laser-bias-current-avg")
-
-                        self.chromatic_dispersion = YLeaf(YType.int32, "chromatic-dispersion")
-
-                        self.differential_group_delay = YLeaf(YType.int32, "differential-group-delay")
-
-                        self.polarization_mode_dispersion = YLeaf(YType.int32, "polarization-mode-dispersion")
-
-                        self.signal_to_noise_ratio = YLeaf(YType.int32, "signal-to-noise-ratio")
-
-                        self.polarization_dependent_loss = YLeaf(YType.int32, "polarization-dependent-loss")
-
-                        self.polarization_change_rate = YLeaf(YType.uint32, "polarization-change-rate")
-
-                        self.phase_noise = YLeaf(YType.uint32, "phase-noise")
-
-                        self.output_power_fail = YLeaf(YType.uint32, "output-power-fail")
-
-                        self.input_power_fail = YLeaf(YType.uint32, "input-power-fail")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('optics_type', YLeaf(YType.str, 'optics-type')),
+                            ('clock_source', YLeaf(YType.uint8, 'clock-source')),
+                            ('wave_frequency_progressive_string', YLeaf(YType.str, 'wave-frequency-progressive-string')),
+                            ('wavelength_progressive_string', YLeaf(YType.str, 'wavelength-progressive-string')),
+                            ('is_wave_frequency_progressive_valid', YLeaf(YType.boolean, 'is-wave-frequency-progressive-valid')),
+                            ('wavelength_progressive', YLeaf(YType.uint32, 'wavelength-progressive')),
+                            ('wave_band', YLeaf(YType.uint32, 'wave-band')),
+                            ('wave_channel', YLeaf(YType.uint32, 'wave-channel')),
+                            ('wave_frequency', YLeaf(YType.uint32, 'wave-frequency')),
+                            ('is_wave_frequency_valid', YLeaf(YType.boolean, 'is-wave-frequency-valid')),
+                            ('wave_channel_owner', YLeaf(YType.enumeration, 'wave-channel-owner')),
+                            ('gmpls_set_wave_channel', YLeaf(YType.uint16, 'gmpls-set-wave-channel')),
+                            ('configured_wave_channel', YLeaf(YType.uint16, 'configured-wave-channel')),
+                            ('default_wave_channel', YLeaf(YType.uint16, 'default-wave-channel')),
+                            ('transmit_power', YLeaf(YType.int32, 'transmit-power')),
+                            ('transmit_power_threshold', YLeaf(YType.int32, 'transmit-power-threshold')),
+                            ('laser_current_bias', YLeaf(YType.int32, 'laser-current-bias')),
+                            ('laser_current_bias_threshold', YLeaf(YType.int32, 'laser-current-bias-threshold')),
+                            ('receive_power', YLeaf(YType.int32, 'receive-power')),
+                            ('is_rx_los_threshold_supported', YLeaf(YType.boolean, 'is-rx-los-threshold-supported')),
+                            ('rx_los_threshold', YLeaf(YType.int32, 'rx-los-threshold')),
+                            ('transmit_power_min', YLeaf(YType.int32, 'transmit-power-min')),
+                            ('transmit_power_max', YLeaf(YType.int32, 'transmit-power-max')),
+                            ('transmit_power_avg', YLeaf(YType.int32, 'transmit-power-avg')),
+                            ('receive_power_min', YLeaf(YType.int32, 'receive-power-min')),
+                            ('receive_power_max', YLeaf(YType.int32, 'receive-power-max')),
+                            ('receive_power_avg', YLeaf(YType.int32, 'receive-power-avg')),
+                            ('laser_bias_current_min', YLeaf(YType.int32, 'laser-bias-current-min')),
+                            ('laser_bias_current_max', YLeaf(YType.int32, 'laser-bias-current-max')),
+                            ('laser_bias_current_avg', YLeaf(YType.int32, 'laser-bias-current-avg')),
+                            ('chromatic_dispersion', YLeaf(YType.int32, 'chromatic-dispersion')),
+                            ('differential_group_delay', YLeaf(YType.int32, 'differential-group-delay')),
+                            ('polarization_mode_dispersion', YLeaf(YType.int32, 'polarization-mode-dispersion')),
+                            ('signal_to_noise_ratio', YLeaf(YType.int32, 'signal-to-noise-ratio')),
+                            ('polarization_dependent_loss', YLeaf(YType.int32, 'polarization-dependent-loss')),
+                            ('polarization_change_rate', YLeaf(YType.uint32, 'polarization-change-rate')),
+                            ('phase_noise', YLeaf(YType.uint32, 'phase-noise')),
+                            ('output_power_fail', YLeaf(YType.uint32, 'output-power-fail')),
+                            ('input_power_fail', YLeaf(YType.uint32, 'input-power-fail')),
+                        ])
+                        self.optics_type = None
+                        self.clock_source = None
+                        self.wave_frequency_progressive_string = None
+                        self.wavelength_progressive_string = None
+                        self.is_wave_frequency_progressive_valid = None
+                        self.wavelength_progressive = None
+                        self.wave_band = None
+                        self.wave_channel = None
+                        self.wave_frequency = None
+                        self.is_wave_frequency_valid = None
+                        self.wave_channel_owner = None
+                        self.gmpls_set_wave_channel = None
+                        self.configured_wave_channel = None
+                        self.default_wave_channel = None
+                        self.transmit_power = None
+                        self.transmit_power_threshold = None
+                        self.laser_current_bias = None
+                        self.laser_current_bias_threshold = None
+                        self.receive_power = None
+                        self.is_rx_los_threshold_supported = None
+                        self.rx_los_threshold = None
+                        self.transmit_power_min = None
+                        self.transmit_power_max = None
+                        self.transmit_power_avg = None
+                        self.receive_power_min = None
+                        self.receive_power_max = None
+                        self.receive_power_avg = None
+                        self.laser_bias_current_min = None
+                        self.laser_bias_current_max = None
+                        self.laser_bias_current_avg = None
+                        self.chromatic_dispersion = None
+                        self.differential_group_delay = None
+                        self.polarization_mode_dispersion = None
+                        self.signal_to_noise_ratio = None
+                        self.polarization_dependent_loss = None
+                        self.polarization_change_rate = None
+                        self.phase_noise = None
+                        self.output_power_fail = None
+                        self.input_power_fail = None
                         self._segment_path = lambda: "optics-info"
 
                     def __setattr__(self, name, value):
@@ -5500,22 +5691,25 @@ class Dwdm(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tdc_valid = YLeaf(YType.boolean, "tdc-valid")
-
-                        self.major_alarm = YLeaf(YType.boolean, "major-alarm")
-
-                        self.operation_mode = YLeaf(YType.boolean, "operation-mode")
-
-                        self.tdc_status = YLeaf(YType.boolean, "tdc-status")
-
-                        self.dispersion_offset = YLeaf(YType.int32, "dispersion-offset")
-
-                        self.reroute_ber = YLeaf(YType.int32, "reroute-ber")
-
-                        self.is_reroute_control_enabled = YLeaf(YType.boolean, "is-reroute-control-enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tdc_valid', YLeaf(YType.boolean, 'tdc-valid')),
+                            ('major_alarm', YLeaf(YType.boolean, 'major-alarm')),
+                            ('operation_mode', YLeaf(YType.boolean, 'operation-mode')),
+                            ('tdc_status', YLeaf(YType.boolean, 'tdc-status')),
+                            ('dispersion_offset', YLeaf(YType.int32, 'dispersion-offset')),
+                            ('reroute_ber', YLeaf(YType.int32, 'reroute-ber')),
+                            ('is_reroute_control_enabled', YLeaf(YType.boolean, 'is-reroute-control-enabled')),
+                        ])
+                        self.tdc_valid = None
+                        self.major_alarm = None
+                        self.operation_mode = None
+                        self.tdc_status = None
+                        self.dispersion_offset = None
+                        self.reroute_ber = None
+                        self.is_reroute_control_enabled = None
                         self._segment_path = lambda: "tdc-info"
 
                     def __setattr__(self, name, value):
@@ -5547,10 +5741,13 @@ class Dwdm(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.network_srlg = YLeafList(YType.uint32, "network-srlg")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('network_srlg', YLeafList(YType.uint32, 'network-srlg')),
+                        ])
+                        self.network_srlg = []
                         self._segment_path = lambda: "network-srlg-info"
 
                     def __setattr__(self, name, value):
@@ -5742,62 +5939,65 @@ class Dwdm(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.proactive_feature = YLeaf(YType.boolean, "proactive-feature")
-
-                        self.proactive_mode = YLeaf(YType.enumeration, "proactive-mode")
-
-                        self.proactive_fsm_state = YLeaf(YType.enumeration, "proactive-fsm-state")
-
-                        self.proactive_fsm_if_state = YLeaf(YType.enumeration, "proactive-fsm-if-state")
-
-                        self.tas_state = YLeaf(YType.enumeration, "tas-state")
-
-                        self.trig_thresh_coeff = YLeaf(YType.uint8, "trig-thresh-coeff")
-
-                        self.trig_thresh_power = YLeaf(YType.uint8, "trig-thresh-power")
-
-                        self.rvrt_thresh_coeff = YLeaf(YType.uint8, "rvrt-thresh-coeff")
-
-                        self.rvrt_thresh_power = YLeaf(YType.uint8, "rvrt-thresh-power")
-
-                        self.default_trig_thresh_coeff = YLeaf(YType.uint8, "default-trig-thresh-coeff")
-
-                        self.default_trig_thresh_power = YLeaf(YType.uint8, "default-trig-thresh-power")
-
-                        self.default_rvrt_thresh_coeff = YLeaf(YType.uint8, "default-rvrt-thresh-coeff")
-
-                        self.default_rvrt_thresh_power = YLeaf(YType.uint8, "default-rvrt-thresh-power")
-
-                        self.trig_samples = YLeaf(YType.uint8, "trig-samples")
-
-                        self.rvrt_samples = YLeaf(YType.uint8, "rvrt-samples")
-
-                        self.trigger_window = YLeaf(YType.uint32, "trigger-window")
-
-                        self.revert_window = YLeaf(YType.uint32, "revert-window")
-
-                        self.protection_trigger = YLeaf(YType.boolean, "protection-trigger")
-
-                        self.interface_trigger = YLeaf(YType.boolean, "interface-trigger")
-
-                        self.tx_aps = YLeaf(YType.uint8, "tx-aps")
-
-                        self.tx_aps_descr = YLeaf(YType.enumeration, "tx-aps-descr")
-
-                        self.rx_aps = YLeaf(YType.uint8, "rx-aps")
-
-                        self.rx_aps_descr = YLeaf(YType.enumeration, "rx-aps-descr")
-
-                        self.alarm_state = YLeaf(YType.boolean, "alarm-state")
-
-                        self.trig_ec_cnt = YLeaf(YType.uint32, "trig-ec-cnt")
-
-                        self.rvrt_ec_cnt = YLeaf(YType.uint32, "rvrt-ec-cnt")
-
-                        self.prefec_thresh_crossed = YLeaf(YType.boolean, "prefec-thresh-crossed")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('proactive_feature', YLeaf(YType.boolean, 'proactive-feature')),
+                            ('proactive_mode', YLeaf(YType.enumeration, 'proactive-mode')),
+                            ('proactive_fsm_state', YLeaf(YType.enumeration, 'proactive-fsm-state')),
+                            ('proactive_fsm_if_state', YLeaf(YType.enumeration, 'proactive-fsm-if-state')),
+                            ('tas_state', YLeaf(YType.enumeration, 'tas-state')),
+                            ('trig_thresh_coeff', YLeaf(YType.uint8, 'trig-thresh-coeff')),
+                            ('trig_thresh_power', YLeaf(YType.uint8, 'trig-thresh-power')),
+                            ('rvrt_thresh_coeff', YLeaf(YType.uint8, 'rvrt-thresh-coeff')),
+                            ('rvrt_thresh_power', YLeaf(YType.uint8, 'rvrt-thresh-power')),
+                            ('default_trig_thresh_coeff', YLeaf(YType.uint8, 'default-trig-thresh-coeff')),
+                            ('default_trig_thresh_power', YLeaf(YType.uint8, 'default-trig-thresh-power')),
+                            ('default_rvrt_thresh_coeff', YLeaf(YType.uint8, 'default-rvrt-thresh-coeff')),
+                            ('default_rvrt_thresh_power', YLeaf(YType.uint8, 'default-rvrt-thresh-power')),
+                            ('trig_samples', YLeaf(YType.uint8, 'trig-samples')),
+                            ('rvrt_samples', YLeaf(YType.uint8, 'rvrt-samples')),
+                            ('trigger_window', YLeaf(YType.uint32, 'trigger-window')),
+                            ('revert_window', YLeaf(YType.uint32, 'revert-window')),
+                            ('protection_trigger', YLeaf(YType.boolean, 'protection-trigger')),
+                            ('interface_trigger', YLeaf(YType.boolean, 'interface-trigger')),
+                            ('tx_aps', YLeaf(YType.uint8, 'tx-aps')),
+                            ('tx_aps_descr', YLeaf(YType.enumeration, 'tx-aps-descr')),
+                            ('rx_aps', YLeaf(YType.uint8, 'rx-aps')),
+                            ('rx_aps_descr', YLeaf(YType.enumeration, 'rx-aps-descr')),
+                            ('alarm_state', YLeaf(YType.boolean, 'alarm-state')),
+                            ('trig_ec_cnt', YLeaf(YType.uint32, 'trig-ec-cnt')),
+                            ('rvrt_ec_cnt', YLeaf(YType.uint32, 'rvrt-ec-cnt')),
+                            ('prefec_thresh_crossed', YLeaf(YType.boolean, 'prefec-thresh-crossed')),
+                        ])
+                        self.proactive_feature = None
+                        self.proactive_mode = None
+                        self.proactive_fsm_state = None
+                        self.proactive_fsm_if_state = None
+                        self.tas_state = None
+                        self.trig_thresh_coeff = None
+                        self.trig_thresh_power = None
+                        self.rvrt_thresh_coeff = None
+                        self.rvrt_thresh_power = None
+                        self.default_trig_thresh_coeff = None
+                        self.default_trig_thresh_power = None
+                        self.default_rvrt_thresh_coeff = None
+                        self.default_rvrt_thresh_power = None
+                        self.trig_samples = None
+                        self.rvrt_samples = None
+                        self.trigger_window = None
+                        self.revert_window = None
+                        self.protection_trigger = None
+                        self.interface_trigger = None
+                        self.tx_aps = None
+                        self.tx_aps_descr = None
+                        self.rx_aps = None
+                        self.rx_aps_descr = None
+                        self.alarm_state = None
+                        self.trig_ec_cnt = None
+                        self.rvrt_ec_cnt = None
+                        self.prefec_thresh_crossed = None
                         self._segment_path = lambda: "proactive"
 
                     def __setattr__(self, name, value):
@@ -5834,12 +6034,15 @@ class Dwdm(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                        self.log_filename = YLeaf(YType.str, "log-filename")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
+                            ('log_filename', YLeaf(YType.str, 'log-filename')),
+                        ])
+                        self.is_log_enabled = None
+                        self.log_filename = None
                         self._segment_path = lambda: "signal-log"
 
                     def __setattr__(self, name, value):
@@ -5873,8 +6076,10 @@ class Vtxp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-dwdm-ui-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dwdm-vtxp" : ("dwdm_vtxp", Vtxp.DwdmVtxp)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("dwdm-vtxp", ("dwdm_vtxp", Vtxp.DwdmVtxp))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.dwdm_vtxp = Vtxp.DwdmVtxp()
         self.dwdm_vtxp.parent = self
@@ -5906,8 +6111,10 @@ class Vtxp(Entity):
             self.yang_parent_name = "vtxp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"port-vtxps" : ("port_vtxps", Vtxp.DwdmVtxp.PortVtxps)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("port-vtxps", ("port_vtxps", Vtxp.DwdmVtxp.PortVtxps))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.port_vtxps = Vtxp.DwdmVtxp.PortVtxps()
             self.port_vtxps.parent = self
@@ -5940,8 +6147,10 @@ class Vtxp(Entity):
                 self.yang_parent_name = "dwdm-vtxp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"port-vtxp" : ("port_vtxp", Vtxp.DwdmVtxp.PortVtxps.PortVtxp)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("port-vtxp", ("port_vtxp", Vtxp.DwdmVtxp.PortVtxps.PortVtxp))])
+                self._leafs = OrderedDict()
 
                 self.port_vtxp = YList(self)
                 self._segment_path = lambda: "port-vtxps"
@@ -5955,7 +6164,7 @@ class Vtxp(Entity):
                 """
                 DWDM Port operational data
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Port name
                 	**type**\: str
@@ -5981,16 +6190,19 @@ class Vtxp(Entity):
                     self.yang_parent_name = "port-vtxps"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"info" : ("info", Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("info", ("info", Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.info = Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info()
                     self.info.parent = self
                     self._children_name_map["info"] = "info"
                     self._children_yang_names.add("info")
-                    self._segment_path = lambda: "port-vtxp" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "port-vtxp" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-dwdm-ui-oper:vtxp/dwdm-vtxp/port-vtxps/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -6020,10 +6232,13 @@ class Vtxp(Entity):
                         self.yang_parent_name = "port-vtxp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vtxp_enable = YLeaf(YType.boolean, "vtxp-enable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vtxp_enable', YLeaf(YType.boolean, 'vtxp-enable')),
+                        ])
+                        self.vtxp_enable = None
                         self._segment_path = lambda: "info"
 
                     def __setattr__(self, name, value):

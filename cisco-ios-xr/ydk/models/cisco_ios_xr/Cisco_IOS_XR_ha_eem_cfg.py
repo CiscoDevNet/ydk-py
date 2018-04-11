@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class EventManagerChecksum(Enum):
     """
-    EventManagerChecksum
+    EventManagerChecksum (Enum Class)
 
     Event manager checksum
 
@@ -40,7 +42,7 @@ class EventManagerChecksum(Enum):
 
 class EventManagerPolicy(Enum):
     """
-    EventManagerPolicy
+    EventManagerPolicy (Enum Class)
 
     Event manager policy
 
@@ -61,7 +63,7 @@ class EventManagerPolicy(Enum):
 
 class EventManagerPolicyMode(Enum):
     """
-    EventManagerPolicyMode
+    EventManagerPolicyMode (Enum Class)
 
     Event manager policy mode
 
@@ -82,7 +84,7 @@ class EventManagerPolicyMode(Enum):
 
 class EventManagerPolicySec(Enum):
     """
-    EventManagerPolicySec
+    EventManagerPolicySec (Enum Class)
 
     Event manager policy sec
 
@@ -162,16 +164,19 @@ class EventManager(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ha-eem-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"policies" : ("policies", EventManager.Policies), "scheduler-script" : ("scheduler_script", EventManager.SchedulerScript), "environments" : ("environments", EventManager.Environments)}
-        self._child_list_classes = {}
-
-        self.refresh_time = YLeaf(YType.uint32, "refresh-time")
-
-        self.schedule_suspend = YLeaf(YType.boolean, "schedule-suspend")
-
-        self.directory_user_policy = YLeaf(YType.str, "directory-user-policy")
-
-        self.directory_user_library = YLeaf(YType.str, "directory-user-library")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("policies", ("policies", EventManager.Policies)), ("scheduler-script", ("scheduler_script", EventManager.SchedulerScript)), ("environments", ("environments", EventManager.Environments))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('refresh_time', YLeaf(YType.uint32, 'refresh-time')),
+            ('schedule_suspend', YLeaf(YType.boolean, 'schedule-suspend')),
+            ('directory_user_policy', YLeaf(YType.str, 'directory-user-policy')),
+            ('directory_user_library', YLeaf(YType.str, 'directory-user-library')),
+        ])
+        self.refresh_time = None
+        self.schedule_suspend = None
+        self.directory_user_policy = None
+        self.directory_user_library = None
 
         self.policies = EventManager.Policies()
         self.policies.parent = self
@@ -216,8 +221,10 @@ class EventManager(Entity):
             self.yang_parent_name = "event-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"policy" : ("policy", EventManager.Policies.Policy)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("policy", ("policy", EventManager.Policies.Policy))])
+            self._leafs = OrderedDict()
 
             self.policy = YList(self)
             self._segment_path = lambda: "policies"
@@ -231,7 +238,7 @@ class EventManager(Entity):
             """
             Name of the policy file
             
-            .. attribute:: policy_name  <key>
+            .. attribute:: policy_name  (key)
             
             	Name of the policy file
             	**type**\: str
@@ -295,25 +302,28 @@ class EventManager(Entity):
                 self.yang_parent_name = "policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                self.username = YLeaf(YType.str, "username")
-
-                self.persist_time = YLeaf(YType.uint32, "persist-time")
-
-                self.policy_type = YLeaf(YType.enumeration, "policy-type")
-
-                self.checksum_type = YLeaf(YType.enumeration, "checksum-type")
-
-                self.check_sum_value = YLeaf(YType.str, "check-sum-value")
-
-                self.policy_security_mode = YLeaf(YType.enumeration, "policy-security-mode")
-
-                self.policy_security_level = YLeaf(YType.enumeration, "policy-security-level")
-                self._segment_path = lambda: "policy" + "[policy-name='" + self.policy_name.get() + "']"
+                self.ylist_key_names = ['policy_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                    ('username', YLeaf(YType.str, 'username')),
+                    ('persist_time', YLeaf(YType.uint32, 'persist-time')),
+                    ('policy_type', YLeaf(YType.enumeration, 'policy-type')),
+                    ('checksum_type', YLeaf(YType.enumeration, 'checksum-type')),
+                    ('check_sum_value', YLeaf(YType.str, 'check-sum-value')),
+                    ('policy_security_mode', YLeaf(YType.enumeration, 'policy-security-mode')),
+                    ('policy_security_level', YLeaf(YType.enumeration, 'policy-security-level')),
+                ])
+                self.policy_name = None
+                self.username = None
+                self.persist_time = None
+                self.policy_type = None
+                self.checksum_type = None
+                self.check_sum_value = None
+                self.policy_security_mode = None
+                self.policy_security_level = None
+                self._segment_path = lambda: "policy" + "[policy-name='" + str(self.policy_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -343,8 +353,10 @@ class EventManager(Entity):
             self.yang_parent_name = "event-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"thread-classes" : ("thread_classes", EventManager.SchedulerScript.ThreadClasses)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("thread-classes", ("thread_classes", EventManager.SchedulerScript.ThreadClasses))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.thread_classes = EventManager.SchedulerScript.ThreadClasses()
             self.thread_classes.parent = self
@@ -377,8 +389,10 @@ class EventManager(Entity):
                 self.yang_parent_name = "scheduler-script"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"thread-class" : ("thread_class", EventManager.SchedulerScript.ThreadClasses.ThreadClass)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("thread-class", ("thread_class", EventManager.SchedulerScript.ThreadClasses.ThreadClass))])
+                self._leafs = OrderedDict()
 
                 self.thread_class = YList(self)
                 self._segment_path = lambda: "thread-classes"
@@ -392,7 +406,7 @@ class EventManager(Entity):
                 """
                 scheduler classs type argument
                 
-                .. attribute:: thread_class_name  <key>
+                .. attribute:: thread_class_name  (key)
                 
                 	Name of the global variable
                 	**type**\: str
@@ -422,13 +436,16 @@ class EventManager(Entity):
                     self.yang_parent_name = "thread-classes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.thread_class_name = YLeaf(YType.str, "thread-class-name")
-
-                    self.num_threads = YLeaf(YType.uint32, "num-threads")
-                    self._segment_path = lambda: "thread-class" + "[thread-class-name='" + self.thread_class_name.get() + "']"
+                    self.ylist_key_names = ['thread_class_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('thread_class_name', YLeaf(YType.str, 'thread-class-name')),
+                        ('num_threads', YLeaf(YType.uint32, 'num-threads')),
+                    ])
+                    self.thread_class_name = None
+                    self.num_threads = None
+                    self._segment_path = lambda: "thread-class" + "[thread-class-name='" + str(self.thread_class_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/scheduler-script/thread-classes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -459,8 +476,10 @@ class EventManager(Entity):
             self.yang_parent_name = "event-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"environment" : ("environment", EventManager.Environments.Environment)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("environment", ("environment", EventManager.Environments.Environment))])
+            self._leafs = OrderedDict()
 
             self.environment = YList(self)
             self._segment_path = lambda: "environments"
@@ -474,7 +493,7 @@ class EventManager(Entity):
             """
             Name of the global variable
             
-            .. attribute:: environment_name  <key>
+            .. attribute:: environment_name  (key)
             
             	Name of the global variable
             	**type**\: str
@@ -502,13 +521,16 @@ class EventManager(Entity):
                 self.yang_parent_name = "environments"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.environment_name = YLeaf(YType.str, "environment-name")
-
-                self.environment_value = YLeaf(YType.str, "environment-value")
-                self._segment_path = lambda: "environment" + "[environment-name='" + self.environment_name.get() + "']"
+                self.ylist_key_names = ['environment_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('environment_name', YLeaf(YType.str, 'environment-name')),
+                    ('environment_value', YLeaf(YType.str, 'environment-value')),
+                ])
+                self.environment_name = None
+                self.environment_value = None
+                self._segment_path = lambda: "environment" + "[environment-name='" + str(self.environment_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/environments/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

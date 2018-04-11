@@ -3,9 +3,11 @@
 The MIB module for the display of CIDR multipath IP Routes.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -46,8 +48,10 @@ class IPFORWARDMIB(Entity):
         self.yang_parent_name = "IP-FORWARD-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipForward" : ("ipforward", IPFORWARDMIB.Ipforward), "ipForwardTable" : ("ipforwardtable", IPFORWARDMIB.Ipforwardtable), "ipCidrRouteTable" : ("ipcidrroutetable", IPFORWARDMIB.Ipcidrroutetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ipForward", ("ipforward", IPFORWARDMIB.Ipforward)), ("ipForwardTable", ("ipforwardtable", IPFORWARDMIB.Ipforwardtable)), ("ipCidrRouteTable", ("ipcidrroutetable", IPFORWARDMIB.Ipcidrroutetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ipforward = IPFORWARDMIB.Ipforward()
         self.ipforward.parent = self
@@ -100,12 +104,15 @@ class IPFORWARDMIB(Entity):
             self.yang_parent_name = "IP-FORWARD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ipforwardnumber = YLeaf(YType.uint32, "ipForwardNumber")
-
-            self.ipcidrroutenumber = YLeaf(YType.uint32, "ipCidrRouteNumber")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ipforwardnumber', YLeaf(YType.uint32, 'ipForwardNumber')),
+                ('ipcidrroutenumber', YLeaf(YType.uint32, 'ipCidrRouteNumber')),
+            ])
+            self.ipforwardnumber = None
+            self.ipcidrroutenumber = None
             self._segment_path = lambda: "ipForward"
             self._absolute_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB/%s" % self._segment_path()
 
@@ -138,8 +145,10 @@ class IPFORWARDMIB(Entity):
             self.yang_parent_name = "IP-FORWARD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipForwardEntry" : ("ipforwardentry", IPFORWARDMIB.Ipforwardtable.Ipforwardentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipForwardEntry", ("ipforwardentry", IPFORWARDMIB.Ipforwardtable.Ipforwardentry))])
+            self._leafs = OrderedDict()
 
             self.ipforwardentry = YList(self)
             self._segment_path = lambda: "ipForwardTable"
@@ -154,7 +163,7 @@ class IPFORWARDMIB(Entity):
             A particular route to  a  particular  destina\-
             tion, under a particular policy.
             
-            .. attribute:: ipforwarddest  <key>
+            .. attribute:: ipforwarddest  (key)
             
             	The destination IP address of this route.   An entry  with  a value of 0.0.0.0 is considered a default route.  This object may not take a Multicast (Class  D) address value.  Any assignment (implicit or  otherwise)  of  an instance  of  this  object to a value x must be rejected if the bitwise logical\-AND of  x  with the  value of the corresponding instance of the ipForwardMask object is not equal to x
             	**type**\: str
@@ -163,14 +172,14 @@ class IPFORWARDMIB(Entity):
             
             	**status**\: obsolete
             
-            .. attribute:: ipforwardproto  <key>
+            .. attribute:: ipforwardproto  (key)
             
             	The routing mechanism via which this route was learned.  Inclusion of values for gateway rout\- ing protocols is not  intended  to  imply  that hosts should support those protocols
             	**type**\:  :py:class:`Ipforwardproto <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.Ipforwardtable.Ipforwardentry.Ipforwardproto>`
             
             	**status**\: obsolete
             
-            .. attribute:: ipforwardpolicy  <key>
+            .. attribute:: ipforwardpolicy  (key)
             
             	The general set of conditions that would cause the  selection  of  one multipath route (set of next hops for a given destination) is  referred to as 'policy'.  Unless the mechanism indicated by ipForwardPro\- to specifies otherwise, the policy specifier is the IP TOS Field.  The encoding of IP TOS is as  specified  by  the  following convention.  Zero indicates the default path if no more  specific policy applies.  +\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+ \|                 \|                       \|     \| \|   PRECEDENCE    \|    TYPE OF SERVICE    \|  0  \| \|                 \|                       \|     \| +\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+           IP TOS                IP TOS     Field     Policy      Field     Policy     Contents    Code      Contents    Code     0 0 0 0  ==>   0      0 0 0 1  ==>   2     0 0 1 0  ==>   4      0 0 1 1  ==>   6     0 1 0 0  ==>   8      0 1 0 1  ==>  10     0 1 1 0  ==>  12      0 1 1 1  ==>  14     1 0 0 0  ==>  16      1 0 0 1  ==>  18     1 0 1 0  ==>  20      1 0 1 1  ==>  22     1 1 0 0  ==>  24      1 1 0 1  ==>  26     1 1 1 0  ==>  28      1 1 1 1  ==>  30  Protocols defining 'policy' otherwise must  ei\- ther define a set of values which are valid for this  object  or  must  implement  an  integer\- instanced  policy table for which this object's value acts as an index
             	**type**\: int
@@ -179,7 +188,7 @@ class IPFORWARDMIB(Entity):
             
             	**status**\: obsolete
             
-            .. attribute:: ipforwardnexthop  <key>
+            .. attribute:: ipforwardnexthop  (key)
             
             	On remote routes, the address of the next sys\- tem en route; Otherwise, 0.0.0.0
             	**type**\: str
@@ -299,39 +308,42 @@ class IPFORWARDMIB(Entity):
                 self.yang_parent_name = "ipForwardTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipforwarddest = YLeaf(YType.str, "ipForwardDest")
-
-                self.ipforwardproto = YLeaf(YType.enumeration, "ipForwardProto")
-
-                self.ipforwardpolicy = YLeaf(YType.int32, "ipForwardPolicy")
-
-                self.ipforwardnexthop = YLeaf(YType.str, "ipForwardNextHop")
-
-                self.ipforwardmask = YLeaf(YType.str, "ipForwardMask")
-
-                self.ipforwardifindex = YLeaf(YType.int32, "ipForwardIfIndex")
-
-                self.ipforwardtype = YLeaf(YType.enumeration, "ipForwardType")
-
-                self.ipforwardage = YLeaf(YType.int32, "ipForwardAge")
-
-                self.ipforwardinfo = YLeaf(YType.str, "ipForwardInfo")
-
-                self.ipforwardnexthopas = YLeaf(YType.int32, "ipForwardNextHopAS")
-
-                self.ipforwardmetric1 = YLeaf(YType.int32, "ipForwardMetric1")
-
-                self.ipforwardmetric2 = YLeaf(YType.int32, "ipForwardMetric2")
-
-                self.ipforwardmetric3 = YLeaf(YType.int32, "ipForwardMetric3")
-
-                self.ipforwardmetric4 = YLeaf(YType.int32, "ipForwardMetric4")
-
-                self.ipforwardmetric5 = YLeaf(YType.int32, "ipForwardMetric5")
-                self._segment_path = lambda: "ipForwardEntry" + "[ipForwardDest='" + self.ipforwarddest.get() + "']" + "[ipForwardProto='" + self.ipforwardproto.get() + "']" + "[ipForwardPolicy='" + self.ipforwardpolicy.get() + "']" + "[ipForwardNextHop='" + self.ipforwardnexthop.get() + "']"
+                self.ylist_key_names = ['ipforwarddest','ipforwardproto','ipforwardpolicy','ipforwardnexthop']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipforwarddest', YLeaf(YType.str, 'ipForwardDest')),
+                    ('ipforwardproto', YLeaf(YType.enumeration, 'ipForwardProto')),
+                    ('ipforwardpolicy', YLeaf(YType.int32, 'ipForwardPolicy')),
+                    ('ipforwardnexthop', YLeaf(YType.str, 'ipForwardNextHop')),
+                    ('ipforwardmask', YLeaf(YType.str, 'ipForwardMask')),
+                    ('ipforwardifindex', YLeaf(YType.int32, 'ipForwardIfIndex')),
+                    ('ipforwardtype', YLeaf(YType.enumeration, 'ipForwardType')),
+                    ('ipforwardage', YLeaf(YType.int32, 'ipForwardAge')),
+                    ('ipforwardinfo', YLeaf(YType.str, 'ipForwardInfo')),
+                    ('ipforwardnexthopas', YLeaf(YType.int32, 'ipForwardNextHopAS')),
+                    ('ipforwardmetric1', YLeaf(YType.int32, 'ipForwardMetric1')),
+                    ('ipforwardmetric2', YLeaf(YType.int32, 'ipForwardMetric2')),
+                    ('ipforwardmetric3', YLeaf(YType.int32, 'ipForwardMetric3')),
+                    ('ipforwardmetric4', YLeaf(YType.int32, 'ipForwardMetric4')),
+                    ('ipforwardmetric5', YLeaf(YType.int32, 'ipForwardMetric5')),
+                ])
+                self.ipforwarddest = None
+                self.ipforwardproto = None
+                self.ipforwardpolicy = None
+                self.ipforwardnexthop = None
+                self.ipforwardmask = None
+                self.ipforwardifindex = None
+                self.ipforwardtype = None
+                self.ipforwardage = None
+                self.ipforwardinfo = None
+                self.ipforwardnexthopas = None
+                self.ipforwardmetric1 = None
+                self.ipforwardmetric2 = None
+                self.ipforwardmetric3 = None
+                self.ipforwardmetric4 = None
+                self.ipforwardmetric5 = None
+                self._segment_path = lambda: "ipForwardEntry" + "[ipForwardDest='" + str(self.ipforwarddest) + "']" + "[ipForwardProto='" + str(self.ipforwardproto) + "']" + "[ipForwardPolicy='" + str(self.ipforwardpolicy) + "']" + "[ipForwardNextHop='" + str(self.ipforwardnexthop) + "']"
                 self._absolute_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB/ipForwardTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -339,7 +351,7 @@ class IPFORWARDMIB(Entity):
 
             class Ipforwardproto(Enum):
                 """
-                Ipforwardproto
+                Ipforwardproto (Enum Class)
 
                 The routing mechanism via which this route was
 
@@ -414,7 +426,7 @@ class IPFORWARDMIB(Entity):
 
             class Ipforwardtype(Enum):
                 """
-                Ipforwardtype
+                Ipforwardtype (Enum Class)
 
                 The type of route.  Note that local(3)  refers
 
@@ -497,8 +509,10 @@ class IPFORWARDMIB(Entity):
             self.yang_parent_name = "IP-FORWARD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipCidrRouteEntry" : ("ipcidrrouteentry", IPFORWARDMIB.Ipcidrroutetable.Ipcidrrouteentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipCidrRouteEntry", ("ipcidrrouteentry", IPFORWARDMIB.Ipcidrroutetable.Ipcidrrouteentry))])
+            self._leafs = OrderedDict()
 
             self.ipcidrrouteentry = YList(self)
             self._segment_path = lambda: "ipCidrRouteTable"
@@ -513,28 +527,28 @@ class IPFORWARDMIB(Entity):
             A particular route to  a  particular  destina\-
             tion, under a particular policy.
             
-            .. attribute:: ipcidrroutedest  <key>
+            .. attribute:: ipcidrroutedest  (key)
             
             	The destination IP address of this route.  This object may not take a Multicast (Class  D) address value.  Any assignment (implicit or  otherwise)  of  an instance  of  this  object to a value x must be rejected if the bitwise logical\-AND of  x  with the  value of the corresponding instance of the ipCidrRouteMask object is not equal to x
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipcidrroutemask  <key>
+            .. attribute:: ipcidrroutemask  (key)
             
             	Indicate the mask to be logical\-ANDed with the destination  address  before  being compared to the value  in  the  ipCidrRouteDest  field.   For those  systems  that  do  not support arbitrary subnet masks, an agent constructs the value  of the  ipCidrRouteMask  by  reference to the IP Ad\- dress Class.  Any assignment (implicit or  otherwise)  of  an instance  of  this  object to a value x must be rejected if the bitwise logical\-AND of  x  with the  value of the corresponding instance of the ipCidrRouteDest object is not equal to ipCidrRoute\- Dest
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: ipcidrroutetos  <key>
+            .. attribute:: ipcidrroutetos  (key)
             
             	The policy specifier is the IP TOS Field.  The encoding of IP TOS is as specified  by  the  following convention. Zero indicates the default path if no more  specific policy applies.  +\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+ \|                 \|                       \|     \| \|   PRECEDENCE    \|    TYPE OF SERVICE    \|  0  \| \|                 \|                       \|     \| +\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+           IP TOS                IP TOS     Field     Policy      Field     Policy     Contents    Code      Contents    Code     0 0 0 0  ==>   0      0 0 0 1  ==>   2     0 0 1 0  ==>   4      0 0 1 1  ==>   6     0 1 0 0  ==>   8      0 1 0 1  ==>  10     0 1 1 0  ==>  12      0 1 1 1  ==>  14     1 0 0 0  ==>  16      1 0 0 1  ==>  18     1 0 1 0  ==>  20      1 0 1 1  ==>  22     1 1 0 0  ==>  24      1 1 0 1  ==>  26     1 1 1 0  ==>  28      1 1 1 1  ==>  30
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: ipcidrroutenexthop  <key>
+            .. attribute:: ipcidrroutenexthop  (key)
             
             	On remote routes, the address of the next sys\- tem en route; Otherwise, 0.0.0.0
             	**type**\: str
@@ -633,41 +647,44 @@ class IPFORWARDMIB(Entity):
                 self.yang_parent_name = "ipCidrRouteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipcidrroutedest = YLeaf(YType.str, "ipCidrRouteDest")
-
-                self.ipcidrroutemask = YLeaf(YType.str, "ipCidrRouteMask")
-
-                self.ipcidrroutetos = YLeaf(YType.int32, "ipCidrRouteTos")
-
-                self.ipcidrroutenexthop = YLeaf(YType.str, "ipCidrRouteNextHop")
-
-                self.ipcidrrouteifindex = YLeaf(YType.int32, "ipCidrRouteIfIndex")
-
-                self.ipcidrroutetype = YLeaf(YType.enumeration, "ipCidrRouteType")
-
-                self.ipcidrrouteproto = YLeaf(YType.enumeration, "ipCidrRouteProto")
-
-                self.ipcidrrouteage = YLeaf(YType.int32, "ipCidrRouteAge")
-
-                self.ipcidrrouteinfo = YLeaf(YType.str, "ipCidrRouteInfo")
-
-                self.ipcidrroutenexthopas = YLeaf(YType.int32, "ipCidrRouteNextHopAS")
-
-                self.ipcidrroutemetric1 = YLeaf(YType.int32, "ipCidrRouteMetric1")
-
-                self.ipcidrroutemetric2 = YLeaf(YType.int32, "ipCidrRouteMetric2")
-
-                self.ipcidrroutemetric3 = YLeaf(YType.int32, "ipCidrRouteMetric3")
-
-                self.ipcidrroutemetric4 = YLeaf(YType.int32, "ipCidrRouteMetric4")
-
-                self.ipcidrroutemetric5 = YLeaf(YType.int32, "ipCidrRouteMetric5")
-
-                self.ipcidrroutestatus = YLeaf(YType.enumeration, "ipCidrRouteStatus")
-                self._segment_path = lambda: "ipCidrRouteEntry" + "[ipCidrRouteDest='" + self.ipcidrroutedest.get() + "']" + "[ipCidrRouteMask='" + self.ipcidrroutemask.get() + "']" + "[ipCidrRouteTos='" + self.ipcidrroutetos.get() + "']" + "[ipCidrRouteNextHop='" + self.ipcidrroutenexthop.get() + "']"
+                self.ylist_key_names = ['ipcidrroutedest','ipcidrroutemask','ipcidrroutetos','ipcidrroutenexthop']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipcidrroutedest', YLeaf(YType.str, 'ipCidrRouteDest')),
+                    ('ipcidrroutemask', YLeaf(YType.str, 'ipCidrRouteMask')),
+                    ('ipcidrroutetos', YLeaf(YType.int32, 'ipCidrRouteTos')),
+                    ('ipcidrroutenexthop', YLeaf(YType.str, 'ipCidrRouteNextHop')),
+                    ('ipcidrrouteifindex', YLeaf(YType.int32, 'ipCidrRouteIfIndex')),
+                    ('ipcidrroutetype', YLeaf(YType.enumeration, 'ipCidrRouteType')),
+                    ('ipcidrrouteproto', YLeaf(YType.enumeration, 'ipCidrRouteProto')),
+                    ('ipcidrrouteage', YLeaf(YType.int32, 'ipCidrRouteAge')),
+                    ('ipcidrrouteinfo', YLeaf(YType.str, 'ipCidrRouteInfo')),
+                    ('ipcidrroutenexthopas', YLeaf(YType.int32, 'ipCidrRouteNextHopAS')),
+                    ('ipcidrroutemetric1', YLeaf(YType.int32, 'ipCidrRouteMetric1')),
+                    ('ipcidrroutemetric2', YLeaf(YType.int32, 'ipCidrRouteMetric2')),
+                    ('ipcidrroutemetric3', YLeaf(YType.int32, 'ipCidrRouteMetric3')),
+                    ('ipcidrroutemetric4', YLeaf(YType.int32, 'ipCidrRouteMetric4')),
+                    ('ipcidrroutemetric5', YLeaf(YType.int32, 'ipCidrRouteMetric5')),
+                    ('ipcidrroutestatus', YLeaf(YType.enumeration, 'ipCidrRouteStatus')),
+                ])
+                self.ipcidrroutedest = None
+                self.ipcidrroutemask = None
+                self.ipcidrroutetos = None
+                self.ipcidrroutenexthop = None
+                self.ipcidrrouteifindex = None
+                self.ipcidrroutetype = None
+                self.ipcidrrouteproto = None
+                self.ipcidrrouteage = None
+                self.ipcidrrouteinfo = None
+                self.ipcidrroutenexthopas = None
+                self.ipcidrroutemetric1 = None
+                self.ipcidrroutemetric2 = None
+                self.ipcidrroutemetric3 = None
+                self.ipcidrroutemetric4 = None
+                self.ipcidrroutemetric5 = None
+                self.ipcidrroutestatus = None
+                self._segment_path = lambda: "ipCidrRouteEntry" + "[ipCidrRouteDest='" + str(self.ipcidrroutedest) + "']" + "[ipCidrRouteMask='" + str(self.ipcidrroutemask) + "']" + "[ipCidrRouteTos='" + str(self.ipcidrroutetos) + "']" + "[ipCidrRouteNextHop='" + str(self.ipcidrroutenexthop) + "']"
                 self._absolute_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB/ipCidrRouteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -675,7 +692,7 @@ class IPFORWARDMIB(Entity):
 
             class Ipcidrrouteproto(Enum):
                 """
-                Ipcidrrouteproto
+                Ipcidrrouteproto (Enum Class)
 
                 The routing mechanism via which this route was
 
@@ -754,7 +771,7 @@ class IPFORWARDMIB(Entity):
 
             class Ipcidrroutetype(Enum):
                 """
-                Ipcidrroutetype
+                Ipcidrroutetype (Enum Class)
 
                 The type of route.  Note that local(3)  refers
 

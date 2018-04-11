@@ -7,15 +7,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class PtpClockAdvertisementMode(Enum):
     """
-    PtpClockAdvertisementMode
+    PtpClockAdvertisementMode (Enum Class)
 
     Ptp clock advertisement mode
 
@@ -36,7 +38,7 @@ class PtpClockAdvertisementMode(Enum):
 
 class PtpClockId(Enum):
     """
-    PtpClockId
+    PtpClockId (Enum Class)
 
     Ptp clock id
 
@@ -63,7 +65,7 @@ class PtpClockId(Enum):
 
 class PtpClockOperation(Enum):
     """
-    PtpClockOperation
+    PtpClockOperation (Enum Class)
 
     Ptp clock operation
 
@@ -84,7 +86,7 @@ class PtpClockOperation(Enum):
 
 class PtpClockProfile(Enum):
     """
-    PtpClockProfile
+    PtpClockProfile (Enum Class)
 
     Ptp clock profile
 
@@ -117,7 +119,7 @@ class PtpClockProfile(Enum):
 
 class PtpClockSelectionMode(Enum):
     """
-    PtpClockSelectionMode
+    PtpClockSelectionMode (Enum Class)
 
     Ptp clock selection mode
 
@@ -138,7 +140,7 @@ class PtpClockSelectionMode(Enum):
 
 class PtpDelayAsymmetryUnits(Enum):
     """
-    PtpDelayAsymmetryUnits
+    PtpDelayAsymmetryUnits (Enum Class)
 
     Ptp delay asymmetry units
 
@@ -165,7 +167,7 @@ class PtpDelayAsymmetryUnits(Enum):
 
 class PtpEncap(Enum):
     """
-    PtpEncap
+    PtpEncap (Enum Class)
 
     Ptp encap
 
@@ -192,7 +194,7 @@ class PtpEncap(Enum):
 
 class PtpInvalidUnicastGrantRequestResponse(Enum):
     """
-    PtpInvalidUnicastGrantRequestResponse
+    PtpInvalidUnicastGrantRequestResponse (Enum Class)
 
     Ptp invalid unicast grant request response
 
@@ -213,7 +215,7 @@ class PtpInvalidUnicastGrantRequestResponse(Enum):
 
 class PtpPortState(Enum):
     """
-    PtpPortState
+    PtpPortState (Enum Class)
 
     Ptp port state
 
@@ -240,7 +242,7 @@ class PtpPortState(Enum):
 
 class PtpTelecomClock(Enum):
     """
-    PtpTelecomClock
+    PtpTelecomClock (Enum Class)
 
     Ptp telecom clock
 
@@ -267,7 +269,7 @@ class PtpTelecomClock(Enum):
 
 class PtpTime(Enum):
     """
-    PtpTime
+    PtpTime (Enum Class)
 
     Ptp time
 
@@ -288,7 +290,7 @@ class PtpTime(Enum):
 
 class PtpTimePeriod(Enum):
     """
-    PtpTimePeriod
+    PtpTimePeriod (Enum Class)
 
     Ptp time period
 
@@ -345,7 +347,7 @@ class PtpTimePeriod(Enum):
 
 class PtpTimeSource(Enum):
     """
-    PtpTimeSource
+    PtpTimeSource (Enum Class)
 
     Ptp time source
 
@@ -408,7 +410,7 @@ class PtpTimeSource(Enum):
 
 class PtpTimescale(Enum):
     """
-    PtpTimescale
+    PtpTimescale (Enum Class)
 
     Ptp timescale
 
@@ -429,7 +431,7 @@ class PtpTimescale(Enum):
 
 class PtpTransport(Enum):
     """
-    PtpTransport
+    PtpTransport (Enum Class)
 
     Ptp transport
 

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class ClockMonth(Enum):
     """
-    ClockMonth
+    ClockMonth (Enum Class)
 
     Clock month
 
@@ -100,7 +102,7 @@ class ClockMonth(Enum):
 
 class ClockSummerTimeMode(Enum):
     """
-    ClockSummerTimeMode
+    ClockSummerTimeMode (Enum Class)
 
     Clock summer time mode
 
@@ -153,8 +155,10 @@ class Clock(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-infra-clock-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"summer-time" : ("summer_time", Clock.SummerTime), "time-zone" : ("time_zone", Clock.TimeZone)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("summer-time", ("summer_time", Clock.SummerTime)), ("time-zone", ("time_zone", Clock.TimeZone))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.summer_time = None
         self._children_name_map["summer_time"] = "summer-time"
@@ -275,35 +279,38 @@ class Clock(Entity):
             self.yang_parent_name = "clock"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.time_zone_name = YLeaf(YType.str, "time-zone-name")
-
-            self.mode = YLeaf(YType.enumeration, "mode")
-
-            self.start_week_number_or_start_date = YLeaf(YType.uint32, "start-week-number-or-start-date")
-
-            self.start_weekday_or_start_year = YLeaf(YType.uint32, "start-weekday-or-start-year")
-
-            self.start_month = YLeaf(YType.enumeration, "start-month")
-
-            self.start_hour = YLeaf(YType.uint32, "start-hour")
-
-            self.start_minute = YLeaf(YType.uint32, "start-minute")
-
-            self.end_week_number_or_end_date = YLeaf(YType.uint32, "end-week-number-or-end-date")
-
-            self.end_weekday_or_end_year = YLeaf(YType.uint32, "end-weekday-or-end-year")
-
-            self.end_month = YLeaf(YType.enumeration, "end-month")
-
-            self.end_hour = YLeaf(YType.uint32, "end-hour")
-
-            self.end_minute = YLeaf(YType.uint32, "end-minute")
-
-            self.offset = YLeaf(YType.uint32, "offset")
+            self._leafs = OrderedDict([
+                ('time_zone_name', YLeaf(YType.str, 'time-zone-name')),
+                ('mode', YLeaf(YType.enumeration, 'mode')),
+                ('start_week_number_or_start_date', YLeaf(YType.uint32, 'start-week-number-or-start-date')),
+                ('start_weekday_or_start_year', YLeaf(YType.uint32, 'start-weekday-or-start-year')),
+                ('start_month', YLeaf(YType.enumeration, 'start-month')),
+                ('start_hour', YLeaf(YType.uint32, 'start-hour')),
+                ('start_minute', YLeaf(YType.uint32, 'start-minute')),
+                ('end_week_number_or_end_date', YLeaf(YType.uint32, 'end-week-number-or-end-date')),
+                ('end_weekday_or_end_year', YLeaf(YType.uint32, 'end-weekday-or-end-year')),
+                ('end_month', YLeaf(YType.enumeration, 'end-month')),
+                ('end_hour', YLeaf(YType.uint32, 'end-hour')),
+                ('end_minute', YLeaf(YType.uint32, 'end-minute')),
+                ('offset', YLeaf(YType.uint32, 'offset')),
+            ])
+            self.time_zone_name = None
+            self.mode = None
+            self.start_week_number_or_start_date = None
+            self.start_weekday_or_start_year = None
+            self.start_month = None
+            self.start_hour = None
+            self.start_minute = None
+            self.end_week_number_or_end_date = None
+            self.end_weekday_or_end_year = None
+            self.end_month = None
+            self.end_hour = None
+            self.end_minute = None
+            self.offset = None
             self._segment_path = lambda: "summer-time"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-cfg:clock/%s" % self._segment_path()
 
@@ -360,15 +367,18 @@ class Clock(Entity):
             self.yang_parent_name = "clock"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.time_zone_name = YLeaf(YType.str, "time-zone-name")
-
-            self.hour_offset = YLeaf(YType.int32, "hour-offset")
-
-            self.minute_offset = YLeaf(YType.uint32, "minute-offset")
+            self._leafs = OrderedDict([
+                ('time_zone_name', YLeaf(YType.str, 'time-zone-name')),
+                ('hour_offset', YLeaf(YType.int32, 'hour-offset')),
+                ('minute_offset', YLeaf(YType.uint32, 'minute-offset')),
+            ])
+            self.time_zone_name = None
+            self.hour_offset = None
+            self.minute_offset = None
             self._segment_path = lambda: "time-zone"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-cfg:clock/%s" % self._segment_path()
 

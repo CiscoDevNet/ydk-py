@@ -7,15 +7,17 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CtsOdmBindingSource(Enum):
     """
-    CtsOdmBindingSource
+    CtsOdmBindingSource (Enum Class)
 
     Binding Source enumeration
 
@@ -104,7 +106,7 @@ class CtsOdmBindingSource(Enum):
 
 class SxpConMode(Enum):
     """
-    SxpConMode
+    SxpConMode (Enum Class)
 
     SXP Connection mode
 
@@ -137,7 +139,7 @@ class SxpConMode(Enum):
 
 class SxpConState(Enum):
     """
-    SxpConState
+    SxpConState (Enum Class)
 
     SXP Connection state
 
@@ -215,8 +217,10 @@ class TrustsecState(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-trustsec-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cts-rolebased-sgtmaps" : ("cts_rolebased_sgtmaps", TrustsecState.CtsRolebasedSgtmaps), "cts-rolebased-policies" : ("cts_rolebased_policies", TrustsecState.CtsRolebasedPolicies), "cts-sxp-connections" : ("cts_sxp_connections", TrustsecState.CtsSxpConnections)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cts-rolebased-sgtmaps", ("cts_rolebased_sgtmaps", TrustsecState.CtsRolebasedSgtmaps)), ("cts-rolebased-policies", ("cts_rolebased_policies", TrustsecState.CtsRolebasedPolicies)), ("cts-sxp-connections", ("cts_sxp_connections", TrustsecState.CtsSxpConnections))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cts_rolebased_sgtmaps = TrustsecState.CtsRolebasedSgtmaps()
         self.cts_rolebased_sgtmaps.parent = self
@@ -259,8 +263,10 @@ class TrustsecState(Entity):
             self.yang_parent_name = "trustsec-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cts-rolebased-sgtmap" : ("cts_rolebased_sgtmap", TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cts-rolebased-sgtmap", ("cts_rolebased_sgtmap", TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap))])
+            self._leafs = OrderedDict()
 
             self.cts_rolebased_sgtmap = YList(self)
             self._segment_path = lambda: "cts-rolebased-sgtmaps"
@@ -277,7 +283,7 @@ class TrustsecState(Entity):
             level as configured by the network administrator
             in Identity Service Engine server or in the device locally
             
-            .. attribute:: ip  <key>
+            .. attribute:: ip  (key)
             
             	IP\-Prefix information to find its corresponding Secure Group Tag. Only IPv4 prefix information is supported currently to get the Security Group Tag binding in this device
             	**type**\: union of the below types:
@@ -290,7 +296,7 @@ class TrustsecState(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	VRF\-Name to find the Security Group Tag for the corresponding IP\-Address in this VRF instance. Only default VRF is supported currently which is indicated by (empty string)
             	**type**\: str
@@ -321,17 +327,20 @@ class TrustsecState(Entity):
                 self.yang_parent_name = "cts-rolebased-sgtmaps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ip = YLeaf(YType.str, "ip")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.sgt = YLeaf(YType.int32, "sgt")
-
-                self.source = YLeaf(YType.enumeration, "source")
-                self._segment_path = lambda: "cts-rolebased-sgtmap" + "[ip='" + self.ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self.ylist_key_names = ['ip','vrf_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ip', YLeaf(YType.str, 'ip')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('sgt', YLeaf(YType.int32, 'sgt')),
+                    ('source', YLeaf(YType.enumeration, 'source')),
+                ])
+                self.ip = None
+                self.vrf_name = None
+                self.sgt = None
+                self.source = None
+                self._segment_path = lambda: "cts-rolebased-sgtmap" + "[ip='" + str(self.ip) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-sgtmaps/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -363,8 +372,10 @@ class TrustsecState(Entity):
             self.yang_parent_name = "trustsec-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cts-rolebased-policy" : ("cts_rolebased_policy", TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cts-rolebased-policy", ("cts_rolebased_policy", TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy))])
+            self._leafs = OrderedDict()
 
             self.cts_rolebased_policy = YList(self)
             self._segment_path = lambda: "cts-rolebased-policies"
@@ -381,14 +392,14 @@ class TrustsecState(Entity):
             the device using a Security Group Tag and Destination
             Group Tag value
             
-            .. attribute:: src_sgt  <key>
+            .. attribute:: src_sgt  (key)
             
             	Source Security Group Tag number. This value must be in the inclusive range of \-1 to 65519
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: dst_sgt  <key>
+            .. attribute:: dst_sgt  (key)
             
             	Destination Security Tag number. This value must be in the inclusive range of \-1 to 65519
             	**type**\: int
@@ -496,39 +507,42 @@ class TrustsecState(Entity):
                 self.yang_parent_name = "cts-rolebased-policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.src_sgt = YLeaf(YType.int32, "src-sgt")
-
-                self.dst_sgt = YLeaf(YType.int32, "dst-sgt")
-
-                self.sgacl_name = YLeaf(YType.str, "sgacl-name")
-
-                self.num_of_sgacl = YLeaf(YType.uint32, "num-of-sgacl")
-
-                self.monitor_mode = YLeaf(YType.boolean, "monitor-mode")
-
-                self.policy_life_time = YLeaf(YType.uint64, "policy-life-time")
-
-                self.last_updated_time = YLeaf(YType.str, "last-updated-time")
-
-                self.total_deny_count = YLeaf(YType.uint64, "total-deny-count")
-
-                self.total_permit_count = YLeaf(YType.uint64, "total-permit-count")
-
-                self.software_deny_count = YLeaf(YType.uint64, "software-deny-count")
-
-                self.software_permit_count = YLeaf(YType.uint64, "software-permit-count")
-
-                self.hardware_deny_count = YLeaf(YType.uint64, "hardware-deny-count")
-
-                self.hardware_permit_count = YLeaf(YType.uint64, "hardware-permit-count")
-
-                self.software_monitor_count = YLeaf(YType.uint64, "software-monitor-count")
-
-                self.hardware_monitor_count = YLeaf(YType.uint64, "hardware-monitor-count")
-                self._segment_path = lambda: "cts-rolebased-policy" + "[src-sgt='" + self.src_sgt.get() + "']" + "[dst-sgt='" + self.dst_sgt.get() + "']"
+                self.ylist_key_names = ['src_sgt','dst_sgt']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('src_sgt', YLeaf(YType.int32, 'src-sgt')),
+                    ('dst_sgt', YLeaf(YType.int32, 'dst-sgt')),
+                    ('sgacl_name', YLeaf(YType.str, 'sgacl-name')),
+                    ('num_of_sgacl', YLeaf(YType.uint32, 'num-of-sgacl')),
+                    ('monitor_mode', YLeaf(YType.boolean, 'monitor-mode')),
+                    ('policy_life_time', YLeaf(YType.uint64, 'policy-life-time')),
+                    ('last_updated_time', YLeaf(YType.str, 'last-updated-time')),
+                    ('total_deny_count', YLeaf(YType.uint64, 'total-deny-count')),
+                    ('total_permit_count', YLeaf(YType.uint64, 'total-permit-count')),
+                    ('software_deny_count', YLeaf(YType.uint64, 'software-deny-count')),
+                    ('software_permit_count', YLeaf(YType.uint64, 'software-permit-count')),
+                    ('hardware_deny_count', YLeaf(YType.uint64, 'hardware-deny-count')),
+                    ('hardware_permit_count', YLeaf(YType.uint64, 'hardware-permit-count')),
+                    ('software_monitor_count', YLeaf(YType.uint64, 'software-monitor-count')),
+                    ('hardware_monitor_count', YLeaf(YType.uint64, 'hardware-monitor-count')),
+                ])
+                self.src_sgt = None
+                self.dst_sgt = None
+                self.sgacl_name = None
+                self.num_of_sgacl = None
+                self.monitor_mode = None
+                self.policy_life_time = None
+                self.last_updated_time = None
+                self.total_deny_count = None
+                self.total_permit_count = None
+                self.software_deny_count = None
+                self.software_permit_count = None
+                self.hardware_deny_count = None
+                self.hardware_permit_count = None
+                self.software_monitor_count = None
+                self.hardware_monitor_count = None
+                self._segment_path = lambda: "cts-rolebased-policy" + "[src-sgt='" + str(self.src_sgt) + "']" + "[dst-sgt='" + str(self.dst_sgt) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -562,8 +576,10 @@ class TrustsecState(Entity):
             self.yang_parent_name = "trustsec-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cts-sxp-connection" : ("cts_sxp_connection", TrustsecState.CtsSxpConnections.CtsSxpConnection)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cts-sxp-connection", ("cts_sxp_connection", TrustsecState.CtsSxpConnections.CtsSxpConnection))])
+            self._leafs = OrderedDict()
 
             self.cts_sxp_connection = YList(self)
             self._segment_path = lambda: "cts-sxp-connections"
@@ -580,7 +596,7 @@ class TrustsecState(Entity):
             address. Only IPv4 address as Peer IP and default
             VRF instance in device is supported currently
             
-            .. attribute:: peer_ip  <key>
+            .. attribute:: peer_ip  (key)
             
             	IP\-Address information of the peer of an SXP connection in this device. Only IPv4 address is currently supported
             	**type**\: union of the below types:
@@ -593,7 +609,7 @@ class TrustsecState(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	vrf\-name string of the VRF instance in this device, to which the peer of an SXP connection belongs to. Only default VRF is supported currently which is indicated by empty string
             	**type**\: str
@@ -654,25 +670,28 @@ class TrustsecState(Entity):
                 self.yang_parent_name = "cts-sxp-connections"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.peer_ip = YLeaf(YType.str, "peer-ip")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.source_ip = YLeaf(YType.str, "source-ip")
-
-                self.speaker_state = YLeaf(YType.enumeration, "speaker-state")
-
-                self.speaker_duration = YLeaf(YType.uint64, "speaker-duration")
-
-                self.listener_state = YLeaf(YType.enumeration, "listener-state")
-
-                self.listener_duration = YLeaf(YType.uint64, "listener-duration")
-
-                self.local_mode = YLeaf(YType.enumeration, "local-mode")
-                self._segment_path = lambda: "cts-sxp-connection" + "[peer-ip='" + self.peer_ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self.ylist_key_names = ['peer_ip','vrf_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_ip', YLeaf(YType.str, 'peer-ip')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('source_ip', YLeaf(YType.str, 'source-ip')),
+                    ('speaker_state', YLeaf(YType.enumeration, 'speaker-state')),
+                    ('speaker_duration', YLeaf(YType.uint64, 'speaker-duration')),
+                    ('listener_state', YLeaf(YType.enumeration, 'listener-state')),
+                    ('listener_duration', YLeaf(YType.uint64, 'listener-duration')),
+                    ('local_mode', YLeaf(YType.enumeration, 'local-mode')),
+                ])
+                self.peer_ip = None
+                self.vrf_name = None
+                self.source_ip = None
+                self.speaker_state = None
+                self.speaker_duration = None
+                self.listener_state = None
+                self.listener_duration = None
+                self.local_mode = None
+                self._segment_path = lambda: "cts-sxp-connection" + "[peer-ip='" + str(self.peer_ip) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-sxp-connections/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

@@ -31,12 +31,36 @@ module Cisco-IOS-XE-ethernet {
 
   description
     "Cisco XE Native Ethernet Interfaces Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-02-02 {
+    description
+      "Add model for port-channel mlacp";
+  }
+  revision 2018-01-04 {
+     description
+       "Change ethernet lmi ce-vlan map vlan range";
+  }
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+  revision 2017-09-21 {
+    description
+      "Added interface macsec without option";
+  }
+  revision 2017-09-20 {
+    description
+      "Added interface macsec";
+  }
+  revision 2017-09-14 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
   revision 2017-08-21 {
     description
       "Augment HundredGigE interface with ethernet grouping";
@@ -157,6 +181,25 @@ module Cisco-IOS-XE-ethernet {
         description
           "LACP minimum number of ports to bundle in this port channel";
         type uint8;
+      }
+    }
+  }
+
+  // interface Port-channel / mlacp
+  grouping config-interface-port-channel-mlacp-grouping {
+    container mlacp {
+      description
+        "mLACP Port Channel interface subcommands";
+      container interchassis {
+        description
+          "mLACP Interchassis commands";
+        leaf group {
+          description
+            "Interchassis Group";
+          type uint32 {
+            range "1..4294967295";
+          }
+        }
       }
     }
   }
@@ -1206,37 +1249,15 @@ module Cisco-IOS-XE-ethernet {
                 container map {
                   description
                     "Configure ether lmi ce-vlan/evc map";
-                  leaf any {
-                    description
-                      "For all VLANS [untagged,1-4094]";
-                    type empty;
-                  }
-                  leaf default {
-                    description
-                      "Default EFP";
-                    type empty;
-                  }
-                  leaf untagged {
-                    description
-                      "Untagged frames";
-                    type empty;
-                  }
-                  container vlan-range {
-                    leaf vlan-id {
-                      type uint16 {
-                        range "1..4094";
-                      }
-                    }
-                    leaf hyphen {
+                  choice map-choice {
+                    leaf any {
                       description
-                        "hyphen";
-                      type uint16 {
-                        range "1..4094";
-                      }
+                        "For all VLANS [1-4094,untagged]";
+                      type empty;
                     }
-                    leaf comma {
-                      description 
-                        "comma";
+                    leaf default {
+                      description
+                        "Default EFP";
                       type empty;
                     }
                     leaf untagged {
@@ -1244,7 +1265,12 @@ module Cisco-IOS-XE-ethernet {
                         "Untagged frames";
                       type empty;
                     }
-                  } 
+                    leaf vlan-range {
+                      type string {
+                        pattern "(\\d+(.*-.*\\d+)?)(,.*\\d+(.*-.*\\d+)?)*(,.*untagged)?";
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1850,6 +1876,35 @@ module Cisco-IOS-XE-ethernet {
     // per-module per-module configuration
   }
 
+  grouping config-interface-macsec-grouping {
+    leaf  macsec {
+      description
+        "Enable macsec on the interface";
+      type empty;
+    }
+    container macsec-option {
+      description
+        "Enable macsec on the interface";
+      container macsec {
+        leaf dot1q-in-clear {
+          description
+            "Dot1q in Clear option";
+          type enumeration {
+            enum "1";
+          }
+        }
+        container replay-protection {
+          description
+            "Set replay-protection";
+          leaf window-size {
+            description
+              "Set replay window-size";
+            type uint32;
+          }
+        }
+      }
+    }
+  }
 
   /////////////////////////////////////////////////////////
   // native / esmc
@@ -1895,40 +1950,70 @@ module Cisco-IOS-XE-ethernet {
   augment "/ios:native/ios:interface/ios:FastEthernet" {
     uses config-interface-ethernet-grouping;
     uses config-interface-ethernet-member-link-lacp-grouping;
+    uses config-interface-macsec-grouping {
+      if-feature ios-features:macsec;
+    }
   }
 
   augment "/ios:native/ios:interface/ios:GigabitEthernet" {
     uses config-interface-ethernet-grouping;
     uses config-interface-ethernet-member-link-lacp-grouping;
+    uses config-interface-macsec-grouping {
+      if-feature ios-features:macsec;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-ethernet-grouping;
+    uses config-interface-ethernet-member-link-lacp-grouping;
+    uses config-interface-macsec-grouping {
+      if-feature ios-features:macsec;
+    }
   }
 
   augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
     uses config-interface-ethernet-grouping;
     uses config-interface-ethernet-member-link-lacp-grouping;
+    uses config-interface-macsec-grouping {
+      if-feature ios-features:macsec;
+    }
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
     uses config-interface-ethernet-grouping;
     uses config-interface-ethernet-member-link-lacp-grouping;
+    uses config-interface-macsec-grouping {
+      if-feature ios-features:macsec;
+    }
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-interface-ethernet-grouping;
     uses config-interface-ethernet-member-link-lacp-grouping;
+    uses config-interface-macsec-grouping {
+      if-feature ios-features:macsec;
+    }
   }
 
   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
     uses config-interface-ethernet-grouping;
     uses config-interface-ethernet-member-link-lacp-grouping;
+    uses config-interface-macsec-grouping {
+      if-feature ios-features:macsec;
+    }
   }
 
   augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-ethernet-grouping;
+    uses config-interface-macsec-grouping {
+      if-feature ios-features:macsec;
+    }
   }
 
   augment "/ios:native/ios:interface/ios:Port-channel" {
     uses config-interface-ethernet-grouping;
     uses config-interface-port-channel-lacp-grouping;
+    uses config-interface-port-channel-mlacp-grouping;
   }
 
   augment "/ios:native/ios:interface/ios:Port-channel-subinterface/ios:Port-channel" {

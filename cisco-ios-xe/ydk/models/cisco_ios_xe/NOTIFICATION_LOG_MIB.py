@@ -4,9 +4,11 @@ The MIB module for logging SNMP Notifications, that is, Traps
 and Informs.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -55,8 +57,10 @@ class NOTIFICATIONLOGMIB(Entity):
         self.yang_parent_name = "NOTIFICATION-LOG-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nlmConfig" : ("nlmconfig", NOTIFICATIONLOGMIB.Nlmconfig), "nlmStats" : ("nlmstats", NOTIFICATIONLOGMIB.Nlmstats), "nlmConfigLogTable" : ("nlmconfiglogtable", NOTIFICATIONLOGMIB.Nlmconfiglogtable), "nlmLogTable" : ("nlmlogtable", NOTIFICATIONLOGMIB.Nlmlogtable), "nlmLogVariableTable" : ("nlmlogvariabletable", NOTIFICATIONLOGMIB.Nlmlogvariabletable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nlmConfig", ("nlmconfig", NOTIFICATIONLOGMIB.Nlmconfig)), ("nlmStats", ("nlmstats", NOTIFICATIONLOGMIB.Nlmstats)), ("nlmConfigLogTable", ("nlmconfiglogtable", NOTIFICATIONLOGMIB.Nlmconfiglogtable)), ("nlmLogTable", ("nlmlogtable", NOTIFICATIONLOGMIB.Nlmlogtable)), ("nlmLogVariableTable", ("nlmlogvariabletable", NOTIFICATIONLOGMIB.Nlmlogvariabletable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nlmconfig = NOTIFICATIONLOGMIB.Nlmconfig()
         self.nlmconfig.parent = self
@@ -119,12 +123,15 @@ class NOTIFICATIONLOGMIB(Entity):
             self.yang_parent_name = "NOTIFICATION-LOG-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.nlmconfigglobalentrylimit = YLeaf(YType.uint32, "nlmConfigGlobalEntryLimit")
-
-            self.nlmconfigglobalageout = YLeaf(YType.uint32, "nlmConfigGlobalAgeOut")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('nlmconfigglobalentrylimit', YLeaf(YType.uint32, 'nlmConfigGlobalEntryLimit')),
+                ('nlmconfigglobalageout', YLeaf(YType.uint32, 'nlmConfigGlobalAgeOut')),
+            ])
+            self.nlmconfigglobalentrylimit = None
+            self.nlmconfigglobalageout = None
             self._segment_path = lambda: "nlmConfig"
             self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
 
@@ -168,12 +175,15 @@ class NOTIFICATIONLOGMIB(Entity):
             self.yang_parent_name = "NOTIFICATION-LOG-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.nlmstatsglobalnotificationslogged = YLeaf(YType.uint32, "nlmStatsGlobalNotificationsLogged")
-
-            self.nlmstatsglobalnotificationsbumped = YLeaf(YType.uint32, "nlmStatsGlobalNotificationsBumped")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('nlmstatsglobalnotificationslogged', YLeaf(YType.uint32, 'nlmStatsGlobalNotificationsLogged')),
+                ('nlmstatsglobalnotificationsbumped', YLeaf(YType.uint32, 'nlmStatsGlobalNotificationsBumped')),
+            ])
+            self.nlmstatsglobalnotificationslogged = None
+            self.nlmstatsglobalnotificationsbumped = None
             self._segment_path = lambda: "nlmStats"
             self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
 
@@ -204,8 +214,10 @@ class NOTIFICATIONLOGMIB(Entity):
             self.yang_parent_name = "NOTIFICATION-LOG-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nlmConfigLogEntry" : ("nlmconfiglogentry", NOTIFICATIONLOGMIB.Nlmconfiglogtable.Nlmconfiglogentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nlmConfigLogEntry", ("nlmconfiglogentry", NOTIFICATIONLOGMIB.Nlmconfiglogtable.Nlmconfiglogentry))])
+            self._leafs = OrderedDict()
 
             self.nlmconfiglogentry = YList(self)
             self._segment_path = lambda: "nlmConfigLogTable"
@@ -221,7 +233,7 @@ class NOTIFICATIONLOGMIB(Entity):
             entries may be supplied by the system or created and deleted by
             applications using nlmConfigLogEntryStatus.
             
-            .. attribute:: nlmlogname  <key>
+            .. attribute:: nlmlogname  (key)
             
             	The name of the log.  An implementation may allow multiple named logs, up to some implementation\-specific limit (which may be none).  A zero\-length log name is reserved for creation and deletion by the managed system, and MUST be used as the default log name by systems that do not support named logs
             	**type**\: str
@@ -294,27 +306,30 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.yang_parent_name = "nlmConfigLogTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nlmlogname = YLeaf(YType.str, "nlmLogName")
-
-                self.nlmconfiglogfiltername = YLeaf(YType.str, "nlmConfigLogFilterName")
-
-                self.nlmconfiglogentrylimit = YLeaf(YType.uint32, "nlmConfigLogEntryLimit")
-
-                self.nlmconfiglogadminstatus = YLeaf(YType.enumeration, "nlmConfigLogAdminStatus")
-
-                self.nlmconfiglogoperstatus = YLeaf(YType.enumeration, "nlmConfigLogOperStatus")
-
-                self.nlmconfiglogstoragetype = YLeaf(YType.enumeration, "nlmConfigLogStorageType")
-
-                self.nlmconfiglogentrystatus = YLeaf(YType.enumeration, "nlmConfigLogEntryStatus")
-
-                self.nlmstatslognotificationslogged = YLeaf(YType.uint32, "nlmStatsLogNotificationsLogged")
-
-                self.nlmstatslognotificationsbumped = YLeaf(YType.uint32, "nlmStatsLogNotificationsBumped")
-                self._segment_path = lambda: "nlmConfigLogEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']"
+                self.ylist_key_names = ['nlmlogname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nlmlogname', YLeaf(YType.str, 'nlmLogName')),
+                    ('nlmconfiglogfiltername', YLeaf(YType.str, 'nlmConfigLogFilterName')),
+                    ('nlmconfiglogentrylimit', YLeaf(YType.uint32, 'nlmConfigLogEntryLimit')),
+                    ('nlmconfiglogadminstatus', YLeaf(YType.enumeration, 'nlmConfigLogAdminStatus')),
+                    ('nlmconfiglogoperstatus', YLeaf(YType.enumeration, 'nlmConfigLogOperStatus')),
+                    ('nlmconfiglogstoragetype', YLeaf(YType.enumeration, 'nlmConfigLogStorageType')),
+                    ('nlmconfiglogentrystatus', YLeaf(YType.enumeration, 'nlmConfigLogEntryStatus')),
+                    ('nlmstatslognotificationslogged', YLeaf(YType.uint32, 'nlmStatsLogNotificationsLogged')),
+                    ('nlmstatslognotificationsbumped', YLeaf(YType.uint32, 'nlmStatsLogNotificationsBumped')),
+                ])
+                self.nlmlogname = None
+                self.nlmconfiglogfiltername = None
+                self.nlmconfiglogentrylimit = None
+                self.nlmconfiglogadminstatus = None
+                self.nlmconfiglogoperstatus = None
+                self.nlmconfiglogstoragetype = None
+                self.nlmconfiglogentrystatus = None
+                self.nlmstatslognotificationslogged = None
+                self.nlmstatslognotificationsbumped = None
+                self._segment_path = lambda: "nlmConfigLogEntry" + "[nlmLogName='" + str(self.nlmlogname) + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmConfigLogTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -322,7 +337,7 @@ class NOTIFICATIONLOGMIB(Entity):
 
             class Nlmconfiglogadminstatus(Enum):
                 """
-                Nlmconfiglogadminstatus
+                Nlmconfiglogadminstatus (Enum Class)
 
                 Control to enable or disable the log without otherwise
 
@@ -347,7 +362,7 @@ class NOTIFICATIONLOGMIB(Entity):
 
             class Nlmconfiglogoperstatus(Enum):
                 """
-                Nlmconfiglogoperstatus
+                Nlmconfiglogoperstatus (Enum Class)
 
                 The operational status of this log\:
 
@@ -413,8 +428,10 @@ class NOTIFICATIONLOGMIB(Entity):
             self.yang_parent_name = "NOTIFICATION-LOG-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nlmLogEntry" : ("nlmlogentry", NOTIFICATIONLOGMIB.Nlmlogtable.Nlmlogentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nlmLogEntry", ("nlmlogentry", NOTIFICATIONLOGMIB.Nlmlogtable.Nlmlogentry))])
+            self._leafs = OrderedDict()
 
             self.nlmlogentry = YList(self)
             self._segment_path = lambda: "nlmLogTable"
@@ -446,7 +463,7 @@ class NOTIFICATIONLOGMIB(Entity):
             has access to the information in the Notification.  If not it
             does not log that Notification in that log.
             
-            .. attribute:: nlmlogname  <key>
+            .. attribute:: nlmlogname  (key)
             
             	
             	**type**\: str
@@ -455,7 +472,7 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**refers to**\:  :py:class:`nlmlogname <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmconfiglogtable.Nlmconfiglogentry>`
             
-            .. attribute:: nlmlogindex  <key>
+            .. attribute:: nlmlogindex  (key)
             
             	A monotonically increasing integer for the sole purpose of indexing entries within the named log.  When it reaches the maximum value, an extremely unlikely event, the agent wraps the value back to 1
             	**type**\: int
@@ -528,29 +545,32 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.yang_parent_name = "nlmLogTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nlmlogname = YLeaf(YType.str, "nlmLogName")
-
-                self.nlmlogindex = YLeaf(YType.uint32, "nlmLogIndex")
-
-                self.nlmlogtime = YLeaf(YType.uint32, "nlmLogTime")
-
-                self.nlmlogdateandtime = YLeaf(YType.str, "nlmLogDateAndTime")
-
-                self.nlmlogengineid = YLeaf(YType.str, "nlmLogEngineID")
-
-                self.nlmlogenginetaddress = YLeaf(YType.str, "nlmLogEngineTAddress")
-
-                self.nlmlogenginetdomain = YLeaf(YType.str, "nlmLogEngineTDomain")
-
-                self.nlmlogcontextengineid = YLeaf(YType.str, "nlmLogContextEngineID")
-
-                self.nlmlogcontextname = YLeaf(YType.str, "nlmLogContextName")
-
-                self.nlmlognotificationid = YLeaf(YType.str, "nlmLogNotificationID")
-                self._segment_path = lambda: "nlmLogEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']" + "[nlmLogIndex='" + self.nlmlogindex.get() + "']"
+                self.ylist_key_names = ['nlmlogname','nlmlogindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nlmlogname', YLeaf(YType.str, 'nlmLogName')),
+                    ('nlmlogindex', YLeaf(YType.uint32, 'nlmLogIndex')),
+                    ('nlmlogtime', YLeaf(YType.uint32, 'nlmLogTime')),
+                    ('nlmlogdateandtime', YLeaf(YType.str, 'nlmLogDateAndTime')),
+                    ('nlmlogengineid', YLeaf(YType.str, 'nlmLogEngineID')),
+                    ('nlmlogenginetaddress', YLeaf(YType.str, 'nlmLogEngineTAddress')),
+                    ('nlmlogenginetdomain', YLeaf(YType.str, 'nlmLogEngineTDomain')),
+                    ('nlmlogcontextengineid', YLeaf(YType.str, 'nlmLogContextEngineID')),
+                    ('nlmlogcontextname', YLeaf(YType.str, 'nlmLogContextName')),
+                    ('nlmlognotificationid', YLeaf(YType.str, 'nlmLogNotificationID')),
+                ])
+                self.nlmlogname = None
+                self.nlmlogindex = None
+                self.nlmlogtime = None
+                self.nlmlogdateandtime = None
+                self.nlmlogengineid = None
+                self.nlmlogenginetaddress = None
+                self.nlmlogenginetdomain = None
+                self.nlmlogcontextengineid = None
+                self.nlmlogcontextname = None
+                self.nlmlognotificationid = None
+                self._segment_path = lambda: "nlmLogEntry" + "[nlmLogName='" + str(self.nlmlogname) + "']" + "[nlmLogIndex='" + str(self.nlmlogindex) + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -580,8 +600,10 @@ class NOTIFICATIONLOGMIB(Entity):
             self.yang_parent_name = "NOTIFICATION-LOG-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nlmLogVariableEntry" : ("nlmlogvariableentry", NOTIFICATIONLOGMIB.Nlmlogvariabletable.Nlmlogvariableentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nlmLogVariableEntry", ("nlmlogvariableentry", NOTIFICATIONLOGMIB.Nlmlogvariabletable.Nlmlogvariableentry))])
+            self._leafs = OrderedDict()
 
             self.nlmlogvariableentry = YList(self)
             self._segment_path = lambda: "nlmLogVariableTable"
@@ -598,7 +620,7 @@ class NOTIFICATIONLOGMIB(Entity):
             Entries appear in this table when there are variables in
             the varbind list of a Notification in nlmLogTable.
             
-            .. attribute:: nlmlogname  <key>
+            .. attribute:: nlmlogname  (key)
             
             	
             	**type**\: str
@@ -607,7 +629,7 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**refers to**\:  :py:class:`nlmlogname <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmconfiglogtable.Nlmconfiglogentry>`
             
-            .. attribute:: nlmlogindex  <key>
+            .. attribute:: nlmlogindex  (key)
             
             	
             	**type**\: int
@@ -616,7 +638,7 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**refers to**\:  :py:class:`nlmlogindex <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.Nlmlogtable.Nlmlogentry>`
             
-            .. attribute:: nlmlogvariableindex  <key>
+            .. attribute:: nlmlogvariableindex  (key)
             
             	A monotonically increasing integer, starting at 1 for a given nlmLogIndex, for indexing variables within the logged Notification
             	**type**\: int
@@ -708,37 +730,40 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.yang_parent_name = "nlmLogVariableTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nlmlogname = YLeaf(YType.str, "nlmLogName")
-
-                self.nlmlogindex = YLeaf(YType.str, "nlmLogIndex")
-
-                self.nlmlogvariableindex = YLeaf(YType.uint32, "nlmLogVariableIndex")
-
-                self.nlmlogvariableid = YLeaf(YType.str, "nlmLogVariableID")
-
-                self.nlmlogvariablevaluetype = YLeaf(YType.enumeration, "nlmLogVariableValueType")
-
-                self.nlmlogvariablecounter32val = YLeaf(YType.uint32, "nlmLogVariableCounter32Val")
-
-                self.nlmlogvariableunsigned32val = YLeaf(YType.uint32, "nlmLogVariableUnsigned32Val")
-
-                self.nlmlogvariabletimeticksval = YLeaf(YType.uint32, "nlmLogVariableTimeTicksVal")
-
-                self.nlmlogvariableinteger32val = YLeaf(YType.int32, "nlmLogVariableInteger32Val")
-
-                self.nlmlogvariableoctetstringval = YLeaf(YType.str, "nlmLogVariableOctetStringVal")
-
-                self.nlmlogvariableipaddressval = YLeaf(YType.str, "nlmLogVariableIpAddressVal")
-
-                self.nlmlogvariableoidval = YLeaf(YType.str, "nlmLogVariableOidVal")
-
-                self.nlmlogvariablecounter64val = YLeaf(YType.uint64, "nlmLogVariableCounter64Val")
-
-                self.nlmlogvariableopaqueval = YLeaf(YType.str, "nlmLogVariableOpaqueVal")
-                self._segment_path = lambda: "nlmLogVariableEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']" + "[nlmLogIndex='" + self.nlmlogindex.get() + "']" + "[nlmLogVariableIndex='" + self.nlmlogvariableindex.get() + "']"
+                self.ylist_key_names = ['nlmlogname','nlmlogindex','nlmlogvariableindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nlmlogname', YLeaf(YType.str, 'nlmLogName')),
+                    ('nlmlogindex', YLeaf(YType.str, 'nlmLogIndex')),
+                    ('nlmlogvariableindex', YLeaf(YType.uint32, 'nlmLogVariableIndex')),
+                    ('nlmlogvariableid', YLeaf(YType.str, 'nlmLogVariableID')),
+                    ('nlmlogvariablevaluetype', YLeaf(YType.enumeration, 'nlmLogVariableValueType')),
+                    ('nlmlogvariablecounter32val', YLeaf(YType.uint32, 'nlmLogVariableCounter32Val')),
+                    ('nlmlogvariableunsigned32val', YLeaf(YType.uint32, 'nlmLogVariableUnsigned32Val')),
+                    ('nlmlogvariabletimeticksval', YLeaf(YType.uint32, 'nlmLogVariableTimeTicksVal')),
+                    ('nlmlogvariableinteger32val', YLeaf(YType.int32, 'nlmLogVariableInteger32Val')),
+                    ('nlmlogvariableoctetstringval', YLeaf(YType.str, 'nlmLogVariableOctetStringVal')),
+                    ('nlmlogvariableipaddressval', YLeaf(YType.str, 'nlmLogVariableIpAddressVal')),
+                    ('nlmlogvariableoidval', YLeaf(YType.str, 'nlmLogVariableOidVal')),
+                    ('nlmlogvariablecounter64val', YLeaf(YType.uint64, 'nlmLogVariableCounter64Val')),
+                    ('nlmlogvariableopaqueval', YLeaf(YType.str, 'nlmLogVariableOpaqueVal')),
+                ])
+                self.nlmlogname = None
+                self.nlmlogindex = None
+                self.nlmlogvariableindex = None
+                self.nlmlogvariableid = None
+                self.nlmlogvariablevaluetype = None
+                self.nlmlogvariablecounter32val = None
+                self.nlmlogvariableunsigned32val = None
+                self.nlmlogvariabletimeticksval = None
+                self.nlmlogvariableinteger32val = None
+                self.nlmlogvariableoctetstringval = None
+                self.nlmlogvariableipaddressval = None
+                self.nlmlogvariableoidval = None
+                self.nlmlogvariablecounter64val = None
+                self.nlmlogvariableopaqueval = None
+                self._segment_path = lambda: "nlmLogVariableEntry" + "[nlmLogName='" + str(self.nlmlogname) + "']" + "[nlmLogIndex='" + str(self.nlmlogindex) + "']" + "[nlmLogVariableIndex='" + str(self.nlmlogvariableindex) + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogVariableTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -746,7 +771,7 @@ class NOTIFICATIONLOGMIB(Entity):
 
             class Nlmlogvariablevaluetype(Enum):
                 """
-                Nlmlogvariablevaluetype
+                Nlmlogvariablevaluetype (Enum Class)
 
                 The type of the value.  One and only one of the value
 

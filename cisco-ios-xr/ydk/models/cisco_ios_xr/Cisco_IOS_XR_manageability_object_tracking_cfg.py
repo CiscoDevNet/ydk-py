@@ -15,9 +15,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -46,8 +48,10 @@ class ObjectTrackings(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-manageability-object-tracking-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"object-tracking" : ("object_tracking", ObjectTrackings.ObjectTracking)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("object-tracking", ("object_tracking", ObjectTrackings.ObjectTracking))])
+        self._leafs = OrderedDict()
 
         self.object_tracking = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings"
@@ -60,7 +64,7 @@ class ObjectTrackings(Entity):
         """
         Track name \- maximum 32 characters
         
-        .. attribute:: track_name  <key>
+        .. attribute:: track_name  (key)
         
         	Track name
         	**type**\: str
@@ -71,6 +75,11 @@ class ObjectTrackings(Entity):
         
         	Track type line\-protocol
         	**type**\:  :py:class:`TypeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeInterface>`
+        
+        .. attribute:: type_rtr
+        
+        	Track type RTR (Response Time Reporter \- IPSLA)
+        	**type**\:  :py:class:`TypeRtr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_cfg.ObjectTrackings.ObjectTracking.TypeRtr>`
         
         .. attribute:: type_list
         
@@ -92,7 +101,7 @@ class ObjectTrackings(Entity):
         	Delay up in seconds
         	**type**\: int
         
-        	**range:** 1..10
+        	**range:** 1..180
         
         	**units**\: second
         
@@ -106,7 +115,7 @@ class ObjectTrackings(Entity):
         	Track delay down time
         	**type**\: int
         
-        	**range:** 1..10
+        	**range:** 1..180
         
         	**units**\: second
         
@@ -144,29 +153,37 @@ class ObjectTrackings(Entity):
             self.yang_parent_name = "object-trackings"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"type-interface" : ("type_interface", ObjectTrackings.ObjectTracking.TypeInterface), "type-list" : ("type_list", ObjectTrackings.ObjectTracking.TypeList), "type-route" : ("type_route", ObjectTrackings.ObjectTracking.TypeRoute), "type-boolean-list" : ("type_boolean_list", ObjectTrackings.ObjectTracking.TypeBooleanList)}
-            self._child_list_classes = {}
-
-            self.track_name = YLeaf(YType.str, "track-name")
-
-            self.delay_up = YLeaf(YType.uint32, "delay-up")
-
-            self.enable = YLeaf(YType.empty, "enable")
-
-            self.delay_down = YLeaf(YType.uint32, "delay-down")
-
-            self.type_interface_enable = YLeaf(YType.empty, "type-interface-enable")
-
-            self.type_route_enable = YLeaf(YType.empty, "type-route-enable")
-
-            self.type_boolean_list_and_enable = YLeaf(YType.empty, "type-boolean-list-and-enable")
-
-            self.type_boolean_list_or_enable = YLeaf(YType.empty, "type-boolean-list-or-enable")
+            self.ylist_key_names = ['track_name']
+            self._child_container_classes = OrderedDict([("type-interface", ("type_interface", ObjectTrackings.ObjectTracking.TypeInterface)), ("type-rtr", ("type_rtr", ObjectTrackings.ObjectTracking.TypeRtr)), ("type-list", ("type_list", ObjectTrackings.ObjectTracking.TypeList)), ("type-route", ("type_route", ObjectTrackings.ObjectTracking.TypeRoute)), ("type-boolean-list", ("type_boolean_list", ObjectTrackings.ObjectTracking.TypeBooleanList))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('track_name', YLeaf(YType.str, 'track-name')),
+                ('delay_up', YLeaf(YType.uint32, 'delay-up')),
+                ('enable', YLeaf(YType.empty, 'enable')),
+                ('delay_down', YLeaf(YType.uint32, 'delay-down')),
+                ('type_interface_enable', YLeaf(YType.empty, 'type-interface-enable')),
+                ('type_route_enable', YLeaf(YType.empty, 'type-route-enable')),
+                ('type_boolean_list_and_enable', YLeaf(YType.empty, 'type-boolean-list-and-enable')),
+                ('type_boolean_list_or_enable', YLeaf(YType.empty, 'type-boolean-list-or-enable')),
+            ])
+            self.track_name = None
+            self.delay_up = None
+            self.enable = None
+            self.delay_down = None
+            self.type_interface_enable = None
+            self.type_route_enable = None
+            self.type_boolean_list_and_enable = None
+            self.type_boolean_list_or_enable = None
 
             self.type_interface = ObjectTrackings.ObjectTracking.TypeInterface()
             self.type_interface.parent = self
             self._children_name_map["type_interface"] = "type-interface"
             self._children_yang_names.add("type-interface")
+
+            self.type_rtr = ObjectTrackings.ObjectTracking.TypeRtr()
+            self.type_rtr.parent = self
+            self._children_name_map["type_rtr"] = "type-rtr"
+            self._children_yang_names.add("type-rtr")
 
             self.type_list = ObjectTrackings.ObjectTracking.TypeList()
             self.type_list.parent = self
@@ -182,7 +199,7 @@ class ObjectTrackings(Entity):
             self.type_boolean_list.parent = self
             self._children_name_map["type_boolean_list"] = "type-boolean-list"
             self._children_yang_names.add("type-boolean-list")
-            self._segment_path = lambda: "object-tracking" + "[track-name='" + self.track_name.get() + "']"
+            self._segment_path = lambda: "object-tracking" + "[track-name='" + str(self.track_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-cfg:object-trackings/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -214,14 +231,55 @@ class ObjectTrackings(Entity):
                 self.yang_parent_name = "object-tracking"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface = YLeaf(YType.str, "interface")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface', YLeaf(YType.str, 'interface')),
+                ])
+                self.interface = None
                 self._segment_path = lambda: "type-interface"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeInterface, ['interface'], name, value)
+
+
+        class TypeRtr(Entity):
+            """
+            Track type RTR (Response Time Reporter \- IPSLA)
+            
+            .. attribute:: rtr
+            
+            	IPSLA Operation ID
+            	**type**\: int
+            
+            	**range:** 1..2048
+            
+            
+
+            """
+
+            _prefix = 'manageability-object-tracking-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(ObjectTrackings.ObjectTracking.TypeRtr, self).__init__()
+
+                self.yang_name = "type-rtr"
+                self.yang_parent_name = "object-tracking"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rtr', YLeaf(YType.uint32, 'rtr')),
+                ])
+                self.rtr = None
+                self._segment_path = lambda: "type-rtr"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ObjectTrackings.ObjectTracking.TypeRtr, ['rtr'], name, value)
 
 
         class TypeList(Entity):
@@ -262,8 +320,10 @@ class ObjectTrackings(Entity):
                 self.yang_parent_name = "object-tracking"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"threshold-weight" : ("threshold_weight", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight), "threshold-percentage-object" : ("threshold_percentage_object", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject), "threshold-percentage" : ("threshold_percentage", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage), "threshold-weight-object" : ("threshold_weight_object", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("threshold-weight", ("threshold_weight", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight)), ("threshold-percentage-object", ("threshold_percentage_object", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject)), ("threshold-percentage", ("threshold_percentage", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage)), ("threshold-weight-object", ("threshold_weight_object", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.threshold_weight = ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight()
                 self.threshold_weight.parent = self
@@ -310,8 +370,10 @@ class ObjectTrackings(Entity):
                     self.yang_parent_name = "type-list"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"threshold-limits" : ("threshold_limits", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("threshold-limits", ("threshold_limits", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.threshold_limits = ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits()
                     self.threshold_limits.parent = self
@@ -343,8 +405,10 @@ class ObjectTrackings(Entity):
                         self.yang_parent_name = "threshold-weight"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"threshold-up-values" : ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("threshold-up-values", ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.threshold_up_values = ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues()
                         self.threshold_up_values.parent = self
@@ -377,8 +441,10 @@ class ObjectTrackings(Entity):
                             self.yang_parent_name = "threshold-limits"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"threshold-up-value" : ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("threshold-up-value", ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue))])
+                            self._leafs = OrderedDict()
 
                             self.threshold_up_value = YList(self)
                             self._segment_path = lambda: "threshold-up-values"
@@ -392,7 +458,7 @@ class ObjectTrackings(Entity):
                             Threshold limit at which track is set to UP
                             state
                             
-                            .. attribute:: up  <key>
+                            .. attribute:: up  (key)
                             
                             	Up value
                             	**type**\: int
@@ -422,13 +488,16 @@ class ObjectTrackings(Entity):
                                 self.yang_parent_name = "threshold-up-values"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.up = YLeaf(YType.int32, "up")
-
-                                self.threshold_down = YLeaf(YType.int32, "threshold-down")
-                                self._segment_path = lambda: "threshold-up-value" + "[up='" + self.up.get() + "']"
+                                self.ylist_key_names = ['up']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('up', YLeaf(YType.int32, 'up')),
+                                    ('threshold_down', YLeaf(YType.int32, 'threshold-down')),
+                                ])
+                                self.up = None
+                                self.threshold_down = None
+                                self._segment_path = lambda: "threshold-up-value" + "[up='" + str(self.up) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, ['up', 'threshold_down'], name, value)
@@ -457,8 +526,10 @@ class ObjectTrackings(Entity):
                     self.yang_parent_name = "type-list"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"object" : ("object", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("object", ("object", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object))])
+                    self._leafs = OrderedDict()
 
                     self.object = YList(self)
                     self._segment_path = lambda: "threshold-percentage-object"
@@ -471,7 +542,7 @@ class ObjectTrackings(Entity):
                     """
                     Track name object
                     
-                    .. attribute:: object  <key>
+                    .. attribute:: object  (key)
                     
                     	Object name
                     	**type**\: str
@@ -501,13 +572,16 @@ class ObjectTrackings(Entity):
                         self.yang_parent_name = "threshold-percentage-object"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.object = YLeaf(YType.str, "object")
-
-                        self.object_weight = YLeaf(YType.int32, "object-weight")
-                        self._segment_path = lambda: "object" + "[object='" + self.object.get() + "']"
+                        self.ylist_key_names = ['object']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('object', YLeaf(YType.str, 'object')),
+                            ('object_weight', YLeaf(YType.int32, 'object-weight')),
+                        ])
+                        self.object = None
+                        self.object_weight = None
+                        self._segment_path = lambda: "object" + "[object='" + str(self.object) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object, ['object', 'object_weight'], name, value)
@@ -536,8 +610,10 @@ class ObjectTrackings(Entity):
                     self.yang_parent_name = "type-list"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"threshold-limits" : ("threshold_limits", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("threshold-limits", ("threshold_limits", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.threshold_limits = ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits()
                     self.threshold_limits.parent = self
@@ -569,8 +645,10 @@ class ObjectTrackings(Entity):
                         self.yang_parent_name = "threshold-percentage"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"threshold-up-values" : ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("threshold-up-values", ("threshold_up_values", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.threshold_up_values = ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues()
                         self.threshold_up_values.parent = self
@@ -603,8 +681,10 @@ class ObjectTrackings(Entity):
                             self.yang_parent_name = "threshold-limits"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"threshold-up-value" : ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("threshold-up-value", ("threshold_up_value", ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue))])
+                            self._leafs = OrderedDict()
 
                             self.threshold_up_value = YList(self)
                             self._segment_path = lambda: "threshold-up-values"
@@ -618,7 +698,7 @@ class ObjectTrackings(Entity):
                             Threshold limit at which track is set to UP
                             state
                             
-                            .. attribute:: up  <key>
+                            .. attribute:: up  (key)
                             
                             	Up value
                             	**type**\: int
@@ -648,13 +728,16 @@ class ObjectTrackings(Entity):
                                 self.yang_parent_name = "threshold-up-values"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.up = YLeaf(YType.int32, "up")
-
-                                self.threshold_down = YLeaf(YType.int32, "threshold-down")
-                                self._segment_path = lambda: "threshold-up-value" + "[up='" + self.up.get() + "']"
+                                self.ylist_key_names = ['up']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('up', YLeaf(YType.int32, 'up')),
+                                    ('threshold_down', YLeaf(YType.int32, 'threshold-down')),
+                                ])
+                                self.up = None
+                                self.threshold_down = None
+                                self._segment_path = lambda: "threshold-up-value" + "[up='" + str(self.up) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, ['up', 'threshold_down'], name, value)
@@ -683,8 +766,10 @@ class ObjectTrackings(Entity):
                     self.yang_parent_name = "type-list"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"object" : ("object", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("object", ("object", ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object))])
+                    self._leafs = OrderedDict()
 
                     self.object = YList(self)
                     self._segment_path = lambda: "threshold-weight-object"
@@ -697,7 +782,7 @@ class ObjectTrackings(Entity):
                     """
                     Track name object
                     
-                    .. attribute:: object  <key>
+                    .. attribute:: object  (key)
                     
                     	Object name
                     	**type**\: str
@@ -727,13 +812,16 @@ class ObjectTrackings(Entity):
                         self.yang_parent_name = "threshold-weight-object"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.object = YLeaf(YType.str, "object")
-
-                        self.object_weight = YLeaf(YType.int32, "object-weight")
-                        self._segment_path = lambda: "object" + "[object='" + self.object.get() + "']"
+                        self.ylist_key_names = ['object']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('object', YLeaf(YType.str, 'object')),
+                            ('object_weight', YLeaf(YType.int32, 'object-weight')),
+                        ])
+                        self.object = None
+                        self.object_weight = None
+                        self._segment_path = lambda: "object" + "[object='" + str(self.object) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object, ['object', 'object_weight'], name, value)
@@ -771,10 +859,13 @@ class ObjectTrackings(Entity):
                 self.yang_parent_name = "object-tracking"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"ip-address" : ("ip_address", ObjectTrackings.ObjectTracking.TypeRoute.IpAddress)}
-                self._child_list_classes = {}
-
-                self.vrf = YLeaf(YType.str, "vrf")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("ip-address", ("ip_address", ObjectTrackings.ObjectTracking.TypeRoute.IpAddress))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf', YLeaf(YType.str, 'vrf')),
+                ])
+                self.vrf = None
 
                 self.ip_address = None
                 self._children_name_map["ip_address"] = "ip-address"
@@ -819,13 +910,16 @@ class ObjectTrackings(Entity):
                     self.yang_parent_name = "type-route"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.mask = YLeaf(YType.str, "mask")
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('mask', YLeaf(YType.str, 'mask')),
+                    ])
+                    self.address = None
+                    self.mask = None
                     self._segment_path = lambda: "ip-address"
 
                 def __setattr__(self, name, value):
@@ -860,8 +954,10 @@ class ObjectTrackings(Entity):
                 self.yang_parent_name = "object-tracking"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"or-objects" : ("or_objects", ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects), "and-objects" : ("and_objects", ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("or-objects", ("or_objects", ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects)), ("and-objects", ("and_objects", ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.or_objects = ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects()
                 self.or_objects.parent = self
@@ -898,8 +994,10 @@ class ObjectTrackings(Entity):
                     self.yang_parent_name = "type-boolean-list"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"or-object" : ("or_object", ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("or-object", ("or_object", ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject))])
+                    self._leafs = OrderedDict()
 
                     self.or_object = YList(self)
                     self._segment_path = lambda: "or-objects"
@@ -912,7 +1010,7 @@ class ObjectTrackings(Entity):
                     """
                     Track name \- maximum 32 characters
                     
-                    .. attribute:: object  <key>
+                    .. attribute:: object  (key)
                     
                     	Object name
                     	**type**\: str
@@ -938,13 +1036,16 @@ class ObjectTrackings(Entity):
                         self.yang_parent_name = "or-objects"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.object = YLeaf(YType.str, "object")
-
-                        self.object_sign = YLeaf(YType.enumeration, "object-sign")
-                        self._segment_path = lambda: "or-object" + "[object='" + self.object.get() + "']"
+                        self.ylist_key_names = ['object']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('object', YLeaf(YType.str, 'object')),
+                            ('object_sign', YLeaf(YType.enumeration, 'object-sign')),
+                        ])
+                        self.object = None
+                        self.object_sign = None
+                        self._segment_path = lambda: "or-object" + "[object='" + str(self.object) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject, ['object', 'object_sign'], name, value)
@@ -973,8 +1074,10 @@ class ObjectTrackings(Entity):
                     self.yang_parent_name = "type-boolean-list"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"and-object" : ("and_object", ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("and-object", ("and_object", ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject))])
+                    self._leafs = OrderedDict()
 
                     self.and_object = YList(self)
                     self._segment_path = lambda: "and-objects"
@@ -987,7 +1090,7 @@ class ObjectTrackings(Entity):
                     """
                     Track name \- maximum 32 characters
                     
-                    .. attribute:: object_name  <key>
+                    .. attribute:: object_name  (key)
                     
                     	Object name
                     	**type**\: str
@@ -1013,13 +1116,16 @@ class ObjectTrackings(Entity):
                         self.yang_parent_name = "and-objects"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.object_name = YLeaf(YType.str, "object-name")
-
-                        self.object_sign = YLeaf(YType.enumeration, "object-sign")
-                        self._segment_path = lambda: "and-object" + "[object-name='" + self.object_name.get() + "']"
+                        self.ylist_key_names = ['object_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('object_name', YLeaf(YType.str, 'object-name')),
+                            ('object_sign', YLeaf(YType.enumeration, 'object-sign')),
+                        ])
+                        self.object_name = None
+                        self.object_sign = None
+                        self._segment_path = lambda: "and-object" + "[object-name='" + str(self.object_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject, ['object_name', 'object_sign'], name, value)

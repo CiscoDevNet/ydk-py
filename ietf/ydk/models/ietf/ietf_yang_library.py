@@ -3,24 +3,23 @@
 This module contains monitoring information about the YANG
 modules and submodules that are used within a YANG\-based
 server.
-
 Copyright (c) 2016 IETF Trust and the persons identified as
 authors of the code.  All rights reserved.
-
 Redistribution and use in source and binary forms, with or
 without modification, is permitted pursuant to, and subject
 to the license terms contained in, the Simplified BSD License
 set forth in Section 4.c of the IETF Trust's Legal Provisions
 Relating to IETF Documents
 (http\://trustee.ietf.org/license\-info).
-
 This version of this YANG module is part of RFC 7895; see
 the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -56,10 +55,13 @@ class ModulesState(Entity):
         self.yang_parent_name = "ietf-yang-library"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"module" : ("module", ModulesState.Module)}
-
-        self.module_set_id = YLeaf(YType.str, "module-set-id")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("module", ("module", ModulesState.Module))])
+        self._leafs = OrderedDict([
+            ('module_set_id', YLeaf(YType.str, 'module-set-id')),
+        ])
+        self.module_set_id = None
 
         self.module = YList(self)
         self._segment_path = lambda: "ietf-yang-library:modules-state"
@@ -73,14 +75,14 @@ class ModulesState(Entity):
         Each entry represents one revision of one module
         currently supported by the server.
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	The YANG module or submodule name
         	**type**\: str
         
         	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
         
-        .. attribute:: revision  <key>
+        .. attribute:: revision  (key)
         
         	The YANG module or submodule revision date. A zero\-length string is used if no revision statement is present in the YANG module or submodule
         	**type**\: union of the below types:
@@ -95,7 +97,7 @@ class ModulesState(Entity):
         
         .. attribute:: schema
         
-        	Contains a URL that represents the YANG schema resource for this module or submodule.  This leaf will only be present if there is a URL available for retrieval of the schema for this entry
+        	Contains a URL that represents the YANG schema resource for this module or submodule. This leaf will only be present if there is a URL available for retrieval of the schema for this entry
         	**type**\: str
         
         .. attribute:: namespace
@@ -114,7 +116,7 @@ class ModulesState(Entity):
         
         .. attribute:: deviation
         
-        	List of YANG deviation module names and revisions used by this server to modify the conformance of the module associated with this entry.  Note that the same module can be used for deviations for multiple modules, so the same entry MAY appear within multiple 'module' entries.  The deviation module MUST be present in the 'module' list, with the same name and revision values. The 'conformance\-type' value will be 'implement' for the deviation module
+        	List of YANG deviation module names and revisions used by this server to modify the conformance of the module associated with this entry.  Note that the same module can be used for deviations for multiple modules, so the same entry MAY appear within multiple 'module' entries. The deviation module MUST be present in the 'module' list, with the same name and revision values. The 'conformance\-type' value will be 'implement' for the deviation module
         	**type**\: list of  		 :py:class:`Deviation <ydk.models.ietf.ietf_yang_library.ModulesState.Module.Deviation>`
         
         .. attribute:: conformance_type
@@ -143,24 +145,27 @@ class ModulesState(Entity):
             self.yang_parent_name = "modules-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"deviation" : ("deviation", ModulesState.Module.Deviation), "submodule" : ("submodule", ModulesState.Module.Submodule)}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.revision = YLeaf(YType.str, "revision")
-
-            self.schema = YLeaf(YType.str, "schema")
-
-            self.namespace = YLeaf(YType.str, "namespace")
-
-            self.feature = YLeafList(YType.str, "feature")
-
-            self.conformance_type = YLeaf(YType.enumeration, "conformance-type")
+            self.ylist_key_names = ['name','revision']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("deviation", ("deviation", ModulesState.Module.Deviation)), ("submodule", ("submodule", ModulesState.Module.Submodule))])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('revision', YLeaf(YType.str, 'revision')),
+                ('schema', YLeaf(YType.str, 'schema')),
+                ('namespace', YLeaf(YType.str, 'namespace')),
+                ('feature', YLeafList(YType.str, 'feature')),
+                ('conformance_type', YLeaf(YType.enumeration, 'conformance-type')),
+            ])
+            self.name = None
+            self.revision = None
+            self.schema = None
+            self.namespace = None
+            self.feature = []
+            self.conformance_type = None
 
             self.deviation = YList(self)
             self.submodule = YList(self)
-            self._segment_path = lambda: "module" + "[name='" + self.name.get() + "']" + "[revision='" + self.revision.get() + "']"
+            self._segment_path = lambda: "module" + "[name='" + str(self.name) + "']" + "[revision='" + str(self.revision) + "']"
             self._absolute_path = lambda: "ietf-yang-library:modules-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -168,7 +173,7 @@ class ModulesState(Entity):
 
         class ConformanceType(Enum):
             """
-            ConformanceType
+            ConformanceType (Enum Class)
 
             Indicates the type of conformance the server is claiming
 
@@ -230,20 +235,19 @@ class ModulesState(Entity):
             the same module can be used for deviations for
             multiple modules, so the same entry MAY appear
             within multiple 'module' entries.
-            
             The deviation module MUST be present in the 'module'
             list, with the same name and revision values.
             The 'conformance\-type' value will be 'implement' for
             the deviation module.
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	The YANG module or submodule name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
             
-            .. attribute:: revision  <key>
+            .. attribute:: revision  (key)
             
             	The YANG module or submodule revision date. A zero\-length string is used if no revision statement is present in the YANG module or submodule
             	**type**\: union of the below types:
@@ -270,13 +274,16 @@ class ModulesState(Entity):
                 self.yang_parent_name = "module"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.revision = YLeaf(YType.str, "revision")
-                self._segment_path = lambda: "deviation" + "[name='" + self.name.get() + "']" + "[revision='" + self.revision.get() + "']"
+                self.ylist_key_names = ['name','revision']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('revision', YLeaf(YType.str, 'revision')),
+                ])
+                self.name = None
+                self.revision = None
+                self._segment_path = lambda: "deviation" + "[name='" + str(self.name) + "']" + "[revision='" + str(self.revision) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ModulesState.Module.Deviation, ['name', 'revision'], name, value)
@@ -287,14 +294,14 @@ class ModulesState(Entity):
             Each entry represents one submodule within the
             parent module.
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	The YANG module or submodule name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
             
-            .. attribute:: revision  <key>
+            .. attribute:: revision  (key)
             
             	The YANG module or submodule revision date. A zero\-length string is used if no revision statement is present in the YANG module or submodule
             	**type**\: union of the below types:
@@ -309,7 +316,7 @@ class ModulesState(Entity):
             
             .. attribute:: schema
             
-            	Contains a URL that represents the YANG schema resource for this module or submodule.  This leaf will only be present if there is a URL available for retrieval of the schema for this entry
+            	Contains a URL that represents the YANG schema resource for this module or submodule. This leaf will only be present if there is a URL available for retrieval of the schema for this entry
             	**type**\: str
             
             
@@ -326,15 +333,18 @@ class ModulesState(Entity):
                 self.yang_parent_name = "module"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.revision = YLeaf(YType.str, "revision")
-
-                self.schema = YLeaf(YType.str, "schema")
-                self._segment_path = lambda: "submodule" + "[name='" + self.name.get() + "']" + "[revision='" + self.revision.get() + "']"
+                self.ylist_key_names = ['name','revision']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('revision', YLeaf(YType.str, 'revision')),
+                    ('schema', YLeaf(YType.str, 'schema')),
+                ])
+                self.name = None
+                self.revision = None
+                self.schema = None
+                self._segment_path = lambda: "submodule" + "[name='" + str(self.name) + "']" + "[revision='" + str(self.revision) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ModulesState.Module.Submodule, ['name', 'revision', 'schema'], name, value)

@@ -12,15 +12,17 @@ This version of this MIB module is part of IEEE802.1Q;
 see the draft itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class IEEE8021BridgePortType(Enum):
     """
-    IEEE8021BridgePortType
+    IEEE8021BridgePortType (Enum Class)
 
     A port type.  The possible port types are\:
 
@@ -103,7 +105,7 @@ class IEEE8021BridgePortType(Enum):
 
 class IEEE8021PortAcceptableFrameTypes(Enum):
     """
-    IEEE8021PortAcceptableFrameTypes
+    IEEE8021PortAcceptableFrameTypes (Enum Class)
 
     Acceptable frame types on a port.
 
@@ -124,7 +126,7 @@ class IEEE8021PortAcceptableFrameTypes(Enum):
 
 class IEEE8021PriorityCodePoint(Enum):
     """
-    IEEE8021PriorityCodePoint
+    IEEE8021PriorityCodePoint (Enum Class)
 
     Bridge ports may encode or decode the PCP value of the 
 
@@ -163,7 +165,7 @@ class IEEE8021PriorityCodePoint(Enum):
 
 class IEEE8021ServiceSelectorType(Enum):
     """
-    IEEE8021ServiceSelectorType
+    IEEE8021ServiceSelectorType (Enum Class)
 
     A value that represents a type (and thereby the format)
 

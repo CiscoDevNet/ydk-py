@@ -8,6 +8,23 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_openconfig_aft(self):
+        pass
+
+
+    def test_openconfig_aft_network_instance(self):
+        pass
+
+
+    def test_openconfig_aft_types(self):
+        from ydk.models.openconfig.openconfig_aft_types import AFTADDRESSFAMILY
+        from ydk.models.openconfig.openconfig_aft_types import IPV4UNICAST
+        from ydk.models.openconfig.openconfig_aft_types import IPV6UNICAST
+        from ydk.models.openconfig.openconfig_aft_types import MPLS
+        from ydk.models.openconfig.openconfig_aft_types import L2ETHERNET
+        from ydk.models.openconfig.openconfig_aft_types import EncapsulationHeaderType
+
+
     def test_openconfig_bgp(self):
         from ydk.models.openconfig.openconfig_bgp import Bgp
 
@@ -104,8 +121,122 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_if_ip import NeighborOrigin
 
 
+    def test_openconfig_if_ip_ext(self):
+        pass
+
+
+    def test_openconfig_inet_types(self):
+        pass
+
+
     def test_openconfig_interfaces(self):
         from ydk.models.openconfig.openconfig_interfaces import Interfaces
+
+
+    def test_openconfig_isis(self):
+        from ydk.models.openconfig.openconfig_isis import IsisMetricFlags
+
+
+    def test_openconfig_isis_lsdb_types(self):
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISISTLVTYPE
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISISSUBTLVTYPE
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYSUBTLVSTYPE
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPREACHABILITYSUBTLVSTYPE
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ROUTERCAPABILITYSUBTLVSTYPE
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import AREAADDRESSES
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IISNEIGHBORS
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import INSTANCEID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import AUTHENTICATION
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import PURGEOI
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import EXTENDEDISREACHABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISNEIGHBORATTRIBUTE
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISISALIASID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV4INTERNALREACHABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import NLPID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV4EXTERNALREACHABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV4INTERFACEADDRESSES
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV4TEROUTERID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import EXTENDEDIPV4REACHABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import DYNAMICNAME
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV4SRLG
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV6SRLG
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV6TEROUTERID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import MTISN
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import MTISNEIGHBORATTRIBUTE
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import MULTITOPOLOGY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV6INTERFACEADDRESSES
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import MTIPV4REACHABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPV6REACHABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import MTIPV6REACHABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ROUTERCAPABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYADMINGROUP
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYIPV4INTERFACEADDRESS
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYIPV4NEIGHBORADDRESS
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYMAXLINKBANDWIDTH
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYMAXRESERVABLEBANDWIDTH
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYUNRESERVEDBANDWIDTH
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYIPV6INTERFACEADDRESS
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYIPV6NEIGHBORADDRESS
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYEXTENDEDADMINGROUP
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYTEDEFAULTMETRIC
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYLINKATTRIBUTES
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYLINKPROTECTIONTYPE
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYBANDWIDTHCONSTRAINTS
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYUNCONSTRAINEDLSP
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYADJSID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYADJLANSID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYLINKDELAY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYMINMAXLINKDELAY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYLINKDELAYVARIATION
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYLINKLOSS
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYRESIDUALBANDWIDTH
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYAVAILABLEBANDWIDTH
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYUTILIZEDBANDWIDTH
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPREACHABILITYTAG
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPREACHABILITYTAG64
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPREACHABILITYPREFIXSID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPREACHABILITYPREFIXFLAGS
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPREACHABILITYIPV4ROUTERID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import IPREACHABILITYIPV6ROUTERID
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ROUTERCAPABILITYSRCAPABILITY
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ROUTERCAPABILITYSRALGORITHM
+
+
+    def test_openconfig_isis_lsp(self):
+        pass
+
+
+    def test_openconfig_isis_policy(self):
+        pass
+
+
+    def test_openconfig_isis_routing(self):
+        pass
+
+
+    def test_openconfig_isis_types(self):
+        from ydk.models.openconfig.openconfig_isis_types import OVERLOADRESETTRIGGERTYPE
+        from ydk.models.openconfig.openconfig_isis_types import WAITFORBGP
+        from ydk.models.openconfig.openconfig_isis_types import WAITFORSYSTEM
+        from ydk.models.openconfig.openconfig_isis_types import MTTYPE
+        from ydk.models.openconfig.openconfig_isis_types import SAFITYPE
+        from ydk.models.openconfig.openconfig_isis_types import AFITYPE
+        from ydk.models.openconfig.openconfig_isis_types import AFISAFITYPE
+        from ydk.models.openconfig.openconfig_isis_types import IPV4UNICAST
+        from ydk.models.openconfig.openconfig_isis_types import IPV6MULTICAST
+        from ydk.models.openconfig.openconfig_isis_types import IPV4MULTICAST
+        from ydk.models.openconfig.openconfig_isis_types import IPV6UNICAST
+        from ydk.models.openconfig.openconfig_isis_types import UNICAST
+        from ydk.models.openconfig.openconfig_isis_types import MULTICAST
+        from ydk.models.openconfig.openconfig_isis_types import IPV4
+        from ydk.models.openconfig.openconfig_isis_types import IPV6
+        from ydk.models.openconfig.openconfig_isis_types import LevelType
+        from ydk.models.openconfig.openconfig_isis_types import AdaptiveTimerType
+        from ydk.models.openconfig.openconfig_isis_types import HelloPaddingType
+        from ydk.models.openconfig.openconfig_isis_types import CircuitType
+        from ydk.models.openconfig.openconfig_isis_types import MetricType
+        from ydk.models.openconfig.openconfig_isis_types import MetricStyle
+        from ydk.models.openconfig.openconfig_isis_types import IsisInterfaceAdjState
 
 
     def test_openconfig_lacp(self):
@@ -114,6 +245,35 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_lacp import LacpSynchronizationType
         from ydk.models.openconfig.openconfig_lacp import LacpPeriodType
         from ydk.models.openconfig.openconfig_lacp import Lacp
+
+
+    def test_openconfig_lldp(self):
+        from ydk.models.openconfig.openconfig_lldp import Lldp
+
+
+    def test_openconfig_lldp_types(self):
+        from ydk.models.openconfig.openconfig_lldp_types import LLDPSYSTEMCAPABILITY
+        from ydk.models.openconfig.openconfig_lldp_types import OTHER
+        from ydk.models.openconfig.openconfig_lldp_types import REPEATER
+        from ydk.models.openconfig.openconfig_lldp_types import MACBRIDGE
+        from ydk.models.openconfig.openconfig_lldp_types import WLANACCESSPOINT
+        from ydk.models.openconfig.openconfig_lldp_types import ROUTER
+        from ydk.models.openconfig.openconfig_lldp_types import TELEPHONE
+        from ydk.models.openconfig.openconfig_lldp_types import DOCSISCABLEDEVICE
+        from ydk.models.openconfig.openconfig_lldp_types import STATIONONLY
+        from ydk.models.openconfig.openconfig_lldp_types import CVLAN
+        from ydk.models.openconfig.openconfig_lldp_types import SVLAN
+        from ydk.models.openconfig.openconfig_lldp_types import TWOPORTMACRELAY
+        from ydk.models.openconfig.openconfig_lldp_types import LLDPTLV
+        from ydk.models.openconfig.openconfig_lldp_types import CHASSISID
+        from ydk.models.openconfig.openconfig_lldp_types import PORTID
+        from ydk.models.openconfig.openconfig_lldp_types import PORTDESCRIPTION
+        from ydk.models.openconfig.openconfig_lldp_types import SYSTEMNAME
+        from ydk.models.openconfig.openconfig_lldp_types import SYSTEMDESCRIPTION
+        from ydk.models.openconfig.openconfig_lldp_types import SYSTEMCAPABILITIES
+        from ydk.models.openconfig.openconfig_lldp_types import MANAGEMENTADDRESS
+        from ydk.models.openconfig.openconfig_lldp_types import ChassisIdType
+        from ydk.models.openconfig.openconfig_lldp_types import PortIdType
 
 
     def test_openconfig_local_routing(self):
@@ -185,8 +345,44 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_mpls_types import NullLabelType
         from ydk.models.openconfig.openconfig_mpls_types import EXPLICIT
         from ydk.models.openconfig.openconfig_mpls_types import IMPLICIT
+        from ydk.models.openconfig.openconfig_mpls_types import PATHSETUPPROTOCOL
         from ydk.models.openconfig.openconfig_mpls_types import MplsLabel
-        from ydk.models.openconfig.openconfig_mpls_types import TunnelType
+        from ydk.models.openconfig.openconfig_mpls_types import TunnelType_
+
+
+    def test_openconfig_network_instance(self):
+        from ydk.models.openconfig.openconfig_network_instance import NetworkInstances
+
+
+    def test_openconfig_network_instance_l2(self):
+        pass
+
+
+    def test_openconfig_network_instance_l3(self):
+        pass
+
+
+    def test_openconfig_network_instance_types(self):
+        from ydk.models.openconfig.openconfig_network_instance_types import NETWORKINSTANCETYPE
+        from ydk.models.openconfig.openconfig_network_instance_types import DEFAULTINSTANCE
+        from ydk.models.openconfig.openconfig_network_instance_types import L3VRF
+        from ydk.models.openconfig.openconfig_network_instance_types import L2VSI
+        from ydk.models.openconfig.openconfig_network_instance_types import L2P2P
+        from ydk.models.openconfig.openconfig_network_instance_types import L2L3
+        from ydk.models.openconfig.openconfig_network_instance_types import ENDPOINTTYPE
+        from ydk.models.openconfig.openconfig_network_instance_types import LOCAL
+        from ydk.models.openconfig.openconfig_network_instance_types import REMOTE
+        from ydk.models.openconfig.openconfig_network_instance_types import LABELALLOCATIONMODE
+        from ydk.models.openconfig.openconfig_network_instance_types import PERPREFIX
+        from ydk.models.openconfig.openconfig_network_instance_types import PERNEXTHOP
+        from ydk.models.openconfig.openconfig_network_instance_types import INSTANCELABEL
+        from ydk.models.openconfig.openconfig_network_instance_types import ENCAPSULATION
+        from ydk.models.openconfig.openconfig_network_instance_types import MPLS
+        from ydk.models.openconfig.openconfig_network_instance_types import VXLAN
+        from ydk.models.openconfig.openconfig_network_instance_types import SIGNALLINGPROTOCOL
+        from ydk.models.openconfig.openconfig_network_instance_types import LDP
+        from ydk.models.openconfig.openconfig_network_instance_types import BGPVPLS
+        from ydk.models.openconfig.openconfig_network_instance_types import BGPEVPN
 
 
     def test_openconfig_optical_amplifier(self):
@@ -204,6 +400,37 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_optical_amplifier import CONSTANTPOWER
         from ydk.models.openconfig.openconfig_optical_amplifier import CONSTANTGAIN
         from ydk.models.openconfig.openconfig_optical_amplifier import OpticalAmplifier
+
+
+    def test_openconfig_packet_match_types(self):
+        from ydk.models.openconfig.openconfig_packet_match_types import ETHERTYPE
+        from ydk.models.openconfig.openconfig_packet_match_types import ETHERTYPEIPV4
+        from ydk.models.openconfig.openconfig_packet_match_types import ETHERTYPEARP
+        from ydk.models.openconfig.openconfig_packet_match_types import ETHERTYPEVLAN
+        from ydk.models.openconfig.openconfig_packet_match_types import ETHERTYPEIPV6
+        from ydk.models.openconfig.openconfig_packet_match_types import ETHERTYPEMPLS
+        from ydk.models.openconfig.openconfig_packet_match_types import ETHERTYPELLDP
+        from ydk.models.openconfig.openconfig_packet_match_types import ETHERTYPEROCE
+        from ydk.models.openconfig.openconfig_packet_match_types import IPPROTOCOL
+        from ydk.models.openconfig.openconfig_packet_match_types import IPTCP
+        from ydk.models.openconfig.openconfig_packet_match_types import IPUDP
+        from ydk.models.openconfig.openconfig_packet_match_types import IPICMP
+        from ydk.models.openconfig.openconfig_packet_match_types import IPIGMP
+        from ydk.models.openconfig.openconfig_packet_match_types import IPPIM
+        from ydk.models.openconfig.openconfig_packet_match_types import IPRSVP
+        from ydk.models.openconfig.openconfig_packet_match_types import IPGRE
+        from ydk.models.openconfig.openconfig_packet_match_types import IPAUTH
+        from ydk.models.openconfig.openconfig_packet_match_types import IPL2TP
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPFLAGS
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPSYN
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPFIN
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPRST
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPPSH
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPACK
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPURG
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPECE
+        from ydk.models.openconfig.openconfig_packet_match_types import TCPCWR
+        from ydk.models.openconfig.openconfig_packet_match_types import PortNumRange
 
 
     def test_openconfig_platform(self):
@@ -273,6 +500,11 @@ class ImportTest(unittest.TestCase):
     def test_openconfig_routing_policy(self):
         from ydk.models.openconfig.openconfig_routing_policy import DefaultPolicyType
         from ydk.models.openconfig.openconfig_routing_policy import RoutingPolicy
+
+
+    def test_openconfig_segment_routing(self):
+        from ydk.models.openconfig.openconfig_segment_routing import SrDataplaneType
+        from ydk.models.openconfig.openconfig_segment_routing import MplsLabel
 
 
     def test_openconfig_telemetry(self):
@@ -408,6 +640,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_vlan_types import TPID0x9100
         from ydk.models.openconfig.openconfig_vlan_types import TPID0X9200
         from ydk.models.openconfig.openconfig_vlan_types import VlanModeType
+
+
+    def test_openconfig_yang_types(self):
+        pass
 
 
 if __name__ == '__main__':

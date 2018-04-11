@@ -17,15 +17,17 @@ In the scope of this MIB definition, peer software elements
 are redundant and redundant software elements are peers.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class RFAction(Enum):
     """
-    RFAction
+    RFAction (Enum Class)
 
     Administrative commands to invoke in the RF subsystem.
 
@@ -80,7 +82,7 @@ class RFAction(Enum):
 
 class RFClientStatus(Enum):
     """
-    RFClientStatus
+    RFClientStatus (Enum Class)
 
     The status of a RF client before, during and after
 
@@ -137,7 +139,7 @@ class RFClientStatus(Enum):
 
 class RFIssuState(Enum):
     """
-    RFIssuState
+    RFIssuState (Enum Class)
 
     ISSU state represents the current system state.
 
@@ -230,7 +232,7 @@ class RFIssuState(Enum):
 
 class RFIssuStateRev1(Enum):
     """
-    RFIssuStateRev1
+    RFIssuStateRev1 (Enum Class)
 
     ISSU state represents the current system state.
 
@@ -329,7 +331,7 @@ class RFIssuStateRev1(Enum):
 
 class RFMode(Enum):
     """
-    RFMode
+    RFMode (Enum Class)
 
     The characterization of the redundancy subsystem.
 
@@ -424,7 +426,7 @@ class RFMode(Enum):
 
 class RFState(Enum):
     """
-    RFState
+    RFState (Enum Class)
 
     The current state of the RF subsystem.
 
@@ -569,7 +571,7 @@ class RFState(Enum):
 
 class RFSwactReasonType(Enum):
     """
-    RFSwactReasonType
+    RFSwactReasonType (Enum Class)
 
     Reason codes for the switch of activity from an active
 
@@ -686,8 +688,10 @@ class CISCORFMIB(Entity):
         self.yang_parent_name = "CISCO-RF-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cRFStatus" : ("crfstatus", CISCORFMIB.Crfstatus), "cRFCfg" : ("crfcfg", CISCORFMIB.Crfcfg), "cRFHistory" : ("crfhistory", CISCORFMIB.Crfhistory), "cRFStatusRFModeCapsTable" : ("crfstatusrfmodecapstable", CISCORFMIB.Crfstatusrfmodecapstable), "cRFHistorySwitchOverTable" : ("crfhistoryswitchovertable", CISCORFMIB.Crfhistoryswitchovertable), "cRFStatusRFClientTable" : ("crfstatusrfclienttable", CISCORFMIB.Crfstatusrfclienttable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cRFStatus", ("crfstatus", CISCORFMIB.Crfstatus)), ("cRFCfg", ("crfcfg", CISCORFMIB.Crfcfg)), ("cRFHistory", ("crfhistory", CISCORFMIB.Crfhistory)), ("cRFStatusRFModeCapsTable", ("crfstatusrfmodecapstable", CISCORFMIB.Crfstatusrfmodecapstable)), ("cRFHistorySwitchOverTable", ("crfhistoryswitchovertable", CISCORFMIB.Crfhistoryswitchovertable)), ("cRFStatusRFClientTable", ("crfstatusrfclienttable", CISCORFMIB.Crfstatusrfclienttable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.crfstatus = CISCORFMIB.Crfstatus()
         self.crfstatus.parent = self
@@ -819,36 +823,39 @@ class CISCORFMIB(Entity):
             self.yang_parent_name = "CISCO-RF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.crfstatusunitid = YLeaf(YType.int32, "cRFStatusUnitId")
-
-            self.crfstatusunitstate = YLeaf(YType.enumeration, "cRFStatusUnitState")
-
-            self.crfstatuspeerunitid = YLeaf(YType.int32, "cRFStatusPeerUnitId")
-
-            self.crfstatuspeerunitstate = YLeaf(YType.enumeration, "cRFStatusPeerUnitState")
-
-            self.crfstatusprimarymode = YLeaf(YType.boolean, "cRFStatusPrimaryMode")
-
-            self.crfstatusduplexmode = YLeaf(YType.boolean, "cRFStatusDuplexMode")
-
-            self.crfstatusmanualswactinhibit = YLeaf(YType.boolean, "cRFStatusManualSwactInhibit")
-
-            self.crfstatuslastswactreasoncode = YLeaf(YType.enumeration, "cRFStatusLastSwactReasonCode")
-
-            self.crfstatusfailovertime = YLeaf(YType.uint32, "cRFStatusFailoverTime")
-
-            self.crfstatuspeerstandbyentrytime = YLeaf(YType.uint32, "cRFStatusPeerStandByEntryTime")
-
-            self.crfstatusissustate = YLeaf(YType.enumeration, "cRFStatusIssuState")
-
-            self.crfstatusissustaterev1 = YLeaf(YType.enumeration, "cRFStatusIssuStateRev1")
-
-            self.crfstatusissufromversion = YLeaf(YType.str, "cRFStatusIssuFromVersion")
-
-            self.crfstatusissutoversion = YLeaf(YType.str, "cRFStatusIssuToVersion")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('crfstatusunitid', YLeaf(YType.int32, 'cRFStatusUnitId')),
+                ('crfstatusunitstate', YLeaf(YType.enumeration, 'cRFStatusUnitState')),
+                ('crfstatuspeerunitid', YLeaf(YType.int32, 'cRFStatusPeerUnitId')),
+                ('crfstatuspeerunitstate', YLeaf(YType.enumeration, 'cRFStatusPeerUnitState')),
+                ('crfstatusprimarymode', YLeaf(YType.boolean, 'cRFStatusPrimaryMode')),
+                ('crfstatusduplexmode', YLeaf(YType.boolean, 'cRFStatusDuplexMode')),
+                ('crfstatusmanualswactinhibit', YLeaf(YType.boolean, 'cRFStatusManualSwactInhibit')),
+                ('crfstatuslastswactreasoncode', YLeaf(YType.enumeration, 'cRFStatusLastSwactReasonCode')),
+                ('crfstatusfailovertime', YLeaf(YType.uint32, 'cRFStatusFailoverTime')),
+                ('crfstatuspeerstandbyentrytime', YLeaf(YType.uint32, 'cRFStatusPeerStandByEntryTime')),
+                ('crfstatusissustate', YLeaf(YType.enumeration, 'cRFStatusIssuState')),
+                ('crfstatusissustaterev1', YLeaf(YType.enumeration, 'cRFStatusIssuStateRev1')),
+                ('crfstatusissufromversion', YLeaf(YType.str, 'cRFStatusIssuFromVersion')),
+                ('crfstatusissutoversion', YLeaf(YType.str, 'cRFStatusIssuToVersion')),
+            ])
+            self.crfstatusunitid = None
+            self.crfstatusunitstate = None
+            self.crfstatuspeerunitid = None
+            self.crfstatuspeerunitstate = None
+            self.crfstatusprimarymode = None
+            self.crfstatusduplexmode = None
+            self.crfstatusmanualswactinhibit = None
+            self.crfstatuslastswactreasoncode = None
+            self.crfstatusfailovertime = None
+            self.crfstatuspeerstandbyentrytime = None
+            self.crfstatusissustate = None
+            self.crfstatusissustaterev1 = None
+            self.crfstatusissufromversion = None
+            self.crfstatusissutoversion = None
             self._segment_path = lambda: "cRFStatus"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
 
@@ -986,40 +993,43 @@ class CISCORFMIB(Entity):
             self.yang_parent_name = "CISCO-RF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.crfcfgsplitmode = YLeaf(YType.boolean, "cRFCfgSplitMode")
-
-            self.crfcfgkeepalivethresh = YLeaf(YType.uint32, "cRFCfgKeepaliveThresh")
-
-            self.crfcfgkeepalivethreshmin = YLeaf(YType.uint32, "cRFCfgKeepaliveThreshMin")
-
-            self.crfcfgkeepalivethreshmax = YLeaf(YType.uint32, "cRFCfgKeepaliveThreshMax")
-
-            self.crfcfgkeepalivetimer = YLeaf(YType.uint32, "cRFCfgKeepaliveTimer")
-
-            self.crfcfgkeepalivetimermin = YLeaf(YType.uint32, "cRFCfgKeepaliveTimerMin")
-
-            self.crfcfgkeepalivetimermax = YLeaf(YType.uint32, "cRFCfgKeepaliveTimerMax")
-
-            self.crfcfgnotiftimer = YLeaf(YType.uint32, "cRFCfgNotifTimer")
-
-            self.crfcfgnotiftimermin = YLeaf(YType.uint32, "cRFCfgNotifTimerMin")
-
-            self.crfcfgnotiftimermax = YLeaf(YType.uint32, "cRFCfgNotifTimerMax")
-
-            self.crfcfgadminaction = YLeaf(YType.enumeration, "cRFCfgAdminAction")
-
-            self.crfcfgnotifsenabled = YLeaf(YType.boolean, "cRFCfgNotifsEnabled")
-
-            self.crfcfgmaintenancemode = YLeaf(YType.boolean, "cRFCfgMaintenanceMode")
-
-            self.crfcfgredundancymode = YLeaf(YType.enumeration, "cRFCfgRedundancyMode")
-
-            self.crfcfgredundancymodedescr = YLeaf(YType.str, "cRFCfgRedundancyModeDescr")
-
-            self.crfcfgredundancyopermode = YLeaf(YType.enumeration, "cRFCfgRedundancyOperMode")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('crfcfgsplitmode', YLeaf(YType.boolean, 'cRFCfgSplitMode')),
+                ('crfcfgkeepalivethresh', YLeaf(YType.uint32, 'cRFCfgKeepaliveThresh')),
+                ('crfcfgkeepalivethreshmin', YLeaf(YType.uint32, 'cRFCfgKeepaliveThreshMin')),
+                ('crfcfgkeepalivethreshmax', YLeaf(YType.uint32, 'cRFCfgKeepaliveThreshMax')),
+                ('crfcfgkeepalivetimer', YLeaf(YType.uint32, 'cRFCfgKeepaliveTimer')),
+                ('crfcfgkeepalivetimermin', YLeaf(YType.uint32, 'cRFCfgKeepaliveTimerMin')),
+                ('crfcfgkeepalivetimermax', YLeaf(YType.uint32, 'cRFCfgKeepaliveTimerMax')),
+                ('crfcfgnotiftimer', YLeaf(YType.uint32, 'cRFCfgNotifTimer')),
+                ('crfcfgnotiftimermin', YLeaf(YType.uint32, 'cRFCfgNotifTimerMin')),
+                ('crfcfgnotiftimermax', YLeaf(YType.uint32, 'cRFCfgNotifTimerMax')),
+                ('crfcfgadminaction', YLeaf(YType.enumeration, 'cRFCfgAdminAction')),
+                ('crfcfgnotifsenabled', YLeaf(YType.boolean, 'cRFCfgNotifsEnabled')),
+                ('crfcfgmaintenancemode', YLeaf(YType.boolean, 'cRFCfgMaintenanceMode')),
+                ('crfcfgredundancymode', YLeaf(YType.enumeration, 'cRFCfgRedundancyMode')),
+                ('crfcfgredundancymodedescr', YLeaf(YType.str, 'cRFCfgRedundancyModeDescr')),
+                ('crfcfgredundancyopermode', YLeaf(YType.enumeration, 'cRFCfgRedundancyOperMode')),
+            ])
+            self.crfcfgsplitmode = None
+            self.crfcfgkeepalivethresh = None
+            self.crfcfgkeepalivethreshmin = None
+            self.crfcfgkeepalivethreshmax = None
+            self.crfcfgkeepalivetimer = None
+            self.crfcfgkeepalivetimermin = None
+            self.crfcfgkeepalivetimermax = None
+            self.crfcfgnotiftimer = None
+            self.crfcfgnotiftimermin = None
+            self.crfcfgnotiftimermax = None
+            self.crfcfgadminaction = None
+            self.crfcfgnotifsenabled = None
+            self.crfcfgmaintenancemode = None
+            self.crfcfgredundancymode = None
+            self.crfcfgredundancymodedescr = None
+            self.crfcfgredundancyopermode = None
             self._segment_path = lambda: "cRFCfg"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
 
@@ -1066,14 +1076,17 @@ class CISCORFMIB(Entity):
             self.yang_parent_name = "CISCO-RF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.crfhistorytablemaxlength = YLeaf(YType.uint32, "cRFHistoryTableMaxLength")
-
-            self.crfhistorycoldstarts = YLeaf(YType.uint32, "cRFHistoryColdStarts")
-
-            self.crfhistorystandbyavailtime = YLeaf(YType.int32, "cRFHistoryStandByAvailTime")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('crfhistorytablemaxlength', YLeaf(YType.uint32, 'cRFHistoryTableMaxLength')),
+                ('crfhistorycoldstarts', YLeaf(YType.uint32, 'cRFHistoryColdStarts')),
+                ('crfhistorystandbyavailtime', YLeaf(YType.int32, 'cRFHistoryStandByAvailTime')),
+            ])
+            self.crfhistorytablemaxlength = None
+            self.crfhistorycoldstarts = None
+            self.crfhistorystandbyavailtime = None
             self._segment_path = lambda: "cRFHistory"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
 
@@ -1105,8 +1118,10 @@ class CISCORFMIB(Entity):
             self.yang_parent_name = "CISCO-RF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cRFStatusRFModeCapsEntry" : ("crfstatusrfmodecapsentry", CISCORFMIB.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cRFStatusRFModeCapsEntry", ("crfstatusrfmodecapsentry", CISCORFMIB.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry))])
+            self._leafs = OrderedDict()
 
             self.crfstatusrfmodecapsentry = YList(self)
             self._segment_path = lambda: "cRFStatusRFModeCapsTable"
@@ -1122,7 +1137,7 @@ class CISCORFMIB(Entity):
             terminology associated with the redundancy mode that can be
             supported on the device.
             
-            .. attribute:: crfstatusrfmodecapsmode  <key>
+            .. attribute:: crfstatusrfmodecapsmode  (key)
             
             	The redundancy mode that can be supported on the device
             	**type**\:  :py:class:`RFMode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RFMode>`
@@ -1146,13 +1161,16 @@ class CISCORFMIB(Entity):
                 self.yang_parent_name = "cRFStatusRFModeCapsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.crfstatusrfmodecapsmode = YLeaf(YType.enumeration, "cRFStatusRFModeCapsMode")
-
-                self.crfstatusrfmodecapsmodedescr = YLeaf(YType.str, "cRFStatusRFModeCapsModeDescr")
-                self._segment_path = lambda: "cRFStatusRFModeCapsEntry" + "[cRFStatusRFModeCapsMode='" + self.crfstatusrfmodecapsmode.get() + "']"
+                self.ylist_key_names = ['crfstatusrfmodecapsmode']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('crfstatusrfmodecapsmode', YLeaf(YType.enumeration, 'cRFStatusRFModeCapsMode')),
+                    ('crfstatusrfmodecapsmodedescr', YLeaf(YType.str, 'cRFStatusRFModeCapsModeDescr')),
+                ])
+                self.crfstatusrfmodecapsmode = None
+                self.crfstatusrfmodecapsmodedescr = None
+                self._segment_path = lambda: "cRFStatusRFModeCapsEntry" + "[cRFStatusRFModeCapsMode='" + str(self.crfstatusrfmodecapsmode) + "']"
                 self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/cRFStatusRFModeCapsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1187,8 +1205,10 @@ class CISCORFMIB(Entity):
             self.yang_parent_name = "CISCO-RF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cRFHistorySwitchOverEntry" : ("crfhistoryswitchoverentry", CISCORFMIB.Crfhistoryswitchovertable.Crfhistoryswitchoverentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cRFHistorySwitchOverEntry", ("crfhistoryswitchoverentry", CISCORFMIB.Crfhistoryswitchovertable.Crfhistoryswitchoverentry))])
+            self._leafs = OrderedDict()
 
             self.crfhistoryswitchoverentry = YList(self)
             self._segment_path = lambda: "cRFHistorySwitchOverTable"
@@ -1205,7 +1225,7 @@ class CISCORFMIB(Entity):
             cRFHistorySwitchOverIndex. The index wraps around to 1
             after reaching the maximum value.
             
-            .. attribute:: crfhistoryswitchoverindex  <key>
+            .. attribute:: crfhistoryswitchoverindex  (key)
             
             	A monotonically increasing integer for the purpose of indexing history table. After reaching maximum value, it wraps around to 1
             	**type**\: int
@@ -1250,19 +1270,22 @@ class CISCORFMIB(Entity):
                 self.yang_parent_name = "cRFHistorySwitchOverTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.crfhistoryswitchoverindex = YLeaf(YType.uint32, "cRFHistorySwitchOverIndex")
-
-                self.crfhistoryprevactiveunitid = YLeaf(YType.int32, "cRFHistoryPrevActiveUnitId")
-
-                self.crfhistorycurractiveunitid = YLeaf(YType.int32, "cRFHistoryCurrActiveUnitId")
-
-                self.crfhistoryswitchoverreason = YLeaf(YType.enumeration, "cRFHistorySwitchOverReason")
-
-                self.crfhistoryswacttime = YLeaf(YType.str, "cRFHistorySwactTime")
-                self._segment_path = lambda: "cRFHistorySwitchOverEntry" + "[cRFHistorySwitchOverIndex='" + self.crfhistoryswitchoverindex.get() + "']"
+                self.ylist_key_names = ['crfhistoryswitchoverindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('crfhistoryswitchoverindex', YLeaf(YType.uint32, 'cRFHistorySwitchOverIndex')),
+                    ('crfhistoryprevactiveunitid', YLeaf(YType.int32, 'cRFHistoryPrevActiveUnitId')),
+                    ('crfhistorycurractiveunitid', YLeaf(YType.int32, 'cRFHistoryCurrActiveUnitId')),
+                    ('crfhistoryswitchoverreason', YLeaf(YType.enumeration, 'cRFHistorySwitchOverReason')),
+                    ('crfhistoryswacttime', YLeaf(YType.str, 'cRFHistorySwactTime')),
+                ])
+                self.crfhistoryswitchoverindex = None
+                self.crfhistoryprevactiveunitid = None
+                self.crfhistorycurractiveunitid = None
+                self.crfhistoryswitchoverreason = None
+                self.crfhistoryswacttime = None
+                self._segment_path = lambda: "cRFHistorySwitchOverEntry" + "[cRFHistorySwitchOverIndex='" + str(self.crfhistoryswitchoverindex) + "']"
                 self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/cRFHistorySwitchOverTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1298,8 +1321,10 @@ class CISCORFMIB(Entity):
             self.yang_parent_name = "CISCO-RF-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cRFStatusRFClientEntry" : ("crfstatusrfcliententry", CISCORFMIB.Crfstatusrfclienttable.Crfstatusrfcliententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cRFStatusRFClientEntry", ("crfstatusrfcliententry", CISCORFMIB.Crfstatusrfclienttable.Crfstatusrfcliententry))])
+            self._leafs = OrderedDict()
 
             self.crfstatusrfcliententry = YList(self)
             self._segment_path = lambda: "cRFStatusRFClientTable"
@@ -1320,7 +1345,7 @@ class CISCORFMIB(Entity):
             is destroyed when that application deregisters from the 
             Redundancy Facility.
             
-            .. attribute:: crfstatusrfclientid  <key>
+            .. attribute:: crfstatusrfclientid  (key)
             
             	A unique identifier for the client which registered with the Redundancy Facility
             	**type**\: int
@@ -1367,19 +1392,22 @@ class CISCORFMIB(Entity):
                 self.yang_parent_name = "cRFStatusRFClientTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.crfstatusrfclientid = YLeaf(YType.uint32, "cRFStatusRFClientID")
-
-                self.crfstatusrfclientdescr = YLeaf(YType.str, "cRFStatusRFClientDescr")
-
-                self.crfstatusrfclientseq = YLeaf(YType.uint32, "cRFStatusRFClientSeq")
-
-                self.crfstatusrfclientredtime = YLeaf(YType.uint32, "cRFStatusRFClientRedTime")
-
-                self.crfstatusrfclientstatus = YLeaf(YType.enumeration, "cRFStatusRFClientStatus")
-                self._segment_path = lambda: "cRFStatusRFClientEntry" + "[cRFStatusRFClientID='" + self.crfstatusrfclientid.get() + "']"
+                self.ylist_key_names = ['crfstatusrfclientid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('crfstatusrfclientid', YLeaf(YType.uint32, 'cRFStatusRFClientID')),
+                    ('crfstatusrfclientdescr', YLeaf(YType.str, 'cRFStatusRFClientDescr')),
+                    ('crfstatusrfclientseq', YLeaf(YType.uint32, 'cRFStatusRFClientSeq')),
+                    ('crfstatusrfclientredtime', YLeaf(YType.uint32, 'cRFStatusRFClientRedTime')),
+                    ('crfstatusrfclientstatus', YLeaf(YType.enumeration, 'cRFStatusRFClientStatus')),
+                ])
+                self.crfstatusrfclientid = None
+                self.crfstatusrfclientdescr = None
+                self.crfstatusrfclientseq = None
+                self.crfstatusrfclientredtime = None
+                self.crfstatusrfclientstatus = None
+                self._segment_path = lambda: "cRFStatusRFClientEntry" + "[cRFStatusRFClientID='" + str(self.crfstatusrfclientid) + "']"
                 self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/cRFStatusRFClientTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

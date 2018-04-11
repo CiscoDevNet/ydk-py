@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class Ipv6NdBndlState(Enum):
     """
-    Ipv6NdBndlState
+    Ipv6NdBndlState (Enum Class)
 
     IPv6 ND Bundle State
 
@@ -46,7 +48,7 @@ class Ipv6NdBndlState(Enum):
 
 class Ipv6NdMediaEncap(Enum):
     """
-    Ipv6NdMediaEncap
+    Ipv6NdMediaEncap (Enum Class)
 
     IPv6 ND Media Encapsulation Type
 
@@ -133,7 +135,7 @@ class Ipv6NdMediaEncap(Enum):
 
 class Ipv6NdNeighborOrigin(Enum):
     """
-    Ipv6NdNeighborOrigin
+    Ipv6NdNeighborOrigin (Enum Class)
 
     IPv6 ND Neighbor Origin Type
 
@@ -160,7 +162,7 @@ class Ipv6NdNeighborOrigin(Enum):
 
 class Ipv6NdShState(Enum):
     """
-    Ipv6NdShState
+    Ipv6NdShState (Enum Class)
 
     IPv6 ND Neighbor Reachability State
 
@@ -211,7 +213,7 @@ class Ipv6NdShState(Enum):
 
 class Ipv6NdShVrFlags(Enum):
     """
-    Ipv6NdShVrFlags
+    Ipv6NdShVrFlags (Enum Class)
 
     IPv6 ND VR Entry Flags Type 
 
@@ -232,7 +234,7 @@ class Ipv6NdShVrFlags(Enum):
 
 class Ipv6NdShVrState(Enum):
     """
-    Ipv6NdShVrState
+    Ipv6NdShVrState (Enum Class)
 
     IPv6 ND VR Entry State Type 
 
@@ -282,8 +284,10 @@ class Ipv6NodeDiscovery(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-nd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Ipv6NodeDiscovery.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Ipv6NodeDiscovery.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Ipv6NodeDiscovery.Nodes()
         self.nodes.parent = self
@@ -315,8 +319,10 @@ class Ipv6NodeDiscovery(Entity):
             self.yang_parent_name = "ipv6-node-discovery"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Ipv6NodeDiscovery.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Ipv6NodeDiscovery.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -331,7 +337,7 @@ class Ipv6NodeDiscovery(Entity):
             IPv6 node discovery operational data for a
             particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	The node name
             	**type**\: str
@@ -387,10 +393,13 @@ class Ipv6NodeDiscovery(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"neighbor-interfaces" : ("neighbor_interfaces", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces), "neighbor-summary" : ("neighbor_summary", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary), "bundle-nodes" : ("bundle_nodes", Ipv6NodeDiscovery.Nodes.Node.BundleNodes), "bundle-interfaces" : ("bundle_interfaces", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces), "interfaces" : ("interfaces", Ipv6NodeDiscovery.Nodes.Node.Interfaces), "nd-virtual-routers" : ("nd_virtual_routers", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters), "slaac-interfaces" : ("slaac_interfaces", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("neighbor-interfaces", ("neighbor_interfaces", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces)), ("neighbor-summary", ("neighbor_summary", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary)), ("bundle-nodes", ("bundle_nodes", Ipv6NodeDiscovery.Nodes.Node.BundleNodes)), ("bundle-interfaces", ("bundle_interfaces", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces)), ("interfaces", ("interfaces", Ipv6NodeDiscovery.Nodes.Node.Interfaces)), ("nd-virtual-routers", ("nd_virtual_routers", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters)), ("slaac-interfaces", ("slaac_interfaces", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.neighbor_interfaces = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces()
                 self.neighbor_interfaces.parent = self
@@ -426,7 +435,7 @@ class Ipv6NodeDiscovery(Entity):
                 self.slaac_interfaces.parent = self
                 self._children_name_map["slaac_interfaces"] = "slaac-interfaces"
                 self._children_yang_names.add("slaac-interfaces")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-nd-oper:ipv6-node-discovery/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -457,8 +466,10 @@ class Ipv6NodeDiscovery(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"neighbor-interface" : ("neighbor_interface", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("neighbor-interface", ("neighbor_interface", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface))])
+                    self._leafs = OrderedDict()
 
                     self.neighbor_interface = YList(self)
                     self._segment_path = lambda: "neighbor-interfaces"
@@ -471,7 +482,7 @@ class Ipv6NodeDiscovery(Entity):
                     """
                     IPv6 node discovery neighbor interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface Name
                     	**type**\: str
@@ -497,16 +508,19 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "neighbor-interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"host-addresses" : ("host_addresses", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("host-addresses", ("host_addresses", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ])
+                        self.interface_name = None
 
                         self.host_addresses = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses()
                         self.host_addresses.parent = self
                         self._children_name_map["host_addresses"] = "host-addresses"
                         self._children_yang_names.add("host-addresses")
-                        self._segment_path = lambda: "neighbor-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "neighbor-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface, ['interface_name'], name, value)
@@ -536,8 +550,10 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "neighbor-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"host-address" : ("host_address", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("host-address", ("host_address", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress))])
+                            self._leafs = OrderedDict()
 
                             self.host_address = YList(self)
                             self._segment_path = lambda: "host-addresses"
@@ -550,7 +566,7 @@ class Ipv6NodeDiscovery(Entity):
                             """
                             IPv6 Neighbor detailed information
                             
-                            .. attribute:: host_address  <key>
+                            .. attribute:: host_address  (key)
                             
                             	Host Address
                             	**type**\: str
@@ -613,6 +629,13 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: vrfid
+                            
+                            	VRF name for this entry
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             
 
                             """
@@ -627,37 +650,42 @@ class Ipv6NodeDiscovery(Entity):
                                 self.yang_parent_name = "host-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"last-reached-time" : ("last_reached_time", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime)}
-                                self._child_list_classes = {}
-
-                                self.host_address = YLeaf(YType.str, "host-address")
-
-                                self.reachability_state = YLeaf(YType.enumeration, "reachability-state")
-
-                                self.link_layer_address = YLeaf(YType.str, "link-layer-address")
-
-                                self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-
-                                self.selected_encapsulation = YLeaf(YType.enumeration, "selected-encapsulation")
-
-                                self.origin_encapsulation = YLeaf(YType.enumeration, "origin-encapsulation")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.location = YLeaf(YType.str, "location")
-
-                                self.is_router = YLeaf(YType.boolean, "is-router")
-
-                                self.serg_flags = YLeaf(YType.uint32, "serg-flags")
+                                self.ylist_key_names = ['host_address']
+                                self._child_container_classes = OrderedDict([("last-reached-time", ("last_reached_time", Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('host_address', YLeaf(YType.str, 'host-address')),
+                                    ('reachability_state', YLeaf(YType.enumeration, 'reachability-state')),
+                                    ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
+                                    ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
+                                    ('selected_encapsulation', YLeaf(YType.enumeration, 'selected-encapsulation')),
+                                    ('origin_encapsulation', YLeaf(YType.enumeration, 'origin-encapsulation')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('location', YLeaf(YType.str, 'location')),
+                                    ('is_router', YLeaf(YType.boolean, 'is-router')),
+                                    ('serg_flags', YLeaf(YType.uint32, 'serg-flags')),
+                                    ('vrfid', YLeaf(YType.uint32, 'vrfid')),
+                                ])
+                                self.host_address = None
+                                self.reachability_state = None
+                                self.link_layer_address = None
+                                self.encapsulation = None
+                                self.selected_encapsulation = None
+                                self.origin_encapsulation = None
+                                self.interface_name = None
+                                self.location = None
+                                self.is_router = None
+                                self.serg_flags = None
+                                self.vrfid = None
 
                                 self.last_reached_time = Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime()
                                 self.last_reached_time.parent = self
                                 self._children_name_map["last_reached_time"] = "last-reached-time"
                                 self._children_yang_names.add("last-reached-time")
-                                self._segment_path = lambda: "host-address" + "[host-address='" + self.host_address.get() + "']"
+                                self._segment_path = lambda: "host-address" + "[host-address='" + str(self.host_address) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, ['host_address', 'reachability_state', 'link_layer_address', 'encapsulation', 'selected_encapsulation', 'origin_encapsulation', 'interface_name', 'location', 'is_router', 'serg_flags'], name, value)
+                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, ['host_address', 'reachability_state', 'link_layer_address', 'encapsulation', 'selected_encapsulation', 'origin_encapsulation', 'interface_name', 'location', 'is_router', 'serg_flags', 'vrfid'], name, value)
 
 
                             class LastReachedTime(Entity):
@@ -687,10 +715,13 @@ class Ipv6NodeDiscovery(Entity):
                                     self.yang_parent_name = "host-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.seconds = YLeaf(YType.uint32, "seconds")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('seconds', YLeaf(YType.uint32, 'seconds')),
+                                    ])
+                                    self.seconds = None
                                     self._segment_path = lambda: "last-reached-time"
 
                                 def __setattr__(self, name, value):
@@ -737,10 +768,13 @@ class Ipv6NodeDiscovery(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"multicast" : ("multicast", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast), "static" : ("static", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static), "dynamic" : ("dynamic", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic)}
-                    self._child_list_classes = {}
-
-                    self.total_neighbor_entries = YLeaf(YType.uint32, "total-neighbor-entries")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("multicast", ("multicast", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast)), ("static", ("static", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static)), ("dynamic", ("dynamic", Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('total_neighbor_entries', YLeaf(YType.uint32, 'total-neighbor-entries')),
+                    ])
+                    self.total_neighbor_entries = None
 
                     self.multicast = Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast()
                     self.multicast.parent = self
@@ -829,22 +863,25 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "neighbor-summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
-
-                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
-
-                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
-
-                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
-
-                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
-
-                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
-
-                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('incomplete_entries', YLeaf(YType.uint32, 'incomplete-entries')),
+                            ('reachable_entries', YLeaf(YType.uint32, 'reachable-entries')),
+                            ('stale_entries', YLeaf(YType.uint32, 'stale-entries')),
+                            ('delayed_entries', YLeaf(YType.uint32, 'delayed-entries')),
+                            ('probe_entries', YLeaf(YType.uint32, 'probe-entries')),
+                            ('deleted_entries', YLeaf(YType.uint32, 'deleted-entries')),
+                            ('subtotal_neighbor_entries', YLeaf(YType.uint32, 'subtotal-neighbor-entries')),
+                        ])
+                        self.incomplete_entries = None
+                        self.reachable_entries = None
+                        self.stale_entries = None
+                        self.delayed_entries = None
+                        self.probe_entries = None
+                        self.deleted_entries = None
+                        self.subtotal_neighbor_entries = None
                         self._segment_path = lambda: "multicast"
 
                     def __setattr__(self, name, value):
@@ -918,22 +955,25 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "neighbor-summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
-
-                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
-
-                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
-
-                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
-
-                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
-
-                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
-
-                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('incomplete_entries', YLeaf(YType.uint32, 'incomplete-entries')),
+                            ('reachable_entries', YLeaf(YType.uint32, 'reachable-entries')),
+                            ('stale_entries', YLeaf(YType.uint32, 'stale-entries')),
+                            ('delayed_entries', YLeaf(YType.uint32, 'delayed-entries')),
+                            ('probe_entries', YLeaf(YType.uint32, 'probe-entries')),
+                            ('deleted_entries', YLeaf(YType.uint32, 'deleted-entries')),
+                            ('subtotal_neighbor_entries', YLeaf(YType.uint32, 'subtotal-neighbor-entries')),
+                        ])
+                        self.incomplete_entries = None
+                        self.reachable_entries = None
+                        self.stale_entries = None
+                        self.delayed_entries = None
+                        self.probe_entries = None
+                        self.deleted_entries = None
+                        self.subtotal_neighbor_entries = None
                         self._segment_path = lambda: "static"
 
                     def __setattr__(self, name, value):
@@ -1007,22 +1047,25 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "neighbor-summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.incomplete_entries = YLeaf(YType.uint32, "incomplete-entries")
-
-                        self.reachable_entries = YLeaf(YType.uint32, "reachable-entries")
-
-                        self.stale_entries = YLeaf(YType.uint32, "stale-entries")
-
-                        self.delayed_entries = YLeaf(YType.uint32, "delayed-entries")
-
-                        self.probe_entries = YLeaf(YType.uint32, "probe-entries")
-
-                        self.deleted_entries = YLeaf(YType.uint32, "deleted-entries")
-
-                        self.subtotal_neighbor_entries = YLeaf(YType.uint32, "subtotal-neighbor-entries")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('incomplete_entries', YLeaf(YType.uint32, 'incomplete-entries')),
+                            ('reachable_entries', YLeaf(YType.uint32, 'reachable-entries')),
+                            ('stale_entries', YLeaf(YType.uint32, 'stale-entries')),
+                            ('delayed_entries', YLeaf(YType.uint32, 'delayed-entries')),
+                            ('probe_entries', YLeaf(YType.uint32, 'probe-entries')),
+                            ('deleted_entries', YLeaf(YType.uint32, 'deleted-entries')),
+                            ('subtotal_neighbor_entries', YLeaf(YType.uint32, 'subtotal-neighbor-entries')),
+                        ])
+                        self.incomplete_entries = None
+                        self.reachable_entries = None
+                        self.stale_entries = None
+                        self.delayed_entries = None
+                        self.probe_entries = None
+                        self.deleted_entries = None
+                        self.subtotal_neighbor_entries = None
                         self._segment_path = lambda: "dynamic"
 
                     def __setattr__(self, name, value):
@@ -1053,8 +1096,10 @@ class Ipv6NodeDiscovery(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bundle-node" : ("bundle_node", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bundle-node", ("bundle_node", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode))])
+                    self._leafs = OrderedDict()
 
                     self.bundle_node = YList(self)
                     self._segment_path = lambda: "bundle-nodes"
@@ -1068,7 +1113,7 @@ class Ipv6NodeDiscovery(Entity):
                     IPv6 ND operational data for a specific
                     bundle node
                     
-                    .. attribute:: node_name  <key>
+                    .. attribute:: node_name  (key)
                     
                     	The bundle node name
                     	**type**\: str
@@ -1146,32 +1191,35 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "bundle-nodes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"age" : ("age", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age)}
-                        self._child_list_classes = {}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.group_id = YLeaf(YType.uint32, "group-id")
-
-                        self.process_name = YLeaf(YType.str, "process-name")
-
-                        self.sent_sequence_number = YLeaf(YType.uint32, "sent-sequence-number")
-
-                        self.received_sequence_number = YLeaf(YType.uint32, "received-sequence-number")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.state_changes = YLeaf(YType.uint32, "state-changes")
-
-                        self.sent_packets = YLeaf(YType.uint32, "sent-packets")
-
-                        self.received_packets = YLeaf(YType.uint32, "received-packets")
+                        self.ylist_key_names = ['node_name']
+                        self._child_container_classes = OrderedDict([("age", ("age", Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('group_id', YLeaf(YType.uint32, 'group-id')),
+                            ('process_name', YLeaf(YType.str, 'process-name')),
+                            ('sent_sequence_number', YLeaf(YType.uint32, 'sent-sequence-number')),
+                            ('received_sequence_number', YLeaf(YType.uint32, 'received-sequence-number')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('state_changes', YLeaf(YType.uint32, 'state-changes')),
+                            ('sent_packets', YLeaf(YType.uint32, 'sent-packets')),
+                            ('received_packets', YLeaf(YType.uint32, 'received-packets')),
+                        ])
+                        self.node_name = None
+                        self.group_id = None
+                        self.process_name = None
+                        self.sent_sequence_number = None
+                        self.received_sequence_number = None
+                        self.state = None
+                        self.state_changes = None
+                        self.sent_packets = None
+                        self.received_packets = None
 
                         self.age = Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age()
                         self.age.parent = self
                         self._children_name_map["age"] = "age"
                         self._children_yang_names.add("age")
-                        self._segment_path = lambda: "bundle-node" + "[node-name='" + self.node_name.get() + "']"
+                        self._segment_path = lambda: "bundle-node" + "[node-name='" + str(self.node_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, ['node_name', 'group_id', 'process_name', 'sent_sequence_number', 'received_sequence_number', 'state', 'state_changes', 'sent_packets', 'received_packets'], name, value)
@@ -1204,10 +1252,13 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "bundle-node"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ])
+                            self.seconds = None
                             self._segment_path = lambda: "age"
 
                         def __setattr__(self, name, value):
@@ -1238,8 +1289,10 @@ class Ipv6NodeDiscovery(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bundle-interface" : ("bundle_interface", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bundle-interface", ("bundle_interface", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface))])
+                    self._leafs = OrderedDict()
 
                     self.bundle_interface = YList(self)
                     self._segment_path = lambda: "bundle-interfaces"
@@ -1253,7 +1306,7 @@ class Ipv6NodeDiscovery(Entity):
                     IPv6 ND operational data for a specific
                     bundler interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface Name
                     	**type**\: str
@@ -1365,32 +1418,35 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "bundle-interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"nd-parameters" : ("nd_parameters", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters), "local-address" : ("local_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress)}
-                        self._child_list_classes = {"global-address" : ("global_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress), "member-node" : ("member_node", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
-
-                        self.iftype = YLeaf(YType.uint32, "iftype")
-
-                        self.mtu = YLeaf(YType.uint32, "mtu")
-
-                        self.etype = YLeaf(YType.uint32, "etype")
-
-                        self.vlan_tag = YLeaf(YType.uint16, "vlan-tag")
-
-                        self.mac_addr_size = YLeaf(YType.uint32, "mac-addr-size")
-
-                        self.mac_addr = YLeaf(YType.str, "mac-addr")
-
-                        self.is_interface_enabled = YLeaf(YType.boolean, "is-interface-enabled")
-
-                        self.is_ipv6_enabled = YLeaf(YType.boolean, "is-ipv6-enabled")
-
-                        self.is_mpls_enabled = YLeaf(YType.boolean, "is-mpls-enabled")
-
-                        self.member_link = YLeafList(YType.uint32, "member-link")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("nd-parameters", ("nd_parameters", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters)), ("local-address", ("local_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress))])
+                        self._child_list_classes = OrderedDict([("global-address", ("global_address", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress)), ("member-node", ("member_node", Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
+                            ('iftype', YLeaf(YType.uint32, 'iftype')),
+                            ('mtu', YLeaf(YType.uint32, 'mtu')),
+                            ('etype', YLeaf(YType.uint32, 'etype')),
+                            ('vlan_tag', YLeaf(YType.uint16, 'vlan-tag')),
+                            ('mac_addr_size', YLeaf(YType.uint32, 'mac-addr-size')),
+                            ('mac_addr', YLeaf(YType.str, 'mac-addr')),
+                            ('is_interface_enabled', YLeaf(YType.boolean, 'is-interface-enabled')),
+                            ('is_ipv6_enabled', YLeaf(YType.boolean, 'is-ipv6-enabled')),
+                            ('is_mpls_enabled', YLeaf(YType.boolean, 'is-mpls-enabled')),
+                            ('member_link', YLeafList(YType.uint32, 'member-link')),
+                        ])
+                        self.interface_name = None
+                        self.parent_interface_name = None
+                        self.iftype = None
+                        self.mtu = None
+                        self.etype = None
+                        self.vlan_tag = None
+                        self.mac_addr_size = None
+                        self.mac_addr = None
+                        self.is_interface_enabled = None
+                        self.is_ipv6_enabled = None
+                        self.is_mpls_enabled = None
+                        self.member_link = []
 
                         self.nd_parameters = Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters()
                         self.nd_parameters.parent = self
@@ -1404,7 +1460,7 @@ class Ipv6NodeDiscovery(Entity):
 
                         self.global_address = YList(self)
                         self.member_node = YList(self)
-                        self._segment_path = lambda: "bundle-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "bundle-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name', 'parent_interface_name', 'iftype', 'mtu', 'etype', 'vlan_tag', 'mac_addr_size', 'mac_addr', 'is_interface_enabled', 'is_ipv6_enabled', 'is_mpls_enabled', 'member_link'], name, value)
@@ -1549,46 +1605,49 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "bundle-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_dad_enabled = YLeaf(YType.boolean, "is-dad-enabled")
-
-                            self.dad_attempts = YLeaf(YType.uint32, "dad-attempts")
-
-                            self.is_icm_pv6_redirect = YLeaf(YType.boolean, "is-icm-pv6-redirect")
-
-                            self.is_dhcp_managed = YLeaf(YType.boolean, "is-dhcp-managed")
-
-                            self.is_route_address_managed = YLeaf(YType.boolean, "is-route-address-managed")
-
-                            self.is_suppressed = YLeaf(YType.boolean, "is-suppressed")
-
-                            self.send_unicast_ra = YLeaf(YType.boolean, "send-unicast-ra")
-
-                            self.nd_retransmit_interval = YLeaf(YType.uint32, "nd-retransmit-interval")
-
-                            self.nd_min_transmit_interval = YLeaf(YType.uint32, "nd-min-transmit-interval")
-
-                            self.nd_max_transmit_interval = YLeaf(YType.uint32, "nd-max-transmit-interval")
-
-                            self.nd_advertisement_lifetime = YLeaf(YType.uint32, "nd-advertisement-lifetime")
-
-                            self.nd_reachable_time = YLeaf(YType.uint32, "nd-reachable-time")
-
-                            self.nd_cache_limit = YLeaf(YType.uint32, "nd-cache-limit")
-
-                            self.complete_protocol_count = YLeaf(YType.uint32, "complete-protocol-count")
-
-                            self.complete_glean_count = YLeaf(YType.uint32, "complete-glean-count")
-
-                            self.incomplete_protocol_count = YLeaf(YType.uint32, "incomplete-protocol-count")
-
-                            self.incomplete_glean_count = YLeaf(YType.uint32, "incomplete-glean-count")
-
-                            self.dropped_protocol_req_count = YLeaf(YType.uint32, "dropped-protocol-req-count")
-
-                            self.dropped_glean_req_count = YLeaf(YType.uint32, "dropped-glean-req-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_dad_enabled', YLeaf(YType.boolean, 'is-dad-enabled')),
+                                ('dad_attempts', YLeaf(YType.uint32, 'dad-attempts')),
+                                ('is_icm_pv6_redirect', YLeaf(YType.boolean, 'is-icm-pv6-redirect')),
+                                ('is_dhcp_managed', YLeaf(YType.boolean, 'is-dhcp-managed')),
+                                ('is_route_address_managed', YLeaf(YType.boolean, 'is-route-address-managed')),
+                                ('is_suppressed', YLeaf(YType.boolean, 'is-suppressed')),
+                                ('send_unicast_ra', YLeaf(YType.boolean, 'send-unicast-ra')),
+                                ('nd_retransmit_interval', YLeaf(YType.uint32, 'nd-retransmit-interval')),
+                                ('nd_min_transmit_interval', YLeaf(YType.uint32, 'nd-min-transmit-interval')),
+                                ('nd_max_transmit_interval', YLeaf(YType.uint32, 'nd-max-transmit-interval')),
+                                ('nd_advertisement_lifetime', YLeaf(YType.uint32, 'nd-advertisement-lifetime')),
+                                ('nd_reachable_time', YLeaf(YType.uint32, 'nd-reachable-time')),
+                                ('nd_cache_limit', YLeaf(YType.uint32, 'nd-cache-limit')),
+                                ('complete_protocol_count', YLeaf(YType.uint32, 'complete-protocol-count')),
+                                ('complete_glean_count', YLeaf(YType.uint32, 'complete-glean-count')),
+                                ('incomplete_protocol_count', YLeaf(YType.uint32, 'incomplete-protocol-count')),
+                                ('incomplete_glean_count', YLeaf(YType.uint32, 'incomplete-glean-count')),
+                                ('dropped_protocol_req_count', YLeaf(YType.uint32, 'dropped-protocol-req-count')),
+                                ('dropped_glean_req_count', YLeaf(YType.uint32, 'dropped-glean-req-count')),
+                            ])
+                            self.is_dad_enabled = None
+                            self.dad_attempts = None
+                            self.is_icm_pv6_redirect = None
+                            self.is_dhcp_managed = None
+                            self.is_route_address_managed = None
+                            self.is_suppressed = None
+                            self.send_unicast_ra = None
+                            self.nd_retransmit_interval = None
+                            self.nd_min_transmit_interval = None
+                            self.nd_max_transmit_interval = None
+                            self.nd_advertisement_lifetime = None
+                            self.nd_reachable_time = None
+                            self.nd_cache_limit = None
+                            self.complete_protocol_count = None
+                            self.complete_glean_count = None
+                            self.incomplete_protocol_count = None
+                            self.incomplete_glean_count = None
+                            self.dropped_protocol_req_count = None
+                            self.dropped_glean_req_count = None
                             self._segment_path = lambda: "nd-parameters"
 
                         def __setattr__(self, name, value):
@@ -1620,10 +1679,13 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "bundle-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.ipv6_address = None
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
@@ -1655,10 +1717,13 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "bundle-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.ipv6_address = None
                             self._segment_path = lambda: "global-address"
 
                         def __setattr__(self, name, value):
@@ -1697,12 +1762,15 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "bundle-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.node_name = YLeaf(YType.str, "node-name")
-
-                            self.total_links = YLeaf(YType.uint32, "total-links")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('node_name', YLeaf(YType.str, 'node-name')),
+                                ('total_links', YLeaf(YType.uint32, 'total-links')),
+                            ])
+                            self.node_name = None
+                            self.total_links = None
                             self._segment_path = lambda: "member-node"
 
                         def __setattr__(self, name, value):
@@ -1733,8 +1801,10 @@ class Ipv6NodeDiscovery(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -1748,7 +1818,7 @@ class Ipv6NodeDiscovery(Entity):
                     IPv6  node discovery operational data for a
                     specific node and interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface Name
                     	**type**\: str
@@ -1890,49 +1960,52 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.is_dad_enabled = YLeaf(YType.boolean, "is-dad-enabled")
-
-                        self.dad_attempts = YLeaf(YType.uint32, "dad-attempts")
-
-                        self.is_icm_pv6_redirect = YLeaf(YType.boolean, "is-icm-pv6-redirect")
-
-                        self.is_dhcp_managed = YLeaf(YType.boolean, "is-dhcp-managed")
-
-                        self.is_route_address_managed = YLeaf(YType.boolean, "is-route-address-managed")
-
-                        self.is_suppressed = YLeaf(YType.boolean, "is-suppressed")
-
-                        self.send_unicast_ra = YLeaf(YType.boolean, "send-unicast-ra")
-
-                        self.nd_retransmit_interval = YLeaf(YType.uint32, "nd-retransmit-interval")
-
-                        self.nd_min_transmit_interval = YLeaf(YType.uint32, "nd-min-transmit-interval")
-
-                        self.nd_max_transmit_interval = YLeaf(YType.uint32, "nd-max-transmit-interval")
-
-                        self.nd_advertisement_lifetime = YLeaf(YType.uint32, "nd-advertisement-lifetime")
-
-                        self.nd_reachable_time = YLeaf(YType.uint32, "nd-reachable-time")
-
-                        self.nd_cache_limit = YLeaf(YType.uint32, "nd-cache-limit")
-
-                        self.complete_protocol_count = YLeaf(YType.uint32, "complete-protocol-count")
-
-                        self.complete_glean_count = YLeaf(YType.uint32, "complete-glean-count")
-
-                        self.incomplete_protocol_count = YLeaf(YType.uint32, "incomplete-protocol-count")
-
-                        self.incomplete_glean_count = YLeaf(YType.uint32, "incomplete-glean-count")
-
-                        self.dropped_protocol_req_count = YLeaf(YType.uint32, "dropped-protocol-req-count")
-
-                        self.dropped_glean_req_count = YLeaf(YType.uint32, "dropped-glean-req-count")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('is_dad_enabled', YLeaf(YType.boolean, 'is-dad-enabled')),
+                            ('dad_attempts', YLeaf(YType.uint32, 'dad-attempts')),
+                            ('is_icm_pv6_redirect', YLeaf(YType.boolean, 'is-icm-pv6-redirect')),
+                            ('is_dhcp_managed', YLeaf(YType.boolean, 'is-dhcp-managed')),
+                            ('is_route_address_managed', YLeaf(YType.boolean, 'is-route-address-managed')),
+                            ('is_suppressed', YLeaf(YType.boolean, 'is-suppressed')),
+                            ('send_unicast_ra', YLeaf(YType.boolean, 'send-unicast-ra')),
+                            ('nd_retransmit_interval', YLeaf(YType.uint32, 'nd-retransmit-interval')),
+                            ('nd_min_transmit_interval', YLeaf(YType.uint32, 'nd-min-transmit-interval')),
+                            ('nd_max_transmit_interval', YLeaf(YType.uint32, 'nd-max-transmit-interval')),
+                            ('nd_advertisement_lifetime', YLeaf(YType.uint32, 'nd-advertisement-lifetime')),
+                            ('nd_reachable_time', YLeaf(YType.uint32, 'nd-reachable-time')),
+                            ('nd_cache_limit', YLeaf(YType.uint32, 'nd-cache-limit')),
+                            ('complete_protocol_count', YLeaf(YType.uint32, 'complete-protocol-count')),
+                            ('complete_glean_count', YLeaf(YType.uint32, 'complete-glean-count')),
+                            ('incomplete_protocol_count', YLeaf(YType.uint32, 'incomplete-protocol-count')),
+                            ('incomplete_glean_count', YLeaf(YType.uint32, 'incomplete-glean-count')),
+                            ('dropped_protocol_req_count', YLeaf(YType.uint32, 'dropped-protocol-req-count')),
+                            ('dropped_glean_req_count', YLeaf(YType.uint32, 'dropped-glean-req-count')),
+                        ])
+                        self.interface_name = None
+                        self.is_dad_enabled = None
+                        self.dad_attempts = None
+                        self.is_icm_pv6_redirect = None
+                        self.is_dhcp_managed = None
+                        self.is_route_address_managed = None
+                        self.is_suppressed = None
+                        self.send_unicast_ra = None
+                        self.nd_retransmit_interval = None
+                        self.nd_min_transmit_interval = None
+                        self.nd_max_transmit_interval = None
+                        self.nd_advertisement_lifetime = None
+                        self.nd_reachable_time = None
+                        self.nd_cache_limit = None
+                        self.complete_protocol_count = None
+                        self.complete_glean_count = None
+                        self.incomplete_protocol_count = None
+                        self.incomplete_glean_count = None
+                        self.dropped_protocol_req_count = None
+                        self.dropped_glean_req_count = None
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, ['interface_name', 'is_dad_enabled', 'dad_attempts', 'is_icm_pv6_redirect', 'is_dhcp_managed', 'is_route_address_managed', 'is_suppressed', 'send_unicast_ra', 'nd_retransmit_interval', 'nd_min_transmit_interval', 'nd_max_transmit_interval', 'nd_advertisement_lifetime', 'nd_reachable_time', 'nd_cache_limit', 'complete_protocol_count', 'complete_glean_count', 'incomplete_protocol_count', 'incomplete_glean_count', 'dropped_protocol_req_count', 'dropped_glean_req_count'], name, value)
@@ -1962,8 +2035,10 @@ class Ipv6NodeDiscovery(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"nd-virtual-router" : ("nd_virtual_router", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("nd-virtual-router", ("nd_virtual_router", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter))])
+                    self._leafs = OrderedDict()
 
                     self.nd_virtual_router = YList(self)
                     self._segment_path = lambda: "nd-virtual-routers"
@@ -1977,7 +2052,7 @@ class Ipv6NodeDiscovery(Entity):
                     IPv6 ND virtual  router operational data for
                     a specific interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface Name
                     	**type**\: str
@@ -2039,20 +2114,23 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "nd-virtual-routers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"local-address" : ("local_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress)}
-                        self._child_list_classes = {"vr-global-address" : ("vr_global_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.link_layer_address = YLeaf(YType.str, "link-layer-address")
-
-                        self.context = YLeaf(YType.uint32, "context")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.flags = YLeaf(YType.enumeration, "flags")
-
-                        self.vr_gl_addr_ct = YLeaf(YType.uint32, "vr-gl-addr-ct")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("local-address", ("local_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress))])
+                        self._child_list_classes = OrderedDict([("vr-global-address", ("vr_global_address", Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
+                            ('context', YLeaf(YType.uint32, 'context')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('flags', YLeaf(YType.enumeration, 'flags')),
+                            ('vr_gl_addr_ct', YLeaf(YType.uint32, 'vr-gl-addr-ct')),
+                        ])
+                        self.interface_name = None
+                        self.link_layer_address = None
+                        self.context = None
+                        self.state = None
+                        self.flags = None
+                        self.vr_gl_addr_ct = None
 
                         self.local_address = Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress()
                         self.local_address.parent = self
@@ -2060,7 +2138,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._children_yang_names.add("local-address")
 
                         self.vr_global_address = YList(self)
-                        self._segment_path = lambda: "nd-virtual-router" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "nd-virtual-router" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, ['interface_name', 'link_layer_address', 'context', 'state', 'flags', 'vr_gl_addr_ct'], name, value)
@@ -2091,10 +2169,13 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "nd-virtual-router"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.ipv6_address = None
                             self._segment_path = lambda: "local-address"
 
                         def __setattr__(self, name, value):
@@ -2126,10 +2207,13 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "nd-virtual-router"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.ipv6_address = None
                             self._segment_path = lambda: "vr-global-address"
 
                         def __setattr__(self, name, value):
@@ -2160,8 +2244,10 @@ class Ipv6NodeDiscovery(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"slaac-interface" : ("slaac_interface", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("slaac-interface", ("slaac_interface", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface))])
+                    self._leafs = OrderedDict()
 
                     self.slaac_interface = YList(self)
                     self._segment_path = lambda: "slaac-interfaces"
@@ -2175,7 +2261,7 @@ class Ipv6NodeDiscovery(Entity):
                     IPv6 ND operational data for a specific slaac
                     interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface Name
                     	**type**\: str
@@ -2201,16 +2287,19 @@ class Ipv6NodeDiscovery(Entity):
                         self.yang_parent_name = "slaac-interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"router-advert-detail" : ("router_advert_detail", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("router-advert-detail", ("router_advert_detail", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ])
+                        self.interface_name = None
 
                         self.router_advert_detail = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail()
                         self.router_advert_detail.parent = self
                         self._children_name_map["router_advert_detail"] = "router-advert-detail"
                         self._children_yang_names.add("router-advert-detail")
-                        self._segment_path = lambda: "slaac-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "slaac-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface, ['interface_name'], name, value)
@@ -2247,10 +2336,13 @@ class Ipv6NodeDiscovery(Entity):
                             self.yang_parent_name = "slaac-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ra" : ("ra", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra)}
-
-                            self.idb = YLeaf(YType.str, "idb")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("ra", ("ra", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra))])
+                            self._leafs = OrderedDict([
+                                ('idb', YLeaf(YType.str, 'idb')),
+                            ])
+                            self.idb = None
 
                             self.ra = YList(self)
                             self._segment_path = lambda: "router-advert-detail"
@@ -2370,30 +2462,33 @@ class Ipv6NodeDiscovery(Entity):
                                 self.yang_parent_name = "router-advert-detail"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"elapsed-ra-time" : ("elapsed_ra_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime), "reachable-time" : ("reachable_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime), "retrans-time" : ("retrans_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime)}
-                                self._child_list_classes = {"prefix-q" : ("prefix_q", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ)}
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.hops = YLeaf(YType.uint32, "hops")
-
-                                self.flags = YLeaf(YType.uint32, "flags")
-
-                                self.life_time = YLeaf(YType.uint32, "life-time")
-
-                                self.mtu = YLeaf(YType.uint32, "mtu")
-
-                                self.err_msg = YLeaf(YType.boolean, "err-msg")
-
-                                self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                                self.u6_tbl_id = YLeaf(YType.uint32, "u6-tbl-id")
-
-                                self.rib_protoid = YLeaf(YType.uint16, "rib-protoid")
-
-                                self.default_router = YLeaf(YType.boolean, "default-router")
-
-                                self.reachability = YLeaf(YType.uint32, "reachability")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("elapsed-ra-time", ("elapsed_ra_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime)), ("reachable-time", ("reachable_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime)), ("retrans-time", ("retrans_time", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime))])
+                                self._child_list_classes = OrderedDict([("prefix-q", ("prefix_q", Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ))])
+                                self._leafs = OrderedDict([
+                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('hops', YLeaf(YType.uint32, 'hops')),
+                                    ('flags', YLeaf(YType.uint32, 'flags')),
+                                    ('life_time', YLeaf(YType.uint32, 'life-time')),
+                                    ('mtu', YLeaf(YType.uint32, 'mtu')),
+                                    ('err_msg', YLeaf(YType.boolean, 'err-msg')),
+                                    ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                                    ('u6_tbl_id', YLeaf(YType.uint32, 'u6-tbl-id')),
+                                    ('rib_protoid', YLeaf(YType.uint16, 'rib-protoid')),
+                                    ('default_router', YLeaf(YType.boolean, 'default-router')),
+                                    ('reachability', YLeaf(YType.uint32, 'reachability')),
+                                ])
+                                self.address = None
+                                self.hops = None
+                                self.flags = None
+                                self.life_time = None
+                                self.mtu = None
+                                self.err_msg = None
+                                self.vrf_id = None
+                                self.u6_tbl_id = None
+                                self.rib_protoid = None
+                                self.default_router = None
+                                self.reachability = None
 
                                 self.elapsed_ra_time = Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime()
                                 self.elapsed_ra_time.parent = self
@@ -2444,10 +2539,13 @@ class Ipv6NodeDiscovery(Entity):
                                     self.yang_parent_name = "ra"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.seconds = YLeaf(YType.uint32, "seconds")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('seconds', YLeaf(YType.uint32, 'seconds')),
+                                    ])
+                                    self.seconds = None
                                     self._segment_path = lambda: "elapsed-ra-time"
 
                                 def __setattr__(self, name, value):
@@ -2481,10 +2579,13 @@ class Ipv6NodeDiscovery(Entity):
                                     self.yang_parent_name = "ra"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.seconds = YLeaf(YType.uint32, "seconds")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('seconds', YLeaf(YType.uint32, 'seconds')),
+                                    ])
+                                    self.seconds = None
                                     self._segment_path = lambda: "reachable-time"
 
                                 def __setattr__(self, name, value):
@@ -2518,10 +2619,13 @@ class Ipv6NodeDiscovery(Entity):
                                     self.yang_parent_name = "ra"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.seconds = YLeaf(YType.uint32, "seconds")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('seconds', YLeaf(YType.uint32, 'seconds')),
+                                    ])
+                                    self.seconds = None
                                     self._segment_path = lambda: "retrans-time"
 
                                 def __setattr__(self, name, value):
@@ -2595,22 +2699,25 @@ class Ipv6NodeDiscovery(Entity):
                                     self.yang_parent_name = "ra"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.prefix_address = YLeaf(YType.str, "prefix-address")
-
-                                    self.eui64 = YLeaf(YType.str, "eui64")
-
-                                    self.valid_life_time = YLeaf(YType.uint32, "valid-life-time")
-
-                                    self.preferred_life_time = YLeaf(YType.uint32, "preferred-life-time")
-
-                                    self.prefix_len = YLeaf(YType.uint32, "prefix-len")
-
-                                    self.flags = YLeaf(YType.uint32, "flags")
-
-                                    self.pfx_flags = YLeaf(YType.uint32, "pfx-flags")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix_address', YLeaf(YType.str, 'prefix-address')),
+                                        ('eui64', YLeaf(YType.str, 'eui64')),
+                                        ('valid_life_time', YLeaf(YType.uint32, 'valid-life-time')),
+                                        ('preferred_life_time', YLeaf(YType.uint32, 'preferred-life-time')),
+                                        ('prefix_len', YLeaf(YType.uint32, 'prefix-len')),
+                                        ('flags', YLeaf(YType.uint32, 'flags')),
+                                        ('pfx_flags', YLeaf(YType.uint32, 'pfx-flags')),
+                                    ])
+                                    self.prefix_address = None
+                                    self.eui64 = None
+                                    self.valid_life_time = None
+                                    self.preferred_life_time = None
+                                    self.prefix_len = None
+                                    self.flags = None
+                                    self.pfx_flags = None
                                     self._segment_path = lambda: "prefix-q"
 
                                 def __setattr__(self, name, value):

@@ -5,9 +5,11 @@ channel monitor (OCM) for optical transport line system
 elements such as wavelength routers (ROADMs) and amplifiers.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -36,8 +38,10 @@ class ChannelMonitors(Entity):
         self.yang_parent_name = "openconfig-channel-monitor"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"channel-monitor" : ("channel_monitor", ChannelMonitors.ChannelMonitor)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("channel-monitor", ("channel_monitor", ChannelMonitors.ChannelMonitor))])
+        self._leafs = OrderedDict()
 
         self.channel_monitor = YList(self)
         self._segment_path = lambda: "openconfig-channel-monitor:channel-monitors"
@@ -50,7 +54,7 @@ class ChannelMonitors(Entity):
         """
         List of channel monitors, keyed by channel monitor name.
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	References the optical channel monitor name
         	**type**\: str
@@ -86,10 +90,13 @@ class ChannelMonitors(Entity):
             self.yang_parent_name = "channel-monitors"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"config" : ("config", ChannelMonitors.ChannelMonitor.Config), "state" : ("state", ChannelMonitors.ChannelMonitor.State), "channels" : ("channels", ChannelMonitors.ChannelMonitor.Channels)}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
+            self.ylist_key_names = ['name']
+            self._child_container_classes = OrderedDict([("config", ("config", ChannelMonitors.ChannelMonitor.Config)), ("state", ("state", ChannelMonitors.ChannelMonitor.State)), ("channels", ("channels", ChannelMonitors.ChannelMonitor.Channels))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+            ])
+            self.name = None
 
             self.config = ChannelMonitors.ChannelMonitor.Config()
             self.config.parent = self
@@ -105,7 +112,7 @@ class ChannelMonitors(Entity):
             self.channels.parent = self
             self._children_name_map["channels"] = "channels"
             self._children_yang_names.add("channels")
-            self._segment_path = lambda: "channel-monitor" + "[name='" + self.name.get() + "']"
+            self._segment_path = lambda: "channel-monitor" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "openconfig-channel-monitor:channel-monitors/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -144,12 +151,15 @@ class ChannelMonitors(Entity):
                 self.yang_parent_name = "channel-monitor"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.monitor_port = YLeaf(YType.str, "monitor-port")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('monitor_port', YLeaf(YType.str, 'monitor-port')),
+                ])
+                self.name = None
+                self.monitor_port = None
                 self._segment_path = lambda: "config"
 
             def __setattr__(self, name, value):
@@ -188,12 +198,15 @@ class ChannelMonitors(Entity):
                 self.yang_parent_name = "channel-monitor"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.monitor_port = YLeaf(YType.str, "monitor-port")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('monitor_port', YLeaf(YType.str, 'monitor-port')),
+                ])
+                self.name = None
+                self.monitor_port = None
                 self._segment_path = lambda: "state"
 
             def __setattr__(self, name, value):
@@ -224,8 +237,10 @@ class ChannelMonitors(Entity):
                 self.yang_parent_name = "channel-monitor"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"channel" : ("channel", ChannelMonitors.ChannelMonitor.Channels.Channel)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("channel", ("channel", ChannelMonitors.ChannelMonitor.Channels.Channel))])
+                self._leafs = OrderedDict()
 
                 self.channel = YList(self)
                 self._segment_path = lambda: "channels"
@@ -238,7 +253,7 @@ class ChannelMonitors(Entity):
                 """
                 List of tuples describing the PSD distribution
                 
-                .. attribute:: lower_frequency  <key>
+                .. attribute:: lower_frequency  (key)
                 
                 	Reference to the list key
                 	**type**\: int
@@ -247,7 +262,7 @@ class ChannelMonitors(Entity):
                 
                 	**refers to**\:  :py:class:`lower_frequency <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel.State>`
                 
-                .. attribute:: upper_frequency  <key>
+                .. attribute:: upper_frequency  (key)
                 
                 	Reference to the list key
                 	**type**\: int
@@ -275,18 +290,21 @@ class ChannelMonitors(Entity):
                     self.yang_parent_name = "channels"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"state" : ("state", ChannelMonitors.ChannelMonitor.Channels.Channel.State)}
-                    self._child_list_classes = {}
-
-                    self.lower_frequency = YLeaf(YType.str, "lower-frequency")
-
-                    self.upper_frequency = YLeaf(YType.str, "upper-frequency")
+                    self.ylist_key_names = ['lower_frequency','upper_frequency']
+                    self._child_container_classes = OrderedDict([("state", ("state", ChannelMonitors.ChannelMonitor.Channels.Channel.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('lower_frequency', YLeaf(YType.str, 'lower-frequency')),
+                        ('upper_frequency', YLeaf(YType.str, 'upper-frequency')),
+                    ])
+                    self.lower_frequency = None
+                    self.upper_frequency = None
 
                     self.state = ChannelMonitors.ChannelMonitor.Channels.Channel.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
-                    self._segment_path = lambda: "channel" + "[lower-frequency='" + self.lower_frequency.get() + "']" + "[upper-frequency='" + self.upper_frequency.get() + "']"
+                    self._segment_path = lambda: "channel" + "[lower-frequency='" + str(self.lower_frequency) + "']" + "[upper-frequency='" + str(self.upper_frequency) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels.Channel, ['lower_frequency', 'upper_frequency'], name, value)
@@ -333,14 +351,17 @@ class ChannelMonitors(Entity):
                         self.yang_parent_name = "channel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.lower_frequency = YLeaf(YType.uint64, "lower-frequency")
-
-                        self.upper_frequency = YLeaf(YType.uint64, "upper-frequency")
-
-                        self.psd = YLeaf(YType.str, "psd")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower_frequency', YLeaf(YType.uint64, 'lower-frequency')),
+                            ('upper_frequency', YLeaf(YType.uint64, 'upper-frequency')),
+                            ('psd', YLeaf(YType.str, 'psd')),
+                        ])
+                        self.lower_frequency = None
+                        self.upper_frequency = None
+                        self.psd = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):

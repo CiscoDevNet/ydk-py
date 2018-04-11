@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -41,6 +43,11 @@ class Parser(Entity):
     
     	interactive mode
     	**type**\:  :py:class:`Interactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Interactive>`
+    
+    .. attribute:: sysadmin_login_banner
+    
+    	Configuration to disable sysadmin login banner
+    	**type**\:  :py:class:`SysadminLoginBanner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.SysadminLoginBanner>`
     
     .. attribute:: interface_display
     
@@ -77,8 +84,10 @@ class Parser(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-parser-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"indentation" : ("indentation", Parser.Indentation), "alias" : ("alias", Parser.Alias), "history" : ("history", Parser.History), "interactive" : ("interactive", Parser.Interactive), "interface-display" : ("interface_display", Parser.InterfaceDisplay), "netmask-format" : ("netmask_format", Parser.NetmaskFormat), "configuration" : ("configuration", Parser.Configuration), "submode-exit" : ("submode_exit", Parser.SubmodeExit)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("indentation", ("indentation", Parser.Indentation)), ("alias", ("alias", Parser.Alias)), ("history", ("history", Parser.History)), ("interactive", ("interactive", Parser.Interactive)), ("sysadmin-login-banner", ("sysadmin_login_banner", Parser.SysadminLoginBanner)), ("interface-display", ("interface_display", Parser.InterfaceDisplay)), ("netmask-format", ("netmask_format", Parser.NetmaskFormat)), ("configuration", ("configuration", Parser.Configuration)), ("submode-exit", ("submode_exit", Parser.SubmodeExit))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.indentation = Parser.Indentation()
         self.indentation.parent = self
@@ -99,6 +108,11 @@ class Parser(Entity):
         self.interactive.parent = self
         self._children_name_map["interactive"] = "interactive"
         self._children_yang_names.add("interactive")
+
+        self.sysadmin_login_banner = Parser.SysadminLoginBanner()
+        self.sysadmin_login_banner.parent = self
+        self._children_name_map["sysadmin_login_banner"] = "sysadmin-login-banner"
+        self._children_yang_names.add("sysadmin-login-banner")
 
         self.interface_display = Parser.InterfaceDisplay()
         self.interface_display.parent = self
@@ -145,10 +159,13 @@ class Parser(Entity):
             self.yang_parent_name = "parser"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.indentation_disable = YLeaf(YType.boolean, "indentation-disable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('indentation_disable', YLeaf(YType.boolean, 'indentation-disable')),
+            ])
+            self.indentation_disable = None
             self._segment_path = lambda: "indentation"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
 
@@ -189,8 +206,10 @@ class Parser(Entity):
             self.yang_parent_name = "parser"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"execs" : ("execs", Parser.Alias.Execs), "configurations" : ("configurations", Parser.Alias.Configurations), "alls" : ("alls", Parser.Alias.Alls)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("execs", ("execs", Parser.Alias.Execs)), ("configurations", ("configurations", Parser.Alias.Configurations)), ("alls", ("alls", Parser.Alias.Alls))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.execs = Parser.Alias.Execs()
             self.execs.parent = self
@@ -217,7 +236,7 @@ class Parser(Entity):
             .. attribute:: exec_
             
             	Exec alias name
-            	**type**\: list of  		 :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs.Exec_>`
+            	**type**\: list of  		 :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs.Exec>`
             
             
 
@@ -233,8 +252,10 @@ class Parser(Entity):
                 self.yang_parent_name = "alias"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"exec" : ("exec_", Parser.Alias.Execs.Exec_)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("exec", ("exec_", Parser.Alias.Execs.Exec))])
+                self._leafs = OrderedDict()
 
                 self.exec_ = YList(self)
                 self._segment_path = lambda: "execs"
@@ -244,11 +265,11 @@ class Parser(Entity):
                 self._perform_setattr(Parser.Alias.Execs, [], name, value)
 
 
-            class Exec_(Entity):
+            class Exec(Entity):
                 """
                 Exec alias name
                 
-                .. attribute:: identifier  <key>
+                .. attribute:: identifier  (key)
                 
                 	Exec Alias name
                 	**type**\: str
@@ -270,23 +291,26 @@ class Parser(Entity):
                 _revision = '2017-05-09'
 
                 def __init__(self):
-                    super(Parser.Alias.Execs.Exec_, self).__init__()
+                    super(Parser.Alias.Execs.Exec, self).__init__()
 
                     self.yang_name = "exec"
                     self.yang_parent_name = "execs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.identifier = YLeaf(YType.str, "identifier")
-
-                    self.identifier_xr = YLeaf(YType.str, "identifier-xr")
-                    self._segment_path = lambda: "exec" + "[identifier='" + self.identifier.get() + "']"
+                    self.ylist_key_names = ['identifier']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('identifier', YLeaf(YType.str, 'identifier')),
+                        ('identifier_xr', YLeaf(YType.str, 'identifier-xr')),
+                    ])
+                    self.identifier = None
+                    self.identifier_xr = None
+                    self._segment_path = lambda: "exec" + "[identifier='" + str(self.identifier) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/execs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Parser.Alias.Execs.Exec_, ['identifier', 'identifier_xr'], name, value)
+                    self._perform_setattr(Parser.Alias.Execs.Exec, ['identifier', 'identifier_xr'], name, value)
 
 
         class Configurations(Entity):
@@ -312,8 +336,10 @@ class Parser(Entity):
                 self.yang_parent_name = "alias"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"configuration" : ("configuration", Parser.Alias.Configurations.Configuration)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("configuration", ("configuration", Parser.Alias.Configurations.Configuration))])
+                self._leafs = OrderedDict()
 
                 self.configuration = YList(self)
                 self._segment_path = lambda: "configurations"
@@ -327,7 +353,7 @@ class Parser(Entity):
                 """
                 Configuration Alias name
                 
-                .. attribute:: identifier  <key>
+                .. attribute:: identifier  (key)
                 
                 	Configuration alias name
                 	**type**\: str
@@ -355,13 +381,16 @@ class Parser(Entity):
                     self.yang_parent_name = "configurations"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.identifier = YLeaf(YType.str, "identifier")
-
-                    self.identifier_xr = YLeaf(YType.str, "identifier-xr")
-                    self._segment_path = lambda: "configuration" + "[identifier='" + self.identifier.get() + "']"
+                    self.ylist_key_names = ['identifier']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('identifier', YLeaf(YType.str, 'identifier')),
+                        ('identifier_xr', YLeaf(YType.str, 'identifier-xr')),
+                    ])
+                    self.identifier = None
+                    self.identifier_xr = None
+                    self._segment_path = lambda: "configuration" + "[identifier='" + str(self.identifier) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/configurations/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -391,8 +420,10 @@ class Parser(Entity):
                 self.yang_parent_name = "alias"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"all" : ("all", Parser.Alias.Alls.All)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("all", ("all", Parser.Alias.Alls.All))])
+                self._leafs = OrderedDict()
 
                 self.all = YList(self)
                 self._segment_path = lambda: "alls"
@@ -406,7 +437,7 @@ class Parser(Entity):
                 """
                 Alias name to command mapping
                 
-                .. attribute:: identifier  <key>
+                .. attribute:: identifier  (key)
                 
                 	Alias name
                 	**type**\: str
@@ -434,13 +465,16 @@ class Parser(Entity):
                     self.yang_parent_name = "alls"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.identifier = YLeaf(YType.str, "identifier")
-
-                    self.identifier_xr = YLeaf(YType.str, "identifier-xr")
-                    self._segment_path = lambda: "all" + "[identifier='" + self.identifier.get() + "']"
+                    self.ylist_key_names = ['identifier']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('identifier', YLeaf(YType.str, 'identifier')),
+                        ('identifier_xr', YLeaf(YType.str, 'identifier-xr')),
+                    ])
+                    self.identifier = None
+                    self.identifier_xr = None
+                    self._segment_path = lambda: "all" + "[identifier='" + str(self.identifier) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/alls/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -472,10 +506,13 @@ class Parser(Entity):
             self.yang_parent_name = "parser"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.size = YLeaf(YType.uint32, "size")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('size', YLeaf(YType.uint32, 'size')),
+            ])
+            self.size = None
             self._segment_path = lambda: "history"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
 
@@ -506,15 +543,55 @@ class Parser(Entity):
             self.yang_parent_name = "parser"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.interactive_disable = YLeaf(YType.boolean, "interactive-disable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('interactive_disable', YLeaf(YType.boolean, 'interactive-disable')),
+            ])
+            self.interactive_disable = None
             self._segment_path = lambda: "interactive"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.Interactive, ['interactive_disable'], name, value)
+
+
+    class SysadminLoginBanner(Entity):
+        """
+        Configuration to disable sysadmin login banner
+        
+        .. attribute:: sysadmin_login_banner_disable
+        
+        	Disable sysadmin login banner
+        	**type**\: bool
+        
+        
+
+        """
+
+        _prefix = 'parser-cfg'
+        _revision = '2017-05-09'
+
+        def __init__(self):
+            super(Parser.SysadminLoginBanner, self).__init__()
+
+            self.yang_name = "sysadmin-login-banner"
+            self.yang_parent_name = "parser"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('sysadmin_login_banner_disable', YLeaf(YType.boolean, 'sysadmin-login-banner-disable')),
+            ])
+            self.sysadmin_login_banner_disable = None
+            self._segment_path = lambda: "sysadmin-login-banner"
+            self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Parser.SysadminLoginBanner, ['sysadmin_login_banner_disable'], name, value)
 
 
     class InterfaceDisplay(Entity):
@@ -540,10 +617,13 @@ class Parser(Entity):
             self.yang_parent_name = "parser"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.slot_order = YLeaf(YType.boolean, "slot-order")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('slot_order', YLeaf(YType.boolean, 'slot-order')),
+            ])
+            self.slot_order = None
             self._segment_path = lambda: "interface-display"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
 
@@ -574,10 +654,13 @@ class Parser(Entity):
             self.yang_parent_name = "parser"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.bit_count = YLeaf(YType.boolean, "bit-count")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('bit_count', YLeaf(YType.boolean, 'bit-count')),
+            ])
+            self.bit_count = None
             self._segment_path = lambda: "netmask-format"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
 
@@ -608,8 +691,10 @@ class Parser(Entity):
             self.yang_parent_name = "parser"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"disable" : ("disable", Parser.Configuration.Disable)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("disable", ("disable", Parser.Configuration.Disable))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.disable = Parser.Configuration.Disable()
             self.disable.parent = self
@@ -642,10 +727,13 @@ class Parser(Entity):
                 self.yang_parent_name = "configuration"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.usergroup = YLeaf(YType.str, "usergroup")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('usergroup', YLeaf(YType.str, 'usergroup')),
+                ])
+                self.usergroup = None
                 self._segment_path = lambda: "disable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/configuration/%s" % self._segment_path()
 
@@ -677,10 +765,13 @@ class Parser(Entity):
             self.yang_parent_name = "parser"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.enable = YLeaf(YType.boolean, "enable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('enable', YLeaf(YType.boolean, 'enable')),
+            ])
+            self.enable = None
             self._segment_path = lambda: "submode-exit"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
 

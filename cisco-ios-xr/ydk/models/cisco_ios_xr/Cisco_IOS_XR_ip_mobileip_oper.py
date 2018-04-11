@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class Pmipv6Addr(Enum):
     """
-    Pmipv6Addr
+    Pmipv6Addr (Enum Class)
 
     Address Types
 
@@ -52,7 +54,7 @@ class Pmipv6Addr(Enum):
 
 class Pmipv6Encap(Enum):
     """
-    Pmipv6Encap
+    Pmipv6Encap (Enum Class)
 
     ENCAP Types
 
@@ -133,7 +135,7 @@ class Pmipv6Encap(Enum):
 
 class Pmipv6Role(Enum):
     """
-    Pmipv6Role
+    Pmipv6Role (Enum Class)
 
     PMIPV6 Role Types
 
@@ -201,8 +203,10 @@ class Pmipv6(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-mobileip-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"lma" : ("lma", Pmipv6.Lma)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("lma", ("lma", Pmipv6.Lma))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.lma = Pmipv6.Lma()
         self.lma.parent = self
@@ -249,8 +253,10 @@ class Pmipv6(Entity):
             self.yang_parent_name = "pmipv6"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"statistics" : ("statistics", Pmipv6.Lma.Statistics), "bindings" : ("bindings", Pmipv6.Lma.Bindings), "heartbeats" : ("heartbeats", Pmipv6.Lma.Heartbeats), "config-variables" : ("config_variables", Pmipv6.Lma.ConfigVariables)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("statistics", ("statistics", Pmipv6.Lma.Statistics)), ("bindings", ("bindings", Pmipv6.Lma.Bindings)), ("heartbeats", ("heartbeats", Pmipv6.Lma.Heartbeats)), ("config-variables", ("config_variables", Pmipv6.Lma.ConfigVariables))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.statistics = Pmipv6.Lma.Statistics()
             self.statistics.parent = self
@@ -292,7 +298,7 @@ class Pmipv6(Entity):
             .. attribute:: global_
             
             	Global Statistics
-            	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_>`
+            	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global>`
             
             .. attribute:: mag_statistics
             
@@ -313,8 +319,10 @@ class Pmipv6(Entity):
                 self.yang_parent_name = "lma"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"customer-statistics" : ("customer_statistics", Pmipv6.Lma.Statistics.CustomerStatistics), "license" : ("license", Pmipv6.Lma.Statistics.License), "global" : ("global_", Pmipv6.Lma.Statistics.Global_), "mag-statistics" : ("mag_statistics", Pmipv6.Lma.Statistics.MagStatistics)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("customer-statistics", ("customer_statistics", Pmipv6.Lma.Statistics.CustomerStatistics)), ("license", ("license", Pmipv6.Lma.Statistics.License)), ("global", ("global_", Pmipv6.Lma.Statistics.Global)), ("mag-statistics", ("mag_statistics", Pmipv6.Lma.Statistics.MagStatistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.customer_statistics = Pmipv6.Lma.Statistics.CustomerStatistics()
                 self.customer_statistics.parent = self
@@ -326,7 +334,7 @@ class Pmipv6(Entity):
                 self._children_name_map["license"] = "license"
                 self._children_yang_names.add("license")
 
-                self.global_ = Pmipv6.Lma.Statistics.Global_()
+                self.global_ = Pmipv6.Lma.Statistics.Global()
                 self.global_.parent = self
                 self._children_name_map["global_"] = "global"
                 self._children_yang_names.add("global")
@@ -362,8 +370,10 @@ class Pmipv6(Entity):
                     self.yang_parent_name = "statistics"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"customer-statistic" : ("customer_statistic", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("customer-statistic", ("customer_statistic", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic))])
+                    self._leafs = OrderedDict()
 
                     self.customer_statistic = YList(self)
                     self._segment_path = lambda: "customer-statistics"
@@ -377,7 +387,7 @@ class Pmipv6(Entity):
                     """
                     Customer statistics
                     
-                    .. attribute:: customer_name  <key>
+                    .. attribute:: customer_name  (key)
                     
                     	Customer Name
                     	**type**\: str
@@ -441,20 +451,23 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "customer-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"protocol-statistics" : ("protocol_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics), "accounting-statistics" : ("accounting_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics)}
-                        self._child_list_classes = {}
-
-                        self.customer_name = YLeaf(YType.str, "customer-name")
-
-                        self.lma_identifier = YLeaf(YType.str, "lma-identifier")
-
-                        self.bce_count = YLeaf(YType.uint32, "bce-count")
-
-                        self.handoff_count = YLeaf(YType.uint32, "handoff-count")
-
-                        self.ipv4_mnp_count = YLeaf(YType.uint32, "ipv4-mnp-count")
-
-                        self.ipv6_mnp_count = YLeaf(YType.uint32, "ipv6-mnp-count")
+                        self.ylist_key_names = ['customer_name']
+                        self._child_container_classes = OrderedDict([("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics)), ("accounting-statistics", ("accounting_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('customer_name', YLeaf(YType.str, 'customer-name')),
+                            ('lma_identifier', YLeaf(YType.str, 'lma-identifier')),
+                            ('bce_count', YLeaf(YType.uint32, 'bce-count')),
+                            ('handoff_count', YLeaf(YType.uint32, 'handoff-count')),
+                            ('ipv4_mnp_count', YLeaf(YType.uint32, 'ipv4-mnp-count')),
+                            ('ipv6_mnp_count', YLeaf(YType.uint32, 'ipv6-mnp-count')),
+                        ])
+                        self.customer_name = None
+                        self.lma_identifier = None
+                        self.bce_count = None
+                        self.handoff_count = None
+                        self.ipv4_mnp_count = None
+                        self.ipv6_mnp_count = None
 
                         self.protocol_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics()
                         self.protocol_statistics.parent = self
@@ -465,7 +478,7 @@ class Pmipv6(Entity):
                         self.accounting_statistics.parent = self
                         self._children_name_map["accounting_statistics"] = "accounting-statistics"
                         self._children_yang_names.add("accounting-statistics")
-                        self._segment_path = lambda: "customer-statistic" + "[customer-name='" + self.customer_name.get() + "']"
+                        self._segment_path = lambda: "customer-statistic" + "[customer-name='" + str(self.customer_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/customer-statistics/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -520,8 +533,10 @@ class Pmipv6(Entity):
                             self.yang_parent_name = "customer-statistic"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"pbu-receive-statistics" : ("pbu_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics), "pba-send-statistics" : ("pba_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics), "pbri-send-statistics" : ("pbri_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics), "pbri-receive-statistics" : ("pbri_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics), "pbra-send-statistics" : ("pbra_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics), "pbra-receive-statistics" : ("pbra_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.pbu_receive_statistics = Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics()
                             self.pbu_receive_statistics.parent = self
@@ -587,12 +602,15 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbu_count = YLeaf(YType.uint64, "pbu-count")
-
-                                self.pbu_drop_count = YLeaf(YType.uint32, "pbu-drop-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbu_count', YLeaf(YType.uint64, 'pbu-count')),
+                                    ('pbu_drop_count', YLeaf(YType.uint32, 'pbu-drop-count')),
+                                ])
+                                self.pbu_count = None
+                                self.pbu_drop_count = None
                                 self._segment_path = lambda: "pbu-receive-statistics"
 
                             def __setattr__(self, name, value):
@@ -813,64 +831,67 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pba_count = YLeaf(YType.uint64, "pba-count")
-
-                                self.pba_drop_count = YLeaf(YType.uint32, "pba-drop-count")
-
-                                self.accepted_count = YLeaf(YType.uint32, "accepted-count")
-
-                                self.unknown_count = YLeaf(YType.uint32, "unknown-count")
-
-                                self.unspecified_failure_count = YLeaf(YType.uint32, "unspecified-failure-count")
-
-                                self.admin_failure_count = YLeaf(YType.uint32, "admin-failure-count")
-
-                                self.resource_failure_count = YLeaf(YType.uint32, "resource-failure-count")
-
-                                self.home_reg_failure_count = YLeaf(YType.uint32, "home-reg-failure-count")
-
-                                self.home_subnet_failure_count = YLeaf(YType.uint32, "home-subnet-failure-count")
-
-                                self.bad_sequence_failure_count = YLeaf(YType.uint32, "bad-sequence-failure-count")
-
-                                self.reg_type_failure_count = YLeaf(YType.uint32, "reg-type-failure-count")
-
-                                self.authen_failure_count = YLeaf(YType.uint32, "authen-failure-count")
-
-                                self.proxy_reg_not_enabled_count = YLeaf(YType.uint32, "proxy-reg-not-enabled-count")
-
-                                self.not_lma_for_this_mn_count = YLeaf(YType.uint32, "not-lma-for-this-mn-count")
-
-                                self.no_author_for_proxy_reg_count = YLeaf(YType.uint32, "no-author-for-proxy-reg-count")
-
-                                self.no_author_for_hnp_count = YLeaf(YType.uint32, "no-author-for-hnp-count")
-
-                                self.timestamp_mismatch_count = YLeaf(YType.uint32, "timestamp-mismatch-count")
-
-                                self.timestamp_lower_than_previous_accepted_count = YLeaf(YType.uint32, "timestamp-lower-than-previous-accepted-count")
-
-                                self.missing_hnp_opt_count = YLeaf(YType.uint32, "missing-hnp-opt-count")
-
-                                self.received_hnps_do_not_match_bce_hnps_count = YLeaf(YType.uint32, "received-hnps-do-not-match-bce-hnps-count")
-
-                                self.missing_mn_id_opt_count = YLeaf(YType.uint32, "missing-mn-id-opt-count")
-
-                                self.missing_hi_opt_count = YLeaf(YType.uint32, "missing-hi-opt-count")
-
-                                self.missing_access_tech_type_opt_count = YLeaf(YType.uint32, "missing-access-tech-type-opt-count")
-
-                                self.no_author_for_ipv4_mobility_count = YLeaf(YType.uint32, "no-author-for-ipv4-mobility-count")
-
-                                self.no_author_for_ipv4_hoa_count = YLeaf(YType.uint32, "no-author-for-ipv4-hoa-count")
-
-                                self.no_author_for_ipv6_mobility_count = YLeaf(YType.uint32, "no-author-for-ipv6-mobility-count")
-
-                                self.multiple_ipv4_ho_a_not_supported_count = YLeaf(YType.uint32, "multiple-ipv4-ho-a-not-supported-count")
-
-                                self.gre_key_opt_required_count = YLeaf(YType.uint32, "gre-key-opt-required-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pba_count', YLeaf(YType.uint64, 'pba-count')),
+                                    ('pba_drop_count', YLeaf(YType.uint32, 'pba-drop-count')),
+                                    ('accepted_count', YLeaf(YType.uint32, 'accepted-count')),
+                                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                                    ('unspecified_failure_count', YLeaf(YType.uint32, 'unspecified-failure-count')),
+                                    ('admin_failure_count', YLeaf(YType.uint32, 'admin-failure-count')),
+                                    ('resource_failure_count', YLeaf(YType.uint32, 'resource-failure-count')),
+                                    ('home_reg_failure_count', YLeaf(YType.uint32, 'home-reg-failure-count')),
+                                    ('home_subnet_failure_count', YLeaf(YType.uint32, 'home-subnet-failure-count')),
+                                    ('bad_sequence_failure_count', YLeaf(YType.uint32, 'bad-sequence-failure-count')),
+                                    ('reg_type_failure_count', YLeaf(YType.uint32, 'reg-type-failure-count')),
+                                    ('authen_failure_count', YLeaf(YType.uint32, 'authen-failure-count')),
+                                    ('proxy_reg_not_enabled_count', YLeaf(YType.uint32, 'proxy-reg-not-enabled-count')),
+                                    ('not_lma_for_this_mn_count', YLeaf(YType.uint32, 'not-lma-for-this-mn-count')),
+                                    ('no_author_for_proxy_reg_count', YLeaf(YType.uint32, 'no-author-for-proxy-reg-count')),
+                                    ('no_author_for_hnp_count', YLeaf(YType.uint32, 'no-author-for-hnp-count')),
+                                    ('timestamp_mismatch_count', YLeaf(YType.uint32, 'timestamp-mismatch-count')),
+                                    ('timestamp_lower_than_previous_accepted_count', YLeaf(YType.uint32, 'timestamp-lower-than-previous-accepted-count')),
+                                    ('missing_hnp_opt_count', YLeaf(YType.uint32, 'missing-hnp-opt-count')),
+                                    ('received_hnps_do_not_match_bce_hnps_count', YLeaf(YType.uint32, 'received-hnps-do-not-match-bce-hnps-count')),
+                                    ('missing_mn_id_opt_count', YLeaf(YType.uint32, 'missing-mn-id-opt-count')),
+                                    ('missing_hi_opt_count', YLeaf(YType.uint32, 'missing-hi-opt-count')),
+                                    ('missing_access_tech_type_opt_count', YLeaf(YType.uint32, 'missing-access-tech-type-opt-count')),
+                                    ('no_author_for_ipv4_mobility_count', YLeaf(YType.uint32, 'no-author-for-ipv4-mobility-count')),
+                                    ('no_author_for_ipv4_hoa_count', YLeaf(YType.uint32, 'no-author-for-ipv4-hoa-count')),
+                                    ('no_author_for_ipv6_mobility_count', YLeaf(YType.uint32, 'no-author-for-ipv6-mobility-count')),
+                                    ('multiple_ipv4_ho_a_not_supported_count', YLeaf(YType.uint32, 'multiple-ipv4-ho-a-not-supported-count')),
+                                    ('gre_key_opt_required_count', YLeaf(YType.uint32, 'gre-key-opt-required-count')),
+                                ])
+                                self.pba_count = None
+                                self.pba_drop_count = None
+                                self.accepted_count = None
+                                self.unknown_count = None
+                                self.unspecified_failure_count = None
+                                self.admin_failure_count = None
+                                self.resource_failure_count = None
+                                self.home_reg_failure_count = None
+                                self.home_subnet_failure_count = None
+                                self.bad_sequence_failure_count = None
+                                self.reg_type_failure_count = None
+                                self.authen_failure_count = None
+                                self.proxy_reg_not_enabled_count = None
+                                self.not_lma_for_this_mn_count = None
+                                self.no_author_for_proxy_reg_count = None
+                                self.no_author_for_hnp_count = None
+                                self.timestamp_mismatch_count = None
+                                self.timestamp_lower_than_previous_accepted_count = None
+                                self.missing_hnp_opt_count = None
+                                self.received_hnps_do_not_match_bce_hnps_count = None
+                                self.missing_mn_id_opt_count = None
+                                self.missing_hi_opt_count = None
+                                self.missing_access_tech_type_opt_count = None
+                                self.no_author_for_ipv4_mobility_count = None
+                                self.no_author_for_ipv4_hoa_count = None
+                                self.no_author_for_ipv6_mobility_count = None
+                                self.multiple_ipv4_ho_a_not_supported_count = None
+                                self.gre_key_opt_required_count = None
                                 self._segment_path = lambda: "pba-send-statistics"
 
                             def __setattr__(self, name, value):
@@ -979,32 +1000,35 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbri_count = YLeaf(YType.uint64, "pbri-count")
-
-                                self.pbri_drop_count = YLeaf(YType.uint32, "pbri-drop-count")
-
-                                self.unspecified_count = YLeaf(YType.uint32, "unspecified-count")
-
-                                self.admin_reason_count = YLeaf(YType.uint32, "admin-reason-count")
-
-                                self.mag_handover_same_att_count = YLeaf(YType.uint32, "mag-handover-same-att-count")
-
-                                self.mag_handover_different_att_count = YLeaf(YType.uint32, "mag-handover-different-att-count")
-
-                                self.mag_handover_unknown_count = YLeaf(YType.uint32, "mag-handover-unknown-count")
-
-                                self.user_session_termination_count = YLeaf(YType.uint32, "user-session-termination-count")
-
-                                self.network_session_termination_count = YLeaf(YType.uint32, "network-session-termination-count")
-
-                                self.out_of_sync_bce_state_count = YLeaf(YType.uint32, "out-of-sync-bce-state-count")
-
-                                self.per_peer_policy_count = YLeaf(YType.uint32, "per-peer-policy-count")
-
-                                self.revoking_mn_local_policy_count = YLeaf(YType.uint32, "revoking-mn-local-policy-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
+                                    ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
+                                    ('unspecified_count', YLeaf(YType.uint32, 'unspecified-count')),
+                                    ('admin_reason_count', YLeaf(YType.uint32, 'admin-reason-count')),
+                                    ('mag_handover_same_att_count', YLeaf(YType.uint32, 'mag-handover-same-att-count')),
+                                    ('mag_handover_different_att_count', YLeaf(YType.uint32, 'mag-handover-different-att-count')),
+                                    ('mag_handover_unknown_count', YLeaf(YType.uint32, 'mag-handover-unknown-count')),
+                                    ('user_session_termination_count', YLeaf(YType.uint32, 'user-session-termination-count')),
+                                    ('network_session_termination_count', YLeaf(YType.uint32, 'network-session-termination-count')),
+                                    ('out_of_sync_bce_state_count', YLeaf(YType.uint32, 'out-of-sync-bce-state-count')),
+                                    ('per_peer_policy_count', YLeaf(YType.uint32, 'per-peer-policy-count')),
+                                    ('revoking_mn_local_policy_count', YLeaf(YType.uint32, 'revoking-mn-local-policy-count')),
+                                ])
+                                self.pbri_count = None
+                                self.pbri_drop_count = None
+                                self.unspecified_count = None
+                                self.admin_reason_count = None
+                                self.mag_handover_same_att_count = None
+                                self.mag_handover_different_att_count = None
+                                self.mag_handover_unknown_count = None
+                                self.user_session_termination_count = None
+                                self.network_session_termination_count = None
+                                self.out_of_sync_bce_state_count = None
+                                self.per_peer_policy_count = None
+                                self.revoking_mn_local_policy_count = None
                                 self._segment_path = lambda: "pbri-send-statistics"
 
                             def __setattr__(self, name, value):
@@ -1113,32 +1137,35 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbri_count = YLeaf(YType.uint64, "pbri-count")
-
-                                self.pbri_drop_count = YLeaf(YType.uint32, "pbri-drop-count")
-
-                                self.unspecified_count = YLeaf(YType.uint32, "unspecified-count")
-
-                                self.admin_reason_count = YLeaf(YType.uint32, "admin-reason-count")
-
-                                self.mag_handover_same_att_count = YLeaf(YType.uint32, "mag-handover-same-att-count")
-
-                                self.mag_handover_different_att_count = YLeaf(YType.uint32, "mag-handover-different-att-count")
-
-                                self.mag_handover_unknown_count = YLeaf(YType.uint32, "mag-handover-unknown-count")
-
-                                self.user_session_termination_count = YLeaf(YType.uint32, "user-session-termination-count")
-
-                                self.network_session_termination_count = YLeaf(YType.uint32, "network-session-termination-count")
-
-                                self.out_of_sync_bce_state_count = YLeaf(YType.uint32, "out-of-sync-bce-state-count")
-
-                                self.per_peer_policy_count = YLeaf(YType.uint32, "per-peer-policy-count")
-
-                                self.revoking_mn_local_policy_count = YLeaf(YType.uint32, "revoking-mn-local-policy-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
+                                    ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
+                                    ('unspecified_count', YLeaf(YType.uint32, 'unspecified-count')),
+                                    ('admin_reason_count', YLeaf(YType.uint32, 'admin-reason-count')),
+                                    ('mag_handover_same_att_count', YLeaf(YType.uint32, 'mag-handover-same-att-count')),
+                                    ('mag_handover_different_att_count', YLeaf(YType.uint32, 'mag-handover-different-att-count')),
+                                    ('mag_handover_unknown_count', YLeaf(YType.uint32, 'mag-handover-unknown-count')),
+                                    ('user_session_termination_count', YLeaf(YType.uint32, 'user-session-termination-count')),
+                                    ('network_session_termination_count', YLeaf(YType.uint32, 'network-session-termination-count')),
+                                    ('out_of_sync_bce_state_count', YLeaf(YType.uint32, 'out-of-sync-bce-state-count')),
+                                    ('per_peer_policy_count', YLeaf(YType.uint32, 'per-peer-policy-count')),
+                                    ('revoking_mn_local_policy_count', YLeaf(YType.uint32, 'revoking-mn-local-policy-count')),
+                                ])
+                                self.pbri_count = None
+                                self.pbri_drop_count = None
+                                self.unspecified_count = None
+                                self.admin_reason_count = None
+                                self.mag_handover_same_att_count = None
+                                self.mag_handover_different_att_count = None
+                                self.mag_handover_unknown_count = None
+                                self.user_session_termination_count = None
+                                self.network_session_termination_count = None
+                                self.out_of_sync_bce_state_count = None
+                                self.per_peer_policy_count = None
+                                self.revoking_mn_local_policy_count = None
                                 self._segment_path = lambda: "pbri-receive-statistics"
 
                             def __setattr__(self, name, value):
@@ -1247,32 +1274,35 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbra_count = YLeaf(YType.uint64, "pbra-count")
-
-                                self.pbra_drop_count = YLeaf(YType.uint32, "pbra-drop-count")
-
-                                self.success_count = YLeaf(YType.uint32, "success-count")
-
-                                self.partial_success_count = YLeaf(YType.uint32, "partial-success-count")
-
-                                self.no_binding_count = YLeaf(YType.uint32, "no-binding-count")
-
-                                self.hoa_required_count = YLeaf(YType.uint32, "hoa-required-count")
-
-                                self.no_author_for_global_revoc_count = YLeaf(YType.uint32, "no-author-for-global-revoc-count")
-
-                                self.mn_identity_required_count = YLeaf(YType.uint32, "mn-identity-required-count")
-
-                                self.mn_attached_count = YLeaf(YType.uint32, "mn-attached-count")
-
-                                self.unknown_revoc_trigger_count = YLeaf(YType.uint32, "unknown-revoc-trigger-count")
-
-                                self.revoc_function_not_supported_count = YLeaf(YType.uint32, "revoc-function-not-supported-count")
-
-                                self.pbr_not_supported_count = YLeaf(YType.uint32, "pbr-not-supported-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
+                                    ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
+                                    ('success_count', YLeaf(YType.uint32, 'success-count')),
+                                    ('partial_success_count', YLeaf(YType.uint32, 'partial-success-count')),
+                                    ('no_binding_count', YLeaf(YType.uint32, 'no-binding-count')),
+                                    ('hoa_required_count', YLeaf(YType.uint32, 'hoa-required-count')),
+                                    ('no_author_for_global_revoc_count', YLeaf(YType.uint32, 'no-author-for-global-revoc-count')),
+                                    ('mn_identity_required_count', YLeaf(YType.uint32, 'mn-identity-required-count')),
+                                    ('mn_attached_count', YLeaf(YType.uint32, 'mn-attached-count')),
+                                    ('unknown_revoc_trigger_count', YLeaf(YType.uint32, 'unknown-revoc-trigger-count')),
+                                    ('revoc_function_not_supported_count', YLeaf(YType.uint32, 'revoc-function-not-supported-count')),
+                                    ('pbr_not_supported_count', YLeaf(YType.uint32, 'pbr-not-supported-count')),
+                                ])
+                                self.pbra_count = None
+                                self.pbra_drop_count = None
+                                self.success_count = None
+                                self.partial_success_count = None
+                                self.no_binding_count = None
+                                self.hoa_required_count = None
+                                self.no_author_for_global_revoc_count = None
+                                self.mn_identity_required_count = None
+                                self.mn_attached_count = None
+                                self.unknown_revoc_trigger_count = None
+                                self.revoc_function_not_supported_count = None
+                                self.pbr_not_supported_count = None
                                 self._segment_path = lambda: "pbra-send-statistics"
 
                             def __setattr__(self, name, value):
@@ -1381,32 +1411,35 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbra_count = YLeaf(YType.uint64, "pbra-count")
-
-                                self.pbra_drop_count = YLeaf(YType.uint32, "pbra-drop-count")
-
-                                self.success_count = YLeaf(YType.uint32, "success-count")
-
-                                self.partial_success_count = YLeaf(YType.uint32, "partial-success-count")
-
-                                self.no_binding_count = YLeaf(YType.uint32, "no-binding-count")
-
-                                self.hoa_required_count = YLeaf(YType.uint32, "hoa-required-count")
-
-                                self.no_author_for_global_revoc_count = YLeaf(YType.uint32, "no-author-for-global-revoc-count")
-
-                                self.mn_identity_required_count = YLeaf(YType.uint32, "mn-identity-required-count")
-
-                                self.mn_attached_count = YLeaf(YType.uint32, "mn-attached-count")
-
-                                self.unknown_revoc_trigger_count = YLeaf(YType.uint32, "unknown-revoc-trigger-count")
-
-                                self.revoc_function_not_supported_count = YLeaf(YType.uint32, "revoc-function-not-supported-count")
-
-                                self.pbr_not_supported_count = YLeaf(YType.uint32, "pbr-not-supported-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
+                                    ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
+                                    ('success_count', YLeaf(YType.uint32, 'success-count')),
+                                    ('partial_success_count', YLeaf(YType.uint32, 'partial-success-count')),
+                                    ('no_binding_count', YLeaf(YType.uint32, 'no-binding-count')),
+                                    ('hoa_required_count', YLeaf(YType.uint32, 'hoa-required-count')),
+                                    ('no_author_for_global_revoc_count', YLeaf(YType.uint32, 'no-author-for-global-revoc-count')),
+                                    ('mn_identity_required_count', YLeaf(YType.uint32, 'mn-identity-required-count')),
+                                    ('mn_attached_count', YLeaf(YType.uint32, 'mn-attached-count')),
+                                    ('unknown_revoc_trigger_count', YLeaf(YType.uint32, 'unknown-revoc-trigger-count')),
+                                    ('revoc_function_not_supported_count', YLeaf(YType.uint32, 'revoc-function-not-supported-count')),
+                                    ('pbr_not_supported_count', YLeaf(YType.uint32, 'pbr-not-supported-count')),
+                                ])
+                                self.pbra_count = None
+                                self.pbra_drop_count = None
+                                self.success_count = None
+                                self.partial_success_count = None
+                                self.no_binding_count = None
+                                self.hoa_required_count = None
+                                self.no_author_for_global_revoc_count = None
+                                self.mn_identity_required_count = None
+                                self.mn_attached_count = None
+                                self.unknown_revoc_trigger_count = None
+                                self.revoc_function_not_supported_count = None
+                                self.pbr_not_supported_count = None
                                 self._segment_path = lambda: "pbra-receive-statistics"
 
                             def __setattr__(self, name, value):
@@ -1452,14 +1485,17 @@ class Pmipv6(Entity):
                             self.yang_parent_name = "customer-statistic"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.accounting_start_sent_count = YLeaf(YType.uint64, "accounting-start-sent-count")
-
-                            self.accounting_update_sent_count = YLeaf(YType.uint64, "accounting-update-sent-count")
-
-                            self.accounting_stop_sent_count = YLeaf(YType.uint64, "accounting-stop-sent-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('accounting_start_sent_count', YLeaf(YType.uint64, 'accounting-start-sent-count')),
+                                ('accounting_update_sent_count', YLeaf(YType.uint64, 'accounting-update-sent-count')),
+                                ('accounting_stop_sent_count', YLeaf(YType.uint64, 'accounting-stop-sent-count')),
+                            ])
+                            self.accounting_start_sent_count = None
+                            self.accounting_update_sent_count = None
+                            self.accounting_stop_sent_count = None
                             self._segment_path = lambda: "accounting-statistics"
 
                         def __setattr__(self, name, value):
@@ -1510,16 +1546,19 @@ class Pmipv6(Entity):
                     self.yang_parent_name = "statistics"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.lma_identifier = YLeaf(YType.str, "lma-identifier")
-
-                    self.bce_count = YLeaf(YType.uint32, "bce-count")
-
-                    self.peak_bce_count = YLeaf(YType.uint32, "peak-bce-count")
-
-                    self.peak_bce_count_reset_timestamp = YLeaf(YType.uint32, "peak-bce-count-reset-timestamp")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('lma_identifier', YLeaf(YType.str, 'lma-identifier')),
+                        ('bce_count', YLeaf(YType.uint32, 'bce-count')),
+                        ('peak_bce_count', YLeaf(YType.uint32, 'peak-bce-count')),
+                        ('peak_bce_count_reset_timestamp', YLeaf(YType.uint32, 'peak-bce-count-reset-timestamp')),
+                    ])
+                    self.lma_identifier = None
+                    self.bce_count = None
+                    self.peak_bce_count = None
+                    self.peak_bce_count_reset_timestamp = None
                     self._segment_path = lambda: "license"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/%s" % self._segment_path()
 
@@ -1527,24 +1566,24 @@ class Pmipv6(Entity):
                     self._perform_setattr(Pmipv6.Lma.Statistics.License, ['lma_identifier', 'bce_count', 'peak_bce_count', 'peak_bce_count_reset_timestamp'], name, value)
 
 
-            class Global_(Entity):
+            class Global(Entity):
                 """
                 Global Statistics
                 
                 .. attribute:: packet_statistics
                 
                 	Packet Statistics
-                	**type**\:  :py:class:`PacketStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.PacketStatistics>`
+                	**type**\:  :py:class:`PacketStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.PacketStatistics>`
                 
                 .. attribute:: protocol_statistics
                 
                 	LMA Protocol Statistics
-                	**type**\:  :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics>`
+                	**type**\:  :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics>`
                 
                 .. attribute:: accounting_statistics
                 
                 	LMA Accounting Statistics
-                	**type**\:  :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.AccountingStatistics>`
+                	**type**\:  :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.AccountingStatistics>`
                 
                 .. attribute:: lma_identifier
                 
@@ -1587,36 +1626,39 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.Statistics.Global_, self).__init__()
+                    super(Pmipv6.Lma.Statistics.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "statistics"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"packet-statistics" : ("packet_statistics", Pmipv6.Lma.Statistics.Global_.PacketStatistics), "protocol-statistics" : ("protocol_statistics", Pmipv6.Lma.Statistics.Global_.ProtocolStatistics), "accounting-statistics" : ("accounting_statistics", Pmipv6.Lma.Statistics.Global_.AccountingStatistics)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("packet-statistics", ("packet_statistics", Pmipv6.Lma.Statistics.Global.PacketStatistics)), ("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics)), ("accounting-statistics", ("accounting_statistics", Pmipv6.Lma.Statistics.Global.AccountingStatistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('lma_identifier', YLeaf(YType.str, 'lma-identifier')),
+                        ('bce_count', YLeaf(YType.uint32, 'bce-count')),
+                        ('handoff_count', YLeaf(YType.uint32, 'handoff-count')),
+                        ('single_tenant_count', YLeaf(YType.uint32, 'single-tenant-count')),
+                        ('multi_tenant_count', YLeaf(YType.uint32, 'multi-tenant-count')),
+                    ])
+                    self.lma_identifier = None
+                    self.bce_count = None
+                    self.handoff_count = None
+                    self.single_tenant_count = None
+                    self.multi_tenant_count = None
 
-                    self.lma_identifier = YLeaf(YType.str, "lma-identifier")
-
-                    self.bce_count = YLeaf(YType.uint32, "bce-count")
-
-                    self.handoff_count = YLeaf(YType.uint32, "handoff-count")
-
-                    self.single_tenant_count = YLeaf(YType.uint32, "single-tenant-count")
-
-                    self.multi_tenant_count = YLeaf(YType.uint32, "multi-tenant-count")
-
-                    self.packet_statistics = Pmipv6.Lma.Statistics.Global_.PacketStatistics()
+                    self.packet_statistics = Pmipv6.Lma.Statistics.Global.PacketStatistics()
                     self.packet_statistics.parent = self
                     self._children_name_map["packet_statistics"] = "packet-statistics"
                     self._children_yang_names.add("packet-statistics")
 
-                    self.protocol_statistics = Pmipv6.Lma.Statistics.Global_.ProtocolStatistics()
+                    self.protocol_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics()
                     self.protocol_statistics.parent = self
                     self._children_name_map["protocol_statistics"] = "protocol-statistics"
                     self._children_yang_names.add("protocol-statistics")
 
-                    self.accounting_statistics = Pmipv6.Lma.Statistics.Global_.AccountingStatistics()
+                    self.accounting_statistics = Pmipv6.Lma.Statistics.Global.AccountingStatistics()
                     self.accounting_statistics.parent = self
                     self._children_name_map["accounting_statistics"] = "accounting-statistics"
                     self._children_yang_names.add("accounting-statistics")
@@ -1624,7 +1666,7 @@ class Pmipv6(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Statistics.Global_, ['lma_identifier', 'bce_count', 'handoff_count', 'single_tenant_count', 'multi_tenant_count'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Statistics.Global, ['lma_identifier', 'bce_count', 'handoff_count', 'single_tenant_count', 'multi_tenant_count'], name, value)
 
 
                 class PacketStatistics(Entity):
@@ -1702,37 +1744,40 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Statistics.Global_.PacketStatistics, self).__init__()
+                        super(Pmipv6.Lma.Statistics.Global.PacketStatistics, self).__init__()
 
                         self.yang_name = "packet-statistics"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.checksum_errors = YLeaf(YType.uint64, "checksum-errors")
-
-                        self.send_drops = YLeaf(YType.uint64, "send-drops")
-
-                        self.receive_drops = YLeaf(YType.uint64, "receive-drops")
-
-                        self.packets_received = YLeaf(YType.uint64, "packets-received")
-
-                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
-
-                        self.send_drops_ipv6 = YLeaf(YType.uint64, "send-drops-ipv6")
-
-                        self.receive_drops_ipv6 = YLeaf(YType.uint64, "receive-drops-ipv6")
-
-                        self.packets_received_ipv6 = YLeaf(YType.uint64, "packets-received-ipv6")
-
-                        self.packets_sent_ipv6 = YLeaf(YType.uint64, "packets-sent-ipv6")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('checksum_errors', YLeaf(YType.uint64, 'checksum-errors')),
+                            ('send_drops', YLeaf(YType.uint64, 'send-drops')),
+                            ('receive_drops', YLeaf(YType.uint64, 'receive-drops')),
+                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
+                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
+                            ('send_drops_ipv6', YLeaf(YType.uint64, 'send-drops-ipv6')),
+                            ('receive_drops_ipv6', YLeaf(YType.uint64, 'receive-drops-ipv6')),
+                            ('packets_received_ipv6', YLeaf(YType.uint64, 'packets-received-ipv6')),
+                            ('packets_sent_ipv6', YLeaf(YType.uint64, 'packets-sent-ipv6')),
+                        ])
+                        self.checksum_errors = None
+                        self.send_drops = None
+                        self.receive_drops = None
+                        self.packets_received = None
+                        self.packets_sent = None
+                        self.send_drops_ipv6 = None
+                        self.receive_drops_ipv6 = None
+                        self.packets_received_ipv6 = None
+                        self.packets_sent_ipv6 = None
                         self._segment_path = lambda: "packet-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.Global_.PacketStatistics, ['checksum_errors', 'send_drops', 'receive_drops', 'packets_received', 'packets_sent', 'send_drops_ipv6', 'receive_drops_ipv6', 'packets_received_ipv6', 'packets_sent_ipv6'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.PacketStatistics, ['checksum_errors', 'send_drops', 'receive_drops', 'packets_received', 'packets_sent', 'send_drops_ipv6', 'receive_drops_ipv6', 'packets_received_ipv6', 'packets_sent_ipv6'], name, value)
 
 
                 class ProtocolStatistics(Entity):
@@ -1742,32 +1787,32 @@ class Pmipv6(Entity):
                     .. attribute:: pbu_receive_statistics
                     
                     	PBU Receive Statistics
-                    	**type**\:  :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbuReceiveStatistics>`
+                    	**type**\:  :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics>`
                     
                     .. attribute:: pba_send_statistics
                     
                     	PBA Send Statistics
-                    	**type**\:  :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbaSendStatistics>`
+                    	**type**\:  :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics>`
                     
                     .. attribute:: pbri_send_statistics
                     
                     	PBRI Send Statistics
-                    	**type**\:  :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriSendStatistics>`
+                    	**type**\:  :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics>`
                     
                     .. attribute:: pbri_receive_statistics
                     
                     	PBRI Receive Statistics
-                    	**type**\:  :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriReceiveStatistics>`
+                    	**type**\:  :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics>`
                     
                     .. attribute:: pbra_send_statistics
                     
                     	PBRA Send Statistics
-                    	**type**\:  :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraSendStatistics>`
+                    	**type**\:  :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics>`
                     
                     .. attribute:: pbra_receive_statistics
                     
                     	PBRA Receive Statistics
-                    	**type**\:  :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraReceiveStatistics>`
+                    	**type**\:  :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics>`
                     
                     
 
@@ -1777,41 +1822,43 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics, self).__init__()
+                        super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics, self).__init__()
 
                         self.yang_name = "protocol-statistics"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"pbu-receive-statistics" : ("pbu_receive_statistics", Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbuReceiveStatistics), "pba-send-statistics" : ("pba_send_statistics", Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbaSendStatistics), "pbri-send-statistics" : ("pbri_send_statistics", Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriSendStatistics), "pbri-receive-statistics" : ("pbri_receive_statistics", Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriReceiveStatistics), "pbra-send-statistics" : ("pbra_send_statistics", Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraSendStatistics), "pbra-receive-statistics" : ("pbra_receive_statistics", Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraReceiveStatistics)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.pbu_receive_statistics = Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbuReceiveStatistics()
+                        self.pbu_receive_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics()
                         self.pbu_receive_statistics.parent = self
                         self._children_name_map["pbu_receive_statistics"] = "pbu-receive-statistics"
                         self._children_yang_names.add("pbu-receive-statistics")
 
-                        self.pba_send_statistics = Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbaSendStatistics()
+                        self.pba_send_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics()
                         self.pba_send_statistics.parent = self
                         self._children_name_map["pba_send_statistics"] = "pba-send-statistics"
                         self._children_yang_names.add("pba-send-statistics")
 
-                        self.pbri_send_statistics = Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriSendStatistics()
+                        self.pbri_send_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics()
                         self.pbri_send_statistics.parent = self
                         self._children_name_map["pbri_send_statistics"] = "pbri-send-statistics"
                         self._children_yang_names.add("pbri-send-statistics")
 
-                        self.pbri_receive_statistics = Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriReceiveStatistics()
+                        self.pbri_receive_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics()
                         self.pbri_receive_statistics.parent = self
                         self._children_name_map["pbri_receive_statistics"] = "pbri-receive-statistics"
                         self._children_yang_names.add("pbri-receive-statistics")
 
-                        self.pbra_send_statistics = Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraSendStatistics()
+                        self.pbra_send_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics()
                         self.pbra_send_statistics.parent = self
                         self._children_name_map["pbra_send_statistics"] = "pbra-send-statistics"
                         self._children_yang_names.add("pbra-send-statistics")
 
-                        self.pbra_receive_statistics = Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraReceiveStatistics()
+                        self.pbra_receive_statistics = Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics()
                         self.pbra_receive_statistics.parent = self
                         self._children_name_map["pbra_receive_statistics"] = "pbra-receive-statistics"
                         self._children_yang_names.add("pbra-receive-statistics")
@@ -1845,23 +1892,26 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbuReceiveStatistics, self).__init__()
+                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, self).__init__()
 
                             self.yang_name = "pbu-receive-statistics"
                             self.yang_parent_name = "protocol-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.pbu_count = YLeaf(YType.uint64, "pbu-count")
-
-                            self.pbu_drop_count = YLeaf(YType.uint32, "pbu-drop-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('pbu_count', YLeaf(YType.uint64, 'pbu-count')),
+                                ('pbu_drop_count', YLeaf(YType.uint32, 'pbu-drop-count')),
+                            ])
+                            self.pbu_count = None
+                            self.pbu_drop_count = None
                             self._segment_path = lambda: "pbu-receive-statistics"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
 
 
                     class PbaSendStatistics(Entity):
@@ -2072,75 +2122,78 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbaSendStatistics, self).__init__()
+                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, self).__init__()
 
                             self.yang_name = "pba-send-statistics"
                             self.yang_parent_name = "protocol-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.pba_count = YLeaf(YType.uint64, "pba-count")
-
-                            self.pba_drop_count = YLeaf(YType.uint32, "pba-drop-count")
-
-                            self.accepted_count = YLeaf(YType.uint32, "accepted-count")
-
-                            self.unknown_count = YLeaf(YType.uint32, "unknown-count")
-
-                            self.unspecified_failure_count = YLeaf(YType.uint32, "unspecified-failure-count")
-
-                            self.admin_failure_count = YLeaf(YType.uint32, "admin-failure-count")
-
-                            self.resource_failure_count = YLeaf(YType.uint32, "resource-failure-count")
-
-                            self.home_reg_failure_count = YLeaf(YType.uint32, "home-reg-failure-count")
-
-                            self.home_subnet_failure_count = YLeaf(YType.uint32, "home-subnet-failure-count")
-
-                            self.bad_sequence_failure_count = YLeaf(YType.uint32, "bad-sequence-failure-count")
-
-                            self.reg_type_failure_count = YLeaf(YType.uint32, "reg-type-failure-count")
-
-                            self.authen_failure_count = YLeaf(YType.uint32, "authen-failure-count")
-
-                            self.proxy_reg_not_enabled_count = YLeaf(YType.uint32, "proxy-reg-not-enabled-count")
-
-                            self.not_lma_for_this_mn_count = YLeaf(YType.uint32, "not-lma-for-this-mn-count")
-
-                            self.no_author_for_proxy_reg_count = YLeaf(YType.uint32, "no-author-for-proxy-reg-count")
-
-                            self.no_author_for_hnp_count = YLeaf(YType.uint32, "no-author-for-hnp-count")
-
-                            self.timestamp_mismatch_count = YLeaf(YType.uint32, "timestamp-mismatch-count")
-
-                            self.timestamp_lower_than_previous_accepted_count = YLeaf(YType.uint32, "timestamp-lower-than-previous-accepted-count")
-
-                            self.missing_hnp_opt_count = YLeaf(YType.uint32, "missing-hnp-opt-count")
-
-                            self.received_hnps_do_not_match_bce_hnps_count = YLeaf(YType.uint32, "received-hnps-do-not-match-bce-hnps-count")
-
-                            self.missing_mn_id_opt_count = YLeaf(YType.uint32, "missing-mn-id-opt-count")
-
-                            self.missing_hi_opt_count = YLeaf(YType.uint32, "missing-hi-opt-count")
-
-                            self.missing_access_tech_type_opt_count = YLeaf(YType.uint32, "missing-access-tech-type-opt-count")
-
-                            self.no_author_for_ipv4_mobility_count = YLeaf(YType.uint32, "no-author-for-ipv4-mobility-count")
-
-                            self.no_author_for_ipv4_hoa_count = YLeaf(YType.uint32, "no-author-for-ipv4-hoa-count")
-
-                            self.no_author_for_ipv6_mobility_count = YLeaf(YType.uint32, "no-author-for-ipv6-mobility-count")
-
-                            self.multiple_ipv4_ho_a_not_supported_count = YLeaf(YType.uint32, "multiple-ipv4-ho-a-not-supported-count")
-
-                            self.gre_key_opt_required_count = YLeaf(YType.uint32, "gre-key-opt-required-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('pba_count', YLeaf(YType.uint64, 'pba-count')),
+                                ('pba_drop_count', YLeaf(YType.uint32, 'pba-drop-count')),
+                                ('accepted_count', YLeaf(YType.uint32, 'accepted-count')),
+                                ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                                ('unspecified_failure_count', YLeaf(YType.uint32, 'unspecified-failure-count')),
+                                ('admin_failure_count', YLeaf(YType.uint32, 'admin-failure-count')),
+                                ('resource_failure_count', YLeaf(YType.uint32, 'resource-failure-count')),
+                                ('home_reg_failure_count', YLeaf(YType.uint32, 'home-reg-failure-count')),
+                                ('home_subnet_failure_count', YLeaf(YType.uint32, 'home-subnet-failure-count')),
+                                ('bad_sequence_failure_count', YLeaf(YType.uint32, 'bad-sequence-failure-count')),
+                                ('reg_type_failure_count', YLeaf(YType.uint32, 'reg-type-failure-count')),
+                                ('authen_failure_count', YLeaf(YType.uint32, 'authen-failure-count')),
+                                ('proxy_reg_not_enabled_count', YLeaf(YType.uint32, 'proxy-reg-not-enabled-count')),
+                                ('not_lma_for_this_mn_count', YLeaf(YType.uint32, 'not-lma-for-this-mn-count')),
+                                ('no_author_for_proxy_reg_count', YLeaf(YType.uint32, 'no-author-for-proxy-reg-count')),
+                                ('no_author_for_hnp_count', YLeaf(YType.uint32, 'no-author-for-hnp-count')),
+                                ('timestamp_mismatch_count', YLeaf(YType.uint32, 'timestamp-mismatch-count')),
+                                ('timestamp_lower_than_previous_accepted_count', YLeaf(YType.uint32, 'timestamp-lower-than-previous-accepted-count')),
+                                ('missing_hnp_opt_count', YLeaf(YType.uint32, 'missing-hnp-opt-count')),
+                                ('received_hnps_do_not_match_bce_hnps_count', YLeaf(YType.uint32, 'received-hnps-do-not-match-bce-hnps-count')),
+                                ('missing_mn_id_opt_count', YLeaf(YType.uint32, 'missing-mn-id-opt-count')),
+                                ('missing_hi_opt_count', YLeaf(YType.uint32, 'missing-hi-opt-count')),
+                                ('missing_access_tech_type_opt_count', YLeaf(YType.uint32, 'missing-access-tech-type-opt-count')),
+                                ('no_author_for_ipv4_mobility_count', YLeaf(YType.uint32, 'no-author-for-ipv4-mobility-count')),
+                                ('no_author_for_ipv4_hoa_count', YLeaf(YType.uint32, 'no-author-for-ipv4-hoa-count')),
+                                ('no_author_for_ipv6_mobility_count', YLeaf(YType.uint32, 'no-author-for-ipv6-mobility-count')),
+                                ('multiple_ipv4_ho_a_not_supported_count', YLeaf(YType.uint32, 'multiple-ipv4-ho-a-not-supported-count')),
+                                ('gre_key_opt_required_count', YLeaf(YType.uint32, 'gre-key-opt-required-count')),
+                            ])
+                            self.pba_count = None
+                            self.pba_drop_count = None
+                            self.accepted_count = None
+                            self.unknown_count = None
+                            self.unspecified_failure_count = None
+                            self.admin_failure_count = None
+                            self.resource_failure_count = None
+                            self.home_reg_failure_count = None
+                            self.home_subnet_failure_count = None
+                            self.bad_sequence_failure_count = None
+                            self.reg_type_failure_count = None
+                            self.authen_failure_count = None
+                            self.proxy_reg_not_enabled_count = None
+                            self.not_lma_for_this_mn_count = None
+                            self.no_author_for_proxy_reg_count = None
+                            self.no_author_for_hnp_count = None
+                            self.timestamp_mismatch_count = None
+                            self.timestamp_lower_than_previous_accepted_count = None
+                            self.missing_hnp_opt_count = None
+                            self.received_hnps_do_not_match_bce_hnps_count = None
+                            self.missing_mn_id_opt_count = None
+                            self.missing_hi_opt_count = None
+                            self.missing_access_tech_type_opt_count = None
+                            self.no_author_for_ipv4_mobility_count = None
+                            self.no_author_for_ipv4_hoa_count = None
+                            self.no_author_for_ipv6_mobility_count = None
+                            self.multiple_ipv4_ho_a_not_supported_count = None
+                            self.gre_key_opt_required_count = None
                             self._segment_path = lambda: "pba-send-statistics"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
 
 
                     class PbriSendStatistics(Entity):
@@ -2239,43 +2292,46 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriSendStatistics, self).__init__()
+                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, self).__init__()
 
                             self.yang_name = "pbri-send-statistics"
                             self.yang_parent_name = "protocol-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.pbri_count = YLeaf(YType.uint64, "pbri-count")
-
-                            self.pbri_drop_count = YLeaf(YType.uint32, "pbri-drop-count")
-
-                            self.unspecified_count = YLeaf(YType.uint32, "unspecified-count")
-
-                            self.admin_reason_count = YLeaf(YType.uint32, "admin-reason-count")
-
-                            self.mag_handover_same_att_count = YLeaf(YType.uint32, "mag-handover-same-att-count")
-
-                            self.mag_handover_different_att_count = YLeaf(YType.uint32, "mag-handover-different-att-count")
-
-                            self.mag_handover_unknown_count = YLeaf(YType.uint32, "mag-handover-unknown-count")
-
-                            self.user_session_termination_count = YLeaf(YType.uint32, "user-session-termination-count")
-
-                            self.network_session_termination_count = YLeaf(YType.uint32, "network-session-termination-count")
-
-                            self.out_of_sync_bce_state_count = YLeaf(YType.uint32, "out-of-sync-bce-state-count")
-
-                            self.per_peer_policy_count = YLeaf(YType.uint32, "per-peer-policy-count")
-
-                            self.revoking_mn_local_policy_count = YLeaf(YType.uint32, "revoking-mn-local-policy-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
+                                ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
+                                ('unspecified_count', YLeaf(YType.uint32, 'unspecified-count')),
+                                ('admin_reason_count', YLeaf(YType.uint32, 'admin-reason-count')),
+                                ('mag_handover_same_att_count', YLeaf(YType.uint32, 'mag-handover-same-att-count')),
+                                ('mag_handover_different_att_count', YLeaf(YType.uint32, 'mag-handover-different-att-count')),
+                                ('mag_handover_unknown_count', YLeaf(YType.uint32, 'mag-handover-unknown-count')),
+                                ('user_session_termination_count', YLeaf(YType.uint32, 'user-session-termination-count')),
+                                ('network_session_termination_count', YLeaf(YType.uint32, 'network-session-termination-count')),
+                                ('out_of_sync_bce_state_count', YLeaf(YType.uint32, 'out-of-sync-bce-state-count')),
+                                ('per_peer_policy_count', YLeaf(YType.uint32, 'per-peer-policy-count')),
+                                ('revoking_mn_local_policy_count', YLeaf(YType.uint32, 'revoking-mn-local-policy-count')),
+                            ])
+                            self.pbri_count = None
+                            self.pbri_drop_count = None
+                            self.unspecified_count = None
+                            self.admin_reason_count = None
+                            self.mag_handover_same_att_count = None
+                            self.mag_handover_different_att_count = None
+                            self.mag_handover_unknown_count = None
+                            self.user_session_termination_count = None
+                            self.network_session_termination_count = None
+                            self.out_of_sync_bce_state_count = None
+                            self.per_peer_policy_count = None
+                            self.revoking_mn_local_policy_count = None
                             self._segment_path = lambda: "pbri-send-statistics"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
 
 
                     class PbriReceiveStatistics(Entity):
@@ -2374,43 +2430,46 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriReceiveStatistics, self).__init__()
+                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, self).__init__()
 
                             self.yang_name = "pbri-receive-statistics"
                             self.yang_parent_name = "protocol-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.pbri_count = YLeaf(YType.uint64, "pbri-count")
-
-                            self.pbri_drop_count = YLeaf(YType.uint32, "pbri-drop-count")
-
-                            self.unspecified_count = YLeaf(YType.uint32, "unspecified-count")
-
-                            self.admin_reason_count = YLeaf(YType.uint32, "admin-reason-count")
-
-                            self.mag_handover_same_att_count = YLeaf(YType.uint32, "mag-handover-same-att-count")
-
-                            self.mag_handover_different_att_count = YLeaf(YType.uint32, "mag-handover-different-att-count")
-
-                            self.mag_handover_unknown_count = YLeaf(YType.uint32, "mag-handover-unknown-count")
-
-                            self.user_session_termination_count = YLeaf(YType.uint32, "user-session-termination-count")
-
-                            self.network_session_termination_count = YLeaf(YType.uint32, "network-session-termination-count")
-
-                            self.out_of_sync_bce_state_count = YLeaf(YType.uint32, "out-of-sync-bce-state-count")
-
-                            self.per_peer_policy_count = YLeaf(YType.uint32, "per-peer-policy-count")
-
-                            self.revoking_mn_local_policy_count = YLeaf(YType.uint32, "revoking-mn-local-policy-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
+                                ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
+                                ('unspecified_count', YLeaf(YType.uint32, 'unspecified-count')),
+                                ('admin_reason_count', YLeaf(YType.uint32, 'admin-reason-count')),
+                                ('mag_handover_same_att_count', YLeaf(YType.uint32, 'mag-handover-same-att-count')),
+                                ('mag_handover_different_att_count', YLeaf(YType.uint32, 'mag-handover-different-att-count')),
+                                ('mag_handover_unknown_count', YLeaf(YType.uint32, 'mag-handover-unknown-count')),
+                                ('user_session_termination_count', YLeaf(YType.uint32, 'user-session-termination-count')),
+                                ('network_session_termination_count', YLeaf(YType.uint32, 'network-session-termination-count')),
+                                ('out_of_sync_bce_state_count', YLeaf(YType.uint32, 'out-of-sync-bce-state-count')),
+                                ('per_peer_policy_count', YLeaf(YType.uint32, 'per-peer-policy-count')),
+                                ('revoking_mn_local_policy_count', YLeaf(YType.uint32, 'revoking-mn-local-policy-count')),
+                            ])
+                            self.pbri_count = None
+                            self.pbri_drop_count = None
+                            self.unspecified_count = None
+                            self.admin_reason_count = None
+                            self.mag_handover_same_att_count = None
+                            self.mag_handover_different_att_count = None
+                            self.mag_handover_unknown_count = None
+                            self.user_session_termination_count = None
+                            self.network_session_termination_count = None
+                            self.out_of_sync_bce_state_count = None
+                            self.per_peer_policy_count = None
+                            self.revoking_mn_local_policy_count = None
                             self._segment_path = lambda: "pbri-receive-statistics"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
 
 
                     class PbraSendStatistics(Entity):
@@ -2509,43 +2568,46 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraSendStatistics, self).__init__()
+                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, self).__init__()
 
                             self.yang_name = "pbra-send-statistics"
                             self.yang_parent_name = "protocol-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.pbra_count = YLeaf(YType.uint64, "pbra-count")
-
-                            self.pbra_drop_count = YLeaf(YType.uint32, "pbra-drop-count")
-
-                            self.success_count = YLeaf(YType.uint32, "success-count")
-
-                            self.partial_success_count = YLeaf(YType.uint32, "partial-success-count")
-
-                            self.no_binding_count = YLeaf(YType.uint32, "no-binding-count")
-
-                            self.hoa_required_count = YLeaf(YType.uint32, "hoa-required-count")
-
-                            self.no_author_for_global_revoc_count = YLeaf(YType.uint32, "no-author-for-global-revoc-count")
-
-                            self.mn_identity_required_count = YLeaf(YType.uint32, "mn-identity-required-count")
-
-                            self.mn_attached_count = YLeaf(YType.uint32, "mn-attached-count")
-
-                            self.unknown_revoc_trigger_count = YLeaf(YType.uint32, "unknown-revoc-trigger-count")
-
-                            self.revoc_function_not_supported_count = YLeaf(YType.uint32, "revoc-function-not-supported-count")
-
-                            self.pbr_not_supported_count = YLeaf(YType.uint32, "pbr-not-supported-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
+                                ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
+                                ('success_count', YLeaf(YType.uint32, 'success-count')),
+                                ('partial_success_count', YLeaf(YType.uint32, 'partial-success-count')),
+                                ('no_binding_count', YLeaf(YType.uint32, 'no-binding-count')),
+                                ('hoa_required_count', YLeaf(YType.uint32, 'hoa-required-count')),
+                                ('no_author_for_global_revoc_count', YLeaf(YType.uint32, 'no-author-for-global-revoc-count')),
+                                ('mn_identity_required_count', YLeaf(YType.uint32, 'mn-identity-required-count')),
+                                ('mn_attached_count', YLeaf(YType.uint32, 'mn-attached-count')),
+                                ('unknown_revoc_trigger_count', YLeaf(YType.uint32, 'unknown-revoc-trigger-count')),
+                                ('revoc_function_not_supported_count', YLeaf(YType.uint32, 'revoc-function-not-supported-count')),
+                                ('pbr_not_supported_count', YLeaf(YType.uint32, 'pbr-not-supported-count')),
+                            ])
+                            self.pbra_count = None
+                            self.pbra_drop_count = None
+                            self.success_count = None
+                            self.partial_success_count = None
+                            self.no_binding_count = None
+                            self.hoa_required_count = None
+                            self.no_author_for_global_revoc_count = None
+                            self.mn_identity_required_count = None
+                            self.mn_attached_count = None
+                            self.unknown_revoc_trigger_count = None
+                            self.revoc_function_not_supported_count = None
+                            self.pbr_not_supported_count = None
                             self._segment_path = lambda: "pbra-send-statistics"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
 
 
                     class PbraReceiveStatistics(Entity):
@@ -2644,43 +2706,46 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraReceiveStatistics, self).__init__()
+                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, self).__init__()
 
                             self.yang_name = "pbra-receive-statistics"
                             self.yang_parent_name = "protocol-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.pbra_count = YLeaf(YType.uint64, "pbra-count")
-
-                            self.pbra_drop_count = YLeaf(YType.uint32, "pbra-drop-count")
-
-                            self.success_count = YLeaf(YType.uint32, "success-count")
-
-                            self.partial_success_count = YLeaf(YType.uint32, "partial-success-count")
-
-                            self.no_binding_count = YLeaf(YType.uint32, "no-binding-count")
-
-                            self.hoa_required_count = YLeaf(YType.uint32, "hoa-required-count")
-
-                            self.no_author_for_global_revoc_count = YLeaf(YType.uint32, "no-author-for-global-revoc-count")
-
-                            self.mn_identity_required_count = YLeaf(YType.uint32, "mn-identity-required-count")
-
-                            self.mn_attached_count = YLeaf(YType.uint32, "mn-attached-count")
-
-                            self.unknown_revoc_trigger_count = YLeaf(YType.uint32, "unknown-revoc-trigger-count")
-
-                            self.revoc_function_not_supported_count = YLeaf(YType.uint32, "revoc-function-not-supported-count")
-
-                            self.pbr_not_supported_count = YLeaf(YType.uint32, "pbr-not-supported-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
+                                ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
+                                ('success_count', YLeaf(YType.uint32, 'success-count')),
+                                ('partial_success_count', YLeaf(YType.uint32, 'partial-success-count')),
+                                ('no_binding_count', YLeaf(YType.uint32, 'no-binding-count')),
+                                ('hoa_required_count', YLeaf(YType.uint32, 'hoa-required-count')),
+                                ('no_author_for_global_revoc_count', YLeaf(YType.uint32, 'no-author-for-global-revoc-count')),
+                                ('mn_identity_required_count', YLeaf(YType.uint32, 'mn-identity-required-count')),
+                                ('mn_attached_count', YLeaf(YType.uint32, 'mn-attached-count')),
+                                ('unknown_revoc_trigger_count', YLeaf(YType.uint32, 'unknown-revoc-trigger-count')),
+                                ('revoc_function_not_supported_count', YLeaf(YType.uint32, 'revoc-function-not-supported-count')),
+                                ('pbr_not_supported_count', YLeaf(YType.uint32, 'pbr-not-supported-count')),
+                            ])
+                            self.pbra_count = None
+                            self.pbra_drop_count = None
+                            self.success_count = None
+                            self.partial_success_count = None
+                            self.no_binding_count = None
+                            self.hoa_required_count = None
+                            self.no_author_for_global_revoc_count = None
+                            self.mn_identity_required_count = None
+                            self.mn_attached_count = None
+                            self.unknown_revoc_trigger_count = None
+                            self.revoc_function_not_supported_count = None
+                            self.pbr_not_supported_count = None
                             self._segment_path = lambda: "pbra-receive-statistics"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/protocol-statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global_.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
 
 
                 class AccountingStatistics(Entity):
@@ -2716,25 +2781,28 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Statistics.Global_.AccountingStatistics, self).__init__()
+                        super(Pmipv6.Lma.Statistics.Global.AccountingStatistics, self).__init__()
 
                         self.yang_name = "accounting-statistics"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.accounting_start_sent_count = YLeaf(YType.uint64, "accounting-start-sent-count")
-
-                        self.accounting_update_sent_count = YLeaf(YType.uint64, "accounting-update-sent-count")
-
-                        self.accounting_stop_sent_count = YLeaf(YType.uint64, "accounting-stop-sent-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('accounting_start_sent_count', YLeaf(YType.uint64, 'accounting-start-sent-count')),
+                            ('accounting_update_sent_count', YLeaf(YType.uint64, 'accounting-update-sent-count')),
+                            ('accounting_stop_sent_count', YLeaf(YType.uint64, 'accounting-stop-sent-count')),
+                        ])
+                        self.accounting_start_sent_count = None
+                        self.accounting_update_sent_count = None
+                        self.accounting_stop_sent_count = None
                         self._segment_path = lambda: "accounting-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/global/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.Global_.AccountingStatistics, ['accounting_start_sent_count', 'accounting_update_sent_count', 'accounting_stop_sent_count'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.AccountingStatistics, ['accounting_start_sent_count', 'accounting_update_sent_count', 'accounting_stop_sent_count'], name, value)
 
 
             class MagStatistics(Entity):
@@ -2760,8 +2828,10 @@ class Pmipv6(Entity):
                     self.yang_parent_name = "statistics"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"mag-statistic" : ("mag_statistic", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("mag-statistic", ("mag_statistic", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic))])
+                    self._leafs = OrderedDict()
 
                     self.mag_statistic = YList(self)
                     self._segment_path = lambda: "mag-statistics"
@@ -2775,7 +2845,7 @@ class Pmipv6(Entity):
                     """
                     Peer MAG statistics
                     
-                    .. attribute:: mag_name  <key>
+                    .. attribute:: mag_name  (key)
                     
                     	Peer MAG Name
                     	**type**\: str
@@ -2806,18 +2876,21 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "mag-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"protocol-statistics" : ("protocol_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics)}
-                        self._child_list_classes = {}
-
-                        self.mag_name = YLeaf(YType.str, "mag-name")
-
-                        self.lma_identifier = YLeaf(YType.str, "lma-identifier")
+                        self.ylist_key_names = ['mag_name']
+                        self._child_container_classes = OrderedDict([("protocol-statistics", ("protocol_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('mag_name', YLeaf(YType.str, 'mag-name')),
+                            ('lma_identifier', YLeaf(YType.str, 'lma-identifier')),
+                        ])
+                        self.mag_name = None
+                        self.lma_identifier = None
 
                         self.protocol_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics()
                         self.protocol_statistics.parent = self
                         self._children_name_map["protocol_statistics"] = "protocol-statistics"
                         self._children_yang_names.add("protocol-statistics")
-                        self._segment_path = lambda: "mag-statistic" + "[mag-name='" + self.mag_name.get() + "']"
+                        self._segment_path = lambda: "mag-statistic" + "[mag-name='" + str(self.mag_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/statistics/mag-statistics/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -2872,8 +2945,10 @@ class Pmipv6(Entity):
                             self.yang_parent_name = "mag-statistic"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"pbu-receive-statistics" : ("pbu_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics), "pba-send-statistics" : ("pba_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics), "pbri-send-statistics" : ("pbri_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics), "pbri-receive-statistics" : ("pbri_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics), "pbra-send-statistics" : ("pbra_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics), "pbra-receive-statistics" : ("pbra_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("pbu-receive-statistics", ("pbu_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics)), ("pba-send-statistics", ("pba_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics)), ("pbri-send-statistics", ("pbri_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics)), ("pbri-receive-statistics", ("pbri_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics)), ("pbra-send-statistics", ("pbra_send_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics)), ("pbra-receive-statistics", ("pbra_receive_statistics", Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.pbu_receive_statistics = Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics()
                             self.pbu_receive_statistics.parent = self
@@ -2939,12 +3014,15 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbu_count = YLeaf(YType.uint64, "pbu-count")
-
-                                self.pbu_drop_count = YLeaf(YType.uint32, "pbu-drop-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbu_count', YLeaf(YType.uint64, 'pbu-count')),
+                                    ('pbu_drop_count', YLeaf(YType.uint32, 'pbu-drop-count')),
+                                ])
+                                self.pbu_count = None
+                                self.pbu_drop_count = None
                                 self._segment_path = lambda: "pbu-receive-statistics"
 
                             def __setattr__(self, name, value):
@@ -3165,64 +3243,67 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pba_count = YLeaf(YType.uint64, "pba-count")
-
-                                self.pba_drop_count = YLeaf(YType.uint32, "pba-drop-count")
-
-                                self.accepted_count = YLeaf(YType.uint32, "accepted-count")
-
-                                self.unknown_count = YLeaf(YType.uint32, "unknown-count")
-
-                                self.unspecified_failure_count = YLeaf(YType.uint32, "unspecified-failure-count")
-
-                                self.admin_failure_count = YLeaf(YType.uint32, "admin-failure-count")
-
-                                self.resource_failure_count = YLeaf(YType.uint32, "resource-failure-count")
-
-                                self.home_reg_failure_count = YLeaf(YType.uint32, "home-reg-failure-count")
-
-                                self.home_subnet_failure_count = YLeaf(YType.uint32, "home-subnet-failure-count")
-
-                                self.bad_sequence_failure_count = YLeaf(YType.uint32, "bad-sequence-failure-count")
-
-                                self.reg_type_failure_count = YLeaf(YType.uint32, "reg-type-failure-count")
-
-                                self.authen_failure_count = YLeaf(YType.uint32, "authen-failure-count")
-
-                                self.proxy_reg_not_enabled_count = YLeaf(YType.uint32, "proxy-reg-not-enabled-count")
-
-                                self.not_lma_for_this_mn_count = YLeaf(YType.uint32, "not-lma-for-this-mn-count")
-
-                                self.no_author_for_proxy_reg_count = YLeaf(YType.uint32, "no-author-for-proxy-reg-count")
-
-                                self.no_author_for_hnp_count = YLeaf(YType.uint32, "no-author-for-hnp-count")
-
-                                self.timestamp_mismatch_count = YLeaf(YType.uint32, "timestamp-mismatch-count")
-
-                                self.timestamp_lower_than_previous_accepted_count = YLeaf(YType.uint32, "timestamp-lower-than-previous-accepted-count")
-
-                                self.missing_hnp_opt_count = YLeaf(YType.uint32, "missing-hnp-opt-count")
-
-                                self.received_hnps_do_not_match_bce_hnps_count = YLeaf(YType.uint32, "received-hnps-do-not-match-bce-hnps-count")
-
-                                self.missing_mn_id_opt_count = YLeaf(YType.uint32, "missing-mn-id-opt-count")
-
-                                self.missing_hi_opt_count = YLeaf(YType.uint32, "missing-hi-opt-count")
-
-                                self.missing_access_tech_type_opt_count = YLeaf(YType.uint32, "missing-access-tech-type-opt-count")
-
-                                self.no_author_for_ipv4_mobility_count = YLeaf(YType.uint32, "no-author-for-ipv4-mobility-count")
-
-                                self.no_author_for_ipv4_hoa_count = YLeaf(YType.uint32, "no-author-for-ipv4-hoa-count")
-
-                                self.no_author_for_ipv6_mobility_count = YLeaf(YType.uint32, "no-author-for-ipv6-mobility-count")
-
-                                self.multiple_ipv4_ho_a_not_supported_count = YLeaf(YType.uint32, "multiple-ipv4-ho-a-not-supported-count")
-
-                                self.gre_key_opt_required_count = YLeaf(YType.uint32, "gre-key-opt-required-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pba_count', YLeaf(YType.uint64, 'pba-count')),
+                                    ('pba_drop_count', YLeaf(YType.uint32, 'pba-drop-count')),
+                                    ('accepted_count', YLeaf(YType.uint32, 'accepted-count')),
+                                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                                    ('unspecified_failure_count', YLeaf(YType.uint32, 'unspecified-failure-count')),
+                                    ('admin_failure_count', YLeaf(YType.uint32, 'admin-failure-count')),
+                                    ('resource_failure_count', YLeaf(YType.uint32, 'resource-failure-count')),
+                                    ('home_reg_failure_count', YLeaf(YType.uint32, 'home-reg-failure-count')),
+                                    ('home_subnet_failure_count', YLeaf(YType.uint32, 'home-subnet-failure-count')),
+                                    ('bad_sequence_failure_count', YLeaf(YType.uint32, 'bad-sequence-failure-count')),
+                                    ('reg_type_failure_count', YLeaf(YType.uint32, 'reg-type-failure-count')),
+                                    ('authen_failure_count', YLeaf(YType.uint32, 'authen-failure-count')),
+                                    ('proxy_reg_not_enabled_count', YLeaf(YType.uint32, 'proxy-reg-not-enabled-count')),
+                                    ('not_lma_for_this_mn_count', YLeaf(YType.uint32, 'not-lma-for-this-mn-count')),
+                                    ('no_author_for_proxy_reg_count', YLeaf(YType.uint32, 'no-author-for-proxy-reg-count')),
+                                    ('no_author_for_hnp_count', YLeaf(YType.uint32, 'no-author-for-hnp-count')),
+                                    ('timestamp_mismatch_count', YLeaf(YType.uint32, 'timestamp-mismatch-count')),
+                                    ('timestamp_lower_than_previous_accepted_count', YLeaf(YType.uint32, 'timestamp-lower-than-previous-accepted-count')),
+                                    ('missing_hnp_opt_count', YLeaf(YType.uint32, 'missing-hnp-opt-count')),
+                                    ('received_hnps_do_not_match_bce_hnps_count', YLeaf(YType.uint32, 'received-hnps-do-not-match-bce-hnps-count')),
+                                    ('missing_mn_id_opt_count', YLeaf(YType.uint32, 'missing-mn-id-opt-count')),
+                                    ('missing_hi_opt_count', YLeaf(YType.uint32, 'missing-hi-opt-count')),
+                                    ('missing_access_tech_type_opt_count', YLeaf(YType.uint32, 'missing-access-tech-type-opt-count')),
+                                    ('no_author_for_ipv4_mobility_count', YLeaf(YType.uint32, 'no-author-for-ipv4-mobility-count')),
+                                    ('no_author_for_ipv4_hoa_count', YLeaf(YType.uint32, 'no-author-for-ipv4-hoa-count')),
+                                    ('no_author_for_ipv6_mobility_count', YLeaf(YType.uint32, 'no-author-for-ipv6-mobility-count')),
+                                    ('multiple_ipv4_ho_a_not_supported_count', YLeaf(YType.uint32, 'multiple-ipv4-ho-a-not-supported-count')),
+                                    ('gre_key_opt_required_count', YLeaf(YType.uint32, 'gre-key-opt-required-count')),
+                                ])
+                                self.pba_count = None
+                                self.pba_drop_count = None
+                                self.accepted_count = None
+                                self.unknown_count = None
+                                self.unspecified_failure_count = None
+                                self.admin_failure_count = None
+                                self.resource_failure_count = None
+                                self.home_reg_failure_count = None
+                                self.home_subnet_failure_count = None
+                                self.bad_sequence_failure_count = None
+                                self.reg_type_failure_count = None
+                                self.authen_failure_count = None
+                                self.proxy_reg_not_enabled_count = None
+                                self.not_lma_for_this_mn_count = None
+                                self.no_author_for_proxy_reg_count = None
+                                self.no_author_for_hnp_count = None
+                                self.timestamp_mismatch_count = None
+                                self.timestamp_lower_than_previous_accepted_count = None
+                                self.missing_hnp_opt_count = None
+                                self.received_hnps_do_not_match_bce_hnps_count = None
+                                self.missing_mn_id_opt_count = None
+                                self.missing_hi_opt_count = None
+                                self.missing_access_tech_type_opt_count = None
+                                self.no_author_for_ipv4_mobility_count = None
+                                self.no_author_for_ipv4_hoa_count = None
+                                self.no_author_for_ipv6_mobility_count = None
+                                self.multiple_ipv4_ho_a_not_supported_count = None
+                                self.gre_key_opt_required_count = None
                                 self._segment_path = lambda: "pba-send-statistics"
 
                             def __setattr__(self, name, value):
@@ -3331,32 +3412,35 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbri_count = YLeaf(YType.uint64, "pbri-count")
-
-                                self.pbri_drop_count = YLeaf(YType.uint32, "pbri-drop-count")
-
-                                self.unspecified_count = YLeaf(YType.uint32, "unspecified-count")
-
-                                self.admin_reason_count = YLeaf(YType.uint32, "admin-reason-count")
-
-                                self.mag_handover_same_att_count = YLeaf(YType.uint32, "mag-handover-same-att-count")
-
-                                self.mag_handover_different_att_count = YLeaf(YType.uint32, "mag-handover-different-att-count")
-
-                                self.mag_handover_unknown_count = YLeaf(YType.uint32, "mag-handover-unknown-count")
-
-                                self.user_session_termination_count = YLeaf(YType.uint32, "user-session-termination-count")
-
-                                self.network_session_termination_count = YLeaf(YType.uint32, "network-session-termination-count")
-
-                                self.out_of_sync_bce_state_count = YLeaf(YType.uint32, "out-of-sync-bce-state-count")
-
-                                self.per_peer_policy_count = YLeaf(YType.uint32, "per-peer-policy-count")
-
-                                self.revoking_mn_local_policy_count = YLeaf(YType.uint32, "revoking-mn-local-policy-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
+                                    ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
+                                    ('unspecified_count', YLeaf(YType.uint32, 'unspecified-count')),
+                                    ('admin_reason_count', YLeaf(YType.uint32, 'admin-reason-count')),
+                                    ('mag_handover_same_att_count', YLeaf(YType.uint32, 'mag-handover-same-att-count')),
+                                    ('mag_handover_different_att_count', YLeaf(YType.uint32, 'mag-handover-different-att-count')),
+                                    ('mag_handover_unknown_count', YLeaf(YType.uint32, 'mag-handover-unknown-count')),
+                                    ('user_session_termination_count', YLeaf(YType.uint32, 'user-session-termination-count')),
+                                    ('network_session_termination_count', YLeaf(YType.uint32, 'network-session-termination-count')),
+                                    ('out_of_sync_bce_state_count', YLeaf(YType.uint32, 'out-of-sync-bce-state-count')),
+                                    ('per_peer_policy_count', YLeaf(YType.uint32, 'per-peer-policy-count')),
+                                    ('revoking_mn_local_policy_count', YLeaf(YType.uint32, 'revoking-mn-local-policy-count')),
+                                ])
+                                self.pbri_count = None
+                                self.pbri_drop_count = None
+                                self.unspecified_count = None
+                                self.admin_reason_count = None
+                                self.mag_handover_same_att_count = None
+                                self.mag_handover_different_att_count = None
+                                self.mag_handover_unknown_count = None
+                                self.user_session_termination_count = None
+                                self.network_session_termination_count = None
+                                self.out_of_sync_bce_state_count = None
+                                self.per_peer_policy_count = None
+                                self.revoking_mn_local_policy_count = None
                                 self._segment_path = lambda: "pbri-send-statistics"
 
                             def __setattr__(self, name, value):
@@ -3465,32 +3549,35 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbri_count = YLeaf(YType.uint64, "pbri-count")
-
-                                self.pbri_drop_count = YLeaf(YType.uint32, "pbri-drop-count")
-
-                                self.unspecified_count = YLeaf(YType.uint32, "unspecified-count")
-
-                                self.admin_reason_count = YLeaf(YType.uint32, "admin-reason-count")
-
-                                self.mag_handover_same_att_count = YLeaf(YType.uint32, "mag-handover-same-att-count")
-
-                                self.mag_handover_different_att_count = YLeaf(YType.uint32, "mag-handover-different-att-count")
-
-                                self.mag_handover_unknown_count = YLeaf(YType.uint32, "mag-handover-unknown-count")
-
-                                self.user_session_termination_count = YLeaf(YType.uint32, "user-session-termination-count")
-
-                                self.network_session_termination_count = YLeaf(YType.uint32, "network-session-termination-count")
-
-                                self.out_of_sync_bce_state_count = YLeaf(YType.uint32, "out-of-sync-bce-state-count")
-
-                                self.per_peer_policy_count = YLeaf(YType.uint32, "per-peer-policy-count")
-
-                                self.revoking_mn_local_policy_count = YLeaf(YType.uint32, "revoking-mn-local-policy-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbri_count', YLeaf(YType.uint64, 'pbri-count')),
+                                    ('pbri_drop_count', YLeaf(YType.uint32, 'pbri-drop-count')),
+                                    ('unspecified_count', YLeaf(YType.uint32, 'unspecified-count')),
+                                    ('admin_reason_count', YLeaf(YType.uint32, 'admin-reason-count')),
+                                    ('mag_handover_same_att_count', YLeaf(YType.uint32, 'mag-handover-same-att-count')),
+                                    ('mag_handover_different_att_count', YLeaf(YType.uint32, 'mag-handover-different-att-count')),
+                                    ('mag_handover_unknown_count', YLeaf(YType.uint32, 'mag-handover-unknown-count')),
+                                    ('user_session_termination_count', YLeaf(YType.uint32, 'user-session-termination-count')),
+                                    ('network_session_termination_count', YLeaf(YType.uint32, 'network-session-termination-count')),
+                                    ('out_of_sync_bce_state_count', YLeaf(YType.uint32, 'out-of-sync-bce-state-count')),
+                                    ('per_peer_policy_count', YLeaf(YType.uint32, 'per-peer-policy-count')),
+                                    ('revoking_mn_local_policy_count', YLeaf(YType.uint32, 'revoking-mn-local-policy-count')),
+                                ])
+                                self.pbri_count = None
+                                self.pbri_drop_count = None
+                                self.unspecified_count = None
+                                self.admin_reason_count = None
+                                self.mag_handover_same_att_count = None
+                                self.mag_handover_different_att_count = None
+                                self.mag_handover_unknown_count = None
+                                self.user_session_termination_count = None
+                                self.network_session_termination_count = None
+                                self.out_of_sync_bce_state_count = None
+                                self.per_peer_policy_count = None
+                                self.revoking_mn_local_policy_count = None
                                 self._segment_path = lambda: "pbri-receive-statistics"
 
                             def __setattr__(self, name, value):
@@ -3599,32 +3686,35 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbra_count = YLeaf(YType.uint64, "pbra-count")
-
-                                self.pbra_drop_count = YLeaf(YType.uint32, "pbra-drop-count")
-
-                                self.success_count = YLeaf(YType.uint32, "success-count")
-
-                                self.partial_success_count = YLeaf(YType.uint32, "partial-success-count")
-
-                                self.no_binding_count = YLeaf(YType.uint32, "no-binding-count")
-
-                                self.hoa_required_count = YLeaf(YType.uint32, "hoa-required-count")
-
-                                self.no_author_for_global_revoc_count = YLeaf(YType.uint32, "no-author-for-global-revoc-count")
-
-                                self.mn_identity_required_count = YLeaf(YType.uint32, "mn-identity-required-count")
-
-                                self.mn_attached_count = YLeaf(YType.uint32, "mn-attached-count")
-
-                                self.unknown_revoc_trigger_count = YLeaf(YType.uint32, "unknown-revoc-trigger-count")
-
-                                self.revoc_function_not_supported_count = YLeaf(YType.uint32, "revoc-function-not-supported-count")
-
-                                self.pbr_not_supported_count = YLeaf(YType.uint32, "pbr-not-supported-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
+                                    ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
+                                    ('success_count', YLeaf(YType.uint32, 'success-count')),
+                                    ('partial_success_count', YLeaf(YType.uint32, 'partial-success-count')),
+                                    ('no_binding_count', YLeaf(YType.uint32, 'no-binding-count')),
+                                    ('hoa_required_count', YLeaf(YType.uint32, 'hoa-required-count')),
+                                    ('no_author_for_global_revoc_count', YLeaf(YType.uint32, 'no-author-for-global-revoc-count')),
+                                    ('mn_identity_required_count', YLeaf(YType.uint32, 'mn-identity-required-count')),
+                                    ('mn_attached_count', YLeaf(YType.uint32, 'mn-attached-count')),
+                                    ('unknown_revoc_trigger_count', YLeaf(YType.uint32, 'unknown-revoc-trigger-count')),
+                                    ('revoc_function_not_supported_count', YLeaf(YType.uint32, 'revoc-function-not-supported-count')),
+                                    ('pbr_not_supported_count', YLeaf(YType.uint32, 'pbr-not-supported-count')),
+                                ])
+                                self.pbra_count = None
+                                self.pbra_drop_count = None
+                                self.success_count = None
+                                self.partial_success_count = None
+                                self.no_binding_count = None
+                                self.hoa_required_count = None
+                                self.no_author_for_global_revoc_count = None
+                                self.mn_identity_required_count = None
+                                self.mn_attached_count = None
+                                self.unknown_revoc_trigger_count = None
+                                self.revoc_function_not_supported_count = None
+                                self.pbr_not_supported_count = None
                                 self._segment_path = lambda: "pbra-send-statistics"
 
                             def __setattr__(self, name, value):
@@ -3733,32 +3823,35 @@ class Pmipv6(Entity):
                                 self.yang_parent_name = "protocol-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.pbra_count = YLeaf(YType.uint64, "pbra-count")
-
-                                self.pbra_drop_count = YLeaf(YType.uint32, "pbra-drop-count")
-
-                                self.success_count = YLeaf(YType.uint32, "success-count")
-
-                                self.partial_success_count = YLeaf(YType.uint32, "partial-success-count")
-
-                                self.no_binding_count = YLeaf(YType.uint32, "no-binding-count")
-
-                                self.hoa_required_count = YLeaf(YType.uint32, "hoa-required-count")
-
-                                self.no_author_for_global_revoc_count = YLeaf(YType.uint32, "no-author-for-global-revoc-count")
-
-                                self.mn_identity_required_count = YLeaf(YType.uint32, "mn-identity-required-count")
-
-                                self.mn_attached_count = YLeaf(YType.uint32, "mn-attached-count")
-
-                                self.unknown_revoc_trigger_count = YLeaf(YType.uint32, "unknown-revoc-trigger-count")
-
-                                self.revoc_function_not_supported_count = YLeaf(YType.uint32, "revoc-function-not-supported-count")
-
-                                self.pbr_not_supported_count = YLeaf(YType.uint32, "pbr-not-supported-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('pbra_count', YLeaf(YType.uint64, 'pbra-count')),
+                                    ('pbra_drop_count', YLeaf(YType.uint32, 'pbra-drop-count')),
+                                    ('success_count', YLeaf(YType.uint32, 'success-count')),
+                                    ('partial_success_count', YLeaf(YType.uint32, 'partial-success-count')),
+                                    ('no_binding_count', YLeaf(YType.uint32, 'no-binding-count')),
+                                    ('hoa_required_count', YLeaf(YType.uint32, 'hoa-required-count')),
+                                    ('no_author_for_global_revoc_count', YLeaf(YType.uint32, 'no-author-for-global-revoc-count')),
+                                    ('mn_identity_required_count', YLeaf(YType.uint32, 'mn-identity-required-count')),
+                                    ('mn_attached_count', YLeaf(YType.uint32, 'mn-attached-count')),
+                                    ('unknown_revoc_trigger_count', YLeaf(YType.uint32, 'unknown-revoc-trigger-count')),
+                                    ('revoc_function_not_supported_count', YLeaf(YType.uint32, 'revoc-function-not-supported-count')),
+                                    ('pbr_not_supported_count', YLeaf(YType.uint32, 'pbr-not-supported-count')),
+                                ])
+                                self.pbra_count = None
+                                self.pbra_drop_count = None
+                                self.success_count = None
+                                self.partial_success_count = None
+                                self.no_binding_count = None
+                                self.hoa_required_count = None
+                                self.no_author_for_global_revoc_count = None
+                                self.mn_identity_required_count = None
+                                self.mn_attached_count = None
+                                self.unknown_revoc_trigger_count = None
+                                self.revoc_function_not_supported_count = None
+                                self.pbr_not_supported_count = None
                                 self._segment_path = lambda: "pbra-receive-statistics"
 
                             def __setattr__(self, name, value):
@@ -3788,8 +3881,10 @@ class Pmipv6(Entity):
                 self.yang_parent_name = "lma"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"binding" : ("binding", Pmipv6.Lma.Bindings.Binding)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("binding", ("binding", Pmipv6.Lma.Bindings.Binding))])
+                self._leafs = OrderedDict()
 
                 self.binding = YList(self)
                 self._segment_path = lambda: "bindings"
@@ -4017,66 +4112,69 @@ class Pmipv6(Entity):
                     self.yang_parent_name = "bindings"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"coa" : ("coa", Pmipv6.Lma.Bindings.Binding.Coa), "dmnp-v4" : ("dmnp_v4", Pmipv6.Lma.Bindings.Binding.DmnpV4), "dmnp-v6" : ("dmnp_v6", Pmipv6.Lma.Bindings.Binding.DmnpV6)}
-
-                    self.mag_name = YLeaf(YType.str, "mag-name")
-
-                    self.nai_string = YLeaf(YType.str, "nai-string")
-
-                    self.imsi_string = YLeaf(YType.str, "imsi-string")
-
-                    self.customer_name = YLeaf(YType.str, "customer-name")
-
-                    self.mnnai = YLeaf(YType.str, "mnnai")
-
-                    self.customer_name_xr = YLeaf(YType.str, "customer-name-xr")
-
-                    self.llid = YLeaf(YType.str, "llid")
-
-                    self.peer_id = YLeaf(YType.str, "peer-id")
-
-                    self.phyintf = YLeaf(YType.str, "phyintf")
-
-                    self.tunnel = YLeaf(YType.str, "tunnel")
-
-                    self.state = YLeaf(YType.str, "state")
-
-                    self.apn = YLeaf(YType.str, "apn")
-
-                    self.att = YLeaf(YType.uint16, "att")
-
-                    self.hoa = YLeaf(YType.str, "hoa")
-
-                    self.dflt = YLeaf(YType.str, "dflt")
-
-                    self.lifetime = YLeaf(YType.uint32, "lifetime")
-
-                    self.liferem = YLeaf(YType.uint32, "liferem")
-
-                    self.refresh = YLeaf(YType.uint32, "refresh")
-
-                    self.refresh_rem = YLeaf(YType.uint32, "refresh-rem")
-
-                    self.prefix_len = YLeaf(YType.uint8, "prefix-len")
-
-                    self.num_hnps = YLeaf(YType.uint8, "num-hnps")
-
-                    self.num_coa = YLeaf(YType.uint8, "num-coa")
-
-                    self.num_dmnp_v4 = YLeaf(YType.uint8, "num-dmnp-v4")
-
-                    self.num_dmnp_v6 = YLeaf(YType.uint8, "num-dmnp-v6")
-
-                    self.hnps = YLeaf(YType.str, "hnps")
-
-                    self.ignore_home_address = YLeaf(YType.boolean, "ignore-home-address")
-
-                    self.up_stream_grekey = YLeaf(YType.uint32, "up-stream-grekey")
-
-                    self.down_stream_grekey = YLeaf(YType.uint32, "down-stream-grekey")
-
-                    self.vrfid = YLeaf(YType.uint32, "vrfid")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("coa", ("coa", Pmipv6.Lma.Bindings.Binding.Coa)), ("dmnp-v4", ("dmnp_v4", Pmipv6.Lma.Bindings.Binding.DmnpV4)), ("dmnp-v6", ("dmnp_v6", Pmipv6.Lma.Bindings.Binding.DmnpV6))])
+                    self._leafs = OrderedDict([
+                        ('mag_name', YLeaf(YType.str, 'mag-name')),
+                        ('nai_string', YLeaf(YType.str, 'nai-string')),
+                        ('imsi_string', YLeaf(YType.str, 'imsi-string')),
+                        ('customer_name', YLeaf(YType.str, 'customer-name')),
+                        ('mnnai', YLeaf(YType.str, 'mnnai')),
+                        ('customer_name_xr', YLeaf(YType.str, 'customer-name-xr')),
+                        ('llid', YLeaf(YType.str, 'llid')),
+                        ('peer_id', YLeaf(YType.str, 'peer-id')),
+                        ('phyintf', YLeaf(YType.str, 'phyintf')),
+                        ('tunnel', YLeaf(YType.str, 'tunnel')),
+                        ('state', YLeaf(YType.str, 'state')),
+                        ('apn', YLeaf(YType.str, 'apn')),
+                        ('att', YLeaf(YType.uint16, 'att')),
+                        ('hoa', YLeaf(YType.str, 'hoa')),
+                        ('dflt', YLeaf(YType.str, 'dflt')),
+                        ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                        ('liferem', YLeaf(YType.uint32, 'liferem')),
+                        ('refresh', YLeaf(YType.uint32, 'refresh')),
+                        ('refresh_rem', YLeaf(YType.uint32, 'refresh-rem')),
+                        ('prefix_len', YLeaf(YType.uint8, 'prefix-len')),
+                        ('num_hnps', YLeaf(YType.uint8, 'num-hnps')),
+                        ('num_coa', YLeaf(YType.uint8, 'num-coa')),
+                        ('num_dmnp_v4', YLeaf(YType.uint8, 'num-dmnp-v4')),
+                        ('num_dmnp_v6', YLeaf(YType.uint8, 'num-dmnp-v6')),
+                        ('hnps', YLeaf(YType.str, 'hnps')),
+                        ('ignore_home_address', YLeaf(YType.boolean, 'ignore-home-address')),
+                        ('up_stream_grekey', YLeaf(YType.uint32, 'up-stream-grekey')),
+                        ('down_stream_grekey', YLeaf(YType.uint32, 'down-stream-grekey')),
+                        ('vrfid', YLeaf(YType.uint32, 'vrfid')),
+                    ])
+                    self.mag_name = None
+                    self.nai_string = None
+                    self.imsi_string = None
+                    self.customer_name = None
+                    self.mnnai = None
+                    self.customer_name_xr = None
+                    self.llid = None
+                    self.peer_id = None
+                    self.phyintf = None
+                    self.tunnel = None
+                    self.state = None
+                    self.apn = None
+                    self.att = None
+                    self.hoa = None
+                    self.dflt = None
+                    self.lifetime = None
+                    self.liferem = None
+                    self.refresh = None
+                    self.refresh_rem = None
+                    self.prefix_len = None
+                    self.num_hnps = None
+                    self.num_coa = None
+                    self.num_dmnp_v4 = None
+                    self.num_dmnp_v6 = None
+                    self.hnps = None
+                    self.ignore_home_address = None
+                    self.up_stream_grekey = None
+                    self.down_stream_grekey = None
+                    self.vrfid = None
 
                     self.coa = YList(self)
                     self.dmnp_v4 = YList(self)
@@ -4229,50 +4327,53 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "binding"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.llid = YLeaf(YType.str, "llid")
-
-                        self.peer_name = YLeaf(YType.str, "peer-name")
-
-                        self.tunnel = YLeaf(YType.str, "tunnel")
-
-                        self.e_label = YLeaf(YType.str, "e-label")
-
-                        self.color = YLeaf(YType.str, "color")
-
-                        self.roa_min_tf = YLeaf(YType.str, "roa-min-tf")
-
-                        self.pstate = YLeaf(YType.str, "pstate")
-
-                        self.msisdn = YLeaf(YType.str, "msisdn")
-
-                        self.imsi = YLeaf(YType.str, "imsi")
-
-                        self.cdma_nai = YLeaf(YType.str, "cdma-nai")
-
-                        self.pgw_apn = YLeaf(YType.str, "pgw-apn")
-
-                        self.pgw_trans_vrf = YLeaf(YType.str, "pgw-trans-vrf")
-
-                        self.att = YLeaf(YType.uint16, "att")
-
-                        self.lifetime = YLeaf(YType.uint32, "lifetime")
-
-                        self.lifetime_remaining = YLeaf(YType.uint32, "lifetime-remaining")
-
-                        self.refresh = YLeaf(YType.uint32, "refresh")
-
-                        self.refresh_rem = YLeaf(YType.uint32, "refresh-rem")
-
-                        self.dnkey = YLeaf(YType.uint32, "dnkey")
-
-                        self.upkey = YLeaf(YType.uint32, "upkey")
-
-                        self.coa_v4 = YLeaf(YType.str, "coa-v4")
-
-                        self.coa_v6 = YLeaf(YType.str, "coa-v6")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('llid', YLeaf(YType.str, 'llid')),
+                            ('peer_name', YLeaf(YType.str, 'peer-name')),
+                            ('tunnel', YLeaf(YType.str, 'tunnel')),
+                            ('e_label', YLeaf(YType.str, 'e-label')),
+                            ('color', YLeaf(YType.str, 'color')),
+                            ('roa_min_tf', YLeaf(YType.str, 'roa-min-tf')),
+                            ('pstate', YLeaf(YType.str, 'pstate')),
+                            ('msisdn', YLeaf(YType.str, 'msisdn')),
+                            ('imsi', YLeaf(YType.str, 'imsi')),
+                            ('cdma_nai', YLeaf(YType.str, 'cdma-nai')),
+                            ('pgw_apn', YLeaf(YType.str, 'pgw-apn')),
+                            ('pgw_trans_vrf', YLeaf(YType.str, 'pgw-trans-vrf')),
+                            ('att', YLeaf(YType.uint16, 'att')),
+                            ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                            ('lifetime_remaining', YLeaf(YType.uint32, 'lifetime-remaining')),
+                            ('refresh', YLeaf(YType.uint32, 'refresh')),
+                            ('refresh_rem', YLeaf(YType.uint32, 'refresh-rem')),
+                            ('dnkey', YLeaf(YType.uint32, 'dnkey')),
+                            ('upkey', YLeaf(YType.uint32, 'upkey')),
+                            ('coa_v4', YLeaf(YType.str, 'coa-v4')),
+                            ('coa_v6', YLeaf(YType.str, 'coa-v6')),
+                        ])
+                        self.llid = None
+                        self.peer_name = None
+                        self.tunnel = None
+                        self.e_label = None
+                        self.color = None
+                        self.roa_min_tf = None
+                        self.pstate = None
+                        self.msisdn = None
+                        self.imsi = None
+                        self.cdma_nai = None
+                        self.pgw_apn = None
+                        self.pgw_trans_vrf = None
+                        self.att = None
+                        self.lifetime = None
+                        self.lifetime_remaining = None
+                        self.refresh = None
+                        self.refresh_rem = None
+                        self.dnkey = None
+                        self.upkey = None
+                        self.coa_v4 = None
+                        self.coa_v6 = None
                         self._segment_path = lambda: "coa"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/%s" % self._segment_path()
 
@@ -4312,12 +4413,15 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "binding"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pfxlen = YLeaf(YType.uint8, "pfxlen")
-
-                        self.prefix = YLeaf(YType.str, "prefix")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pfxlen', YLeaf(YType.uint8, 'pfxlen')),
+                            ('prefix', YLeaf(YType.str, 'prefix')),
+                        ])
+                        self.pfxlen = None
+                        self.prefix = None
                         self._segment_path = lambda: "dmnp-v4"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/%s" % self._segment_path()
 
@@ -4357,12 +4461,15 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "binding"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pfxlen = YLeaf(YType.uint8, "pfxlen")
-
-                        self.prefix = YLeaf(YType.str, "prefix")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pfxlen', YLeaf(YType.uint8, 'pfxlen')),
+                            ('prefix', YLeaf(YType.str, 'prefix')),
+                        ])
+                        self.pfxlen = None
+                        self.prefix = None
                         self._segment_path = lambda: "dmnp-v6"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/bindings/binding/%s" % self._segment_path()
 
@@ -4393,8 +4500,10 @@ class Pmipv6(Entity):
                 self.yang_parent_name = "lma"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"heartbeat" : ("heartbeat", Pmipv6.Lma.Heartbeats.Heartbeat)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("heartbeat", ("heartbeat", Pmipv6.Lma.Heartbeats.Heartbeat))])
+                self._leafs = OrderedDict()
 
                 self.heartbeat = YList(self)
                 self._segment_path = lambda: "heartbeats"
@@ -4408,7 +4517,7 @@ class Pmipv6(Entity):
                 """
                 Heartbeat information
                 
-                .. attribute:: peer_addr  <key>
+                .. attribute:: peer_addr  (key)
                 
                 	IPv4 or IPv6 address
                 	**type**\: union of the below types:
@@ -4497,31 +4606,34 @@ class Pmipv6(Entity):
                     self.yang_parent_name = "heartbeats"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.peer_addr = YLeaf(YType.str, "peer-addr")
-
-                    self.vrf = YLeaf(YType.str, "vrf")
-
-                    self.customer_name = YLeaf(YType.str, "customer-name")
-
-                    self.source_port = YLeaf(YType.uint32, "source-port")
-
-                    self.destination_port = YLeaf(YType.uint32, "destination-port")
-
-                    self.source_ipv4_address = YLeaf(YType.str, "source-ipv4-address")
-
-                    self.destination_ipv4_address = YLeaf(YType.str, "destination-ipv4-address")
-
-                    self.source_ipv6_address = YLeaf(YType.str, "source-ipv6-address")
-
-                    self.destination_ipv6_address = YLeaf(YType.str, "destination-ipv6-address")
-
-                    self.status = YLeaf(YType.boolean, "status")
-
-                    self.ipv6_path = YLeaf(YType.boolean, "ipv6-path")
-                    self._segment_path = lambda: "heartbeat" + "[peer-addr='" + self.peer_addr.get() + "']"
+                    self.ylist_key_names = ['peer_addr']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('peer_addr', YLeaf(YType.str, 'peer-addr')),
+                        ('vrf', YLeaf(YType.str, 'vrf')),
+                        ('customer_name', YLeaf(YType.str, 'customer-name')),
+                        ('source_port', YLeaf(YType.uint32, 'source-port')),
+                        ('destination_port', YLeaf(YType.uint32, 'destination-port')),
+                        ('source_ipv4_address', YLeaf(YType.str, 'source-ipv4-address')),
+                        ('destination_ipv4_address', YLeaf(YType.str, 'destination-ipv4-address')),
+                        ('source_ipv6_address', YLeaf(YType.str, 'source-ipv6-address')),
+                        ('destination_ipv6_address', YLeaf(YType.str, 'destination-ipv6-address')),
+                        ('status', YLeaf(YType.boolean, 'status')),
+                        ('ipv6_path', YLeaf(YType.boolean, 'ipv6-path')),
+                    ])
+                    self.peer_addr = None
+                    self.vrf = None
+                    self.customer_name = None
+                    self.source_port = None
+                    self.destination_port = None
+                    self.source_ipv4_address = None
+                    self.destination_ipv4_address = None
+                    self.source_ipv6_address = None
+                    self.destination_ipv6_address = None
+                    self.status = None
+                    self.ipv6_path = None
+                    self._segment_path = lambda: "heartbeat" + "[peer-addr='" + str(self.peer_addr) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/heartbeats/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4556,8 +4668,10 @@ class Pmipv6(Entity):
                 self.yang_parent_name = "lma"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"customer-variables" : ("customer_variables", Pmipv6.Lma.ConfigVariables.CustomerVariables), "global-variables" : ("global_variables", Pmipv6.Lma.ConfigVariables.GlobalVariables)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("customer-variables", ("customer_variables", Pmipv6.Lma.ConfigVariables.CustomerVariables)), ("global-variables", ("global_variables", Pmipv6.Lma.ConfigVariables.GlobalVariables))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.customer_variables = Pmipv6.Lma.ConfigVariables.CustomerVariables()
                 self.customer_variables.parent = self
@@ -4595,8 +4709,10 @@ class Pmipv6(Entity):
                     self.yang_parent_name = "config-variables"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"customer-variable" : ("customer_variable", Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("customer-variable", ("customer_variable", Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable))])
+                    self._leafs = OrderedDict()
 
                     self.customer_variable = YList(self)
                     self._segment_path = lambda: "customer-variables"
@@ -4610,7 +4726,7 @@ class Pmipv6(Entity):
                     """
                     Customer name string
                     
-                    .. attribute:: customer_name  <key>
+                    .. attribute:: customer_name  (key)
                     
                     	Customer name
                     	**type**\: str
@@ -4651,22 +4767,25 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "customer-variables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"mll-service" : ("mll_service", Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService)}
-                        self._child_list_classes = {}
-
-                        self.customer_name = YLeaf(YType.str, "customer-name")
-
-                        self.cust_name = YLeaf(YType.str, "cust-name")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.auth_option = YLeaf(YType.boolean, "auth-option")
+                        self.ylist_key_names = ['customer_name']
+                        self._child_container_classes = OrderedDict([("mll-service", ("mll_service", Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('customer_name', YLeaf(YType.str, 'customer-name')),
+                            ('cust_name', YLeaf(YType.str, 'cust-name')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('auth_option', YLeaf(YType.boolean, 'auth-option')),
+                        ])
+                        self.customer_name = None
+                        self.cust_name = None
+                        self.vrf_name = None
+                        self.auth_option = None
 
                         self.mll_service = Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService()
                         self.mll_service.parent = self
                         self._children_name_map["mll_service"] = "mll-service"
                         self._children_yang_names.add("mll-service")
-                        self._segment_path = lambda: "customer-variable" + "[customer-name='" + self.customer_name.get() + "']"
+                        self._segment_path = lambda: "customer-variable" + "[customer-name='" + str(self.customer_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/customer-variables/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -4752,26 +4871,29 @@ class Pmipv6(Entity):
                             self.yang_parent_name = "customer-variable"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ignore_hoa = YLeaf(YType.boolean, "ignore-hoa")
-
-                            self.mnp_ipv4_lmn_max = YLeaf(YType.uint16, "mnp-ipv4-lmn-max")
-
-                            self.mnp_ipv6_lmn_max = YLeaf(YType.uint16, "mnp-ipv6-lmn-max")
-
-                            self.mnp_lmn_max = YLeaf(YType.uint16, "mnp-lmn-max")
-
-                            self.mnp_ipv4_cust_max = YLeaf(YType.uint32, "mnp-ipv4-cust-max")
-
-                            self.mnp_ipv6_cust_max = YLeaf(YType.uint32, "mnp-ipv6-cust-max")
-
-                            self.mnp_cust_max = YLeaf(YType.uint32, "mnp-cust-max")
-
-                            self.mnp_ipv4_cust_cur = YLeaf(YType.uint32, "mnp-ipv4-cust-cur")
-
-                            self.mnp_ipv6_cust_cur = YLeaf(YType.uint32, "mnp-ipv6-cust-cur")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ignore_hoa', YLeaf(YType.boolean, 'ignore-hoa')),
+                                ('mnp_ipv4_lmn_max', YLeaf(YType.uint16, 'mnp-ipv4-lmn-max')),
+                                ('mnp_ipv6_lmn_max', YLeaf(YType.uint16, 'mnp-ipv6-lmn-max')),
+                                ('mnp_lmn_max', YLeaf(YType.uint16, 'mnp-lmn-max')),
+                                ('mnp_ipv4_cust_max', YLeaf(YType.uint32, 'mnp-ipv4-cust-max')),
+                                ('mnp_ipv6_cust_max', YLeaf(YType.uint32, 'mnp-ipv6-cust-max')),
+                                ('mnp_cust_max', YLeaf(YType.uint32, 'mnp-cust-max')),
+                                ('mnp_ipv4_cust_cur', YLeaf(YType.uint32, 'mnp-ipv4-cust-cur')),
+                                ('mnp_ipv6_cust_cur', YLeaf(YType.uint32, 'mnp-ipv6-cust-cur')),
+                            ])
+                            self.ignore_hoa = None
+                            self.mnp_ipv4_lmn_max = None
+                            self.mnp_ipv6_lmn_max = None
+                            self.mnp_lmn_max = None
+                            self.mnp_ipv4_cust_max = None
+                            self.mnp_ipv6_cust_max = None
+                            self.mnp_cust_max = None
+                            self.mnp_ipv4_cust_cur = None
+                            self.mnp_ipv6_cust_cur = None
                             self._segment_path = lambda: "mll-service"
 
                         def __setattr__(self, name, value):
@@ -4942,48 +5064,51 @@ class Pmipv6(Entity):
                     self.yang_parent_name = "config-variables"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"parameters" : ("parameters", Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters), "mll-service" : ("mll_service", Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService)}
-                    self._child_list_classes = {"intf" : ("intf", Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf), "peer" : ("peer", Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer), "network" : ("network", Pmipv6.Lma.ConfigVariables.GlobalVariables.Network), "cust" : ("cust", Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust)}
-
-                    self.domain = YLeaf(YType.str, "domain")
-
-                    self.selfid = YLeaf(YType.str, "selfid")
-
-                    self.apn_name = YLeaf(YType.str, "apn-name")
-
-                    self.role = YLeaf(YType.enumeration, "role")
-
-                    self.count = YLeaf(YType.uint32, "count")
-
-                    self.peers = YLeaf(YType.uint32, "peers")
-
-                    self.customers = YLeaf(YType.uint32, "customers")
-
-                    self.num_network = YLeaf(YType.uint32, "num-network")
-
-                    self.discover_mn = YLeaf(YType.boolean, "discover-mn")
-
-                    self.local_routing = YLeaf(YType.boolean, "local-routing")
-
-                    self.aaa_accounting = YLeaf(YType.boolean, "aaa-accounting")
-
-                    self.default_mn = YLeaf(YType.boolean, "default-mn")
-
-                    self.apn = YLeaf(YType.boolean, "apn")
-
-                    self.learn_mag = YLeaf(YType.boolean, "learn-mag")
-
-                    self.session_mgr = YLeaf(YType.boolean, "session-mgr")
-
-                    self.service = YLeaf(YType.uint8, "service")
-
-                    self.profile = YLeaf(YType.str, "profile")
-
-                    self.ddp = YLeaf(YType.uint32, "ddp")
-
-                    self.ddt = YLeaf(YType.uint32, "ddt")
-
-                    self.ddr = YLeaf(YType.uint8, "ddr")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("parameters", ("parameters", Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters)), ("mll-service", ("mll_service", Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService))])
+                    self._child_list_classes = OrderedDict([("intf", ("intf", Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf)), ("peer", ("peer", Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer)), ("network", ("network", Pmipv6.Lma.ConfigVariables.GlobalVariables.Network)), ("cust", ("cust", Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust))])
+                    self._leafs = OrderedDict([
+                        ('domain', YLeaf(YType.str, 'domain')),
+                        ('selfid', YLeaf(YType.str, 'selfid')),
+                        ('apn_name', YLeaf(YType.str, 'apn-name')),
+                        ('role', YLeaf(YType.enumeration, 'role')),
+                        ('count', YLeaf(YType.uint32, 'count')),
+                        ('peers', YLeaf(YType.uint32, 'peers')),
+                        ('customers', YLeaf(YType.uint32, 'customers')),
+                        ('num_network', YLeaf(YType.uint32, 'num-network')),
+                        ('discover_mn', YLeaf(YType.boolean, 'discover-mn')),
+                        ('local_routing', YLeaf(YType.boolean, 'local-routing')),
+                        ('aaa_accounting', YLeaf(YType.boolean, 'aaa-accounting')),
+                        ('default_mn', YLeaf(YType.boolean, 'default-mn')),
+                        ('apn', YLeaf(YType.boolean, 'apn')),
+                        ('learn_mag', YLeaf(YType.boolean, 'learn-mag')),
+                        ('session_mgr', YLeaf(YType.boolean, 'session-mgr')),
+                        ('service', YLeaf(YType.uint8, 'service')),
+                        ('profile', YLeaf(YType.str, 'profile')),
+                        ('ddp', YLeaf(YType.uint32, 'ddp')),
+                        ('ddt', YLeaf(YType.uint32, 'ddt')),
+                        ('ddr', YLeaf(YType.uint8, 'ddr')),
+                    ])
+                    self.domain = None
+                    self.selfid = None
+                    self.apn_name = None
+                    self.role = None
+                    self.count = None
+                    self.peers = None
+                    self.customers = None
+                    self.num_network = None
+                    self.discover_mn = None
+                    self.local_routing = None
+                    self.aaa_accounting = None
+                    self.default_mn = None
+                    self.apn = None
+                    self.learn_mag = None
+                    self.session_mgr = None
+                    self.service = None
+                    self.profile = None
+                    self.ddp = None
+                    self.ddt = None
+                    self.ddr = None
 
                     self.parameters = Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters()
                     self.parameters.parent = self
@@ -5142,42 +5267,45 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "global-variables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"self-id" : ("self_id", Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId)}
-                        self._child_list_classes = {}
-
-                        self.timestamp = YLeaf(YType.boolean, "timestamp")
-
-                        self.window = YLeaf(YType.uint64, "window")
-
-                        self.auth_option = YLeaf(YType.boolean, "auth-option")
-
-                        self.reg_time = YLeaf(YType.uint32, "reg-time")
-
-                        self.ref_time = YLeaf(YType.uint32, "ref-time")
-
-                        self.retx = YLeaf(YType.uint16, "retx")
-
-                        self.ret_max = YLeaf(YType.uint16, "ret-max")
-
-                        self.bri_init = YLeaf(YType.uint16, "bri-init")
-
-                        self.bri_retries = YLeaf(YType.uint16, "bri-retries")
-
-                        self.bri_max = YLeaf(YType.uint16, "bri-max")
-
-                        self.max_bindings = YLeaf(YType.uint32, "max-bindings")
-
-                        self.hnp = YLeaf(YType.uint8, "hnp")
-
-                        self.encap = YLeaf(YType.enumeration, "encap")
-
-                        self.delete_time = YLeaf(YType.uint16, "delete-time")
-
-                        self.create_time = YLeaf(YType.uint16, "create-time")
-
-                        self.up_grekey = YLeaf(YType.uint32, "up-grekey")
-
-                        self.down_grekey = YLeaf(YType.uint32, "down-grekey")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("self-id", ("self_id", Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('timestamp', YLeaf(YType.boolean, 'timestamp')),
+                            ('window', YLeaf(YType.uint64, 'window')),
+                            ('auth_option', YLeaf(YType.boolean, 'auth-option')),
+                            ('reg_time', YLeaf(YType.uint32, 'reg-time')),
+                            ('ref_time', YLeaf(YType.uint32, 'ref-time')),
+                            ('retx', YLeaf(YType.uint16, 'retx')),
+                            ('ret_max', YLeaf(YType.uint16, 'ret-max')),
+                            ('bri_init', YLeaf(YType.uint16, 'bri-init')),
+                            ('bri_retries', YLeaf(YType.uint16, 'bri-retries')),
+                            ('bri_max', YLeaf(YType.uint16, 'bri-max')),
+                            ('max_bindings', YLeaf(YType.uint32, 'max-bindings')),
+                            ('hnp', YLeaf(YType.uint8, 'hnp')),
+                            ('encap', YLeaf(YType.enumeration, 'encap')),
+                            ('delete_time', YLeaf(YType.uint16, 'delete-time')),
+                            ('create_time', YLeaf(YType.uint16, 'create-time')),
+                            ('up_grekey', YLeaf(YType.uint32, 'up-grekey')),
+                            ('down_grekey', YLeaf(YType.uint32, 'down-grekey')),
+                        ])
+                        self.timestamp = None
+                        self.window = None
+                        self.auth_option = None
+                        self.reg_time = None
+                        self.ref_time = None
+                        self.retx = None
+                        self.ret_max = None
+                        self.bri_init = None
+                        self.bri_retries = None
+                        self.bri_max = None
+                        self.max_bindings = None
+                        self.hnp = None
+                        self.encap = None
+                        self.delete_time = None
+                        self.create_time = None
+                        self.up_grekey = None
+                        self.down_grekey = None
 
                         self.self_id = Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId()
                         self.self_id.parent = self
@@ -5232,16 +5360,19 @@ class Pmipv6(Entity):
                             self.yang_parent_name = "parameters"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entity_ = YLeaf(YType.str, "entity")
-
-                            self.addr_type = YLeaf(YType.enumeration, "addr-type")
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entity_', YLeaf(YType.str, 'entity')),
+                                ('addr_type', YLeaf(YType.enumeration, 'addr-type')),
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                            ])
+                            self.entity_ = None
+                            self.addr_type = None
+                            self.address = None
+                            self.ipv4_address = None
                             self._segment_path = lambda: "self-id"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/parameters/%s" % self._segment_path()
 
@@ -5328,26 +5459,29 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "global-variables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ignore_hoa = YLeaf(YType.boolean, "ignore-hoa")
-
-                        self.mnp_ipv4_lmn_max = YLeaf(YType.uint16, "mnp-ipv4-lmn-max")
-
-                        self.mnp_ipv6_lmn_max = YLeaf(YType.uint16, "mnp-ipv6-lmn-max")
-
-                        self.mnp_lmn_max = YLeaf(YType.uint16, "mnp-lmn-max")
-
-                        self.mnp_ipv4_cust_max = YLeaf(YType.uint32, "mnp-ipv4-cust-max")
-
-                        self.mnp_ipv6_cust_max = YLeaf(YType.uint32, "mnp-ipv6-cust-max")
-
-                        self.mnp_cust_max = YLeaf(YType.uint32, "mnp-cust-max")
-
-                        self.mnp_ipv4_cust_cur = YLeaf(YType.uint32, "mnp-ipv4-cust-cur")
-
-                        self.mnp_ipv6_cust_cur = YLeaf(YType.uint32, "mnp-ipv6-cust-cur")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ignore_hoa', YLeaf(YType.boolean, 'ignore-hoa')),
+                            ('mnp_ipv4_lmn_max', YLeaf(YType.uint16, 'mnp-ipv4-lmn-max')),
+                            ('mnp_ipv6_lmn_max', YLeaf(YType.uint16, 'mnp-ipv6-lmn-max')),
+                            ('mnp_lmn_max', YLeaf(YType.uint16, 'mnp-lmn-max')),
+                            ('mnp_ipv4_cust_max', YLeaf(YType.uint32, 'mnp-ipv4-cust-max')),
+                            ('mnp_ipv6_cust_max', YLeaf(YType.uint32, 'mnp-ipv6-cust-max')),
+                            ('mnp_cust_max', YLeaf(YType.uint32, 'mnp-cust-max')),
+                            ('mnp_ipv4_cust_cur', YLeaf(YType.uint32, 'mnp-ipv4-cust-cur')),
+                            ('mnp_ipv6_cust_cur', YLeaf(YType.uint32, 'mnp-ipv6-cust-cur')),
+                        ])
+                        self.ignore_hoa = None
+                        self.mnp_ipv4_lmn_max = None
+                        self.mnp_ipv6_lmn_max = None
+                        self.mnp_lmn_max = None
+                        self.mnp_ipv4_cust_max = None
+                        self.mnp_ipv6_cust_max = None
+                        self.mnp_cust_max = None
+                        self.mnp_ipv4_cust_cur = None
+                        self.mnp_ipv6_cust_cur = None
                         self._segment_path = lambda: "mll-service"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
@@ -5388,14 +5522,17 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "global-variables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.apn = YLeaf(YType.boolean, "apn")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.apn_name = YLeaf(YType.str, "apn-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('apn', YLeaf(YType.boolean, 'apn')),
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('apn_name', YLeaf(YType.str, 'apn-name')),
+                        ])
+                        self.apn = None
+                        self.interface = None
+                        self.apn_name = None
                         self._segment_path = lambda: "intf"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
@@ -5456,22 +5593,25 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "global-variables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.peer = YLeaf(YType.str, "peer")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.encap = YLeaf(YType.enumeration, "encap")
-
-                        self.auth = YLeaf(YType.boolean, "auth")
-
-                        self.vrf = YLeaf(YType.boolean, "vrf")
-
-                        self.statictunnel = YLeaf(YType.boolean, "statictunnel")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('peer', YLeaf(YType.str, 'peer')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('encap', YLeaf(YType.enumeration, 'encap')),
+                            ('auth', YLeaf(YType.boolean, 'auth')),
+                            ('vrf', YLeaf(YType.boolean, 'vrf')),
+                            ('statictunnel', YLeaf(YType.boolean, 'statictunnel')),
+                        ])
+                        self.peer = None
+                        self.vrf_name = None
+                        self.interface = None
+                        self.encap = None
+                        self.auth = None
+                        self.vrf = None
+                        self.statictunnel = None
                         self._segment_path = lambda: "peer"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
@@ -5547,24 +5687,27 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "global-variables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.v4pool = YLeaf(YType.boolean, "v4pool")
-
-                        self.v6pool = YLeaf(YType.boolean, "v6pool")
-
-                        self.network = YLeaf(YType.str, "network")
-
-                        self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                        self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                        self.v4pfx_len = YLeaf(YType.uint8, "v4pfx-len")
-
-                        self.v6pfx_len = YLeaf(YType.uint8, "v6pfx-len")
-
-                        self.mrnet = YLeaf(YType.uint8, "mrnet")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('v4pool', YLeaf(YType.boolean, 'v4pool')),
+                            ('v6pool', YLeaf(YType.boolean, 'v6pool')),
+                            ('network', YLeaf(YType.str, 'network')),
+                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('v4pfx_len', YLeaf(YType.uint8, 'v4pfx-len')),
+                            ('v6pfx_len', YLeaf(YType.uint8, 'v6pfx-len')),
+                            ('mrnet', YLeaf(YType.uint8, 'mrnet')),
+                        ])
+                        self.v4pool = None
+                        self.v6pool = None
+                        self.network = None
+                        self.ipv4 = None
+                        self.ipv6 = None
+                        self.v4pfx_len = None
+                        self.v6pfx_len = None
+                        self.mrnet = None
                         self._segment_path = lambda: "network"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 
@@ -5637,26 +5780,29 @@ class Pmipv6(Entity):
                         self.yang_parent_name = "global-variables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.cust = YLeaf(YType.boolean, "cust")
-
-                        self.vrf = YLeaf(YType.boolean, "vrf")
-
-                        self.t_vrf = YLeaf(YType.boolean, "t-vrf")
-
-                        self.auth_option = YLeaf(YType.boolean, "auth-option")
-
-                        self.heart_beat = YLeaf(YType.boolean, "heart-beat")
-
-                        self.reg_time = YLeaf(YType.uint32, "reg-time")
-
-                        self.cust_name = YLeaf(YType.str, "cust-name")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.t_vrf_name = YLeaf(YType.str, "t-vrf-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('cust', YLeaf(YType.boolean, 'cust')),
+                            ('vrf', YLeaf(YType.boolean, 'vrf')),
+                            ('t_vrf', YLeaf(YType.boolean, 't-vrf')),
+                            ('auth_option', YLeaf(YType.boolean, 'auth-option')),
+                            ('heart_beat', YLeaf(YType.boolean, 'heart-beat')),
+                            ('reg_time', YLeaf(YType.uint32, 'reg-time')),
+                            ('cust_name', YLeaf(YType.str, 'cust-name')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('t_vrf_name', YLeaf(YType.str, 't-vrf-name')),
+                        ])
+                        self.cust = None
+                        self.vrf = None
+                        self.t_vrf = None
+                        self.auth_option = None
+                        self.heart_beat = None
+                        self.reg_time = None
+                        self.cust_name = None
+                        self.vrf_name = None
+                        self.t_vrf_name = None
                         self._segment_path = lambda: "cust"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-oper:pmipv6/lma/config-variables/global-variables/%s" % self._segment_path()
 

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CrytoAlgo(Enum):
     """
-    CrytoAlgo
+    CrytoAlgo (Enum Class)
 
     Cryptographic algorithm type
 
@@ -76,7 +78,7 @@ class CrytoAlgo(Enum):
 
 class Enc(Enum):
     """
-    Enc
+    Enc (Enum Class)
 
     Type of password encryption
 
@@ -120,8 +122,10 @@ class Keychain(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"keies" : ("keies", Keychain.Keies)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("keies", ("keies", Keychain.Keies))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.keies = Keychain.Keies()
         self.keies.parent = self
@@ -153,8 +157,10 @@ class Keychain(Entity):
             self.yang_parent_name = "keychain"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"key" : ("key", Keychain.Keies.Key)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("key", ("key", Keychain.Keies.Key))])
+            self._leafs = OrderedDict()
 
             self.key = YList(self)
             self._segment_path = lambda: "keies"
@@ -168,7 +174,7 @@ class Keychain(Entity):
             """
             Configured key name
             
-            .. attribute:: key_name  <key>
+            .. attribute:: key_name  (key)
             
             	Key name
             	**type**\: str
@@ -178,7 +184,7 @@ class Keychain(Entity):
             .. attribute:: key
             
             	Key properties
-            	**type**\:  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key>`
+            	**type**\:  :py:class:`Key_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_>`
             
             .. attribute:: accept_tolerance
             
@@ -199,32 +205,35 @@ class Keychain(Entity):
                 self.yang_parent_name = "keies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"key" : ("key", Keychain.Keies.Key.Key)}
-                self._child_list_classes = {}
+                self.ylist_key_names = ['key_name']
+                self._child_container_classes = OrderedDict([("key", ("key", Keychain.Keies.Key.Key_))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('key_name', YLeaf(YType.str, 'key-name')),
+                    ('accept_tolerance', YLeaf(YType.str, 'accept-tolerance')),
+                ])
+                self.key_name = None
+                self.accept_tolerance = None
 
-                self.key_name = YLeaf(YType.str, "key-name")
-
-                self.accept_tolerance = YLeaf(YType.str, "accept-tolerance")
-
-                self.key = Keychain.Keies.Key.Key()
+                self.key = Keychain.Keies.Key.Key_()
                 self.key.parent = self
                 self._children_name_map["key"] = "key"
                 self._children_yang_names.add("key")
-                self._segment_path = lambda: "key" + "[key-name='" + self.key_name.get() + "']"
+                self._segment_path = lambda: "key" + "[key-name='" + str(self.key_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-oper:keychain/keies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Keychain.Keies.Key, ['key_name', 'accept_tolerance'], name, value)
 
 
-            class Key(Entity):
+            class Key_(Entity):
                 """
                 Key properties
                 
                 .. attribute:: key_id
                 
                 	key id
-                	**type**\: list of  		 :py:class:`KeyId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId>`
+                	**type**\: list of  		 :py:class:`KeyId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_.KeyId>`
                 
                 
 
@@ -234,20 +243,22 @@ class Keychain(Entity):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    super(Keychain.Keies.Key.Key, self).__init__()
+                    super(Keychain.Keies.Key.Key_, self).__init__()
 
                     self.yang_name = "key"
                     self.yang_parent_name = "key"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"key-id" : ("key_id", Keychain.Keies.Key.Key.KeyId)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("key-id", ("key_id", Keychain.Keies.Key.Key_.KeyId))])
+                    self._leafs = OrderedDict()
 
                     self.key_id = YList(self)
                     self._segment_path = lambda: "key"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Keychain.Keies.Key.Key, [], name, value)
+                    self._perform_setattr(Keychain.Keies.Key.Key_, [], name, value)
 
 
                 class KeyId(Entity):
@@ -257,17 +268,17 @@ class Keychain(Entity):
                     .. attribute:: macsec
                     
                     	To check if it's a macsec key
-                    	**type**\:  :py:class:`Macsec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.Macsec>`
+                    	**type**\:  :py:class:`Macsec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_.KeyId.Macsec>`
                     
                     .. attribute:: send_lifetime
                     
                     	Lifetime of the key
-                    	**type**\:  :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.SendLifetime>`
+                    	**type**\:  :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_.KeyId.SendLifetime>`
                     
                     .. attribute:: accept_lifetime
                     
                     	Accept Lifetime of the key
-                    	**type**\:  :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.AcceptLifetime>`
+                    	**type**\:  :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_.KeyId.AcceptLifetime>`
                     
                     .. attribute:: key_string
                     
@@ -282,9 +293,7 @@ class Keychain(Entity):
                     .. attribute:: key_id
                     
                     	Key ID
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
+                    	**type**\: str
                     
                     .. attribute:: cryptographic_algorithm
                     
@@ -299,41 +308,44 @@ class Keychain(Entity):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        super(Keychain.Keies.Key.Key.KeyId, self).__init__()
+                        super(Keychain.Keies.Key.Key_.KeyId, self).__init__()
 
                         self.yang_name = "key-id"
                         self.yang_parent_name = "key"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"macsec" : ("macsec", Keychain.Keies.Key.Key.KeyId.Macsec), "send-lifetime" : ("send_lifetime", Keychain.Keies.Key.Key.KeyId.SendLifetime), "accept-lifetime" : ("accept_lifetime", Keychain.Keies.Key.Key.KeyId.AcceptLifetime)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("macsec", ("macsec", Keychain.Keies.Key.Key_.KeyId.Macsec)), ("send-lifetime", ("send_lifetime", Keychain.Keies.Key.Key_.KeyId.SendLifetime)), ("accept-lifetime", ("accept_lifetime", Keychain.Keies.Key.Key_.KeyId.AcceptLifetime))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('key_string', YLeaf(YType.str, 'key-string')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('key_id', YLeaf(YType.str, 'key-id')),
+                            ('cryptographic_algorithm', YLeaf(YType.enumeration, 'cryptographic-algorithm')),
+                        ])
+                        self.key_string = None
+                        self.type = None
+                        self.key_id = None
+                        self.cryptographic_algorithm = None
 
-                        self.key_string = YLeaf(YType.str, "key-string")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.key_id = YLeaf(YType.uint64, "key-id")
-
-                        self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
-
-                        self.macsec = Keychain.Keies.Key.Key.KeyId.Macsec()
+                        self.macsec = Keychain.Keies.Key.Key_.KeyId.Macsec()
                         self.macsec.parent = self
                         self._children_name_map["macsec"] = "macsec"
                         self._children_yang_names.add("macsec")
 
-                        self.send_lifetime = Keychain.Keies.Key.Key.KeyId.SendLifetime()
+                        self.send_lifetime = Keychain.Keies.Key.Key_.KeyId.SendLifetime()
                         self.send_lifetime.parent = self
                         self._children_name_map["send_lifetime"] = "send-lifetime"
                         self._children_yang_names.add("send-lifetime")
 
-                        self.accept_lifetime = Keychain.Keies.Key.Key.KeyId.AcceptLifetime()
+                        self.accept_lifetime = Keychain.Keies.Key.Key_.KeyId.AcceptLifetime()
                         self.accept_lifetime.parent = self
                         self._children_name_map["accept_lifetime"] = "accept-lifetime"
                         self._children_yang_names.add("accept-lifetime")
                         self._segment_path = lambda: "key-id"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Keychain.Keies.Key.Key.KeyId, ['key_string', 'type', 'key_id', 'cryptographic_algorithm'], name, value)
+                        self._perform_setattr(Keychain.Keies.Key.Key_.KeyId, ['key_string', 'type', 'key_id', 'cryptographic_algorithm'], name, value)
 
 
                     class Macsec(Entity):
@@ -353,20 +365,23 @@ class Keychain(Entity):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            super(Keychain.Keies.Key.Key.KeyId.Macsec, self).__init__()
+                            super(Keychain.Keies.Key.Key_.KeyId.Macsec, self).__init__()
 
                             self.yang_name = "macsec"
                             self.yang_parent_name = "key-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_macsec_key = YLeaf(YType.boolean, "is-macsec-key")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_macsec_key', YLeaf(YType.boolean, 'is-macsec-key')),
+                            ])
+                            self.is_macsec_key = None
                             self._segment_path = lambda: "macsec"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.Macsec, ['is_macsec_key'], name, value)
+                            self._perform_setattr(Keychain.Keies.Key.Key_.KeyId.Macsec, ['is_macsec_key'], name, value)
 
 
                     class SendLifetime(Entity):
@@ -408,28 +423,31 @@ class Keychain(Entity):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            super(Keychain.Keies.Key.Key.KeyId.SendLifetime, self).__init__()
+                            super(Keychain.Keies.Key.Key_.KeyId.SendLifetime, self).__init__()
 
                             self.yang_name = "send-lifetime"
                             self.yang_parent_name = "key-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.duration = YLeaf(YType.str, "duration")
-
-                            self.is_always_valid = YLeaf(YType.boolean, "is-always-valid")
-
-                            self.is_valid_now = YLeaf(YType.boolean, "is-valid-now")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('duration', YLeaf(YType.str, 'duration')),
+                                ('is_always_valid', YLeaf(YType.boolean, 'is-always-valid')),
+                                ('is_valid_now', YLeaf(YType.boolean, 'is-valid-now')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.duration = None
+                            self.is_always_valid = None
+                            self.is_valid_now = None
                             self._segment_path = lambda: "send-lifetime"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.SendLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
+                            self._perform_setattr(Keychain.Keies.Key.Key_.KeyId.SendLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
 
 
                     class AcceptLifetime(Entity):
@@ -471,28 +489,31 @@ class Keychain(Entity):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            super(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, self).__init__()
+                            super(Keychain.Keies.Key.Key_.KeyId.AcceptLifetime, self).__init__()
 
                             self.yang_name = "accept-lifetime"
                             self.yang_parent_name = "key-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.str, "start")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.duration = YLeaf(YType.str, "duration")
-
-                            self.is_always_valid = YLeaf(YType.boolean, "is-always-valid")
-
-                            self.is_valid_now = YLeaf(YType.boolean, "is-valid-now")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.str, 'start')),
+                                ('end', YLeaf(YType.str, 'end')),
+                                ('duration', YLeaf(YType.str, 'duration')),
+                                ('is_always_valid', YLeaf(YType.boolean, 'is-always-valid')),
+                                ('is_valid_now', YLeaf(YType.boolean, 'is-valid-now')),
+                            ])
+                            self.start = None
+                            self.end = None
+                            self.duration = None
+                            self.is_always_valid = None
+                            self.is_valid_now = None
                             self._segment_path = lambda: "accept-lifetime"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
+                            self._perform_setattr(Keychain.Keies.Key.Key_.KeyId.AcceptLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Keychain()

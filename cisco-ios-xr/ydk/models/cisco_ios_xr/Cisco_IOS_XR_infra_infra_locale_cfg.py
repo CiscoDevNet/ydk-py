@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class LocaleCountry(Enum):
     """
-    LocaleCountry
+    LocaleCountry (Enum Class)
 
     Locale country
 
@@ -1456,7 +1458,7 @@ class LocaleCountry(Enum):
 
 class LocaleLanguage(Enum):
     """
-    LocaleLanguage
+    LocaleLanguage (Enum Class)
 
     Locale language
 
@@ -2327,12 +2329,15 @@ class Locale(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-infra-locale-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.country = YLeaf(YType.enumeration, "country")
-
-        self.language = YLeaf(YType.enumeration, "language")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('country', YLeaf(YType.enumeration, 'country')),
+            ('language', YLeaf(YType.enumeration, 'language')),
+        ])
+        self.country = None
+        self.language = None
         self._segment_path = lambda: "Cisco-IOS-XR-infra-infra-locale-cfg:locale"
 
     def __setattr__(self, name, value):

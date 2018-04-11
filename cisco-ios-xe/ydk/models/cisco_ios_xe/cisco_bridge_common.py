@@ -18,15 +18,17 @@ Terms and Acronyms
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class EthTrafficClass(Enum):
     """
-    EthTrafficClass
+    EthTrafficClass (Enum Class)
 
     Traffic class for layer 2 ethernet transport
 
@@ -61,7 +63,7 @@ class EthTrafficClass(Enum):
 
 class MacAgingType(Enum):
     """
-    MacAgingType
+    MacAgingType (Enum Class)
 
     MAC aging mechanism.
 
@@ -88,7 +90,7 @@ class MacAgingType(Enum):
 
 class MacLimitAction(Enum):
     """
-    MacLimitAction
+    MacLimitAction (Enum Class)
 
     Actions to be taken once mac limit threshold is exceeded.
 
@@ -121,7 +123,7 @@ class MacLimitAction(Enum):
 
 class MacSecureAction(Enum):
     """
-    MacSecureAction
+    MacSecureAction (Enum Class)
 
     Actions to be taken upon mac secure violation.
 

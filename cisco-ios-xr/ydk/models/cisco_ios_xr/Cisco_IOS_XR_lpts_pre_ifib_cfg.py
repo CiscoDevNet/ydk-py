@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class LptsDynamicFlowConfig(Enum):
     """
-    LptsDynamicFlowConfig
+    LptsDynamicFlowConfig (Enum Class)
 
     Lpts dynamic flow config
 
@@ -41,7 +43,7 @@ class LptsDynamicFlowConfig(Enum):
 
 class LptsFlow(Enum):
     """
-    LptsFlow
+    LptsFlow (Enum Class)
 
     Lpts flow
 
@@ -507,7 +509,7 @@ class LptsFlow(Enum):
 
     	EXR packets.
 
-    .. data:: platform_limit = 97
+    .. data:: platform_limit = 98
 
     	Platform Limit.
 
@@ -707,12 +709,12 @@ class LptsFlow(Enum):
 
     exr = Enum.YLeaf(96, "exr")
 
-    platform_limit = Enum.YLeaf(97, "platform-limit")
+    platform_limit = Enum.YLeaf(98, "platform-limit")
 
 
 class LptsPreIFibPrecedenceNumber(Enum):
     """
-    LptsPreIFibPrecedenceNumber
+    LptsPreIFibPrecedenceNumber (Enum Class)
 
     Lpts pre i fib precedence number
 

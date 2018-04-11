@@ -1013,6 +1013,19 @@ module Cisco-IOS-XE-acl {
     }
   }
 
+  grouping acl-role-src-dst-grouping {
+    container src {
+      description
+        "Specify packets to reject";
+      uses ipv4-acl-src-dst-addr-port-grouping;
+      container dst {
+        description
+          "Specify packets to forward";
+        uses ipv4-acl-src-dst-addr-port-grouping;
+      }
+    }
+  }
+  
   grouping acl-remark-grouping {
     leaf remark {
       description
@@ -1198,6 +1211,7 @@ module Cisco-IOS-XE-acl {
 	    uses ipv4-acl-tcp-match;
 	    uses acl-tcp-common-match;
         uses ipv4-acl-icmp-match;
+        uses acl-role-src-dst-grouping; 
       }
       uses acl-remark-grouping;
     }

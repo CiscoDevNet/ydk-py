@@ -32,7 +32,7 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.7.0'
+VERSION = '0.7.1'
 INSTALL_REQUIREMENTS = ['pybind11>=2.1.1']
 
 
@@ -80,13 +80,17 @@ class YdkBuildExtension(build_ext):
             import pybind11
 
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
+        coverage_compiler_flag = '-DCOVERAGE=False'
+        if 'YDK_COVERAGE' in os.environ:
+            coverage_compiler_flag = '-DCOVERAGE=True'
         cmake_args = ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={0}'.format(extdir),
                       '-DPYBIND11_INCLUDE={0};{1}'.format(
                                       pybind11.get_include(),
                                       pybind11.get_include(user=True)),
                       '-DPYTHON_VERSION={0}'.format(
                                       get_python_version()),
-                      '-DCMAKE_BUILD_TYPE=Release']
+                      '-DCMAKE_BUILD_TYPE=Release',
+                      coverage_compiler_flag]
 
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)

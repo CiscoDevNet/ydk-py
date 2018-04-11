@@ -15,9 +15,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -66,7 +68,7 @@ class Cdp(Entity):
     """
 
     _prefix = 'cdp-cfg'
-    _revision = '2015-07-30'
+    _revision = '2017-08-16'
 
     def __init__(self):
         super(Cdp, self).__init__()
@@ -76,18 +78,21 @@ class Cdp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-cdp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.timer = YLeaf(YType.uint32, "timer")
-
-        self.advertise_v1_only = YLeaf(YType.empty, "advertise-v1-only")
-
-        self.enable = YLeaf(YType.boolean, "enable")
-
-        self.hold_time = YLeaf(YType.uint32, "hold-time")
-
-        self.log_adjacency = YLeaf(YType.empty, "log-adjacency")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('timer', YLeaf(YType.uint32, 'timer')),
+            ('advertise_v1_only', YLeaf(YType.empty, 'advertise-v1-only')),
+            ('enable', YLeaf(YType.boolean, 'enable')),
+            ('hold_time', YLeaf(YType.uint32, 'hold-time')),
+            ('log_adjacency', YLeaf(YType.empty, 'log-adjacency')),
+        ])
+        self.timer = None
+        self.advertise_v1_only = None
+        self.enable = None
+        self.hold_time = None
+        self.log_adjacency = None
         self._segment_path = lambda: "Cisco-IOS-XR-cdp-cfg:cdp"
 
     def __setattr__(self, name, value):

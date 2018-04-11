@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class NodePath(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-slice-mgr-proxy-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"node" : ("node", NodePath.Node)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("node", ("node", NodePath.Node))])
+        self._leafs = OrderedDict()
 
         self.node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-slice-mgr-proxy-cfg:node-path"
@@ -57,7 +61,7 @@ class NodePath(Entity):
         Node (Physical location of the node in R\_S\_I
         format)
         
-        .. attribute:: node_name  <key>
+        .. attribute:: node_name  (key)
         
         	Location in R\_S\_I format
         	**type**\: str
@@ -81,16 +85,19 @@ class NodePath(Entity):
             self.yang_parent_name = "node-path"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"slice-ids" : ("slice_ids", NodePath.Node.SliceIds)}
-            self._child_list_classes = {}
-
-            self.node_name = YLeaf(YType.str, "node-name")
+            self.ylist_key_names = ['node_name']
+            self._child_container_classes = OrderedDict([("slice-ids", ("slice_ids", NodePath.Node.SliceIds))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('node_name', YLeaf(YType.str, 'node-name')),
+            ])
+            self.node_name = None
 
             self.slice_ids = NodePath.Node.SliceIds()
             self.slice_ids.parent = self
             self._children_name_map["slice_ids"] = "slice-ids"
             self._children_yang_names.add("slice-ids")
-            self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+            self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-slice-mgr-proxy-cfg:node-path/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -120,8 +127,10 @@ class NodePath(Entity):
                 self.yang_parent_name = "node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"slice-id" : ("slice_id", NodePath.Node.SliceIds.SliceId)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("slice-id", ("slice_id", NodePath.Node.SliceIds.SliceId))])
+                self._leafs = OrderedDict()
 
                 self.slice_id = YList(self)
                 self._segment_path = lambda: "slice-ids"
@@ -135,7 +144,7 @@ class NodePath(Entity):
                 Slice Id on which configuration will be
                 applied
                 
-                .. attribute:: slice_id  <key>
+                .. attribute:: slice_id  (key)
                 
                 	The identifier for this slice
                 	**type**\: int
@@ -177,17 +186,20 @@ class NodePath(Entity):
                     self.yang_parent_name = "slice-ids"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.slice_id = YLeaf(YType.uint32, "slice-id")
-
-                    self.state = YLeaf(YType.int32, "state")
-
-                    self.breakout = YLeaf(YType.int32, "breakout")
-
-                    self.mode = YLeaf(YType.int32, "mode")
-                    self._segment_path = lambda: "slice-id" + "[slice-id='" + self.slice_id.get() + "']"
+                    self.ylist_key_names = ['slice_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('slice_id', YLeaf(YType.uint32, 'slice-id')),
+                        ('state', YLeaf(YType.int32, 'state')),
+                        ('breakout', YLeaf(YType.int32, 'breakout')),
+                        ('mode', YLeaf(YType.int32, 'mode')),
+                    ])
+                    self.slice_id = None
+                    self.state = None
+                    self.breakout = None
+                    self.mode = None
+                    self._segment_path = lambda: "slice-id" + "[slice-id='" + str(self.slice_id) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NodePath.Node.SliceIds.SliceId, ['slice_id', 'state', 'breakout', 'mode'], name, value)

@@ -1,475 +1,561 @@
 submodule Cisco-IOS-XR-ppp-ma-oper-sub4 {
-
   belongs-to Cisco-IOS-XR-ppp-ma-oper {
     prefix Cisco-IOS-XR-ppp-ma-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   include Cisco-IOS-XR-ppp-ma-oper-sub2 {
     revision-date 2015-11-09;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ppp-ma package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ppp-iphc-compression {
     type enumeration {
-      enum ppp-iphc-compression-fmt-none {
+      enum "ppp-iphc-compression-fmt-none" {
         value 0;
-        description "None";
+        description
+          "None";
       }
-      enum ppp-iphc-compression-fmt-vj {
+      enum "ppp-iphc-compression-fmt-vj" {
         value 1;
-        description "VJ";
+        description
+          "VJ";
       }
-      enum ppp-iphc-compression-fmt-ietf {
+      enum "ppp-iphc-compression-fmt-ietf" {
         value 2;
-        description "IETF";
+        description
+          "IETF";
       }
-      enum ppp-iphc-compression-fmt-iphc {
+      enum "ppp-iphc-compression-fmt-iphc" {
         value 3;
-        description "IPHC";
+        description
+          "IPHC";
       }
-      enum ppp-iphc-compression-fmt-cisco {
+      enum "ppp-iphc-compression-fmt-cisco" {
         value 4;
-        description "CISCO";
+        description
+          "CISCO";
       }
     }
-    description "IPHC compression type";
+    description
+      "IPHC compression type";
   }
 
   grouping PPP-IPV6CP-INFO {
-    description "IPv6CP State information";
+    description
+      "IPv6CP State information";
     leaf local-address {
       type inet:ipv6-address;
-      description "Local IPv6 address";
+      description
+        "Local IPv6 address";
     }
     leaf peer-address {
       type inet:ipv6-address;
-      description "Peer IPv6 address";
+      description
+        "Peer IPv6 address";
     }
   }
 
   grouping PPP-IPCPIW-INFO {
-    description "IPCPIW State information";
+    description
+      "IPCPIW State information";
     leaf local-address {
       type inet:ipv4-address;
-      description "Local IPv4 address";
+      description
+        "Local IPv4 address";
     }
     leaf peer-address {
       type inet:ipv4-address;
-      description "Peer IPv4 address";
+      description
+        "Peer IPv4 address";
     }
   }
 
   grouping PPP-IPCP-IPHC-INFO {
-    description "IPCP IPHC State information";
+    description
+      "IPCP IPHC State information";
     leaf compression-type {
       type Ppp-iphc-compression;
-      description "Compression type";
+      description
+        "Compression type";
     }
     leaf tcp-space {
       type uint16;
-      description "TCP space";
+      description
+        "TCP space";
     }
     leaf non-tcp-space {
       type uint16;
-      description "Non-TCP space";
+      description
+        "Non-TCP space";
     }
     leaf max-period {
       type uint16;
-      description "Max period";
+      description
+        "Max period";
     }
     leaf max-time {
       type uint16;
-      description "Max time";
+      description
+        "Max time";
     }
     leaf max-header {
       type uint16;
-      description "Max header";
+      description
+        "Max header";
     }
     leaf rtp-compression {
       type boolean;
-      description "RTP compression";
+      description
+        "RTP compression";
     }
     leaf ec-rtp-compression {
       type boolean;
-      description "EcRTP compression";
+      description
+        "EcRTP compression";
     }
   }
 
   grouping PPP-IPCP-INFO {
-    description "IPCP State information";
-
+    description
+      "IPCP State information";
     container local-iphc-options {
-      description "Local IPHC options";
+      description
+        "Local IPHC options";
       uses PPP-IPCP-IPHC-INFO;
     }
-
     container peer-iphc-options {
-      description "Peer IPHC options";
+      description
+        "Peer IPHC options";
       uses PPP-IPCP-IPHC-INFO;
     }
     leaf local-address {
       type inet:ipv4-address;
-      description "Local IPv4 address";
+      description
+        "Local IPv4 address";
     }
     leaf peer-address {
       type inet:ipv4-address;
-      description "Peer IPv4 address";
+      description
+        "Peer IPv4 address";
     }
     leaf peer-netmask {
       type inet:ipv4-address;
-      description "Peer IPv4 netmask";
+      description
+        "Peer IPv4 netmask";
     }
     leaf dns-primary {
       type inet:ipv4-address;
-      description "Peer DNS Primary";
+      description
+        "Peer DNS Primary";
     }
     leaf dns-secondary {
       type inet:ipv4-address;
-      description "Peer DNS Secondary";
+      description
+        "Peer DNS Secondary";
     }
     leaf wins-primary {
       type inet:ipv4-address;
-      description "Peer WINS Primary";
+      description
+        "Peer WINS Primary";
     }
     leaf wins-secondary {
       type inet:ipv4-address;
-      description "Peer WINS Secondary";
+      description
+        "Peer WINS Secondary";
     }
     leaf is-iphc-configured {
       type boolean;
-      description "Is IPHC Configured";
+      description
+        "Is IPHC Configured";
     }
   }
 
   grouping PPP-NCP {
-    description "PPP NCP";
-
+    description
+      "PPP NCP";
     container ipcp-info {
       when "../type = 'ipcp'" {
-        description "../Type = 'IPCP'";
+        description
+          "../Type = 'IPCP'";
       }
-      description "Info for IPCP";
+      description
+        "Info for IPCP";
       uses PPP-IPCP-INFO;
     }
-
     container ipcpiw-info {
       when "../type = 'ipcpiw'" {
-        description "../Type = 'IPCPIW'";
+        description
+          "../Type = 'IPCPIW'";
       }
-      description "Info for IPCPIW";
+      description
+        "Info for IPCPIW";
       uses PPP-IPCPIW-INFO;
     }
-
     container ipv6cp-info {
       when "../type = 'ipv6cp'" {
-        description "../Type = 'IPV6CP'";
+        description
+          "../Type = 'IPV6CP'";
       }
-      description "Info for IPv6CP";
+      description
+        "Info for IPv6CP";
       uses PPP-IPV6CP-INFO;
     }
     leaf type {
       type Ncp-ident;
-      description "Type";
+      description
+        "Type";
     }
   }
 
   grouping PPP-NCP-INFO {
-    description "NCP state information";
-
+    description
+      "NCP state information";
     container ncp-info {
-      description "Specific NCP info";
+      description
+        "Specific NCP info";
       uses PPP-NCP;
     }
     leaf ncp-state {
       type Ppp-fsm-state;
-      description "NCP state value";
+      description
+        "NCP state value";
     }
     leaf ncpsso-state {
       type Ppp-sso-fsm-state;
-      description "NCP SSO State";
+      description
+        "NCP SSO State";
     }
     leaf is-passive {
       type boolean;
-      description "Is Passive";
+      description
+        "Is Passive";
     }
     leaf ncp-identifier {
       type Ncp-ident;
-      description "NCP state identifier";
+      description
+        "NCP state identifier";
     }
   }
 
   grouping PPP-AUTH-INFO {
-    description "Authentication information";
+    description
+      "Authentication information";
     leaf is-authenticated {
       type boolean;
-      description "Is authenticated";
+      description
+        "Is authenticated";
     }
     leaf is-sso-authenticated {
       type boolean;
-      description "Is SSO authenticated";
+      description
+        "Is SSO authenticated";
     }
     leaf of-us-auth {
       type uint8;
-      description "Of Us authentication type";
+      description
+        "Of Us authentication type";
     }
     leaf of-peer-auth {
       type uint8;
-      description "Of Peer authentication type";
+      description
+        "Of Peer authentication type";
     }
     leaf of-us-name {
       type string;
-      description "Local authenticated name";
+      description
+        "Local authenticated name";
     }
     leaf of-peer-name {
       type string;
-      description "Peer's authenticated name";
+      description
+        "Peer's authenticated name";
     }
     leaf of-us-sso-state {
       type Ppp-sso-fsm-state;
-      description "Of Us auth SSO FSM State";
+      description
+        "Of Us auth SSO FSM State";
     }
     leaf of-peer-sso-state {
       type Ppp-sso-fsm-state;
-      description "Of Peer auth SSO FSM State";
+      description
+        "Of Peer auth SSO FSM State";
     }
   }
 
   grouping PPP-TIMEOUT-INFO {
-    description "Timeout information";
+    description
+      "Timeout information";
     leaf minutes {
       type uint32;
       units "minute";
-      description "Minutes";
+      description
+        "Minutes";
     }
     leaf seconds {
       type uint8;
       units "second";
-      description "Seconds";
+      description
+        "Seconds";
     }
   }
 
   grouping PPP-MP-MBR-INFO {
-    description "MP member information";
+    description
+      "MP member information";
     leaf interface {
       type xr:Interface-name;
-      description "Member Interface";
+      description
+        "Member Interface";
     }
     leaf state {
       type Ppp-lcp-mp-mbr-state;
-      description "Member State";
+      description
+        "Member State";
     }
   }
 
   grouping PPP-MP-INFO {
-    description "MP information";
+    description
+      "MP information";
     leaf is-mp-bundle {
       type boolean;
-      description "Is an MP bundle";
+      description
+        "Is an MP bundle";
     }
     leaf mp-bundle-interface {
       type xr:Interface-name;
-      description "MP Bundle Interface";
+      description
+        "MP Bundle Interface";
     }
     leaf is-mp-bundle-member {
       type boolean;
-      description "MP Bundle Member";
+      description
+        "MP Bundle Member";
     }
     leaf mp-group {
       type uint32;
-      description "MP Group";
+      description
+        "MP Group";
     }
     leaf active-links {
       type uint16;
-      description "Number of active links";
+      description
+        "Number of active links";
     }
     leaf inactive-links {
       type uint16;
-      description "Number of inactive links";
+      description
+        "Number of inactive links";
     }
     leaf minimum-active-links {
       type uint16;
       description
         "Minimum active links required for the MPbundle
-        to come up";
+         to come up";
     }
     leaf mp-state {
       type Ppp-lcp-mp-mbr-state;
-      description "Member State";
+      description
+        "Member State";
     }
-
     list mp-member-info-array {
-      description "Array of MP members";
+      description
+        "Array of MP members";
       uses PPP-MP-MBR-INFO;
     }
   }
 
   grouping PPP-PROTOCOL-INFO {
-    description "PPP state information";
-
+    description
+      "PPP state information";
     container mp-info {
-      description "MP information";
+      description
+        "MP information";
       uses PPP-MP-INFO;
     }
-
     container configured-timeout {
-      description "Configured timeout";
+      description
+        "Configured timeout";
       uses PPP-TIMEOUT-INFO;
     }
-
     container auth-info {
-      description "Authentication information";
+      description
+        "Authentication information";
       uses PPP-AUTH-INFO;
     }
     leaf parent-state {
       type Im-state;
-      description "Parent state";
+      description
+        "Parent state";
     }
     leaf line-state {
       type Im-state;
-      description "Line state";
+      description
+        "Line state";
     }
     leaf is-loopback-detected {
       type boolean;
-      description "Loopback detected";
+      description
+        "Loopback detected";
     }
     leaf caps-idb-srg-role {
       type uint32;
-      description "Caps IDB SRG role";
+      description
+        "Caps IDB SRG role";
     }
     leaf session-srg-role {
       type uint32;
-      description "Session SRG role";
+      description
+        "Session SRG role";
     }
     leaf keepalive-period {
       type uint32;
-      description "Keepalive value";
+      description
+        "Keepalive value";
     }
     leaf keepalive-retry-count {
       type uint32;
-      description "Keepalive retry count";
+      description
+        "Keepalive retry count";
     }
     leaf is-ssrp-configured {
       type boolean;
-      description "Is SSRP configured";
+      description
+        "Is SSRP configured";
     }
     leaf is-l2ac {
       type boolean;
-      description "Is L2 AC";
+      description
+        "Is L2 AC";
     }
     leaf provisioned {
       type boolean;
-      description "Provisioned";
+      description
+        "Provisioned";
     }
     leaf ip-interworking-enabled {
       type boolean;
-      description "IP Interworking Enabled";
+      description
+        "IP Interworking Enabled";
     }
     leaf xconnect-id {
       type uint32;
-      description "XConnect ID";
+      description
+        "XConnect ID";
     }
     leaf is-tunneled-session {
       type boolean;
-      description "Is tunneled session";
+      description
+        "Is tunneled session";
     }
     leaf ssrp-peer-id {
       type string;
-      description "SSRP Peer ID";
+      description
+        "SSRP Peer ID";
     }
     leaf lcp-state {
       type Ppp-fsm-state;
-      description "PPP/LCP state value";
+      description
+        "PPP/LCP state value";
     }
     leaf lcpsso-state {
       type Ppp-sso-fsm-state;
-      description "LCP SSO state";
+      description
+        "LCP SSO state";
     }
     leaf is-lcp-delayed {
       type boolean;
-      description "Is LCP Delayed";
+      description
+        "Is LCP Delayed";
     }
     leaf local-mru {
       type uint16;
-      description "Local MRU";
+      description
+        "Local MRU";
     }
     leaf peer-mru {
       type uint16;
-      description "Peer MRU";
+      description
+        "Peer MRU";
     }
     leaf local-mrru {
       type uint16;
-      description "Local MRRU";
+      description
+        "Local MRRU";
     }
     leaf peer-mrru {
       type uint16;
-      description "Peer MRRU";
+      description
+        "Peer MRRU";
     }
     leaf local-ed {
       type string {
         length "0..41";
       }
-      description "Local Endpt Discriminator";
+      description
+        "Local Endpt Discriminator";
     }
     leaf peer-ed {
       type string {
         length "0..41";
       }
-      description "Peer Endpt Discriminator";
+      description
+        "Peer Endpt Discriminator";
     }
     leaf is-mcmp-enabled {
       type boolean;
-      description "Is MCMP enabled";
+      description
+        "Is MCMP enabled";
     }
     leaf local-mcmp-classes {
       type uint8;
-      description "Local MCMP classes";
+      description
+        "Local MCMP classes";
     }
     leaf peer-mcmp-classes {
       type uint8;
-      description "Peer MCMP classes";
+      description
+        "Peer MCMP classes";
     }
     leaf session-expires {
       type uint32;
       units "second";
       description
         "Session expiry time in seconds since 00:00:00 on
-        January 1, 1970, UTC.";
+         January 1, 1970, UTC.";
     }
-
     list ncp-info-array {
-      description "Array of per-NCP data";
+      description
+        "Array of per-NCP data";
       uses PPP-NCP-INFO;
     }
   }

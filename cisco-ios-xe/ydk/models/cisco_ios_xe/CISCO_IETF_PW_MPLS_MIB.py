@@ -4,9 +4,11 @@ This MIB complements the CISCO\-IETF\-PW\-MIB for PW operation
 over MPLS. 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -60,8 +62,10 @@ class CISCOIETFPWMPLSMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpwVcMplsObjects" : ("cpwvcmplsobjects", CISCOIETFPWMPLSMIB.Cpwvcmplsobjects), "cpwVcMplsTable" : ("cpwvcmplstable", CISCOIETFPWMPLSMIB.Cpwvcmplstable), "cpwVcMplsOutboundTable" : ("cpwvcmplsoutboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable), "cpwVcMplsInboundTable" : ("cpwvcmplsinboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable), "cpwVcMplsNonTeMappingTable" : ("cpwvcmplsnontemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable), "cpwVcMplsTeMappingTable" : ("cpwvcmplstemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cpwVcMplsObjects", ("cpwvcmplsobjects", CISCOIETFPWMPLSMIB.Cpwvcmplsobjects)), ("cpwVcMplsTable", ("cpwvcmplstable", CISCOIETFPWMPLSMIB.Cpwvcmplstable)), ("cpwVcMplsOutboundTable", ("cpwvcmplsoutboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable)), ("cpwVcMplsInboundTable", ("cpwvcmplsinboundtable", CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable)), ("cpwVcMplsNonTeMappingTable", ("cpwvcmplsnontemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable)), ("cpwVcMplsTeMappingTable", ("cpwvcmplstemappingtable", CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cpwvcmplsobjects = CISCOIETFPWMPLSMIB.Cpwvcmplsobjects()
         self.cpwvcmplsobjects.parent = self
@@ -127,12 +131,15 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cpwvcmplsoutboundindexnext = YLeaf(YType.uint32, "cpwVcMplsOutboundIndexNext")
-
-            self.cpwvcmplsinboundindexnext = YLeaf(YType.uint32, "cpwVcMplsInboundIndexNext")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cpwvcmplsoutboundindexnext', YLeaf(YType.uint32, 'cpwVcMplsOutboundIndexNext')),
+                ('cpwvcmplsinboundindexnext', YLeaf(YType.uint32, 'cpwVcMplsInboundIndexNext')),
+            ])
+            self.cpwvcmplsoutboundindexnext = None
+            self.cpwvcmplsinboundindexnext = None
             self._segment_path = lambda: "cpwVcMplsObjects"
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
 
@@ -164,8 +171,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcMplsEntry" : ("cpwvcmplsentry", CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcMplsEntry", ("cpwvcmplsentry", CISCOIETFPWMPLSMIB.Cpwvcmplstable.Cpwvcmplsentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcmplsentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsTable"
@@ -183,7 +192,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             MPLS. It is indexed by cpwVcIndex, which uniquely  
             identifying a singular connection. 
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -252,27 +261,30 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.yang_parent_name = "cpwVcMplsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwvcmplsmplstype = YLeaf(YType.bits, "cpwVcMplsMplsType")
-
-                self.cpwvcmplsexpbitsmode = YLeaf(YType.enumeration, "cpwVcMplsExpBitsMode")
-
-                self.cpwvcmplsexpbits = YLeaf(YType.uint32, "cpwVcMplsExpBits")
-
-                self.cpwvcmplsttl = YLeaf(YType.uint32, "cpwVcMplsTtl")
-
-                self.cpwvcmplslocalldpid = YLeaf(YType.str, "cpwVcMplsLocalLdpID")
-
-                self.cpwvcmplslocalldpentityid = YLeaf(YType.uint32, "cpwVcMplsLocalLdpEntityID")
-
-                self.cpwvcmplspeerldpid = YLeaf(YType.str, "cpwVcMplsPeerLdpID")
-
-                self.cpwvcmplsstoragetype = YLeaf(YType.enumeration, "cpwVcMplsStorageType")
-                self._segment_path = lambda: "cpwVcMplsEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwvcmplsmplstype', YLeaf(YType.bits, 'cpwVcMplsMplsType')),
+                    ('cpwvcmplsexpbitsmode', YLeaf(YType.enumeration, 'cpwVcMplsExpBitsMode')),
+                    ('cpwvcmplsexpbits', YLeaf(YType.uint32, 'cpwVcMplsExpBits')),
+                    ('cpwvcmplsttl', YLeaf(YType.uint32, 'cpwVcMplsTtl')),
+                    ('cpwvcmplslocalldpid', YLeaf(YType.str, 'cpwVcMplsLocalLdpID')),
+                    ('cpwvcmplslocalldpentityid', YLeaf(YType.uint32, 'cpwVcMplsLocalLdpEntityID')),
+                    ('cpwvcmplspeerldpid', YLeaf(YType.str, 'cpwVcMplsPeerLdpID')),
+                    ('cpwvcmplsstoragetype', YLeaf(YType.enumeration, 'cpwVcMplsStorageType')),
+                ])
+                self.cpwvcindex = None
+                self.cpwvcmplsmplstype = Bits()
+                self.cpwvcmplsexpbitsmode = None
+                self.cpwvcmplsexpbits = None
+                self.cpwvcmplsttl = None
+                self.cpwvcmplslocalldpid = None
+                self.cpwvcmplslocalldpentityid = None
+                self.cpwvcmplspeerldpid = None
+                self.cpwvcmplsstoragetype = None
+                self._segment_path = lambda: "cpwVcMplsEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -280,7 +292,7 @@ class CISCOIETFPWMPLSMIB(Entity):
 
             class Cpwvcmplsexpbitsmode(Enum):
                 """
-                Cpwvcmplsexpbitsmode
+                Cpwvcmplsexpbitsmode (Enum Class)
 
                 Set by the operator to indicate the way the VC shim label 
 
@@ -347,8 +359,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcMplsOutboundEntry" : ("cpwvcmplsoutboundentry", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcMplsOutboundEntry", ("cpwvcmplsoutboundentry", CISCOIETFPWMPLSMIB.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcmplsoutboundentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsOutboundTable"
@@ -388,7 +402,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             different type except for VC only, on which only rows with 
             ifIndex of the port are allowed. 
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -397,7 +411,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
             
-            .. attribute:: cpwvcmplsoutboundindex  <key>
+            .. attribute:: cpwvcmplsoutboundindex  (key)
             
             	Arbitrary index for enabling multiple rows per VC in  this table. Next available free index can be retrieved   using cpwVcMplsOutboundIndexNext. 
             	**type**\: int
@@ -470,29 +484,32 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.yang_parent_name = "cpwVcMplsOutboundTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwvcmplsoutboundindex = YLeaf(YType.uint32, "cpwVcMplsOutboundIndex")
-
-                self.cpwvcmplsoutboundlsrxcindex = YLeaf(YType.uint32, "cpwVcMplsOutboundLsrXcIndex")
-
-                self.cpwvcmplsoutboundtunnelindex = YLeaf(YType.uint32, "cpwVcMplsOutboundTunnelIndex")
-
-                self.cpwvcmplsoutboundtunnelinstance = YLeaf(YType.uint32, "cpwVcMplsOutboundTunnelInstance")
-
-                self.cpwvcmplsoutboundtunnellcllsr = YLeaf(YType.str, "cpwVcMplsOutboundTunnelLclLSR")
-
-                self.cpwvcmplsoutboundtunnelpeerlsr = YLeaf(YType.str, "cpwVcMplsOutboundTunnelPeerLSR")
-
-                self.cpwvcmplsoutboundifindex = YLeaf(YType.int32, "cpwVcMplsOutboundIfIndex")
-
-                self.cpwvcmplsoutboundrowstatus = YLeaf(YType.enumeration, "cpwVcMplsOutboundRowStatus")
-
-                self.cpwvcmplsoutboundstoragetype = YLeaf(YType.enumeration, "cpwVcMplsOutboundStorageType")
-                self._segment_path = lambda: "cpwVcMplsOutboundEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcMplsOutboundIndex='" + self.cpwvcmplsoutboundindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex','cpwvcmplsoutboundindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwvcmplsoutboundindex', YLeaf(YType.uint32, 'cpwVcMplsOutboundIndex')),
+                    ('cpwvcmplsoutboundlsrxcindex', YLeaf(YType.uint32, 'cpwVcMplsOutboundLsrXcIndex')),
+                    ('cpwvcmplsoutboundtunnelindex', YLeaf(YType.uint32, 'cpwVcMplsOutboundTunnelIndex')),
+                    ('cpwvcmplsoutboundtunnelinstance', YLeaf(YType.uint32, 'cpwVcMplsOutboundTunnelInstance')),
+                    ('cpwvcmplsoutboundtunnellcllsr', YLeaf(YType.str, 'cpwVcMplsOutboundTunnelLclLSR')),
+                    ('cpwvcmplsoutboundtunnelpeerlsr', YLeaf(YType.str, 'cpwVcMplsOutboundTunnelPeerLSR')),
+                    ('cpwvcmplsoutboundifindex', YLeaf(YType.int32, 'cpwVcMplsOutboundIfIndex')),
+                    ('cpwvcmplsoutboundrowstatus', YLeaf(YType.enumeration, 'cpwVcMplsOutboundRowStatus')),
+                    ('cpwvcmplsoutboundstoragetype', YLeaf(YType.enumeration, 'cpwVcMplsOutboundStorageType')),
+                ])
+                self.cpwvcindex = None
+                self.cpwvcmplsoutboundindex = None
+                self.cpwvcmplsoutboundlsrxcindex = None
+                self.cpwvcmplsoutboundtunnelindex = None
+                self.cpwvcmplsoutboundtunnelinstance = None
+                self.cpwvcmplsoutboundtunnellcllsr = None
+                self.cpwvcmplsoutboundtunnelpeerlsr = None
+                self.cpwvcmplsoutboundifindex = None
+                self.cpwvcmplsoutboundrowstatus = None
+                self.cpwvcmplsoutboundstoragetype = None
+                self._segment_path = lambda: "cpwVcMplsOutboundEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']" + "[cpwVcMplsOutboundIndex='" + str(self.cpwvcmplsoutboundindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsOutboundTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -525,8 +542,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcMplsInboundEntry" : ("cpwvcmplsinboundentry", CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcMplsInboundEntry", ("cpwvcmplsinboundentry", CISCOIETFPWMPLSMIB.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcmplsinboundentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsInboundTable"
@@ -571,7 +590,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             different type except for VC only, on which only rows with 
             ifIndex of the port are allowed. 
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -580,7 +599,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
             
-            .. attribute:: cpwvcmplsinboundindex  <key>
+            .. attribute:: cpwvcmplsinboundindex  (key)
             
             	Arbitrary index for enabling multiple rows per VC in  this table. Next available free index can be retrieved  using cpwVcMplsInboundIndexNext. 
             	**type**\: int
@@ -653,29 +672,32 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.yang_parent_name = "cpwVcMplsInboundTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwvcmplsinboundindex = YLeaf(YType.uint32, "cpwVcMplsInboundIndex")
-
-                self.cpwvcmplsinboundlsrxcindex = YLeaf(YType.uint32, "cpwVcMplsInboundLsrXcIndex")
-
-                self.cpwvcmplsinboundtunnelindex = YLeaf(YType.uint32, "cpwVcMplsInboundTunnelIndex")
-
-                self.cpwvcmplsinboundtunnelinstance = YLeaf(YType.uint32, "cpwVcMplsInboundTunnelInstance")
-
-                self.cpwvcmplsinboundtunnellcllsr = YLeaf(YType.str, "cpwVcMplsInboundTunnelLclLSR")
-
-                self.cpwvcmplsinboundtunnelpeerlsr = YLeaf(YType.str, "cpwVcMplsInboundTunnelPeerLSR")
-
-                self.cpwvcmplsinboundifindex = YLeaf(YType.int32, "cpwVcMplsInboundIfIndex")
-
-                self.cpwvcmplsinboundrowstatus = YLeaf(YType.enumeration, "cpwVcMplsInboundRowStatus")
-
-                self.cpwvcmplsinboundstoragetype = YLeaf(YType.enumeration, "cpwVcMplsInboundStorageType")
-                self._segment_path = lambda: "cpwVcMplsInboundEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcMplsInboundIndex='" + self.cpwvcmplsinboundindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex','cpwvcmplsinboundindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwvcmplsinboundindex', YLeaf(YType.uint32, 'cpwVcMplsInboundIndex')),
+                    ('cpwvcmplsinboundlsrxcindex', YLeaf(YType.uint32, 'cpwVcMplsInboundLsrXcIndex')),
+                    ('cpwvcmplsinboundtunnelindex', YLeaf(YType.uint32, 'cpwVcMplsInboundTunnelIndex')),
+                    ('cpwvcmplsinboundtunnelinstance', YLeaf(YType.uint32, 'cpwVcMplsInboundTunnelInstance')),
+                    ('cpwvcmplsinboundtunnellcllsr', YLeaf(YType.str, 'cpwVcMplsInboundTunnelLclLSR')),
+                    ('cpwvcmplsinboundtunnelpeerlsr', YLeaf(YType.str, 'cpwVcMplsInboundTunnelPeerLSR')),
+                    ('cpwvcmplsinboundifindex', YLeaf(YType.int32, 'cpwVcMplsInboundIfIndex')),
+                    ('cpwvcmplsinboundrowstatus', YLeaf(YType.enumeration, 'cpwVcMplsInboundRowStatus')),
+                    ('cpwvcmplsinboundstoragetype', YLeaf(YType.enumeration, 'cpwVcMplsInboundStorageType')),
+                ])
+                self.cpwvcindex = None
+                self.cpwvcmplsinboundindex = None
+                self.cpwvcmplsinboundlsrxcindex = None
+                self.cpwvcmplsinboundtunnelindex = None
+                self.cpwvcmplsinboundtunnelinstance = None
+                self.cpwvcmplsinboundtunnellcllsr = None
+                self.cpwvcmplsinboundtunnelpeerlsr = None
+                self.cpwvcmplsinboundifindex = None
+                self.cpwvcmplsinboundrowstatus = None
+                self.cpwvcmplsinboundstoragetype = None
+                self._segment_path = lambda: "cpwVcMplsInboundEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']" + "[cpwVcMplsInboundIndex='" + str(self.cpwvcmplsinboundindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsInboundTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -706,8 +728,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcMplsNonTeMappingEntry" : ("cpwvcmplsnontemappingentry", CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcMplsNonTeMappingEntry", ("cpwvcmplsnontemappingentry", CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcmplsnontemappingentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsNonTeMappingTable"
@@ -740,26 +764,26 @@ class CISCOIETFPWMPLSMIB(Entity):
             Rows are created by the local agent when all the  
             association data is available for display.
             
-            .. attribute:: cpwvcmplsnontemappingtunneldirection  <key>
+            .. attribute:: cpwvcmplsnontemappingtunneldirection  (key)
             
             	Identifies if the row represent an outbound or inbound   mapping
             	**type**\:  :py:class:`Cpwvcmplsnontemappingtunneldirection <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingtunneldirection>`
             
-            .. attribute:: cpwvcmplsnontemappingxctunnelindex  <key>
+            .. attribute:: cpwvcmplsnontemappingxctunnelindex  (key)
             
             	Index for the conceptual XC row identifying Tunnel to VC   mappings when the outer tunnel is created by the MPLS\-LSR\-  MIB, Zero otherwise
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwvcmplsnontemappingifindex  <key>
+            .. attribute:: cpwvcmplsnontemappingifindex  (key)
             
             	Identify the port on which the VC is carried for VC only   case
             	**type**\: int
             
             	**range:** 0..2147483647
             
-            .. attribute:: cpwvcmplsnontemappingvcindex  <key>
+            .. attribute:: cpwvcmplsnontemappingvcindex  (key)
             
             	The value that represent the VC in the cpwVcTable
             	**type**\: int
@@ -780,17 +804,20 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.yang_parent_name = "cpwVcMplsNonTeMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcmplsnontemappingtunneldirection = YLeaf(YType.enumeration, "cpwVcMplsNonTeMappingTunnelDirection")
-
-                self.cpwvcmplsnontemappingxctunnelindex = YLeaf(YType.uint32, "cpwVcMplsNonTeMappingXcTunnelIndex")
-
-                self.cpwvcmplsnontemappingifindex = YLeaf(YType.int32, "cpwVcMplsNonTeMappingIfIndex")
-
-                self.cpwvcmplsnontemappingvcindex = YLeaf(YType.uint32, "cpwVcMplsNonTeMappingVcIndex")
-                self._segment_path = lambda: "cpwVcMplsNonTeMappingEntry" + "[cpwVcMplsNonTeMappingTunnelDirection='" + self.cpwvcmplsnontemappingtunneldirection.get() + "']" + "[cpwVcMplsNonTeMappingXcTunnelIndex='" + self.cpwvcmplsnontemappingxctunnelindex.get() + "']" + "[cpwVcMplsNonTeMappingIfIndex='" + self.cpwvcmplsnontemappingifindex.get() + "']" + "[cpwVcMplsNonTeMappingVcIndex='" + self.cpwvcmplsnontemappingvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcmplsnontemappingtunneldirection','cpwvcmplsnontemappingxctunnelindex','cpwvcmplsnontemappingifindex','cpwvcmplsnontemappingvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcmplsnontemappingtunneldirection', YLeaf(YType.enumeration, 'cpwVcMplsNonTeMappingTunnelDirection')),
+                    ('cpwvcmplsnontemappingxctunnelindex', YLeaf(YType.uint32, 'cpwVcMplsNonTeMappingXcTunnelIndex')),
+                    ('cpwvcmplsnontemappingifindex', YLeaf(YType.int32, 'cpwVcMplsNonTeMappingIfIndex')),
+                    ('cpwvcmplsnontemappingvcindex', YLeaf(YType.uint32, 'cpwVcMplsNonTeMappingVcIndex')),
+                ])
+                self.cpwvcmplsnontemappingtunneldirection = None
+                self.cpwvcmplsnontemappingxctunnelindex = None
+                self.cpwvcmplsnontemappingifindex = None
+                self.cpwvcmplsnontemappingvcindex = None
+                self._segment_path = lambda: "cpwVcMplsNonTeMappingEntry" + "[cpwVcMplsNonTeMappingTunnelDirection='" + str(self.cpwvcmplsnontemappingtunneldirection) + "']" + "[cpwVcMplsNonTeMappingXcTunnelIndex='" + str(self.cpwvcmplsnontemappingxctunnelindex) + "']" + "[cpwVcMplsNonTeMappingIfIndex='" + str(self.cpwvcmplsnontemappingifindex) + "']" + "[cpwVcMplsNonTeMappingVcIndex='" + str(self.cpwvcmplsnontemappingvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsNonTeMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -798,7 +825,7 @@ class CISCOIETFPWMPLSMIB(Entity):
 
             class Cpwvcmplsnontemappingtunneldirection(Enum):
                 """
-                Cpwvcmplsnontemappingtunneldirection
+                Cpwvcmplsnontemappingtunneldirection (Enum Class)
 
                 Identifies if the row represent an outbound or inbound  
 
@@ -840,8 +867,10 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcMplsTeMappingEntry" : ("cpwvcmplstemappingentry", CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcMplsTeMappingEntry", ("cpwvcmplstemappingentry", CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcmplstemappingentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsTeMappingTable"
@@ -870,40 +899,40 @@ class CISCOIETFPWMPLSMIB(Entity):
             Rows are created by the local agent when all the  
             association data is available for display.
             
-            .. attribute:: cpwvcmplstemappingtunneldirection  <key>
+            .. attribute:: cpwvcmplstemappingtunneldirection  (key)
             
             	Identifies if the row represent an outbound or inbound   mapping
             	**type**\:  :py:class:`Cpwvcmplstemappingtunneldirection <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CISCOIETFPWMPLSMIB.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry.Cpwvcmplstemappingtunneldirection>`
             
-            .. attribute:: cpwvcmplstemappingtunnelindex  <key>
+            .. attribute:: cpwvcmplstemappingtunnelindex  (key)
             
             	Primary index for the conceptual row identifying the   MPLS\-TE tunnel
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: cpwvcmplstemappingtunnelinstance  <key>
+            .. attribute:: cpwvcmplstemappingtunnelinstance  (key)
             
             	Identifies an instance of the MPLS\-TE tunnel
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwvcmplstemappingtunnelpeerlsrid  <key>
+            .. attribute:: cpwvcmplstemappingtunnelpeerlsrid  (key)
             
             	Identifies an Peer LSR when the outer tunnel is MPLS\-TE   based
             	**type**\: str
             
             	**length:** 4
             
-            .. attribute:: cpwvcmplstemappingtunnellocallsrid  <key>
+            .. attribute:: cpwvcmplstemappingtunnellocallsrid  (key)
             
             	Identifies the local LSR
             	**type**\: str
             
             	**length:** 4
             
-            .. attribute:: cpwvcmplstemappingvcindex  <key>
+            .. attribute:: cpwvcmplstemappingvcindex  (key)
             
             	The value that represent the VC in the cpwVcTable
             	**type**\: int
@@ -924,21 +953,24 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.yang_parent_name = "cpwVcMplsTeMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcmplstemappingtunneldirection = YLeaf(YType.enumeration, "cpwVcMplsTeMappingTunnelDirection")
-
-                self.cpwvcmplstemappingtunnelindex = YLeaf(YType.uint32, "cpwVcMplsTeMappingTunnelIndex")
-
-                self.cpwvcmplstemappingtunnelinstance = YLeaf(YType.uint32, "cpwVcMplsTeMappingTunnelInstance")
-
-                self.cpwvcmplstemappingtunnelpeerlsrid = YLeaf(YType.str, "cpwVcMplsTeMappingTunnelPeerLsrID")
-
-                self.cpwvcmplstemappingtunnellocallsrid = YLeaf(YType.str, "cpwVcMplsTeMappingTunnelLocalLsrID")
-
-                self.cpwvcmplstemappingvcindex = YLeaf(YType.uint32, "cpwVcMplsTeMappingVcIndex")
-                self._segment_path = lambda: "cpwVcMplsTeMappingEntry" + "[cpwVcMplsTeMappingTunnelDirection='" + self.cpwvcmplstemappingtunneldirection.get() + "']" + "[cpwVcMplsTeMappingTunnelIndex='" + self.cpwvcmplstemappingtunnelindex.get() + "']" + "[cpwVcMplsTeMappingTunnelInstance='" + self.cpwvcmplstemappingtunnelinstance.get() + "']" + "[cpwVcMplsTeMappingTunnelPeerLsrID='" + self.cpwvcmplstemappingtunnelpeerlsrid.get() + "']" + "[cpwVcMplsTeMappingTunnelLocalLsrID='" + self.cpwvcmplstemappingtunnellocallsrid.get() + "']" + "[cpwVcMplsTeMappingVcIndex='" + self.cpwvcmplstemappingvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcmplstemappingtunneldirection','cpwvcmplstemappingtunnelindex','cpwvcmplstemappingtunnelinstance','cpwvcmplstemappingtunnelpeerlsrid','cpwvcmplstemappingtunnellocallsrid','cpwvcmplstemappingvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcmplstemappingtunneldirection', YLeaf(YType.enumeration, 'cpwVcMplsTeMappingTunnelDirection')),
+                    ('cpwvcmplstemappingtunnelindex', YLeaf(YType.uint32, 'cpwVcMplsTeMappingTunnelIndex')),
+                    ('cpwvcmplstemappingtunnelinstance', YLeaf(YType.uint32, 'cpwVcMplsTeMappingTunnelInstance')),
+                    ('cpwvcmplstemappingtunnelpeerlsrid', YLeaf(YType.str, 'cpwVcMplsTeMappingTunnelPeerLsrID')),
+                    ('cpwvcmplstemappingtunnellocallsrid', YLeaf(YType.str, 'cpwVcMplsTeMappingTunnelLocalLsrID')),
+                    ('cpwvcmplstemappingvcindex', YLeaf(YType.uint32, 'cpwVcMplsTeMappingVcIndex')),
+                ])
+                self.cpwvcmplstemappingtunneldirection = None
+                self.cpwvcmplstemappingtunnelindex = None
+                self.cpwvcmplstemappingtunnelinstance = None
+                self.cpwvcmplstemappingtunnelpeerlsrid = None
+                self.cpwvcmplstemappingtunnellocallsrid = None
+                self.cpwvcmplstemappingvcindex = None
+                self._segment_path = lambda: "cpwVcMplsTeMappingEntry" + "[cpwVcMplsTeMappingTunnelDirection='" + str(self.cpwvcmplstemappingtunneldirection) + "']" + "[cpwVcMplsTeMappingTunnelIndex='" + str(self.cpwvcmplstemappingtunnelindex) + "']" + "[cpwVcMplsTeMappingTunnelInstance='" + str(self.cpwvcmplstemappingtunnelinstance) + "']" + "[cpwVcMplsTeMappingTunnelPeerLsrID='" + str(self.cpwvcmplstemappingtunnelpeerlsrid) + "']" + "[cpwVcMplsTeMappingTunnelLocalLsrID='" + str(self.cpwvcmplstemappingtunnellocallsrid) + "']" + "[cpwVcMplsTeMappingVcIndex='" + str(self.cpwvcmplstemappingvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTeMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -946,7 +978,7 @@ class CISCOIETFPWMPLSMIB(Entity):
 
             class Cpwvcmplstemappingtunneldirection(Enum):
                 """
-                Cpwvcmplstemappingtunneldirection
+                Cpwvcmplstemappingtunneldirection (Enum Class)
 
                 Identifies if the row represent an outbound or inbound  
 

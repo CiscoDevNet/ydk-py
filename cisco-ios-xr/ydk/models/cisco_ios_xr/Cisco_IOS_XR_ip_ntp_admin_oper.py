@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class ClockUpdateNode(Enum):
     """
-    ClockUpdateNode
+    ClockUpdateNode (Enum Class)
 
     Mode of Clock Update
 
@@ -47,7 +49,7 @@ class ClockUpdateNode(Enum):
 
 class NtpLeap(Enum):
     """
-    NtpLeap
+    NtpLeap (Enum Class)
 
     Type of leap
 
@@ -80,7 +82,7 @@ class NtpLeap(Enum):
 
 class NtpLoopFilterState(Enum):
     """
-    NtpLoopFilterState
+    NtpLoopFilterState (Enum Class)
 
     Loop filter state
 
@@ -125,7 +127,7 @@ class NtpLoopFilterState(Enum):
 
 class NtpMode(Enum):
     """
-    NtpMode
+    NtpMode (Enum Class)
 
     Type of mode
 
@@ -188,7 +190,7 @@ class NtpMode(Enum):
 
 class NtpPeerStatus(Enum):
     """
-    NtpPeerStatus
+    NtpPeerStatus (Enum Class)
 
     Type of peer status
 
@@ -268,8 +270,10 @@ class Ntp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-ntp-admin-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"racks" : ("racks", Ntp.Racks)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("racks", ("racks", Ntp.Racks))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.racks = Ntp.Racks()
         self.racks.parent = self
@@ -301,8 +305,10 @@ class Ntp(Entity):
             self.yang_parent_name = "ntp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rack" : ("rack", Ntp.Racks.Rack)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rack", ("rack", Ntp.Racks.Rack))])
+            self._leafs = OrderedDict()
 
             self.rack = YList(self)
             self._segment_path = lambda: "racks"
@@ -316,7 +322,7 @@ class Ntp(Entity):
             """
             NTP operational data for a particular rack
             
-            .. attribute:: number  <key>
+            .. attribute:: number  (key)
             
             	The rack number
             	**type**\: int
@@ -342,16 +348,19 @@ class Ntp(Entity):
                 self.yang_parent_name = "racks"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"slots" : ("slots", Ntp.Racks.Rack.Slots)}
-                self._child_list_classes = {}
-
-                self.number = YLeaf(YType.int32, "number")
+                self.ylist_key_names = ['number']
+                self._child_container_classes = OrderedDict([("slots", ("slots", Ntp.Racks.Rack.Slots))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('number', YLeaf(YType.int32, 'number')),
+                ])
+                self.number = None
 
                 self.slots = Ntp.Racks.Rack.Slots()
                 self.slots.parent = self
                 self._children_name_map["slots"] = "slots"
                 self._children_yang_names.add("slots")
-                self._segment_path = lambda: "rack" + "[number='" + self.number.get() + "']"
+                self._segment_path = lambda: "rack" + "[number='" + str(self.number) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-admin-oper:ntp/racks/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -381,8 +390,10 @@ class Ntp(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"slot" : ("slot", Ntp.Racks.Rack.Slots.Slot)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("slot", ("slot", Ntp.Racks.Rack.Slots.Slot))])
+                    self._leafs = OrderedDict()
 
                     self.slot = YList(self)
                     self._segment_path = lambda: "slots"
@@ -395,7 +406,7 @@ class Ntp(Entity):
                     """
                     NTP operational data for a particular slot
                     
-                    .. attribute:: number  <key>
+                    .. attribute:: number  (key)
                     
                     	The slot number
                     	**type**\: int
@@ -421,16 +432,19 @@ class Ntp(Entity):
                         self.yang_parent_name = "slots"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"instances" : ("instances", Ntp.Racks.Rack.Slots.Slot.Instances)}
-                        self._child_list_classes = {}
-
-                        self.number = YLeaf(YType.int32, "number")
+                        self.ylist_key_names = ['number']
+                        self._child_container_classes = OrderedDict([("instances", ("instances", Ntp.Racks.Rack.Slots.Slot.Instances))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('number', YLeaf(YType.int32, 'number')),
+                        ])
+                        self.number = None
 
                         self.instances = Ntp.Racks.Rack.Slots.Slot.Instances()
                         self.instances.parent = self
                         self._children_name_map["instances"] = "instances"
                         self._children_yang_names.add("instances")
-                        self._segment_path = lambda: "slot" + "[number='" + self.number.get() + "']"
+                        self._segment_path = lambda: "slot" + "[number='" + str(self.number) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.Racks.Rack.Slots.Slot, ['number'], name, value)
@@ -459,8 +473,10 @@ class Ntp(Entity):
                             self.yang_parent_name = "slot"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"instance" : ("instance", Ntp.Racks.Rack.Slots.Slot.Instances.Instance)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("instance", ("instance", Ntp.Racks.Rack.Slots.Slot.Instances.Instance))])
+                            self._leafs = OrderedDict()
 
                             self.instance = YList(self)
                             self._segment_path = lambda: "instances"
@@ -474,7 +490,7 @@ class Ntp(Entity):
                             NTP operational data for a particular
                             instance
                             
-                            .. attribute:: number  <key>
+                            .. attribute:: number  (key)
                             
                             	The instance number
                             	**type**\: int
@@ -510,10 +526,13 @@ class Ntp(Entity):
                                 self.yang_parent_name = "instances"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"status" : ("status", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status), "associations" : ("associations", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations), "associations-detail" : ("associations_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail)}
-                                self._child_list_classes = {}
-
-                                self.number = YLeaf(YType.int32, "number")
+                                self.ylist_key_names = ['number']
+                                self._child_container_classes = OrderedDict([("status", ("status", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status)), ("associations", ("associations", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations)), ("associations-detail", ("associations_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('number', YLeaf(YType.int32, 'number')),
+                                ])
+                                self.number = None
 
                                 self.status = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status()
                                 self.status.parent = self
@@ -529,7 +548,7 @@ class Ntp(Entity):
                                 self.associations_detail.parent = self
                                 self._children_name_map["associations_detail"] = "associations-detail"
                                 self._children_yang_names.add("associations-detail")
-                                self._segment_path = lambda: "instance" + "[number='" + self.number.get() + "']"
+                                self._segment_path = lambda: "instance" + "[number='" + str(self.number) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance, ['number'], name, value)
@@ -647,36 +666,39 @@ class Ntp(Entity):
                                     self.yang_parent_name = "instance"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"sys-ref-time" : ("sys_ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime), "sys-drift" : ("sys_drift", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift)}
-                                    self._child_list_classes = {}
-
-                                    self.is_ntp_enabled = YLeaf(YType.boolean, "is-ntp-enabled")
-
-                                    self.sys_dispersion = YLeaf(YType.str, "sys-dispersion")
-
-                                    self.sys_offset = YLeaf(YType.str, "sys-offset")
-
-                                    self.clock_period = YLeaf(YType.uint32, "clock-period")
-
-                                    self.sys_leap = YLeaf(YType.enumeration, "sys-leap")
-
-                                    self.sys_precision = YLeaf(YType.int8, "sys-precision")
-
-                                    self.sys_stratum = YLeaf(YType.uint8, "sys-stratum")
-
-                                    self.sys_ref_id = YLeaf(YType.str, "sys-ref-id")
-
-                                    self.sys_root_delay = YLeaf(YType.str, "sys-root-delay")
-
-                                    self.sys_root_dispersion = YLeaf(YType.str, "sys-root-dispersion")
-
-                                    self.loop_filter_state = YLeaf(YType.enumeration, "loop-filter-state")
-
-                                    self.poll_interval = YLeaf(YType.uint8, "poll-interval")
-
-                                    self.is_updated = YLeaf(YType.enumeration, "is-updated")
-
-                                    self.last_update = YLeaf(YType.int32, "last-update")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("sys-ref-time", ("sys_ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime)), ("sys-drift", ("sys_drift", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
+                                        ('sys_dispersion', YLeaf(YType.str, 'sys-dispersion')),
+                                        ('sys_offset', YLeaf(YType.str, 'sys-offset')),
+                                        ('clock_period', YLeaf(YType.uint32, 'clock-period')),
+                                        ('sys_leap', YLeaf(YType.enumeration, 'sys-leap')),
+                                        ('sys_precision', YLeaf(YType.int8, 'sys-precision')),
+                                        ('sys_stratum', YLeaf(YType.uint8, 'sys-stratum')),
+                                        ('sys_ref_id', YLeaf(YType.str, 'sys-ref-id')),
+                                        ('sys_root_delay', YLeaf(YType.str, 'sys-root-delay')),
+                                        ('sys_root_dispersion', YLeaf(YType.str, 'sys-root-dispersion')),
+                                        ('loop_filter_state', YLeaf(YType.enumeration, 'loop-filter-state')),
+                                        ('poll_interval', YLeaf(YType.uint8, 'poll-interval')),
+                                        ('is_updated', YLeaf(YType.enumeration, 'is-updated')),
+                                        ('last_update', YLeaf(YType.int32, 'last-update')),
+                                    ])
+                                    self.is_ntp_enabled = None
+                                    self.sys_dispersion = None
+                                    self.sys_offset = None
+                                    self.clock_period = None
+                                    self.sys_leap = None
+                                    self.sys_precision = None
+                                    self.sys_stratum = None
+                                    self.sys_ref_id = None
+                                    self.sys_root_delay = None
+                                    self.sys_root_dispersion = None
+                                    self.loop_filter_state = None
+                                    self.poll_interval = None
+                                    self.is_updated = None
+                                    self.last_update = None
 
                                     self.sys_ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime()
                                     self.sys_ref_time.parent = self
@@ -721,8 +743,10 @@ class Ntp(Entity):
                                         self.yang_parent_name = "status"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec()
                                         self.sec.parent = self
@@ -761,10 +785,13 @@ class Ntp(Entity):
                                             self.yang_parent_name = "sys-ref-time"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.int = YLeaf(YType.uint32, "int")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('int', YLeaf(YType.uint32, 'int')),
+                                            ])
+                                            self.int = None
                                             self._segment_path = lambda: "sec"
 
                                         def __setattr__(self, name, value):
@@ -796,10 +823,13 @@ class Ntp(Entity):
                                             self.yang_parent_name = "sys-ref-time"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.frac = YLeaf(YType.uint32, "frac")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('frac', YLeaf(YType.uint32, 'frac')),
+                                            ])
+                                            self.frac = None
                                             self._segment_path = lambda: "frac-secs"
 
                                         def __setattr__(self, name, value):
@@ -834,8 +864,10 @@ class Ntp(Entity):
                                         self.yang_parent_name = "status"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec()
                                         self.sec.parent = self
@@ -874,10 +906,13 @@ class Ntp(Entity):
                                             self.yang_parent_name = "sys-drift"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.int = YLeaf(YType.uint32, "int")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('int', YLeaf(YType.uint32, 'int')),
+                                            ])
+                                            self.int = None
                                             self._segment_path = lambda: "sec"
 
                                         def __setattr__(self, name, value):
@@ -909,10 +944,13 @@ class Ntp(Entity):
                                             self.yang_parent_name = "sys-drift"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.frac = YLeaf(YType.uint32, "frac")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('frac', YLeaf(YType.uint32, 'frac')),
+                                            ])
+                                            self.frac = None
                                             self._segment_path = lambda: "frac-secs"
 
                                         def __setattr__(self, name, value):
@@ -952,12 +990,15 @@ class Ntp(Entity):
                                     self.yang_parent_name = "instance"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"peer-summary-info" : ("peer_summary_info", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo)}
-
-                                    self.is_ntp_enabled = YLeaf(YType.boolean, "is-ntp-enabled")
-
-                                    self.sys_leap = YLeaf(YType.enumeration, "sys-leap")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("peer-summary-info", ("peer_summary_info", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo))])
+                                    self._leafs = OrderedDict([
+                                        ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
+                                        ('sys_leap', YLeaf(YType.enumeration, 'sys-leap')),
+                                    ])
+                                    self.is_ntp_enabled = None
+                                    self.sys_leap = None
 
                                     self.peer_summary_info = YList(self)
                                     self._segment_path = lambda: "associations"
@@ -996,10 +1037,13 @@ class Ntp(Entity):
                                         self.yang_parent_name = "associations"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"peer-info-common" : ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon)}
-                                        self._child_list_classes = {}
-
-                                        self.time_since = YLeaf(YType.int32, "time-since")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('time_since', YLeaf(YType.int32, 'time-since')),
+                                        ])
+                                        self.time_since = None
 
                                         self.peer_info_common = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon()
                                         self.peer_info_common.parent = self
@@ -1097,32 +1141,35 @@ class Ntp(Entity):
                                             self.yang_parent_name = "peer-summary-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.host_mode = YLeaf(YType.enumeration, "host-mode")
-
-                                            self.is_configured = YLeaf(YType.boolean, "is-configured")
-
-                                            self.address = YLeaf(YType.str, "address")
-
-                                            self.reference_id = YLeaf(YType.str, "reference-id")
-
-                                            self.host_poll = YLeaf(YType.uint8, "host-poll")
-
-                                            self.reachability = YLeaf(YType.uint8, "reachability")
-
-                                            self.stratum = YLeaf(YType.uint8, "stratum")
-
-                                            self.status = YLeaf(YType.enumeration, "status")
-
-                                            self.delay = YLeaf(YType.str, "delay")
-
-                                            self.offset = YLeaf(YType.str, "offset")
-
-                                            self.dispersion = YLeaf(YType.str, "dispersion")
-
-                                            self.is_sys_peer = YLeaf(YType.boolean, "is-sys-peer")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('host_mode', YLeaf(YType.enumeration, 'host-mode')),
+                                                ('is_configured', YLeaf(YType.boolean, 'is-configured')),
+                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('reference_id', YLeaf(YType.str, 'reference-id')),
+                                                ('host_poll', YLeaf(YType.uint8, 'host-poll')),
+                                                ('reachability', YLeaf(YType.uint8, 'reachability')),
+                                                ('stratum', YLeaf(YType.uint8, 'stratum')),
+                                                ('status', YLeaf(YType.enumeration, 'status')),
+                                                ('delay', YLeaf(YType.str, 'delay')),
+                                                ('offset', YLeaf(YType.str, 'offset')),
+                                                ('dispersion', YLeaf(YType.str, 'dispersion')),
+                                                ('is_sys_peer', YLeaf(YType.boolean, 'is-sys-peer')),
+                                            ])
+                                            self.host_mode = None
+                                            self.is_configured = None
+                                            self.address = None
+                                            self.reference_id = None
+                                            self.host_poll = None
+                                            self.reachability = None
+                                            self.stratum = None
+                                            self.status = None
+                                            self.delay = None
+                                            self.offset = None
+                                            self.dispersion = None
+                                            self.is_sys_peer = None
                                             self._segment_path = lambda: "peer-info-common"
 
                                         def __setattr__(self, name, value):
@@ -1162,12 +1209,15 @@ class Ntp(Entity):
                                     self.yang_parent_name = "instance"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"peer-detail-info" : ("peer_detail_info", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo)}
-
-                                    self.is_ntp_enabled = YLeaf(YType.boolean, "is-ntp-enabled")
-
-                                    self.sys_leap = YLeaf(YType.enumeration, "sys-leap")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("peer-detail-info", ("peer_detail_info", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo))])
+                                    self._leafs = OrderedDict([
+                                        ('is_ntp_enabled', YLeaf(YType.boolean, 'is-ntp-enabled')),
+                                        ('sys_leap', YLeaf(YType.enumeration, 'sys-leap')),
+                                    ])
+                                    self.is_ntp_enabled = None
+                                    self.sys_leap = None
 
                                     self.peer_detail_info = YList(self)
                                     self._segment_path = lambda: "associations-detail"
@@ -1287,30 +1337,33 @@ class Ntp(Entity):
                                         self.yang_parent_name = "associations-detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"peer-info-common" : ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon), "ref-time" : ("ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime), "originate-time" : ("originate_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime), "receive-time" : ("receive_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime), "transmit-time" : ("transmit_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime)}
-                                        self._child_list_classes = {"filter-detail" : ("filter_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail)}
-
-                                        self.leap = YLeaf(YType.enumeration, "leap")
-
-                                        self.peer_mode = YLeaf(YType.enumeration, "peer-mode")
-
-                                        self.poll_interval = YLeaf(YType.uint8, "poll-interval")
-
-                                        self.is_ref_clock = YLeaf(YType.boolean, "is-ref-clock")
-
-                                        self.is_authenticated = YLeaf(YType.boolean, "is-authenticated")
-
-                                        self.root_delay = YLeaf(YType.str, "root-delay")
-
-                                        self.root_dispersion = YLeaf(YType.str, "root-dispersion")
-
-                                        self.synch_distance = YLeaf(YType.str, "synch-distance")
-
-                                        self.precision = YLeaf(YType.int8, "precision")
-
-                                        self.version = YLeaf(YType.uint8, "version")
-
-                                        self.filter_index = YLeaf(YType.uint32, "filter-index")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("peer-info-common", ("peer_info_common", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon)), ("ref-time", ("ref_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime)), ("originate-time", ("originate_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime)), ("receive-time", ("receive_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime)), ("transmit-time", ("transmit_time", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime))])
+                                        self._child_list_classes = OrderedDict([("filter-detail", ("filter_detail", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail))])
+                                        self._leafs = OrderedDict([
+                                            ('leap', YLeaf(YType.enumeration, 'leap')),
+                                            ('peer_mode', YLeaf(YType.enumeration, 'peer-mode')),
+                                            ('poll_interval', YLeaf(YType.uint8, 'poll-interval')),
+                                            ('is_ref_clock', YLeaf(YType.boolean, 'is-ref-clock')),
+                                            ('is_authenticated', YLeaf(YType.boolean, 'is-authenticated')),
+                                            ('root_delay', YLeaf(YType.str, 'root-delay')),
+                                            ('root_dispersion', YLeaf(YType.str, 'root-dispersion')),
+                                            ('synch_distance', YLeaf(YType.str, 'synch-distance')),
+                                            ('precision', YLeaf(YType.int8, 'precision')),
+                                            ('version', YLeaf(YType.uint8, 'version')),
+                                            ('filter_index', YLeaf(YType.uint32, 'filter-index')),
+                                        ])
+                                        self.leap = None
+                                        self.peer_mode = None
+                                        self.poll_interval = None
+                                        self.is_ref_clock = None
+                                        self.is_authenticated = None
+                                        self.root_delay = None
+                                        self.root_dispersion = None
+                                        self.synch_distance = None
+                                        self.precision = None
+                                        self.version = None
+                                        self.filter_index = None
 
                                         self.peer_info_common = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon()
                                         self.peer_info_common.parent = self
@@ -1430,32 +1483,35 @@ class Ntp(Entity):
                                             self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.host_mode = YLeaf(YType.enumeration, "host-mode")
-
-                                            self.is_configured = YLeaf(YType.boolean, "is-configured")
-
-                                            self.address = YLeaf(YType.str, "address")
-
-                                            self.reference_id = YLeaf(YType.str, "reference-id")
-
-                                            self.host_poll = YLeaf(YType.uint8, "host-poll")
-
-                                            self.reachability = YLeaf(YType.uint8, "reachability")
-
-                                            self.stratum = YLeaf(YType.uint8, "stratum")
-
-                                            self.status = YLeaf(YType.enumeration, "status")
-
-                                            self.delay = YLeaf(YType.str, "delay")
-
-                                            self.offset = YLeaf(YType.str, "offset")
-
-                                            self.dispersion = YLeaf(YType.str, "dispersion")
-
-                                            self.is_sys_peer = YLeaf(YType.boolean, "is-sys-peer")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('host_mode', YLeaf(YType.enumeration, 'host-mode')),
+                                                ('is_configured', YLeaf(YType.boolean, 'is-configured')),
+                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('reference_id', YLeaf(YType.str, 'reference-id')),
+                                                ('host_poll', YLeaf(YType.uint8, 'host-poll')),
+                                                ('reachability', YLeaf(YType.uint8, 'reachability')),
+                                                ('stratum', YLeaf(YType.uint8, 'stratum')),
+                                                ('status', YLeaf(YType.enumeration, 'status')),
+                                                ('delay', YLeaf(YType.str, 'delay')),
+                                                ('offset', YLeaf(YType.str, 'offset')),
+                                                ('dispersion', YLeaf(YType.str, 'dispersion')),
+                                                ('is_sys_peer', YLeaf(YType.boolean, 'is-sys-peer')),
+                                            ])
+                                            self.host_mode = None
+                                            self.is_configured = None
+                                            self.address = None
+                                            self.reference_id = None
+                                            self.host_poll = None
+                                            self.reachability = None
+                                            self.stratum = None
+                                            self.status = None
+                                            self.delay = None
+                                            self.offset = None
+                                            self.dispersion = None
+                                            self.is_sys_peer = None
                                             self._segment_path = lambda: "peer-info-common"
 
                                         def __setattr__(self, name, value):
@@ -1490,8 +1546,10 @@ class Ntp(Entity):
                                             self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec()
                                             self.sec.parent = self
@@ -1530,10 +1588,13 @@ class Ntp(Entity):
                                                 self.yang_parent_name = "ref-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.int = YLeaf(YType.uint32, "int")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('int', YLeaf(YType.uint32, 'int')),
+                                                ])
+                                                self.int = None
                                                 self._segment_path = lambda: "sec"
 
                                             def __setattr__(self, name, value):
@@ -1565,10 +1626,13 @@ class Ntp(Entity):
                                                 self.yang_parent_name = "ref-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.frac = YLeaf(YType.uint32, "frac")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('frac', YLeaf(YType.uint32, 'frac')),
+                                                ])
+                                                self.frac = None
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
@@ -1603,8 +1667,10 @@ class Ntp(Entity):
                                             self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
                                             self.sec.parent = self
@@ -1643,10 +1709,13 @@ class Ntp(Entity):
                                                 self.yang_parent_name = "originate-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.int = YLeaf(YType.uint32, "int")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('int', YLeaf(YType.uint32, 'int')),
+                                                ])
+                                                self.int = None
                                                 self._segment_path = lambda: "sec"
 
                                             def __setattr__(self, name, value):
@@ -1678,10 +1747,13 @@ class Ntp(Entity):
                                                 self.yang_parent_name = "originate-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.frac = YLeaf(YType.uint32, "frac")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('frac', YLeaf(YType.uint32, 'frac')),
+                                                ])
+                                                self.frac = None
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
@@ -1716,8 +1788,10 @@ class Ntp(Entity):
                                             self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
                                             self.sec.parent = self
@@ -1756,10 +1830,13 @@ class Ntp(Entity):
                                                 self.yang_parent_name = "receive-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.int = YLeaf(YType.uint32, "int")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('int', YLeaf(YType.uint32, 'int')),
+                                                ])
+                                                self.int = None
                                                 self._segment_path = lambda: "sec"
 
                                             def __setattr__(self, name, value):
@@ -1791,10 +1868,13 @@ class Ntp(Entity):
                                                 self.yang_parent_name = "receive-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.frac = YLeaf(YType.uint32, "frac")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('frac', YLeaf(YType.uint32, 'frac')),
+                                                ])
+                                                self.frac = None
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
@@ -1829,8 +1909,10 @@ class Ntp(Entity):
                                             self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"sec" : ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec), "frac-secs" : ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("sec", ("sec", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec)), ("frac-secs", ("frac_secs", Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
                                             self.sec.parent = self
@@ -1869,10 +1951,13 @@ class Ntp(Entity):
                                                 self.yang_parent_name = "transmit-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.int = YLeaf(YType.uint32, "int")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('int', YLeaf(YType.uint32, 'int')),
+                                                ])
+                                                self.int = None
                                                 self._segment_path = lambda: "sec"
 
                                             def __setattr__(self, name, value):
@@ -1904,10 +1989,13 @@ class Ntp(Entity):
                                                 self.yang_parent_name = "transmit-time"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.frac = YLeaf(YType.uint32, "frac")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('frac', YLeaf(YType.uint32, 'frac')),
+                                                ])
+                                                self.frac = None
                                                 self._segment_path = lambda: "frac-secs"
 
                                             def __setattr__(self, name, value):
@@ -1947,14 +2035,17 @@ class Ntp(Entity):
                                             self.yang_parent_name = "peer-detail-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.filter_delay = YLeaf(YType.str, "filter-delay")
-
-                                            self.filter_offset = YLeaf(YType.str, "filter-offset")
-
-                                            self.filter_disp = YLeaf(YType.str, "filter-disp")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('filter_delay', YLeaf(YType.str, 'filter-delay')),
+                                                ('filter_offset', YLeaf(YType.str, 'filter-offset')),
+                                                ('filter_disp', YLeaf(YType.str, 'filter-disp')),
+                                            ])
+                                            self.filter_delay = None
+                                            self.filter_offset = None
+                                            self.filter_disp = None
                                             self._segment_path = lambda: "filter-detail"
 
                                         def __setattr__(self, name, value):

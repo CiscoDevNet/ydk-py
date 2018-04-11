@@ -19,7 +19,7 @@ import importlib
 
 from ydk import models
 from ydk.types import EncodingFormat
-from ydk.errors import YPYServiceProviderError
+from ydk.errors import YServiceProviderError
 from ydk.path import Capability as _Capability
 from ydk.path import Repository as _Repository
 
@@ -91,7 +91,7 @@ class CodecServiceProvider(object):
 
         if bundle_name not in self._root_schema_table:
             self.logger.error("Root schema not created")
-            raise YPYServiceProviderError(error_msg="Root schema not created")
+            raise YServiceProviderError(error_msg="Root schema not created")
 
         return self._root_schema_table[bundle_name]
 

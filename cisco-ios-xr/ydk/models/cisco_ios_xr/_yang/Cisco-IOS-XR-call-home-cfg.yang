@@ -1,481 +1,547 @@
 module Cisco-IOS-XR-call-home-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-call-home-cfg";
+  prefix call-home-cfg;
 
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  prefix "call-home-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR call-home package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        call-home: Set CallHome parameters
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-03-13" {
+  revision 2017-03-13 {
     description
       "Initial version.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Call-home-mail-send-interval {
     type enumeration {
-      enum daily {
+      enum "daily" {
         value 0;
-        description "Daily call-home message";
+        description
+          "Daily call-home message";
       }
-      enum weekly {
+      enum "weekly" {
         value 1;
-        description "Weekly call-home message";
+        description
+          "Weekly call-home message";
       }
-      enum monthly {
+      enum "monthly" {
         value 2;
-        description "Monthly call-home message";
+        description
+          "Monthly call-home message";
       }
     }
-    description "Call home mail send interval";
+    description
+      "Call home mail send interval";
   }
+
   typedef Call-home-day-of-week {
     type enumeration {
-      enum sunday {
+      enum "sunday" {
         value 0;
-        description "Sunday";
+        description
+          "Sunday";
       }
-      enum monday {
+      enum "monday" {
         value 1;
-        description "Monday";
+        description
+          "Monday";
       }
-      enum tuesday {
+      enum "tuesday" {
         value 2;
-        description "Tuesday";
+        description
+          "Tuesday";
       }
-      enum wednesday {
+      enum "wednesday" {
         value 3;
-        description "Wednesday";
+        description
+          "Wednesday";
       }
-      enum thursday {
+      enum "thursday" {
         value 4;
-        description "Thursday";
+        description
+          "Thursday";
       }
-      enum friday {
+      enum "friday" {
         value 5;
-        description "Friday";
+        description
+          "Friday";
       }
-      enum saturday {
+      enum "saturday" {
         value 6;
-        description "Saturday";
+        description
+          "Saturday";
       }
     }
-    description "Call home day of week";
+    description
+      "Call home day of week";
   }
+
   typedef Call-home-event-severity {
     type enumeration {
-      enum debugging {
+      enum "debugging" {
         value 0;
-        description "Debugging event";
+        description
+          "Debugging event";
       }
-      enum normal {
+      enum "normal" {
         value 1;
-        description "Normal event";
+        description
+          "Normal event";
       }
-      enum notification {
+      enum "notification" {
         value 2;
-        description "Notification event";
+        description
+          "Notification event";
       }
-      enum warning {
+      enum "warning" {
         value 3;
-        description "Warning event";
+        description
+          "Warning event";
       }
-      enum minor {
+      enum "minor" {
         value 4;
-        description "Minor event";
+        description
+          "Minor event";
       }
-      enum major {
+      enum "major" {
         value 5;
-        description "Major event";
+        description
+          "Major event";
       }
-      enum critical {
+      enum "critical" {
         value 6;
-        description "Critical event";
+        description
+          "Critical event";
       }
-      enum fatal {
+      enum "fatal" {
         value 7;
-        description "Fatal event";
+        description
+          "Fatal event";
       }
-      enum disaster {
+      enum "disaster" {
         value 8;
-        description "Disaster event";
+        description
+          "Disaster event";
       }
-      enum catastrophic {
+      enum "catastrophic" {
         value 9;
-        description "Catastrophic event";
+        description
+          "Catastrophic event";
       }
     }
-    description "Call home event severity";
+    description
+      "Call home event severity";
   }
+
   typedef Snapshot-interval {
     type enumeration {
-      enum daily {
+      enum "daily" {
         value 0;
-        description "Daily call-home message";
+        description
+          "Daily call-home message";
       }
-      enum weekly {
+      enum "weekly" {
         value 1;
-        description "Weekly call-home message";
+        description
+          "Weekly call-home message";
       }
-      enum monthly {
+      enum "monthly" {
         value 2;
-        description "Monthly call-home message";
+        description
+          "Monthly call-home message";
       }
     }
-    description "Snapshot interval";
+    description
+      "Snapshot interval";
   }
+
   typedef Call-home-trans-method {
     type enumeration {
-      enum email {
+      enum "email" {
         value 1;
-        description "To add email address to lthis profile";
+        description
+          "To add email address to lthis profile";
       }
-      enum http {
+      enum "http" {
         value 2;
-        description "To add destination address(1-200) characters";
+        description
+          "To add destination address(1-200) characters";
       }
     }
-    description "Call home trans method";
+    description
+      "Call home trans method";
   }
+
   typedef Data-privacy-level {
     type enumeration {
-      enum normal {
+      enum "normal" {
         value 0;
-        description "Normal";
+        description
+          "Normal";
       }
-      enum high {
+      enum "high" {
         value 1;
-        description "High";
+        description
+          "High";
       }
-      enum host-name {
+      enum "host-name" {
         value 2;
-        description "HostName";
+        description
+          "HostName";
       }
     }
-    description "Data privacy level";
+    description
+      "Data privacy level";
   }
 
   container call-home {
-    description "Set CallHome parameters";
-
+    description
+      "Set CallHome parameters";
     container mail-servers {
-      description "List of call-home mail_server";
-
+      description
+        "List of call-home mail_server";
       list mail-server {
         key "mail-serv-address";
-        description "Email server";
+        description
+          "Email server";
         leaf priority {
           type uint32 {
             range "1..100";
           }
-          description "Mail server with lower # will be used first";
+          description
+            "Mail server with lower # will be used first";
         }
         leaf mail-serv-address {
           type string;
-          description "Email server";
+          description
+            "Email server";
         }
       }
     }
-
     container syslog-throttling {
       description
         "Enable or disable call-home syslog message
-        throttling";
+         throttling";
       leaf active {
         type boolean;
-        description "Active syslog throttling";
+        description
+          "Active syslog throttling";
       }
     }
-
     container smart-licensing {
       description
         "Enable/disable licensing messages. By default is
-        enabled.";
+         enabled.";
       leaf profile-name {
         type string;
         description
           "To specify existing profile name used for TG so
-          that licensing message";
+           that licensing message";
       }
       leaf active {
         type empty;
-        description "Active the smart-licensing";
+        description
+          "Active the smart-licensing";
       }
     }
-
     container http-proxy {
-      description "http proxy server address and port";
+      description
+        "http proxy server address and port";
       leaf server-address {
         type string;
-        description "http proxy server address";
+        description
+          "http proxy server address";
       }
       leaf port {
         type xr:Cisco-ios-xr-port-number;
-        description "http proxy server's port";
+        description
+          "http proxy server's port";
       }
     }
-
     container profiles {
-      description "List of profiles";
-
+      description
+        "List of profiles";
       list profile {
         key "profile-name";
-        description "A specific profile";
-
+        description
+          "A specific profile";
         container report-type {
-          description "Choose what data to report";
-
+          description
+            "Choose what data to report";
           container reporting-callhome-data {
-            description "Report smart call-home data";
+            description
+              "Report smart call-home data";
             leaf enable {
               type boolean;
-              description "Enable report smart call-home data";
+              description
+                "Enable report smart call-home data";
             }
           }
-
           container reporting-licensing-data {
-            description "Report smart licensing data";
+            description
+              "Report smart licensing data";
             leaf enable {
               type boolean;
-              description "Enable report smart licensing data";
+              description
+                "Enable report smart licensing data";
             }
           }
         }
-
         container methods {
-          description "Transport method (http or email)";
-
+          description
+            "Transport method (http or email)";
           list method {
             key "method";
-            description "Transport method";
+            description
+              "Transport method";
             leaf enable {
               type boolean;
-              description "Enable this transport method";
+              description
+                "Enable this transport method";
             }
             leaf method {
               type Call-home-trans-method;
-              description "Transport Method";
+              description
+                "Transport Method";
             }
           }
         }
-
         container addresses {
-          description "List of destination address";
-
+          description
+            "List of destination address";
           list address {
             key "method destination-addr";
-            description "A specific address";
+            description
+              "A specific address";
             leaf enable {
               type boolean;
-              description "Set the address";
+              description
+                "Set the address";
             }
             leaf method {
               type Call-home-trans-method;
-              description "Transpotation Method";
+              description
+                "Transpotation Method";
             }
             leaf destination-addr {
               type string {
                 length "1..200";
               }
-              description "Destination address (1-200) characters";
+              description
+                "Destination address (1-200) characters";
             }
           }
         }
-
         container subscribe-alert-group {
-          description "Subscribe to alert-group";
-
+          description
+            "Subscribe to alert-group";
           container environment {
-            description "environmental info";
+            description
+              "environmental info";
             leaf severity {
               type Call-home-event-severity;
-              description "Severity";
+              description
+                "Severity";
             }
           }
-
           container configuration {
-            description "configuration info";
-
+            description
+              "configuration info";
             container periodic {
-              description "Periodic call-home message";
+              description
+                "Periodic call-home message";
               leaf interval {
                 type Call-home-mail-send-interval;
-                description "none";
+                description
+                  "none";
               }
               leaf day {
                 type uint32 {
                   range "0..31";
                 }
-                description "Day";
+                description
+                  "Day";
               }
               leaf weekday {
                 type Call-home-day-of-week;
-                description "Day of week";
+                description
+                  "Day of week";
               }
               leaf hour {
                 type uint32 {
                   range "0..23";
                 }
-                description "Hour";
+                description
+                  "Hour";
               }
               leaf minute {
                 type uint32 {
                   range "0..59";
                 }
-                description "Minute";
+                description
+                  "Minute";
               }
             }
             leaf subscribe {
               type empty;
-              description "Subscribe the alert-group";
+              description
+                "Subscribe the alert-group";
             }
           }
-
           container snapshot {
-            description "snapshot info";
-
+            description
+              "snapshot info";
             container periodic {
-              description "Periodic call-home message";
+              description
+                "Periodic call-home message";
               leaf interval {
                 type Snapshot-interval;
-                description "none";
+                description
+                  "none";
               }
               leaf day {
                 type uint32 {
                   range "0..31";
                 }
-                description "Day of month";
+                description
+                  "Day of month";
               }
               leaf weekday {
                 type Call-home-day-of-week;
-                description "Day of week";
+                description
+                  "Day of week";
               }
               leaf hour {
                 type uint32 {
                   range "0..23";
                 }
-                description "Hour";
+                description
+                  "Hour";
               }
               leaf minute {
                 type uint32 {
                   range "0..59";
                 }
-                description "Minute";
+                description
+                  "Minute";
               }
             }
           }
-
           container inventory {
-            description "inventory info";
-
+            description
+              "inventory info";
             container periodic {
-              description "Periodic call-home message";
+              description
+                "Periodic call-home message";
               leaf interval {
                 type Call-home-mail-send-interval;
-                description "none";
+                description
+                  "none";
               }
               leaf day {
                 type uint32 {
                   range "0..31";
                 }
-                description "Day of month";
+                description
+                  "Day of month";
               }
               leaf weekday {
                 type Call-home-day-of-week;
-                description "Day of week";
+                description
+                  "Day of week";
               }
               leaf hour {
                 type uint32 {
                   range "0..23";
                 }
-                description "Hour";
+                description
+                  "Hour";
               }
               leaf minute {
                 type uint32 {
                   range "0..59";
                 }
-                description "Minute";
+                description
+                  "Minute";
               }
             }
             leaf subscribe {
               type empty;
-              description "Subscribe the alert-group";
+              description
+                "Subscribe the alert-group";
             }
           }
-
           container crash {
-            description "Crash info";
+            description
+              "Crash info";
             leaf subscribe {
               type empty;
-              description "Subscribe crash group";
+              description
+                "Subscribe crash group";
             }
           }
-
           container syslogs {
-            description "syslog info";
-
+            description
+              "syslog info";
             list syslog {
               key "syslog-pattern";
-              description "Syslog message pattern to be matched";
+              description
+                "Syslog message pattern to be matched";
               leaf severity {
                 type Call-home-event-severity;
-                description "Severity";
+                description
+                  "Severity";
               }
               leaf syslog-pattern {
                 type string {
                   length "1..80";
                 }
-                description "Syslog message pattern to be matched";
+                description
+                  "Syslog message pattern to be matched";
               }
             }
           }
         }
         leaf create {
           type empty;
-          description "Create a profile";
+          description
+            "Create a profile";
         }
         leaf message-format {
           type string;
-          description "none";
+          description
+            "none";
         }
         leaf anonymous {
           type boolean;
-          description "Enable call-home anonymous reporting only";
+          description
+            "Enable call-home anonymous reporting only";
         }
         leaf message-size-limit {
           type uint32 {
@@ -486,80 +552,88 @@ module Cisco-IOS-XR-call-home-cfg {
         }
         leaf active {
           type empty;
-          description "Activate the current profile";
+          description
+            "Activate the current profile";
         }
         leaf profile-name {
           type xr:Cisco-ios-xr-string;
-          description "Profile name";
+          description
+            "Profile name";
         }
       }
     }
-
     container alert-groups {
-      description "List of alert-group";
-
+      description
+        "List of alert-group";
       list alert-group {
         key "alert-group-name";
-        description "A specific alert-group";
+        description
+          "A specific alert-group";
         leaf enable {
           type boolean;
-          description "Enable the alert-group";
+          description
+            "Enable the alert-group";
         }
         leaf disable {
           type boolean;
-          description "Disable the alert-group";
+          description
+            "Disable the alert-group";
         }
         leaf alert-group-name {
           type xr:Cisco-ios-xr-string;
-          description "none";
+          description
+            "none";
         }
       }
     }
-
     container data-privacies {
-      description "Set call-home data-privacy";
-
+      description
+        "Set call-home data-privacy";
       list data-privacy {
         key "host-name";
-        description "level hostname";
+        description
+          "level hostname";
         leaf level {
           type Data-privacy-level;
-          description "Set call-home data-privacy level";
+          description
+            "Set call-home data-privacy level";
         }
         leaf host-name {
           type string;
-          description "Data privacy type (hostname or level)";
+          description
+            "Data privacy type (hostname or level)";
         }
       }
     }
-
     container alert-group-config {
-      description "alert-group config";
-
+      description
+        "alert-group config";
       container snapshot-commands {
-        description "snapshot for adding CLI command";
-
+        description
+          "snapshot for adding CLI command";
         list snapshot-command {
           key "command";
-          description "A specific CLI cmd for snapshot";
+          description
+            "A specific CLI cmd for snapshot";
           leaf active {
             type empty;
-            description "enable snapshot cmd";
+            description
+              "enable snapshot cmd";
           }
           leaf command {
             type string {
               length "1..127";
             }
-            description "new added command";
+            description
+              "new added command";
           }
         }
       }
     }
-
     container authorization {
       description
         "Config aaa authorization, default username is
-        callhome";
+         callhome";
       leaf username {
         type xr:Cisco-ios-xr-string {
           length "1..64";
@@ -569,7 +643,8 @@ module Cisco-IOS-XR-call-home-cfg {
       }
       leaf active {
         type empty;
-        description "Enable call-home aaa-authorization";
+        description
+          "Enable call-home aaa-authorization";
       }
     }
     leaf customer-id {
@@ -578,23 +653,26 @@ module Cisco-IOS-XR-call-home-cfg {
       }
       description
         "Customer identification for Cisco Smart Call
-        Home";
+         Home";
     }
     leaf phone-number {
       type string {
         length "1..17";
       }
-      description "Phone number of the contact person.";
+      description
+        "Phone number of the contact person.";
     }
     leaf contact-smart-licensing {
       type boolean;
-      description "System Contact is Smart Licensing";
+      description
+        "System Contact is Smart Licensing";
     }
     leaf contact-email-address {
       type string {
         length "1..194";
       }
-      description "Contact person's email address";
+      description
+        "Contact person's email address";
     }
     leaf rate-limit {
       type uint32 {
@@ -602,25 +680,28 @@ module Cisco-IOS-XR-call-home-cfg {
       }
       description
         "Call-home event trigger rate-limit threshold per
-        minute.";
+         minute.";
     }
     leaf site-id {
       type string {
         length "1..200";
       }
-      description "Site identification for Cisco Smart Call Home";
+      description
+        "Site identification for Cisco Smart Call Home";
     }
     leaf vrf {
       type xr:Cisco-ios-xr-string {
         length "1..32";
       }
-      description "Vrf routing/forwarding instance name";
+      description
+        "Vrf routing/forwarding instance name";
     }
     leaf street-address {
       type string {
         length "1..200";
       }
-      description "Street address, city, state, and zip code.";
+      description
+        "Street address, city, state, and zip code.";
     }
     leaf source-interface {
       type xr:Interface-name;
@@ -633,19 +714,22 @@ module Cisco-IOS-XR-call-home-cfg {
       }
       description
         "Contract identification for Cisco Smart Call
-        Home";
+         Home";
     }
     leaf reply-to {
       type string;
-      description "Call home msg's reply-to email address";
+      description
+        "Call home msg's reply-to email address";
     }
     leaf from {
       type string;
-      description "Call home msg's from email address";
+      description
+        "Call home msg's from email address";
     }
     leaf active {
       type empty;
-      description "Enable call-home service";
+      description
+        "Enable call-home service";
     }
   }
 }

@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AtomicDisableDfltActn(Enum):
     """
-    AtomicDisableDfltActn
+    AtomicDisableDfltActn (Enum Class)
 
     Atomic disable dflt actn
 
@@ -63,8 +65,10 @@ class Hardware(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"access-list" : ("access_list", Hardware.AccessList)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("access-list", ("access_list", Hardware.AccessList))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.access_list = Hardware.AccessList()
         self.access_list.parent = self
@@ -96,10 +100,13 @@ class Hardware(Entity):
             self.yang_parent_name = "hardware"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.atomic_disable = YLeaf(YType.enumeration, "atomic-disable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('atomic_disable', YLeaf(YType.enumeration, 'atomic-disable')),
+            ])
+            self.atomic_disable = None
             self._segment_path = lambda: "access-list"
             self._absolute_path = lambda: "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg:hardware/%s" % self._segment_path()
 

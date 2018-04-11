@@ -1,115 +1,111 @@
 module Cisco-IOS-XR-ipv4-autorp-oper {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-autorp-oper";
+  prefix ipv4-autorp-oper;
 
-
-  prefix "ipv4-autorp-oper";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-ipv4-autorp-datatypes { prefix "dt1"; }
-
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-ipv4-autorp-datatypes {
+    prefix dt1;
+  }
   include Cisco-IOS-XR-ipv4-autorp-oper-sub2 {
     revision-date 2015-11-09;
   }
-
   include Cisco-IOS-XR-ipv4-autorp-oper-sub1 {
     revision-date 2015-11-09;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-autorp package operational data.
-
+     
      This module contains definitions
      for the following management objects:
        auto-rp: AutoRP operational data
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
-
   grouping MAPPING-AGENT {
-    description "Common node of active, standby";
-
+    description
+      "Common node of active, standby";
     container mapping-agent {
-      description "AutoRP Mapping Agent Table";
-
+      description
+        "AutoRP Mapping Agent Table";
       container traffic {
-        description "AutoRP Mapping Agent Traffic Counters";
+        description
+          "AutoRP Mapping Agent Traffic Counters";
         uses AUTORP-MAP-TRAFFIC-BAG;
       }
-
       container rp-addresses {
-        description "AutoRP Mapping Agent Table Entries";
-
+        description
+          "AutoRP Mapping Agent Table Entries";
         list rp-address {
           key "rp-address";
-          description "AutoRP Mapping Agent Entry";
+          description
+            "AutoRP Mapping Agent Entry";
           leaf rp-address {
             type inet:ipv4-address-no-zone;
-            description "RP Address";
+            description
+              "RP Address";
           }
           uses AUTORP-MAP-RP-BAG;
         }
       }
-
       container summary {
-        description "AutoRP Mapping Agent Summary Information";
+        description
+          "AutoRP Mapping Agent Summary Information";
         uses AUTORP-MAP-SUMMARY-BAG;
       }
     }
   }
 
   grouping CANDIDATE-RP {
-    description "Common node of active, standby";
-
+    description
+      "Common node of active, standby";
     container candidate-rp {
-      description "AutoRP Candidate RP";
-
+      description
+        "AutoRP Candidate RP";
       container traffic {
-        description "AutoRP Candidate Traffic Counters";
+        description
+          "AutoRP Candidate Traffic Counters";
         uses AUTORP-CRP-TRAFFIC-BAG;
       }
-
       container rps {
-        description "AutoRP Candidate RP Table";
-
+        description
+          "AutoRP Candidate RP Table";
         list rp {
-          description "AutoRP Candidate RP Entry";
+          description
+            "AutoRP Candidate RP Entry";
           leaf interface-name {
             type xr:Interface-name;
-            description "Interface Name";
+            description
+              "Interface Name";
           }
           leaf protocol-mode {
             type dt1:Auto-rp-protocol-mode;
-            description "Protocol Mode";
+            description
+              "Protocol Mode";
           }
           uses AUTORP-CRP-BAG;
         }
@@ -119,16 +115,17 @@ module Cisco-IOS-XR-ipv4-autorp-oper {
 
   container auto-rp {
     config false;
-    description "AutoRP operational data";
-
+    description
+      "AutoRP operational data";
     container standby {
-      description "Standby Process";
+      description
+        "Standby Process";
       uses CANDIDATE-RP;
       uses MAPPING-AGENT;
     }
-
     container active {
-      description "Active Process";
+      description
+        "Active Process";
       uses CANDIDATE-RP;
       uses MAPPING-AGENT;
     }

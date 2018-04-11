@@ -39,9 +39,11 @@ In implementation and usage, this MIB cannot
 exist independent of the IPSEC\-MONITOR\-MIB. 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -75,8 +77,10 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         self.yang_parent_name = "CISCO-IPSEC-POLICY-MAP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ikePolMapTable" : ("ikepolmaptable", CISCOIPSECPOLICYMAPMIB.Ikepolmaptable), "ipSecPolMapTable" : ("ipsecpolmaptable", CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ikePolMapTable", ("ikepolmaptable", CISCOIPSECPOLICYMAPMIB.Ikepolmaptable)), ("ipSecPolMapTable", ("ipsecpolmaptable", CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ikepolmaptable = CISCOIPSECPOLICYMAPMIB.Ikepolmaptable()
         self.ikepolmaptable.parent = self
@@ -116,8 +120,10 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-POLICY-MAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ikePolMapEntry" : ("ikepolmapentry", CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ikePolMapEntry", ("ikepolmapentry", CISCOIPSECPOLICYMAPMIB.Ikepolmaptable.Ikepolmapentry))])
+            self._leafs = OrderedDict()
 
             self.ikepolmapentry = YList(self)
             self._segment_path = lambda: "ikePolMapTable"
@@ -133,7 +139,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             with mapping an active IPSec Phase\-1 IKE Tunnel
             to it's configured Policy definition.
             
-            .. attribute:: ikepolmaptunindex  <key>
+            .. attribute:: ikepolmaptunindex  (key)
             
             	The index of the IPSec Phase\-1 Tunnel to Policy Map Table.  The value of the index is the number used to represent this IPSec Phase\-1 Tunnel in the IPSec MIB (ikeTunIndex in the ikeTunnelTable)
             	**type**\: int
@@ -161,13 +167,16 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
                 self.yang_parent_name = "ikePolMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ikepolmaptunindex = YLeaf(YType.int32, "ikePolMapTunIndex")
-
-                self.ikepolmappolicynum = YLeaf(YType.int32, "ikePolMapPolicyNum")
-                self._segment_path = lambda: "ikePolMapEntry" + "[ikePolMapTunIndex='" + self.ikepolmaptunindex.get() + "']"
+                self.ylist_key_names = ['ikepolmaptunindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ikepolmaptunindex', YLeaf(YType.int32, 'ikePolMapTunIndex')),
+                    ('ikepolmappolicynum', YLeaf(YType.int32, 'ikePolMapPolicyNum')),
+                ])
+                self.ikepolmaptunindex = None
+                self.ikepolmappolicynum = None
+                self._segment_path = lambda: "ikePolMapEntry" + "[ikePolMapTunIndex='" + str(self.ikepolmaptunindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ikePolMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -199,8 +208,10 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-POLICY-MAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ipSecPolMapEntry" : ("ipsecpolmapentry", CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ipSecPolMapEntry", ("ipsecpolmapentry", CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry))])
+            self._leafs = OrderedDict()
 
             self.ipsecpolmapentry = YList(self)
             self._segment_path = lambda: "ipSecPolMapTable"
@@ -216,7 +227,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             with mapping an active IPSec Phase\-2 Tunnel
             to its configured Policy definition.
             
-            .. attribute:: ipsecpolmaptunindex  <key>
+            .. attribute:: ipsecpolmaptunindex  (key)
             
             	The index of the IPSec Phase\-2 Tunnel to Policy Map Table. The value of the index is the number used to represent this IPSec Phase\-2 Tunnel in the IPSec MIB (ipSecTunIndex in the ipSecTunnelTable)
             	**type**\: int
@@ -259,19 +270,22 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
                 self.yang_parent_name = "ipSecPolMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ipsecpolmaptunindex = YLeaf(YType.int32, "ipSecPolMapTunIndex")
-
-                self.ipsecpolmapcryptomapname = YLeaf(YType.str, "ipSecPolMapCryptoMapName")
-
-                self.ipsecpolmapcryptomapnum = YLeaf(YType.int32, "ipSecPolMapCryptoMapNum")
-
-                self.ipsecpolmapaclstring = YLeaf(YType.str, "ipSecPolMapAclString")
-
-                self.ipsecpolmapacestring = YLeaf(YType.str, "ipSecPolMapAceString")
-                self._segment_path = lambda: "ipSecPolMapEntry" + "[ipSecPolMapTunIndex='" + self.ipsecpolmaptunindex.get() + "']"
+                self.ylist_key_names = ['ipsecpolmaptunindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipsecpolmaptunindex', YLeaf(YType.int32, 'ipSecPolMapTunIndex')),
+                    ('ipsecpolmapcryptomapname', YLeaf(YType.str, 'ipSecPolMapCryptoMapName')),
+                    ('ipsecpolmapcryptomapnum', YLeaf(YType.int32, 'ipSecPolMapCryptoMapNum')),
+                    ('ipsecpolmapaclstring', YLeaf(YType.str, 'ipSecPolMapAclString')),
+                    ('ipsecpolmapacestring', YLeaf(YType.str, 'ipSecPolMapAceString')),
+                ])
+                self.ipsecpolmaptunindex = None
+                self.ipsecpolmapcryptomapname = None
+                self.ipsecpolmapcryptomapnum = None
+                self.ipsecpolmapaclstring = None
+                self.ipsecpolmapacestring = None
+                self._segment_path = lambda: "ipSecPolMapEntry" + "[ipSecPolMapTunIndex='" + str(self.ipsecpolmaptunindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ipSecPolMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

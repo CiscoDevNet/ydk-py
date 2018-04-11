@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class MlanDisableCmp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-mlan-cmp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", MlanDisableCmp.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", MlanDisableCmp.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = MlanDisableCmp.Nodes()
         self.nodes.parent = self
@@ -76,8 +80,10 @@ class MlanDisableCmp(Entity):
             self.yang_parent_name = "mlan-disable-cmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", MlanDisableCmp.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", MlanDisableCmp.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -91,7 +97,7 @@ class MlanDisableCmp(Entity):
             """
             A node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	NodeName
             	**type**\: str
@@ -117,13 +123,16 @@ class MlanDisableCmp(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.disable = YLeaf(YType.empty, "disable")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('disable', YLeaf(YType.empty, 'disable')),
+                ])
+                self.node_name = None
+                self.disable = None
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-mlan-cmp-cfg:mlan-disable-cmp/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

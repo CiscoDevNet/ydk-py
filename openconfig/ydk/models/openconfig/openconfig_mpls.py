@@ -41,15 +41,17 @@ protocols used in operational practice.
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CspfTieBreaking(Enum):
     """
-    CspfTieBreaking
+    CspfTieBreaking (Enum Class)
 
     type to indicate the CSPF selection policy when
 
@@ -84,7 +86,7 @@ class CspfTieBreaking(Enum):
 
 class MplsHopType(Enum):
     """
-    MplsHopType
+    MplsHopType (Enum Class)
 
     enumerated type for specifying loose or strict
 
@@ -107,7 +109,7 @@ class MplsHopType(Enum):
 
 class MplsSrlgFloodingType(Enum):
     """
-    MplsSrlgFloodingType
+    MplsSrlgFloodingType (Enum Class)
 
     Enumerated bype for specifying how the SRLG is flooded
 
@@ -130,7 +132,7 @@ class MplsSrlgFloodingType(Enum):
 
 class TeBandwidthType(Enum):
     """
-    TeBandwidthType
+    TeBandwidthType (Enum Class)
 
     enumerated type for specifying whether bandwidth is
 
@@ -153,7 +155,7 @@ class TeBandwidthType(Enum):
 
 class TeMetricType(Enum):
     """
-    TeMetricType
+    TeMetricType (Enum Class)
 
     union type for setting the LSP TE metric to a
 
@@ -195,7 +197,7 @@ class Mpls(Entity):
     .. attribute:: global_
     
     	general mpls configuration applicable to any type of LSP and signaling protocol \- label ranges, entropy label supportmay be added here
-    	**type**\:  :py:class:`Global_ <ydk.models.openconfig.openconfig_mpls.Mpls.Global_>`
+    	**type**\:  :py:class:`Global <ydk.models.openconfig.openconfig_mpls.Mpls.Global>`
     
     .. attribute:: te_global_attributes
     
@@ -234,11 +236,13 @@ class Mpls(Entity):
         self.yang_parent_name = "openconfig-mpls"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"global" : ("global_", Mpls.Global_), "te-global-attributes" : ("te_global_attributes", Mpls.TeGlobalAttributes), "te-interface-attributes" : ("te_interface_attributes", Mpls.TeInterfaceAttributes), "signaling-protocols" : ("signaling_protocols", Mpls.SignalingProtocols), "lsps" : ("lsps", Mpls.Lsps)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("global", ("global_", Mpls.Global)), ("te-global-attributes", ("te_global_attributes", Mpls.TeGlobalAttributes)), ("te-interface-attributes", ("te_interface_attributes", Mpls.TeInterfaceAttributes)), ("signaling-protocols", ("signaling_protocols", Mpls.SignalingProtocols)), ("lsps", ("lsps", Mpls.Lsps))])
+        self._child_list_classes = OrderedDict([])
         self.is_presence_container = True
+        self._leafs = OrderedDict()
 
-        self.global_ = Mpls.Global_()
+        self.global_ = Mpls.Global()
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
         self._children_yang_names.add("global")
@@ -265,7 +269,7 @@ class Mpls(Entity):
         self._segment_path = lambda: "openconfig-mpls:mpls"
 
 
-    class Global_(Entity):
+    class Global(Entity):
         """
         general mpls configuration applicable to any
         type of LSP and signaling protocol \- label ranges,
@@ -274,17 +278,17 @@ class Mpls(Entity):
         .. attribute:: config
         
         	Top level global MPLS configuration
-        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.Config>`
+        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.Config>`
         
         .. attribute:: state
         
         	Top level global MPLS state
-        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.State>`
+        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.State>`
         
         .. attribute:: mpls_interface_attributes
         
         	Parameters related to MPLS interfaces
-        	**type**\:  :py:class:`MplsInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes>`
+        	**type**\:  :py:class:`MplsInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes>`
         
         
 
@@ -294,26 +298,28 @@ class Mpls(Entity):
         _revision = '2015-11-05'
 
         def __init__(self):
-            super(Mpls.Global_, self).__init__()
+            super(Mpls.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "mpls"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"config" : ("config", Mpls.Global_.Config), "state" : ("state", Mpls.Global_.State), "mpls-interface-attributes" : ("mpls_interface_attributes", Mpls.Global_.MplsInterfaceAttributes)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("config", ("config", Mpls.Global.Config)), ("state", ("state", Mpls.Global.State)), ("mpls-interface-attributes", ("mpls_interface_attributes", Mpls.Global.MplsInterfaceAttributes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
-            self.config = Mpls.Global_.Config()
+            self.config = Mpls.Global.Config()
             self.config.parent = self
             self._children_name_map["config"] = "config"
             self._children_yang_names.add("config")
 
-            self.state = Mpls.Global_.State()
+            self.state = Mpls.Global.State()
             self.state.parent = self
             self._children_name_map["state"] = "state"
             self._children_yang_names.add("state")
 
-            self.mpls_interface_attributes = Mpls.Global_.MplsInterfaceAttributes()
+            self.mpls_interface_attributes = Mpls.Global.MplsInterfaceAttributes()
             self.mpls_interface_attributes.parent = self
             self._children_name_map["mpls_interface_attributes"] = "mpls-interface-attributes"
             self._children_yang_names.add("mpls-interface-attributes")
@@ -340,21 +346,24 @@ class Mpls(Entity):
             _revision = '2015-11-05'
 
             def __init__(self):
-                super(Mpls.Global_.Config, self).__init__()
+                super(Mpls.Global.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.null_label = YLeaf(YType.identityref, "null-label")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('null_label', YLeaf(YType.identityref, 'null-label')),
+                ])
+                self.null_label = None
                 self._segment_path = lambda: "config"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global_.Config, ['null_label'], name, value)
+                self._perform_setattr(Mpls.Global.Config, ['null_label'], name, value)
 
 
         class State(Entity):
@@ -376,21 +385,24 @@ class Mpls(Entity):
             _revision = '2015-11-05'
 
             def __init__(self):
-                super(Mpls.Global_.State, self).__init__()
+                super(Mpls.Global.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.null_label = YLeaf(YType.identityref, "null-label")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('null_label', YLeaf(YType.identityref, 'null-label')),
+                ])
+                self.null_label = None
                 self._segment_path = lambda: "state"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global_.State, ['null_label'], name, value)
+                self._perform_setattr(Mpls.Global.State, ['null_label'], name, value)
 
 
         class MplsInterfaceAttributes(Entity):
@@ -400,7 +412,7 @@ class Mpls(Entity):
             .. attribute:: interface
             
             	List of TE interfaces
-            	**type**\: list of  		 :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface>`
             
             
 
@@ -410,43 +422,45 @@ class Mpls(Entity):
             _revision = '2015-11-05'
 
             def __init__(self):
-                super(Mpls.Global_.MplsInterfaceAttributes, self).__init__()
+                super(Mpls.Global.MplsInterfaceAttributes, self).__init__()
 
                 self.yang_name = "mpls-interface-attributes"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Mpls.Global_.MplsInterfaceAttributes.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", Mpls.Global.MplsInterfaceAttributes.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "mpls-interface-attributes"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Mpls.Global_.MplsInterfaceAttributes, [], name, value)
+                self._perform_setattr(Mpls.Global.MplsInterfaceAttributes, [], name, value)
 
 
             class Interface(Entity):
                 """
                 List of TE interfaces
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	The interface name
                 	**type**\: str
                 
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to MPLS interfaces\:
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to TE interfaces
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.State>`
                 
                 
 
@@ -456,31 +470,34 @@ class Mpls(Entity):
                 _revision = '2015-11-05'
 
                 def __init__(self):
-                    super(Mpls.Global_.MplsInterfaceAttributes.Interface, self).__init__()
+                    super(Mpls.Global.MplsInterfaceAttributes.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "mpls-interface-attributes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.Global_.MplsInterfaceAttributes.Interface.Config), "state" : ("state", Mpls.Global_.MplsInterfaceAttributes.Interface.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Global.MplsInterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.Global.MplsInterfaceAttributes.Interface.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.config = Mpls.Global_.MplsInterfaceAttributes.Interface.Config()
+                    self.config = Mpls.Global.MplsInterfaceAttributes.Interface.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
                     self._children_yang_names.add("config")
 
-                    self.state = Mpls.Global_.MplsInterfaceAttributes.Interface.State()
+                    self.state = Mpls.Global.MplsInterfaceAttributes.Interface.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
-                    self._segment_path = lambda: "interface" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/global/mpls-interface-attributes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.Global_.MplsInterfaceAttributes.Interface, ['name'], name, value)
+                    self._perform_setattr(Mpls.Global.MplsInterfaceAttributes.Interface, ['name'], name, value)
 
 
                 class Config(Entity):
@@ -509,22 +526,25 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.Global_.MplsInterfaceAttributes.Interface.Config, self).__init__()
+                        super(Mpls.Global.MplsInterfaceAttributes.Interface.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.mpls_enabled = YLeaf(YType.boolean, "mpls-enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('mpls_enabled', YLeaf(YType.boolean, 'mpls-enabled')),
+                        ])
+                        self.name = None
+                        self.mpls_enabled = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global_.MplsInterfaceAttributes.Interface.Config, ['name', 'mpls_enabled'], name, value)
+                        self._perform_setattr(Mpls.Global.MplsInterfaceAttributes.Interface.Config, ['name', 'mpls_enabled'], name, value)
 
 
                 class State(Entity):
@@ -553,22 +573,25 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.Global_.MplsInterfaceAttributes.Interface.State, self).__init__()
+                        super(Mpls.Global.MplsInterfaceAttributes.Interface.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.mpls_enabled = YLeaf(YType.boolean, "mpls-enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('mpls_enabled', YLeaf(YType.boolean, 'mpls-enabled')),
+                        ])
+                        self.name = None
+                        self.mpls_enabled = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.Global_.MplsInterfaceAttributes.Interface.State, ['name', 'mpls_enabled'], name, value)
+                        self._perform_setattr(Mpls.Global.MplsInterfaceAttributes.Interface.State, ['name', 'mpls_enabled'], name, value)
 
 
     class TeGlobalAttributes(Entity):
@@ -609,8 +632,10 @@ class Mpls(Entity):
             self.yang_parent_name = "mpls"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"srlg" : ("srlg", Mpls.TeGlobalAttributes.Srlg), "igp-flooding-bandwidth" : ("igp_flooding_bandwidth", Mpls.TeGlobalAttributes.IgpFloodingBandwidth), "mpls-admin-groups" : ("mpls_admin_groups", Mpls.TeGlobalAttributes.MplsAdminGroups), "te-lsp-timers" : ("te_lsp_timers", Mpls.TeGlobalAttributes.TeLspTimers)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("srlg", ("srlg", Mpls.TeGlobalAttributes.Srlg)), ("igp-flooding-bandwidth", ("igp_flooding_bandwidth", Mpls.TeGlobalAttributes.IgpFloodingBandwidth)), ("mpls-admin-groups", ("mpls_admin_groups", Mpls.TeGlobalAttributes.MplsAdminGroups)), ("te-lsp-timers", ("te_lsp_timers", Mpls.TeGlobalAttributes.TeLspTimers))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.srlg = Mpls.TeGlobalAttributes.Srlg()
             self.srlg.parent = self
@@ -642,7 +667,7 @@ class Mpls(Entity):
             .. attribute:: srlg
             
             	List of shared risk link groups
-            	**type**\: list of  		 :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
+            	**type**\: list of  		 :py:class:`Srlg_ <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
             
             
 
@@ -658,8 +683,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "te-global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"srlg" : ("srlg", Mpls.TeGlobalAttributes.Srlg.Srlg)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("srlg", ("srlg", Mpls.TeGlobalAttributes.Srlg.Srlg_))])
+                self._leafs = OrderedDict()
 
                 self.srlg = YList(self)
                 self._segment_path = lambda: "srlg"
@@ -669,31 +696,31 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.TeGlobalAttributes.Srlg, [], name, value)
 
 
-            class Srlg(Entity):
+            class Srlg_(Entity):
                 """
                 List of shared risk link groups
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	The SRLG group identifier
                 	**type**\: str
                 
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to the SRLG
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to the SRLG
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.State>`
                 
                 .. attribute:: static_srlg_members
                 
                 	SRLG members for static (not flooded) SRLGs 
-                	**type**\:  :py:class:`StaticSrlgMembers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers>`
+                	**type**\:  :py:class:`StaticSrlgMembers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers>`
                 
                 
 
@@ -703,36 +730,39 @@ class Mpls(Entity):
                 _revision = '2015-11-05'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.Srlg.Srlg, self).__init__()
+                    super(Mpls.TeGlobalAttributes.Srlg.Srlg_, self).__init__()
 
                     self.yang_name = "srlg"
                     self.yang_parent_name = "srlg"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.TeGlobalAttributes.Srlg.Srlg.Config), "state" : ("state", Mpls.TeGlobalAttributes.Srlg.Srlg.State), "static-srlg-members" : ("static_srlg_members", Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.Srlg.Srlg_.Config)), ("state", ("state", Mpls.TeGlobalAttributes.Srlg.Srlg_.State)), ("static-srlg-members", ("static_srlg_members", Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.config = Mpls.TeGlobalAttributes.Srlg.Srlg.Config()
+                    self.config = Mpls.TeGlobalAttributes.Srlg.Srlg_.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
                     self._children_yang_names.add("config")
 
-                    self.state = Mpls.TeGlobalAttributes.Srlg.Srlg.State()
+                    self.state = Mpls.TeGlobalAttributes.Srlg.Srlg_.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
 
-                    self.static_srlg_members = Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers()
+                    self.static_srlg_members = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers()
                     self.static_srlg_members.parent = self
                     self._children_name_map["static_srlg_members"] = "static-srlg-members"
                     self._children_yang_names.add("static-srlg-members")
-                    self._segment_path = lambda: "srlg" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "srlg" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/srlg/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg, ['name'], name, value)
+                    self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_, ['name'], name, value)
 
 
                 class Config(Entity):
@@ -773,26 +803,29 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlg.Srlg.Config, self).__init__()
+                        super(Mpls.TeGlobalAttributes.Srlg.Srlg_.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "srlg"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.value = YLeaf(YType.uint32, "value")
-
-                        self.cost = YLeaf(YType.uint32, "cost")
-
-                        self.flooding_type = YLeaf(YType.enumeration, "flooding-type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('value', YLeaf(YType.uint32, 'value')),
+                            ('cost', YLeaf(YType.uint32, 'cost')),
+                            ('flooding_type', YLeaf(YType.enumeration, 'flooding-type')),
+                        ])
+                        self.name = None
+                        self.value = None
+                        self.cost = None
+                        self.flooding_type = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg.Config, ['name', 'value', 'cost', 'flooding_type'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.Config, ['name', 'value', 'cost', 'flooding_type'], name, value)
 
 
                 class State(Entity):
@@ -833,26 +866,29 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlg.Srlg.State, self).__init__()
+                        super(Mpls.TeGlobalAttributes.Srlg.Srlg_.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "srlg"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.value = YLeaf(YType.uint32, "value")
-
-                        self.cost = YLeaf(YType.uint32, "cost")
-
-                        self.flooding_type = YLeaf(YType.enumeration, "flooding-type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('value', YLeaf(YType.uint32, 'value')),
+                            ('cost', YLeaf(YType.uint32, 'cost')),
+                            ('flooding_type', YLeaf(YType.enumeration, 'flooding-type')),
+                        ])
+                        self.name = None
+                        self.value = None
+                        self.cost = None
+                        self.flooding_type = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg.State, ['name', 'value', 'cost', 'flooding_type'], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.State, ['name', 'value', 'cost', 'flooding_type'], name, value)
 
 
                 class StaticSrlgMembers(Entity):
@@ -862,7 +898,7 @@ class Mpls(Entity):
                     .. attribute:: members_list
                     
                     	List of SRLG members, which are expressed as IP address endpoints of links contained in the SRLG
-                    	**type**\: list of  		 :py:class:`MembersList <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList>`
+                    	**type**\: list of  		 :py:class:`MembersList <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList>`
                     
                     
 
@@ -872,20 +908,22 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers, self).__init__()
+                        super(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers, self).__init__()
 
                         self.yang_name = "static-srlg-members"
                         self.yang_parent_name = "srlg"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"members-list" : ("members_list", Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("members-list", ("members_list", Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList))])
+                        self._leafs = OrderedDict()
 
                         self.members_list = YList(self)
                         self._segment_path = lambda: "static-srlg-members"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers, [], name, value)
+                        self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers, [], name, value)
 
 
                     class MembersList(Entity):
@@ -894,7 +932,7 @@ class Mpls(Entity):
                         as IP address endpoints of links contained in the
                         SRLG
                         
-                        .. attribute:: from_address  <key>
+                        .. attribute:: from_address  (key)
                         
                         	The from address of the link in the SRLG
                         	**type**\: union of the below types:
@@ -907,17 +945,17 @@ class Mpls(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        	**refers to**\:  :py:class:`from_address <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config>`
+                        	**refers to**\:  :py:class:`from_address <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters relating to the SRLG members
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to the SRLG members
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State>`
                         
                         
 
@@ -927,30 +965,33 @@ class Mpls(Entity):
                         _revision = '2015-11-05'
 
                         def __init__(self):
-                            super(Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList, self).__init__()
+                            super(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList, self).__init__()
 
                             self.yang_name = "members-list"
                             self.yang_parent_name = "static-srlg-members"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config), "state" : ("state", Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = ['from_address']
+                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config)), ("state", ("state", Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('from_address', YLeaf(YType.str, 'from-address')),
+                            ])
+                            self.from_address = None
 
-                            self.from_address = YLeaf(YType.str, "from-address")
-
-                            self.config = Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config()
+                            self.config = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State()
+                            self.state = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
-                            self._segment_path = lambda: "members-list" + "[from-address='" + self.from_address.get() + "']"
+                            self._segment_path = lambda: "members-list" + "[from-address='" + str(self.from_address) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList, ['from_address'], name, value)
+                            self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList, ['from_address'], name, value)
 
 
                         class Config(Entity):
@@ -992,22 +1033,25 @@ class Mpls(Entity):
                             _revision = '2015-11-05'
 
                             def __init__(self):
-                                super(Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config, self).__init__()
+                                super(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "members-list"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.from_address = YLeaf(YType.str, "from-address")
-
-                                self.to_address = YLeaf(YType.str, "to-address")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('from_address', YLeaf(YType.str, 'from-address')),
+                                    ('to_address', YLeaf(YType.str, 'to-address')),
+                                ])
+                                self.from_address = None
+                                self.to_address = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config, ['from_address', 'to_address'], name, value)
+                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config, ['from_address', 'to_address'], name, value)
 
 
                         class State(Entity):
@@ -1049,22 +1093,25 @@ class Mpls(Entity):
                             _revision = '2015-11-05'
 
                             def __init__(self):
-                                super(Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State, self).__init__()
+                                super(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "members-list"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.from_address = YLeaf(YType.str, "from-address")
-
-                                self.to_address = YLeaf(YType.str, "to-address")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('from_address', YLeaf(YType.str, 'from-address')),
+                                    ('to_address', YLeaf(YType.str, 'to-address')),
+                                ])
+                                self.from_address = None
+                                self.to_address = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State, ['from_address', 'to_address'], name, value)
+                                self._perform_setattr(Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State, ['from_address', 'to_address'], name, value)
 
 
         class IgpFloodingBandwidth(Entity):
@@ -1097,8 +1144,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "te-global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config), "state" : ("state", Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config)), ("state", ("state", Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.config = Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config()
                 self.config.parent = self
@@ -1170,20 +1219,23 @@ class Mpls(Entity):
                     self.yang_parent_name = "igp-flooding-bandwidth"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.threshold_type = YLeaf(YType.enumeration, "threshold-type")
-
-                    self.delta_percentage = YLeaf(YType.uint8, "delta-percentage")
-
-                    self.threshold_specification = YLeaf(YType.enumeration, "threshold-specification")
-
-                    self.up_thresholds = YLeafList(YType.uint8, "up-thresholds")
-
-                    self.down_thresholds = YLeafList(YType.uint8, "down-thresholds")
-
-                    self.up_down_thresholds = YLeafList(YType.uint8, "up-down-thresholds")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('threshold_type', YLeaf(YType.enumeration, 'threshold-type')),
+                        ('delta_percentage', YLeaf(YType.uint8, 'delta-percentage')),
+                        ('threshold_specification', YLeaf(YType.enumeration, 'threshold-specification')),
+                        ('up_thresholds', YLeafList(YType.uint8, 'up-thresholds')),
+                        ('down_thresholds', YLeafList(YType.uint8, 'down-thresholds')),
+                        ('up_down_thresholds', YLeafList(YType.uint8, 'up-down-thresholds')),
+                    ])
+                    self.threshold_type = None
+                    self.delta_percentage = None
+                    self.threshold_specification = None
+                    self.up_thresholds = []
+                    self.down_thresholds = []
+                    self.up_down_thresholds = []
                     self._segment_path = lambda: "config"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/igp-flooding-bandwidth/%s" % self._segment_path()
 
@@ -1192,7 +1244,7 @@ class Mpls(Entity):
 
                 class ThresholdSpecification(Enum):
                     """
-                    ThresholdSpecification
+                    ThresholdSpecification (Enum Class)
 
                     This value specifies whether a single set of threshold
 
@@ -1243,7 +1295,7 @@ class Mpls(Entity):
 
                 class ThresholdType(Enum):
                     """
-                    ThresholdType
+                    ThresholdType (Enum Class)
 
                     The type of threshold that should be used to specify the
 
@@ -1349,20 +1401,23 @@ class Mpls(Entity):
                     self.yang_parent_name = "igp-flooding-bandwidth"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.threshold_type = YLeaf(YType.enumeration, "threshold-type")
-
-                    self.delta_percentage = YLeaf(YType.uint8, "delta-percentage")
-
-                    self.threshold_specification = YLeaf(YType.enumeration, "threshold-specification")
-
-                    self.up_thresholds = YLeafList(YType.uint8, "up-thresholds")
-
-                    self.down_thresholds = YLeafList(YType.uint8, "down-thresholds")
-
-                    self.up_down_thresholds = YLeafList(YType.uint8, "up-down-thresholds")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('threshold_type', YLeaf(YType.enumeration, 'threshold-type')),
+                        ('delta_percentage', YLeaf(YType.uint8, 'delta-percentage')),
+                        ('threshold_specification', YLeaf(YType.enumeration, 'threshold-specification')),
+                        ('up_thresholds', YLeafList(YType.uint8, 'up-thresholds')),
+                        ('down_thresholds', YLeafList(YType.uint8, 'down-thresholds')),
+                        ('up_down_thresholds', YLeafList(YType.uint8, 'up-down-thresholds')),
+                    ])
+                    self.threshold_type = None
+                    self.delta_percentage = None
+                    self.threshold_specification = None
+                    self.up_thresholds = []
+                    self.down_thresholds = []
+                    self.up_down_thresholds = []
                     self._segment_path = lambda: "state"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/igp-flooding-bandwidth/%s" % self._segment_path()
 
@@ -1371,7 +1426,7 @@ class Mpls(Entity):
 
                 class ThresholdSpecification(Enum):
                     """
-                    ThresholdSpecification
+                    ThresholdSpecification (Enum Class)
 
                     This value specifies whether a single set of threshold
 
@@ -1422,7 +1477,7 @@ class Mpls(Entity):
 
                 class ThresholdType(Enum):
                     """
-                    ThresholdType
+                    ThresholdType (Enum Class)
 
                     The type of threshold that should be used to specify the
 
@@ -1496,8 +1551,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "te-global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"admin-group" : ("admin_group", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("admin-group", ("admin_group", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup))])
+                self._leafs = OrderedDict()
 
                 self.admin_group = YList(self)
                 self._segment_path = lambda: "mpls-admin-groups"
@@ -1512,7 +1569,7 @@ class Mpls(Entity):
                 configuration of value to name mapping
                 for mpls affinities/admin\-groups
                 
-                .. attribute:: admin_group_name  <key>
+                .. attribute:: admin_group_name  (key)
                 
                 	name for mpls admin\-group
                 	**type**\: str
@@ -1543,10 +1600,13 @@ class Mpls(Entity):
                     self.yang_parent_name = "mpls-admin-groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config), "state" : ("state", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State)}
-                    self._child_list_classes = {}
-
-                    self.admin_group_name = YLeaf(YType.str, "admin-group-name")
+                    self.ylist_key_names = ['admin_group_name']
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config)), ("state", ("state", Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('admin_group_name', YLeaf(YType.str, 'admin-group-name')),
+                    ])
+                    self.admin_group_name = None
 
                     self.config = Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config()
                     self.config.parent = self
@@ -1557,7 +1617,7 @@ class Mpls(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
-                    self._segment_path = lambda: "admin-group" + "[admin-group-name='" + self.admin_group_name.get() + "']"
+                    self._segment_path = lambda: "admin-group" + "[admin-group-name='" + str(self.admin_group_name) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/mpls-admin-groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1594,12 +1654,15 @@ class Mpls(Entity):
                         self.yang_parent_name = "admin-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.admin_group_name = YLeaf(YType.str, "admin-group-name")
-
-                        self.bit_position = YLeaf(YType.uint32, "bit-position")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('admin_group_name', YLeaf(YType.str, 'admin-group-name')),
+                            ('bit_position', YLeaf(YType.uint32, 'bit-position')),
+                        ])
+                        self.admin_group_name = None
+                        self.bit_position = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -1636,12 +1699,15 @@ class Mpls(Entity):
                         self.yang_parent_name = "admin-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.admin_group_name = YLeaf(YType.str, "admin-group-name")
-
-                        self.bit_position = YLeaf(YType.uint32, "bit-position")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('admin_group_name', YLeaf(YType.str, 'admin-group-name')),
+                            ('bit_position', YLeaf(YType.uint32, 'bit-position')),
+                        ])
+                        self.admin_group_name = None
+                        self.bit_position = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -1677,8 +1743,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "te-global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Mpls.TeGlobalAttributes.TeLspTimers.Config), "state" : ("state", Mpls.TeGlobalAttributes.TeLspTimers.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeGlobalAttributes.TeLspTimers.Config)), ("state", ("state", Mpls.TeGlobalAttributes.TeLspTimers.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.config = Mpls.TeGlobalAttributes.TeLspTimers.Config()
                 self.config.parent = self
@@ -1739,14 +1807,17 @@ class Mpls(Entity):
                     self.yang_parent_name = "te-lsp-timers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.install_delay = YLeaf(YType.uint16, "install-delay")
-
-                    self.cleanup_delay = YLeaf(YType.uint16, "cleanup-delay")
-
-                    self.reoptimize_timer = YLeaf(YType.uint16, "reoptimize-timer")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('install_delay', YLeaf(YType.uint16, 'install-delay')),
+                        ('cleanup_delay', YLeaf(YType.uint16, 'cleanup-delay')),
+                        ('reoptimize_timer', YLeaf(YType.uint16, 'reoptimize-timer')),
+                    ])
+                    self.install_delay = None
+                    self.cleanup_delay = None
+                    self.reoptimize_timer = None
                     self._segment_path = lambda: "config"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/te-lsp-timers/%s" % self._segment_path()
 
@@ -1799,14 +1870,17 @@ class Mpls(Entity):
                     self.yang_parent_name = "te-lsp-timers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.install_delay = YLeaf(YType.uint16, "install-delay")
-
-                    self.cleanup_delay = YLeaf(YType.uint16, "cleanup-delay")
-
-                    self.reoptimize_timer = YLeaf(YType.uint16, "reoptimize-timer")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('install_delay', YLeaf(YType.uint16, 'install-delay')),
+                        ('cleanup_delay', YLeaf(YType.uint16, 'cleanup-delay')),
+                        ('reoptimize_timer', YLeaf(YType.uint16, 'reoptimize-timer')),
+                    ])
+                    self.install_delay = None
+                    self.cleanup_delay = None
+                    self.reoptimize_timer = None
                     self._segment_path = lambda: "state"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/te-global-attributes/te-lsp-timers/%s" % self._segment_path()
 
@@ -1838,8 +1912,10 @@ class Mpls(Entity):
             self.yang_parent_name = "mpls"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Mpls.TeInterfaceAttributes.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", Mpls.TeInterfaceAttributes.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "te-interface-attributes"
@@ -1853,7 +1929,7 @@ class Mpls(Entity):
             """
             List of TE interfaces
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	The interface name
             	**type**\: str
@@ -1889,10 +1965,13 @@ class Mpls(Entity):
                 self.yang_parent_name = "te-interface-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Mpls.TeInterfaceAttributes.Interface.Config), "state" : ("state", Mpls.TeInterfaceAttributes.Interface.State), "igp-flooding-bandwidth" : ("igp_flooding_bandwidth", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeInterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.TeInterfaceAttributes.Interface.State)), ("igp-flooding-bandwidth", ("igp_flooding_bandwidth", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.config = Mpls.TeInterfaceAttributes.Interface.Config()
                 self.config.parent = self
@@ -1908,7 +1987,7 @@ class Mpls(Entity):
                 self.igp_flooding_bandwidth.parent = self
                 self._children_name_map["igp_flooding_bandwidth"] = "igp-flooding-bandwidth"
                 self._children_yang_names.add("igp-flooding-bandwidth")
-                self._segment_path = lambda: "interface" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "openconfig-mpls:mpls/te-interface-attributes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1938,7 +2017,7 @@ class Mpls(Entity):
                 	list of references to named shared risk link groups that the interface belongs to
                 	**type**\: list of str
                 
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
                 
                 .. attribute:: admin_group
                 
@@ -1959,16 +2038,19 @@ class Mpls(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                    self.srlg_membership = YLeafList(YType.str, "srlg-membership")
-
-                    self.admin_group = YLeafList(YType.str, "admin-group")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                        ('srlg_membership', YLeafList(YType.str, 'srlg-membership')),
+                        ('admin_group', YLeafList(YType.str, 'admin-group')),
+                    ])
+                    self.name = None
+                    self.te_metric = None
+                    self.srlg_membership = []
+                    self.admin_group = []
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -1998,7 +2080,7 @@ class Mpls(Entity):
                 	list of references to named shared risk link groups that the interface belongs to
                 	**type**\: list of str
                 
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
                 
                 .. attribute:: admin_group
                 
@@ -2019,16 +2101,19 @@ class Mpls(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                    self.srlg_membership = YLeafList(YType.str, "srlg-membership")
-
-                    self.admin_group = YLeafList(YType.str, "admin-group")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                        ('srlg_membership', YLeafList(YType.str, 'srlg-membership')),
+                        ('admin_group', YLeafList(YType.str, 'admin-group')),
+                    ])
+                    self.name = None
+                    self.te_metric = None
+                    self.srlg_membership = []
+                    self.admin_group = []
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -2065,8 +2150,10 @@ class Mpls(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config), "state" : ("state", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config)), ("state", ("state", Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config()
                     self.config.parent = self
@@ -2137,20 +2224,23 @@ class Mpls(Entity):
                         self.yang_parent_name = "igp-flooding-bandwidth"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.threshold_type = YLeaf(YType.enumeration, "threshold-type")
-
-                        self.delta_percentage = YLeaf(YType.uint8, "delta-percentage")
-
-                        self.threshold_specification = YLeaf(YType.enumeration, "threshold-specification")
-
-                        self.up_thresholds = YLeafList(YType.uint8, "up-thresholds")
-
-                        self.down_thresholds = YLeafList(YType.uint8, "down-thresholds")
-
-                        self.up_down_thresholds = YLeafList(YType.uint8, "up-down-thresholds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('threshold_type', YLeaf(YType.enumeration, 'threshold-type')),
+                            ('delta_percentage', YLeaf(YType.uint8, 'delta-percentage')),
+                            ('threshold_specification', YLeaf(YType.enumeration, 'threshold-specification')),
+                            ('up_thresholds', YLeafList(YType.uint8, 'up-thresholds')),
+                            ('down_thresholds', YLeafList(YType.uint8, 'down-thresholds')),
+                            ('up_down_thresholds', YLeafList(YType.uint8, 'up-down-thresholds')),
+                        ])
+                        self.threshold_type = None
+                        self.delta_percentage = None
+                        self.threshold_specification = None
+                        self.up_thresholds = []
+                        self.down_thresholds = []
+                        self.up_down_thresholds = []
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -2158,7 +2248,7 @@ class Mpls(Entity):
 
                     class ThresholdSpecification(Enum):
                         """
-                        ThresholdSpecification
+                        ThresholdSpecification (Enum Class)
 
                         This value specifies whether a single set of threshold
 
@@ -2209,7 +2299,7 @@ class Mpls(Entity):
 
                     class ThresholdType(Enum):
                         """
-                        ThresholdType
+                        ThresholdType (Enum Class)
 
                         The type of threshold that should be used to specify the
 
@@ -2315,20 +2405,23 @@ class Mpls(Entity):
                         self.yang_parent_name = "igp-flooding-bandwidth"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.threshold_type = YLeaf(YType.enumeration, "threshold-type")
-
-                        self.delta_percentage = YLeaf(YType.uint8, "delta-percentage")
-
-                        self.threshold_specification = YLeaf(YType.enumeration, "threshold-specification")
-
-                        self.up_thresholds = YLeafList(YType.uint8, "up-thresholds")
-
-                        self.down_thresholds = YLeafList(YType.uint8, "down-thresholds")
-
-                        self.up_down_thresholds = YLeafList(YType.uint8, "up-down-thresholds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('threshold_type', YLeaf(YType.enumeration, 'threshold-type')),
+                            ('delta_percentage', YLeaf(YType.uint8, 'delta-percentage')),
+                            ('threshold_specification', YLeaf(YType.enumeration, 'threshold-specification')),
+                            ('up_thresholds', YLeafList(YType.uint8, 'up-thresholds')),
+                            ('down_thresholds', YLeafList(YType.uint8, 'down-thresholds')),
+                            ('up_down_thresholds', YLeafList(YType.uint8, 'up-down-thresholds')),
+                        ])
+                        self.threshold_type = None
+                        self.delta_percentage = None
+                        self.threshold_specification = None
+                        self.up_thresholds = []
+                        self.down_thresholds = []
+                        self.up_down_thresholds = []
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -2336,7 +2429,7 @@ class Mpls(Entity):
 
                     class ThresholdSpecification(Enum):
                         """
-                        ThresholdSpecification
+                        ThresholdSpecification (Enum Class)
 
                         This value specifies whether a single set of threshold
 
@@ -2387,7 +2480,7 @@ class Mpls(Entity):
 
                     class ThresholdType(Enum):
                         """
-                        ThresholdType
+                        ThresholdType (Enum Class)
 
                         The type of threshold that should be used to specify the
 
@@ -2470,8 +2563,10 @@ class Mpls(Entity):
             self.yang_parent_name = "mpls"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"rsvp-te" : ("rsvp_te", Mpls.SignalingProtocols.RsvpTe), "segment-routing" : ("segment_routing", Mpls.SignalingProtocols.SegmentRouting), "ldp" : ("ldp", Mpls.SignalingProtocols.Ldp)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("rsvp-te", ("rsvp_te", Mpls.SignalingProtocols.RsvpTe)), ("segment-routing", ("segment_routing", Mpls.SignalingProtocols.SegmentRouting)), ("ldp", ("ldp", Mpls.SignalingProtocols.Ldp))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.rsvp_te = Mpls.SignalingProtocols.RsvpTe()
             self.rsvp_te.parent = self
@@ -2508,7 +2603,7 @@ class Mpls(Entity):
             .. attribute:: global_
             
             	Platform wide RSVP configuration and state
-            	**type**\:  :py:class:`Global_ <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_>`
+            	**type**\:  :py:class:`Global <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global>`
             
             .. attribute:: interface_attributes
             
@@ -2529,8 +2624,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "signaling-protocols"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"sessions" : ("sessions", Mpls.SignalingProtocols.RsvpTe.Sessions), "neighbors" : ("neighbors", Mpls.SignalingProtocols.RsvpTe.Neighbors), "global" : ("global_", Mpls.SignalingProtocols.RsvpTe.Global_), "interface-attributes" : ("interface_attributes", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("sessions", ("sessions", Mpls.SignalingProtocols.RsvpTe.Sessions)), ("neighbors", ("neighbors", Mpls.SignalingProtocols.RsvpTe.Neighbors)), ("global", ("global_", Mpls.SignalingProtocols.RsvpTe.Global)), ("interface-attributes", ("interface_attributes", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.sessions = Mpls.SignalingProtocols.RsvpTe.Sessions()
                 self.sessions.parent = self
@@ -2542,7 +2639,7 @@ class Mpls(Entity):
                 self._children_name_map["neighbors"] = "neighbors"
                 self._children_yang_names.add("neighbors")
 
-                self.global_ = Mpls.SignalingProtocols.RsvpTe.Global_()
+                self.global_ = Mpls.SignalingProtocols.RsvpTe.Global()
                 self.global_.parent = self
                 self._children_name_map["global_"] = "global"
                 self._children_yang_names.add("global")
@@ -2583,8 +2680,10 @@ class Mpls(Entity):
                     self.yang_parent_name = "rsvp-te"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.Sessions.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.Sessions.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Sessions.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Sessions.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Mpls.SignalingProtocols.RsvpTe.Sessions.Config()
                     self.config.parent = self
@@ -2617,8 +2716,10 @@ class Mpls(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
                         self._segment_path = lambda: "config"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/%s" % self._segment_path()
 
@@ -2647,8 +2748,10 @@ class Mpls(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"session" : ("session", Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("session", ("session", Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session))])
+                        self._leafs = OrderedDict()
 
                         self.session = YList(self)
                         self._segment_path = lambda: "state"
@@ -2662,21 +2765,21 @@ class Mpls(Entity):
                         """
                         List of RSVP sessions
                         
-                        .. attribute:: source_port  <key>
+                        .. attribute:: source_port  (key)
                         
                         	RSVP source port
                         	**type**\: int
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: destination_port  <key>
+                        .. attribute:: destination_port  (key)
                         
                         	RSVP source port
                         	**type**\: int
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: source_address  <key>
+                        .. attribute:: source_address  (key)
                         
                         	Origin address of RSVP session
                         	**type**\: union of the below types:
@@ -2689,7 +2792,7 @@ class Mpls(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: destination_address  <key>
+                        .. attribute:: destination_address  (key)
                         
                         	Destination address of RSVP session
                         	**type**\: union of the below types:
@@ -2728,7 +2831,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         .. attribute:: label_out
                         
@@ -2739,7 +2842,7 @@ class Mpls(Entity):
                         
                         			**range:** 16..1048575
                         
-                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                        		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                         
                         .. attribute:: associated_lsps
                         
@@ -2762,29 +2865,32 @@ class Mpls(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.source_port = YLeaf(YType.uint16, "source-port")
-
-                            self.destination_port = YLeaf(YType.uint16, "destination-port")
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.destination_address = YLeaf(YType.str, "destination-address")
-
-                            self.status = YLeaf(YType.enumeration, "status")
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.tunnel_id = YLeaf(YType.uint16, "tunnel-id")
-
-                            self.label_in = YLeaf(YType.str, "label-in")
-
-                            self.label_out = YLeaf(YType.str, "label-out")
-
-                            self.associated_lsps = YLeafList(YType.str, "associated-lsps")
-                            self._segment_path = lambda: "session" + "[source-port='" + self.source_port.get() + "']" + "[destination-port='" + self.destination_port.get() + "']" + "[source-address='" + self.source_address.get() + "']" + "[destination-address='" + self.destination_address.get() + "']"
+                            self.ylist_key_names = ['source_port','destination_port','source_address','destination_address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('source_port', YLeaf(YType.uint16, 'source-port')),
+                                ('destination_port', YLeaf(YType.uint16, 'destination-port')),
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                ('status', YLeaf(YType.enumeration, 'status')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('tunnel_id', YLeaf(YType.uint16, 'tunnel-id')),
+                                ('label_in', YLeaf(YType.str, 'label-in')),
+                                ('label_out', YLeaf(YType.str, 'label-out')),
+                                ('associated_lsps', YLeafList(YType.str, 'associated-lsps')),
+                            ])
+                            self.source_port = None
+                            self.destination_port = None
+                            self.source_address = None
+                            self.destination_address = None
+                            self.status = None
+                            self.type = None
+                            self.tunnel_id = None
+                            self.label_in = None
+                            self.label_out = None
+                            self.associated_lsps = []
+                            self._segment_path = lambda: "session" + "[source-port='" + str(self.source_port) + "']" + "[destination-port='" + str(self.destination_port) + "']" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/state/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
@@ -2792,7 +2898,7 @@ class Mpls(Entity):
 
                         class Status(Enum):
                             """
-                            Status
+                            Status (Enum Class)
 
                             Enumeration of RSVP session states
 
@@ -2813,7 +2919,7 @@ class Mpls(Entity):
 
                         class Type(Enum):
                             """
-                            Type
+                            Type (Enum Class)
 
                             Enumeration of possible RSVP session types
 
@@ -2868,8 +2974,10 @@ class Mpls(Entity):
                     self.yang_parent_name = "rsvp-te"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.Neighbors.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.Neighbors.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Neighbors.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Neighbors.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Mpls.SignalingProtocols.RsvpTe.Neighbors.Config()
                     self.config.parent = self
@@ -2902,8 +3010,10 @@ class Mpls(Entity):
                         self.yang_parent_name = "neighbors"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
                         self._segment_path = lambda: "config"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/neighbors/%s" % self._segment_path()
 
@@ -2931,8 +3041,10 @@ class Mpls(Entity):
                         self.yang_parent_name = "neighbors"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"neighbor" : ("neighbor", Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor))])
+                        self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
                         self._segment_path = lambda: "state"
@@ -2947,7 +3059,7 @@ class Mpls(Entity):
                         List of RSVP neighbors connecting to the device,
                         keyed by neighbor address
                         
-                        .. attribute:: address  <key>
+                        .. attribute:: address  (key)
                         
                         	Address of RSVP neighbor
                         	**type**\: union of the below types:
@@ -2989,17 +3101,20 @@ class Mpls(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.detected_interface = YLeaf(YType.str, "detected-interface")
-
-                            self.neighbor_status = YLeaf(YType.enumeration, "neighbor-status")
-
-                            self.refresh_reduction = YLeaf(YType.boolean, "refresh-reduction")
-                            self._segment_path = lambda: "neighbor" + "[address='" + self.address.get() + "']"
+                            self.ylist_key_names = ['address']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('detected_interface', YLeaf(YType.str, 'detected-interface')),
+                                ('neighbor_status', YLeaf(YType.enumeration, 'neighbor-status')),
+                                ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
+                            ])
+                            self.address = None
+                            self.detected_interface = None
+                            self.neighbor_status = None
+                            self.refresh_reduction = None
+                            self._segment_path = lambda: "neighbor" + "[address='" + str(self.address) + "']"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/neighbors/state/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
@@ -3007,7 +3122,7 @@ class Mpls(Entity):
 
                         class NeighborStatus(Enum):
                             """
-                            NeighborStatus
+                            NeighborStatus (Enum Class)
 
                             Enumuration of possible RSVP neighbor states
 
@@ -3031,29 +3146,29 @@ class Mpls(Entity):
 
 
 
-            class Global_(Entity):
+            class Global(Entity):
                 """
                 Platform wide RSVP configuration and state
                 
                 .. attribute:: graceful_restart
                 
                 	Operational state and configuration parameters relating to graceful\-restart for RSVP
-                	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart>`
+                	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart>`
                 
                 .. attribute:: soft_preemption
                 
                 	Protocol options relating to RSVP soft preemption
-                	**type**\:  :py:class:`SoftPreemption <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption>`
+                	**type**\:  :py:class:`SoftPreemption <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption>`
                 
                 .. attribute:: hellos
                 
                 	Top level container for RSVP hello parameters
-                	**type**\:  :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos>`
+                	**type**\:  :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.Hellos>`
                 
                 .. attribute:: state
                 
                 	Platform wide RSVP state, including counters
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.State>`
                 
                 
 
@@ -3063,31 +3178,33 @@ class Mpls(Entity):
                 _revision = '2015-11-05'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.Global_, self).__init__()
+                    super(Mpls.SignalingProtocols.RsvpTe.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "rsvp-te"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"graceful-restart" : ("graceful_restart", Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart), "soft-preemption" : ("soft_preemption", Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption), "hellos" : ("hellos", Mpls.SignalingProtocols.RsvpTe.Global_.Hellos), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.Global_.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("graceful-restart", ("graceful_restart", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart)), ("soft-preemption", ("soft_preemption", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption)), ("hellos", ("hellos", Mpls.SignalingProtocols.RsvpTe.Global.Hellos)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
-                    self.graceful_restart = Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart()
+                    self.graceful_restart = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart()
                     self.graceful_restart.parent = self
                     self._children_name_map["graceful_restart"] = "graceful-restart"
                     self._children_yang_names.add("graceful-restart")
 
-                    self.soft_preemption = Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption()
+                    self.soft_preemption = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption()
                     self.soft_preemption.parent = self
                     self._children_name_map["soft_preemption"] = "soft-preemption"
                     self._children_yang_names.add("soft-preemption")
 
-                    self.hellos = Mpls.SignalingProtocols.RsvpTe.Global_.Hellos()
+                    self.hellos = Mpls.SignalingProtocols.RsvpTe.Global.Hellos()
                     self.hellos.parent = self
                     self._children_name_map["hellos"] = "hellos"
                     self._children_yang_names.add("hellos")
 
-                    self.state = Mpls.SignalingProtocols.RsvpTe.Global_.State()
+                    self.state = Mpls.SignalingProtocols.RsvpTe.Global.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
@@ -3103,12 +3220,12 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to graceful\-restart
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config>`
                     
                     .. attribute:: state
                     
                     	State information associated with RSVP graceful\-restart
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State>`
                     
                     
 
@@ -3118,21 +3235,23 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart, self).__init__()
+                        super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart, self).__init__()
 
                         self.yang_name = "graceful-restart"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.config = Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config()
+                        self.config = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State()
+                        self.state = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
@@ -3174,25 +3293,28 @@ class Mpls(Entity):
                         _revision = '2015-11-05'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "graceful-restart"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.restart_time = YLeaf(YType.uint32, "restart-time")
-
-                            self.recovery_time = YLeaf(YType.uint32, "recovery-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('restart_time', YLeaf(YType.uint32, 'restart-time')),
+                                ('recovery_time', YLeaf(YType.uint32, 'recovery-time')),
+                            ])
+                            self.enable = None
+                            self.restart_time = None
+                            self.recovery_time = None
                             self._segment_path = lambda: "config"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/graceful-restart/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config, ['enable', 'restart_time', 'recovery_time'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, ['enable', 'restart_time', 'recovery_time'], name, value)
 
 
                     class State(Entity):
@@ -3229,25 +3351,28 @@ class Mpls(Entity):
                         _revision = '2015-11-05'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "graceful-restart"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.restart_time = YLeaf(YType.uint32, "restart-time")
-
-                            self.recovery_time = YLeaf(YType.uint32, "recovery-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('restart_time', YLeaf(YType.uint32, 'restart-time')),
+                                ('recovery_time', YLeaf(YType.uint32, 'recovery-time')),
+                            ])
+                            self.enable = None
+                            self.restart_time = None
+                            self.recovery_time = None
                             self._segment_path = lambda: "state"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/graceful-restart/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State, ['enable', 'restart_time', 'recovery_time'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, ['enable', 'restart_time', 'recovery_time'], name, value)
 
 
                 class SoftPreemption(Entity):
@@ -3258,12 +3383,12 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to RSVP soft preemption support
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters relating to RSVP soft preemption support
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State>`
                     
                     
 
@@ -3273,21 +3398,23 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption, self).__init__()
+                        super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption, self).__init__()
 
                         self.yang_name = "soft-preemption"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.config = Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config()
+                        self.config = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State()
+                        self.state = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
@@ -3324,23 +3451,26 @@ class Mpls(Entity):
                         _revision = '2015-11-05'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "soft-preemption"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.soft_preemption_timeout = YLeaf(YType.uint16, "soft-preemption-timeout")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('soft_preemption_timeout', YLeaf(YType.uint16, 'soft-preemption-timeout')),
+                            ])
+                            self.enable = None
+                            self.soft_preemption_timeout = None
                             self._segment_path = lambda: "config"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/soft-preemption/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config, ['enable', 'soft_preemption_timeout'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, ['enable', 'soft_preemption_timeout'], name, value)
 
 
                     class State(Entity):
@@ -3372,23 +3502,26 @@ class Mpls(Entity):
                         _revision = '2015-11-05'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "soft-preemption"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.soft_preemption_timeout = YLeaf(YType.uint16, "soft-preemption-timeout")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('soft_preemption_timeout', YLeaf(YType.uint16, 'soft-preemption-timeout')),
+                            ])
+                            self.enable = None
+                            self.soft_preemption_timeout = None
                             self._segment_path = lambda: "state"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/soft-preemption/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State, ['enable', 'soft_preemption_timeout'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, ['enable', 'soft_preemption_timeout'], name, value)
 
 
                 class Hellos(Entity):
@@ -3398,12 +3531,12 @@ class Mpls(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to RSVP hellos
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config>`
                     
                     .. attribute:: state
                     
                     	State information associated with RSVP hellos
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State>`
                     
                     
 
@@ -3413,21 +3546,23 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global_.Hellos, self).__init__()
+                        super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos, self).__init__()
 
                         self.yang_name = "hellos"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.config = Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config()
+                        self.config = Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State()
+                        self.state = Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
@@ -3466,23 +3601,26 @@ class Mpls(Entity):
                         _revision = '2015-11-05'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "hellos"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.hello_interval = YLeaf(YType.uint16, "hello-interval")
-
-                            self.refresh_reduction = YLeaf(YType.boolean, "refresh-reduction")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
+                                ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
+                            ])
+                            self.hello_interval = None
+                            self.refresh_reduction = None
                             self._segment_path = lambda: "config"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/hellos/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config, ['hello_interval', 'refresh_reduction'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, ['hello_interval', 'refresh_reduction'], name, value)
 
 
                     class State(Entity):
@@ -3515,23 +3653,26 @@ class Mpls(Entity):
                         _revision = '2015-11-05'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "hellos"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.hello_interval = YLeaf(YType.uint16, "hello-interval")
-
-                            self.refresh_reduction = YLeaf(YType.boolean, "refresh-reduction")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
+                                ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
+                            ])
+                            self.hello_interval = None
+                            self.refresh_reduction = None
                             self._segment_path = lambda: "state"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/hellos/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State, ['hello_interval', 'refresh_reduction'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, ['hello_interval', 'refresh_reduction'], name, value)
 
 
                 class State(Entity):
@@ -3541,7 +3682,7 @@ class Mpls(Entity):
                     .. attribute:: counters
                     
                     	Platform wide RSVP statistics and counters
-                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters>`
+                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.State.Counters>`
                     
                     
 
@@ -3551,16 +3692,18 @@ class Mpls(Entity):
                     _revision = '2015-11-05'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global_.State, self).__init__()
+                        super(Mpls.SignalingProtocols.RsvpTe.Global.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"counters" : ("counters", Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("counters", ("counters", Mpls.SignalingProtocols.RsvpTe.Global.State.Counters))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.counters = Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters()
+                        self.counters = Mpls.SignalingProtocols.RsvpTe.Global.State.Counters()
                         self.counters.parent = self
                         self._children_name_map["counters"] = "counters"
                         self._children_yang_names.add("counters")
@@ -3727,61 +3870,64 @@ class Mpls(Entity):
                         _revision = '2015-11-05'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters, self).__init__()
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, self).__init__()
 
                             self.yang_name = "counters"
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.path_timeouts = YLeaf(YType.uint64, "path-timeouts")
-
-                            self.reservation_timeouts = YLeaf(YType.uint64, "reservation-timeouts")
-
-                            self.rate_limited_messages = YLeaf(YType.uint64, "rate-limited-messages")
-
-                            self.in_path_messages = YLeaf(YType.uint64, "in-path-messages")
-
-                            self.in_path_error_messages = YLeaf(YType.uint64, "in-path-error-messages")
-
-                            self.in_path_tear_messages = YLeaf(YType.uint64, "in-path-tear-messages")
-
-                            self.in_reservation_messages = YLeaf(YType.uint64, "in-reservation-messages")
-
-                            self.in_reservation_error_messages = YLeaf(YType.uint64, "in-reservation-error-messages")
-
-                            self.in_reservation_tear_messages = YLeaf(YType.uint64, "in-reservation-tear-messages")
-
-                            self.in_hello_messages = YLeaf(YType.uint64, "in-hello-messages")
-
-                            self.in_srefresh_messages = YLeaf(YType.uint64, "in-srefresh-messages")
-
-                            self.in_ack_messages = YLeaf(YType.uint64, "in-ack-messages")
-
-                            self.out_path_messages = YLeaf(YType.uint64, "out-path-messages")
-
-                            self.out_path_error_messages = YLeaf(YType.uint64, "out-path-error-messages")
-
-                            self.out_path_tear_messages = YLeaf(YType.uint64, "out-path-tear-messages")
-
-                            self.out_reservation_messages = YLeaf(YType.uint64, "out-reservation-messages")
-
-                            self.out_reservation_error_messages = YLeaf(YType.uint64, "out-reservation-error-messages")
-
-                            self.out_reservation_tear_messages = YLeaf(YType.uint64, "out-reservation-tear-messages")
-
-                            self.out_hello_messages = YLeaf(YType.uint64, "out-hello-messages")
-
-                            self.out_srefresh_messages = YLeaf(YType.uint64, "out-srefresh-messages")
-
-                            self.out_ack_messages = YLeaf(YType.uint64, "out-ack-messages")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('path_timeouts', YLeaf(YType.uint64, 'path-timeouts')),
+                                ('reservation_timeouts', YLeaf(YType.uint64, 'reservation-timeouts')),
+                                ('rate_limited_messages', YLeaf(YType.uint64, 'rate-limited-messages')),
+                                ('in_path_messages', YLeaf(YType.uint64, 'in-path-messages')),
+                                ('in_path_error_messages', YLeaf(YType.uint64, 'in-path-error-messages')),
+                                ('in_path_tear_messages', YLeaf(YType.uint64, 'in-path-tear-messages')),
+                                ('in_reservation_messages', YLeaf(YType.uint64, 'in-reservation-messages')),
+                                ('in_reservation_error_messages', YLeaf(YType.uint64, 'in-reservation-error-messages')),
+                                ('in_reservation_tear_messages', YLeaf(YType.uint64, 'in-reservation-tear-messages')),
+                                ('in_hello_messages', YLeaf(YType.uint64, 'in-hello-messages')),
+                                ('in_srefresh_messages', YLeaf(YType.uint64, 'in-srefresh-messages')),
+                                ('in_ack_messages', YLeaf(YType.uint64, 'in-ack-messages')),
+                                ('out_path_messages', YLeaf(YType.uint64, 'out-path-messages')),
+                                ('out_path_error_messages', YLeaf(YType.uint64, 'out-path-error-messages')),
+                                ('out_path_tear_messages', YLeaf(YType.uint64, 'out-path-tear-messages')),
+                                ('out_reservation_messages', YLeaf(YType.uint64, 'out-reservation-messages')),
+                                ('out_reservation_error_messages', YLeaf(YType.uint64, 'out-reservation-error-messages')),
+                                ('out_reservation_tear_messages', YLeaf(YType.uint64, 'out-reservation-tear-messages')),
+                                ('out_hello_messages', YLeaf(YType.uint64, 'out-hello-messages')),
+                                ('out_srefresh_messages', YLeaf(YType.uint64, 'out-srefresh-messages')),
+                                ('out_ack_messages', YLeaf(YType.uint64, 'out-ack-messages')),
+                            ])
+                            self.path_timeouts = None
+                            self.reservation_timeouts = None
+                            self.rate_limited_messages = None
+                            self.in_path_messages = None
+                            self.in_path_error_messages = None
+                            self.in_path_tear_messages = None
+                            self.in_reservation_messages = None
+                            self.in_reservation_error_messages = None
+                            self.in_reservation_tear_messages = None
+                            self.in_hello_messages = None
+                            self.in_srefresh_messages = None
+                            self.in_ack_messages = None
+                            self.out_path_messages = None
+                            self.out_path_error_messages = None
+                            self.out_path_tear_messages = None
+                            self.out_reservation_messages = None
+                            self.out_reservation_error_messages = None
+                            self.out_reservation_tear_messages = None
+                            self.out_hello_messages = None
+                            self.out_srefresh_messages = None
+                            self.out_ack_messages = None
                             self._segment_path = lambda: "counters"
                             self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/state/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters, ['path_timeouts', 'reservation_timeouts', 'rate_limited_messages', 'in_path_messages', 'in_path_error_messages', 'in_path_tear_messages', 'in_reservation_messages', 'in_reservation_error_messages', 'in_reservation_tear_messages', 'in_hello_messages', 'in_srefresh_messages', 'in_ack_messages', 'out_path_messages', 'out_path_error_messages', 'out_path_tear_messages', 'out_reservation_messages', 'out_reservation_error_messages', 'out_reservation_tear_messages', 'out_hello_messages', 'out_srefresh_messages', 'out_ack_messages'], name, value)
+                            self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, ['path_timeouts', 'reservation_timeouts', 'rate_limited_messages', 'in_path_messages', 'in_path_error_messages', 'in_path_tear_messages', 'in_reservation_messages', 'in_reservation_error_messages', 'in_reservation_tear_messages', 'in_hello_messages', 'in_srefresh_messages', 'in_ack_messages', 'out_path_messages', 'out_path_error_messages', 'out_path_tear_messages', 'out_reservation_messages', 'out_reservation_error_messages', 'out_reservation_tear_messages', 'out_hello_messages', 'out_srefresh_messages', 'out_ack_messages'], name, value)
 
 
             class InterfaceAttributes(Entity):
@@ -3807,8 +3953,10 @@ class Mpls(Entity):
                     self.yang_parent_name = "rsvp-te"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interface-attributes"
@@ -3822,7 +3970,7 @@ class Mpls(Entity):
                     """
                     list of per\-interface RSVP configurations
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	references a configured IP interface
                     	**type**\: str
@@ -3873,10 +4021,13 @@ class Mpls(Entity):
                         self.yang_parent_name = "interface-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State), "hellos" : ("hellos", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos), "authentication" : ("authentication", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication), "subscription" : ("subscription", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription), "protection" : ("protection", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State)), ("hellos", ("hellos", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos)), ("authentication", ("authentication", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication)), ("subscription", ("subscription", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription)), ("protection", ("protection", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ])
+                        self.interface_name = None
 
                         self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config()
                         self.config.parent = self
@@ -3907,7 +4058,7 @@ class Mpls(Entity):
                         self.protection.parent = self
                         self._children_name_map["protection"] = "protection"
                         self._children_yang_names.add("protection")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -3939,10 +4090,13 @@ class Mpls(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ])
+                            self.interface_name = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -3991,12 +4145,15 @@ class Mpls(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"counters" : ("counters", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters)}
-                            self._child_list_classes = {"bandwidth" : ("bandwidth", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth)}
-
-                            self.highwater_mark = YLeaf(YType.uint64, "highwater-mark")
-
-                            self.active_reservation_count = YLeaf(YType.uint64, "active-reservation-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("counters", ("counters", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters))])
+                            self._child_list_classes = OrderedDict([("bandwidth", ("bandwidth", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth))])
+                            self._leafs = OrderedDict([
+                                ('highwater_mark', YLeaf(YType.uint64, 'highwater-mark')),
+                                ('active_reservation_count', YLeaf(YType.uint64, 'active-reservation-count')),
+                            ])
+                            self.highwater_mark = None
+                            self.active_reservation_count = None
 
                             self.counters = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters()
                             self.counters.parent = self
@@ -4015,7 +4172,7 @@ class Mpls(Entity):
                             Available and reserved bandwidth by priority on
                             the interface.
                             
-                            .. attribute:: priority  <key>
+                            .. attribute:: priority  (key)
                             
                             	RSVP priority level for LSPs traversing the interface
                             	**type**\: int
@@ -4050,15 +4207,18 @@ class Mpls(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.priority = YLeaf(YType.uint8, "priority")
-
-                                self.available_bandwidth = YLeaf(YType.uint64, "available-bandwidth")
-
-                                self.reserved_bandwidth = YLeaf(YType.uint64, "reserved-bandwidth")
-                                self._segment_path = lambda: "bandwidth" + "[priority='" + self.priority.get() + "']"
+                                self.ylist_key_names = ['priority']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('priority', YLeaf(YType.uint8, 'priority')),
+                                    ('available_bandwidth', YLeaf(YType.uint64, 'available-bandwidth')),
+                                    ('reserved_bandwidth', YLeaf(YType.uint64, 'reserved-bandwidth')),
+                                ])
+                                self.priority = None
+                                self.available_bandwidth = None
+                                self.reserved_bandwidth = None
+                                self._segment_path = lambda: "bandwidth" + "[priority='" + str(self.priority) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth, ['priority', 'available_bandwidth', 'reserved_bandwidth'], name, value)
@@ -4208,44 +4368,47 @@ class Mpls(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.in_path_messages = YLeaf(YType.uint64, "in-path-messages")
-
-                                self.in_path_error_messages = YLeaf(YType.uint64, "in-path-error-messages")
-
-                                self.in_path_tear_messages = YLeaf(YType.uint64, "in-path-tear-messages")
-
-                                self.in_reservation_messages = YLeaf(YType.uint64, "in-reservation-messages")
-
-                                self.in_reservation_error_messages = YLeaf(YType.uint64, "in-reservation-error-messages")
-
-                                self.in_reservation_tear_messages = YLeaf(YType.uint64, "in-reservation-tear-messages")
-
-                                self.in_hello_messages = YLeaf(YType.uint64, "in-hello-messages")
-
-                                self.in_srefresh_messages = YLeaf(YType.uint64, "in-srefresh-messages")
-
-                                self.in_ack_messages = YLeaf(YType.uint64, "in-ack-messages")
-
-                                self.out_path_messages = YLeaf(YType.uint64, "out-path-messages")
-
-                                self.out_path_error_messages = YLeaf(YType.uint64, "out-path-error-messages")
-
-                                self.out_path_tear_messages = YLeaf(YType.uint64, "out-path-tear-messages")
-
-                                self.out_reservation_messages = YLeaf(YType.uint64, "out-reservation-messages")
-
-                                self.out_reservation_error_messages = YLeaf(YType.uint64, "out-reservation-error-messages")
-
-                                self.out_reservation_tear_messages = YLeaf(YType.uint64, "out-reservation-tear-messages")
-
-                                self.out_hello_messages = YLeaf(YType.uint64, "out-hello-messages")
-
-                                self.out_srefresh_messages = YLeaf(YType.uint64, "out-srefresh-messages")
-
-                                self.out_ack_messages = YLeaf(YType.uint64, "out-ack-messages")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('in_path_messages', YLeaf(YType.uint64, 'in-path-messages')),
+                                    ('in_path_error_messages', YLeaf(YType.uint64, 'in-path-error-messages')),
+                                    ('in_path_tear_messages', YLeaf(YType.uint64, 'in-path-tear-messages')),
+                                    ('in_reservation_messages', YLeaf(YType.uint64, 'in-reservation-messages')),
+                                    ('in_reservation_error_messages', YLeaf(YType.uint64, 'in-reservation-error-messages')),
+                                    ('in_reservation_tear_messages', YLeaf(YType.uint64, 'in-reservation-tear-messages')),
+                                    ('in_hello_messages', YLeaf(YType.uint64, 'in-hello-messages')),
+                                    ('in_srefresh_messages', YLeaf(YType.uint64, 'in-srefresh-messages')),
+                                    ('in_ack_messages', YLeaf(YType.uint64, 'in-ack-messages')),
+                                    ('out_path_messages', YLeaf(YType.uint64, 'out-path-messages')),
+                                    ('out_path_error_messages', YLeaf(YType.uint64, 'out-path-error-messages')),
+                                    ('out_path_tear_messages', YLeaf(YType.uint64, 'out-path-tear-messages')),
+                                    ('out_reservation_messages', YLeaf(YType.uint64, 'out-reservation-messages')),
+                                    ('out_reservation_error_messages', YLeaf(YType.uint64, 'out-reservation-error-messages')),
+                                    ('out_reservation_tear_messages', YLeaf(YType.uint64, 'out-reservation-tear-messages')),
+                                    ('out_hello_messages', YLeaf(YType.uint64, 'out-hello-messages')),
+                                    ('out_srefresh_messages', YLeaf(YType.uint64, 'out-srefresh-messages')),
+                                    ('out_ack_messages', YLeaf(YType.uint64, 'out-ack-messages')),
+                                ])
+                                self.in_path_messages = None
+                                self.in_path_error_messages = None
+                                self.in_path_tear_messages = None
+                                self.in_reservation_messages = None
+                                self.in_reservation_error_messages = None
+                                self.in_reservation_tear_messages = None
+                                self.in_hello_messages = None
+                                self.in_srefresh_messages = None
+                                self.in_ack_messages = None
+                                self.out_path_messages = None
+                                self.out_path_error_messages = None
+                                self.out_path_tear_messages = None
+                                self.out_reservation_messages = None
+                                self.out_reservation_error_messages = None
+                                self.out_reservation_tear_messages = None
+                                self.out_hello_messages = None
+                                self.out_srefresh_messages = None
+                                self.out_ack_messages = None
                                 self._segment_path = lambda: "counters"
 
                             def __setattr__(self, name, value):
@@ -4280,8 +4443,10 @@ class Mpls(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config()
                             self.config.parent = self
@@ -4332,12 +4497,15 @@ class Mpls(Entity):
                                 self.yang_parent_name = "hellos"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.hello_interval = YLeaf(YType.uint16, "hello-interval")
-
-                                self.refresh_reduction = YLeaf(YType.boolean, "refresh-reduction")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
+                                    ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
+                                ])
+                                self.hello_interval = None
+                                self.refresh_reduction = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -4380,12 +4548,15 @@ class Mpls(Entity):
                                 self.yang_parent_name = "hellos"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.hello_interval = YLeaf(YType.uint16, "hello-interval")
-
-                                self.refresh_reduction = YLeaf(YType.boolean, "refresh-reduction")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
+                                    ('refresh_reduction', YLeaf(YType.boolean, 'refresh-reduction')),
+                                ])
+                                self.hello_interval = None
+                                self.refresh_reduction = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -4421,8 +4592,10 @@ class Mpls(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config()
                             self.config.parent = self
@@ -4469,12 +4642,15 @@ class Mpls(Entity):
                                 self.yang_parent_name = "authentication"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.authentication_key = YLeaf(YType.str, "authentication-key")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('authentication_key', YLeaf(YType.str, 'authentication-key')),
+                                ])
+                                self.enable = None
+                                self.authentication_key = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -4514,12 +4690,15 @@ class Mpls(Entity):
                                 self.yang_parent_name = "authentication"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.authentication_key = YLeaf(YType.str, "authentication-key")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('authentication_key', YLeaf(YType.str, 'authentication-key')),
+                                ])
+                                self.enable = None
+                                self.authentication_key = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -4555,8 +4734,10 @@ class Mpls(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config()
                             self.config.parent = self
@@ -4596,10 +4777,13 @@ class Mpls(Entity):
                                 self.yang_parent_name = "subscription"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.subscription = YLeaf(YType.uint8, "subscription")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('subscription', YLeaf(YType.uint8, 'subscription')),
+                                ])
+                                self.subscription = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -4632,10 +4816,13 @@ class Mpls(Entity):
                                 self.yang_parent_name = "subscription"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.subscription = YLeaf(YType.uint8, "subscription")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('subscription', YLeaf(YType.uint8, 'subscription')),
+                                ])
+                                self.subscription = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -4670,8 +4857,10 @@ class Mpls(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config), "state" : ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config)), ("state", ("state", Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config()
                             self.config.parent = self
@@ -4719,12 +4908,15 @@ class Mpls(Entity):
                                 self.yang_parent_name = "protection"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.link_protection_style_requested = YLeaf(YType.identityref, "link-protection-style-requested")
-
-                                self.bypass_optimize_interval = YLeaf(YType.uint16, "bypass-optimize-interval")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('link_protection_style_requested', YLeaf(YType.identityref, 'link-protection-style-requested')),
+                                    ('bypass_optimize_interval', YLeaf(YType.uint16, 'bypass-optimize-interval')),
+                                ])
+                                self.link_protection_style_requested = None
+                                self.bypass_optimize_interval = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -4765,12 +4957,15 @@ class Mpls(Entity):
                                 self.yang_parent_name = "protection"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.link_protection_style_requested = YLeaf(YType.identityref, "link-protection-style-requested")
-
-                                self.bypass_optimize_interval = YLeaf(YType.uint16, "bypass-optimize-interval")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('link_protection_style_requested', YLeaf(YType.identityref, 'link-protection-style-requested')),
+                                    ('bypass_optimize_interval', YLeaf(YType.uint16, 'bypass-optimize-interval')),
+                                ])
+                                self.link_protection_style_requested = None
+                                self.bypass_optimize_interval = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -4805,8 +5000,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "signaling-protocols"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"srgb" : ("srgb", Mpls.SignalingProtocols.SegmentRouting.Srgb), "interfaces" : ("interfaces", Mpls.SignalingProtocols.SegmentRouting.Interfaces)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("srgb", ("srgb", Mpls.SignalingProtocols.SegmentRouting.Srgb)), ("interfaces", ("interfaces", Mpls.SignalingProtocols.SegmentRouting.Interfaces))])
+                self._leafs = OrderedDict()
 
                 self.srgb = YList(self)
                 self.interfaces = YList(self)
@@ -4823,14 +5020,14 @@ class Mpls(Entity):
                 label blocks are reserved to be allocated as domain\-wide
                 entries.
                 
-                .. attribute:: lower_bound  <key>
+                .. attribute:: lower_bound  (key)
                 
                 	Lower value in the block
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: upper_bound  <key>
+                .. attribute:: upper_bound  (key)
                 
                 	Upper value in the block
                 	**type**\: int
@@ -4861,12 +5058,15 @@ class Mpls(Entity):
                     self.yang_parent_name = "segment-routing"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.SegmentRouting.Srgb.Config), "state" : ("state", Mpls.SignalingProtocols.SegmentRouting.Srgb.State)}
-                    self._child_list_classes = {}
-
-                    self.lower_bound = YLeaf(YType.uint32, "lower-bound")
-
-                    self.upper_bound = YLeaf(YType.uint32, "upper-bound")
+                    self.ylist_key_names = ['lower_bound','upper_bound']
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.SegmentRouting.Srgb.Config)), ("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Srgb.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
+                        ('upper_bound', YLeaf(YType.uint32, 'upper-bound')),
+                    ])
+                    self.lower_bound = None
+                    self.upper_bound = None
 
                     self.config = Mpls.SignalingProtocols.SegmentRouting.Srgb.Config()
                     self.config.parent = self
@@ -4877,7 +5077,7 @@ class Mpls(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
-                    self._segment_path = lambda: "srgb" + "[lower-bound='" + self.lower_bound.get() + "']" + "[upper-bound='" + self.upper_bound.get() + "']"
+                    self._segment_path = lambda: "srgb" + "[lower-bound='" + str(self.lower_bound) + "']" + "[upper-bound='" + str(self.upper_bound) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/segment-routing/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4917,12 +5117,15 @@ class Mpls(Entity):
                         self.yang_parent_name = "srgb"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.lower_bound = YLeaf(YType.uint32, "lower-bound")
-
-                        self.upper_bound = YLeaf(YType.uint32, "upper-bound")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
+                            ('upper_bound', YLeaf(YType.uint32, 'upper-bound')),
+                        ])
+                        self.lower_bound = None
+                        self.upper_bound = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -4983,18 +5186,21 @@ class Mpls(Entity):
                         self.yang_parent_name = "srgb"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.lower_bound = YLeaf(YType.uint32, "lower-bound")
-
-                        self.upper_bound = YLeaf(YType.uint32, "upper-bound")
-
-                        self.size = YLeaf(YType.uint32, "size")
-
-                        self.free = YLeaf(YType.uint32, "free")
-
-                        self.used = YLeaf(YType.uint32, "used")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
+                            ('upper_bound', YLeaf(YType.uint32, 'upper-bound')),
+                            ('size', YLeaf(YType.uint32, 'size')),
+                            ('free', YLeaf(YType.uint32, 'free')),
+                            ('used', YLeaf(YType.uint32, 'used')),
+                        ])
+                        self.lower_bound = None
+                        self.upper_bound = None
+                        self.size = None
+                        self.free = None
+                        self.used = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -5006,7 +5212,7 @@ class Mpls(Entity):
                 List of interfaces with associated segment routing
                 configuration
                 
-                .. attribute:: interface  <key>
+                .. attribute:: interface  (key)
                 
                 	Reference to the interface for which segment routing configuration is to be applied
                 	**type**\: str
@@ -5042,10 +5248,13 @@ class Mpls(Entity):
                     self.yang_parent_name = "segment-routing"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config), "state" : ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.State), "adjacency-sid" : ("adjacency_sid", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid)}
-                    self._child_list_classes = {}
-
-                    self.interface = YLeaf(YType.str, "interface")
+                    self.ylist_key_names = ['interface']
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config)), ("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.State)), ("adjacency-sid", ("adjacency_sid", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface', YLeaf(YType.str, 'interface')),
+                    ])
+                    self.interface = None
 
                     self.config = Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config()
                     self.config.parent = self
@@ -5061,7 +5270,7 @@ class Mpls(Entity):
                     self.adjacency_sid.parent = self
                     self._children_name_map["adjacency_sid"] = "adjacency-sid"
                     self._children_yang_names.add("adjacency-sid")
-                    self._segment_path = lambda: "interfaces" + "[interface='" + self.interface.get() + "']"
+                    self._segment_path = lambda: "interfaces" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/segment-routing/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5094,10 +5303,13 @@ class Mpls(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface = YLeaf(YType.str, "interface")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface', YLeaf(YType.str, 'interface')),
+                        ])
+                        self.interface = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -5130,10 +5342,13 @@ class Mpls(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface = YLeaf(YType.str, "interface")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface', YLeaf(YType.str, 'interface')),
+                        ])
+                        self.interface = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -5169,8 +5384,10 @@ class Mpls(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config), "state" : ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config)), ("state", ("state", Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config()
                         self.config.parent = self
@@ -5215,12 +5432,15 @@ class Mpls(Entity):
                             self.yang_parent_name = "adjacency-sid"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.advertise = YLeafList(YType.enumeration, "advertise")
-
-                            self.groups = YLeafList(YType.uint32, "groups")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('advertise', YLeafList(YType.enumeration, 'advertise')),
+                                ('groups', YLeafList(YType.uint32, 'groups')),
+                            ])
+                            self.advertise = []
+                            self.groups = []
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -5228,7 +5448,7 @@ class Mpls(Entity):
 
                         class Advertise(Enum):
                             """
-                            Advertise
+                            Advertise (Enum Class)
 
                             Specifies the type of adjacency SID which should be
 
@@ -5293,12 +5513,15 @@ class Mpls(Entity):
                             self.yang_parent_name = "adjacency-sid"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.advertise = YLeafList(YType.enumeration, "advertise")
-
-                            self.groups = YLeafList(YType.uint32, "groups")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('advertise', YLeafList(YType.enumeration, 'advertise')),
+                                ('groups', YLeafList(YType.uint32, 'groups')),
+                            ])
+                            self.advertise = []
+                            self.groups = []
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -5306,7 +5529,7 @@ class Mpls(Entity):
 
                         class Advertise(Enum):
                             """
-                            Advertise
+                            Advertise (Enum Class)
 
                             Specifies the type of adjacency SID which should be
 
@@ -5363,8 +5586,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "signaling-protocols"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"timers" : ("timers", Mpls.SignalingProtocols.Ldp.Timers)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("timers", ("timers", Mpls.SignalingProtocols.Ldp.Timers))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.timers = Mpls.SignalingProtocols.Ldp.Timers()
                 self.timers.parent = self
@@ -5392,8 +5617,10 @@ class Mpls(Entity):
                     self.yang_parent_name = "ldp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
                     self._segment_path = lambda: "timers"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/signaling-protocols/ldp/%s" % self._segment_path()
 
@@ -5431,8 +5658,10 @@ class Mpls(Entity):
             self.yang_parent_name = "mpls"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"constrained-path" : ("constrained_path", Mpls.Lsps.ConstrainedPath), "unconstrained-path" : ("unconstrained_path", Mpls.Lsps.UnconstrainedPath), "static-lsps" : ("static_lsps", Mpls.Lsps.StaticLsps)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("constrained-path", ("constrained_path", Mpls.Lsps.ConstrainedPath)), ("unconstrained-path", ("unconstrained_path", Mpls.Lsps.UnconstrainedPath)), ("static-lsps", ("static_lsps", Mpls.Lsps.StaticLsps))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.constrained_path = Mpls.Lsps.ConstrainedPath()
             self.constrained_path.parent = self
@@ -5481,8 +5710,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "lsps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"named-explicit-paths" : ("named_explicit_paths", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths), "tunnel" : ("tunnel", Mpls.Lsps.ConstrainedPath.Tunnel)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("named-explicit-paths", ("named_explicit_paths", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths)), ("tunnel", ("tunnel", Mpls.Lsps.ConstrainedPath.Tunnel))])
+                self._leafs = OrderedDict()
 
                 self.named_explicit_paths = YList(self)
                 self.tunnel = YList(self)
@@ -5497,7 +5728,7 @@ class Mpls(Entity):
                 """
                 A list of explicit paths
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	A string name that uniquely identifies an explicit path
                 	**type**\: str
@@ -5533,10 +5764,13 @@ class Mpls(Entity):
                     self.yang_parent_name = "constrained-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State)}
-                    self._child_list_classes = {"explicit-route-objects" : ("explicit_route_objects", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects)}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State))])
+                    self._child_list_classes = OrderedDict([("explicit-route-objects", ("explicit_route_objects", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects))])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.config = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config()
                     self.config.parent = self
@@ -5549,7 +5783,7 @@ class Mpls(Entity):
                     self._children_yang_names.add("state")
 
                     self.explicit_route_objects = YList(self)
-                    self._segment_path = lambda: "named-explicit-paths" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "named-explicit-paths" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/constrained-path/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5580,10 +5814,13 @@ class Mpls(Entity):
                         self.yang_parent_name = "named-explicit-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -5614,10 +5851,13 @@ class Mpls(Entity):
                         self.yang_parent_name = "named-explicit-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -5628,7 +5868,7 @@ class Mpls(Entity):
                     """
                     List of explicit route objects
                     
-                    .. attribute:: index  <key>
+                    .. attribute:: index  (key)
                     
                     	Index of this explicit route object, to express the order of hops in path
                     	**type**\: int
@@ -5661,10 +5901,13 @@ class Mpls(Entity):
                         self.yang_parent_name = "named-explicit-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State)}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.str, "index")
+                        self.ylist_key_names = ['index']
+                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('index', YLeaf(YType.str, 'index')),
+                        ])
+                        self.index = None
 
                         self.config = Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config()
                         self.config.parent = self
@@ -5675,7 +5918,7 @@ class Mpls(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
-                        self._segment_path = lambda: "explicit-route-objects" + "[index='" + self.index.get() + "']"
+                        self._segment_path = lambda: "explicit-route-objects" + "[index='" + str(self.index) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects, ['index'], name, value)
@@ -5725,14 +5968,17 @@ class Mpls(Entity):
                             self.yang_parent_name = "explicit-route-objects"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.hop_type = YLeaf(YType.enumeration, "hop-type")
-
-                            self.index = YLeaf(YType.uint8, "index")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
+                                ('index', YLeaf(YType.uint8, 'index')),
+                            ])
+                            self.address = None
+                            self.hop_type = None
+                            self.index = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -5782,14 +6028,17 @@ class Mpls(Entity):
                             self.yang_parent_name = "explicit-route-objects"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.hop_type = YLeaf(YType.enumeration, "hop-type")
-
-                            self.index = YLeaf(YType.uint8, "index")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
+                                ('index', YLeaf(YType.uint8, 'index')),
+                            ])
+                            self.address = None
+                            self.hop_type = None
+                            self.index = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -5800,14 +6049,14 @@ class Mpls(Entity):
                 """
                 List of TE tunnels
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	The tunnel name
                 	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
                 
-                .. attribute:: type  <key>
+                .. attribute:: type  (key)
                 
                 	The tunnel type, p2p or p2mp
                 	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
@@ -5846,12 +6095,15 @@ class Mpls(Entity):
                     self.yang_parent_name = "constrained-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.State), "bandwidth" : ("bandwidth", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth), "p2p-tunnel-attributes" : ("p2p_tunnel_attributes", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.type = YLeaf(YType.identityref, "type")
+                    self.ylist_key_names = ['name','type']
+                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.State)), ("bandwidth", ("bandwidth", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth)), ("p2p-tunnel-attributes", ("p2p_tunnel_attributes", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('type', YLeaf(YType.identityref, 'type')),
+                    ])
+                    self.name = None
+                    self.type = None
 
                     self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Config()
                     self.config.parent = self
@@ -5872,7 +6124,7 @@ class Mpls(Entity):
                     self.p2p_tunnel_attributes.parent = self
                     self._children_name_map["p2p_tunnel_attributes"] = "p2p-tunnel-attributes"
                     self._children_yang_names.add("p2p-tunnel-attributes")
-                    self._segment_path = lambda: "tunnel" + "[name='" + self.name.get() + "']" + "[type='" + self.type.get() + "']"
+                    self._segment_path = lambda: "tunnel" + "[name='" + str(self.name) + "']" + "[type='" + str(self.type) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/constrained-path/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -6007,36 +6259,39 @@ class Mpls(Entity):
                         self.yang_parent_name = "tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.type = YLeaf(YType.identityref, "type")
-
-                        self.signaling_protocol = YLeaf(YType.identityref, "signaling-protocol")
-
-                        self.local_id = YLeaf(YType.str, "local-id")
-
-                        self.description = YLeaf(YType.str, "description")
-
-                        self.admin_status = YLeaf(YType.identityref, "admin-status")
-
-                        self.preference = YLeaf(YType.uint8, "preference")
-
-                        self.metric = YLeaf(YType.str, "metric")
-
-                        self.protection_style_requested = YLeaf(YType.identityref, "protection-style-requested")
-
-                        self.reoptimize_timer = YLeaf(YType.uint16, "reoptimize-timer")
-
-                        self.source = YLeaf(YType.str, "source")
-
-                        self.soft_preemption = YLeaf(YType.boolean, "soft-preemption")
-
-                        self.setup_priority = YLeaf(YType.uint8, "setup-priority")
-
-                        self.hold_priority = YLeaf(YType.uint8, "hold-priority")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('type', YLeaf(YType.identityref, 'type')),
+                            ('signaling_protocol', YLeaf(YType.identityref, 'signaling-protocol')),
+                            ('local_id', YLeaf(YType.str, 'local-id')),
+                            ('description', YLeaf(YType.str, 'description')),
+                            ('admin_status', YLeaf(YType.identityref, 'admin-status')),
+                            ('preference', YLeaf(YType.uint8, 'preference')),
+                            ('metric', YLeaf(YType.str, 'metric')),
+                            ('protection_style_requested', YLeaf(YType.identityref, 'protection-style-requested')),
+                            ('reoptimize_timer', YLeaf(YType.uint16, 'reoptimize-timer')),
+                            ('source', YLeaf(YType.str, 'source')),
+                            ('soft_preemption', YLeaf(YType.boolean, 'soft-preemption')),
+                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                        ])
+                        self.name = None
+                        self.type = None
+                        self.signaling_protocol = None
+                        self.local_id = None
+                        self.description = None
+                        self.admin_status = None
+                        self.preference = None
+                        self.metric = None
+                        self.protection_style_requested = None
+                        self.reoptimize_timer = None
+                        self.source = None
+                        self.soft_preemption = None
+                        self.setup_priority = None
+                        self.hold_priority = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -6186,40 +6441,43 @@ class Mpls(Entity):
                         self.yang_parent_name = "tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"counters" : ("counters", Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters)}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.type = YLeaf(YType.identityref, "type")
-
-                        self.signaling_protocol = YLeaf(YType.identityref, "signaling-protocol")
-
-                        self.local_id = YLeaf(YType.str, "local-id")
-
-                        self.description = YLeaf(YType.str, "description")
-
-                        self.admin_status = YLeaf(YType.identityref, "admin-status")
-
-                        self.preference = YLeaf(YType.uint8, "preference")
-
-                        self.metric = YLeaf(YType.str, "metric")
-
-                        self.protection_style_requested = YLeaf(YType.identityref, "protection-style-requested")
-
-                        self.reoptimize_timer = YLeaf(YType.uint16, "reoptimize-timer")
-
-                        self.source = YLeaf(YType.str, "source")
-
-                        self.soft_preemption = YLeaf(YType.boolean, "soft-preemption")
-
-                        self.setup_priority = YLeaf(YType.uint8, "setup-priority")
-
-                        self.hold_priority = YLeaf(YType.uint8, "hold-priority")
-
-                        self.oper_status = YLeaf(YType.identityref, "oper-status")
-
-                        self.role = YLeaf(YType.identityref, "role")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("counters", ("counters", Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('type', YLeaf(YType.identityref, 'type')),
+                            ('signaling_protocol', YLeaf(YType.identityref, 'signaling-protocol')),
+                            ('local_id', YLeaf(YType.str, 'local-id')),
+                            ('description', YLeaf(YType.str, 'description')),
+                            ('admin_status', YLeaf(YType.identityref, 'admin-status')),
+                            ('preference', YLeaf(YType.uint8, 'preference')),
+                            ('metric', YLeaf(YType.str, 'metric')),
+                            ('protection_style_requested', YLeaf(YType.identityref, 'protection-style-requested')),
+                            ('reoptimize_timer', YLeaf(YType.uint16, 'reoptimize-timer')),
+                            ('source', YLeaf(YType.str, 'source')),
+                            ('soft_preemption', YLeaf(YType.boolean, 'soft-preemption')),
+                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                            ('oper_status', YLeaf(YType.identityref, 'oper-status')),
+                            ('role', YLeaf(YType.identityref, 'role')),
+                        ])
+                        self.name = None
+                        self.type = None
+                        self.signaling_protocol = None
+                        self.local_id = None
+                        self.description = None
+                        self.admin_status = None
+                        self.preference = None
+                        self.metric = None
+                        self.protection_style_requested = None
+                        self.reoptimize_timer = None
+                        self.source = None
+                        self.soft_preemption = None
+                        self.setup_priority = None
+                        self.hold_priority = None
+                        self.oper_status = None
+                        self.role = None
 
                         self.counters = Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters()
                         self.counters.parent = self
@@ -6299,22 +6557,25 @@ class Mpls(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.bytes = YLeaf(YType.uint64, "bytes")
-
-                            self.packets = YLeaf(YType.uint64, "packets")
-
-                            self.path_changes = YLeaf(YType.uint64, "path-changes")
-
-                            self.state_changes = YLeaf(YType.uint64, "state-changes")
-
-                            self.online_time = YLeaf(YType.str, "online-time")
-
-                            self.current_path_time = YLeaf(YType.str, "current-path-time")
-
-                            self.next_reoptimization_time = YLeaf(YType.str, "next-reoptimization-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                ('packets', YLeaf(YType.uint64, 'packets')),
+                                ('path_changes', YLeaf(YType.uint64, 'path-changes')),
+                                ('state_changes', YLeaf(YType.uint64, 'state-changes')),
+                                ('online_time', YLeaf(YType.str, 'online-time')),
+                                ('current_path_time', YLeaf(YType.str, 'current-path-time')),
+                                ('next_reoptimization_time', YLeaf(YType.str, 'next-reoptimization-time')),
+                            ])
+                            self.bytes = None
+                            self.packets = None
+                            self.path_changes = None
+                            self.state_changes = None
+                            self.online_time = None
+                            self.current_path_time = None
+                            self.next_reoptimization_time = None
                             self._segment_path = lambda: "counters"
 
                         def __setattr__(self, name, value):
@@ -6354,8 +6615,10 @@ class Mpls(Entity):
                         self.yang_parent_name = "tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State), "auto-bandwidth" : ("auto_bandwidth", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State)), ("auto-bandwidth", ("auto_bandwidth", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config()
                         self.config.parent = self
@@ -6407,12 +6670,15 @@ class Mpls(Entity):
                             self.yang_parent_name = "bandwidth"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.specification_type = YLeaf(YType.enumeration, "specification-type")
-
-                            self.set_bandwidth = YLeaf(YType.uint32, "set-bandwidth")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('specification_type', YLeaf(YType.enumeration, 'specification-type')),
+                                ('set_bandwidth', YLeaf(YType.uint32, 'set-bandwidth')),
+                            ])
+                            self.specification_type = None
+                            self.set_bandwidth = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -6452,12 +6718,15 @@ class Mpls(Entity):
                             self.yang_parent_name = "bandwidth"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.specification_type = YLeaf(YType.enumeration, "specification-type")
-
-                            self.set_bandwidth = YLeaf(YType.uint32, "set-bandwidth")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('specification_type', YLeaf(YType.enumeration, 'specification-type')),
+                                ('set_bandwidth', YLeaf(YType.uint32, 'set-bandwidth')),
+                            ])
+                            self.specification_type = None
+                            self.set_bandwidth = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -6502,8 +6771,10 @@ class Mpls(Entity):
                             self.yang_parent_name = "bandwidth"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State), "overflow" : ("overflow", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow), "underflow" : ("underflow", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State)), ("overflow", ("overflow", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow)), ("underflow", ("underflow", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config()
                             self.config.parent = self
@@ -6581,18 +6852,21 @@ class Mpls(Entity):
                                 self.yang_parent_name = "auto-bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
-
-                                self.min_bw = YLeaf(YType.uint32, "min-bw")
-
-                                self.max_bw = YLeaf(YType.uint32, "max-bw")
-
-                                self.adjust_interval = YLeaf(YType.uint32, "adjust-interval")
-
-                                self.adjust_threshold = YLeaf(YType.uint8, "adjust-threshold")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                    ('min_bw', YLeaf(YType.uint32, 'min-bw')),
+                                    ('max_bw', YLeaf(YType.uint32, 'max-bw')),
+                                    ('adjust_interval', YLeaf(YType.uint32, 'adjust-interval')),
+                                    ('adjust_threshold', YLeaf(YType.uint8, 'adjust-threshold')),
+                                ])
+                                self.enabled = None
+                                self.min_bw = None
+                                self.max_bw = None
+                                self.adjust_interval = None
+                                self.adjust_threshold = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -6653,18 +6927,21 @@ class Mpls(Entity):
                                 self.yang_parent_name = "auto-bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
-
-                                self.min_bw = YLeaf(YType.uint32, "min-bw")
-
-                                self.max_bw = YLeaf(YType.uint32, "max-bw")
-
-                                self.adjust_interval = YLeaf(YType.uint32, "adjust-interval")
-
-                                self.adjust_threshold = YLeaf(YType.uint8, "adjust-threshold")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                    ('min_bw', YLeaf(YType.uint32, 'min-bw')),
+                                    ('max_bw', YLeaf(YType.uint32, 'max-bw')),
+                                    ('adjust_interval', YLeaf(YType.uint32, 'adjust-interval')),
+                                    ('adjust_threshold', YLeaf(YType.uint8, 'adjust-threshold')),
+                                ])
+                                self.enabled = None
+                                self.min_bw = None
+                                self.max_bw = None
+                                self.adjust_interval = None
+                                self.adjust_threshold = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -6700,8 +6977,10 @@ class Mpls(Entity):
                                 self.yang_parent_name = "auto-bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config()
                                 self.config.parent = self
@@ -6755,14 +7034,17 @@ class Mpls(Entity):
                                     self.yang_parent_name = "overflow"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                                    self.overflow_threshold = YLeaf(YType.uint8, "overflow-threshold")
-
-                                    self.trigger_event_count = YLeaf(YType.uint16, "trigger-event-count")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                        ('overflow_threshold', YLeaf(YType.uint8, 'overflow-threshold')),
+                                        ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
+                                    ])
+                                    self.enabled = None
+                                    self.overflow_threshold = None
+                                    self.trigger_event_count = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -6809,14 +7091,17 @@ class Mpls(Entity):
                                     self.yang_parent_name = "overflow"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                                    self.overflow_threshold = YLeaf(YType.uint8, "overflow-threshold")
-
-                                    self.trigger_event_count = YLeaf(YType.uint16, "trigger-event-count")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                        ('overflow_threshold', YLeaf(YType.uint8, 'overflow-threshold')),
+                                        ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
+                                    ])
+                                    self.enabled = None
+                                    self.overflow_threshold = None
+                                    self.trigger_event_count = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -6852,8 +7137,10 @@ class Mpls(Entity):
                                 self.yang_parent_name = "auto-bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config()
                                 self.config.parent = self
@@ -6907,14 +7194,17 @@ class Mpls(Entity):
                                     self.yang_parent_name = "underflow"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                                    self.underflow_threshold = YLeaf(YType.uint8, "underflow-threshold")
-
-                                    self.trigger_event_count = YLeaf(YType.uint16, "trigger-event-count")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                        ('underflow_threshold', YLeaf(YType.uint8, 'underflow-threshold')),
+                                        ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
+                                    ])
+                                    self.enabled = None
+                                    self.underflow_threshold = None
+                                    self.trigger_event_count = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -6961,14 +7251,17 @@ class Mpls(Entity):
                                     self.yang_parent_name = "underflow"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                                    self.underflow_threshold = YLeaf(YType.uint8, "underflow-threshold")
-
-                                    self.trigger_event_count = YLeaf(YType.uint16, "trigger-event-count")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                        ('underflow_threshold', YLeaf(YType.uint8, 'underflow-threshold')),
+                                        ('trigger_event_count', YLeaf(YType.uint16, 'trigger-event-count')),
+                                    ])
+                                    self.enabled = None
+                                    self.underflow_threshold = None
+                                    self.trigger_event_count = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -7013,8 +7306,10 @@ class Mpls(Entity):
                         self.yang_parent_name = "tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State)}
-                        self._child_list_classes = {"p2p-primary-paths" : ("p2p_primary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths), "p2p-secondary-paths" : ("p2p_secondary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State))])
+                        self._child_list_classes = OrderedDict([("p2p-primary-paths", ("p2p_primary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths)), ("p2p-secondary-paths", ("p2p_secondary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths))])
+                        self._leafs = OrderedDict()
 
                         self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config()
                         self.config.parent = self
@@ -7065,10 +7360,13 @@ class Mpls(Entity):
                             self.yang_parent_name = "p2p-tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.destination = YLeaf(YType.str, "destination")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('destination', YLeaf(YType.str, 'destination')),
+                            ])
+                            self.destination = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -7106,10 +7404,13 @@ class Mpls(Entity):
                             self.yang_parent_name = "p2p-tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.destination = YLeaf(YType.str, "destination")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('destination', YLeaf(YType.str, 'destination')),
+                            ])
+                            self.destination = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -7120,7 +7421,7 @@ class Mpls(Entity):
                         """
                         List of p2p primary paths for a tunnel
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	Path name
                         	**type**\: str
@@ -7161,10 +7462,13 @@ class Mpls(Entity):
                             self.yang_parent_name = "p2p-tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State), "candidate-secondary-paths" : ("candidate_secondary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths), "admin-groups" : ("admin_groups", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups)}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State)), ("candidate-secondary-paths", ("candidate_secondary_paths", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths)), ("admin-groups", ("admin_groups", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                            ])
+                            self.name = None
 
                             self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config()
                             self.config.parent = self
@@ -7185,7 +7489,7 @@ class Mpls(Entity):
                             self.admin_groups.parent = self
                             self._children_name_map["admin_groups"] = "admin-groups"
                             self._children_yang_names.add("admin-groups")
-                            self._segment_path = lambda: "p2p-primary-paths" + "[name='" + self.name.get() + "']"
+                            self._segment_path = lambda: "p2p-primary-paths" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths, ['name'], name, value)
@@ -7285,28 +7589,31 @@ class Mpls(Entity):
                                 self.yang_parent_name = "p2p-primary-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.path_computation_method = YLeaf(YType.identityref, "path-computation-method")
-
-                                self.use_cspf = YLeaf(YType.boolean, "use-cspf")
-
-                                self.cspf_tiebreaker = YLeaf(YType.enumeration, "cspf-tiebreaker")
-
-                                self.path_computation_server = YLeaf(YType.str, "path-computation-server")
-
-                                self.explicit_path_name = YLeaf(YType.str, "explicit-path-name")
-
-                                self.preference = YLeaf(YType.uint8, "preference")
-
-                                self.setup_priority = YLeaf(YType.uint8, "setup-priority")
-
-                                self.hold_priority = YLeaf(YType.uint8, "hold-priority")
-
-                                self.retry_timer = YLeaf(YType.uint16, "retry-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
+                                    ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
+                                    ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
+                                    ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                    ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                    ('preference', YLeaf(YType.uint8, 'preference')),
+                                    ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                    ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                    ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                ])
+                                self.name = None
+                                self.path_computation_method = None
+                                self.use_cspf = None
+                                self.cspf_tiebreaker = None
+                                self.path_computation_server = None
+                                self.explicit_path_name = None
+                                self.preference = None
+                                self.setup_priority = None
+                                self.hold_priority = None
+                                self.retry_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -7407,28 +7714,31 @@ class Mpls(Entity):
                                 self.yang_parent_name = "p2p-primary-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.path_computation_method = YLeaf(YType.identityref, "path-computation-method")
-
-                                self.use_cspf = YLeaf(YType.boolean, "use-cspf")
-
-                                self.cspf_tiebreaker = YLeaf(YType.enumeration, "cspf-tiebreaker")
-
-                                self.path_computation_server = YLeaf(YType.str, "path-computation-server")
-
-                                self.explicit_path_name = YLeaf(YType.str, "explicit-path-name")
-
-                                self.preference = YLeaf(YType.uint8, "preference")
-
-                                self.setup_priority = YLeaf(YType.uint8, "setup-priority")
-
-                                self.hold_priority = YLeaf(YType.uint8, "hold-priority")
-
-                                self.retry_timer = YLeaf(YType.uint16, "retry-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
+                                    ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
+                                    ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
+                                    ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                    ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                    ('preference', YLeaf(YType.uint8, 'preference')),
+                                    ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                    ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                    ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                ])
+                                self.name = None
+                                self.path_computation_method = None
+                                self.use_cspf = None
+                                self.cspf_tiebreaker = None
+                                self.path_computation_server = None
+                                self.explicit_path_name = None
+                                self.preference = None
+                                self.setup_priority = None
+                                self.hold_priority = None
+                                self.retry_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -7467,8 +7777,10 @@ class Mpls(Entity):
                                 self.yang_parent_name = "p2p-primary-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"candidate-secondary-path" : ("candidate_secondary_path", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("candidate-secondary-path", ("candidate_secondary_path", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath))])
+                                self._leafs = OrderedDict()
 
                                 self.candidate_secondary_path = YList(self)
                                 self._segment_path = lambda: "candidate-secondary-paths"
@@ -7482,7 +7794,7 @@ class Mpls(Entity):
                                 List of secondary paths which may be utilised when the
                                 current primary path is in use
                                 
-                                .. attribute:: secondary_path  <key>
+                                .. attribute:: secondary_path  (key)
                                 
                                 	A reference to the secondary path option reference which acts as the key of the candidate\-secondary\-path list
                                 	**type**\: str
@@ -7513,10 +7825,13 @@ class Mpls(Entity):
                                     self.yang_parent_name = "candidate-secondary-paths"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State)}
-                                    self._child_list_classes = {}
-
-                                    self.secondary_path = YLeaf(YType.str, "secondary-path")
+                                    self.ylist_key_names = ['secondary_path']
+                                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('secondary_path', YLeaf(YType.str, 'secondary-path')),
+                                    ])
+                                    self.secondary_path = None
 
                                     self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config()
                                     self.config.parent = self
@@ -7527,7 +7842,7 @@ class Mpls(Entity):
                                     self.state.parent = self
                                     self._children_name_map["state"] = "state"
                                     self._children_yang_names.add("state")
-                                    self._segment_path = lambda: "candidate-secondary-path" + "[secondary-path='" + self.secondary_path.get() + "']"
+                                    self._segment_path = lambda: "candidate-secondary-path" + "[secondary-path='" + str(self.secondary_path) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath, ['secondary_path'], name, value)
@@ -7566,12 +7881,15 @@ class Mpls(Entity):
                                         self.yang_parent_name = "candidate-secondary-path"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.secondary_path = YLeaf(YType.str, "secondary-path")
-
-                                        self.priority = YLeaf(YType.uint16, "priority")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('secondary_path', YLeaf(YType.str, 'secondary-path')),
+                                            ('priority', YLeaf(YType.uint16, 'priority')),
+                                        ])
+                                        self.secondary_path = None
+                                        self.priority = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -7616,14 +7934,17 @@ class Mpls(Entity):
                                         self.yang_parent_name = "candidate-secondary-path"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.secondary_path = YLeaf(YType.str, "secondary-path")
-
-                                        self.priority = YLeaf(YType.uint16, "priority")
-
-                                        self.active = YLeaf(YType.boolean, "active")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('secondary_path', YLeaf(YType.str, 'secondary-path')),
+                                            ('priority', YLeaf(YType.uint16, 'priority')),
+                                            ('active', YLeaf(YType.boolean, 'active')),
+                                        ])
+                                        self.secondary_path = None
+                                        self.priority = None
+                                        self.active = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -7659,8 +7980,10 @@ class Mpls(Entity):
                                 self.yang_parent_name = "p2p-primary-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config()
                                 self.config.parent = self
@@ -7713,14 +8036,17 @@ class Mpls(Entity):
                                     self.yang_parent_name = "admin-groups"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.exclude_group = YLeafList(YType.str, "exclude-group")
-
-                                    self.include_all_group = YLeafList(YType.str, "include-all-group")
-
-                                    self.include_any_group = YLeafList(YType.str, "include-any-group")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('exclude_group', YLeafList(YType.str, 'exclude-group')),
+                                        ('include_all_group', YLeafList(YType.str, 'include-all-group')),
+                                        ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                    ])
+                                    self.exclude_group = []
+                                    self.include_all_group = []
+                                    self.include_any_group = []
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -7766,14 +8092,17 @@ class Mpls(Entity):
                                     self.yang_parent_name = "admin-groups"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.exclude_group = YLeafList(YType.str, "exclude-group")
-
-                                    self.include_all_group = YLeafList(YType.str, "include-all-group")
-
-                                    self.include_any_group = YLeafList(YType.str, "include-any-group")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('exclude_group', YLeafList(YType.str, 'exclude-group')),
+                                        ('include_all_group', YLeafList(YType.str, 'include-all-group')),
+                                        ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                    ])
+                                    self.exclude_group = []
+                                    self.include_all_group = []
+                                    self.include_any_group = []
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -7784,7 +8113,7 @@ class Mpls(Entity):
                         """
                         List of p2p primary paths for a tunnel
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	Path name
                         	**type**\: str
@@ -7820,10 +8149,13 @@ class Mpls(Entity):
                             self.yang_parent_name = "p2p-tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State), "admin-groups" : ("admin_groups", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups)}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State)), ("admin-groups", ("admin_groups", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                            ])
+                            self.name = None
 
                             self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config()
                             self.config.parent = self
@@ -7839,7 +8171,7 @@ class Mpls(Entity):
                             self.admin_groups.parent = self
                             self._children_name_map["admin_groups"] = "admin-groups"
                             self._children_yang_names.add("admin-groups")
-                            self._segment_path = lambda: "p2p-secondary-paths" + "[name='" + self.name.get() + "']"
+                            self._segment_path = lambda: "p2p-secondary-paths" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths, ['name'], name, value)
@@ -7939,28 +8271,31 @@ class Mpls(Entity):
                                 self.yang_parent_name = "p2p-secondary-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.path_computation_method = YLeaf(YType.identityref, "path-computation-method")
-
-                                self.use_cspf = YLeaf(YType.boolean, "use-cspf")
-
-                                self.cspf_tiebreaker = YLeaf(YType.enumeration, "cspf-tiebreaker")
-
-                                self.path_computation_server = YLeaf(YType.str, "path-computation-server")
-
-                                self.explicit_path_name = YLeaf(YType.str, "explicit-path-name")
-
-                                self.preference = YLeaf(YType.uint8, "preference")
-
-                                self.setup_priority = YLeaf(YType.uint8, "setup-priority")
-
-                                self.hold_priority = YLeaf(YType.uint8, "hold-priority")
-
-                                self.retry_timer = YLeaf(YType.uint16, "retry-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
+                                    ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
+                                    ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
+                                    ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                    ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                    ('preference', YLeaf(YType.uint8, 'preference')),
+                                    ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                    ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                    ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                ])
+                                self.name = None
+                                self.path_computation_method = None
+                                self.use_cspf = None
+                                self.cspf_tiebreaker = None
+                                self.path_computation_server = None
+                                self.explicit_path_name = None
+                                self.preference = None
+                                self.setup_priority = None
+                                self.hold_priority = None
+                                self.retry_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -8061,28 +8396,31 @@ class Mpls(Entity):
                                 self.yang_parent_name = "p2p-secondary-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.path_computation_method = YLeaf(YType.identityref, "path-computation-method")
-
-                                self.use_cspf = YLeaf(YType.boolean, "use-cspf")
-
-                                self.cspf_tiebreaker = YLeaf(YType.enumeration, "cspf-tiebreaker")
-
-                                self.path_computation_server = YLeaf(YType.str, "path-computation-server")
-
-                                self.explicit_path_name = YLeaf(YType.str, "explicit-path-name")
-
-                                self.preference = YLeaf(YType.uint8, "preference")
-
-                                self.setup_priority = YLeaf(YType.uint8, "setup-priority")
-
-                                self.hold_priority = YLeaf(YType.uint8, "hold-priority")
-
-                                self.retry_timer = YLeaf(YType.uint16, "retry-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('path_computation_method', YLeaf(YType.identityref, 'path-computation-method')),
+                                    ('use_cspf', YLeaf(YType.boolean, 'use-cspf')),
+                                    ('cspf_tiebreaker', YLeaf(YType.enumeration, 'cspf-tiebreaker')),
+                                    ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                    ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                    ('preference', YLeaf(YType.uint8, 'preference')),
+                                    ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                                    ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                                    ('retry_timer', YLeaf(YType.uint16, 'retry-timer')),
+                                ])
+                                self.name = None
+                                self.path_computation_method = None
+                                self.use_cspf = None
+                                self.cspf_tiebreaker = None
+                                self.path_computation_server = None
+                                self.explicit_path_name = None
+                                self.preference = None
+                                self.setup_priority = None
+                                self.hold_priority = None
+                                self.retry_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -8118,8 +8456,10 @@ class Mpls(Entity):
                                 self.yang_parent_name = "p2p-secondary-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config), "state" : ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config)), ("state", ("state", Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config()
                                 self.config.parent = self
@@ -8172,14 +8512,17 @@ class Mpls(Entity):
                                     self.yang_parent_name = "admin-groups"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.exclude_group = YLeafList(YType.str, "exclude-group")
-
-                                    self.include_all_group = YLeafList(YType.str, "include-all-group")
-
-                                    self.include_any_group = YLeafList(YType.str, "include-any-group")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('exclude_group', YLeafList(YType.str, 'exclude-group')),
+                                        ('include_all_group', YLeafList(YType.str, 'include-all-group')),
+                                        ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                    ])
+                                    self.exclude_group = []
+                                    self.include_all_group = []
+                                    self.include_any_group = []
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -8225,14 +8568,17 @@ class Mpls(Entity):
                                     self.yang_parent_name = "admin-groups"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.exclude_group = YLeafList(YType.str, "exclude-group")
-
-                                    self.include_all_group = YLeafList(YType.str, "include-all-group")
-
-                                    self.include_any_group = YLeafList(YType.str, "include-any-group")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('exclude_group', YLeafList(YType.str, 'exclude-group')),
+                                        ('include_all_group', YLeafList(YType.str, 'include-all-group')),
+                                        ('include_any_group', YLeafList(YType.str, 'include-any-group')),
+                                    ])
+                                    self.exclude_group = []
+                                    self.include_all_group = []
+                                    self.include_any_group = []
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -8263,8 +8609,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "lsps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"path-setup-protocol" : ("path_setup_protocol", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("path-setup-protocol", ("path_setup_protocol", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.path_setup_protocol = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol()
                 self.path_setup_protocol.parent = self
@@ -8307,8 +8655,10 @@ class Mpls(Entity):
                     self.yang_parent_name = "unconstrained-path"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"ldp" : ("ldp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp), "segment-routing" : ("segment_routing", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("ldp", ("ldp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp)), ("segment-routing", ("segment_routing", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.ldp = None
                     self._children_name_map["ldp"] = "ldp"
@@ -8346,9 +8696,11 @@ class Mpls(Entity):
                         self.yang_parent_name = "path-setup-protocol"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"tunnel" : ("tunnel", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("tunnel", ("tunnel", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel))])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
+                        self._leafs = OrderedDict()
 
                         self.tunnel = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel()
                         self.tunnel.parent = self
@@ -8366,7 +8718,7 @@ class Mpls(Entity):
                         .. attribute:: tunnel_type
                         
                         	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                        	**type**\:  :py:class:`TunnelType_ <ydk.models.openconfig.openconfig_mpls_types.TunnelType_>`
                         
                         .. attribute:: ldp_type
                         
@@ -8402,12 +8754,15 @@ class Mpls(Entity):
                             self.yang_parent_name = "ldp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"p2p-lsp" : ("p2p_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp), "p2mp-lsp" : ("p2mp_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp), "mp2mp-lsp" : ("mp2mp_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp)}
-                            self._child_list_classes = {}
-
-                            self.tunnel_type = YLeaf(YType.enumeration, "tunnel-type")
-
-                            self.ldp_type = YLeaf(YType.enumeration, "ldp-type")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("p2p-lsp", ("p2p_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp)), ("p2mp-lsp", ("p2mp_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp)), ("mp2mp-lsp", ("mp2mp_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('tunnel_type', YLeaf(YType.enumeration, 'tunnel-type')),
+                                ('ldp_type', YLeaf(YType.enumeration, 'ldp-type')),
+                            ])
+                            self.tunnel_type = None
+                            self.ldp_type = None
 
                             self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp()
                             self.p2p_lsp.parent = self
@@ -8431,7 +8786,7 @@ class Mpls(Entity):
 
                         class LdpType(Enum):
                             """
-                            LdpType
+                            LdpType (Enum Class)
 
                             specify basic or targeted LDP LSP
 
@@ -8482,10 +8837,13 @@ class Mpls(Entity):
                                 self.yang_parent_name = "tunnel"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.fec_address = YLeafList(YType.str, "fec-address")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('fec_address', YLeafList(YType.str, 'fec-address')),
+                                ])
+                                self.fec_address = []
                                 self._segment_path = lambda: "p2p-lsp"
                                 self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/ldp/tunnel/%s" % self._segment_path()
 
@@ -8511,8 +8869,10 @@ class Mpls(Entity):
                                 self.yang_parent_name = "tunnel"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
                                 self._segment_path = lambda: "p2mp-lsp"
                                 self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/ldp/tunnel/%s" % self._segment_path()
 
@@ -8535,8 +8895,10 @@ class Mpls(Entity):
                                 self.yang_parent_name = "tunnel"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
                                 self._segment_path = lambda: "mp2mp-lsp"
                                 self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/ldp/tunnel/%s" % self._segment_path()
 
@@ -8567,9 +8929,11 @@ class Mpls(Entity):
                         self.yang_parent_name = "path-setup-protocol"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"tunnel" : ("tunnel", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("tunnel", ("tunnel", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel))])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
+                        self._leafs = OrderedDict()
 
                         self.tunnel = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel()
                         self.tunnel.parent = self
@@ -8587,7 +8951,7 @@ class Mpls(Entity):
                         .. attribute:: tunnel_type
                         
                         	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\:  :py:class:`TunnelType <ydk.models.openconfig.openconfig_mpls_types.TunnelType>`
+                        	**type**\:  :py:class:`TunnelType_ <ydk.models.openconfig.openconfig_mpls_types.TunnelType_>`
                         
                         .. attribute:: p2p_lsp
                         
@@ -8608,10 +8972,13 @@ class Mpls(Entity):
                             self.yang_parent_name = "segment-routing"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"p2p-lsp" : ("p2p_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp)}
-                            self._child_list_classes = {}
-
-                            self.tunnel_type = YLeaf(YType.enumeration, "tunnel-type")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("p2p-lsp", ("p2p_lsp", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('tunnel_type', YLeaf(YType.enumeration, 'tunnel-type')),
+                            ])
+                            self.tunnel_type = None
 
                             self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp()
                             self.p2p_lsp.parent = self
@@ -8647,8 +9014,10 @@ class Mpls(Entity):
                                 self.yang_parent_name = "tunnel"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"fec" : ("fec", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("fec", ("fec", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec))])
+                                self._leafs = OrderedDict()
 
                                 self.fec = YList(self)
                                 self._segment_path = lambda: "p2p-lsp"
@@ -8662,7 +9031,7 @@ class Mpls(Entity):
                                 """
                                 List of FECs that are to be originated as SR LSPs
                                 
-                                .. attribute:: fec_address  <key>
+                                .. attribute:: fec_address  (key)
                                 
                                 	FEC that is to be advertised as part of the Prefix\-SID
                                 	**type**\: union of the below types:
@@ -8704,10 +9073,13 @@ class Mpls(Entity):
                                     self.yang_parent_name = "p2p-lsp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"config" : ("config", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config), "state" : ("state", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State), "prefix-sid" : ("prefix_sid", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid)}
-                                    self._child_list_classes = {}
-
-                                    self.fec_address = YLeaf(YType.str, "fec-address")
+                                    self.ylist_key_names = ['fec_address']
+                                    self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config)), ("state", ("state", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State)), ("prefix-sid", ("prefix_sid", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('fec_address', YLeaf(YType.str, 'fec-address')),
+                                    ])
+                                    self.fec_address = None
 
                                     self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config()
                                     self.config.parent = self
@@ -8723,7 +9095,7 @@ class Mpls(Entity):
                                     self.prefix_sid.parent = self
                                     self._children_name_map["prefix_sid"] = "prefix-sid"
                                     self._children_yang_names.add("prefix-sid")
-                                    self._segment_path = lambda: "fec" + "[fec-address='" + self.fec_address.get() + "']"
+                                    self._segment_path = lambda: "fec" + "[fec-address='" + str(self.fec_address) + "']"
                                     self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/segment-routing/tunnel/p2p-lsp/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
@@ -8762,10 +9134,13 @@ class Mpls(Entity):
                                         self.yang_parent_name = "fec"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.fec_address = YLeaf(YType.str, "fec-address")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fec_address', YLeaf(YType.str, 'fec-address')),
+                                        ])
+                                        self.fec_address = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -8803,10 +9178,13 @@ class Mpls(Entity):
                                         self.yang_parent_name = "fec"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.fec_address = YLeaf(YType.str, "fec-address")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fec_address', YLeaf(YType.str, 'fec-address')),
+                                        ])
+                                        self.fec_address = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -8842,8 +9220,10 @@ class Mpls(Entity):
                                         self.yang_parent_name = "fec"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config), "state" : ("state", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("config", ("config", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config)), ("state", ("state", Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config()
                                         self.config.parent = self
@@ -8893,14 +9273,17 @@ class Mpls(Entity):
                                             self.yang_parent_name = "prefix-sid"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.node_flag = YLeaf(YType.boolean, "node-flag")
-
-                                            self.last_hop_behavior = YLeaf(YType.enumeration, "last-hop-behavior")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('node_flag', YLeaf(YType.boolean, 'node-flag')),
+                                                ('last_hop_behavior', YLeaf(YType.enumeration, 'last-hop-behavior')),
+                                            ])
+                                            self.type = None
+                                            self.node_flag = None
+                                            self.last_hop_behavior = None
                                             self._segment_path = lambda: "config"
 
                                         def __setattr__(self, name, value):
@@ -8908,7 +9291,7 @@ class Mpls(Entity):
 
                                         class LastHopBehavior(Enum):
                                             """
-                                            LastHopBehavior
+                                            LastHopBehavior (Enum Class)
 
                                             Configuration relating to the LFIB actions for the
 
@@ -8947,7 +9330,7 @@ class Mpls(Entity):
 
                                         class Type(Enum):
                                             """
-                                            Type
+                                            Type (Enum Class)
 
                                             Specifies how the value of the Prefix\-SID should be
 
@@ -9017,14 +9400,17 @@ class Mpls(Entity):
                                             self.yang_parent_name = "prefix-sid"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.node_flag = YLeaf(YType.boolean, "node-flag")
-
-                                            self.last_hop_behavior = YLeaf(YType.enumeration, "last-hop-behavior")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('node_flag', YLeaf(YType.boolean, 'node-flag')),
+                                                ('last_hop_behavior', YLeaf(YType.enumeration, 'last-hop-behavior')),
+                                            ])
+                                            self.type = None
+                                            self.node_flag = None
+                                            self.last_hop_behavior = None
                                             self._segment_path = lambda: "state"
 
                                         def __setattr__(self, name, value):
@@ -9032,7 +9418,7 @@ class Mpls(Entity):
 
                                         class LastHopBehavior(Enum):
                                             """
-                                            LastHopBehavior
+                                            LastHopBehavior (Enum Class)
 
                                             Configuration relating to the LFIB actions for the
 
@@ -9071,7 +9457,7 @@ class Mpls(Entity):
 
                                         class Type(Enum):
                                             """
-                                            Type
+                                            Type (Enum Class)
 
                                             Specifies how the value of the Prefix\-SID should be
 
@@ -9129,8 +9515,10 @@ class Mpls(Entity):
                 self.yang_parent_name = "lsps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"label-switched-path" : ("label_switched_path", Mpls.Lsps.StaticLsps.LabelSwitchedPath)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("label-switched-path", ("label_switched_path", Mpls.Lsps.StaticLsps.LabelSwitchedPath))])
+                self._leafs = OrderedDict()
 
                 self.label_switched_path = YList(self)
                 self._segment_path = lambda: "static-lsps"
@@ -9144,7 +9532,7 @@ class Mpls(Entity):
                 """
                 list of defined static LSPs
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	name to identify the LSP
                 	**type**\: str
@@ -9178,10 +9566,13 @@ class Mpls(Entity):
                     self.yang_parent_name = "static-lsps"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"ingress" : ("ingress", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress), "transit" : ("transit", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit), "egress" : ("egress", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("ingress", ("ingress", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress)), ("transit", ("transit", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit)), ("egress", ("egress", Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.ingress = Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress()
                     self.ingress.parent = self
@@ -9197,7 +9588,7 @@ class Mpls(Entity):
                     self.egress.parent = self
                     self._children_name_map["egress"] = "egress"
                     self._children_yang_names.add("egress")
-                    self._segment_path = lambda: "label-switched-path" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "label-switched-path" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "openconfig-mpls:mpls/lsps/static-lsps/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -9231,7 +9622,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     .. attribute:: push_label
                     
@@ -9242,7 +9633,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     
 
@@ -9258,14 +9649,17 @@ class Mpls(Entity):
                         self.yang_parent_name = "label-switched-path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-
-                        self.incoming_label = YLeaf(YType.str, "incoming-label")
-
-                        self.push_label = YLeaf(YType.str, "push-label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                            ('push_label', YLeaf(YType.str, 'push-label')),
+                        ])
+                        self.next_hop = None
+                        self.incoming_label = None
+                        self.push_label = None
                         self._segment_path = lambda: "ingress"
 
                     def __setattr__(self, name, value):
@@ -9299,7 +9693,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     .. attribute:: push_label
                     
@@ -9310,7 +9704,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     
 
@@ -9326,14 +9720,17 @@ class Mpls(Entity):
                         self.yang_parent_name = "label-switched-path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-
-                        self.incoming_label = YLeaf(YType.str, "incoming-label")
-
-                        self.push_label = YLeaf(YType.str, "push-label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                            ('push_label', YLeaf(YType.str, 'push-label')),
+                        ])
+                        self.next_hop = None
+                        self.incoming_label = None
+                        self.push_label = None
                         self._segment_path = lambda: "transit"
 
                     def __setattr__(self, name, value):
@@ -9367,7 +9764,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     .. attribute:: push_label
                     
@@ -9378,7 +9775,7 @@ class Mpls(Entity):
                     
                     			**range:** 16..1048575
                     
-                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_mpls_types.MplsLabel>`
+                    		**type**\:  :py:class:`MplsLabel <ydk.models.openconfig.openconfig_segment_routing.MplsLabel>`
                     
                     
 
@@ -9394,14 +9791,17 @@ class Mpls(Entity):
                         self.yang_parent_name = "label-switched-path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-
-                        self.incoming_label = YLeaf(YType.str, "incoming-label")
-
-                        self.push_label = YLeaf(YType.str, "push-label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('incoming_label', YLeaf(YType.str, 'incoming-label')),
+                            ('push_label', YLeaf(YType.str, 'push-label')),
+                        ])
+                        self.next_hop = None
+                        self.incoming_label = None
+                        self.push_label = None
                         self._segment_path = lambda: "egress"
 
                     def __setattr__(self, name, value):

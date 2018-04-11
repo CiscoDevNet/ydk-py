@@ -82,15 +82,17 @@ REFERENCES
 http\://zed.cisco.com/confluence/display/SBC/SBC
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class CiscoSbcPeriodicStatsInterval(Enum):
     """
-    CiscoSbcPeriodicStatsInterval
+    CiscoSbcPeriodicStatsInterval (Enum Class)
 
     This textual convention represents the interval values for
 
@@ -188,8 +190,10 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"csbCallStatsInstanceTable" : ("csbcallstatsinstancetable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable), "csbCallStatsTable" : ("csbcallstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable), "csbCurrPeriodicStatsTable" : ("csbcurrperiodicstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable), "csbHistoryStatsTable" : ("csbhistorystatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable), "csbPerFlowStatsTable" : ("csbperflowstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable), "csbH248StatsTable" : ("csbh248statstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable), "csbH248StatsRev1Table" : ("csbh248statsrev1table", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("csbCallStatsInstanceTable", ("csbcallstatsinstancetable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable)), ("csbCallStatsTable", ("csbcallstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable)), ("csbCurrPeriodicStatsTable", ("csbcurrperiodicstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable)), ("csbHistoryStatsTable", ("csbhistorystatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable)), ("csbPerFlowStatsTable", ("csbperflowstatstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable)), ("csbH248StatsTable", ("csbh248statstable", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable)), ("csbH248StatsRev1Table", ("csbh248statsrev1table", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.csbcallstatsinstancetable = CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable()
         self.csbcallstatsinstancetable.parent = self
@@ -254,8 +258,10 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbCallStatsInstanceEntry" : ("csbcallstatsinstanceentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csbCallStatsInstanceEntry", ("csbcallstatsinstanceentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry))])
+            self._leafs = OrderedDict()
 
             self.csbcallstatsinstanceentry = YList(self)
             self._segment_path = lambda: "csbCallStatsInstanceTable"
@@ -271,7 +277,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             entry in this table for each SBC instance, as identified by a 
             value of csbCallStatsInstanceIndex.
             
-            .. attribute:: csbcallstatsinstanceindex  <key>
+            .. attribute:: csbcallstatsinstanceindex  (key)
             
             	This object uniquely identifies the sequence number of an entity or slot that is configured per device. This index is assigned arbitrarily by the engine and is not saved over reboots
             	**type**\: int
@@ -299,13 +305,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self.yang_parent_name = "csbCallStatsInstanceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.uint32, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsinstancephysicalindex = YLeaf(YType.int32, "csbCallStatsInstancePhysicalIndex")
-                self._segment_path = lambda: "csbCallStatsInstanceEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']"
+                self.ylist_key_names = ['csbcallstatsinstanceindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csbcallstatsinstanceindex', YLeaf(YType.uint32, 'csbCallStatsInstanceIndex')),
+                    ('csbcallstatsinstancephysicalindex', YLeaf(YType.int32, 'csbCallStatsInstancePhysicalIndex')),
+                ])
+                self.csbcallstatsinstanceindex = None
+                self.csbcallstatsinstancephysicalindex = None
+                self._segment_path = lambda: "csbCallStatsInstanceEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbCallStatsInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -343,8 +352,10 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbCallStatsEntry" : ("csbcallstatsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csbCallStatsEntry", ("csbcallstatsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry))])
+            self._leafs = OrderedDict()
 
             self.csbcallstatsentry = YList(self)
             self._segment_path = lambda: "csbCallStatsTable"
@@ -362,7 +373,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             other index of this table is csbCallStatsInstanceIndex which is
             defined in csbCallStatsInstanceTable.
             
-            .. attribute:: csbcallstatsinstanceindex  <key>
+            .. attribute:: csbcallstatsinstanceindex  (key)
             
             	
             	**type**\: int
@@ -371,7 +382,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
             
-            .. attribute:: csbcallstatsserviceindex  <key>
+            .. attribute:: csbcallstatsserviceindex  (key)
             
             	This object identifies the index of the name of the SBC service configured. This object also acts as an index for the table
             	**type**\: int
@@ -613,63 +624,66 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self.yang_parent_name = "csbCallStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsserviceindex = YLeaf(YType.uint32, "csbCallStatsServiceIndex")
-
-                self.csbcallstatssbcname = YLeaf(YType.str, "csbCallStatsSbcName")
-
-                self.csbcallstatscallshigh = YLeaf(YType.uint32, "csbCallStatsCallsHigh")
-
-                self.csbcallstatsrate1sec = YLeaf(YType.uint32, "csbCallStatsRate1Sec")
-
-                self.csbcallstatscallslow = YLeaf(YType.uint32, "csbCallStatsCallsLow")
-
-                self.csbcallstatsavailableflows = YLeaf(YType.uint32, "csbCallStatsAvailableFlows")
-
-                self.csbcallstatsusedflows = YLeaf(YType.uint32, "csbCallStatsUsedFlows")
-
-                self.csbcallstatspeakflows = YLeaf(YType.uint32, "csbCallStatsPeakFlows")
-
-                self.csbcallstatstotalflows = YLeaf(YType.uint32, "csbCallStatsTotalFlows")
-
-                self.csbcallstatsusedsigflows = YLeaf(YType.uint32, "csbCallStatsUsedSigFlows")
-
-                self.csbcallstatspeaksigflows = YLeaf(YType.uint32, "csbCallStatsPeakSigFlows")
-
-                self.csbcallstatstotalsigflows = YLeaf(YType.uint32, "csbCallStatsTotalSigFlows")
-
-                self.csbcallstatsavailablepktrate = YLeaf(YType.uint32, "csbCallStatsAvailablePktRate")
-
-                self.csbcallstatsunclassifiedpkts = YLeaf(YType.uint64, "csbCallStatsUnclassifiedPkts")
-
-                self.csbcallstatsrtppktssent = YLeaf(YType.uint64, "csbCallStatsRTPPktsSent")
-
-                self.csbcallstatsrtppktsrcvd = YLeaf(YType.uint64, "csbCallStatsRTPPktsRcvd")
-
-                self.csbcallstatsrtppktsdiscard = YLeaf(YType.uint64, "csbCallStatsRTPPktsDiscard")
-
-                self.csbcallstatsrtpoctetssent = YLeaf(YType.uint64, "csbCallStatsRTPOctetsSent")
-
-                self.csbcallstatsrtpoctetsrcvd = YLeaf(YType.uint64, "csbCallStatsRTPOctetsRcvd")
-
-                self.csbcallstatsrtpoctetsdiscard = YLeaf(YType.uint64, "csbCallStatsRTPOctetsDiscard")
-
-                self.csbcallstatsnomediacount = YLeaf(YType.uint32, "csbCallStatsNoMediaCount")
-
-                self.csbcallstatsrouteerrors = YLeaf(YType.uint32, "csbCallStatsRouteErrors")
-
-                self.csbcallstatsavailabletranscodeflows = YLeaf(YType.uint32, "csbCallStatsAvailableTranscodeFlows")
-
-                self.csbcallstatsactivetranscodeflows = YLeaf(YType.uint32, "csbCallStatsActiveTranscodeFlows")
-
-                self.csbcallstatspeaktranscodeflows = YLeaf(YType.uint32, "csbCallStatsPeakTranscodeFlows")
-
-                self.csbcallstatstotaltranscodeflows = YLeaf(YType.uint32, "csbCallStatsTotalTranscodeFlows")
-                self._segment_path = lambda: "csbCallStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']"
+                self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
+                    ('csbcallstatsserviceindex', YLeaf(YType.uint32, 'csbCallStatsServiceIndex')),
+                    ('csbcallstatssbcname', YLeaf(YType.str, 'csbCallStatsSbcName')),
+                    ('csbcallstatscallshigh', YLeaf(YType.uint32, 'csbCallStatsCallsHigh')),
+                    ('csbcallstatsrate1sec', YLeaf(YType.uint32, 'csbCallStatsRate1Sec')),
+                    ('csbcallstatscallslow', YLeaf(YType.uint32, 'csbCallStatsCallsLow')),
+                    ('csbcallstatsavailableflows', YLeaf(YType.uint32, 'csbCallStatsAvailableFlows')),
+                    ('csbcallstatsusedflows', YLeaf(YType.uint32, 'csbCallStatsUsedFlows')),
+                    ('csbcallstatspeakflows', YLeaf(YType.uint32, 'csbCallStatsPeakFlows')),
+                    ('csbcallstatstotalflows', YLeaf(YType.uint32, 'csbCallStatsTotalFlows')),
+                    ('csbcallstatsusedsigflows', YLeaf(YType.uint32, 'csbCallStatsUsedSigFlows')),
+                    ('csbcallstatspeaksigflows', YLeaf(YType.uint32, 'csbCallStatsPeakSigFlows')),
+                    ('csbcallstatstotalsigflows', YLeaf(YType.uint32, 'csbCallStatsTotalSigFlows')),
+                    ('csbcallstatsavailablepktrate', YLeaf(YType.uint32, 'csbCallStatsAvailablePktRate')),
+                    ('csbcallstatsunclassifiedpkts', YLeaf(YType.uint64, 'csbCallStatsUnclassifiedPkts')),
+                    ('csbcallstatsrtppktssent', YLeaf(YType.uint64, 'csbCallStatsRTPPktsSent')),
+                    ('csbcallstatsrtppktsrcvd', YLeaf(YType.uint64, 'csbCallStatsRTPPktsRcvd')),
+                    ('csbcallstatsrtppktsdiscard', YLeaf(YType.uint64, 'csbCallStatsRTPPktsDiscard')),
+                    ('csbcallstatsrtpoctetssent', YLeaf(YType.uint64, 'csbCallStatsRTPOctetsSent')),
+                    ('csbcallstatsrtpoctetsrcvd', YLeaf(YType.uint64, 'csbCallStatsRTPOctetsRcvd')),
+                    ('csbcallstatsrtpoctetsdiscard', YLeaf(YType.uint64, 'csbCallStatsRTPOctetsDiscard')),
+                    ('csbcallstatsnomediacount', YLeaf(YType.uint32, 'csbCallStatsNoMediaCount')),
+                    ('csbcallstatsrouteerrors', YLeaf(YType.uint32, 'csbCallStatsRouteErrors')),
+                    ('csbcallstatsavailabletranscodeflows', YLeaf(YType.uint32, 'csbCallStatsAvailableTranscodeFlows')),
+                    ('csbcallstatsactivetranscodeflows', YLeaf(YType.uint32, 'csbCallStatsActiveTranscodeFlows')),
+                    ('csbcallstatspeaktranscodeflows', YLeaf(YType.uint32, 'csbCallStatsPeakTranscodeFlows')),
+                    ('csbcallstatstotaltranscodeflows', YLeaf(YType.uint32, 'csbCallStatsTotalTranscodeFlows')),
+                ])
+                self.csbcallstatsinstanceindex = None
+                self.csbcallstatsserviceindex = None
+                self.csbcallstatssbcname = None
+                self.csbcallstatscallshigh = None
+                self.csbcallstatsrate1sec = None
+                self.csbcallstatscallslow = None
+                self.csbcallstatsavailableflows = None
+                self.csbcallstatsusedflows = None
+                self.csbcallstatspeakflows = None
+                self.csbcallstatstotalflows = None
+                self.csbcallstatsusedsigflows = None
+                self.csbcallstatspeaksigflows = None
+                self.csbcallstatstotalsigflows = None
+                self.csbcallstatsavailablepktrate = None
+                self.csbcallstatsunclassifiedpkts = None
+                self.csbcallstatsrtppktssent = None
+                self.csbcallstatsrtppktsrcvd = None
+                self.csbcallstatsrtppktsdiscard = None
+                self.csbcallstatsrtpoctetssent = None
+                self.csbcallstatsrtpoctetsrcvd = None
+                self.csbcallstatsrtpoctetsdiscard = None
+                self.csbcallstatsnomediacount = None
+                self.csbcallstatsrouteerrors = None
+                self.csbcallstatsavailabletranscodeflows = None
+                self.csbcallstatsactivetranscodeflows = None
+                self.csbcallstatspeaktranscodeflows = None
+                self.csbcallstatstotaltranscodeflows = None
+                self._segment_path = lambda: "csbCallStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbCallStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -714,8 +728,10 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbCurrPeriodicStatsEntry" : ("csbcurrperiodicstatsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable.Csbcurrperiodicstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csbCurrPeriodicStatsEntry", ("csbcurrperiodicstatsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable.Csbcurrperiodicstatsentry))])
+            self._leafs = OrderedDict()
 
             self.csbcurrperiodicstatsentry = YList(self)
             self._segment_path = lambda: "csbCurrPeriodicStatsTable"
@@ -733,7 +749,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
             and csbCallStatsServiceIndex defined in csbCallStatsTable.
             
-            .. attribute:: csbcallstatsinstanceindex  <key>
+            .. attribute:: csbcallstatsinstanceindex  (key)
             
             	
             	**type**\: int
@@ -742,7 +758,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
             
-            .. attribute:: csbcallstatsserviceindex  <key>
+            .. attribute:: csbcallstatsserviceindex  (key)
             
             	
             	**type**\: int
@@ -751,7 +767,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
             
-            .. attribute:: csbcurrperiodicstatsinterval  <key>
+            .. attribute:: csbcurrperiodicstatsinterval  (key)
             
             	This object identifies the interval for which the periodic statistics information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour , 1 Day. This object acts as index for the table
             	**type**\:  :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
@@ -1139,105 +1155,108 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self.yang_parent_name = "csbCurrPeriodicStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
-
-                self.csbcurrperiodicstatsinterval = YLeaf(YType.enumeration, "csbCurrPeriodicStatsInterval")
-
-                self.csbcurrperiodicstatsactivecalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveCalls")
-
-                self.csbcurrperiodicstatsactivatingcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActivatingCalls")
-
-                self.csbcurrperiodicstatsdeactivatingcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDeactivatingCalls")
-
-                self.csbcurrperiodicstatstotalcallattempts = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalCallAttempts")
-
-                self.csbcurrperiodicstatsfailedcallattempts = YLeaf(YType.uint32, "csbCurrPeriodicStatsFailedCallAttempts")
-
-                self.csbcurrperiodicstatscallroutingfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallRoutingFailure")
-
-                self.csbcurrperiodicstatscallresourcefailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallResourceFailure")
-
-                self.csbcurrperiodicstatscallmediafailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallMediaFailure")
-
-                self.csbcurrperiodicstatscallsigfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSigFailure")
-
-                self.csbcurrperiodicstatsactivecallfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveCallFailure")
-
-                self.csbcurrperiodicstatscongestionfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCongestionFailure")
-
-                self.csbcurrperiodicstatscallsetuppolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupPolicyFailure")
-
-                self.csbcurrperiodicstatscallsetupnapolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupNAPolicyFailure")
-
-                self.csbcurrperiodicstatscallsetuproutingpolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupRoutingPolicyFailure")
-
-                self.csbcurrperiodicstatscallsetupcacpolicyfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACPolicyFailure")
-
-                self.csbcurrperiodicstatscallsetupcaccalllimitfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACCallLimitFailure")
-
-                self.csbcurrperiodicstatscallsetupcacratelimitfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACRateLimitFailure")
-
-                self.csbcurrperiodicstatscallsetupcacbandwidthfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACBandwidthFailure")
-
-                self.csbcurrperiodicstatscallsetupcacmedialimitfailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACMediaLimitFailure")
-
-                self.csbcurrperiodicstatscallsetupcacmediaupdatefailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsCallSetupCACMediaUpdateFailure")
-
-                self.csbcurrperiodicstatstimestamp = YLeaf(YType.str, "csbCurrPeriodicStatsTimestamp")
-
-                self.csbcurrperiodicstatstranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsTranscodedCalls")
-
-                self.csbcurrperiodicstatstransratedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsTransratedCalls")
-
-                self.csbcurrperiodicstatstotalcallupdatefailure = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalCallUpdateFailure")
-
-                self.csbcurrperiodicstatsactiveipv6calls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveIpv6Calls")
-
-                self.csbcurrperiodicstatsactiveemergencycalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveEmergencyCalls")
-
-                self.csbcurrperiodicstatsactivee2emergencycalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsActiveE2EmergencyCalls")
-
-                self.csbcurrperiodicstatsimsrxactivecalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxActiveCalls")
-
-                self.csbcurrperiodicstatsimsrxcallsetupfaiures = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxCallSetupFaiures")
-
-                self.csbcurrperiodicstatsimsrxcallrenegotiationattempts = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxCallRenegotiationAttempts")
-
-                self.csbcurrperiodicstatsimsrxcallrenegotiationfailures = YLeaf(YType.uint32, "csbCurrPeriodicStatsImsRxCallRenegotiationFailures")
-
-                self.csbcurrperiodicstatsaudiotranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsAudioTranscodedCalls")
-
-                self.csbcurrperiodicstatsfaxtranscodedcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsFaxTranscodedCalls")
-
-                self.csbcurrperiodicstatsrtpdisallowedfailures = YLeaf(YType.uint32, "csbCurrPeriodicStatsRtpDisallowedFailures")
-
-                self.csbcurrperiodicstatssrtpdisallowedfailures = YLeaf(YType.uint32, "csbCurrPeriodicStatsSrtpDisallowedFailures")
-
-                self.csbcurrperiodicstatsnonsrtpcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsNonSrtpCalls")
-
-                self.csbcurrperiodicstatssrtpnoniwcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsSrtpNonIwCalls")
-
-                self.csbcurrperiodicstatssrtpiwcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsSrtpIwCalls")
-
-                self.csbcurrperiodicstatsdtmfiw2833calls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIw2833Calls")
-
-                self.csbcurrperiodicstatsdtmfiwinbandcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIwInbandCalls")
-
-                self.csbcurrperiodicstatsdtmfiw2833inbandcalls = YLeaf(YType.uint32, "csbCurrPeriodicStatsDtmfIw2833InbandCalls")
-
-                self.csbcurrperiodicstatstotaltapsrequested = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalTapsRequested")
-
-                self.csbcurrperiodicstatstotaltapssucceeded = YLeaf(YType.uint32, "csbCurrPeriodicStatsTotalTapsSucceeded")
-
-                self.csbcurrperiodicstatscurrenttaps = YLeaf(YType.uint32, "csbCurrPeriodicStatsCurrentTaps")
-
-                self.csbcurrperiodicipseccalls = YLeaf(YType.uint32, "csbCurrPeriodicIpsecCalls")
-                self._segment_path = lambda: "csbCurrPeriodicStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbCurrPeriodicStatsInterval='" + self.csbcurrperiodicstatsinterval.get() + "']"
+                self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbcurrperiodicstatsinterval']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
+                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
+                    ('csbcurrperiodicstatsinterval', YLeaf(YType.enumeration, 'csbCurrPeriodicStatsInterval')),
+                    ('csbcurrperiodicstatsactivecalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsActiveCalls')),
+                    ('csbcurrperiodicstatsactivatingcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsActivatingCalls')),
+                    ('csbcurrperiodicstatsdeactivatingcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsDeactivatingCalls')),
+                    ('csbcurrperiodicstatstotalcallattempts', YLeaf(YType.uint32, 'csbCurrPeriodicStatsTotalCallAttempts')),
+                    ('csbcurrperiodicstatsfailedcallattempts', YLeaf(YType.uint32, 'csbCurrPeriodicStatsFailedCallAttempts')),
+                    ('csbcurrperiodicstatscallroutingfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallRoutingFailure')),
+                    ('csbcurrperiodicstatscallresourcefailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallResourceFailure')),
+                    ('csbcurrperiodicstatscallmediafailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallMediaFailure')),
+                    ('csbcurrperiodicstatscallsigfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSigFailure')),
+                    ('csbcurrperiodicstatsactivecallfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsActiveCallFailure')),
+                    ('csbcurrperiodicstatscongestionfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCongestionFailure')),
+                    ('csbcurrperiodicstatscallsetuppolicyfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupPolicyFailure')),
+                    ('csbcurrperiodicstatscallsetupnapolicyfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupNAPolicyFailure')),
+                    ('csbcurrperiodicstatscallsetuproutingpolicyfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupRoutingPolicyFailure')),
+                    ('csbcurrperiodicstatscallsetupcacpolicyfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupCACPolicyFailure')),
+                    ('csbcurrperiodicstatscallsetupcaccalllimitfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupCACCallLimitFailure')),
+                    ('csbcurrperiodicstatscallsetupcacratelimitfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupCACRateLimitFailure')),
+                    ('csbcurrperiodicstatscallsetupcacbandwidthfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupCACBandwidthFailure')),
+                    ('csbcurrperiodicstatscallsetupcacmedialimitfailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupCACMediaLimitFailure')),
+                    ('csbcurrperiodicstatscallsetupcacmediaupdatefailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCallSetupCACMediaUpdateFailure')),
+                    ('csbcurrperiodicstatstimestamp', YLeaf(YType.str, 'csbCurrPeriodicStatsTimestamp')),
+                    ('csbcurrperiodicstatstranscodedcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsTranscodedCalls')),
+                    ('csbcurrperiodicstatstransratedcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsTransratedCalls')),
+                    ('csbcurrperiodicstatstotalcallupdatefailure', YLeaf(YType.uint32, 'csbCurrPeriodicStatsTotalCallUpdateFailure')),
+                    ('csbcurrperiodicstatsactiveipv6calls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsActiveIpv6Calls')),
+                    ('csbcurrperiodicstatsactiveemergencycalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsActiveEmergencyCalls')),
+                    ('csbcurrperiodicstatsactivee2emergencycalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsActiveE2EmergencyCalls')),
+                    ('csbcurrperiodicstatsimsrxactivecalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsImsRxActiveCalls')),
+                    ('csbcurrperiodicstatsimsrxcallsetupfaiures', YLeaf(YType.uint32, 'csbCurrPeriodicStatsImsRxCallSetupFaiures')),
+                    ('csbcurrperiodicstatsimsrxcallrenegotiationattempts', YLeaf(YType.uint32, 'csbCurrPeriodicStatsImsRxCallRenegotiationAttempts')),
+                    ('csbcurrperiodicstatsimsrxcallrenegotiationfailures', YLeaf(YType.uint32, 'csbCurrPeriodicStatsImsRxCallRenegotiationFailures')),
+                    ('csbcurrperiodicstatsaudiotranscodedcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsAudioTranscodedCalls')),
+                    ('csbcurrperiodicstatsfaxtranscodedcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsFaxTranscodedCalls')),
+                    ('csbcurrperiodicstatsrtpdisallowedfailures', YLeaf(YType.uint32, 'csbCurrPeriodicStatsRtpDisallowedFailures')),
+                    ('csbcurrperiodicstatssrtpdisallowedfailures', YLeaf(YType.uint32, 'csbCurrPeriodicStatsSrtpDisallowedFailures')),
+                    ('csbcurrperiodicstatsnonsrtpcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsNonSrtpCalls')),
+                    ('csbcurrperiodicstatssrtpnoniwcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsSrtpNonIwCalls')),
+                    ('csbcurrperiodicstatssrtpiwcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsSrtpIwCalls')),
+                    ('csbcurrperiodicstatsdtmfiw2833calls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsDtmfIw2833Calls')),
+                    ('csbcurrperiodicstatsdtmfiwinbandcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsDtmfIwInbandCalls')),
+                    ('csbcurrperiodicstatsdtmfiw2833inbandcalls', YLeaf(YType.uint32, 'csbCurrPeriodicStatsDtmfIw2833InbandCalls')),
+                    ('csbcurrperiodicstatstotaltapsrequested', YLeaf(YType.uint32, 'csbCurrPeriodicStatsTotalTapsRequested')),
+                    ('csbcurrperiodicstatstotaltapssucceeded', YLeaf(YType.uint32, 'csbCurrPeriodicStatsTotalTapsSucceeded')),
+                    ('csbcurrperiodicstatscurrenttaps', YLeaf(YType.uint32, 'csbCurrPeriodicStatsCurrentTaps')),
+                    ('csbcurrperiodicipseccalls', YLeaf(YType.uint32, 'csbCurrPeriodicIpsecCalls')),
+                ])
+                self.csbcallstatsinstanceindex = None
+                self.csbcallstatsserviceindex = None
+                self.csbcurrperiodicstatsinterval = None
+                self.csbcurrperiodicstatsactivecalls = None
+                self.csbcurrperiodicstatsactivatingcalls = None
+                self.csbcurrperiodicstatsdeactivatingcalls = None
+                self.csbcurrperiodicstatstotalcallattempts = None
+                self.csbcurrperiodicstatsfailedcallattempts = None
+                self.csbcurrperiodicstatscallroutingfailure = None
+                self.csbcurrperiodicstatscallresourcefailure = None
+                self.csbcurrperiodicstatscallmediafailure = None
+                self.csbcurrperiodicstatscallsigfailure = None
+                self.csbcurrperiodicstatsactivecallfailure = None
+                self.csbcurrperiodicstatscongestionfailure = None
+                self.csbcurrperiodicstatscallsetuppolicyfailure = None
+                self.csbcurrperiodicstatscallsetupnapolicyfailure = None
+                self.csbcurrperiodicstatscallsetuproutingpolicyfailure = None
+                self.csbcurrperiodicstatscallsetupcacpolicyfailure = None
+                self.csbcurrperiodicstatscallsetupcaccalllimitfailure = None
+                self.csbcurrperiodicstatscallsetupcacratelimitfailure = None
+                self.csbcurrperiodicstatscallsetupcacbandwidthfailure = None
+                self.csbcurrperiodicstatscallsetupcacmedialimitfailure = None
+                self.csbcurrperiodicstatscallsetupcacmediaupdatefailure = None
+                self.csbcurrperiodicstatstimestamp = None
+                self.csbcurrperiodicstatstranscodedcalls = None
+                self.csbcurrperiodicstatstransratedcalls = None
+                self.csbcurrperiodicstatstotalcallupdatefailure = None
+                self.csbcurrperiodicstatsactiveipv6calls = None
+                self.csbcurrperiodicstatsactiveemergencycalls = None
+                self.csbcurrperiodicstatsactivee2emergencycalls = None
+                self.csbcurrperiodicstatsimsrxactivecalls = None
+                self.csbcurrperiodicstatsimsrxcallsetupfaiures = None
+                self.csbcurrperiodicstatsimsrxcallrenegotiationattempts = None
+                self.csbcurrperiodicstatsimsrxcallrenegotiationfailures = None
+                self.csbcurrperiodicstatsaudiotranscodedcalls = None
+                self.csbcurrperiodicstatsfaxtranscodedcalls = None
+                self.csbcurrperiodicstatsrtpdisallowedfailures = None
+                self.csbcurrperiodicstatssrtpdisallowedfailures = None
+                self.csbcurrperiodicstatsnonsrtpcalls = None
+                self.csbcurrperiodicstatssrtpnoniwcalls = None
+                self.csbcurrperiodicstatssrtpiwcalls = None
+                self.csbcurrperiodicstatsdtmfiw2833calls = None
+                self.csbcurrperiodicstatsdtmfiwinbandcalls = None
+                self.csbcurrperiodicstatsdtmfiw2833inbandcalls = None
+                self.csbcurrperiodicstatstotaltapsrequested = None
+                self.csbcurrperiodicstatstotaltapssucceeded = None
+                self.csbcurrperiodicstatscurrenttaps = None
+                self.csbcurrperiodicipseccalls = None
+                self._segment_path = lambda: "csbCurrPeriodicStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbCurrPeriodicStatsInterval='" + str(self.csbcurrperiodicstatsinterval) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbCurrPeriodicStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1281,8 +1300,10 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbHistoryStatsEntry" : ("csbhistorystatsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable.Csbhistorystatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csbHistoryStatsEntry", ("csbhistorystatsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable.Csbhistorystatsentry))])
+            self._leafs = OrderedDict()
 
             self.csbhistorystatsentry = YList(self)
             self._segment_path = lambda: "csbHistoryStatsTable"
@@ -1299,7 +1320,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             csbCurrPeriodicStatsTable table and the data is moved from that
             table to this one.
             
-            .. attribute:: csbcallstatsinstanceindex  <key>
+            .. attribute:: csbcallstatsinstanceindex  (key)
             
             	
             	**type**\: int
@@ -1308,7 +1329,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
             
-            .. attribute:: csbcallstatsserviceindex  <key>
+            .. attribute:: csbcallstatsserviceindex  (key)
             
             	
             	**type**\: int
@@ -1317,12 +1338,12 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
             
-            .. attribute:: csbhistorystatsinterval  <key>
+            .. attribute:: csbhistorystatsinterval  (key)
             
             	This object identifies the interval for which the history statistics information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour , 1 day. This object acts as index for the table
             	**type**\:  :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
             
-            .. attribute:: csbhistorystatselements  <key>
+            .. attribute:: csbhistorystatselements  (key)
             
             	The platform assigns a number starting with one and increments it each for each new row. When the maximum          number of row is reached the oldest rows are deleted. It is up to the platform to determine the number of entries for each interval. It is recommended that each platform support at least one entry for 5 min, 15 mins, 1 hour and 1 day intervals
             	**type**\: int
@@ -1694,103 +1715,106 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self.yang_parent_name = "csbHistoryStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
-
-                self.csbhistorystatsinterval = YLeaf(YType.enumeration, "csbHistoryStatsInterval")
-
-                self.csbhistorystatselements = YLeaf(YType.uint32, "csbHistoryStatsElements")
-
-                self.csbhistorystatsactivecalls = YLeaf(YType.uint32, "csbHistoryStatsActiveCalls")
-
-                self.csbhistorystatstotalcallattempts = YLeaf(YType.uint32, "csbHistoryStatsTotalCallAttempts")
-
-                self.csbhistorystatsfailedcallattempts = YLeaf(YType.uint32, "csbHistoryStatsFailedCallAttempts")
-
-                self.csbhistorystatscallroutingfailure = YLeaf(YType.uint32, "csbHistoryStatsCallRoutingFailure")
-
-                self.csbhistorystatscallresourcefailure = YLeaf(YType.uint32, "csbHistoryStatsCallResourceFailure")
-
-                self.csbhistorystatscallmediafailure = YLeaf(YType.uint32, "csbHistoryStatsCallMediaFailure")
-
-                self.csbhistorystatsfailsigfailure = YLeaf(YType.uint32, "csbHistoryStatsFailSigFailure")
-
-                self.csbhistorystatsactivecallfailure = YLeaf(YType.uint32, "csbHistoryStatsActiveCallFailure")
-
-                self.csbhistorystatscongestionfailure = YLeaf(YType.uint32, "csbHistoryStatsCongestionFailure")
-
-                self.csbhistorystatscallsetuppolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupPolicyFailure")
-
-                self.csbhistorystatscallsetupnapolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupNAPolicyFailure")
-
-                self.csbhistorystatscallsetuproutingpolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupRoutingPolicyFailure")
-
-                self.csbhistorystatscallsetupcacpolicyfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACPolicyFailure")
-
-                self.csbhistorystatscallsetupcaccalllimitfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACCallLimitFailure")
-
-                self.csbhistorystatscallsetupcacratelimitfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACRateLimitFailure")
-
-                self.csbhistorystatscallsetupcacbandwidthfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACBandwidthFailure")
-
-                self.csbhistorystatscallsetupcacmedialimitfailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACMediaLimitFailure")
-
-                self.csbhistorystatscallsetupcacmediaupdatefailure = YLeaf(YType.uint32, "csbHistoryStatsCallSetupCACMediaUpdateFailure")
-
-                self.csbhistorystatstimestamp = YLeaf(YType.str, "csbHistoryStatsTimestamp")
-
-                self.csbhistroystatstranscodedcalls = YLeaf(YType.uint32, "csbHistroyStatsTranscodedCalls")
-
-                self.csbhistroystatstransratedcalls = YLeaf(YType.uint32, "csbHistroyStatsTransratedCalls")
-
-                self.csbhistorystatstotalcallupdatefailure = YLeaf(YType.uint32, "csbHistoryStatsTotalCallUpdateFailure")
-
-                self.csbhistorystatsactiveipv6calls = YLeaf(YType.uint32, "csbHistoryStatsActiveIpv6Calls")
-
-                self.csbhistorystatsactiveemergencycalls = YLeaf(YType.uint32, "csbHistoryStatsActiveEmergencyCalls")
-
-                self.csbhistorystatsactivee2emergencycalls = YLeaf(YType.uint32, "csbHistoryStatsActiveE2EmergencyCalls")
-
-                self.csbhistorystatsimsrxactivecalls = YLeaf(YType.uint32, "csbHistoryStatsImsRxActiveCalls")
-
-                self.csbhistorystatsimsrxcallsetupfailures = YLeaf(YType.uint32, "csbHistoryStatsImsRxCallSetupFailures")
-
-                self.csbhistorystatsimsrxcallrenegotiationattempts = YLeaf(YType.uint32, "csbHistoryStatsImsRxCallRenegotiationAttempts")
-
-                self.csbhistorystatsimsrxcallrenegotiationfailures = YLeaf(YType.uint32, "csbHistoryStatsImsRxCallRenegotiationFailures")
-
-                self.csbhistorystatsaudiotranscodedcalls = YLeaf(YType.uint32, "csbHistoryStatsAudioTranscodedCalls")
-
-                self.csbhistorystatsfaxtranscodedcalls = YLeaf(YType.uint32, "csbHistoryStatsFaxTranscodedCalls")
-
-                self.csbhistorystatsrtpdisallowedfailures = YLeaf(YType.uint32, "csbHistoryStatsRtpDisallowedFailures")
-
-                self.csbhistorystatssrtpdisallowedfailures = YLeaf(YType.uint32, "csbHistoryStatsSrtpDisallowedFailures")
-
-                self.csbhistorystatsnonsrtpcalls = YLeaf(YType.uint32, "csbHistoryStatsNonSrtpCalls")
-
-                self.csbhistorystatssrtpnoniwcalls = YLeaf(YType.uint32, "csbHistoryStatsSrtpNonIwCalls")
-
-                self.csbhistorystatssrtpiwcalls = YLeaf(YType.uint32, "csbHistoryStatsSrtpIwCalls")
-
-                self.csbhistorystatsdtmfiw2833calls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIw2833Calls")
-
-                self.csbhistorystatsdtmfiwinbandcalls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIwInbandCalls")
-
-                self.csbhistorystatsdtmfiw2833inbandcalls = YLeaf(YType.uint32, "csbHistoryStatsDtmfIw2833InbandCalls")
-
-                self.csbhistorystatstotaltapsrequested = YLeaf(YType.uint32, "csbHistoryStatsTotalTapsRequested")
-
-                self.csbhistorystatstotaltapssucceeded = YLeaf(YType.uint32, "csbHistoryStatsTotalTapsSucceeded")
-
-                self.csbhistorystatscurrenttaps = YLeaf(YType.uint32, "csbHistoryStatsCurrentTaps")
-
-                self.csbhistorystatsipseccalls = YLeaf(YType.uint32, "csbHistoryStatsIpsecCalls")
-                self._segment_path = lambda: "csbHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbHistoryStatsInterval='" + self.csbhistorystatsinterval.get() + "']" + "[csbHistoryStatsElements='" + self.csbhistorystatselements.get() + "']"
+                self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbhistorystatsinterval','csbhistorystatselements']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
+                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
+                    ('csbhistorystatsinterval', YLeaf(YType.enumeration, 'csbHistoryStatsInterval')),
+                    ('csbhistorystatselements', YLeaf(YType.uint32, 'csbHistoryStatsElements')),
+                    ('csbhistorystatsactivecalls', YLeaf(YType.uint32, 'csbHistoryStatsActiveCalls')),
+                    ('csbhistorystatstotalcallattempts', YLeaf(YType.uint32, 'csbHistoryStatsTotalCallAttempts')),
+                    ('csbhistorystatsfailedcallattempts', YLeaf(YType.uint32, 'csbHistoryStatsFailedCallAttempts')),
+                    ('csbhistorystatscallroutingfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallRoutingFailure')),
+                    ('csbhistorystatscallresourcefailure', YLeaf(YType.uint32, 'csbHistoryStatsCallResourceFailure')),
+                    ('csbhistorystatscallmediafailure', YLeaf(YType.uint32, 'csbHistoryStatsCallMediaFailure')),
+                    ('csbhistorystatsfailsigfailure', YLeaf(YType.uint32, 'csbHistoryStatsFailSigFailure')),
+                    ('csbhistorystatsactivecallfailure', YLeaf(YType.uint32, 'csbHistoryStatsActiveCallFailure')),
+                    ('csbhistorystatscongestionfailure', YLeaf(YType.uint32, 'csbHistoryStatsCongestionFailure')),
+                    ('csbhistorystatscallsetuppolicyfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupPolicyFailure')),
+                    ('csbhistorystatscallsetupnapolicyfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupNAPolicyFailure')),
+                    ('csbhistorystatscallsetuproutingpolicyfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupRoutingPolicyFailure')),
+                    ('csbhistorystatscallsetupcacpolicyfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupCACPolicyFailure')),
+                    ('csbhistorystatscallsetupcaccalllimitfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupCACCallLimitFailure')),
+                    ('csbhistorystatscallsetupcacratelimitfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupCACRateLimitFailure')),
+                    ('csbhistorystatscallsetupcacbandwidthfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupCACBandwidthFailure')),
+                    ('csbhistorystatscallsetupcacmedialimitfailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupCACMediaLimitFailure')),
+                    ('csbhistorystatscallsetupcacmediaupdatefailure', YLeaf(YType.uint32, 'csbHistoryStatsCallSetupCACMediaUpdateFailure')),
+                    ('csbhistorystatstimestamp', YLeaf(YType.str, 'csbHistoryStatsTimestamp')),
+                    ('csbhistroystatstranscodedcalls', YLeaf(YType.uint32, 'csbHistroyStatsTranscodedCalls')),
+                    ('csbhistroystatstransratedcalls', YLeaf(YType.uint32, 'csbHistroyStatsTransratedCalls')),
+                    ('csbhistorystatstotalcallupdatefailure', YLeaf(YType.uint32, 'csbHistoryStatsTotalCallUpdateFailure')),
+                    ('csbhistorystatsactiveipv6calls', YLeaf(YType.uint32, 'csbHistoryStatsActiveIpv6Calls')),
+                    ('csbhistorystatsactiveemergencycalls', YLeaf(YType.uint32, 'csbHistoryStatsActiveEmergencyCalls')),
+                    ('csbhistorystatsactivee2emergencycalls', YLeaf(YType.uint32, 'csbHistoryStatsActiveE2EmergencyCalls')),
+                    ('csbhistorystatsimsrxactivecalls', YLeaf(YType.uint32, 'csbHistoryStatsImsRxActiveCalls')),
+                    ('csbhistorystatsimsrxcallsetupfailures', YLeaf(YType.uint32, 'csbHistoryStatsImsRxCallSetupFailures')),
+                    ('csbhistorystatsimsrxcallrenegotiationattempts', YLeaf(YType.uint32, 'csbHistoryStatsImsRxCallRenegotiationAttempts')),
+                    ('csbhistorystatsimsrxcallrenegotiationfailures', YLeaf(YType.uint32, 'csbHistoryStatsImsRxCallRenegotiationFailures')),
+                    ('csbhistorystatsaudiotranscodedcalls', YLeaf(YType.uint32, 'csbHistoryStatsAudioTranscodedCalls')),
+                    ('csbhistorystatsfaxtranscodedcalls', YLeaf(YType.uint32, 'csbHistoryStatsFaxTranscodedCalls')),
+                    ('csbhistorystatsrtpdisallowedfailures', YLeaf(YType.uint32, 'csbHistoryStatsRtpDisallowedFailures')),
+                    ('csbhistorystatssrtpdisallowedfailures', YLeaf(YType.uint32, 'csbHistoryStatsSrtpDisallowedFailures')),
+                    ('csbhistorystatsnonsrtpcalls', YLeaf(YType.uint32, 'csbHistoryStatsNonSrtpCalls')),
+                    ('csbhistorystatssrtpnoniwcalls', YLeaf(YType.uint32, 'csbHistoryStatsSrtpNonIwCalls')),
+                    ('csbhistorystatssrtpiwcalls', YLeaf(YType.uint32, 'csbHistoryStatsSrtpIwCalls')),
+                    ('csbhistorystatsdtmfiw2833calls', YLeaf(YType.uint32, 'csbHistoryStatsDtmfIw2833Calls')),
+                    ('csbhistorystatsdtmfiwinbandcalls', YLeaf(YType.uint32, 'csbHistoryStatsDtmfIwInbandCalls')),
+                    ('csbhistorystatsdtmfiw2833inbandcalls', YLeaf(YType.uint32, 'csbHistoryStatsDtmfIw2833InbandCalls')),
+                    ('csbhistorystatstotaltapsrequested', YLeaf(YType.uint32, 'csbHistoryStatsTotalTapsRequested')),
+                    ('csbhistorystatstotaltapssucceeded', YLeaf(YType.uint32, 'csbHistoryStatsTotalTapsSucceeded')),
+                    ('csbhistorystatscurrenttaps', YLeaf(YType.uint32, 'csbHistoryStatsCurrentTaps')),
+                    ('csbhistorystatsipseccalls', YLeaf(YType.uint32, 'csbHistoryStatsIpsecCalls')),
+                ])
+                self.csbcallstatsinstanceindex = None
+                self.csbcallstatsserviceindex = None
+                self.csbhistorystatsinterval = None
+                self.csbhistorystatselements = None
+                self.csbhistorystatsactivecalls = None
+                self.csbhistorystatstotalcallattempts = None
+                self.csbhistorystatsfailedcallattempts = None
+                self.csbhistorystatscallroutingfailure = None
+                self.csbhistorystatscallresourcefailure = None
+                self.csbhistorystatscallmediafailure = None
+                self.csbhistorystatsfailsigfailure = None
+                self.csbhistorystatsactivecallfailure = None
+                self.csbhistorystatscongestionfailure = None
+                self.csbhistorystatscallsetuppolicyfailure = None
+                self.csbhistorystatscallsetupnapolicyfailure = None
+                self.csbhistorystatscallsetuproutingpolicyfailure = None
+                self.csbhistorystatscallsetupcacpolicyfailure = None
+                self.csbhistorystatscallsetupcaccalllimitfailure = None
+                self.csbhistorystatscallsetupcacratelimitfailure = None
+                self.csbhistorystatscallsetupcacbandwidthfailure = None
+                self.csbhistorystatscallsetupcacmedialimitfailure = None
+                self.csbhistorystatscallsetupcacmediaupdatefailure = None
+                self.csbhistorystatstimestamp = None
+                self.csbhistroystatstranscodedcalls = None
+                self.csbhistroystatstransratedcalls = None
+                self.csbhistorystatstotalcallupdatefailure = None
+                self.csbhistorystatsactiveipv6calls = None
+                self.csbhistorystatsactiveemergencycalls = None
+                self.csbhistorystatsactivee2emergencycalls = None
+                self.csbhistorystatsimsrxactivecalls = None
+                self.csbhistorystatsimsrxcallsetupfailures = None
+                self.csbhistorystatsimsrxcallrenegotiationattempts = None
+                self.csbhistorystatsimsrxcallrenegotiationfailures = None
+                self.csbhistorystatsaudiotranscodedcalls = None
+                self.csbhistorystatsfaxtranscodedcalls = None
+                self.csbhistorystatsrtpdisallowedfailures = None
+                self.csbhistorystatssrtpdisallowedfailures = None
+                self.csbhistorystatsnonsrtpcalls = None
+                self.csbhistorystatssrtpnoniwcalls = None
+                self.csbhistorystatssrtpiwcalls = None
+                self.csbhistorystatsdtmfiw2833calls = None
+                self.csbhistorystatsdtmfiwinbandcalls = None
+                self.csbhistorystatsdtmfiw2833inbandcalls = None
+                self.csbhistorystatstotaltapsrequested = None
+                self.csbhistorystatstotaltapssucceeded = None
+                self.csbhistorystatscurrenttaps = None
+                self.csbhistorystatsipseccalls = None
+                self._segment_path = lambda: "csbHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbHistoryStatsInterval='" + str(self.csbhistorystatsinterval) + "']" + "[csbHistoryStatsElements='" + str(self.csbhistorystatselements) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbHistoryStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1825,8 +1849,10 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbPerFlowStatsEntry" : ("csbperflowstatsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable.Csbperflowstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csbPerFlowStatsEntry", ("csbperflowstatsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable.Csbperflowstatsentry))])
+            self._leafs = OrderedDict()
 
             self.csbperflowstatsentry = YList(self)
             self._segment_path = lambda: "csbPerFlowStatsTable"
@@ -1844,7 +1870,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
             and csbCallStatsServiceIndex defined in csbCallStatsTable.
             
-            .. attribute:: csbcallstatsinstanceindex  <key>
+            .. attribute:: csbcallstatsinstanceindex  (key)
             
             	
             	**type**\: int
@@ -1853,7 +1879,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
             
-            .. attribute:: csbcallstatsserviceindex  <key>
+            .. attribute:: csbcallstatsserviceindex  (key)
             
             	
             	**type**\: int
@@ -1862,28 +1888,28 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
             
-            .. attribute:: csbperflowstatsvdbeid  <key>
+            .. attribute:: csbperflowstatsvdbeid  (key)
             
             	This object identifies the virtual media gateway id. This object also acts as an index for the table
             	**type**\: int
             
             	**range:** 0..255
             
-            .. attribute:: csbperflowstatsgateid  <key>
+            .. attribute:: csbperflowstatsgateid  (key)
             
             	This object identifies the gate id. This object also acts as an index for the table
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: csbperflowstatsflowpairid  <key>
+            .. attribute:: csbperflowstatsflowpairid  (key)
             
             	This object identifies the flow pair id. This object also acts as an index for the table
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: csbperflowstatssideid  <key>
+            .. attribute:: csbperflowstatssideid  (key)
             
             	This object identifies the index corresponding to side of flow pair either side A or side B. This object also acts as an index for the table
             	**type**\:  :py:class:`Csbperflowstatssideid <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable.Csbperflowstatsentry.Csbperflowstatssideid>`
@@ -2043,55 +2069,58 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self.yang_parent_name = "csbPerFlowStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
-
-                self.csbperflowstatsvdbeid = YLeaf(YType.int32, "csbPerFlowStatsVdbeId")
-
-                self.csbperflowstatsgateid = YLeaf(YType.int32, "csbPerFlowStatsGateId")
-
-                self.csbperflowstatsflowpairid = YLeaf(YType.int32, "csbPerFlowStatsFlowPairId")
-
-                self.csbperflowstatssideid = YLeaf(YType.enumeration, "csbPerFlowStatsSideId")
-
-                self.csbperflowstatsflowtype = YLeaf(YType.enumeration, "csbPerFlowStatsFlowType")
-
-                self.csbperflowstatsrtppktssent = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsSent")
-
-                self.csbperflowstatsrtppktsrcvd = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsRcvd")
-
-                self.csbperflowstatsrtppktsdiscard = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsDiscard")
-
-                self.csbperflowstatsrtpoctetssent = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsSent")
-
-                self.csbperflowstatsrtpoctetsrcvd = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsRcvd")
-
-                self.csbperflowstatsrtpoctetsdiscard = YLeaf(YType.uint64, "csbPerFlowStatsRTPOctetsDiscard")
-
-                self.csbperflowstatsrtcppktssent = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsSent")
-
-                self.csbperflowstatsrtcppktsrcvd = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsRcvd")
-
-                self.csbperflowstatsrtcppktslost = YLeaf(YType.uint64, "csbPerFlowStatsRTCPPktsLost")
-
-                self.csbperflowstatsepjitter = YLeaf(YType.uint64, "csbPerFlowStatsEPJitter")
-
-                self.csbperflowstatstmanpermbs = YLeaf(YType.uint32, "csbPerFlowStatsTmanPerMbs")
-
-                self.csbperflowstatstmanpersdr = YLeaf(YType.uint32, "csbPerFlowStatsTmanPerSdr")
-
-                self.csbperflowstatsdscpsettings = YLeaf(YType.str, "csbPerFlowStatsDscpSettings")
-
-                self.csbperflowstatsadrstatus = YLeaf(YType.str, "csbPerFlowStatsAdrStatus")
-
-                self.csbperflowstatsqasettings = YLeaf(YType.str, "csbPerFlowStatsQASettings")
-
-                self.csbperflowstatsrtppktslost = YLeaf(YType.uint64, "csbPerFlowStatsRTPPktsLost")
-                self._segment_path = lambda: "csbPerFlowStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbPerFlowStatsVdbeId='" + self.csbperflowstatsvdbeid.get() + "']" + "[csbPerFlowStatsGateId='" + self.csbperflowstatsgateid.get() + "']" + "[csbPerFlowStatsFlowPairId='" + self.csbperflowstatsflowpairid.get() + "']" + "[csbPerFlowStatsSideId='" + self.csbperflowstatssideid.get() + "']"
+                self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbperflowstatsvdbeid','csbperflowstatsgateid','csbperflowstatsflowpairid','csbperflowstatssideid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
+                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
+                    ('csbperflowstatsvdbeid', YLeaf(YType.int32, 'csbPerFlowStatsVdbeId')),
+                    ('csbperflowstatsgateid', YLeaf(YType.int32, 'csbPerFlowStatsGateId')),
+                    ('csbperflowstatsflowpairid', YLeaf(YType.int32, 'csbPerFlowStatsFlowPairId')),
+                    ('csbperflowstatssideid', YLeaf(YType.enumeration, 'csbPerFlowStatsSideId')),
+                    ('csbperflowstatsflowtype', YLeaf(YType.enumeration, 'csbPerFlowStatsFlowType')),
+                    ('csbperflowstatsrtppktssent', YLeaf(YType.uint64, 'csbPerFlowStatsRTPPktsSent')),
+                    ('csbperflowstatsrtppktsrcvd', YLeaf(YType.uint64, 'csbPerFlowStatsRTPPktsRcvd')),
+                    ('csbperflowstatsrtppktsdiscard', YLeaf(YType.uint64, 'csbPerFlowStatsRTPPktsDiscard')),
+                    ('csbperflowstatsrtpoctetssent', YLeaf(YType.uint64, 'csbPerFlowStatsRTPOctetsSent')),
+                    ('csbperflowstatsrtpoctetsrcvd', YLeaf(YType.uint64, 'csbPerFlowStatsRTPOctetsRcvd')),
+                    ('csbperflowstatsrtpoctetsdiscard', YLeaf(YType.uint64, 'csbPerFlowStatsRTPOctetsDiscard')),
+                    ('csbperflowstatsrtcppktssent', YLeaf(YType.uint64, 'csbPerFlowStatsRTCPPktsSent')),
+                    ('csbperflowstatsrtcppktsrcvd', YLeaf(YType.uint64, 'csbPerFlowStatsRTCPPktsRcvd')),
+                    ('csbperflowstatsrtcppktslost', YLeaf(YType.uint64, 'csbPerFlowStatsRTCPPktsLost')),
+                    ('csbperflowstatsepjitter', YLeaf(YType.uint64, 'csbPerFlowStatsEPJitter')),
+                    ('csbperflowstatstmanpermbs', YLeaf(YType.uint32, 'csbPerFlowStatsTmanPerMbs')),
+                    ('csbperflowstatstmanpersdr', YLeaf(YType.uint32, 'csbPerFlowStatsTmanPerSdr')),
+                    ('csbperflowstatsdscpsettings', YLeaf(YType.str, 'csbPerFlowStatsDscpSettings')),
+                    ('csbperflowstatsadrstatus', YLeaf(YType.str, 'csbPerFlowStatsAdrStatus')),
+                    ('csbperflowstatsqasettings', YLeaf(YType.str, 'csbPerFlowStatsQASettings')),
+                    ('csbperflowstatsrtppktslost', YLeaf(YType.uint64, 'csbPerFlowStatsRTPPktsLost')),
+                ])
+                self.csbcallstatsinstanceindex = None
+                self.csbcallstatsserviceindex = None
+                self.csbperflowstatsvdbeid = None
+                self.csbperflowstatsgateid = None
+                self.csbperflowstatsflowpairid = None
+                self.csbperflowstatssideid = None
+                self.csbperflowstatsflowtype = None
+                self.csbperflowstatsrtppktssent = None
+                self.csbperflowstatsrtppktsrcvd = None
+                self.csbperflowstatsrtppktsdiscard = None
+                self.csbperflowstatsrtpoctetssent = None
+                self.csbperflowstatsrtpoctetsrcvd = None
+                self.csbperflowstatsrtpoctetsdiscard = None
+                self.csbperflowstatsrtcppktssent = None
+                self.csbperflowstatsrtcppktsrcvd = None
+                self.csbperflowstatsrtcppktslost = None
+                self.csbperflowstatsepjitter = None
+                self.csbperflowstatstmanpermbs = None
+                self.csbperflowstatstmanpersdr = None
+                self.csbperflowstatsdscpsettings = None
+                self.csbperflowstatsadrstatus = None
+                self.csbperflowstatsqasettings = None
+                self.csbperflowstatsrtppktslost = None
+                self._segment_path = lambda: "csbPerFlowStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbPerFlowStatsVdbeId='" + str(self.csbperflowstatsvdbeid) + "']" + "[csbPerFlowStatsGateId='" + str(self.csbperflowstatsgateid) + "']" + "[csbPerFlowStatsFlowPairId='" + str(self.csbperflowstatsflowpairid) + "']" + "[csbPerFlowStatsSideId='" + str(self.csbperflowstatssideid) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbPerFlowStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2099,7 +2128,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
 
             class Csbperflowstatsflowtype(Enum):
                 """
-                Csbperflowstatsflowtype
+                Csbperflowstatsflowtype (Enum Class)
 
                 This object indicates the type of the flow, like media flow,
 
@@ -2118,7 +2147,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
 
             class Csbperflowstatssideid(Enum):
                 """
-                Csbperflowstatssideid
+                Csbperflowstatssideid (Enum Class)
 
                 This object identifies the index corresponding to side of flow
 
@@ -2168,8 +2197,10 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbH248StatsEntry" : ("csbh248statsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csbH248StatsEntry", ("csbh248statsentry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable.Csbh248Statsentry))])
+            self._leafs = OrderedDict()
 
             self.csbh248statsentry = YList(self)
             self._segment_path = lambda: "csbH248StatsTable"
@@ -2187,7 +2218,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
             and csbCallStatsServiceIndex defined in csbCallStatsTable.
             
-            .. attribute:: csbcallstatsinstanceindex  <key>
+            .. attribute:: csbcallstatsinstanceindex  (key)
             
             	
             	**type**\: int
@@ -2196,7 +2227,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
             
-            .. attribute:: csbcallstatsserviceindex  <key>
+            .. attribute:: csbcallstatsserviceindex  (key)
             
             	
             	**type**\: int
@@ -2205,7 +2236,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
             
-            .. attribute:: csbh248statsctrlrindex  <key>
+            .. attribute:: csbh248statsctrlrindex  (key)
             
             	This object identifies the controller index of the H.248 server. This is also the index for the table
             	**type**\: int
@@ -2351,41 +2382,44 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self.yang_parent_name = "csbH248StatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
-
-                self.csbh248statsctrlrindex = YLeaf(YType.int32, "csbH248StatsCtrlrIndex")
-
-                self.csbh248statsrequestssent = YLeaf(YType.uint32, "csbH248StatsRequestsSent")
-
-                self.csbh248statsrequestsrcvd = YLeaf(YType.uint32, "csbH248StatsRequestsRcvd")
-
-                self.csbh248statsrequestsfailed = YLeaf(YType.uint32, "csbH248StatsRequestsFailed")
-
-                self.csbh248statsrequestsretried = YLeaf(YType.uint32, "csbH248StatsRequestsRetried")
-
-                self.csbh248statsrepliessent = YLeaf(YType.uint32, "csbH248StatsRepliesSent")
-
-                self.csbh248statsrepliesrcvd = YLeaf(YType.uint32, "csbH248StatsRepliesRcvd")
-
-                self.csbh248statsrepliesretried = YLeaf(YType.uint32, "csbH248StatsRepliesRetried")
-
-                self.csbh248statssegpktssent = YLeaf(YType.uint32, "csbH248StatsSegPktsSent")
-
-                self.csbh248statssegpktsrcvd = YLeaf(YType.uint32, "csbH248StatsSegPktsRcvd")
-
-                self.csbh248statsestablishedtime = YLeaf(YType.str, "csbH248StatsEstablishedTime")
-
-                self.csbh248statstmaxtimeoutval = YLeaf(YType.int32, "csbH248StatsTMaxTimeoutVal")
-
-                self.csbh248statsrtt = YLeaf(YType.uint32, "csbH248StatsRTT")
-
-                self.csbh248statslt = YLeaf(YType.uint32, "csbH248StatsLT")
-                self._segment_path = lambda: "csbH248StatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbH248StatsCtrlrIndex='" + self.csbh248statsctrlrindex.get() + "']"
+                self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbh248statsctrlrindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
+                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
+                    ('csbh248statsctrlrindex', YLeaf(YType.int32, 'csbH248StatsCtrlrIndex')),
+                    ('csbh248statsrequestssent', YLeaf(YType.uint32, 'csbH248StatsRequestsSent')),
+                    ('csbh248statsrequestsrcvd', YLeaf(YType.uint32, 'csbH248StatsRequestsRcvd')),
+                    ('csbh248statsrequestsfailed', YLeaf(YType.uint32, 'csbH248StatsRequestsFailed')),
+                    ('csbh248statsrequestsretried', YLeaf(YType.uint32, 'csbH248StatsRequestsRetried')),
+                    ('csbh248statsrepliessent', YLeaf(YType.uint32, 'csbH248StatsRepliesSent')),
+                    ('csbh248statsrepliesrcvd', YLeaf(YType.uint32, 'csbH248StatsRepliesRcvd')),
+                    ('csbh248statsrepliesretried', YLeaf(YType.uint32, 'csbH248StatsRepliesRetried')),
+                    ('csbh248statssegpktssent', YLeaf(YType.uint32, 'csbH248StatsSegPktsSent')),
+                    ('csbh248statssegpktsrcvd', YLeaf(YType.uint32, 'csbH248StatsSegPktsRcvd')),
+                    ('csbh248statsestablishedtime', YLeaf(YType.str, 'csbH248StatsEstablishedTime')),
+                    ('csbh248statstmaxtimeoutval', YLeaf(YType.int32, 'csbH248StatsTMaxTimeoutVal')),
+                    ('csbh248statsrtt', YLeaf(YType.uint32, 'csbH248StatsRTT')),
+                    ('csbh248statslt', YLeaf(YType.uint32, 'csbH248StatsLT')),
+                ])
+                self.csbcallstatsinstanceindex = None
+                self.csbcallstatsserviceindex = None
+                self.csbh248statsctrlrindex = None
+                self.csbh248statsrequestssent = None
+                self.csbh248statsrequestsrcvd = None
+                self.csbh248statsrequestsfailed = None
+                self.csbh248statsrequestsretried = None
+                self.csbh248statsrepliessent = None
+                self.csbh248statsrepliesrcvd = None
+                self.csbh248statsrepliesretried = None
+                self.csbh248statssegpktssent = None
+                self.csbh248statssegpktsrcvd = None
+                self.csbh248statsestablishedtime = None
+                self.csbh248statstmaxtimeoutval = None
+                self.csbh248statsrtt = None
+                self.csbh248statslt = None
+                self._segment_path = lambda: "csbH248StatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbH248StatsCtrlrIndex='" + str(self.csbh248statsctrlrindex) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbH248StatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2419,8 +2453,10 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             self.yang_parent_name = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csbH248StatsRev1Entry" : ("csbh248statsrev1entry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csbH248StatsRev1Entry", ("csbh248statsrev1entry", CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table.Csbh248Statsrev1Entry))])
+            self._leafs = OrderedDict()
 
             self.csbh248statsrev1entry = YList(self)
             self._segment_path = lambda: "csbH248StatsRev1Table"
@@ -2438,7 +2474,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
             and csbCallStatsServiceIndex defined in csbCallStatsTable.
             
-            .. attribute:: csbcallstatsinstanceindex  <key>
+            .. attribute:: csbcallstatsinstanceindex  (key)
             
             	
             	**type**\: int
@@ -2447,7 +2483,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable.Csbcallstatsinstanceentry>`
             
-            .. attribute:: csbcallstatsserviceindex  <key>
+            .. attribute:: csbcallstatsserviceindex  (key)
             
             	
             	**type**\: int
@@ -2456,7 +2492,7 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable.Csbcallstatsentry>`
             
-            .. attribute:: csbh248statsvdbeid  <key>
+            .. attribute:: csbh248statsvdbeid  (key)
             
             	This object identifies the virtual media gateway id. This is also the index for the table
             	**type**\: int
@@ -2574,41 +2610,44 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self.yang_parent_name = "csbH248StatsRev1Table"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csbcallstatsinstanceindex = YLeaf(YType.str, "csbCallStatsInstanceIndex")
-
-                self.csbcallstatsserviceindex = YLeaf(YType.str, "csbCallStatsServiceIndex")
-
-                self.csbh248statsvdbeid = YLeaf(YType.int32, "csbH248StatsVdbeId")
-
-                self.csbh248statsrequestssentrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsSentRev1")
-
-                self.csbh248statsrequestsrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsRcvdRev1")
-
-                self.csbh248statsrequestsfailedrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsFailedRev1")
-
-                self.csbh248statsrequestsretriedrev1 = YLeaf(YType.uint32, "csbH248StatsRequestsRetriedRev1")
-
-                self.csbh248statsrepliessentrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesSentRev1")
-
-                self.csbh248statsrepliesrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesRcvdRev1")
-
-                self.csbh248statsrepliesretriedrev1 = YLeaf(YType.uint32, "csbH248StatsRepliesRetriedRev1")
-
-                self.csbh248statssegpktssentrev1 = YLeaf(YType.uint32, "csbH248StatsSegPktsSentRev1")
-
-                self.csbh248statssegpktsrcvdrev1 = YLeaf(YType.uint32, "csbH248StatsSegPktsRcvdRev1")
-
-                self.csbh248statsestablishedtimerev1 = YLeaf(YType.str, "csbH248StatsEstablishedTimeRev1")
-
-                self.csbh248statstmaxtimeoutvalrev1 = YLeaf(YType.int32, "csbH248StatsTMaxTimeoutValRev1")
-
-                self.csbh248statsrttrev1 = YLeaf(YType.uint32, "csbH248StatsRTTRev1")
-
-                self.csbh248statsltrev1 = YLeaf(YType.uint32, "csbH248StatsLTRev1")
-                self._segment_path = lambda: "csbH248StatsRev1Entry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbH248StatsVdbeId='" + self.csbh248statsvdbeid.get() + "']"
+                self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbh248statsvdbeid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
+                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
+                    ('csbh248statsvdbeid', YLeaf(YType.int32, 'csbH248StatsVdbeId')),
+                    ('csbh248statsrequestssentrev1', YLeaf(YType.uint32, 'csbH248StatsRequestsSentRev1')),
+                    ('csbh248statsrequestsrcvdrev1', YLeaf(YType.uint32, 'csbH248StatsRequestsRcvdRev1')),
+                    ('csbh248statsrequestsfailedrev1', YLeaf(YType.uint32, 'csbH248StatsRequestsFailedRev1')),
+                    ('csbh248statsrequestsretriedrev1', YLeaf(YType.uint32, 'csbH248StatsRequestsRetriedRev1')),
+                    ('csbh248statsrepliessentrev1', YLeaf(YType.uint32, 'csbH248StatsRepliesSentRev1')),
+                    ('csbh248statsrepliesrcvdrev1', YLeaf(YType.uint32, 'csbH248StatsRepliesRcvdRev1')),
+                    ('csbh248statsrepliesretriedrev1', YLeaf(YType.uint32, 'csbH248StatsRepliesRetriedRev1')),
+                    ('csbh248statssegpktssentrev1', YLeaf(YType.uint32, 'csbH248StatsSegPktsSentRev1')),
+                    ('csbh248statssegpktsrcvdrev1', YLeaf(YType.uint32, 'csbH248StatsSegPktsRcvdRev1')),
+                    ('csbh248statsestablishedtimerev1', YLeaf(YType.str, 'csbH248StatsEstablishedTimeRev1')),
+                    ('csbh248statstmaxtimeoutvalrev1', YLeaf(YType.int32, 'csbH248StatsTMaxTimeoutValRev1')),
+                    ('csbh248statsrttrev1', YLeaf(YType.uint32, 'csbH248StatsRTTRev1')),
+                    ('csbh248statsltrev1', YLeaf(YType.uint32, 'csbH248StatsLTRev1')),
+                ])
+                self.csbcallstatsinstanceindex = None
+                self.csbcallstatsserviceindex = None
+                self.csbh248statsvdbeid = None
+                self.csbh248statsrequestssentrev1 = None
+                self.csbh248statsrequestsrcvdrev1 = None
+                self.csbh248statsrequestsfailedrev1 = None
+                self.csbh248statsrequestsretriedrev1 = None
+                self.csbh248statsrepliessentrev1 = None
+                self.csbh248statsrepliesrcvdrev1 = None
+                self.csbh248statsrepliesretriedrev1 = None
+                self.csbh248statssegpktssentrev1 = None
+                self.csbh248statssegpktsrcvdrev1 = None
+                self.csbh248statsestablishedtimerev1 = None
+                self.csbh248statstmaxtimeoutvalrev1 = None
+                self.csbh248statsrttrev1 = None
+                self.csbh248statsltrev1 = None
+                self._segment_path = lambda: "csbH248StatsRev1Entry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbH248StatsVdbeId='" + str(self.csbh248statsvdbeid) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB/csbH248StatsRev1Table/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

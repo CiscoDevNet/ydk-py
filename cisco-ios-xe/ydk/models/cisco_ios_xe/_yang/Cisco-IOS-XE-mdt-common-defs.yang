@@ -25,6 +25,11 @@ module Cisco-IOS-XE-mdt-common-defs {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-29 {
+    description
+      "TRANSFORM support for Native stream";
+    reference "1.2.0";
+  }
   revision 2017-07-01 {
     description
       "Add support for VRFs";
@@ -54,6 +59,12 @@ module Cisco-IOS-XE-mdt-common-defs {
         value 2;
         description
           "TDL-URI defining the data items of interest.";
+      }
+      enum "sub-filter-type-tdl-transform" {
+        value 3;
+        description
+          "tdl-transform define transform scheme 
+           to be subscribed.";
       }
     }
     description
@@ -183,6 +194,14 @@ module Cisco-IOS-XE-mdt-common-defs {
           description
             "TDL-URI expression describing the set of objects
              wanted as part of the subscription.";
+        }
+      }
+      case sub-filter-type-tdl-transform {
+        leaf transform-name {
+          type string;
+          description
+            "Transform name is the reference to 
+             tdl transform scheme.";
         }
       }
     }

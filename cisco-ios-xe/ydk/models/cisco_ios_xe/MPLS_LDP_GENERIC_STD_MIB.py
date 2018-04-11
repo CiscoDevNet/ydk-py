@@ -12,9 +12,11 @@ Switching (MPLS), Label Distribution Protocol (LDP),
 utilizing ethernet as the Layer 2 media.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -43,8 +45,10 @@ class MPLSLDPGENERICSTDMIB(Entity):
         self.yang_parent_name = "MPLS-LDP-GENERIC-STD-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mplsLdpEntityGenericLRTable" : ("mplsldpentitygenericlrtable", MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("mplsLdpEntityGenericLRTable", ("mplsldpentitygenericlrtable", MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.mplsldpentitygenericlrtable = MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable()
         self.mplsldpentitygenericlrtable.parent = self
@@ -85,8 +89,10 @@ class MPLSLDPGENERICSTDMIB(Entity):
             self.yang_parent_name = "MPLS-LDP-GENERIC-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsLdpEntityGenericLREntry" : ("mplsldpentitygenericlrentry", MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsLdpEntityGenericLREntry", ("mplsldpentitygenericlrentry", MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry))])
+            self._leafs = OrderedDict()
 
             self.mplsldpentitygenericlrentry = YList(self)
             self._segment_path = lambda: "mplsLdpEntityGenericLRTable"
@@ -114,14 +120,14 @@ class MPLSLDPGENERICSTDMIB(Entity):
             A row will not be created unless a unique and
             non\-overlapping range is specified.
             
-            .. attribute:: mplsldpentityldpid  <key>
+            .. attribute:: mplsldpentityldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldpentityindex  <key>
+            .. attribute:: mplsldpentityindex  (key)
             
             	
             	**type**\: int
@@ -130,14 +136,14 @@ class MPLSLDPGENERICSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.Mplsldpentitytable.Mplsldpentityentry>`
             
-            .. attribute:: mplsldpentitygenericlrmin  <key>
+            .. attribute:: mplsldpentitygenericlrmin  (key)
             
             	The minimum label configured for this range
             	**type**\: int
             
             	**range:** 0..1048575
             
-            .. attribute:: mplsldpentitygenericlrmax  <key>
+            .. attribute:: mplsldpentitygenericlrmax  (key)
             
             	The maximum label configured for this range
             	**type**\: int
@@ -180,25 +186,28 @@ class MPLSLDPGENERICSTDMIB(Entity):
                 self.yang_parent_name = "mplsLdpEntityGenericLRTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsldpentityldpid = YLeaf(YType.str, "mplsLdpEntityLdpId")
-
-                self.mplsldpentityindex = YLeaf(YType.str, "mplsLdpEntityIndex")
-
-                self.mplsldpentitygenericlrmin = YLeaf(YType.uint32, "mplsLdpEntityGenericLRMin")
-
-                self.mplsldpentitygenericlrmax = YLeaf(YType.uint32, "mplsLdpEntityGenericLRMax")
-
-                self.mplsldpentitygenericlabelspace = YLeaf(YType.enumeration, "mplsLdpEntityGenericLabelSpace")
-
-                self.mplsldpentitygenericifindexorzero = YLeaf(YType.int32, "mplsLdpEntityGenericIfIndexOrZero")
-
-                self.mplsldpentitygenericlrstoragetype = YLeaf(YType.enumeration, "mplsLdpEntityGenericLRStorageType")
-
-                self.mplsldpentitygenericlrrowstatus = YLeaf(YType.enumeration, "mplsLdpEntityGenericLRRowStatus")
-                self._segment_path = lambda: "mplsLdpEntityGenericLREntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpEntityGenericLRMin='" + self.mplsldpentitygenericlrmin.get() + "']" + "[mplsLdpEntityGenericLRMax='" + self.mplsldpentitygenericlrmax.get() + "']"
+                self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldpentitygenericlrmin','mplsldpentitygenericlrmax']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
+                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
+                    ('mplsldpentitygenericlrmin', YLeaf(YType.uint32, 'mplsLdpEntityGenericLRMin')),
+                    ('mplsldpentitygenericlrmax', YLeaf(YType.uint32, 'mplsLdpEntityGenericLRMax')),
+                    ('mplsldpentitygenericlabelspace', YLeaf(YType.enumeration, 'mplsLdpEntityGenericLabelSpace')),
+                    ('mplsldpentitygenericifindexorzero', YLeaf(YType.int32, 'mplsLdpEntityGenericIfIndexOrZero')),
+                    ('mplsldpentitygenericlrstoragetype', YLeaf(YType.enumeration, 'mplsLdpEntityGenericLRStorageType')),
+                    ('mplsldpentitygenericlrrowstatus', YLeaf(YType.enumeration, 'mplsLdpEntityGenericLRRowStatus')),
+                ])
+                self.mplsldpentityldpid = None
+                self.mplsldpentityindex = None
+                self.mplsldpentitygenericlrmin = None
+                self.mplsldpentitygenericlrmax = None
+                self.mplsldpentitygenericlabelspace = None
+                self.mplsldpentitygenericifindexorzero = None
+                self.mplsldpentitygenericlrstoragetype = None
+                self.mplsldpentitygenericlrrowstatus = None
+                self._segment_path = lambda: "mplsLdpEntityGenericLREntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpEntityGenericLRMin='" + str(self.mplsldpentitygenericlrmin) + "']" + "[mplsLdpEntityGenericLRMax='" + str(self.mplsldpentitygenericlrmax) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB/mplsLdpEntityGenericLRTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -206,7 +215,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
 
             class Mplsldpentitygenericlabelspace(Enum):
                 """
-                Mplsldpentitygenericlabelspace
+                Mplsldpentitygenericlabelspace (Enum Class)
 
                 This value of this object is perPlatform(1), then
 

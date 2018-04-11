@@ -45,7 +45,20 @@ module Cisco-IOS-XE-mpls {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
 
+  revision 2017-11-14 {
+    description
+      "This revison has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revison has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -2882,7 +2895,19 @@ module Cisco-IOS-XE-mpls {
     uses config-interface-mpls-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:mpls" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:mpls" {
+    uses config-interface-mpls-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:mpls" {
+    uses config-interface-mpls-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:mpls" {
+    uses config-interface-mpls-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:mpls" {
     uses config-interface-mpls-grouping;
   }
 

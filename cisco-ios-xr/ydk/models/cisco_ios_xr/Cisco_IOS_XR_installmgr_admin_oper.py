@@ -13,15 +13,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class InstallmgrIsmNodeConforming(Enum):
     """
-    InstallmgrIsmNodeConforming
+    InstallmgrIsmNodeConforming (Enum Class)
 
     ISSU manage node inventory type
 
@@ -60,7 +62,7 @@ class InstallmgrIsmNodeConforming(Enum):
 
 class InstmgrBagAbortState(Enum):
     """
-    InstmgrBagAbortState
+    InstmgrBagAbortState (Enum Class)
 
     The abortable state of an install command
 
@@ -93,7 +95,7 @@ class InstmgrBagAbortState(Enum):
 
 class InstmgrBagIiDirection(Enum):
     """
-    InstmgrBagIiDirection
+    InstmgrBagIiDirection (Enum Class)
 
     The Incremental Install direction
 
@@ -120,7 +122,7 @@ class InstmgrBagIiDirection(Enum):
 
 class InstmgrBagIiState(Enum):
     """
-    InstmgrBagIiState
+    InstmgrBagIiState (Enum Class)
 
     The Incremental Install state of an install
 
@@ -159,7 +161,7 @@ class InstmgrBagIiState(Enum):
 
 class InstmgrBagLogEntryUserMsgCategory(Enum):
     """
-    InstmgrBagLogEntryUserMsgCategory
+    InstmgrBagLogEntryUserMsgCategory (Enum Class)
 
     Category type
 
@@ -216,7 +218,7 @@ class InstmgrBagLogEntryUserMsgCategory(Enum):
 
 class InstmgrBagRequestTrigger(Enum):
     """
-    InstmgrBagRequestTrigger
+    InstmgrBagRequestTrigger (Enum Class)
 
     The trigger type of an install request
 
@@ -237,7 +239,7 @@ class InstmgrBagRequestTrigger(Enum):
 
 class InstmgrBagUserMsgCategory(Enum):
     """
-    InstmgrBagUserMsgCategory
+    InstmgrBagUserMsgCategory (Enum Class)
 
     Instmgr bag user msg category
 
@@ -294,7 +296,7 @@ class InstmgrBagUserMsgCategory(Enum):
 
 class InstmgrCardState(Enum):
     """
-    InstmgrCardState
+    InstmgrCardState (Enum Class)
 
     Instmgr card state
 
@@ -531,7 +533,7 @@ class InstmgrCardState(Enum):
 
 class InstmgrGroup(Enum):
     """
-    InstmgrGroup
+    InstmgrGroup (Enum Class)
 
     Group type
 
@@ -558,7 +560,7 @@ class InstmgrGroup(Enum):
 
 class InstmgrInstallPhase(Enum):
     """
-    InstmgrInstallPhase
+    InstmgrInstallPhase (Enum Class)
 
     Current operation phase
 
@@ -591,7 +593,7 @@ class InstmgrInstallPhase(Enum):
 
 class InstmgrIsmFsmState(Enum):
     """
-    InstmgrIsmFsmState
+    InstmgrIsmFsmState (Enum Class)
 
     Install manager FSM state
 
@@ -792,7 +794,7 @@ class InstmgrIsmFsmState(Enum):
 
 class InstmgrIsmNodeState(Enum):
     """
-    InstmgrIsmNodeState
+    InstmgrIsmNodeState (Enum Class)
 
     ISSU manager node state
 
@@ -993,7 +995,7 @@ class InstmgrIsmNodeState(Enum):
 
 class InstmgrIssuAbortImpact(Enum):
     """
-    InstmgrIssuAbortImpact
+    InstmgrIssuAbortImpact (Enum Class)
 
     Abort impact
 
@@ -1026,7 +1028,7 @@ class InstmgrIssuAbortImpact(Enum):
 
 class InstmgrIssuAbortMethod(Enum):
     """
-    InstmgrIssuAbortMethod
+    InstmgrIssuAbortMethod (Enum Class)
 
     Abort method
 
@@ -1077,7 +1079,7 @@ class InstmgrIssuAbortMethod(Enum):
 
 class InstmgrNodeRole(Enum):
     """
-    InstmgrNodeRole
+    InstmgrNodeRole (Enum Class)
 
     Node role
 
@@ -1110,7 +1112,7 @@ class InstmgrNodeRole(Enum):
 
 class InstmgrPiCard(Enum):
     """
-    InstmgrPiCard
+    InstmgrPiCard (Enum Class)
 
     PI card types
 
@@ -1155,7 +1157,7 @@ class InstmgrPiCard(Enum):
 
 class InstmgrPkg(Enum):
     """
-    InstmgrPkg
+    InstmgrPkg (Enum Class)
 
     Package type
 
@@ -1188,7 +1190,7 @@ class InstmgrPkg(Enum):
 
 class InstmgrRequest(Enum):
     """
-    InstmgrRequest
+    InstmgrRequest (Enum Class)
 
     Instmgr request
 
@@ -1293,7 +1295,7 @@ class InstmgrRequest(Enum):
 
 class IsmCardTypeFamily(Enum):
     """
-    IsmCardTypeFamily
+    IsmCardTypeFamily (Enum Class)
 
     Ism card type family
 
@@ -1452,10 +1454,13 @@ class Install(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-installmgr-admin-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"configuration-registers" : ("configuration_registers", Install.ConfigurationRegisters), "request-statuses" : ("request_statuses", Install.RequestStatuses), "boot-variables" : ("boot_variables", Install.BootVariables), "software" : ("software", Install.Software), "software-inventory" : ("software_inventory", Install.SoftwareInventory), "issu" : ("issu", Install.Issu), "boot-image" : ("boot_image", Install.BootImage), "logs" : ("logs", Install.Logs)}
-        self._child_list_classes = {}
-
-        self.log_size = YLeaf(YType.int32, "log-size")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("configuration-registers", ("configuration_registers", Install.ConfigurationRegisters)), ("request-statuses", ("request_statuses", Install.RequestStatuses)), ("boot-variables", ("boot_variables", Install.BootVariables)), ("software", ("software", Install.Software)), ("software-inventory", ("software_inventory", Install.SoftwareInventory)), ("issu", ("issu", Install.Issu)), ("boot-image", ("boot_image", Install.BootImage)), ("logs", ("logs", Install.Logs))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('log_size', YLeaf(YType.int32, 'log-size')),
+        ])
+        self.log_size = None
 
         self.configuration_registers = Install.ConfigurationRegisters()
         self.configuration_registers.parent = self
@@ -1525,8 +1530,10 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"configuration-register" : ("configuration_register", Install.ConfigurationRegisters.ConfigurationRegister)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("configuration-register", ("configuration_register", Install.ConfigurationRegisters.ConfigurationRegister))])
+            self._leafs = OrderedDict()
 
             self.configuration_register = YList(self)
             self._segment_path = lambda: "configuration-registers"
@@ -1540,7 +1547,7 @@ class Install(Entity):
             """
             Configuration register for specific node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -1570,13 +1577,16 @@ class Install(Entity):
                 self.yang_parent_name = "configuration-registers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.config_register = YLeaf(YType.str, "config-register")
-                self._segment_path = lambda: "configuration-register" + "[node-name='" + self.node_name.get() + "']"
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('config_register', YLeaf(YType.str, 'config-register')),
+                ])
+                self.node_name = None
+                self.config_register = None
+                self._segment_path = lambda: "configuration-register" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/configuration-registers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1606,8 +1616,10 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"request-status" : ("request_status", Install.RequestStatuses.RequestStatus)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("request-status", ("request_status", Install.RequestStatuses.RequestStatus))])
+            self._leafs = OrderedDict()
 
             self.request_status = YList(self)
             self._segment_path = lambda: "request-statuses"
@@ -1621,7 +1633,7 @@ class Install(Entity):
             """
             Request status Information
             
-            .. attribute:: request_id  <key>
+            .. attribute:: request_id  (key)
             
             	Install operation request ID
             	**type**\: int
@@ -1700,20 +1712,23 @@ class Install(Entity):
                 self.yang_parent_name = "request-statuses"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"request-information" : ("request_information", Install.RequestStatuses.RequestStatus.RequestInformation), "abort-status" : ("abort_status", Install.RequestStatuses.RequestStatus.AbortStatus), "incremental-install-information" : ("incremental_install_information", Install.RequestStatuses.RequestStatus.IncrementalInstallInformation)}
-                self._child_list_classes = {"issu-message" : ("issu_message", Install.RequestStatuses.RequestStatus.IssuMessage), "message" : ("message", Install.RequestStatuses.RequestStatus.Message)}
-
-                self.request_id = YLeaf(YType.int32, "request-id")
-
-                self.percentage = YLeaf(YType.uint8, "percentage")
-
-                self.abort_state = YLeaf(YType.enumeration, "abort-state")
-
-                self.downloaded_bytes = YLeaf(YType.uint32, "downloaded-bytes")
-
-                self.unanswered_query = YLeaf(YType.boolean, "unanswered-query")
-
-                self.operation_phase = YLeaf(YType.enumeration, "operation-phase")
+                self.ylist_key_names = ['request_id']
+                self._child_container_classes = OrderedDict([("request-information", ("request_information", Install.RequestStatuses.RequestStatus.RequestInformation)), ("abort-status", ("abort_status", Install.RequestStatuses.RequestStatus.AbortStatus)), ("incremental-install-information", ("incremental_install_information", Install.RequestStatuses.RequestStatus.IncrementalInstallInformation))])
+                self._child_list_classes = OrderedDict([("issu-message", ("issu_message", Install.RequestStatuses.RequestStatus.IssuMessage)), ("message", ("message", Install.RequestStatuses.RequestStatus.Message))])
+                self._leafs = OrderedDict([
+                    ('request_id', YLeaf(YType.int32, 'request-id')),
+                    ('percentage', YLeaf(YType.uint8, 'percentage')),
+                    ('abort_state', YLeaf(YType.enumeration, 'abort-state')),
+                    ('downloaded_bytes', YLeaf(YType.uint32, 'downloaded-bytes')),
+                    ('unanswered_query', YLeaf(YType.boolean, 'unanswered-query')),
+                    ('operation_phase', YLeaf(YType.enumeration, 'operation-phase')),
+                ])
+                self.request_id = None
+                self.percentage = None
+                self.abort_state = None
+                self.downloaded_bytes = None
+                self.unanswered_query = None
+                self.operation_phase = None
 
                 self.request_information = Install.RequestStatuses.RequestStatus.RequestInformation()
                 self.request_information.parent = self
@@ -1732,7 +1747,7 @@ class Install(Entity):
 
                 self.issu_message = YList(self)
                 self.message = YList(self)
-                self._segment_path = lambda: "request-status" + "[request-id='" + self.request_id.get() + "']"
+                self._segment_path = lambda: "request-status" + "[request-id='" + str(self.request_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/request-statuses/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1791,20 +1806,23 @@ class Install(Entity):
                     self.yang_parent_name = "request-status"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.request_id = YLeaf(YType.uint32, "request-id")
-
-                    self.user_id = YLeaf(YType.str, "user-id")
-
-                    self.trigger_type = YLeaf(YType.enumeration, "trigger-type")
-
-                    self.request_option = YLeaf(YType.int32, "request-option")
-
-                    self.operation_type = YLeaf(YType.enumeration, "operation-type")
-
-                    self.operation_detail = YLeaf(YType.str, "operation-detail")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('request_id', YLeaf(YType.uint32, 'request-id')),
+                        ('user_id', YLeaf(YType.str, 'user-id')),
+                        ('trigger_type', YLeaf(YType.enumeration, 'trigger-type')),
+                        ('request_option', YLeaf(YType.int32, 'request-option')),
+                        ('operation_type', YLeaf(YType.enumeration, 'operation-type')),
+                        ('operation_detail', YLeaf(YType.str, 'operation-detail')),
+                    ])
+                    self.request_id = None
+                    self.user_id = None
+                    self.trigger_type = None
+                    self.request_option = None
+                    self.operation_type = None
+                    self.operation_detail = None
                     self._segment_path = lambda: "request-information"
 
                 def __setattr__(self, name, value):
@@ -1839,12 +1857,15 @@ class Install(Entity):
                     self.yang_parent_name = "request-status"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.abort_method = YLeaf(YType.enumeration, "abort-method")
-
-                    self.abort_impact = YLeaf(YType.enumeration, "abort-impact")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('abort_method', YLeaf(YType.enumeration, 'abort-method')),
+                        ('abort_impact', YLeaf(YType.enumeration, 'abort-impact')),
+                    ])
+                    self.abort_method = None
+                    self.abort_impact = None
                     self._segment_path = lambda: "abort-status"
 
                 def __setattr__(self, name, value):
@@ -1884,12 +1905,15 @@ class Install(Entity):
                     self.yang_parent_name = "request-status"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"nodes" : ("nodes", Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes)}
-
-                    self.direction = YLeaf(YType.enumeration, "direction")
-
-                    self.ii_error = YLeaf(YType.str, "ii-error")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("nodes", ("nodes", Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes))])
+                    self._leafs = OrderedDict([
+                        ('direction', YLeaf(YType.enumeration, 'direction')),
+                        ('ii_error', YLeaf(YType.str, 'ii-error')),
+                    ])
+                    self.direction = None
+                    self.ii_error = None
 
                     self.nodes = YList(self)
                     self._segment_path = lambda: "incremental-install-information"
@@ -1928,12 +1952,15 @@ class Install(Entity):
                         self.yang_parent_name = "incremental-install-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.state = YLeaf(YType.enumeration, "state")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                        ])
+                        self.node_name = None
+                        self.state = None
                         self._segment_path = lambda: "nodes"
 
                     def __setattr__(self, name, value):
@@ -1973,12 +2000,15 @@ class Install(Entity):
                     self.yang_parent_name = "request-status"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"scope" : ("scope", Install.RequestStatuses.RequestStatus.IssuMessage.Scope)}
-                    self._child_list_classes = {}
-
-                    self.category = YLeaf(YType.enumeration, "category")
-
-                    self.message = YLeaf(YType.str, "message")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("scope", ("scope", Install.RequestStatuses.RequestStatus.IssuMessage.Scope))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('category', YLeaf(YType.enumeration, 'category')),
+                        ('message', YLeaf(YType.str, 'message')),
+                    ])
+                    self.category = None
+                    self.message = None
 
                     self.scope = Install.RequestStatuses.RequestStatus.IssuMessage.Scope()
                     self.scope.parent = self
@@ -2020,12 +2050,15 @@ class Install(Entity):
                         self.yang_parent_name = "issu-message"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                        self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('admin_read', YLeaf(YType.boolean, 'admin-read')),
+                            ('affected_sd_rs', YLeaf(YType.uint32, 'affected-sd-rs')),
+                        ])
+                        self.admin_read = None
+                        self.affected_sd_rs = None
                         self._segment_path = lambda: "scope"
 
                     def __setattr__(self, name, value):
@@ -2065,12 +2098,15 @@ class Install(Entity):
                     self.yang_parent_name = "request-status"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"scope" : ("scope", Install.RequestStatuses.RequestStatus.Message.Scope)}
-                    self._child_list_classes = {}
-
-                    self.category = YLeaf(YType.enumeration, "category")
-
-                    self.message = YLeaf(YType.str, "message")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("scope", ("scope", Install.RequestStatuses.RequestStatus.Message.Scope))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('category', YLeaf(YType.enumeration, 'category')),
+                        ('message', YLeaf(YType.str, 'message')),
+                    ])
+                    self.category = None
+                    self.message = None
 
                     self.scope = Install.RequestStatuses.RequestStatus.Message.Scope()
                     self.scope.parent = self
@@ -2112,12 +2148,15 @@ class Install(Entity):
                         self.yang_parent_name = "message"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                        self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('admin_read', YLeaf(YType.boolean, 'admin-read')),
+                            ('affected_sd_rs', YLeaf(YType.uint32, 'affected-sd-rs')),
+                        ])
+                        self.admin_read = None
+                        self.affected_sd_rs = None
                         self._segment_path = lambda: "scope"
 
                     def __setattr__(self, name, value):
@@ -2147,8 +2186,10 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"boot-variable" : ("boot_variable", Install.BootVariables.BootVariable)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("boot-variable", ("boot_variable", Install.BootVariables.BootVariable))])
+            self._leafs = OrderedDict()
 
             self.boot_variable = YList(self)
             self._segment_path = lambda: "boot-variables"
@@ -2162,7 +2203,7 @@ class Install(Entity):
             """
             Boot variable for specific node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -2190,13 +2231,16 @@ class Install(Entity):
                 self.yang_parent_name = "boot-variables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.boot_variable = YLeaf(YType.str, "boot-variable")
-                self._segment_path = lambda: "boot-variable" + "[node-name='" + self.node_name.get() + "']"
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('boot_variable', YLeaf(YType.str, 'boot-variable')),
+                ])
+                self.node_name = None
+                self.boot_variable = None
+                self._segment_path = lambda: "boot-variable" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/boot-variables/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2236,8 +2280,10 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"alias-devices" : ("alias_devices", Install.Software.AliasDevices), "package-devices" : ("package_devices", Install.Software.PackageDevices), "component-devices" : ("component_devices", Install.Software.ComponentDevices)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("alias-devices", ("alias_devices", Install.Software.AliasDevices)), ("package-devices", ("package_devices", Install.Software.PackageDevices)), ("component-devices", ("component_devices", Install.Software.ComponentDevices))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.alias_devices = Install.Software.AliasDevices()
             self.alias_devices.parent = self
@@ -2280,8 +2326,10 @@ class Install(Entity):
                 self.yang_parent_name = "software"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"alias-device" : ("alias_device", Install.Software.AliasDevices.AliasDevice)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("alias-device", ("alias_device", Install.Software.AliasDevices.AliasDevice))])
+                self._leafs = OrderedDict()
 
                 self.alias_device = YList(self)
                 self._segment_path = lambda: "alias-devices"
@@ -2295,7 +2343,7 @@ class Install(Entity):
                 """
                 Package alias information for specific device
                 
-                .. attribute:: device_name  <key>
+                .. attribute:: device_name  (key)
                 
                 	Device Name
                 	**type**\: str
@@ -2321,16 +2369,19 @@ class Install(Entity):
                     self.yang_parent_name = "alias-devices"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"aliases" : ("aliases", Install.Software.AliasDevices.AliasDevice.Aliases)}
-                    self._child_list_classes = {}
-
-                    self.device_name = YLeaf(YType.str, "device-name")
+                    self.ylist_key_names = ['device_name']
+                    self._child_container_classes = OrderedDict([("aliases", ("aliases", Install.Software.AliasDevices.AliasDevice.Aliases))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('device_name', YLeaf(YType.str, 'device-name')),
+                    ])
+                    self.device_name = None
 
                     self.aliases = Install.Software.AliasDevices.AliasDevice.Aliases()
                     self.aliases.parent = self
                     self._children_name_map["aliases"] = "aliases"
                     self._children_yang_names.add("aliases")
-                    self._segment_path = lambda: "alias-device" + "[device-name='" + self.device_name.get() + "']"
+                    self._segment_path = lambda: "alias-device" + "[device-name='" + str(self.device_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software/alias-devices/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2360,8 +2411,10 @@ class Install(Entity):
                         self.yang_parent_name = "alias-device"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"alias" : ("alias", Install.Software.AliasDevices.AliasDevice.Aliases.Alias)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("alias", ("alias", Install.Software.AliasDevices.AliasDevice.Aliases.Alias))])
+                        self._leafs = OrderedDict()
 
                         self.alias = YList(self)
                         self._segment_path = lambda: "aliases"
@@ -2374,7 +2427,7 @@ class Install(Entity):
                         """
                         Aliases for specific package
                         
-                        .. attribute:: package_name  <key>
+                        .. attribute:: package_name  (key)
                         
                         	Package Name
                         	**type**\: str
@@ -2400,13 +2453,16 @@ class Install(Entity):
                             self.yang_parent_name = "aliases"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.package_name = YLeaf(YType.str, "package-name")
-
-                            self.alias_names = YLeaf(YType.str, "alias-names")
-                            self._segment_path = lambda: "alias" + "[package-name='" + self.package_name.get() + "']"
+                            self.ylist_key_names = ['package_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('package_name', YLeaf(YType.str, 'package-name')),
+                                ('alias_names', YLeaf(YType.str, 'alias-names')),
+                            ])
+                            self.package_name = None
+                            self.alias_names = None
+                            self._segment_path = lambda: "alias" + "[package-name='" + str(self.package_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Install.Software.AliasDevices.AliasDevice.Aliases.Alias, ['package_name', 'alias_names'], name, value)
@@ -2435,8 +2491,10 @@ class Install(Entity):
                 self.yang_parent_name = "software"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"package-device" : ("package_device", Install.Software.PackageDevices.PackageDevice)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("package-device", ("package_device", Install.Software.PackageDevices.PackageDevice))])
+                self._leafs = OrderedDict()
 
                 self.package_device = YList(self)
                 self._segment_path = lambda: "package-devices"
@@ -2450,7 +2508,7 @@ class Install(Entity):
                 """
                 Package information for specific device
                 
-                .. attribute:: device_name  <key>
+                .. attribute:: device_name  (key)
                 
                 	Device Name
                 	**type**\: str
@@ -2476,16 +2534,19 @@ class Install(Entity):
                     self.yang_parent_name = "package-devices"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"packages" : ("packages", Install.Software.PackageDevices.PackageDevice.Packages)}
-                    self._child_list_classes = {}
-
-                    self.device_name = YLeaf(YType.str, "device-name")
+                    self.ylist_key_names = ['device_name']
+                    self._child_container_classes = OrderedDict([("packages", ("packages", Install.Software.PackageDevices.PackageDevice.Packages))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('device_name', YLeaf(YType.str, 'device-name')),
+                    ])
+                    self.device_name = None
 
                     self.packages = Install.Software.PackageDevices.PackageDevice.Packages()
                     self.packages.parent = self
                     self._children_name_map["packages"] = "packages"
                     self._children_yang_names.add("packages")
-                    self._segment_path = lambda: "package-device" + "[device-name='" + self.device_name.get() + "']"
+                    self._segment_path = lambda: "package-device" + "[device-name='" + str(self.device_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software/package-devices/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2515,8 +2576,10 @@ class Install(Entity):
                         self.yang_parent_name = "package-device"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"package" : ("package", Install.Software.PackageDevices.PackageDevice.Packages.Package)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("package", ("package", Install.Software.PackageDevices.PackageDevice.Packages.Package))])
+                        self._leafs = OrderedDict()
 
                         self.package = YList(self)
                         self._segment_path = lambda: "packages"
@@ -2529,7 +2592,7 @@ class Install(Entity):
                         """
                         Package information
                         
-                        .. attribute:: package_name  <key>
+                        .. attribute:: package_name  (key)
                         
                         	Package Name
                         	**type**\: str
@@ -2644,47 +2707,50 @@ class Install(Entity):
                             self.yang_parent_name = "packages"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"sub-pkg" : ("sub_pkg", Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg)}
-
-                            self.package_name = YLeaf(YType.str, "package-name")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.release = YLeaf(YType.str, "release")
-
-                            self.vendor = YLeaf(YType.str, "vendor")
-
-                            self.date = YLeaf(YType.str, "date")
-
-                            self.source = YLeaf(YType.str, "source")
-
-                            self.base = YLeaf(YType.str, "base")
-
-                            self.bootable = YLeaf(YType.boolean, "bootable")
-
-                            self.composite = YLeaf(YType.boolean, "composite")
-
-                            self.restart_info = YLeaf(YType.str, "restart-info")
-
-                            self.package_type = YLeaf(YType.enumeration, "package-type")
-
-                            self.group_type = YLeaf(YType.enumeration, "group-type")
-
-                            self.depth = YLeaf(YType.uint32, "depth")
-
-                            self.uncompressed_size = YLeaf(YType.uint32, "uncompressed-size")
-
-                            self.compressed_size = YLeaf(YType.uint32, "compressed-size")
-
-                            self.cards = YLeafList(YType.str, "cards")
+                            self.ylist_key_names = ['package_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("sub-pkg", ("sub_pkg", Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg))])
+                            self._leafs = OrderedDict([
+                                ('package_name', YLeaf(YType.str, 'package-name')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('release', YLeaf(YType.str, 'release')),
+                                ('vendor', YLeaf(YType.str, 'vendor')),
+                                ('date', YLeaf(YType.str, 'date')),
+                                ('source', YLeaf(YType.str, 'source')),
+                                ('base', YLeaf(YType.str, 'base')),
+                                ('bootable', YLeaf(YType.boolean, 'bootable')),
+                                ('composite', YLeaf(YType.boolean, 'composite')),
+                                ('restart_info', YLeaf(YType.str, 'restart-info')),
+                                ('package_type', YLeaf(YType.enumeration, 'package-type')),
+                                ('group_type', YLeaf(YType.enumeration, 'group-type')),
+                                ('depth', YLeaf(YType.uint32, 'depth')),
+                                ('uncompressed_size', YLeaf(YType.uint32, 'uncompressed-size')),
+                                ('compressed_size', YLeaf(YType.uint32, 'compressed-size')),
+                                ('cards', YLeafList(YType.str, 'cards')),
+                            ])
+                            self.package_name = None
+                            self.name = None
+                            self.version = None
+                            self.description = None
+                            self.release = None
+                            self.vendor = None
+                            self.date = None
+                            self.source = None
+                            self.base = None
+                            self.bootable = None
+                            self.composite = None
+                            self.restart_info = None
+                            self.package_type = None
+                            self.group_type = None
+                            self.depth = None
+                            self.uncompressed_size = None
+                            self.compressed_size = None
+                            self.cards = []
 
                             self.sub_pkg = YList(self)
-                            self._segment_path = lambda: "package" + "[package-name='" + self.package_name.get() + "']"
+                            self._segment_path = lambda: "package" + "[package-name='" + str(self.package_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package, ['package_name', 'name', 'version', 'description', 'release', 'vendor', 'date', 'source', 'base', 'bootable', 'composite', 'restart_info', 'package_type', 'group_type', 'depth', 'uncompressed_size', 'compressed_size', 'cards'], name, value)
@@ -2720,12 +2786,15 @@ class Install(Entity):
                                 self.yang_parent_name = "package"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.node_types = YLeaf(YType.uint64, "node-types")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('node_types', YLeaf(YType.uint64, 'node-types')),
+                                ])
+                                self.name = None
+                                self.node_types = None
                                 self._segment_path = lambda: "sub-pkg"
 
                             def __setattr__(self, name, value):
@@ -2755,8 +2824,10 @@ class Install(Entity):
                 self.yang_parent_name = "software"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"component-device" : ("component_device", Install.Software.ComponentDevices.ComponentDevice)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("component-device", ("component_device", Install.Software.ComponentDevices.ComponentDevice))])
+                self._leafs = OrderedDict()
 
                 self.component_device = YList(self)
                 self._segment_path = lambda: "component-devices"
@@ -2770,7 +2841,7 @@ class Install(Entity):
                 """
                 Component information for specific device
                 
-                .. attribute:: device_name  <key>
+                .. attribute:: device_name  (key)
                 
                 	Device Name
                 	**type**\: str
@@ -2796,16 +2867,19 @@ class Install(Entity):
                     self.yang_parent_name = "component-devices"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"component-packages" : ("component_packages", Install.Software.ComponentDevices.ComponentDevice.ComponentPackages)}
-                    self._child_list_classes = {}
-
-                    self.device_name = YLeaf(YType.str, "device-name")
+                    self.ylist_key_names = ['device_name']
+                    self._child_container_classes = OrderedDict([("component-packages", ("component_packages", Install.Software.ComponentDevices.ComponentDevice.ComponentPackages))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('device_name', YLeaf(YType.str, 'device-name')),
+                    ])
+                    self.device_name = None
 
                     self.component_packages = Install.Software.ComponentDevices.ComponentDevice.ComponentPackages()
                     self.component_packages.parent = self
                     self._children_name_map["component_packages"] = "component-packages"
                     self._children_yang_names.add("component-packages")
-                    self._segment_path = lambda: "component-device" + "[device-name='" + self.device_name.get() + "']"
+                    self._segment_path = lambda: "component-device" + "[device-name='" + str(self.device_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software/component-devices/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2835,8 +2909,10 @@ class Install(Entity):
                         self.yang_parent_name = "component-device"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"component-package" : ("component_package", Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("component-package", ("component_package", Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage))])
+                        self._leafs = OrderedDict()
 
                         self.component_package = YList(self)
                         self._segment_path = lambda: "component-packages"
@@ -2849,7 +2925,7 @@ class Install(Entity):
                         """
                         Component information for specific package
                         
-                        .. attribute:: package_name  <key>
+                        .. attribute:: package_name  (key)
                         
                         	Package Name
                         	**type**\: str
@@ -2873,13 +2949,16 @@ class Install(Entity):
                             self.yang_parent_name = "component-packages"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"component" : ("component", Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component)}
-
-                            self.package_name = YLeaf(YType.str, "package-name")
+                            self.ylist_key_names = ['package_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("component", ("component", Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component))])
+                            self._leafs = OrderedDict([
+                                ('package_name', YLeaf(YType.str, 'package-name')),
+                            ])
+                            self.package_name = None
 
                             self.component = YList(self)
-                            self._segment_path = lambda: "component-package" + "[package-name='" + self.package_name.get() + "']"
+                            self._segment_path = lambda: "component-package" + "[package-name='" + str(self.package_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage, ['package_name'], name, value)
@@ -2889,7 +2968,7 @@ class Install(Entity):
                             """
                             Component information
                             
-                            .. attribute:: component_name  <key>
+                            .. attribute:: component_name  (key)
                             
                             	Component Name
                             	**type**\: str
@@ -2933,21 +3012,24 @@ class Install(Entity):
                                 self.yang_parent_name = "component-package"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.component_name = YLeaf(YType.str, "component-name")
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.version = YLeaf(YType.str, "version")
-
-                                self.release = YLeaf(YType.str, "release")
-
-                                self.description = YLeaf(YType.str, "description")
-
-                                self.files = YLeafList(YType.str, "files")
-                                self._segment_path = lambda: "component" + "[component-name='" + self.component_name.get() + "']"
+                                self.ylist_key_names = ['component_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('component_name', YLeaf(YType.str, 'component-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('version', YLeaf(YType.str, 'version')),
+                                    ('release', YLeaf(YType.str, 'release')),
+                                    ('description', YLeaf(YType.str, 'description')),
+                                    ('files', YLeafList(YType.str, 'files')),
+                                ])
+                                self.component_name = None
+                                self.name = None
+                                self.version = None
+                                self.release = None
+                                self.description = None
+                                self.files = []
+                                self._segment_path = lambda: "component" + "[component-name='" + str(self.component_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component, ['component_name', 'name', 'version', 'release', 'description', 'files'], name, value)
@@ -2991,8 +3073,10 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"committed" : ("committed", Install.SoftwareInventory.Committed), "inactive" : ("inactive", Install.SoftwareInventory.Inactive), "requests" : ("requests", Install.SoftwareInventory.Requests), "active" : ("active", Install.SoftwareInventory.Active)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("committed", ("committed", Install.SoftwareInventory.Committed)), ("inactive", ("inactive", Install.SoftwareInventory.Inactive)), ("requests", ("requests", Install.SoftwareInventory.Requests)), ("active", ("active", Install.SoftwareInventory.Active))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.committed = Install.SoftwareInventory.Committed()
             self.committed.parent = self
@@ -3045,8 +3129,10 @@ class Install(Entity):
                 self.yang_parent_name = "software-inventory"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"summary" : ("summary", Install.SoftwareInventory.Committed.Summary), "inventories" : ("inventories", Install.SoftwareInventory.Committed.Inventories)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("summary", ("summary", Install.SoftwareInventory.Committed.Summary)), ("inventories", ("inventories", Install.SoftwareInventory.Committed.Inventories))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.summary = Install.SoftwareInventory.Committed.Summary()
                 self.summary.parent = self
@@ -3099,8 +3185,10 @@ class Install(Entity):
                     self.yang_parent_name = "committed"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"default-load-path" : ("default_load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath), "admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath)}
-                    self._child_list_classes = {"sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Committed.Summary.SdrLoadPath), "location-load-path" : ("location_load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("default-load-path", ("default_load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath)), ("admin-load-path", ("admin_load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath))])
+                    self._child_list_classes = OrderedDict([("sdr-load-path", ("sdr_load_path", Install.SoftwareInventory.Committed.Summary.SdrLoadPath)), ("location-load-path", ("location_load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath))])
+                    self._leafs = OrderedDict()
 
                     self.default_load_path = Install.SoftwareInventory.Committed.Summary.DefaultLoadPath()
                     self.default_load_path.parent = self
@@ -3166,14 +3254,17 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.admin_match = YLeaf(YType.boolean, "admin-match")
-
-                        self.secure_domain_router_name = YLeafList(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('admin_match', YLeaf(YType.boolean, 'admin-match')),
+                            ('secure_domain_router_name', YLeafList(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.request_id = None
+                        self.admin_match = None
+                        self.secure_domain_router_name = []
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -3217,12 +3308,15 @@ class Install(Entity):
                             self.yang_parent_name = "default-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -3263,12 +3357,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/default-load-path/load-path/%s" % self._segment_path()
 
@@ -3309,12 +3406,15 @@ class Install(Entity):
                             self.yang_parent_name = "default-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -3355,12 +3455,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/default-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -3403,10 +3506,13 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                        ])
+                        self.request_id = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -3450,12 +3556,15 @@ class Install(Entity):
                             self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -3496,12 +3605,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/load-path/%s" % self._segment_path()
 
@@ -3542,12 +3654,15 @@ class Install(Entity):
                             self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -3588,12 +3703,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -3641,12 +3759,15 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.request_id = None
+                        self.secure_domain_router_name = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -3690,12 +3811,15 @@ class Install(Entity):
                             self.yang_parent_name = "sdr-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -3736,12 +3860,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/sdr-load-path/load-path/%s" % self._segment_path()
 
@@ -3782,12 +3909,15 @@ class Install(Entity):
                             self.yang_parent_name = "sdr-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -3828,12 +3958,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/sdr-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -3888,14 +4021,17 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                        ])
+                        self.request_id = None
+                        self.secure_domain_router_name = None
+                        self.node_name = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -3939,12 +4075,15 @@ class Install(Entity):
                             self.yang_parent_name = "location-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -3985,12 +4124,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/load-path/%s" % self._segment_path()
 
@@ -4031,12 +4173,15 @@ class Install(Entity):
                             self.yang_parent_name = "location-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -4077,12 +4222,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -4113,8 +4261,10 @@ class Install(Entity):
                     self.yang_parent_name = "committed"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Committed.Inventories.Inventory)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("inventory", ("inventory", Install.SoftwareInventory.Committed.Inventories.Inventory))])
+                    self._leafs = OrderedDict()
 
                     self.inventory = YList(self)
                     self._segment_path = lambda: "inventories"
@@ -4128,7 +4278,7 @@ class Install(Entity):
                     """
                     Inventory information for specific node
                     
-                    .. attribute:: node_name  <key>
+                    .. attribute:: node_name  (key)
                     
                     	Node name
                     	**type**\: str
@@ -4185,23 +4335,26 @@ class Install(Entity):
                         self.yang_parent_name = "inventories"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.major = YLeaf(YType.uint32, "major")
-
-                        self.minor = YLeaf(YType.uint32, "minor")
-
-                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
-
-                        self.node_type = YLeaf(YType.uint64, "node-type")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = ['node_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath))])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('major', YLeaf(YType.uint32, 'major')),
+                            ('minor', YLeaf(YType.uint32, 'minor')),
+                            ('boot_image_name', YLeaf(YType.str, 'boot-image-name')),
+                            ('node_type', YLeaf(YType.uint64, 'node-type')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.node_name = None
+                        self.major = None
+                        self.minor = None
+                        self.boot_image_name = None
+                        self.node_type = None
+                        self.secure_domain_router_name = None
 
                         self.load_path = YList(self)
-                        self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
+                        self._segment_path = lambda: "inventory" + "[node-name='" + str(self.node_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/inventories/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -4241,12 +4394,15 @@ class Install(Entity):
                             self.yang_parent_name = "inventory"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package()
                             self.package.parent = self
@@ -4286,12 +4442,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
 
                             def __setattr__(self, name, value):
@@ -4326,8 +4485,10 @@ class Install(Entity):
                 self.yang_parent_name = "software-inventory"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"summary" : ("summary", Install.SoftwareInventory.Inactive.Summary), "inventories" : ("inventories", Install.SoftwareInventory.Inactive.Inventories)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("summary", ("summary", Install.SoftwareInventory.Inactive.Summary)), ("inventories", ("inventories", Install.SoftwareInventory.Inactive.Inventories))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.summary = Install.SoftwareInventory.Inactive.Summary()
                 self.summary.parent = self
@@ -4380,8 +4541,10 @@ class Install(Entity):
                     self.yang_parent_name = "inactive"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"default-load-path" : ("default_load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath), "admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath)}
-                    self._child_list_classes = {"sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath), "location-load-path" : ("location_load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("default-load-path", ("default_load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath)), ("admin-load-path", ("admin_load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath))])
+                    self._child_list_classes = OrderedDict([("sdr-load-path", ("sdr_load_path", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath)), ("location-load-path", ("location_load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath))])
+                    self._leafs = OrderedDict()
 
                     self.default_load_path = Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath()
                     self.default_load_path.parent = self
@@ -4447,14 +4610,17 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.admin_match = YLeaf(YType.boolean, "admin-match")
-
-                        self.secure_domain_router_name = YLeafList(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('admin_match', YLeaf(YType.boolean, 'admin-match')),
+                            ('secure_domain_router_name', YLeafList(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.request_id = None
+                        self.admin_match = None
+                        self.secure_domain_router_name = []
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -4498,12 +4664,15 @@ class Install(Entity):
                             self.yang_parent_name = "default-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -4544,12 +4713,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/default-load-path/load-path/%s" % self._segment_path()
 
@@ -4590,12 +4762,15 @@ class Install(Entity):
                             self.yang_parent_name = "default-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -4636,12 +4811,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/default-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -4684,10 +4862,13 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                        ])
+                        self.request_id = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -4731,12 +4912,15 @@ class Install(Entity):
                             self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -4777,12 +4961,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/load-path/%s" % self._segment_path()
 
@@ -4823,12 +5010,15 @@ class Install(Entity):
                             self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -4869,12 +5059,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -4922,12 +5115,15 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.request_id = None
+                        self.secure_domain_router_name = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -4971,12 +5167,15 @@ class Install(Entity):
                             self.yang_parent_name = "sdr-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -5017,12 +5216,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/sdr-load-path/load-path/%s" % self._segment_path()
 
@@ -5063,12 +5265,15 @@ class Install(Entity):
                             self.yang_parent_name = "sdr-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -5109,12 +5314,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/sdr-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -5169,14 +5377,17 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                        ])
+                        self.request_id = None
+                        self.secure_domain_router_name = None
+                        self.node_name = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -5220,12 +5431,15 @@ class Install(Entity):
                             self.yang_parent_name = "location-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -5266,12 +5480,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/load-path/%s" % self._segment_path()
 
@@ -5312,12 +5529,15 @@ class Install(Entity):
                             self.yang_parent_name = "location-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -5358,12 +5578,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -5394,8 +5617,10 @@ class Install(Entity):
                     self.yang_parent_name = "inactive"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Inactive.Inventories.Inventory)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("inventory", ("inventory", Install.SoftwareInventory.Inactive.Inventories.Inventory))])
+                    self._leafs = OrderedDict()
 
                     self.inventory = YList(self)
                     self._segment_path = lambda: "inventories"
@@ -5409,7 +5634,7 @@ class Install(Entity):
                     """
                     Inventory information for specific node
                     
-                    .. attribute:: node_name  <key>
+                    .. attribute:: node_name  (key)
                     
                     	Node name
                     	**type**\: str
@@ -5466,23 +5691,26 @@ class Install(Entity):
                         self.yang_parent_name = "inventories"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.major = YLeaf(YType.uint32, "major")
-
-                        self.minor = YLeaf(YType.uint32, "minor")
-
-                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
-
-                        self.node_type = YLeaf(YType.uint64, "node-type")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = ['node_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath))])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('major', YLeaf(YType.uint32, 'major')),
+                            ('minor', YLeaf(YType.uint32, 'minor')),
+                            ('boot_image_name', YLeaf(YType.str, 'boot-image-name')),
+                            ('node_type', YLeaf(YType.uint64, 'node-type')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.node_name = None
+                        self.major = None
+                        self.minor = None
+                        self.boot_image_name = None
+                        self.node_type = None
+                        self.secure_domain_router_name = None
 
                         self.load_path = YList(self)
-                        self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
+                        self._segment_path = lambda: "inventory" + "[node-name='" + str(self.node_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/inventories/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -5522,12 +5750,15 @@ class Install(Entity):
                             self.yang_parent_name = "inventory"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package()
                             self.package.parent = self
@@ -5567,12 +5798,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
 
                             def __setattr__(self, name, value):
@@ -5586,7 +5820,7 @@ class Install(Entity):
             .. attribute:: requests
             
             	Install operation request history
-            	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests>`
+            	**type**\:  :py:class:`Requests_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_>`
             
             
 
@@ -5602,10 +5836,12 @@ class Install(Entity):
                 self.yang_parent_name = "software-inventory"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"requests" : ("requests", Install.SoftwareInventory.Requests.Requests)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("requests", ("requests", Install.SoftwareInventory.Requests.Requests_))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.requests = Install.SoftwareInventory.Requests.Requests()
+                self.requests = Install.SoftwareInventory.Requests.Requests_()
                 self.requests.parent = self
                 self._children_name_map["requests"] = "requests"
                 self._children_yang_names.add("requests")
@@ -5613,14 +5849,14 @@ class Install(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/%s" % self._segment_path()
 
 
-            class Requests(Entity):
+            class Requests_(Entity):
                 """
                 Install operation request history
                 
                 .. attribute:: request
                 
                 	Install operation request information
-                	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request>`
+                	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request>`
                 
                 
 
@@ -5630,28 +5866,30 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Requests.Requests, self).__init__()
+                    super(Install.SoftwareInventory.Requests.Requests_, self).__init__()
 
                     self.yang_name = "requests"
                     self.yang_parent_name = "requests"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"request" : ("request", Install.SoftwareInventory.Requests.Requests.Request)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("request", ("request", Install.SoftwareInventory.Requests.Requests_.Request))])
+                    self._leafs = OrderedDict()
 
                     self.request = YList(self)
                     self._segment_path = lambda: "requests"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/requests/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.SoftwareInventory.Requests.Requests, [], name, value)
+                    self._perform_setattr(Install.SoftwareInventory.Requests.Requests_, [], name, value)
 
 
                 class Request(Entity):
                     """
                     Install operation request information
                     
-                    .. attribute:: request_id  <key>
+                    .. attribute:: request_id  (key)
                     
                     	Install operation request ID
                     	**type**\: int
@@ -5661,7 +5899,7 @@ class Install(Entity):
                     .. attribute:: inventories
                     
                     	Inventory information of install operation request
-                    	**type**\:  :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories>`
+                    	**type**\:  :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request.Inventories>`
                     
                     
 
@@ -5671,26 +5909,29 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Requests.Requests.Request, self).__init__()
+                        super(Install.SoftwareInventory.Requests.Requests_.Request, self).__init__()
 
                         self.yang_name = "request"
                         self.yang_parent_name = "requests"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"inventories" : ("inventories", Install.SoftwareInventory.Requests.Requests.Request.Inventories)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['request_id']
+                        self._child_container_classes = OrderedDict([("inventories", ("inventories", Install.SoftwareInventory.Requests.Requests_.Request.Inventories))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.int32, 'request-id')),
+                        ])
+                        self.request_id = None
 
-                        self.request_id = YLeaf(YType.int32, "request-id")
-
-                        self.inventories = Install.SoftwareInventory.Requests.Requests.Request.Inventories()
+                        self.inventories = Install.SoftwareInventory.Requests.Requests_.Request.Inventories()
                         self.inventories.parent = self
                         self._children_name_map["inventories"] = "inventories"
                         self._children_yang_names.add("inventories")
-                        self._segment_path = lambda: "request" + "[request-id='" + self.request_id.get() + "']"
+                        self._segment_path = lambda: "request" + "[request-id='" + str(self.request_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/requests/requests/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request, ['request_id'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request, ['request_id'], name, value)
 
 
                     class Inventories(Entity):
@@ -5701,7 +5942,7 @@ class Install(Entity):
                         .. attribute:: inventory
                         
                         	Inventory information
-                        	**type**\: list of  		 :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory>`
+                        	**type**\: list of  		 :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory>`
                         
                         
 
@@ -5711,27 +5952,29 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Requests.Requests.Request.Inventories, self).__init__()
+                            super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories, self).__init__()
 
                             self.yang_name = "inventories"
                             self.yang_parent_name = "request"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("inventory", ("inventory", Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory))])
+                            self._leafs = OrderedDict()
 
                             self.inventory = YList(self)
                             self._segment_path = lambda: "inventories"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories, [], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories, [], name, value)
 
 
                         class Inventory(Entity):
                             """
                             Inventory information
                             
-                            .. attribute:: node_name  <key>
+                            .. attribute:: node_name  (key)
                             
                             	Node name
                             	**type**\: str
@@ -5772,7 +6015,7 @@ class Install(Entity):
                             .. attribute:: load_path
                             
                             	Load path
-                            	**type**\: list of  		 :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath>`
+                            	**type**\: list of  		 :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath>`
                             
                             
 
@@ -5782,32 +6025,35 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory, self).__init__()
+                                super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory, self).__init__()
 
                                 self.yang_name = "inventory"
                                 self.yang_parent_name = "inventories"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath)}
-
-                                self.node_name = YLeaf(YType.str, "node-name")
-
-                                self.major = YLeaf(YType.uint32, "major")
-
-                                self.minor = YLeaf(YType.uint32, "minor")
-
-                                self.boot_image_name = YLeaf(YType.str, "boot-image-name")
-
-                                self.node_type = YLeaf(YType.uint64, "node-type")
-
-                                self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+                                self.ylist_key_names = ['node_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath))])
+                                self._leafs = OrderedDict([
+                                    ('node_name', YLeaf(YType.str, 'node-name')),
+                                    ('major', YLeaf(YType.uint32, 'major')),
+                                    ('minor', YLeaf(YType.uint32, 'minor')),
+                                    ('boot_image_name', YLeaf(YType.str, 'boot-image-name')),
+                                    ('node_type', YLeaf(YType.uint64, 'node-type')),
+                                    ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                                ])
+                                self.node_name = None
+                                self.major = None
+                                self.minor = None
+                                self.boot_image_name = None
+                                self.node_type = None
+                                self.secure_domain_router_name = None
 
                                 self.load_path = YList(self)
-                                self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
+                                self._segment_path = lambda: "inventory" + "[node-name='" + str(self.node_name) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
                             class LoadPath(Entity):
@@ -5817,7 +6063,7 @@ class Install(Entity):
                                 .. attribute:: package
                                 
                                 	Package
-                                	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package>`
+                                	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package>`
                                 
                                 .. attribute:: version
                                 
@@ -5837,27 +6083,30 @@ class Install(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath, self).__init__()
+                                    super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath, self).__init__()
 
                                     self.yang_name = "load-path"
                                     self.yang_parent_name = "inventory"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('version', YLeaf(YType.str, 'version')),
+                                        ('build_information', YLeaf(YType.str, 'build-information')),
+                                    ])
+                                    self.version = None
+                                    self.build_information = None
 
-                                    self.version = YLeaf(YType.str, "version")
-
-                                    self.build_information = YLeaf(YType.str, "build-information")
-
-                                    self.package = Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package()
+                                    self.package = Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package()
                                     self.package.parent = self
                                     self._children_name_map["package"] = "package"
                                     self._children_yang_names.add("package")
                                     self._segment_path = lambda: "load-path"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
+                                    self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
                                 class Package(Entity):
@@ -5882,22 +6131,25 @@ class Install(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package, self).__init__()
+                                        super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package, self).__init__()
 
                                         self.yang_name = "package"
                                         self.yang_parent_name = "load-path"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.device_name = YLeaf(YType.str, "device-name")
-
-                                        self.name = YLeaf(YType.str, "name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('device_name', YLeaf(YType.str, 'device-name')),
+                                            ('name', YLeaf(YType.str, 'name')),
+                                        ])
+                                        self.device_name = None
+                                        self.name = None
                                         self._segment_path = lambda: "package"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
+                                        self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
         class Active(Entity):
@@ -5928,8 +6180,10 @@ class Install(Entity):
                 self.yang_parent_name = "software-inventory"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"summary" : ("summary", Install.SoftwareInventory.Active.Summary), "inventories" : ("inventories", Install.SoftwareInventory.Active.Inventories)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("summary", ("summary", Install.SoftwareInventory.Active.Summary)), ("inventories", ("inventories", Install.SoftwareInventory.Active.Inventories))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.summary = Install.SoftwareInventory.Active.Summary()
                 self.summary.parent = self
@@ -5982,8 +6236,10 @@ class Install(Entity):
                     self.yang_parent_name = "active"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"default-load-path" : ("default_load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath), "admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath)}
-                    self._child_list_classes = {"sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath), "location-load-path" : ("location_load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("default-load-path", ("default_load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath)), ("admin-load-path", ("admin_load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath))])
+                    self._child_list_classes = OrderedDict([("sdr-load-path", ("sdr_load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath)), ("location-load-path", ("location_load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath))])
+                    self._leafs = OrderedDict()
 
                     self.default_load_path = Install.SoftwareInventory.Active.Summary.DefaultLoadPath()
                     self.default_load_path.parent = self
@@ -6049,14 +6305,17 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.admin_match = YLeaf(YType.boolean, "admin-match")
-
-                        self.secure_domain_router_name = YLeafList(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('admin_match', YLeaf(YType.boolean, 'admin-match')),
+                            ('secure_domain_router_name', YLeafList(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.request_id = None
+                        self.admin_match = None
+                        self.secure_domain_router_name = []
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -6100,12 +6359,15 @@ class Install(Entity):
                             self.yang_parent_name = "default-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -6146,12 +6408,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/load-path/%s" % self._segment_path()
 
@@ -6192,12 +6457,15 @@ class Install(Entity):
                             self.yang_parent_name = "default-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -6238,12 +6506,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -6286,10 +6557,13 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                        ])
+                        self.request_id = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -6333,12 +6607,15 @@ class Install(Entity):
                             self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -6379,12 +6656,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/load-path/%s" % self._segment_path()
 
@@ -6425,12 +6705,15 @@ class Install(Entity):
                             self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -6471,12 +6754,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -6524,12 +6810,15 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.request_id = None
+                        self.secure_domain_router_name = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -6573,12 +6862,15 @@ class Install(Entity):
                             self.yang_parent_name = "sdr-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -6619,12 +6911,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/load-path/%s" % self._segment_path()
 
@@ -6665,12 +6960,15 @@ class Install(Entity):
                             self.yang_parent_name = "sdr-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -6711,12 +7009,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -6771,14 +7072,17 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath)), ("standby-load-path", ("standby_load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath))])
+                        self._leafs = OrderedDict([
+                            ('request_id', YLeaf(YType.uint32, 'request-id')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                        ])
+                        self.request_id = None
+                        self.secure_domain_router_name = None
+                        self.node_name = None
 
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
@@ -6822,12 +7126,15 @@ class Install(Entity):
                             self.yang_parent_name = "location-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -6868,12 +7175,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/load-path/%s" % self._segment_path()
 
@@ -6914,12 +7224,15 @@ class Install(Entity):
                             self.yang_parent_name = "location-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -6960,12 +7273,15 @@ class Install(Entity):
                                 self.yang_parent_name = "standby-load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/standby-load-path/%s" % self._segment_path()
 
@@ -6996,8 +7312,10 @@ class Install(Entity):
                     self.yang_parent_name = "active"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Active.Inventories.Inventory)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("inventory", ("inventory", Install.SoftwareInventory.Active.Inventories.Inventory))])
+                    self._leafs = OrderedDict()
 
                     self.inventory = YList(self)
                     self._segment_path = lambda: "inventories"
@@ -7011,7 +7329,7 @@ class Install(Entity):
                     """
                     Inventory information for specific node
                     
-                    .. attribute:: node_name  <key>
+                    .. attribute:: node_name  (key)
                     
                     	Node name
                     	**type**\: str
@@ -7068,23 +7386,26 @@ class Install(Entity):
                         self.yang_parent_name = "inventories"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.major = YLeaf(YType.uint32, "major")
-
-                        self.minor = YLeaf(YType.uint32, "minor")
-
-                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
-
-                        self.node_type = YLeaf(YType.uint64, "node-type")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+                        self.ylist_key_names = ['node_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("load-path", ("load_path", Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath))])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('major', YLeaf(YType.uint32, 'major')),
+                            ('minor', YLeaf(YType.uint32, 'minor')),
+                            ('boot_image_name', YLeaf(YType.str, 'boot-image-name')),
+                            ('node_type', YLeaf(YType.uint64, 'node-type')),
+                            ('secure_domain_router_name', YLeaf(YType.str, 'secure-domain-router-name')),
+                        ])
+                        self.node_name = None
+                        self.major = None
+                        self.minor = None
+                        self.boot_image_name = None
+                        self.node_type = None
+                        self.secure_domain_router_name = None
 
                         self.load_path = YList(self)
-                        self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
+                        self._segment_path = lambda: "inventory" + "[node-name='" + str(self.node_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/inventories/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -7124,12 +7445,15 @@ class Install(Entity):
                             self.yang_parent_name = "inventory"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.build_information = YLeaf(YType.str, "build-information")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("package", ("package", Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('version', YLeaf(YType.str, 'version')),
+                                ('build_information', YLeaf(YType.str, 'build-information')),
+                            ])
+                            self.version = None
+                            self.build_information = None
 
                             self.package = Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package()
                             self.package.parent = self
@@ -7169,12 +7493,15 @@ class Install(Entity):
                                 self.yang_parent_name = "load-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('device_name', YLeaf(YType.str, 'device-name')),
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.device_name = None
+                                self.name = None
                                 self._segment_path = lambda: "package"
 
                             def __setattr__(self, name, value):
@@ -7209,8 +7536,10 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"card-inventories" : ("card_inventories", Install.Issu.CardInventories), "stage" : ("stage", Install.Issu.Stage)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("card-inventories", ("card_inventories", Install.Issu.CardInventories)), ("stage", ("stage", Install.Issu.Stage))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.card_inventories = Install.Issu.CardInventories()
             self.card_inventories.parent = self
@@ -7248,8 +7577,10 @@ class Install(Entity):
                 self.yang_parent_name = "issu"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"card-inventory" : ("card_inventory", Install.Issu.CardInventories.CardInventory)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("card-inventory", ("card_inventory", Install.Issu.CardInventories.CardInventory))])
+                self._leafs = OrderedDict()
 
                 self.card_inventory = YList(self)
                 self._segment_path = lambda: "card-inventories"
@@ -7264,7 +7595,7 @@ class Install(Entity):
                 ISSU manager inventory summary of the same
                 card type
                 
-                .. attribute:: card_type_id  <key>
+                .. attribute:: card_type_id  (key)
                 
                 	ISSU manager card type ID
                 	**type**\:  :py:class:`IsmCardTypeFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.IsmCardTypeFamily>`
@@ -7288,13 +7619,16 @@ class Install(Entity):
                     self.yang_parent_name = "card-inventories"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"summary" : ("summary", Install.Issu.CardInventories.CardInventory.Summary)}
-
-                    self.card_type_id = YLeaf(YType.enumeration, "card-type-id")
+                    self.ylist_key_names = ['card_type_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("summary", ("summary", Install.Issu.CardInventories.CardInventory.Summary))])
+                    self._leafs = OrderedDict([
+                        ('card_type_id', YLeaf(YType.enumeration, 'card-type-id')),
+                    ])
+                    self.card_type_id = None
 
                     self.summary = YList(self)
-                    self._segment_path = lambda: "card-inventory" + "[card-type-id='" + self.card_type_id.get() + "']"
+                    self._segment_path = lambda: "card-inventory" + "[card-type-id='" + str(self.card_type_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/card-inventories/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -7385,32 +7719,35 @@ class Install(Entity):
                         self.yang_parent_name = "card-inventory"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.partner_node_name = YLeaf(YType.str, "partner-node-name")
-
-                        self.node_state = YLeaf(YType.enumeration, "node-state")
-
-                        self.node_role = YLeaf(YType.enumeration, "node-role")
-
-                        self.node_type_pi = YLeaf(YType.enumeration, "node-type-pi")
-
-                        self.node_type_issu = YLeaf(YType.str, "node-type-issu")
-
-                        self.node_current_state = YLeaf(YType.enumeration, "node-current-state")
-
-                        self.node_expected_state = YLeaf(YType.enumeration, "node-expected-state")
-
-                        self.node_failure_reason = YLeaf(YType.str, "node-failure-reason")
-
-                        self.is_conforming_node = YLeaf(YType.enumeration, "is-conforming-node")
-
-                        self.attempts = YLeaf(YType.uint32, "attempts")
-
-                        self.is_node_upgraded = YLeaf(YType.boolean, "is-node-upgraded")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('partner_node_name', YLeaf(YType.str, 'partner-node-name')),
+                            ('node_state', YLeaf(YType.enumeration, 'node-state')),
+                            ('node_role', YLeaf(YType.enumeration, 'node-role')),
+                            ('node_type_pi', YLeaf(YType.enumeration, 'node-type-pi')),
+                            ('node_type_issu', YLeaf(YType.str, 'node-type-issu')),
+                            ('node_current_state', YLeaf(YType.enumeration, 'node-current-state')),
+                            ('node_expected_state', YLeaf(YType.enumeration, 'node-expected-state')),
+                            ('node_failure_reason', YLeaf(YType.str, 'node-failure-reason')),
+                            ('is_conforming_node', YLeaf(YType.enumeration, 'is-conforming-node')),
+                            ('attempts', YLeaf(YType.uint32, 'attempts')),
+                            ('is_node_upgraded', YLeaf(YType.boolean, 'is-node-upgraded')),
+                        ])
+                        self.node_name = None
+                        self.partner_node_name = None
+                        self.node_state = None
+                        self.node_role = None
+                        self.node_type_pi = None
+                        self.node_type_issu = None
+                        self.node_current_state = None
+                        self.node_expected_state = None
+                        self.node_failure_reason = None
+                        self.is_conforming_node = None
+                        self.attempts = None
+                        self.is_node_upgraded = None
                         self._segment_path = lambda: "summary"
 
                     def __setattr__(self, name, value):
@@ -7526,30 +7863,33 @@ class Install(Entity):
                 self.yang_parent_name = "issu"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"node-in-progress" : ("node_in_progress", Install.Issu.Stage.NodeInProgress), "nodes-in-load" : ("nodes_in_load", Install.Issu.Stage.NodesInLoad), "nodes-in-run" : ("nodes_in_run", Install.Issu.Stage.NodesInRun), "nc-nodes" : ("nc_nodes", Install.Issu.Stage.NcNodes)}
-                self._child_list_classes = {}
-
-                self.issu_state = YLeaf(YType.str, "issu-state")
-
-                self.issu_op_id = YLeaf(YType.uint32, "issu-op-id")
-
-                self.percentage = YLeaf(YType.uint32, "percentage")
-
-                self.is_issu_aborted = YLeaf(YType.boolean, "is-issu-aborted")
-
-                self.is_issu_aborted_by_ism = YLeaf(YType.boolean, "is-issu-aborted-by-ism")
-
-                self.issu_manager_fsm_state = YLeaf(YType.enumeration, "issu-manager-fsm-state")
-
-                self.participating_node_all = YLeaf(YType.uint32, "participating-node-all")
-
-                self.num_nodes_in_progress = YLeaf(YType.uint32, "num-nodes-in-progress")
-
-                self.num_of_nodes_in_load = YLeaf(YType.uint32, "num-of-nodes-in-load")
-
-                self.num_of_nodes_in_run = YLeaf(YType.uint32, "num-of-nodes-in-run")
-
-                self.numof_nc_nodes = YLeaf(YType.uint32, "numof-nc-nodes")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("node-in-progress", ("node_in_progress", Install.Issu.Stage.NodeInProgress)), ("nodes-in-load", ("nodes_in_load", Install.Issu.Stage.NodesInLoad)), ("nodes-in-run", ("nodes_in_run", Install.Issu.Stage.NodesInRun)), ("nc-nodes", ("nc_nodes", Install.Issu.Stage.NcNodes))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('issu_state', YLeaf(YType.str, 'issu-state')),
+                    ('issu_op_id', YLeaf(YType.uint32, 'issu-op-id')),
+                    ('percentage', YLeaf(YType.uint32, 'percentage')),
+                    ('is_issu_aborted', YLeaf(YType.boolean, 'is-issu-aborted')),
+                    ('is_issu_aborted_by_ism', YLeaf(YType.boolean, 'is-issu-aborted-by-ism')),
+                    ('issu_manager_fsm_state', YLeaf(YType.enumeration, 'issu-manager-fsm-state')),
+                    ('participating_node_all', YLeaf(YType.uint32, 'participating-node-all')),
+                    ('num_nodes_in_progress', YLeaf(YType.uint32, 'num-nodes-in-progress')),
+                    ('num_of_nodes_in_load', YLeaf(YType.uint32, 'num-of-nodes-in-load')),
+                    ('num_of_nodes_in_run', YLeaf(YType.uint32, 'num-of-nodes-in-run')),
+                    ('numof_nc_nodes', YLeaf(YType.uint32, 'numof-nc-nodes')),
+                ])
+                self.issu_state = None
+                self.issu_op_id = None
+                self.percentage = None
+                self.is_issu_aborted = None
+                self.is_issu_aborted_by_ism = None
+                self.issu_manager_fsm_state = None
+                self.participating_node_all = None
+                self.num_nodes_in_progress = None
+                self.num_of_nodes_in_load = None
+                self.num_of_nodes_in_run = None
+                self.numof_nc_nodes = None
 
                 self.node_in_progress = Install.Issu.Stage.NodeInProgress()
                 self.node_in_progress.parent = self
@@ -7602,10 +7942,13 @@ class Install(Entity):
                     self.yang_parent_name = "stage"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node = YLeafList(YType.str, "node")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node', YLeafList(YType.str, 'node')),
+                    ])
+                    self.node = []
                     self._segment_path = lambda: "node-in-progress"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
 
@@ -7638,10 +7981,13 @@ class Install(Entity):
                     self.yang_parent_name = "stage"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node = YLeafList(YType.str, "node")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node', YLeafList(YType.str, 'node')),
+                    ])
+                    self.node = []
                     self._segment_path = lambda: "nodes-in-load"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
 
@@ -7674,10 +8020,13 @@ class Install(Entity):
                     self.yang_parent_name = "stage"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node = YLeafList(YType.str, "node")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node', YLeafList(YType.str, 'node')),
+                    ])
+                    self.node = []
                     self._segment_path = lambda: "nodes-in-run"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
 
@@ -7710,10 +8059,13 @@ class Install(Entity):
                     self.yang_parent_name = "stage"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node = YLeafList(YType.str, "node")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node', YLeafList(YType.str, 'node')),
+                    ])
+                    self.node = []
                     self._segment_path = lambda: "nc-nodes"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
 
@@ -7744,10 +8096,13 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.system_image_file = YLeaf(YType.str, "system-image-file")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('system_image_file', YLeaf(YType.str, 'system-image-file')),
+            ])
+            self.system_image_file = None
             self._segment_path = lambda: "boot-image"
             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
 
@@ -7778,8 +8133,10 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"log" : ("log", Install.Logs.Log)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("log", ("log", Install.Logs.Log))])
+            self._leafs = OrderedDict()
 
             self.log = YList(self)
             self._segment_path = lambda: "logs"
@@ -7793,7 +8150,7 @@ class Install(Entity):
             """
             Log information
             
-            .. attribute:: request_id  <key>
+            .. attribute:: request_id  (key)
             
             	Install operation request ID
             	**type**\: int
@@ -7844,10 +8201,13 @@ class Install(Entity):
                 self.yang_parent_name = "logs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"header" : ("header", Install.Logs.Log.Header), "summary" : ("summary", Install.Logs.Log.Summary), "message" : ("message", Install.Logs.Log.Message), "change" : ("change", Install.Logs.Log.Change), "detail" : ("detail", Install.Logs.Log.Detail), "communication" : ("communication", Install.Logs.Log.Communication)}
-
-                self.request_id = YLeaf(YType.int32, "request-id")
+                self.ylist_key_names = ['request_id']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("header", ("header", Install.Logs.Log.Header)), ("summary", ("summary", Install.Logs.Log.Summary)), ("message", ("message", Install.Logs.Log.Message)), ("change", ("change", Install.Logs.Log.Change)), ("detail", ("detail", Install.Logs.Log.Detail)), ("communication", ("communication", Install.Logs.Log.Communication))])
+                self._leafs = OrderedDict([
+                    ('request_id', YLeaf(YType.int32, 'request-id')),
+                ])
+                self.request_id = None
 
                 self.header = YList(self)
                 self.summary = YList(self)
@@ -7855,7 +8215,7 @@ class Install(Entity):
                 self.change = YList(self)
                 self.detail = YList(self)
                 self.communication = YList(self)
-                self._segment_path = lambda: "log" + "[request-id='" + self.request_id.get() + "']"
+                self._segment_path = lambda: "log" + "[request-id='" + str(self.request_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/logs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -7885,8 +8245,10 @@ class Install(Entity):
                     self.yang_parent_name = "log"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Header.LogContents)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("log-contents", ("log_contents", Install.Logs.Log.Header.LogContents))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.log_contents = Install.Logs.Log.Header.LogContents()
                     self.log_contents.parent = self
@@ -7925,10 +8287,13 @@ class Install(Entity):
                         self.yang_parent_name = "header"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Header.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("v3", ("v3", Install.Logs.Log.Header.LogContents.V3))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('version', YLeaf(YType.uint32, 'version')),
+                        ])
+                        self.version = None
 
                         self.v3 = Install.Logs.Log.Header.LogContents.V3()
                         self.v3.parent = self
@@ -7973,12 +8338,15 @@ class Install(Entity):
                             self.yang_parent_name = "log-contents"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Header.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("scope", ("scope", Install.Logs.Log.Header.LogContents.V3.Scope))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('category', YLeaf(YType.enumeration, 'category')),
+                                ('message', YLeaf(YType.str, 'message')),
+                            ])
+                            self.category = None
+                            self.message = None
 
                             self.scope = Install.Logs.Log.Header.LogContents.V3.Scope()
                             self.scope.parent = self
@@ -8020,12 +8388,15 @@ class Install(Entity):
                                 self.yang_parent_name = "v3"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('admin_read', YLeaf(YType.boolean, 'admin-read')),
+                                    ('affected_sd_rs', YLeaf(YType.uint32, 'affected-sd-rs')),
+                                ])
+                                self.admin_read = None
+                                self.affected_sd_rs = None
                                 self._segment_path = lambda: "scope"
 
                             def __setattr__(self, name, value):
@@ -8055,8 +8426,10 @@ class Install(Entity):
                     self.yang_parent_name = "log"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Summary.LogContents)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("log-contents", ("log_contents", Install.Logs.Log.Summary.LogContents))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.log_contents = Install.Logs.Log.Summary.LogContents()
                     self.log_contents.parent = self
@@ -8095,10 +8468,13 @@ class Install(Entity):
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Summary.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("v3", ("v3", Install.Logs.Log.Summary.LogContents.V3))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('version', YLeaf(YType.uint32, 'version')),
+                        ])
+                        self.version = None
 
                         self.v3 = Install.Logs.Log.Summary.LogContents.V3()
                         self.v3.parent = self
@@ -8143,12 +8519,15 @@ class Install(Entity):
                             self.yang_parent_name = "log-contents"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Summary.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("scope", ("scope", Install.Logs.Log.Summary.LogContents.V3.Scope))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('category', YLeaf(YType.enumeration, 'category')),
+                                ('message', YLeaf(YType.str, 'message')),
+                            ])
+                            self.category = None
+                            self.message = None
 
                             self.scope = Install.Logs.Log.Summary.LogContents.V3.Scope()
                             self.scope.parent = self
@@ -8190,12 +8569,15 @@ class Install(Entity):
                                 self.yang_parent_name = "v3"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('admin_read', YLeaf(YType.boolean, 'admin-read')),
+                                    ('affected_sd_rs', YLeaf(YType.uint32, 'affected-sd-rs')),
+                                ])
+                                self.admin_read = None
+                                self.affected_sd_rs = None
                                 self._segment_path = lambda: "scope"
 
                             def __setattr__(self, name, value):
@@ -8225,8 +8607,10 @@ class Install(Entity):
                     self.yang_parent_name = "log"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Message.LogContents)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("log-contents", ("log_contents", Install.Logs.Log.Message.LogContents))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.log_contents = Install.Logs.Log.Message.LogContents()
                     self.log_contents.parent = self
@@ -8265,10 +8649,13 @@ class Install(Entity):
                         self.yang_parent_name = "message"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Message.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("v3", ("v3", Install.Logs.Log.Message.LogContents.V3))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('version', YLeaf(YType.uint32, 'version')),
+                        ])
+                        self.version = None
 
                         self.v3 = Install.Logs.Log.Message.LogContents.V3()
                         self.v3.parent = self
@@ -8313,12 +8700,15 @@ class Install(Entity):
                             self.yang_parent_name = "log-contents"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Message.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("scope", ("scope", Install.Logs.Log.Message.LogContents.V3.Scope))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('category', YLeaf(YType.enumeration, 'category')),
+                                ('message', YLeaf(YType.str, 'message')),
+                            ])
+                            self.category = None
+                            self.message = None
 
                             self.scope = Install.Logs.Log.Message.LogContents.V3.Scope()
                             self.scope.parent = self
@@ -8360,12 +8750,15 @@ class Install(Entity):
                                 self.yang_parent_name = "v3"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('admin_read', YLeaf(YType.boolean, 'admin-read')),
+                                    ('affected_sd_rs', YLeaf(YType.uint32, 'affected-sd-rs')),
+                                ])
+                                self.admin_read = None
+                                self.affected_sd_rs = None
                                 self._segment_path = lambda: "scope"
 
                             def __setattr__(self, name, value):
@@ -8395,8 +8788,10 @@ class Install(Entity):
                     self.yang_parent_name = "log"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Change.LogContents)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("log-contents", ("log_contents", Install.Logs.Log.Change.LogContents))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.log_contents = Install.Logs.Log.Change.LogContents()
                     self.log_contents.parent = self
@@ -8435,10 +8830,13 @@ class Install(Entity):
                         self.yang_parent_name = "change"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Change.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("v3", ("v3", Install.Logs.Log.Change.LogContents.V3))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('version', YLeaf(YType.uint32, 'version')),
+                        ])
+                        self.version = None
 
                         self.v3 = Install.Logs.Log.Change.LogContents.V3()
                         self.v3.parent = self
@@ -8483,12 +8881,15 @@ class Install(Entity):
                             self.yang_parent_name = "log-contents"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Change.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("scope", ("scope", Install.Logs.Log.Change.LogContents.V3.Scope))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('category', YLeaf(YType.enumeration, 'category')),
+                                ('message', YLeaf(YType.str, 'message')),
+                            ])
+                            self.category = None
+                            self.message = None
 
                             self.scope = Install.Logs.Log.Change.LogContents.V3.Scope()
                             self.scope.parent = self
@@ -8530,12 +8931,15 @@ class Install(Entity):
                                 self.yang_parent_name = "v3"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('admin_read', YLeaf(YType.boolean, 'admin-read')),
+                                    ('affected_sd_rs', YLeaf(YType.uint32, 'affected-sd-rs')),
+                                ])
+                                self.admin_read = None
+                                self.affected_sd_rs = None
                                 self._segment_path = lambda: "scope"
 
                             def __setattr__(self, name, value):
@@ -8565,8 +8969,10 @@ class Install(Entity):
                     self.yang_parent_name = "log"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Detail.LogContents)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("log-contents", ("log_contents", Install.Logs.Log.Detail.LogContents))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.log_contents = Install.Logs.Log.Detail.LogContents()
                     self.log_contents.parent = self
@@ -8605,10 +9011,13 @@ class Install(Entity):
                         self.yang_parent_name = "detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Detail.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("v3", ("v3", Install.Logs.Log.Detail.LogContents.V3))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('version', YLeaf(YType.uint32, 'version')),
+                        ])
+                        self.version = None
 
                         self.v3 = Install.Logs.Log.Detail.LogContents.V3()
                         self.v3.parent = self
@@ -8653,12 +9062,15 @@ class Install(Entity):
                             self.yang_parent_name = "log-contents"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Detail.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("scope", ("scope", Install.Logs.Log.Detail.LogContents.V3.Scope))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('category', YLeaf(YType.enumeration, 'category')),
+                                ('message', YLeaf(YType.str, 'message')),
+                            ])
+                            self.category = None
+                            self.message = None
 
                             self.scope = Install.Logs.Log.Detail.LogContents.V3.Scope()
                             self.scope.parent = self
@@ -8700,12 +9112,15 @@ class Install(Entity):
                                 self.yang_parent_name = "v3"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('admin_read', YLeaf(YType.boolean, 'admin-read')),
+                                    ('affected_sd_rs', YLeaf(YType.uint32, 'affected-sd-rs')),
+                                ])
+                                self.admin_read = None
+                                self.affected_sd_rs = None
                                 self._segment_path = lambda: "scope"
 
                             def __setattr__(self, name, value):
@@ -8735,8 +9150,10 @@ class Install(Entity):
                     self.yang_parent_name = "log"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Communication.LogContents)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("log-contents", ("log_contents", Install.Logs.Log.Communication.LogContents))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.log_contents = Install.Logs.Log.Communication.LogContents()
                     self.log_contents.parent = self
@@ -8775,10 +9192,13 @@ class Install(Entity):
                         self.yang_parent_name = "communication"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Communication.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("v3", ("v3", Install.Logs.Log.Communication.LogContents.V3))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('version', YLeaf(YType.uint32, 'version')),
+                        ])
+                        self.version = None
 
                         self.v3 = Install.Logs.Log.Communication.LogContents.V3()
                         self.v3.parent = self
@@ -8823,12 +9243,15 @@ class Install(Entity):
                             self.yang_parent_name = "log-contents"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Communication.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("scope", ("scope", Install.Logs.Log.Communication.LogContents.V3.Scope))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('category', YLeaf(YType.enumeration, 'category')),
+                                ('message', YLeaf(YType.str, 'message')),
+                            ])
+                            self.category = None
+                            self.message = None
 
                             self.scope = Install.Logs.Log.Communication.LogContents.V3.Scope()
                             self.scope.parent = self
@@ -8870,12 +9293,15 @@ class Install(Entity):
                                 self.yang_parent_name = "v3"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('admin_read', YLeaf(YType.boolean, 'admin-read')),
+                                    ('affected_sd_rs', YLeaf(YType.uint32, 'affected-sd-rs')),
+                                ])
+                                self.admin_read = None
+                                self.affected_sd_rs = None
                                 self._segment_path = lambda: "scope"
 
                             def __setattr__(self, name, value):

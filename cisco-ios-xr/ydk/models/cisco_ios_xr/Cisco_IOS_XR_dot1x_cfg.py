@@ -12,9 +12,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -43,8 +45,10 @@ class Dot1X(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-dot1x-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"dot1x-profile" : ("dot1x_profile", Dot1X.Dot1XProfile)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("dot1x-profile", ("dot1x_profile", Dot1X.Dot1XProfile))])
+        self._leafs = OrderedDict()
 
         self.dot1x_profile = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-dot1x-cfg:dot1x"
@@ -57,7 +61,7 @@ class Dot1X(Entity):
         """
         Global Dot1x Profile Name
         
-        .. attribute:: profile_name  <key>
+        .. attribute:: profile_name  (key)
         
         	Name of the Dot1x Profile
         	**type**\: str
@@ -95,12 +99,15 @@ class Dot1X(Entity):
             self.yang_parent_name = "dot1x"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"supplicant" : ("supplicant", Dot1X.Dot1XProfile.Supplicant), "authenticator" : ("authenticator", Dot1X.Dot1XProfile.Authenticator)}
-            self._child_list_classes = {}
-
-            self.profile_name = YLeaf(YType.str, "profile-name")
-
-            self.pae = YLeaf(YType.str, "pae")
+            self.ylist_key_names = ['profile_name']
+            self._child_container_classes = OrderedDict([("supplicant", ("supplicant", Dot1X.Dot1XProfile.Supplicant)), ("authenticator", ("authenticator", Dot1X.Dot1XProfile.Authenticator))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                ('pae', YLeaf(YType.str, 'pae')),
+            ])
+            self.profile_name = None
+            self.pae = None
 
             self.supplicant = Dot1X.Dot1XProfile.Supplicant()
             self.supplicant.parent = self
@@ -111,7 +118,7 @@ class Dot1X(Entity):
             self.authenticator.parent = self
             self._children_name_map["authenticator"] = "authenticator"
             self._children_yang_names.add("authenticator")
-            self._segment_path = lambda: "dot1x-profile" + "[profile-name='" + self.profile_name.get() + "']"
+            self._segment_path = lambda: "dot1x-profile" + "[profile-name='" + str(self.profile_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-cfg:dot1x/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -141,10 +148,13 @@ class Dot1X(Entity):
                 self.yang_parent_name = "dot1x-profile"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.eap_profile = YLeaf(YType.str, "eap-profile")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('eap_profile', YLeaf(YType.str, 'eap-profile')),
+                ])
+                self.eap_profile = None
                 self._segment_path = lambda: "supplicant"
 
             def __setattr__(self, name, value):
@@ -174,8 +184,10 @@ class Dot1X(Entity):
                 self.yang_parent_name = "dot1x-profile"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"timers" : ("timers", Dot1X.Dot1XProfile.Authenticator.Timers)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("timers", ("timers", Dot1X.Dot1XProfile.Authenticator.Timers))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.timers = Dot1X.Dot1XProfile.Authenticator.Timers()
                 self.timers.parent = self
@@ -207,8 +219,10 @@ class Dot1X(Entity):
                     self.yang_parent_name = "authenticator"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"reauth-time" : ("reauth_time", Dot1X.Dot1XProfile.Authenticator.Timers.ReauthTime)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("reauth-time", ("reauth_time", Dot1X.Dot1XProfile.Authenticator.Timers.ReauthTime))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.reauth_time = Dot1X.Dot1XProfile.Authenticator.Timers.ReauthTime()
                     self.reauth_time.parent = self
@@ -250,12 +264,15 @@ class Dot1X(Entity):
                         self.yang_parent_name = "timers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.server = YLeaf(YType.boolean, "server")
-
-                        self.local = YLeaf(YType.uint32, "local")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('server', YLeaf(YType.boolean, 'server')),
+                            ('local', YLeaf(YType.uint32, 'local')),
+                        ])
+                        self.server = None
+                        self.local = None
                         self._segment_path = lambda: "reauth-time"
 
                     def __setattr__(self, name, value):
@@ -289,8 +306,10 @@ class Eap(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-dot1x-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"eap-profile" : ("eap_profile", Eap.EapProfile)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("eap-profile", ("eap_profile", Eap.EapProfile))])
+        self._leafs = OrderedDict()
 
         self.eap_profile = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-dot1x-cfg:eap"
@@ -303,7 +322,7 @@ class Eap(Entity):
         """
         Global EAP Profile Configuration
         
-        .. attribute:: profile_name  <key>
+        .. attribute:: profile_name  (key)
         
         	Name of the EAP Profile
         	**type**\: str
@@ -334,18 +353,21 @@ class Eap(Entity):
             self.yang_parent_name = "eap"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"eaptls" : ("eaptls", Eap.EapProfile.Eaptls)}
-            self._child_list_classes = {}
-
-            self.profile_name = YLeaf(YType.str, "profile-name")
-
-            self.identity = YLeaf(YType.str, "identity")
+            self.ylist_key_names = ['profile_name']
+            self._child_container_classes = OrderedDict([("eaptls", ("eaptls", Eap.EapProfile.Eaptls))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                ('identity', YLeaf(YType.str, 'identity')),
+            ])
+            self.profile_name = None
+            self.identity = None
 
             self.eaptls = Eap.EapProfile.Eaptls()
             self.eaptls.parent = self
             self._children_name_map["eaptls"] = "eaptls"
             self._children_yang_names.add("eaptls")
-            self._segment_path = lambda: "eap-profile" + "[profile-name='" + self.profile_name.get() + "']"
+            self._segment_path = lambda: "eap-profile" + "[profile-name='" + str(self.profile_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-cfg:eap/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -375,10 +397,13 @@ class Eap(Entity):
                 self.yang_parent_name = "eap-profile"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.pki_trustpoint = YLeaf(YType.str, "pki-trustpoint")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('pki_trustpoint', YLeaf(YType.str, 'pki-trustpoint')),
+                ])
+                self.pki_trustpoint = None
                 self._segment_path = lambda: "eaptls"
 
             def __setattr__(self, name, value):

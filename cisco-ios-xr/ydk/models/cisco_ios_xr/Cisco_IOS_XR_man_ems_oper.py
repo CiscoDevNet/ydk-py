@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -47,8 +49,10 @@ class Grpc(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-man-ems-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"statistics" : ("statistics", Grpc.Statistics), "status" : ("status", Grpc.Status)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("statistics", ("statistics", Grpc.Statistics)), ("status", ("status", Grpc.Status))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.statistics = Grpc.Statistics()
         self.statistics.parent = self
@@ -227,50 +231,53 @@ class Grpc(Entity):
             self.yang_parent_name = "grpc"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ct_show_cmd_txt_req_recv = YLeaf(YType.uint64, "ct-show-cmd-txt-req-recv")
-
-            self.ct_show_cmd_txt_res_sent = YLeaf(YType.uint64, "ct-show-cmd-txt-res-sent")
-
-            self.ct_get_config_req_recv = YLeaf(YType.uint64, "ct-get-config-req-recv")
-
-            self.ct_get_config_res_sent = YLeaf(YType.uint64, "ct-get-config-res-sent")
-
-            self.ct_cli_config_req_recv = YLeaf(YType.uint64, "ct-cli-config-req-recv")
-
-            self.ct_cli_config_res_sent = YLeaf(YType.uint64, "ct-cli-config-res-sent")
-
-            self.ct_merge_config_req_recv = YLeaf(YType.uint64, "ct-merge-config-req-recv")
-
-            self.ct_merge_config_res_sent = YLeaf(YType.uint64, "ct-merge-config-res-sent")
-
-            self.ct_commit_replace_req_recv = YLeaf(YType.uint64, "ct-commit-replace-req-recv")
-
-            self.ct_commit_replace_res_sent = YLeaf(YType.uint64, "ct-commit-replace-res-sent")
-
-            self.ct_delete_config_req_recv = YLeaf(YType.uint64, "ct-delete-config-req-recv")
-
-            self.ct_delete_config_res_sent = YLeaf(YType.uint64, "ct-delete-config-res-sent")
-
-            self.ct_replace_config_req_recv = YLeaf(YType.uint64, "ct-replace-config-req-recv")
-
-            self.ct_replace_config_res_sent = YLeaf(YType.uint64, "ct-replace-config-res-sent")
-
-            self.ct_get_oper_req_recv = YLeaf(YType.uint64, "ct-get-oper-req-recv")
-
-            self.ct_get_oper_res_sent = YLeaf(YType.uint64, "ct-get-oper-res-sent")
-
-            self.ct_get_current_session = YLeaf(YType.uint32, "ct-get-current-session")
-
-            self.ct_commit_config_req_recv = YLeaf(YType.uint64, "ct-commit-config-req-recv")
-
-            self.ct_commit_config_res_sent = YLeaf(YType.uint64, "ct-commit-config-res-sent")
-
-            self.ct_action_json_req_recv = YLeaf(YType.uint64, "ct-action-json-req-recv")
-
-            self.ct_action_json_res_sent = YLeaf(YType.uint64, "ct-action-json-res-sent")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ct_show_cmd_txt_req_recv', YLeaf(YType.uint64, 'ct-show-cmd-txt-req-recv')),
+                ('ct_show_cmd_txt_res_sent', YLeaf(YType.uint64, 'ct-show-cmd-txt-res-sent')),
+                ('ct_get_config_req_recv', YLeaf(YType.uint64, 'ct-get-config-req-recv')),
+                ('ct_get_config_res_sent', YLeaf(YType.uint64, 'ct-get-config-res-sent')),
+                ('ct_cli_config_req_recv', YLeaf(YType.uint64, 'ct-cli-config-req-recv')),
+                ('ct_cli_config_res_sent', YLeaf(YType.uint64, 'ct-cli-config-res-sent')),
+                ('ct_merge_config_req_recv', YLeaf(YType.uint64, 'ct-merge-config-req-recv')),
+                ('ct_merge_config_res_sent', YLeaf(YType.uint64, 'ct-merge-config-res-sent')),
+                ('ct_commit_replace_req_recv', YLeaf(YType.uint64, 'ct-commit-replace-req-recv')),
+                ('ct_commit_replace_res_sent', YLeaf(YType.uint64, 'ct-commit-replace-res-sent')),
+                ('ct_delete_config_req_recv', YLeaf(YType.uint64, 'ct-delete-config-req-recv')),
+                ('ct_delete_config_res_sent', YLeaf(YType.uint64, 'ct-delete-config-res-sent')),
+                ('ct_replace_config_req_recv', YLeaf(YType.uint64, 'ct-replace-config-req-recv')),
+                ('ct_replace_config_res_sent', YLeaf(YType.uint64, 'ct-replace-config-res-sent')),
+                ('ct_get_oper_req_recv', YLeaf(YType.uint64, 'ct-get-oper-req-recv')),
+                ('ct_get_oper_res_sent', YLeaf(YType.uint64, 'ct-get-oper-res-sent')),
+                ('ct_get_current_session', YLeaf(YType.uint32, 'ct-get-current-session')),
+                ('ct_commit_config_req_recv', YLeaf(YType.uint64, 'ct-commit-config-req-recv')),
+                ('ct_commit_config_res_sent', YLeaf(YType.uint64, 'ct-commit-config-res-sent')),
+                ('ct_action_json_req_recv', YLeaf(YType.uint64, 'ct-action-json-req-recv')),
+                ('ct_action_json_res_sent', YLeaf(YType.uint64, 'ct-action-json-res-sent')),
+            ])
+            self.ct_show_cmd_txt_req_recv = None
+            self.ct_show_cmd_txt_res_sent = None
+            self.ct_get_config_req_recv = None
+            self.ct_get_config_res_sent = None
+            self.ct_cli_config_req_recv = None
+            self.ct_cli_config_res_sent = None
+            self.ct_merge_config_req_recv = None
+            self.ct_merge_config_res_sent = None
+            self.ct_commit_replace_req_recv = None
+            self.ct_commit_replace_res_sent = None
+            self.ct_delete_config_req_recv = None
+            self.ct_delete_config_res_sent = None
+            self.ct_replace_config_req_recv = None
+            self.ct_replace_config_res_sent = None
+            self.ct_get_oper_req_recv = None
+            self.ct_get_oper_res_sent = None
+            self.ct_get_current_session = None
+            self.ct_commit_config_req_recv = None
+            self.ct_commit_config_res_sent = None
+            self.ct_action_json_req_recv = None
+            self.ct_action_json_res_sent = None
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc/%s" % self._segment_path()
 
@@ -342,24 +349,27 @@ class Grpc(Entity):
             self.yang_parent_name = "grpc"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.transport = YLeaf(YType.str, "transport")
-
-            self.address_family = YLeaf(YType.str, "address-family")
-
-            self.tls = YLeaf(YType.str, "tls")
-
-            self.trustpoint = YLeaf(YType.str, "trustpoint")
-
-            self.listening_port = YLeaf(YType.int32, "listening-port")
-
-            self.vrf_socket_ns_path = YLeaf(YType.str, "vrf-socket-ns-path")
-
-            self.max_req_per_user = YLeaf(YType.uint32, "max-req-per-user")
-
-            self.max_req_total = YLeaf(YType.uint32, "max-req-total")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('transport', YLeaf(YType.str, 'transport')),
+                ('address_family', YLeaf(YType.str, 'address-family')),
+                ('tls', YLeaf(YType.str, 'tls')),
+                ('trustpoint', YLeaf(YType.str, 'trustpoint')),
+                ('listening_port', YLeaf(YType.int32, 'listening-port')),
+                ('vrf_socket_ns_path', YLeaf(YType.str, 'vrf-socket-ns-path')),
+                ('max_req_per_user', YLeaf(YType.uint32, 'max-req-per-user')),
+                ('max_req_total', YLeaf(YType.uint32, 'max-req-total')),
+            ])
+            self.transport = None
+            self.address_family = None
+            self.tls = None
+            self.trustpoint = None
+            self.listening_port = None
+            self.vrf_socket_ns_path = None
+            self.max_req_per_user = None
+            self.max_req_total = None
             self._segment_path = lambda: "status"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc/%s" % self._segment_path()
 

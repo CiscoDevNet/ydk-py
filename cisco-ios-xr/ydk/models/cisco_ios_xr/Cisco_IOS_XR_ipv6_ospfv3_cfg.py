@@ -15,15 +15,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class Ospfv3AddressFamily(Enum):
     """
-    Ospfv3AddressFamily
+    Ospfv3AddressFamily (Enum Class)
 
     Ospfv3 address family
 
@@ -38,7 +40,7 @@ class Ospfv3AddressFamily(Enum):
 
 class Ospfv3Authentication(Enum):
     """
-    Ospfv3Authentication
+    Ospfv3Authentication (Enum Class)
 
     Ospfv3 authentication
 
@@ -59,7 +61,7 @@ class Ospfv3Authentication(Enum):
 
 class Ospfv3AuthenticationType2(Enum):
     """
-    Ospfv3AuthenticationType2
+    Ospfv3AuthenticationType2 (Enum Class)
 
     Ospfv3 authentication type2
 
@@ -86,7 +88,7 @@ class Ospfv3AuthenticationType2(Enum):
 
 class Ospfv3DomainId(Enum):
     """
-    Ospfv3DomainId
+    Ospfv3DomainId (Enum Class)
 
     Ospfv3 domain id
 
@@ -119,7 +121,7 @@ class Ospfv3DomainId(Enum):
 
 class Ospfv3EigrpRoute(Enum):
     """
-    Ospfv3EigrpRoute
+    Ospfv3EigrpRoute (Enum Class)
 
     Ospfv3 eigrp route
 
@@ -140,7 +142,7 @@ class Ospfv3EigrpRoute(Enum):
 
 class Ospfv3EncryptionAlgorithm(Enum):
     """
-    Ospfv3EncryptionAlgorithm
+    Ospfv3EncryptionAlgorithm (Enum Class)
 
     Ospfv3 encryption algorithm
 
@@ -185,7 +187,7 @@ class Ospfv3EncryptionAlgorithm(Enum):
 
 class Ospfv3ExternalRoute(Enum):
     """
-    Ospfv3ExternalRoute
+    Ospfv3ExternalRoute (Enum Class)
 
     Ospfv3 external route
 
@@ -212,7 +214,7 @@ class Ospfv3ExternalRoute(Enum):
 
 class Ospfv3FastReroute(Enum):
     """
-    Ospfv3FastReroute
+    Ospfv3FastReroute (Enum Class)
 
     Ospfv3 fast reroute
 
@@ -239,7 +241,7 @@ class Ospfv3FastReroute(Enum):
 
 class Ospfv3FastReroutePriority(Enum):
     """
-    Ospfv3FastReroutePriority
+    Ospfv3FastReroutePriority (Enum Class)
 
     Ospfv3 fast reroute priority
 
@@ -272,7 +274,7 @@ class Ospfv3FastReroutePriority(Enum):
 
 class Ospfv3FastRerouteTiebreakers(Enum):
     """
-    Ospfv3FastRerouteTiebreakers
+    Ospfv3FastRerouteTiebreakers (Enum Class)
 
     Ospfv3 fast reroute tiebreakers
 
@@ -323,7 +325,7 @@ class Ospfv3FastRerouteTiebreakers(Enum):
 
 class Ospfv3InternalRoute(Enum):
     """
-    Ospfv3InternalRoute
+    Ospfv3InternalRoute (Enum Class)
 
     Ospfv3 internal route
 
@@ -338,7 +340,7 @@ class Ospfv3InternalRoute(Enum):
 
 class Ospfv3LogAdj(Enum):
     """
-    Ospfv3LogAdj
+    Ospfv3LogAdj (Enum Class)
 
     Ospfv3 log adj
 
@@ -365,7 +367,7 @@ class Ospfv3LogAdj(Enum):
 
 class Ospfv3Metric(Enum):
     """
-    Ospfv3Metric
+    Ospfv3Metric (Enum Class)
 
     Ospfv3 metric
 
@@ -386,7 +388,7 @@ class Ospfv3Metric(Enum):
 
 class Ospfv3Network(Enum):
     """
-    Ospfv3Network
+    Ospfv3Network (Enum Class)
 
     Ospfv3 network
 
@@ -425,7 +427,7 @@ class Ospfv3Network(Enum):
 
 class Ospfv3Protocol(Enum):
     """
-    Ospfv3Protocol
+    Ospfv3Protocol (Enum Class)
 
     Ospfv3 protocol
 
@@ -476,7 +478,7 @@ class Ospfv3Protocol(Enum):
 
 class Ospfv3ProtocolType2(Enum):
     """
-    Ospfv3ProtocolType2
+    Ospfv3ProtocolType2 (Enum Class)
 
     Ospfv3 protocol type2
 
@@ -539,7 +541,7 @@ class Ospfv3ProtocolType2(Enum):
 
 class Ospfv3SubsequentAddressFamily(Enum):
     """
-    Ospfv3SubsequentAddressFamily
+    Ospfv3SubsequentAddressFamily (Enum Class)
 
     Ospfv3 subsequent address family
 
@@ -554,7 +556,7 @@ class Ospfv3SubsequentAddressFamily(Enum):
 
 class Ospfv3TraceBufSize(Enum):
     """
-    Ospfv3TraceBufSize
+    Ospfv3TraceBufSize (Enum Class)
 
     Ospfv3 trace buf size
 
@@ -623,7 +625,7 @@ class Ospfv3TraceBufSize(Enum):
 
 class Ospfv3bfdEnableMode(Enum):
     """
-    Ospfv3bfdEnableMode
+    Ospfv3bfdEnableMode (Enum Class)
 
     Ospfv3bfd enable mode
 
@@ -650,7 +652,7 @@ class Ospfv3bfdEnableMode(Enum):
 
 class Ospfv3isisRoute(Enum):
     """
-    Ospfv3isisRoute
+    Ospfv3isisRoute (Enum Class)
 
     Ospfv3isis route
 
@@ -677,7 +679,7 @@ class Ospfv3isisRoute(Enum):
 
 class Ospfv3nsr(Enum):
     """
-    Ospfv3nsr
+    Ospfv3nsr (Enum Class)
 
     Ospfv3nsr
 
@@ -698,7 +700,7 @@ class Ospfv3nsr(Enum):
 
 class Ospfv3nssaExternalRoute(Enum):
     """
-    Ospfv3nssaExternalRoute
+    Ospfv3nssaExternalRoute (Enum Class)
 
     Ospfv3nssa external route
 
@@ -743,7 +745,7 @@ class Ospfv3(Entity):
     """
 
     _prefix = 'ipv6-ospfv3-cfg'
-    _revision = '2017-07-14'
+    _revision = '2018-01-15'
 
     def __init__(self):
         super(Ospfv3, self).__init__()
@@ -753,10 +755,13 @@ class Ospfv3(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-ospfv3-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"processes" : ("processes", Ospfv3.Processes)}
-        self._child_list_classes = {}
-
-        self.dns_name_lookup = YLeaf(YType.empty, "dns-name-lookup")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("processes", ("processes", Ospfv3.Processes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('dns_name_lookup', YLeaf(YType.empty, 'dns-name-lookup')),
+        ])
+        self.dns_name_lookup = None
 
         self.processes = Ospfv3.Processes()
         self.processes.parent = self
@@ -782,7 +787,7 @@ class Ospfv3(Entity):
         """
 
         _prefix = 'ipv6-ospfv3-cfg'
-        _revision = '2017-07-14'
+        _revision = '2018-01-15'
 
         def __init__(self):
             super(Ospfv3.Processes, self).__init__()
@@ -791,8 +796,10 @@ class Ospfv3(Entity):
             self.yang_parent_name = "ospfv3"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"process" : ("process", Ospfv3.Processes.Process)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("process", ("process", Ospfv3.Processes.Process))])
+            self._leafs = OrderedDict()
 
             self.process = YList(self)
             self._segment_path = lambda: "processes"
@@ -806,7 +813,7 @@ class Ospfv3(Entity):
             """
             An OSPFv3 process
             
-            .. attribute:: process_name  <key>
+            .. attribute:: process_name  (key)
             
             	OSPFv3 process name
             	**type**\: str
@@ -857,7 +864,7 @@ class Ospfv3(Entity):
             """
 
             _prefix = 'ipv6-ospfv3-cfg'
-            _revision = '2017-07-14'
+            _revision = '2018-01-15'
 
             def __init__(self):
                 super(Ospfv3.Processes.Process, self).__init__()
@@ -866,16 +873,19 @@ class Ospfv3(Entity):
                 self.yang_parent_name = "processes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"default-vrf" : ("default_vrf", Ospfv3.Processes.Process.DefaultVrf), "vrfs" : ("vrfs", Ospfv3.Processes.Process.Vrfs), "af" : ("af", Ospfv3.Processes.Process.Af), "trace-bufs" : ("trace_bufs", Ospfv3.Processes.Process.TraceBufs)}
-                self._child_list_classes = {}
-
-                self.process_name = YLeaf(YType.str, "process-name")
-
-                self.nsr = YLeaf(YType.enumeration, "nsr")
-
-                self.protocol_shutdown = YLeaf(YType.empty, "protocol-shutdown")
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = ['process_name']
+                self._child_container_classes = OrderedDict([("default-vrf", ("default_vrf", Ospfv3.Processes.Process.DefaultVrf)), ("vrfs", ("vrfs", Ospfv3.Processes.Process.Vrfs)), ("af", ("af", Ospfv3.Processes.Process.Af)), ("trace-bufs", ("trace_bufs", Ospfv3.Processes.Process.TraceBufs))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('process_name', YLeaf(YType.str, 'process-name')),
+                    ('nsr', YLeaf(YType.enumeration, 'nsr')),
+                    ('protocol_shutdown', YLeaf(YType.empty, 'protocol-shutdown')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.process_name = None
+                self.nsr = None
+                self.protocol_shutdown = None
+                self.enable = None
 
                 self.default_vrf = Ospfv3.Processes.Process.DefaultVrf()
                 self.default_vrf.parent = self
@@ -895,7 +905,7 @@ class Ospfv3(Entity):
                 self.trace_bufs.parent = self
                 self._children_name_map["trace_bufs"] = "trace-bufs"
                 self._children_yang_names.add("trace-bufs")
-                self._segment_path = lambda: "process" + "[process-name='" + self.process_name.get() + "']"
+                self._segment_path = lambda: "process" + "[process-name='" + str(self.process_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ospfv3-cfg:ospfv3/processes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1141,7 +1151,7 @@ class Ospfv3(Entity):
                 """
 
                 _prefix = 'ipv6-ospfv3-cfg'
-                _revision = '2017-07-14'
+                _revision = '2018-01-15'
 
                 def __init__(self):
                     super(Ospfv3.Processes.Process.DefaultVrf, self).__init__()
@@ -1150,48 +1160,51 @@ class Ospfv3(Entity):
                     self.yang_parent_name = "process"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"area-addresses" : ("area_addresses", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses), "timers" : ("timers", Ospfv3.Processes.Process.DefaultVrf.Timers), "summary-prefixes" : ("summary_prefixes", Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes), "snmp" : ("snmp", Ospfv3.Processes.Process.DefaultVrf.Snmp), "fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.FastReroute), "distance" : ("distance", Ospfv3.Processes.Process.DefaultVrf.Distance), "maximum" : ("maximum", Ospfv3.Processes.Process.DefaultVrf.Maximum), "redistributes" : ("redistributes", Ospfv3.Processes.Process.DefaultVrf.Redistributes), "ignore" : ("ignore", Ospfv3.Processes.Process.DefaultVrf.Ignore), "distribute-list-out" : ("distribute_list_out", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.DistributeList), "stub-router" : ("stub_router", Ospfv3.Processes.Process.DefaultVrf.StubRouter), "bfd" : ("bfd", Ospfv3.Processes.Process.DefaultVrf.Bfd), "database-filter" : ("database_filter", Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter), "authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.Authentication), "graceful-restart" : ("graceful_restart", Ospfv3.Processes.Process.DefaultVrf.GracefulRestart), "default-information" : ("default_information", Ospfv3.Processes.Process.DefaultVrf.DefaultInformation), "process-scope" : ("process_scope", Ospfv3.Processes.Process.DefaultVrf.ProcessScope), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.Encryption), "auto-cost" : ("auto_cost", Ospfv3.Processes.Process.DefaultVrf.AutoCost)}
-                    self._child_list_classes = {}
-
-                    self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                    self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                    self.spf_prefix_priority_disable = YLeaf(YType.empty, "spf-prefix-priority-disable")
-
-                    self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                    self.passive = YLeaf(YType.boolean, "passive")
-
-                    self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                    self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                    self.priority = YLeaf(YType.uint32, "priority")
-
-                    self.cost = YLeaf(YType.uint32, "cost")
-
-                    self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                    self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                    self.instance = YLeaf(YType.uint32, "instance")
-
-                    self.spf_prefix_priority_policy = YLeaf(YType.str, "spf-prefix-priority-policy")
-
-                    self.router_id = YLeaf(YType.str, "router-id")
-
-                    self.network = YLeaf(YType.enumeration, "network")
-
-                    self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                    self.log_adjacency_changes = YLeaf(YType.enumeration, "log-adjacency-changes")
-
-                    self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
-
-                    self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("area-addresses", ("area_addresses", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses)), ("timers", ("timers", Ospfv3.Processes.Process.DefaultVrf.Timers)), ("summary-prefixes", ("summary_prefixes", Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes)), ("snmp", ("snmp", Ospfv3.Processes.Process.DefaultVrf.Snmp)), ("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.FastReroute)), ("distance", ("distance", Ospfv3.Processes.Process.DefaultVrf.Distance)), ("maximum", ("maximum", Ospfv3.Processes.Process.DefaultVrf.Maximum)), ("redistributes", ("redistributes", Ospfv3.Processes.Process.DefaultVrf.Redistributes)), ("ignore", ("ignore", Ospfv3.Processes.Process.DefaultVrf.Ignore)), ("distribute-list-out", ("distribute_list_out", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.DistributeList)), ("stub-router", ("stub_router", Ospfv3.Processes.Process.DefaultVrf.StubRouter)), ("bfd", ("bfd", Ospfv3.Processes.Process.DefaultVrf.Bfd)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter)), ("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.Authentication)), ("graceful-restart", ("graceful_restart", Ospfv3.Processes.Process.DefaultVrf.GracefulRestart)), ("default-information", ("default_information", Ospfv3.Processes.Process.DefaultVrf.DefaultInformation)), ("process-scope", ("process_scope", Ospfv3.Processes.Process.DefaultVrf.ProcessScope)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.Encryption)), ("auto-cost", ("auto_cost", Ospfv3.Processes.Process.DefaultVrf.AutoCost))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                        ('spf_prefix_priority_disable', YLeaf(YType.empty, 'spf-prefix-priority-disable')),
+                        ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                        ('passive', YLeaf(YType.boolean, 'passive')),
+                        ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                        ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                        ('priority', YLeaf(YType.uint32, 'priority')),
+                        ('cost', YLeaf(YType.uint32, 'cost')),
+                        ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                        ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                        ('instance', YLeaf(YType.uint32, 'instance')),
+                        ('spf_prefix_priority_policy', YLeaf(YType.str, 'spf-prefix-priority-policy')),
+                        ('router_id', YLeaf(YType.str, 'router-id')),
+                        ('network', YLeaf(YType.enumeration, 'network')),
+                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                        ('log_adjacency_changes', YLeaf(YType.enumeration, 'log-adjacency-changes')),
+                        ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                        ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                    ])
+                    self.ldp_sync = None
+                    self.prefix_suppression = None
+                    self.spf_prefix_priority_disable = None
+                    self.retransmit_interval = None
+                    self.passive = None
+                    self.default_metric = None
+                    self.flood_reduction = None
+                    self.hello_interval = None
+                    self.priority = None
+                    self.cost = None
+                    self.dead_interval = None
+                    self.packet_size = None
+                    self.instance = None
+                    self.spf_prefix_priority_policy = None
+                    self.router_id = None
+                    self.network = None
+                    self.mtu_ignore = None
+                    self.log_adjacency_changes = None
+                    self.demand_circuit = None
+                    self.transmit_delay = None
 
                     self.area_addresses = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses()
                     self.area_addresses.parent = self
@@ -1316,7 +1329,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses, self).__init__()
@@ -1325,8 +1338,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"area-address" : ("area_address", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress), "area-area-id" : ("area_area_id", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("area-address", ("area_address", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress)), ("area-area-id", ("area_area_id", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId))])
+                        self._leafs = OrderedDict()
 
                         self.area_address = YList(self)
                         self.area_area_id = YList(self)
@@ -1340,7 +1355,7 @@ class Ospfv3(Entity):
                         """
                         Configuration for a particular area
                         
-                        .. attribute:: address  <key>
+                        .. attribute:: address  (key)
                         
                         	Area ID if in IP address format
                         	**type**\: str
@@ -1523,7 +1538,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, self).__init__()
@@ -1532,46 +1547,49 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "area-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication), "bfd" : ("bfd", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd), "ranges" : ("ranges", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption), "nssa" : ("nssa", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa), "database-filter" : ("database_filter", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList), "interfaces" : ("interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces), "area-scope" : ("area_scope", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope), "sham-links" : ("sham_links", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks), "virtual-links" : ("virtual_links", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks)}
-                            self._child_list_classes = {}
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.stub = YLeaf(YType.boolean, "stub")
-
-                            self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                            self.instance = YLeaf(YType.uint32, "instance")
-
-                            self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-
-                            self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                            self.passive = YLeaf(YType.boolean, "passive")
-
-                            self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                            self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                            self.default_cost = YLeaf(YType.uint32, "default-cost")
-
-                            self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                            self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                            self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                            self.network = YLeaf(YType.enumeration, "network")
-
-                            self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
-
-                            self.cost = YLeaf(YType.uint32, "cost")
+                            self.ylist_key_names = ['address']
+                            self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication)), ("bfd", ("bfd", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd)), ("ranges", ("ranges", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption)), ("nssa", ("nssa", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList)), ("interfaces", ("interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces)), ("area-scope", ("area_scope", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope)), ("sham-links", ("sham_links", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks)), ("virtual-links", ("virtual_links", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('stub', YLeaf(YType.boolean, 'stub')),
+                                ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                                ('instance', YLeaf(YType.uint32, 'instance')),
+                                ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                ('passive', YLeaf(YType.boolean, 'passive')),
+                                ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                ('default_cost', YLeaf(YType.uint32, 'default-cost')),
+                                ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                                ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                                ('network', YLeaf(YType.enumeration, 'network')),
+                                ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                ('cost', YLeaf(YType.uint32, 'cost')),
+                            ])
+                            self.address = None
+                            self.stub = None
+                            self.packet_size = None
+                            self.instance = None
+                            self.demand_circuit = None
+                            self.priority = None
+                            self.prefix_suppression = None
+                            self.enable = None
+                            self.mtu_ignore = None
+                            self.passive = None
+                            self.hello_interval = None
+                            self.dead_interval = None
+                            self.default_cost = None
+                            self.flood_reduction = None
+                            self.retransmit_interval = None
+                            self.ldp_sync = None
+                            self.network = None
+                            self.transmit_delay = None
+                            self.cost = None
 
                             self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication()
                             self.authentication.parent = self
@@ -1627,7 +1645,7 @@ class Ospfv3(Entity):
                             self.virtual_links.parent = self
                             self._children_name_map["virtual_links"] = "virtual-links"
                             self._children_yang_names.add("virtual-links")
-                            self._segment_path = lambda: "area-address" + "[address='" + self.address.get() + "']"
+                            self._segment_path = lambda: "area-address" + "[address='" + str(self.address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress, ['address', 'stub', 'packet_size', 'instance', 'demand_circuit', 'priority', 'prefix_suppression', 'enable', 'mtu_ignore', 'passive', 'hello_interval', 'dead_interval', 'default_cost', 'flood_reduction', 'retransmit_interval', 'ldp_sync', 'network', 'transmit_delay', 'cost'], name, value)
@@ -1666,7 +1684,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication, self).__init__()
@@ -1675,16 +1693,19 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.spi = YLeaf(YType.uint32, "spi")
-
-                                self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                self.password = YLeaf(YType.str, "password")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('spi', YLeaf(YType.uint32, 'spi')),
+                                    ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                    ('password', YLeaf(YType.str, 'password')),
+                                ])
+                                self.enable = None
+                                self.spi = None
+                                self.algorithm = None
+                                self.password = None
                                 self._segment_path = lambda: "authentication"
 
                             def __setattr__(self, name, value):
@@ -1721,7 +1742,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd, self).__init__()
@@ -1730,14 +1751,17 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-
-                                self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                    ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                                ])
+                                self.detection_multiplier = None
+                                self.interval = None
+                                self.fast_detect_mode = None
                                 self._segment_path = lambda: "bfd"
 
                             def __setattr__(self, name, value):
@@ -1758,7 +1782,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges, self).__init__()
@@ -1767,8 +1791,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"range" : ("range", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("range", ("range", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range))])
+                                self._leafs = OrderedDict()
 
                                 self.range = YList(self)
                                 self._segment_path = lambda: "ranges"
@@ -1782,14 +1808,14 @@ class Ospfv3(Entity):
                                 Summarize inter\-area routes matching
                                 prefix/length
                                 
-                                .. attribute:: prefix  <key>
+                                .. attribute:: prefix  (key)
                                 
                                 	IPv6 prefix format
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: prefix_length  <key>
+                                .. attribute:: prefix_length  (key)
                                 
                                 	IPV6 prefix length
                                 	**type**\: int
@@ -1815,7 +1841,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range, self).__init__()
@@ -1824,17 +1850,20 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "ranges"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                    self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                    self.not_advertise = YLeaf(YType.boolean, "not-advertise")
-
-                                    self.cost = YLeaf(YType.uint32, "cost")
-                                    self._segment_path = lambda: "range" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                                    self.ylist_key_names = ['prefix','prefix_length']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                        ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
+                                        ('cost', YLeaf(YType.uint32, 'cost')),
+                                    ])
+                                    self.prefix = None
+                                    self.prefix_length = None
+                                    self.not_advertise = None
+                                    self.cost = None
+                                    self._segment_path = lambda: "range" + "[prefix='" + str(self.prefix) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range, ['prefix', 'prefix_length', 'not_advertise', 'cost'], name, value)
@@ -1885,7 +1914,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption, self).__init__()
@@ -1894,20 +1923,23 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.spi = YLeaf(YType.uint32, "spi")
-
-                                self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('spi', YLeaf(YType.uint32, 'spi')),
+                                    ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                    ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                    ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                    ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                ])
+                                self.enable = None
+                                self.spi = None
+                                self.encryption_algorithm = None
+                                self.encryption_password = None
+                                self.authentication_algorithm = None
+                                self.authentication_password = None
                                 self._segment_path = lambda: "encryption"
 
                             def __setattr__(self, name, value):
@@ -1955,7 +1987,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
@@ -1964,18 +1996,21 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.no_redistribution = YLeaf(YType.boolean, "no-redistribution")
-
-                                self.default_info_originate = YLeaf(YType.boolean, "default-info-originate")
-
-                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                self.no_summary = YLeaf(YType.empty, "no-summary")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('no_redistribution', YLeaf(YType.boolean, 'no-redistribution')),
+                                    ('default_info_originate', YLeaf(YType.boolean, 'default-info-originate')),
+                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                    ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                    ('no_summary', YLeaf(YType.empty, 'no-summary')),
+                                ])
+                                self.no_redistribution = None
+                                self.default_info_originate = None
+                                self.metric = None
+                                self.metric_type = None
+                                self.no_summary = None
                                 self._segment_path = lambda: "nssa"
 
                             def __setattr__(self, name, value):
@@ -1996,7 +2031,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter, self).__init__()
@@ -2005,8 +2040,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.all = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All()
                                 self.all.parent = self
@@ -2029,7 +2066,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All, self).__init__()
@@ -2038,10 +2075,13 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "database-filter"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.out = YLeaf(YType.boolean, "out")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('out', YLeaf(YType.boolean, 'out')),
+                                    ])
+                                    self.out = None
                                     self._segment_path = lambda: "all"
 
                                 def __setattr__(self, name, value):
@@ -2055,14 +2095,14 @@ class Ospfv3(Entity):
                             .. attribute:: in_
                             
                             	Filter prefixes installed to RIB
-                            	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_>`
+                            	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In>`
                             
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList, self).__init__()
@@ -2071,17 +2111,19 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
-                                self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_()
+                                self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In()
                                 self.in_.parent = self
                                 self._children_name_map["in_"] = "in"
                                 self._children_yang_names.add("in")
                                 self._segment_path = lambda: "distribute-list"
 
 
-                            class In_(Entity):
+                            class In(Entity):
                                 """
                                 Filter prefixes installed to RIB
                                 
@@ -2095,23 +2137,26 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_, self).__init__()
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In, self).__init__()
 
                                     self.yang_name = "in"
                                     self.yang_parent_name = "distribute-list"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                    ])
+                                    self.prefix_list = None
                                     self._segment_path = lambda: "in"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_, ['prefix_list'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In, ['prefix_list'], name, value)
 
 
                         class Interfaces(Entity):
@@ -2128,7 +2173,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces, self).__init__()
@@ -2137,8 +2182,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"interface" : ("interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("interface", ("interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface))])
+                                self._leafs = OrderedDict()
 
                                 self.interface = YList(self)
                                 self._segment_path = lambda: "interfaces"
@@ -2151,7 +2198,7 @@ class Ospfv3(Entity):
                                 """
                                 OSPFv3 interface
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	Interface to configure
                                 	**type**\: str
@@ -2302,7 +2349,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface, self).__init__()
@@ -2311,42 +2358,45 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "interfaces"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication), "neighbors" : ("neighbors", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption), "bfd" : ("bfd", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd), "database-filter" : ("database_filter", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList), "fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute)}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                    self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                                    self.cost = YLeaf(YType.uint32, "cost")
-
-                                    self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
-
-                                    self.instance = YLeaf(YType.uint32, "instance")
-
-                                    self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                                    self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                    self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                    self.passive = YLeaf(YType.boolean, "passive")
-
-                                    self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                                    self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                    self.priority = YLeaf(YType.uint32, "priority")
-
-                                    self.network = YLeaf(YType.enumeration, "network")
-
-                                    self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication)), ("neighbors", ("neighbors", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption)), ("bfd", ("bfd", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList)), ("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                        ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                                        ('cost', YLeaf(YType.uint32, 'cost')),
+                                        ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                        ('instance', YLeaf(YType.uint32, 'instance')),
+                                        ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                        ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                        ('passive', YLeaf(YType.boolean, 'passive')),
+                                        ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                        ('priority', YLeaf(YType.uint32, 'priority')),
+                                        ('network', YLeaf(YType.enumeration, 'network')),
+                                        ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                    ])
+                                    self.interface_name = None
+                                    self.enable = None
+                                    self.dead_interval = None
+                                    self.flood_reduction = None
+                                    self.cost = None
+                                    self.transmit_delay = None
+                                    self.instance = None
+                                    self.ldp_sync = None
+                                    self.mtu_ignore = None
+                                    self.retransmit_interval = None
+                                    self.hello_interval = None
+                                    self.passive = None
+                                    self.packet_size = None
+                                    self.prefix_suppression = None
+                                    self.priority = None
+                                    self.network = None
+                                    self.demand_circuit = None
 
                                     self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication()
                                     self.authentication.parent = self
@@ -2382,7 +2432,7 @@ class Ospfv3(Entity):
                                     self.fast_reroute.parent = self
                                     self._children_name_map["fast_reroute"] = "fast-reroute"
                                     self._children_yang_names.add("fast-reroute")
-                                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface, ['interface_name', 'enable', 'dead_interval', 'flood_reduction', 'cost', 'transmit_delay', 'instance', 'ldp_sync', 'mtu_ignore', 'retransmit_interval', 'hello_interval', 'passive', 'packet_size', 'prefix_suppression', 'priority', 'network', 'demand_circuit'], name, value)
@@ -2421,7 +2471,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, self).__init__()
@@ -2430,16 +2480,19 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                        self.password = YLeaf(YType.str, "password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                            ('password', YLeaf(YType.str, 'password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.algorithm = None
+                                        self.password = None
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -2460,7 +2513,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, self).__init__()
@@ -2469,8 +2522,10 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"neighbor" : ("neighbor", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor))])
+                                        self._leafs = OrderedDict()
 
                                         self.neighbor = YList(self)
                                         self._segment_path = lambda: "neighbors"
@@ -2483,7 +2538,7 @@ class Ospfv3(Entity):
                                         """
                                         IPv6 address
                                         
-                                        .. attribute:: neighbor_address  <key>
+                                        .. attribute:: neighbor_address  (key)
                                         
                                         	IPV6 address
                                         	**type**\: str
@@ -2528,7 +2583,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
@@ -2537,21 +2592,24 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "neighbors"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                            self.priority = YLeaf(YType.uint32, "priority")
-
-                                            self.poll_interval = YLeaf(YType.uint32, "poll-interval")
-
-                                            self.cost = YLeaf(YType.uint32, "cost")
-
-                                            self.database_filter = YLeaf(YType.boolean, "database-filter")
-
-                                            self.zone = YLeaf(YType.str, "zone")
-                                            self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']"
+                                            self.ylist_key_names = ['neighbor_address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                                ('poll_interval', YLeaf(YType.uint32, 'poll-interval')),
+                                                ('cost', YLeaf(YType.uint32, 'cost')),
+                                                ('database_filter', YLeaf(YType.boolean, 'database-filter')),
+                                                ('zone', YLeaf(YType.str, 'zone')),
+                                            ])
+                                            self.neighbor_address = None
+                                            self.priority = None
+                                            self.poll_interval = None
+                                            self.cost = None
+                                            self.database_filter = None
+                                            self.zone = None
+                                            self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter', 'zone'], name, value)
@@ -2602,7 +2660,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, self).__init__()
@@ -2611,20 +2669,23 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                        self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                        self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                        self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                            ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                            ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                            ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.encryption_algorithm = None
+                                        self.encryption_password = None
+                                        self.authentication_algorithm = None
+                                        self.authentication_password = None
                                         self._segment_path = lambda: "encryption"
 
                                     def __setattr__(self, name, value):
@@ -2661,7 +2722,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, self).__init__()
@@ -2670,14 +2731,17 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interval = YLeaf(YType.uint32, "interval")
-
-                                        self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
-
-                                        self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interval', YLeaf(YType.uint32, 'interval')),
+                                            ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                        ])
+                                        self.interval = None
+                                        self.fast_detect_mode = None
+                                        self.detection_multiplier = None
                                         self._segment_path = lambda: "bfd"
 
                                     def __setattr__(self, name, value):
@@ -2698,7 +2762,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, self).__init__()
@@ -2707,8 +2771,10 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.all = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All()
                                         self.all.parent = self
@@ -2731,7 +2797,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, self).__init__()
@@ -2740,10 +2806,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "database-filter"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.out = YLeaf(YType.boolean, "out")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('out', YLeaf(YType.boolean, 'out')),
+                                            ])
+                                            self.out = None
                                             self._segment_path = lambda: "all"
 
                                         def __setattr__(self, name, value):
@@ -2757,14 +2826,14 @@ class Ospfv3(Entity):
                                     .. attribute:: in_
                                     
                                     	Filter prefixes installed to RIB
-                                    	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_>`
+                                    	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In>`
                                     
                                     
 
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, self).__init__()
@@ -2773,17 +2842,19 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
-                                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_()
+                                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In()
                                         self.in_.parent = self
                                         self._children_name_map["in_"] = "in"
                                         self._children_yang_names.add("in")
                                         self._segment_path = lambda: "distribute-list"
 
 
-                                    class In_(Entity):
+                                    class In(Entity):
                                         """
                                         Filter prefixes installed to RIB
                                         
@@ -2797,23 +2868,26 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_, self).__init__()
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, self).__init__()
 
                                             self.yang_name = "in"
                                             self.yang_parent_name = "distribute-list"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                            ])
+                                            self.prefix_list = None
                                             self._segment_path = lambda: "in"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_, ['prefix_list'], name, value)
+                                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, ['prefix_list'], name, value)
 
 
                                 class FastReroute(Entity):
@@ -2840,7 +2914,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, self).__init__()
@@ -2849,10 +2923,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix)}
-                                        self._child_list_classes = {}
-
-                                        self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                        ])
+                                        self.fast_reroute_enable = None
 
                                         self.per_link = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink()
                                         self.per_link.parent = self
@@ -2895,7 +2972,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, self).__init__()
@@ -2904,10 +2981,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                            ])
+                                            self.fast_reroute_use_candidate_only = None
 
                                             self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
@@ -2939,7 +3019,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -2948,8 +3028,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
                                                 self._segment_path = lambda: "candidate-interfaces"
@@ -2962,7 +3044,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Candidate backup interface
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -2974,7 +3056,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -2983,11 +3065,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "candidate-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -3008,7 +3093,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -3017,8 +3102,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
                                                 self._segment_path = lambda: "exclude-interfaces"
@@ -3031,7 +3118,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -3043,7 +3130,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3052,11 +3139,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "exclude-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -3088,7 +3178,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
@@ -3097,10 +3187,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                            ])
+                                            self.fast_reroute_use_candidate_only = None
 
                                             self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
@@ -3132,7 +3225,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -3141,8 +3234,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-prefix"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
                                                 self._segment_path = lambda: "candidate-interfaces"
@@ -3155,7 +3250,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Candidate backup interface
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -3167,7 +3262,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3176,11 +3271,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "candidate-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -3201,7 +3299,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -3210,8 +3308,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-prefix"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
                                                 self._segment_path = lambda: "exclude-interfaces"
@@ -3224,7 +3324,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -3236,7 +3336,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3245,11 +3345,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "exclude-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -3269,7 +3372,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
@@ -3278,8 +3381,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.fast_reroute = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute()
                                 self.fast_reroute.parent = self
@@ -3312,7 +3417,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
@@ -3321,10 +3426,13 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-scope"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix)}
-                                    self._child_list_classes = {}
-
-                                    self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                    ])
+                                    self.fast_reroute_enable = None
 
                                     self.per_link = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink()
                                     self.per_link.parent = self
@@ -3367,7 +3475,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
@@ -3376,10 +3484,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "fast-reroute"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces)}
-                                        self._child_list_classes = {}
-
-                                        self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                        ])
+                                        self.fast_reroute_use_candidate_only = None
 
                                         self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces()
                                         self.candidate_interfaces.parent = self
@@ -3411,7 +3522,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -3420,8 +3531,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "per-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.candidate_interface = YList(self)
                                             self._segment_path = lambda: "candidate-interfaces"
@@ -3434,7 +3547,7 @@ class Ospfv3(Entity):
                                             """
                                             Candidate backup interface
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
@@ -3446,7 +3559,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3455,11 +3568,14 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "candidate-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                                self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                self.ylist_key_names = ['interface_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ])
+                                                self.interface_name = None
+                                                self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -3480,7 +3596,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -3489,8 +3605,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "per-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.exclude_interface = YList(self)
                                             self._segment_path = lambda: "exclude-interfaces"
@@ -3503,7 +3621,7 @@ class Ospfv3(Entity):
                                             """
                                             Exclude an interface from becoming a backup
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
@@ -3515,7 +3633,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3524,11 +3642,14 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "exclude-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                                self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                self.ylist_key_names = ['interface_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ])
+                                                self.interface_name = None
+                                                self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -3560,7 +3681,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -3569,10 +3690,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "fast-reroute"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                        self._child_list_classes = {}
-
-                                        self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                        ])
+                                        self.fast_reroute_use_candidate_only = None
 
                                         self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces()
                                         self.candidate_interfaces.parent = self
@@ -3604,7 +3728,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -3613,8 +3737,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "per-prefix"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.candidate_interface = YList(self)
                                             self._segment_path = lambda: "candidate-interfaces"
@@ -3627,7 +3753,7 @@ class Ospfv3(Entity):
                                             """
                                             Candidate backup interface
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
@@ -3639,7 +3765,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -3648,11 +3774,14 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "candidate-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                                self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                self.ylist_key_names = ['interface_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ])
+                                                self.interface_name = None
+                                                self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -3673,7 +3802,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -3682,8 +3811,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "per-prefix"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.exclude_interface = YList(self)
                                             self._segment_path = lambda: "exclude-interfaces"
@@ -3696,7 +3827,7 @@ class Ospfv3(Entity):
                                             """
                                             Exclude an interface from becoming a backup
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
@@ -3708,7 +3839,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3717,11 +3848,14 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "exclude-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                                self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                self.ylist_key_names = ['interface_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ])
+                                                self.interface_name = None
+                                                self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -3741,7 +3875,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks, self).__init__()
@@ -3750,8 +3884,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"sham-link" : ("sham_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("sham-link", ("sham_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink))])
+                                self._leafs = OrderedDict()
 
                                 self.sham_link = YList(self)
                                 self._segment_path = lambda: "sham-links"
@@ -3764,14 +3900,14 @@ class Ospfv3(Entity):
                                 """
                                 ShamLink local and remote endpoints
                                 
-                                .. attribute:: source_address  <key>
+                                .. attribute:: source_address  (key)
                                 
                                 	Local sham\-link endpoint
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: destination_address  <key>
+                                .. attribute:: destination_address  (key)
                                 
                                 	Remote sham\-link endpoint
                                 	**type**\: str
@@ -3834,7 +3970,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, self).__init__()
@@ -3843,22 +3979,25 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "sham-links"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption)}
-                                    self._child_list_classes = {}
-
-                                    self.source_address = YLeaf(YType.str, "source-address")
-
-                                    self.destination_address = YLeaf(YType.str, "destination-address")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                    self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                    self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                    self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                                    self.ylist_key_names = ['source_address','destination_address']
+                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('source_address', YLeaf(YType.str, 'source-address')),
+                                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                        ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                        ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                        ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                    ])
+                                    self.source_address = None
+                                    self.destination_address = None
+                                    self.enable = None
+                                    self.hello_interval = None
+                                    self.dead_interval = None
+                                    self.retransmit_interval = None
+                                    self.transmit_delay = None
 
                                     self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication()
                                     self.authentication.parent = self
@@ -3869,7 +4008,7 @@ class Ospfv3(Entity):
                                     self.encryption.parent = self
                                     self._children_name_map["encryption"] = "encryption"
                                     self._children_yang_names.add("encryption")
-                                    self._segment_path = lambda: "sham-link" + "[source-address='" + self.source_address.get() + "']" + "[destination-address='" + self.destination_address.get() + "']"
+                                    self._segment_path = lambda: "sham-link" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, ['source_address', 'destination_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
@@ -3908,7 +4047,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, self).__init__()
@@ -3917,16 +4056,19 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "sham-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                        self.password = YLeaf(YType.str, "password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                            ('password', YLeaf(YType.str, 'password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.algorithm = None
+                                        self.password = None
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -3978,7 +4120,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, self).__init__()
@@ -3987,20 +4129,23 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "sham-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                        self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                        self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                        self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                            ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                            ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                            ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.encryption_algorithm = None
+                                        self.encryption_password = None
+                                        self.authentication_algorithm = None
+                                        self.authentication_password = None
                                         self._segment_path = lambda: "encryption"
 
                                     def __setattr__(self, name, value):
@@ -4021,7 +4166,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks, self).__init__()
@@ -4030,8 +4175,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-address"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"virtual-link" : ("virtual_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("virtual-link", ("virtual_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink))])
+                                self._leafs = OrderedDict()
 
                                 self.virtual_link = YList(self)
                                 self._segment_path = lambda: "virtual-links"
@@ -4044,7 +4191,7 @@ class Ospfv3(Entity):
                                 """
                                 Router ID of virtual link neighbor
                                 
-                                .. attribute:: virtual_link_address  <key>
+                                .. attribute:: virtual_link_address  (key)
                                 
                                 	Router ID of virtual link neighbor
                                 	**type**\: str
@@ -4107,7 +4254,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, self).__init__()
@@ -4116,20 +4263,23 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "virtual-links"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption)}
-                                    self._child_list_classes = {}
-
-                                    self.virtual_link_address = YLeaf(YType.str, "virtual-link-address")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                    self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                    self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                    self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                                    self.ylist_key_names = ['virtual_link_address']
+                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('virtual_link_address', YLeaf(YType.str, 'virtual-link-address')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                        ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                        ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                        ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                    ])
+                                    self.virtual_link_address = None
+                                    self.enable = None
+                                    self.hello_interval = None
+                                    self.dead_interval = None
+                                    self.retransmit_interval = None
+                                    self.transmit_delay = None
 
                                     self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication()
                                     self.authentication.parent = self
@@ -4140,7 +4290,7 @@ class Ospfv3(Entity):
                                     self.encryption.parent = self
                                     self._children_name_map["encryption"] = "encryption"
                                     self._children_yang_names.add("encryption")
-                                    self._segment_path = lambda: "virtual-link" + "[virtual-link-address='" + self.virtual_link_address.get() + "']"
+                                    self._segment_path = lambda: "virtual-link" + "[virtual-link-address='" + str(self.virtual_link_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, ['virtual_link_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
@@ -4179,7 +4329,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, self).__init__()
@@ -4188,16 +4338,19 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "virtual-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                        self.password = YLeaf(YType.str, "password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                            ('password', YLeaf(YType.str, 'password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.algorithm = None
+                                        self.password = None
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -4249,7 +4402,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, self).__init__()
@@ -4258,20 +4411,23 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "virtual-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                        self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                        self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                        self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                            ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                            ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                            ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.encryption_algorithm = None
+                                        self.encryption_password = None
+                                        self.authentication_algorithm = None
+                                        self.authentication_password = None
                                         self._segment_path = lambda: "encryption"
 
                                     def __setattr__(self, name, value):
@@ -4282,7 +4438,7 @@ class Ospfv3(Entity):
                         """
                         Configuration for a particular area
                         
-                        .. attribute:: area_id  <key>
+                        .. attribute:: area_id  (key)
                         
                         	Area ID if in integer format
                         	**type**\: int
@@ -4465,7 +4621,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, self).__init__()
@@ -4474,46 +4630,49 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "area-addresses"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication), "bfd" : ("bfd", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd), "ranges" : ("ranges", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption), "nssa" : ("nssa", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa), "database-filter" : ("database_filter", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList), "interfaces" : ("interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces), "area-scope" : ("area_scope", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope), "sham-links" : ("sham_links", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks), "virtual-links" : ("virtual_links", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks)}
-                            self._child_list_classes = {}
-
-                            self.area_id = YLeaf(YType.uint32, "area-id")
-
-                            self.stub = YLeaf(YType.boolean, "stub")
-
-                            self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                            self.instance = YLeaf(YType.uint32, "instance")
-
-                            self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-
-                            self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                            self.passive = YLeaf(YType.boolean, "passive")
-
-                            self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                            self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                            self.default_cost = YLeaf(YType.uint32, "default-cost")
-
-                            self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                            self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                            self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                            self.network = YLeaf(YType.enumeration, "network")
-
-                            self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
-
-                            self.cost = YLeaf(YType.uint32, "cost")
+                            self.ylist_key_names = ['area_id']
+                            self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication)), ("bfd", ("bfd", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd)), ("ranges", ("ranges", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption)), ("nssa", ("nssa", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList)), ("interfaces", ("interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces)), ("area-scope", ("area_scope", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope)), ("sham-links", ("sham_links", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks)), ("virtual-links", ("virtual_links", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('area_id', YLeaf(YType.uint32, 'area-id')),
+                                ('stub', YLeaf(YType.boolean, 'stub')),
+                                ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                                ('instance', YLeaf(YType.uint32, 'instance')),
+                                ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                ('passive', YLeaf(YType.boolean, 'passive')),
+                                ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                ('default_cost', YLeaf(YType.uint32, 'default-cost')),
+                                ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                                ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                                ('network', YLeaf(YType.enumeration, 'network')),
+                                ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                ('cost', YLeaf(YType.uint32, 'cost')),
+                            ])
+                            self.area_id = None
+                            self.stub = None
+                            self.packet_size = None
+                            self.instance = None
+                            self.demand_circuit = None
+                            self.priority = None
+                            self.prefix_suppression = None
+                            self.enable = None
+                            self.mtu_ignore = None
+                            self.passive = None
+                            self.hello_interval = None
+                            self.dead_interval = None
+                            self.default_cost = None
+                            self.flood_reduction = None
+                            self.retransmit_interval = None
+                            self.ldp_sync = None
+                            self.network = None
+                            self.transmit_delay = None
+                            self.cost = None
 
                             self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication()
                             self.authentication.parent = self
@@ -4569,7 +4728,7 @@ class Ospfv3(Entity):
                             self.virtual_links.parent = self
                             self._children_name_map["virtual_links"] = "virtual-links"
                             self._children_yang_names.add("virtual-links")
-                            self._segment_path = lambda: "area-area-id" + "[area-id='" + self.area_id.get() + "']"
+                            self._segment_path = lambda: "area-area-id" + "[area-id='" + str(self.area_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId, ['area_id', 'stub', 'packet_size', 'instance', 'demand_circuit', 'priority', 'prefix_suppression', 'enable', 'mtu_ignore', 'passive', 'hello_interval', 'dead_interval', 'default_cost', 'flood_reduction', 'retransmit_interval', 'ldp_sync', 'network', 'transmit_delay', 'cost'], name, value)
@@ -4608,7 +4767,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication, self).__init__()
@@ -4617,16 +4776,19 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.spi = YLeaf(YType.uint32, "spi")
-
-                                self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                self.password = YLeaf(YType.str, "password")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('spi', YLeaf(YType.uint32, 'spi')),
+                                    ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                    ('password', YLeaf(YType.str, 'password')),
+                                ])
+                                self.enable = None
+                                self.spi = None
+                                self.algorithm = None
+                                self.password = None
                                 self._segment_path = lambda: "authentication"
 
                             def __setattr__(self, name, value):
@@ -4663,7 +4825,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd, self).__init__()
@@ -4672,14 +4834,17 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-
-                                self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                    ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                                ])
+                                self.detection_multiplier = None
+                                self.interval = None
+                                self.fast_detect_mode = None
                                 self._segment_path = lambda: "bfd"
 
                             def __setattr__(self, name, value):
@@ -4700,7 +4865,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges, self).__init__()
@@ -4709,8 +4874,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"range" : ("range", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("range", ("range", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range))])
+                                self._leafs = OrderedDict()
 
                                 self.range = YList(self)
                                 self._segment_path = lambda: "ranges"
@@ -4724,14 +4891,14 @@ class Ospfv3(Entity):
                                 Summarize inter\-area routes matching
                                 prefix/length
                                 
-                                .. attribute:: prefix  <key>
+                                .. attribute:: prefix  (key)
                                 
                                 	IPv6 prefix format
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: prefix_length  <key>
+                                .. attribute:: prefix_length  (key)
                                 
                                 	IPV6 prefix length
                                 	**type**\: int
@@ -4757,7 +4924,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range, self).__init__()
@@ -4766,17 +4933,20 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "ranges"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                    self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                    self.not_advertise = YLeaf(YType.boolean, "not-advertise")
-
-                                    self.cost = YLeaf(YType.uint32, "cost")
-                                    self._segment_path = lambda: "range" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                                    self.ylist_key_names = ['prefix','prefix_length']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                        ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
+                                        ('cost', YLeaf(YType.uint32, 'cost')),
+                                    ])
+                                    self.prefix = None
+                                    self.prefix_length = None
+                                    self.not_advertise = None
+                                    self.cost = None
+                                    self._segment_path = lambda: "range" + "[prefix='" + str(self.prefix) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range, ['prefix', 'prefix_length', 'not_advertise', 'cost'], name, value)
@@ -4827,7 +4997,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption, self).__init__()
@@ -4836,20 +5006,23 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.spi = YLeaf(YType.uint32, "spi")
-
-                                self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('spi', YLeaf(YType.uint32, 'spi')),
+                                    ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                    ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                    ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                    ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                ])
+                                self.enable = None
+                                self.spi = None
+                                self.encryption_algorithm = None
+                                self.encryption_password = None
+                                self.authentication_algorithm = None
+                                self.authentication_password = None
                                 self._segment_path = lambda: "encryption"
 
                             def __setattr__(self, name, value):
@@ -4897,7 +5070,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
@@ -4906,18 +5079,21 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.no_redistribution = YLeaf(YType.boolean, "no-redistribution")
-
-                                self.default_info_originate = YLeaf(YType.boolean, "default-info-originate")
-
-                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                self.no_summary = YLeaf(YType.empty, "no-summary")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('no_redistribution', YLeaf(YType.boolean, 'no-redistribution')),
+                                    ('default_info_originate', YLeaf(YType.boolean, 'default-info-originate')),
+                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                    ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                    ('no_summary', YLeaf(YType.empty, 'no-summary')),
+                                ])
+                                self.no_redistribution = None
+                                self.default_info_originate = None
+                                self.metric = None
+                                self.metric_type = None
+                                self.no_summary = None
                                 self._segment_path = lambda: "nssa"
 
                             def __setattr__(self, name, value):
@@ -4938,7 +5114,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter, self).__init__()
@@ -4947,8 +5123,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.all = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All()
                                 self.all.parent = self
@@ -4971,7 +5149,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, self).__init__()
@@ -4980,10 +5158,13 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "database-filter"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.out = YLeaf(YType.boolean, "out")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('out', YLeaf(YType.boolean, 'out')),
+                                    ])
+                                    self.out = None
                                     self._segment_path = lambda: "all"
 
                                 def __setattr__(self, name, value):
@@ -4997,14 +5178,14 @@ class Ospfv3(Entity):
                             .. attribute:: in_
                             
                             	Filter prefixes installed to RIB
-                            	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_>`
+                            	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In>`
                             
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList, self).__init__()
@@ -5013,17 +5194,19 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
-                                self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_()
+                                self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In()
                                 self.in_.parent = self
                                 self._children_name_map["in_"] = "in"
                                 self._children_yang_names.add("in")
                                 self._segment_path = lambda: "distribute-list"
 
 
-                            class In_(Entity):
+                            class In(Entity):
                                 """
                                 Filter prefixes installed to RIB
                                 
@@ -5037,23 +5220,26 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_, self).__init__()
+                                    super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In, self).__init__()
 
                                     self.yang_name = "in"
                                     self.yang_parent_name = "distribute-list"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                    ])
+                                    self.prefix_list = None
                                     self._segment_path = lambda: "in"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_, ['prefix_list'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In, ['prefix_list'], name, value)
 
 
                         class Interfaces(Entity):
@@ -5070,7 +5256,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces, self).__init__()
@@ -5079,8 +5265,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"interface" : ("interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("interface", ("interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface))])
+                                self._leafs = OrderedDict()
 
                                 self.interface = YList(self)
                                 self._segment_path = lambda: "interfaces"
@@ -5093,7 +5281,7 @@ class Ospfv3(Entity):
                                 """
                                 OSPFv3 interface
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	Interface to configure
                                 	**type**\: str
@@ -5244,7 +5432,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface, self).__init__()
@@ -5253,42 +5441,45 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "interfaces"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication), "neighbors" : ("neighbors", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption), "bfd" : ("bfd", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd), "database-filter" : ("database_filter", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList), "fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute)}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                    self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                                    self.cost = YLeaf(YType.uint32, "cost")
-
-                                    self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
-
-                                    self.instance = YLeaf(YType.uint32, "instance")
-
-                                    self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                                    self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                    self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                    self.passive = YLeaf(YType.boolean, "passive")
-
-                                    self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                                    self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                    self.priority = YLeaf(YType.uint32, "priority")
-
-                                    self.network = YLeaf(YType.enumeration, "network")
-
-                                    self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication)), ("neighbors", ("neighbors", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption)), ("bfd", ("bfd", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList)), ("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                        ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                                        ('cost', YLeaf(YType.uint32, 'cost')),
+                                        ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                        ('instance', YLeaf(YType.uint32, 'instance')),
+                                        ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                        ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                        ('passive', YLeaf(YType.boolean, 'passive')),
+                                        ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                        ('priority', YLeaf(YType.uint32, 'priority')),
+                                        ('network', YLeaf(YType.enumeration, 'network')),
+                                        ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                    ])
+                                    self.interface_name = None
+                                    self.enable = None
+                                    self.dead_interval = None
+                                    self.flood_reduction = None
+                                    self.cost = None
+                                    self.transmit_delay = None
+                                    self.instance = None
+                                    self.ldp_sync = None
+                                    self.mtu_ignore = None
+                                    self.retransmit_interval = None
+                                    self.hello_interval = None
+                                    self.passive = None
+                                    self.packet_size = None
+                                    self.prefix_suppression = None
+                                    self.priority = None
+                                    self.network = None
+                                    self.demand_circuit = None
 
                                     self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication()
                                     self.authentication.parent = self
@@ -5324,7 +5515,7 @@ class Ospfv3(Entity):
                                     self.fast_reroute.parent = self
                                     self._children_name_map["fast_reroute"] = "fast-reroute"
                                     self._children_yang_names.add("fast-reroute")
-                                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface, ['interface_name', 'enable', 'dead_interval', 'flood_reduction', 'cost', 'transmit_delay', 'instance', 'ldp_sync', 'mtu_ignore', 'retransmit_interval', 'hello_interval', 'passive', 'packet_size', 'prefix_suppression', 'priority', 'network', 'demand_circuit'], name, value)
@@ -5363,7 +5554,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, self).__init__()
@@ -5372,16 +5563,19 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                        self.password = YLeaf(YType.str, "password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                            ('password', YLeaf(YType.str, 'password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.algorithm = None
+                                        self.password = None
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -5402,7 +5596,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, self).__init__()
@@ -5411,8 +5605,10 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"neighbor" : ("neighbor", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor))])
+                                        self._leafs = OrderedDict()
 
                                         self.neighbor = YList(self)
                                         self._segment_path = lambda: "neighbors"
@@ -5425,7 +5621,7 @@ class Ospfv3(Entity):
                                         """
                                         IPv6 address
                                         
-                                        .. attribute:: neighbor_address  <key>
+                                        .. attribute:: neighbor_address  (key)
                                         
                                         	IPV6 address
                                         	**type**\: str
@@ -5470,7 +5666,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
@@ -5479,21 +5675,24 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "neighbors"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                            self.priority = YLeaf(YType.uint32, "priority")
-
-                                            self.poll_interval = YLeaf(YType.uint32, "poll-interval")
-
-                                            self.cost = YLeaf(YType.uint32, "cost")
-
-                                            self.database_filter = YLeaf(YType.boolean, "database-filter")
-
-                                            self.zone = YLeaf(YType.str, "zone")
-                                            self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']"
+                                            self.ylist_key_names = ['neighbor_address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                                ('poll_interval', YLeaf(YType.uint32, 'poll-interval')),
+                                                ('cost', YLeaf(YType.uint32, 'cost')),
+                                                ('database_filter', YLeaf(YType.boolean, 'database-filter')),
+                                                ('zone', YLeaf(YType.str, 'zone')),
+                                            ])
+                                            self.neighbor_address = None
+                                            self.priority = None
+                                            self.poll_interval = None
+                                            self.cost = None
+                                            self.database_filter = None
+                                            self.zone = None
+                                            self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter', 'zone'], name, value)
@@ -5544,7 +5743,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, self).__init__()
@@ -5553,20 +5752,23 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                        self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                        self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                        self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                            ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                            ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                            ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.encryption_algorithm = None
+                                        self.encryption_password = None
+                                        self.authentication_algorithm = None
+                                        self.authentication_password = None
                                         self._segment_path = lambda: "encryption"
 
                                     def __setattr__(self, name, value):
@@ -5603,7 +5805,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, self).__init__()
@@ -5612,14 +5814,17 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interval = YLeaf(YType.uint32, "interval")
-
-                                        self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
-
-                                        self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interval', YLeaf(YType.uint32, 'interval')),
+                                            ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                        ])
+                                        self.interval = None
+                                        self.fast_detect_mode = None
+                                        self.detection_multiplier = None
                                         self._segment_path = lambda: "bfd"
 
                                     def __setattr__(self, name, value):
@@ -5640,7 +5845,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, self).__init__()
@@ -5649,8 +5854,10 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.all = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All()
                                         self.all.parent = self
@@ -5673,7 +5880,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, self).__init__()
@@ -5682,10 +5889,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "database-filter"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.out = YLeaf(YType.boolean, "out")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('out', YLeaf(YType.boolean, 'out')),
+                                            ])
+                                            self.out = None
                                             self._segment_path = lambda: "all"
 
                                         def __setattr__(self, name, value):
@@ -5699,14 +5909,14 @@ class Ospfv3(Entity):
                                     .. attribute:: in_
                                     
                                     	Filter prefixes installed to RIB
-                                    	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_>`
+                                    	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In>`
                                     
                                     
 
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, self).__init__()
@@ -5715,17 +5925,19 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
-                                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_()
+                                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In()
                                         self.in_.parent = self
                                         self._children_name_map["in_"] = "in"
                                         self._children_yang_names.add("in")
                                         self._segment_path = lambda: "distribute-list"
 
 
-                                    class In_(Entity):
+                                    class In(Entity):
                                         """
                                         Filter prefixes installed to RIB
                                         
@@ -5739,23 +5951,26 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
-                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_, self).__init__()
+                                            super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, self).__init__()
 
                                             self.yang_name = "in"
                                             self.yang_parent_name = "distribute-list"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                            ])
+                                            self.prefix_list = None
                                             self._segment_path = lambda: "in"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_, ['prefix_list'], name, value)
+                                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, ['prefix_list'], name, value)
 
 
                                 class FastReroute(Entity):
@@ -5782,7 +5997,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, self).__init__()
@@ -5791,10 +6006,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix)}
-                                        self._child_list_classes = {}
-
-                                        self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                        ])
+                                        self.fast_reroute_enable = None
 
                                         self.per_link = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink()
                                         self.per_link.parent = self
@@ -5837,7 +6055,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, self).__init__()
@@ -5846,10 +6064,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                            ])
+                                            self.fast_reroute_use_candidate_only = None
 
                                             self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
@@ -5881,7 +6102,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -5890,8 +6111,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
                                                 self._segment_path = lambda: "candidate-interfaces"
@@ -5904,7 +6127,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Candidate backup interface
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -5916,7 +6139,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -5925,11 +6148,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "candidate-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -5950,7 +6176,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -5959,8 +6185,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
                                                 self._segment_path = lambda: "exclude-interfaces"
@@ -5973,7 +6201,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -5985,7 +6213,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -5994,11 +6222,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "exclude-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -6030,7 +6261,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
@@ -6039,10 +6270,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                            ])
+                                            self.fast_reroute_use_candidate_only = None
 
                                             self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
@@ -6074,7 +6308,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -6083,8 +6317,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-prefix"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
                                                 self._segment_path = lambda: "candidate-interfaces"
@@ -6097,7 +6333,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Candidate backup interface
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -6109,7 +6345,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -6118,11 +6354,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "candidate-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -6143,7 +6382,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -6152,8 +6391,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-prefix"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
                                                 self._segment_path = lambda: "exclude-interfaces"
@@ -6166,7 +6407,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -6178,7 +6419,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -6187,11 +6428,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "exclude-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -6211,7 +6455,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
@@ -6220,8 +6464,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.fast_reroute = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute()
                                 self.fast_reroute.parent = self
@@ -6254,7 +6500,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
@@ -6263,10 +6509,13 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-scope"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix)}
-                                    self._child_list_classes = {}
-
-                                    self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                    ])
+                                    self.fast_reroute_enable = None
 
                                     self.per_link = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink()
                                     self.per_link.parent = self
@@ -6309,7 +6558,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
@@ -6318,10 +6567,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "fast-reroute"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces)}
-                                        self._child_list_classes = {}
-
-                                        self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                        ])
+                                        self.fast_reroute_use_candidate_only = None
 
                                         self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces()
                                         self.candidate_interfaces.parent = self
@@ -6353,7 +6605,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -6362,8 +6614,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "per-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.candidate_interface = YList(self)
                                             self._segment_path = lambda: "candidate-interfaces"
@@ -6376,7 +6630,7 @@ class Ospfv3(Entity):
                                             """
                                             Candidate backup interface
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
@@ -6388,7 +6642,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -6397,11 +6651,14 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "candidate-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                                self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                self.ylist_key_names = ['interface_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ])
+                                                self.interface_name = None
+                                                self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -6422,7 +6679,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -6431,8 +6688,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "per-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.exclude_interface = YList(self)
                                             self._segment_path = lambda: "exclude-interfaces"
@@ -6445,7 +6704,7 @@ class Ospfv3(Entity):
                                             """
                                             Exclude an interface from becoming a backup
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
@@ -6457,7 +6716,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -6466,11 +6725,14 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "exclude-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                                self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                self.ylist_key_names = ['interface_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ])
+                                                self.interface_name = None
+                                                self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -6502,7 +6764,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -6511,10 +6773,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "fast-reroute"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                        self._child_list_classes = {}
-
-                                        self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                        ])
+                                        self.fast_reroute_use_candidate_only = None
 
                                         self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces()
                                         self.candidate_interfaces.parent = self
@@ -6546,7 +6811,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -6555,8 +6820,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "per-prefix"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.candidate_interface = YList(self)
                                             self._segment_path = lambda: "candidate-interfaces"
@@ -6569,7 +6836,7 @@ class Ospfv3(Entity):
                                             """
                                             Candidate backup interface
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
@@ -6581,7 +6848,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -6590,11 +6857,14 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "candidate-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                                self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                self.ylist_key_names = ['interface_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ])
+                                                self.interface_name = None
+                                                self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -6615,7 +6885,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -6624,8 +6894,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "per-prefix"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.exclude_interface = YList(self)
                                             self._segment_path = lambda: "exclude-interfaces"
@@ -6638,7 +6910,7 @@ class Ospfv3(Entity):
                                             """
                                             Exclude an interface from becoming a backup
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
@@ -6650,7 +6922,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -6659,11 +6931,14 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "exclude-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-                                                self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                self.ylist_key_names = ['interface_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                ])
+                                                self.interface_name = None
+                                                self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -6683,7 +6958,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks, self).__init__()
@@ -6692,8 +6967,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"sham-link" : ("sham_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("sham-link", ("sham_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink))])
+                                self._leafs = OrderedDict()
 
                                 self.sham_link = YList(self)
                                 self._segment_path = lambda: "sham-links"
@@ -6706,14 +6983,14 @@ class Ospfv3(Entity):
                                 """
                                 ShamLink local and remote endpoints
                                 
-                                .. attribute:: source_address  <key>
+                                .. attribute:: source_address  (key)
                                 
                                 	Local sham\-link endpoint
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: destination_address  <key>
+                                .. attribute:: destination_address  (key)
                                 
                                 	Remote sham\-link endpoint
                                 	**type**\: str
@@ -6776,7 +7053,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, self).__init__()
@@ -6785,22 +7062,25 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "sham-links"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption)}
-                                    self._child_list_classes = {}
-
-                                    self.source_address = YLeaf(YType.str, "source-address")
-
-                                    self.destination_address = YLeaf(YType.str, "destination-address")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                    self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                    self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                    self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                                    self.ylist_key_names = ['source_address','destination_address']
+                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('source_address', YLeaf(YType.str, 'source-address')),
+                                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                        ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                        ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                        ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                    ])
+                                    self.source_address = None
+                                    self.destination_address = None
+                                    self.enable = None
+                                    self.hello_interval = None
+                                    self.dead_interval = None
+                                    self.retransmit_interval = None
+                                    self.transmit_delay = None
 
                                     self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication()
                                     self.authentication.parent = self
@@ -6811,7 +7091,7 @@ class Ospfv3(Entity):
                                     self.encryption.parent = self
                                     self._children_name_map["encryption"] = "encryption"
                                     self._children_yang_names.add("encryption")
-                                    self._segment_path = lambda: "sham-link" + "[source-address='" + self.source_address.get() + "']" + "[destination-address='" + self.destination_address.get() + "']"
+                                    self._segment_path = lambda: "sham-link" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, ['source_address', 'destination_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
@@ -6850,7 +7130,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, self).__init__()
@@ -6859,16 +7139,19 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "sham-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                        self.password = YLeaf(YType.str, "password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                            ('password', YLeaf(YType.str, 'password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.algorithm = None
+                                        self.password = None
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -6920,7 +7203,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, self).__init__()
@@ -6929,20 +7212,23 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "sham-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                        self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                        self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                        self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                            ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                            ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                            ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.encryption_algorithm = None
+                                        self.encryption_password = None
+                                        self.authentication_algorithm = None
+                                        self.authentication_password = None
                                         self._segment_path = lambda: "encryption"
 
                                     def __setattr__(self, name, value):
@@ -6963,7 +7249,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks, self).__init__()
@@ -6972,8 +7258,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-area-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"virtual-link" : ("virtual_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("virtual-link", ("virtual_link", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink))])
+                                self._leafs = OrderedDict()
 
                                 self.virtual_link = YList(self)
                                 self._segment_path = lambda: "virtual-links"
@@ -6986,7 +7274,7 @@ class Ospfv3(Entity):
                                 """
                                 Router ID of virtual link neighbor
                                 
-                                .. attribute:: virtual_link_address  <key>
+                                .. attribute:: virtual_link_address  (key)
                                 
                                 	Router ID of virtual link neighbor
                                 	**type**\: str
@@ -7049,7 +7337,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, self).__init__()
@@ -7058,20 +7346,23 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "virtual-links"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication), "encryption" : ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption)}
-                                    self._child_list_classes = {}
-
-                                    self.virtual_link_address = YLeaf(YType.str, "virtual-link-address")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                    self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                    self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                    self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                                    self.ylist_key_names = ['virtual_link_address']
+                                    self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication)), ("encryption", ("encryption", Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('virtual_link_address', YLeaf(YType.str, 'virtual-link-address')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                        ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                        ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                        ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                    ])
+                                    self.virtual_link_address = None
+                                    self.enable = None
+                                    self.hello_interval = None
+                                    self.dead_interval = None
+                                    self.retransmit_interval = None
+                                    self.transmit_delay = None
 
                                     self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication()
                                     self.authentication.parent = self
@@ -7082,7 +7373,7 @@ class Ospfv3(Entity):
                                     self.encryption.parent = self
                                     self._children_name_map["encryption"] = "encryption"
                                     self._children_yang_names.add("encryption")
-                                    self._segment_path = lambda: "virtual-link" + "[virtual-link-address='" + self.virtual_link_address.get() + "']"
+                                    self._segment_path = lambda: "virtual-link" + "[virtual-link-address='" + str(self.virtual_link_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, ['virtual_link_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
@@ -7121,7 +7412,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, self).__init__()
@@ -7130,16 +7421,19 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "virtual-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                        self.password = YLeaf(YType.str, "password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                            ('password', YLeaf(YType.str, 'password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.algorithm = None
+                                        self.password = None
                                         self._segment_path = lambda: "authentication"
 
                                     def __setattr__(self, name, value):
@@ -7191,7 +7485,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, self).__init__()
@@ -7200,20 +7494,23 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "virtual-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.spi = YLeaf(YType.uint32, "spi")
-
-                                        self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                        self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                        self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                        self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('spi', YLeaf(YType.uint32, 'spi')),
+                                            ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                            ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                            ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                            ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                        ])
+                                        self.enable = None
+                                        self.spi = None
+                                        self.encryption_algorithm = None
+                                        self.encryption_password = None
+                                        self.authentication_algorithm = None
+                                        self.authentication_password = None
                                         self._segment_path = lambda: "encryption"
 
                                     def __setattr__(self, name, value):
@@ -7244,7 +7541,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Timers, self).__init__()
@@ -7253,8 +7550,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"pacing" : ("pacing", Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing), "lsa-timers" : ("lsa_timers", Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers), "throttle" : ("throttle", Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("pacing", ("pacing", Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing)), ("lsa-timers", ("lsa_timers", Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers)), ("throttle", ("throttle", Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.pacing = Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing()
                         self.pacing.parent = self
@@ -7307,7 +7606,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing, self).__init__()
@@ -7316,14 +7615,17 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "timers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.flood = YLeaf(YType.uint32, "flood")
-
-                            self.retransmission = YLeaf(YType.uint32, "retransmission")
-
-                            self.lsa_group = YLeaf(YType.uint32, "lsa-group")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('flood', YLeaf(YType.uint32, 'flood')),
+                                ('retransmission', YLeaf(YType.uint32, 'retransmission')),
+                                ('lsa_group', YLeaf(YType.uint32, 'lsa-group')),
+                            ])
+                            self.flood = None
+                            self.retransmission = None
+                            self.lsa_group = None
                             self._segment_path = lambda: "pacing"
 
                         def __setattr__(self, name, value):
@@ -7348,7 +7650,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers, self).__init__()
@@ -7357,10 +7659,13 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "timers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.arrival = YLeaf(YType.uint32, "arrival")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('arrival', YLeaf(YType.uint32, 'arrival')),
+                            ])
+                            self.arrival = None
                             self._segment_path = lambda: "lsa-timers"
 
                         def __setattr__(self, name, value):
@@ -7386,7 +7691,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle, self).__init__()
@@ -7395,8 +7700,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "timers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"lsa" : ("lsa", Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa), "spf" : ("spf", Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("lsa", ("lsa", Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa)), ("spf", ("spf", Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.lsa = Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa()
                             self.lsa.parent = self
@@ -7446,7 +7753,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa, self).__init__()
@@ -7455,14 +7762,17 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "throttle"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.first_delay = YLeaf(YType.uint32, "first-delay")
-
-                                self.minimum_delay = YLeaf(YType.uint32, "minimum-delay")
-
-                                self.maximum_delay = YLeaf(YType.uint32, "maximum-delay")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('first_delay', YLeaf(YType.uint32, 'first-delay')),
+                                    ('minimum_delay', YLeaf(YType.uint32, 'minimum-delay')),
+                                    ('maximum_delay', YLeaf(YType.uint32, 'maximum-delay')),
+                                ])
+                                self.first_delay = None
+                                self.minimum_delay = None
+                                self.maximum_delay = None
                                 self._segment_path = lambda: "lsa"
 
                             def __setattr__(self, name, value):
@@ -7499,7 +7809,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf, self).__init__()
@@ -7508,14 +7818,17 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "throttle"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.first_delay = YLeaf(YType.uint32, "first-delay")
-
-                                self.minimum_delay = YLeaf(YType.uint32, "minimum-delay")
-
-                                self.maximum_delay = YLeaf(YType.uint32, "maximum-delay")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('first_delay', YLeaf(YType.uint32, 'first-delay')),
+                                    ('minimum_delay', YLeaf(YType.uint32, 'minimum-delay')),
+                                    ('maximum_delay', YLeaf(YType.uint32, 'maximum-delay')),
+                                ])
+                                self.first_delay = None
+                                self.minimum_delay = None
+                                self.maximum_delay = None
                                 self._segment_path = lambda: "spf"
 
                             def __setattr__(self, name, value):
@@ -7537,7 +7850,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes, self).__init__()
@@ -7546,8 +7859,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"summary-prefix" : ("summary_prefix", Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("summary-prefix", ("summary_prefix", Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix))])
+                        self._leafs = OrderedDict()
 
                         self.summary_prefix = YList(self)
                         self._segment_path = lambda: "summary-prefixes"
@@ -7560,14 +7875,14 @@ class Ospfv3(Entity):
                         """
                         IPv6 address
                         
-                        .. attribute:: prefix  <key>
+                        .. attribute:: prefix  (key)
                         
                         	IPv6 prefix string format
                         	**type**\: str
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
-                        .. attribute:: prefix_length  <key>
+                        .. attribute:: prefix_length  (key)
                         
                         	IPV6 prefix length
                         	**type**\: int
@@ -7591,7 +7906,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix, self).__init__()
@@ -7600,17 +7915,20 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "summary-prefixes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                            self.not_advertise = YLeaf(YType.boolean, "not-advertise")
-
-                            self.tag = YLeaf(YType.uint32, "tag")
-                            self._segment_path = lambda: "summary-prefix" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                            self.ylist_key_names = ['prefix','prefix_length']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
+                                ('tag', YLeaf(YType.uint32, 'tag')),
+                            ])
+                            self.prefix = None
+                            self.prefix_length = None
+                            self.not_advertise = None
+                            self.tag = None
+                            self._segment_path = lambda: "summary-prefix" + "[prefix='" + str(self.prefix) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix, ['prefix', 'prefix_length', 'not_advertise', 'tag'], name, value)
@@ -7635,7 +7953,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Snmp, self).__init__()
@@ -7644,10 +7962,13 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"trap-rate-limit" : ("trap_rate_limit", Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit)}
-                        self._child_list_classes = {}
-
-                        self.context = YLeaf(YType.str, "context")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("trap-rate-limit", ("trap_rate_limit", Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('context', YLeaf(YType.str, 'context')),
+                        ])
+                        self.context = None
 
                         self.trap_rate_limit = Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit()
                         self.trap_rate_limit.parent = self
@@ -7682,7 +8003,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit, self).__init__()
@@ -7691,12 +8012,15 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "snmp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.window_size = YLeaf(YType.uint32, "window-size")
-
-                            self.max_window_traps = YLeaf(YType.uint32, "max-window-traps")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('window_size', YLeaf(YType.uint32, 'window-size')),
+                                ('max_window_traps', YLeaf(YType.uint32, 'max-window-traps')),
+                            ])
+                            self.window_size = None
+                            self.max_window_traps = None
                             self._segment_path = lambda: "trap-rate-limit"
 
                         def __setattr__(self, name, value):
@@ -7722,7 +8046,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.FastReroute, self).__init__()
@@ -7731,8 +8055,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.per_link = Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink()
                         self.per_link.parent = self
@@ -7760,7 +8086,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink, self).__init__()
@@ -7769,10 +8095,13 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "fast-reroute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                            ])
+                            self.priority = None
                             self._segment_path = lambda: "per-link"
 
                         def __setattr__(self, name, value):
@@ -7803,7 +8132,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix, self).__init__()
@@ -7812,12 +8141,15 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "fast-reroute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"tiebreakers" : ("tiebreakers", Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers)}
-                            self._child_list_classes = {}
-
-                            self.load_sharing_disable = YLeaf(YType.empty, "load-sharing-disable")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("tiebreakers", ("tiebreakers", Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('load_sharing_disable', YLeaf(YType.empty, 'load-sharing-disable')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                            ])
+                            self.load_sharing_disable = None
+                            self.priority = None
 
                             self.tiebreakers = Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers()
                             self.tiebreakers.parent = self
@@ -7843,7 +8175,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -7852,8 +8184,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "per-prefix"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"tiebreaker" : ("tiebreaker", Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                self._leafs = OrderedDict()
 
                                 self.tiebreaker = YList(self)
                                 self._segment_path = lambda: "tiebreakers"
@@ -7866,7 +8200,7 @@ class Ospfv3(Entity):
                                 """
                                 Fast\-reroute tiebreakers configuration
                                 
-                                .. attribute:: tiebreaker_type  <key>
+                                .. attribute:: tiebreaker_type  (key)
                                 
                                 	Tiebreaker type
                                 	**type**\:  :py:class:`Ospfv3FastRerouteTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteTiebreakers>`
@@ -7885,7 +8219,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -7894,13 +8228,16 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "tiebreakers"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.tiebreaker_type = YLeaf(YType.enumeration, "tiebreaker-type")
-
-                                    self.tiebreaker_index = YLeaf(YType.uint32, "tiebreaker-index")
-                                    self._segment_path = lambda: "tiebreaker" + "[tiebreaker-type='" + self.tiebreaker_type.get() + "']"
+                                    self.ylist_key_names = ['tiebreaker_type']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
+                                        ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
+                                    ])
+                                    self.tiebreaker_type = None
+                                    self.tiebreaker_index = None
+                                    self._segment_path = lambda: "tiebreaker" + "[tiebreaker-type='" + str(self.tiebreaker_type) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
@@ -7913,7 +8250,7 @@ class Ospfv3(Entity):
                     .. attribute:: ospfv3
                     
                     	OSPFv3 administrative distance
-                    	**type**\:  :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3>`
+                    	**type**\:  :py:class:`Ospfv3_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_>`
                     
                     .. attribute:: administrative
                     
@@ -7927,7 +8264,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Distance, self).__init__()
@@ -7936,12 +8273,15 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"ospfv3" : ("ospfv3", Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("ospfv3", ("ospfv3", Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('administrative', YLeaf(YType.uint32, 'administrative')),
+                        ])
+                        self.administrative = None
 
-                        self.administrative = YLeaf(YType.uint32, "administrative")
-
-                        self.ospfv3 = Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3()
+                        self.ospfv3 = Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_()
                         self.ospfv3.parent = self
                         self._children_name_map["ospfv3"] = "ospfv3"
                         self._children_yang_names.add("ospfv3")
@@ -7951,7 +8291,7 @@ class Ospfv3(Entity):
                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Distance, ['administrative'], name, value)
 
 
-                    class Ospfv3(Entity):
+                    class Ospfv3_(Entity):
                         """
                         OSPFv3 administrative distance
                         
@@ -7981,27 +8321,30 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3, self).__init__()
+                            super(Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_, self).__init__()
 
                             self.yang_name = "ospfv3"
                             self.yang_parent_name = "distance"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.intra_area = YLeaf(YType.uint32, "intra-area")
-
-                            self.inter_area = YLeaf(YType.uint32, "inter-area")
-
-                            self.external = YLeaf(YType.uint32, "external")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('intra_area', YLeaf(YType.uint32, 'intra-area')),
+                                ('inter_area', YLeaf(YType.uint32, 'inter-area')),
+                                ('external', YLeaf(YType.uint32, 'external')),
+                            ])
+                            self.intra_area = None
+                            self.inter_area = None
+                            self.external = None
                             self._segment_path = lambda: "ospfv3"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3, ['intra_area', 'inter_area', 'external'], name, value)
+                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_, ['intra_area', 'inter_area', 'external'], name, value)
 
 
                 class Maximum(Entity):
@@ -8032,7 +8375,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Maximum, self).__init__()
@@ -8041,12 +8384,15 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"redistributed-prefixes" : ("redistributed_prefixes", Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes)}
-                        self._child_list_classes = {}
-
-                        self.interfaces = YLeaf(YType.uint32, "interfaces")
-
-                        self.paths = YLeaf(YType.uint32, "paths")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("redistributed-prefixes", ("redistributed_prefixes", Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interfaces', YLeaf(YType.uint32, 'interfaces')),
+                            ('paths', YLeaf(YType.uint32, 'paths')),
+                        ])
+                        self.interfaces = None
+                        self.paths = None
 
                         self.redistributed_prefixes = Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes()
                         self.redistributed_prefixes.parent = self
@@ -8086,7 +8432,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes, self).__init__()
@@ -8095,14 +8441,17 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "maximum"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefixes = YLeaf(YType.uint32, "prefixes")
-
-                            self.threshold = YLeaf(YType.uint32, "threshold")
-
-                            self.warning_only = YLeaf(YType.empty, "warning-only")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefixes', YLeaf(YType.uint32, 'prefixes')),
+                                ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                ('warning_only', YLeaf(YType.empty, 'warning-only')),
+                            ])
+                            self.prefixes = None
+                            self.threshold = None
+                            self.warning_only = None
                             self._segment_path = lambda: "redistributed-prefixes"
 
                         def __setattr__(self, name, value):
@@ -8124,7 +8473,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Redistributes, self).__init__()
@@ -8133,8 +8482,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"redistribute" : ("redistribute", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("redistribute", ("redistribute", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute))])
+                        self._leafs = OrderedDict()
 
                         self.redistribute = YList(self)
                         self._segment_path = lambda: "redistributes"
@@ -8148,7 +8499,7 @@ class Ospfv3(Entity):
                         Redistribute information from another routing
                         protocol
                         
-                        .. attribute:: protocol_name  <key>
+                        .. attribute:: protocol_name  (key)
                         
                         	Protocol
                         	**type**\:  :py:class:`Ospfv3ProtocolType2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolType2>`
@@ -8180,7 +8531,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute, self).__init__()
@@ -8189,10 +8540,13 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "redistributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"connected-or-static-or-subscriber-or-mobile" : ("connected_or_static_or_subscriber_or_mobile", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile)}
-                            self._child_list_classes = {"bgp" : ("bgp", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp), "ospfv3-or-isis-or-application" : ("ospfv3_or_isis_or_application", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication), "eigrp" : ("eigrp", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp)}
-
-                            self.protocol_name = YLeaf(YType.enumeration, "protocol-name")
+                            self.ylist_key_names = ['protocol_name']
+                            self._child_container_classes = OrderedDict([("connected-or-static-or-subscriber-or-mobile", ("connected_or_static_or_subscriber_or_mobile", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile))])
+                            self._child_list_classes = OrderedDict([("bgp", ("bgp", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp)), ("ospfv3-or-isis-or-application", ("ospfv3_or_isis_or_application", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication)), ("eigrp", ("eigrp", Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp))])
+                            self._leafs = OrderedDict([
+                                ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
+                            ])
+                            self.protocol_name = None
 
                             self.connected_or_static_or_subscriber_or_mobile = None
                             self._children_name_map["connected_or_static_or_subscriber_or_mobile"] = "connected-or-static-or-subscriber-or-mobile"
@@ -8201,7 +8555,7 @@ class Ospfv3(Entity):
                             self.bgp = YList(self)
                             self.ospfv3_or_isis_or_application = YList(self)
                             self.eigrp = YList(self)
-                            self._segment_path = lambda: "redistribute" + "[protocol-name='" + self.protocol_name.get() + "']"
+                            self._segment_path = lambda: "redistribute" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute, ['protocol_name'], name, value)
@@ -8275,6 +8629,11 @@ class Ospfv3(Entity):
                             	Preserve Information (Multi\-Exit Discriminator) of BGP routes
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            .. attribute:: use_rib_metric
+                            
+                            	Use metric from RIB for redistributed routes
+                            	**type**\: bool
+                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -8282,7 +8641,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, self).__init__()
@@ -8291,51 +8650,56 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "redistribute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.internal_route_type = YLeaf(YType.enumeration, "internal-route-type")
-
-                                self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                                self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                self.tag = YLeaf(YType.uint32, "tag")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.external_route_type = YLeaf(YType.enumeration, "external-route-type")
-
-                                self.nssa_external_route_type = YLeaf(YType.enumeration, "nssa-external-route-type")
-
-                                self.redistribute_route = YLeaf(YType.boolean, "redistribute-route")
-
-                                self.isis_route_type = YLeaf(YType.enumeration, "isis-route-type")
-
-                                self.eigrp_route_type = YLeaf(YType.enumeration, "eigrp-route-type")
-
-                                self.preserve_med = YLeaf(YType.empty, "preserve-med")
-
-                                self.preserve_med_info = YLeaf(YType.empty, "preserve-med-info")
+                                self._leafs = OrderedDict([
+                                    ('internal_route_type', YLeaf(YType.enumeration, 'internal-route-type')),
+                                    ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                                    ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                    ('tag', YLeaf(YType.uint32, 'tag')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('external_route_type', YLeaf(YType.enumeration, 'external-route-type')),
+                                    ('nssa_external_route_type', YLeaf(YType.enumeration, 'nssa-external-route-type')),
+                                    ('redistribute_route', YLeaf(YType.boolean, 'redistribute-route')),
+                                    ('isis_route_type', YLeaf(YType.enumeration, 'isis-route-type')),
+                                    ('eigrp_route_type', YLeaf(YType.enumeration, 'eigrp-route-type')),
+                                    ('preserve_med', YLeaf(YType.empty, 'preserve-med')),
+                                    ('preserve_med_info', YLeaf(YType.empty, 'preserve-med-info')),
+                                    ('use_rib_metric', YLeaf(YType.boolean, 'use-rib-metric')),
+                                ])
+                                self.internal_route_type = None
+                                self.default_metric = None
+                                self.metric_type = None
+                                self.tag = None
+                                self.route_policy_name = None
+                                self.external_route_type = None
+                                self.nssa_external_route_type = None
+                                self.redistribute_route = None
+                                self.isis_route_type = None
+                                self.eigrp_route_type = None
+                                self.preserve_med = None
+                                self.preserve_med_info = None
+                                self.use_rib_metric = None
                                 self._segment_path = lambda: "connected-or-static-or-subscriber-or-mobile"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
 
 
                         class Bgp(Entity):
                             """
                             bgp
                             
-                            .. attribute:: as_xx  <key>
+                            .. attribute:: as_xx  (key)
                             
                             	4\-byte AS number in asdot (X.Y) format \- first half (X)
                             	**type**\: int
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: as_yy  <key>
+                            .. attribute:: as_yy  (key)
                             
                             	4\-byte AS number in asdot (X.Y) format \- second half (Y), or 2\-byte AS number, or 4\-byte AS number in asplain format
                             	**type**\: int
@@ -8406,12 +8770,17 @@ class Ospfv3(Entity):
                             	Preserve Information (Multi\-Exit Discriminator) of BGP routes
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            .. attribute:: use_rib_metric
+                            
+                            	Use metric from RIB for redistributed routes
+                            	**type**\: bool
+                            
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, self).__init__()
@@ -8420,47 +8789,52 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "redistribute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                                self.as_yy = YLeaf(YType.uint32, "as-yy")
-
-                                self.internal_route_type = YLeaf(YType.enumeration, "internal-route-type")
-
-                                self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                                self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                self.tag = YLeaf(YType.uint32, "tag")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.external_route_type = YLeaf(YType.enumeration, "external-route-type")
-
-                                self.nssa_external_route_type = YLeaf(YType.enumeration, "nssa-external-route-type")
-
-                                self.redistribute_route = YLeaf(YType.boolean, "redistribute-route")
-
-                                self.isis_route_type = YLeaf(YType.enumeration, "isis-route-type")
-
-                                self.eigrp_route_type = YLeaf(YType.enumeration, "eigrp-route-type")
-
-                                self.preserve_med = YLeaf(YType.empty, "preserve-med")
-
-                                self.preserve_med_info = YLeaf(YType.empty, "preserve-med-info")
-                                self._segment_path = lambda: "bgp" + "[as-xx='" + self.as_xx.get() + "']" + "[as-yy='" + self.as_yy.get() + "']"
+                                self.ylist_key_names = ['as_xx','as_yy']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                    ('as_yy', YLeaf(YType.uint32, 'as-yy')),
+                                    ('internal_route_type', YLeaf(YType.enumeration, 'internal-route-type')),
+                                    ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                                    ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                    ('tag', YLeaf(YType.uint32, 'tag')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('external_route_type', YLeaf(YType.enumeration, 'external-route-type')),
+                                    ('nssa_external_route_type', YLeaf(YType.enumeration, 'nssa-external-route-type')),
+                                    ('redistribute_route', YLeaf(YType.boolean, 'redistribute-route')),
+                                    ('isis_route_type', YLeaf(YType.enumeration, 'isis-route-type')),
+                                    ('eigrp_route_type', YLeaf(YType.enumeration, 'eigrp-route-type')),
+                                    ('preserve_med', YLeaf(YType.empty, 'preserve-med')),
+                                    ('preserve_med_info', YLeaf(YType.empty, 'preserve-med-info')),
+                                    ('use_rib_metric', YLeaf(YType.boolean, 'use-rib-metric')),
+                                ])
+                                self.as_xx = None
+                                self.as_yy = None
+                                self.internal_route_type = None
+                                self.default_metric = None
+                                self.metric_type = None
+                                self.tag = None
+                                self.route_policy_name = None
+                                self.external_route_type = None
+                                self.nssa_external_route_type = None
+                                self.redistribute_route = None
+                                self.isis_route_type = None
+                                self.eigrp_route_type = None
+                                self.preserve_med = None
+                                self.preserve_med_info = None
+                                self.use_rib_metric = None
+                                self._segment_path = lambda: "bgp" + "[as-xx='" + str(self.as_xx) + "']" + "[as-yy='" + str(self.as_yy) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
 
 
                         class Ospfv3OrIsisOrApplication(Entity):
                             """
                             ospfv3 or isis or application
                             
-                            .. attribute:: process_name  <key>
+                            .. attribute:: process_name  (key)
                             
                             	ISIS process name if protocol is ISIS, or OSPFv3 process name if protocol is OSPFv3
                             	**type**\: str
@@ -8531,12 +8905,17 @@ class Ospfv3(Entity):
                             	Preserve Information (Multi\-Exit Discriminator) of BGP routes
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            .. attribute:: use_rib_metric
+                            
+                            	Use metric from RIB for redistributed routes
+                            	**type**\: bool
+                            
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, self).__init__()
@@ -8545,45 +8924,50 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "redistribute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.process_name = YLeaf(YType.str, "process-name")
-
-                                self.internal_route_type = YLeaf(YType.enumeration, "internal-route-type")
-
-                                self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                                self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                self.tag = YLeaf(YType.uint32, "tag")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.external_route_type = YLeaf(YType.enumeration, "external-route-type")
-
-                                self.nssa_external_route_type = YLeaf(YType.enumeration, "nssa-external-route-type")
-
-                                self.redistribute_route = YLeaf(YType.boolean, "redistribute-route")
-
-                                self.isis_route_type = YLeaf(YType.enumeration, "isis-route-type")
-
-                                self.eigrp_route_type = YLeaf(YType.enumeration, "eigrp-route-type")
-
-                                self.preserve_med = YLeaf(YType.empty, "preserve-med")
-
-                                self.preserve_med_info = YLeaf(YType.empty, "preserve-med-info")
-                                self._segment_path = lambda: "ospfv3-or-isis-or-application" + "[process-name='" + self.process_name.get() + "']"
+                                self.ylist_key_names = ['process_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('process_name', YLeaf(YType.str, 'process-name')),
+                                    ('internal_route_type', YLeaf(YType.enumeration, 'internal-route-type')),
+                                    ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                                    ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                    ('tag', YLeaf(YType.uint32, 'tag')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('external_route_type', YLeaf(YType.enumeration, 'external-route-type')),
+                                    ('nssa_external_route_type', YLeaf(YType.enumeration, 'nssa-external-route-type')),
+                                    ('redistribute_route', YLeaf(YType.boolean, 'redistribute-route')),
+                                    ('isis_route_type', YLeaf(YType.enumeration, 'isis-route-type')),
+                                    ('eigrp_route_type', YLeaf(YType.enumeration, 'eigrp-route-type')),
+                                    ('preserve_med', YLeaf(YType.empty, 'preserve-med')),
+                                    ('preserve_med_info', YLeaf(YType.empty, 'preserve-med-info')),
+                                    ('use_rib_metric', YLeaf(YType.boolean, 'use-rib-metric')),
+                                ])
+                                self.process_name = None
+                                self.internal_route_type = None
+                                self.default_metric = None
+                                self.metric_type = None
+                                self.tag = None
+                                self.route_policy_name = None
+                                self.external_route_type = None
+                                self.nssa_external_route_type = None
+                                self.redistribute_route = None
+                                self.isis_route_type = None
+                                self.eigrp_route_type = None
+                                self.preserve_med = None
+                                self.preserve_med_info = None
+                                self.use_rib_metric = None
+                                self._segment_path = lambda: "ospfv3-or-isis-or-application" + "[process-name='" + str(self.process_name) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
 
 
                         class Eigrp(Entity):
                             """
                             eigrp
                             
-                            .. attribute:: as_xx  <key>
+                            .. attribute:: as_xx  (key)
                             
                             	4\-byte AS number in asdot (X.Y) format \- first half (X)
                             	**type**\: int
@@ -8654,12 +9038,17 @@ class Ospfv3(Entity):
                             	Preserve Information (Multi\-Exit Discriminator) of BGP routes
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            .. attribute:: use_rib_metric
+                            
+                            	Use metric from RIB for redistributed routes
+                            	**type**\: bool
+                            
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, self).__init__()
@@ -8668,38 +9057,43 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "redistribute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                                self.internal_route_type = YLeaf(YType.enumeration, "internal-route-type")
-
-                                self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                                self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                self.tag = YLeaf(YType.uint32, "tag")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                self.external_route_type = YLeaf(YType.enumeration, "external-route-type")
-
-                                self.nssa_external_route_type = YLeaf(YType.enumeration, "nssa-external-route-type")
-
-                                self.redistribute_route = YLeaf(YType.boolean, "redistribute-route")
-
-                                self.isis_route_type = YLeaf(YType.enumeration, "isis-route-type")
-
-                                self.eigrp_route_type = YLeaf(YType.enumeration, "eigrp-route-type")
-
-                                self.preserve_med = YLeaf(YType.empty, "preserve-med")
-
-                                self.preserve_med_info = YLeaf(YType.empty, "preserve-med-info")
-                                self._segment_path = lambda: "eigrp" + "[as-xx='" + self.as_xx.get() + "']"
+                                self.ylist_key_names = ['as_xx']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                    ('internal_route_type', YLeaf(YType.enumeration, 'internal-route-type')),
+                                    ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                                    ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                    ('tag', YLeaf(YType.uint32, 'tag')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ('external_route_type', YLeaf(YType.enumeration, 'external-route-type')),
+                                    ('nssa_external_route_type', YLeaf(YType.enumeration, 'nssa-external-route-type')),
+                                    ('redistribute_route', YLeaf(YType.boolean, 'redistribute-route')),
+                                    ('isis_route_type', YLeaf(YType.enumeration, 'isis-route-type')),
+                                    ('eigrp_route_type', YLeaf(YType.enumeration, 'eigrp-route-type')),
+                                    ('preserve_med', YLeaf(YType.empty, 'preserve-med')),
+                                    ('preserve_med_info', YLeaf(YType.empty, 'preserve-med-info')),
+                                    ('use_rib_metric', YLeaf(YType.boolean, 'use-rib-metric')),
+                                ])
+                                self.as_xx = None
+                                self.internal_route_type = None
+                                self.default_metric = None
+                                self.metric_type = None
+                                self.tag = None
+                                self.route_policy_name = None
+                                self.external_route_type = None
+                                self.nssa_external_route_type = None
+                                self.redistribute_route = None
+                                self.isis_route_type = None
+                                self.eigrp_route_type = None
+                                self.preserve_med = None
+                                self.preserve_med_info = None
+                                self.use_rib_metric = None
+                                self._segment_path = lambda: "eigrp" + "[as-xx='" + str(self.as_xx) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
 
 
                 class Ignore(Entity):
@@ -8716,7 +9110,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Ignore, self).__init__()
@@ -8725,8 +9119,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"lsa" : ("lsa", Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("lsa", ("lsa", Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.lsa = Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa()
                         self.lsa.parent = self
@@ -8750,7 +9146,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa, self).__init__()
@@ -8759,10 +9155,13 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "ignore"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.mospf = YLeaf(YType.empty, "mospf")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mospf', YLeaf(YType.empty, 'mospf')),
+                            ])
+                            self.mospf = None
                             self._segment_path = lambda: "lsa"
 
                         def __setattr__(self, name, value):
@@ -8783,7 +9182,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut, self).__init__()
@@ -8792,8 +9191,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"distribute-outs" : ("distribute_outs", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("distribute-outs", ("distribute_outs", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.distribute_outs = Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts()
                         self.distribute_outs.parent = self
@@ -8816,7 +9217,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts, self).__init__()
@@ -8825,8 +9226,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "distribute-list-out"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"distribute-out" : ("distribute_out", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("distribute-out", ("distribute_out", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut))])
+                            self._leafs = OrderedDict()
 
                             self.distribute_out = YList(self)
                             self._segment_path = lambda: "distribute-outs"
@@ -8839,22 +9242,37 @@ class Ospfv3(Entity):
                             """
                             Filter generated type\-5 LSAs
                             
-                            .. attribute:: protocol_name  <key>
+                            .. attribute:: protocol_name  (key)
                             
                             	none
                             	**type**\:  :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3Protocol>`
                             
-                            .. attribute:: as_yy_and_as_xx_and_process_name
+                            .. attribute:: all_or_connected_or_static_prefix_list
                             
-                            	keys\: as\-yy, as\-xx, process\-name
-                            	**type**\: list of  		 :py:class:`AsYyAndAsXxAndProcessName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName>`
+                            	Prefix\-list name
+                            	**type**\: str
+                            
+                            .. attribute:: bgp
+                            
+                            	bgp
+                            	**type**\: list of  		 :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp>`
+                            
+                            .. attribute:: ospfv3_or_isis
+                            
+                            	ospfv3 or isis
+                            	**type**\: list of  		 :py:class:`Ospfv3OrIsis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis>`
+                            
+                            .. attribute:: eigrp
+                            
+                            	eigrp
+                            	**type**\: list of  		 :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp>`
                             
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut, self).__init__()
@@ -8863,37 +9281,84 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "distribute-outs"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"as-yy-and-as-xx-and-process-name" : ("as_yy_and_as_xx_and_process_name", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName)}
+                                self.ylist_key_names = ['protocol_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("bgp", ("bgp", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp)), ("ospfv3-or-isis", ("ospfv3_or_isis", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis)), ("eigrp", ("eigrp", Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp))])
+                                self._leafs = OrderedDict([
+                                    ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
+                                    ('all_or_connected_or_static_prefix_list', YLeaf(YType.str, 'all-or-connected-or-static-prefix-list')),
+                                ])
+                                self.protocol_name = None
+                                self.all_or_connected_or_static_prefix_list = None
 
-                                self.protocol_name = YLeaf(YType.enumeration, "protocol-name")
-
-                                self.as_yy_and_as_xx_and_process_name = YList(self)
-                                self._segment_path = lambda: "distribute-out" + "[protocol-name='" + self.protocol_name.get() + "']"
+                                self.bgp = YList(self)
+                                self.ospfv3_or_isis = YList(self)
+                                self.eigrp = YList(self)
+                                self._segment_path = lambda: "distribute-out" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut, ['protocol_name'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut, ['protocol_name', 'all_or_connected_or_static_prefix_list'], name, value)
 
 
-                            class AsYyAndAsXxAndProcessName(Entity):
+                            class Bgp(Entity):
                                 """
-                                keys\: as\-yy, as\-xx, process\-name
+                                bgp
                                 
-                                .. attribute:: as_yy  <key>
-                                
-                                	4\-byte AS number in asdot (X.Y) format \- second half (Y), or 2\-byte AS number, or 4\-byte AS number in asplain format
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: as_xx  <key>
+                                .. attribute:: as_xx  (key)
                                 
                                 	4\-byte AS number in asdot (X.Y) format \- first half (X)
                                 	**type**\: int
                                 
                                 	**range:** 1..65535
                                 
-                                .. attribute:: process_name  <key>
+                                .. attribute:: as_yy  (key)
+                                
+                                	4\-byte AS number in asdot (X.Y) format \- second half (Y), or 2\-byte AS number, or 4\-byte AS number in asplain format
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: prefix_list
+                                
+                                	Prefix\-list name
+                                	**type**\: str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-ospfv3-cfg'
+                                _revision = '2018-01-15'
+
+                                def __init__(self):
+                                    super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "distribute-out"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['as_xx','as_yy']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                        ('as_yy', YLeaf(YType.uint32, 'as-yy')),
+                                        ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                    ])
+                                    self.as_xx = None
+                                    self.as_yy = None
+                                    self.prefix_list = None
+                                    self._segment_path = lambda: "bgp" + "[as-xx='" + str(self.as_xx) + "']" + "[as-yy='" + str(self.as_yy) + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, ['as_xx', 'as_yy', 'prefix_list'], name, value)
+
+
+                            class Ospfv3OrIsis(Entity):
+                                """
+                                ospfv3 or isis
+                                
+                                .. attribute:: process_name  (key)
                                 
                                 	If ISIS or OSPFv3, specify the instance name
                                 	**type**\: str
@@ -8905,36 +9370,78 @@ class Ospfv3(Entity):
                                 	Prefix\-list name
                                 	**type**\: str
                                 
-                                	**mandatory**\: True
+                                
+
+                                """
+
+                                _prefix = 'ipv6-ospfv3-cfg'
+                                _revision = '2018-01-15'
+
+                                def __init__(self):
+                                    super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, self).__init__()
+
+                                    self.yang_name = "ospfv3-or-isis"
+                                    self.yang_parent_name = "distribute-out"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['process_name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('process_name', YLeaf(YType.str, 'process-name')),
+                                        ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                    ])
+                                    self.process_name = None
+                                    self.prefix_list = None
+                                    self._segment_path = lambda: "ospfv3-or-isis" + "[process-name='" + str(self.process_name) + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, ['process_name', 'prefix_list'], name, value)
+
+
+                            class Eigrp(Entity):
+                                """
+                                eigrp
+                                
+                                .. attribute:: as_xx  (key)
+                                
+                                	4\-byte AS number in asdot (X.Y) format \- first half (X)
+                                	**type**\: int
+                                
+                                	**range:** 1..65535
+                                
+                                .. attribute:: prefix_list
+                                
+                                	Prefix\-list name
+                                	**type**\: str
                                 
                                 
 
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
-                                    super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName, self).__init__()
+                                    super(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, self).__init__()
 
-                                    self.yang_name = "as-yy-and-as-xx-and-process-name"
+                                    self.yang_name = "eigrp"
                                     self.yang_parent_name = "distribute-out"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.as_yy = YLeaf(YType.uint32, "as-yy")
-
-                                    self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                                    self.process_name = YLeaf(YType.str, "process-name")
-
-                                    self.prefix_list = YLeaf(YType.str, "prefix-list")
-                                    self._segment_path = lambda: "as-yy-and-as-xx-and-process-name" + "[as-yy='" + self.as_yy.get() + "']" + "[as-xx='" + self.as_xx.get() + "']" + "[process-name='" + self.process_name.get() + "']"
+                                    self.ylist_key_names = ['as_xx']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                        ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                    ])
+                                    self.as_xx = None
+                                    self.prefix_list = None
+                                    self._segment_path = lambda: "eigrp" + "[as-xx='" + str(self.as_xx) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName, ['as_yy', 'as_xx', 'process_name', 'prefix_list'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, ['as_xx', 'prefix_list'], name, value)
 
 
                 class DistributeList(Entity):
@@ -8944,14 +9451,14 @@ class Ospfv3(Entity):
                     .. attribute:: in_
                     
                     	Filter prefixes installed to RIB
-                    	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_>`
+                    	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeList.In>`
                     
                     
 
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.DistributeList, self).__init__()
@@ -8960,17 +9467,19 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.DefaultVrf.DistributeList.In))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_()
+                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.DistributeList.In()
                         self.in_.parent = self
                         self._children_name_map["in_"] = "in"
                         self._children_yang_names.add("in")
                         self._segment_path = lambda: "distribute-list"
 
 
-                    class In_(Entity):
+                    class In(Entity):
                         """
                         Filter prefixes installed to RIB
                         
@@ -8984,23 +9493,26 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
-                            super(Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_, self).__init__()
+                            super(Ospfv3.Processes.Process.DefaultVrf.DistributeList.In, self).__init__()
 
                             self.yang_name = "in"
                             self.yang_parent_name = "distribute-list"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix_list = YLeaf(YType.str, "prefix-list")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                            ])
+                            self.prefix_list = None
                             self._segment_path = lambda: "in"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_, ['prefix_list'], name, value)
+                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.DistributeList.In, ['prefix_list'], name, value)
 
 
                 class StubRouter(Entity):
@@ -9027,7 +9539,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.StubRouter, self).__init__()
@@ -9036,8 +9548,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rbit" : ("rbit", Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit), "v6bit" : ("v6bit", Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit), "max-metric" : ("max_metric", Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rbit", ("rbit", Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit)), ("v6bit", ("v6bit", Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit)), ("max-metric", ("max_metric", Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.rbit = Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit()
                         self.rbit.parent = self
@@ -9074,15 +9588,6 @@ class Ospfv3(Entity):
                         	Unconditionally enter stub router operational state
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
-                        .. attribute:: external_lsa
-                        
-                        	Advertise external LSAs with modified metric in stub router mode
-                        	**type**\: int
-                        
-                        	**range:** 1..16777214
-                        
-                        	**default value**\: 16711680
-                        
                         .. attribute:: on_startup
                         
                         	Enter stub router operational state on startup
@@ -9116,21 +9621,12 @@ class Ospfv3(Entity):
                         
                         	**units**\: second
                         
-                        .. attribute:: summary_lsa
-                        
-                        	Advertise summary LSAs with modified metric in stub router mode
-                        	**type**\: int
-                        
-                        	**range:** 1..16777214
-                        
-                        	**default value**\: 16711680
-                        
                         
 
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, self).__init__()
@@ -9139,24 +9635,23 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "stub-router"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"on-startup" : ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup)}
-                            self._child_list_classes = {}
-
-                            self.on_switchover = YLeaf(YType.uint32, "on-switchover")
-
-                            self.always = YLeaf(YType.empty, "always")
-
-                            self.external_lsa = YLeaf(YType.uint32, "external-lsa")
-
-                            self.include_stub = YLeaf(YType.empty, "include-stub")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.on_proc_migration = YLeaf(YType.uint32, "on-proc-migration")
-
-                            self.on_proc_restart = YLeaf(YType.uint32, "on-proc-restart")
-
-                            self.summary_lsa = YLeaf(YType.uint32, "summary-lsa")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('on_switchover', YLeaf(YType.uint32, 'on-switchover')),
+                                ('always', YLeaf(YType.empty, 'always')),
+                                ('include_stub', YLeaf(YType.empty, 'include-stub')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('on_proc_migration', YLeaf(YType.uint32, 'on-proc-migration')),
+                                ('on_proc_restart', YLeaf(YType.uint32, 'on-proc-restart')),
+                            ])
+                            self.on_switchover = None
+                            self.always = None
+                            self.include_stub = None
+                            self.enable = None
+                            self.on_proc_migration = None
+                            self.on_proc_restart = None
 
                             self.on_startup = Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup()
                             self.on_startup.parent = self
@@ -9165,7 +9660,7 @@ class Ospfv3(Entity):
                             self._segment_path = lambda: "rbit"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, ['on_switchover', 'always', 'external_lsa', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart', 'summary_lsa'], name, value)
+                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit, ['on_switchover', 'always', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                         class OnStartup(Entity):
@@ -9193,7 +9688,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup, self).__init__()
@@ -9202,12 +9697,15 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "rbit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.wait_for_bgp = YLeaf(YType.boolean, "wait-for-bgp")
-
-                                self.wait_time = YLeaf(YType.uint32, "wait-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
+                                    ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ])
+                                self.wait_for_bgp = None
+                                self.wait_time = None
                                 self._segment_path = lambda: "on-startup"
 
                             def __setattr__(self, name, value):
@@ -9232,24 +9730,10 @@ class Ospfv3(Entity):
                         	Unconditionally enter stub router operational state
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
-                        .. attribute:: external_lsa
-                        
-                        	Advertise external LSAs with modified metric in stub router mode
-                        	**type**\: int
-                        
-                        	**range:** 1..16777214
-                        
-                        	**default value**\: 16711680
-                        
                         .. attribute:: on_startup
                         
                         	Enter stub router operational state on startup
                         	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup>`
-                        
-                        .. attribute:: include_stub
-                        
-                        	Advertise stub links with maximum metric in stub router mode
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: enable
                         
@@ -9274,21 +9758,12 @@ class Ospfv3(Entity):
                         
                         	**units**\: second
                         
-                        .. attribute:: summary_lsa
-                        
-                        	Advertise summary LSAs with modified metric in stub router mode
-                        	**type**\: int
-                        
-                        	**range:** 1..16777214
-                        
-                        	**default value**\: 16711680
-                        
                         
 
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit, self).__init__()
@@ -9297,24 +9772,21 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "stub-router"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"on-startup" : ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup)}
-                            self._child_list_classes = {}
-
-                            self.on_switchover = YLeaf(YType.uint32, "on-switchover")
-
-                            self.always = YLeaf(YType.empty, "always")
-
-                            self.external_lsa = YLeaf(YType.uint32, "external-lsa")
-
-                            self.include_stub = YLeaf(YType.empty, "include-stub")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.on_proc_migration = YLeaf(YType.uint32, "on-proc-migration")
-
-                            self.on_proc_restart = YLeaf(YType.uint32, "on-proc-restart")
-
-                            self.summary_lsa = YLeaf(YType.uint32, "summary-lsa")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('on_switchover', YLeaf(YType.uint32, 'on-switchover')),
+                                ('always', YLeaf(YType.empty, 'always')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('on_proc_migration', YLeaf(YType.uint32, 'on-proc-migration')),
+                                ('on_proc_restart', YLeaf(YType.uint32, 'on-proc-restart')),
+                            ])
+                            self.on_switchover = None
+                            self.always = None
+                            self.enable = None
+                            self.on_proc_migration = None
+                            self.on_proc_restart = None
 
                             self.on_startup = Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup()
                             self.on_startup.parent = self
@@ -9323,7 +9795,7 @@ class Ospfv3(Entity):
                             self._segment_path = lambda: "v6bit"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit, ['on_switchover', 'always', 'external_lsa', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart', 'summary_lsa'], name, value)
+                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit, ['on_switchover', 'always', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                         class OnStartup(Entity):
@@ -9351,7 +9823,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup, self).__init__()
@@ -9360,12 +9832,15 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "v6bit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.wait_for_bgp = YLeaf(YType.boolean, "wait-for-bgp")
-
-                                self.wait_time = YLeaf(YType.uint32, "wait-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
+                                    ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ])
+                                self.wait_for_bgp = None
+                                self.wait_time = None
                                 self._segment_path = lambda: "on-startup"
 
                             def __setattr__(self, name, value):
@@ -9375,6 +9850,24 @@ class Ospfv3(Entity):
                     class MaxMetric(Entity):
                         """
                         Stub router max\-metric configuration
+                        
+                        .. attribute:: external_lsa
+                        
+                        	Advertise external LSAs with modified metric in stub router mode
+                        	**type**\: int
+                        
+                        	**range:** 1..16777214
+                        
+                        	**default value**\: 16711680
+                        
+                        .. attribute:: summary_lsa
+                        
+                        	Advertise summary LSAs with modified metric in stub router mode
+                        	**type**\: int
+                        
+                        	**range:** 1..16777214
+                        
+                        	**default value**\: 16711680
                         
                         .. attribute:: on_switchover
                         
@@ -9389,15 +9882,6 @@ class Ospfv3(Entity):
                         
                         	Unconditionally enter stub router operational state
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                        
-                        .. attribute:: external_lsa
-                        
-                        	Advertise external LSAs with modified metric in stub router mode
-                        	**type**\: int
-                        
-                        	**range:** 1..16777214
-                        
-                        	**default value**\: 16711680
                         
                         .. attribute:: on_startup
                         
@@ -9432,21 +9916,12 @@ class Ospfv3(Entity):
                         
                         	**units**\: second
                         
-                        .. attribute:: summary_lsa
-                        
-                        	Advertise summary LSAs with modified metric in stub router mode
-                        	**type**\: int
-                        
-                        	**range:** 1..16777214
-                        
-                        	**default value**\: 16711680
-                        
                         
 
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, self).__init__()
@@ -9455,24 +9930,27 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "stub-router"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"on-startup" : ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup)}
-                            self._child_list_classes = {}
-
-                            self.on_switchover = YLeaf(YType.uint32, "on-switchover")
-
-                            self.always = YLeaf(YType.empty, "always")
-
-                            self.external_lsa = YLeaf(YType.uint32, "external-lsa")
-
-                            self.include_stub = YLeaf(YType.empty, "include-stub")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.on_proc_migration = YLeaf(YType.uint32, "on-proc-migration")
-
-                            self.on_proc_restart = YLeaf(YType.uint32, "on-proc-restart")
-
-                            self.summary_lsa = YLeaf(YType.uint32, "summary-lsa")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('external_lsa', YLeaf(YType.uint32, 'external-lsa')),
+                                ('summary_lsa', YLeaf(YType.uint32, 'summary-lsa')),
+                                ('on_switchover', YLeaf(YType.uint32, 'on-switchover')),
+                                ('always', YLeaf(YType.empty, 'always')),
+                                ('include_stub', YLeaf(YType.empty, 'include-stub')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('on_proc_migration', YLeaf(YType.uint32, 'on-proc-migration')),
+                                ('on_proc_restart', YLeaf(YType.uint32, 'on-proc-restart')),
+                            ])
+                            self.external_lsa = None
+                            self.summary_lsa = None
+                            self.on_switchover = None
+                            self.always = None
+                            self.include_stub = None
+                            self.enable = None
+                            self.on_proc_migration = None
+                            self.on_proc_restart = None
 
                             self.on_startup = Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup()
                             self.on_startup.parent = self
@@ -9481,7 +9959,7 @@ class Ospfv3(Entity):
                             self._segment_path = lambda: "max-metric"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, ['on_switchover', 'always', 'external_lsa', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart', 'summary_lsa'], name, value)
+                            self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric, ['external_lsa', 'summary_lsa', 'on_switchover', 'always', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                         class OnStartup(Entity):
@@ -9509,7 +9987,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup, self).__init__()
@@ -9518,12 +9996,15 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "max-metric"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.wait_for_bgp = YLeaf(YType.boolean, "wait-for-bgp")
-
-                                self.wait_time = YLeaf(YType.uint32, "wait-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
+                                    ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ])
+                                self.wait_for_bgp = None
+                                self.wait_time = None
                                 self._segment_path = lambda: "on-startup"
 
                             def __setattr__(self, name, value):
@@ -9560,7 +10041,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Bfd, self).__init__()
@@ -9569,14 +10050,17 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interval = YLeaf(YType.uint32, "interval")
-
-                        self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                        self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interval', YLeaf(YType.uint32, 'interval')),
+                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                        ])
+                        self.interval = None
+                        self.detection_multiplier = None
+                        self.fast_detect_mode = None
                         self._segment_path = lambda: "bfd"
 
                     def __setattr__(self, name, value):
@@ -9597,7 +10081,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter, self).__init__()
@@ -9606,8 +10090,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.all = Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All()
                         self.all.parent = self
@@ -9630,7 +10116,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All, self).__init__()
@@ -9639,10 +10125,13 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "database-filter"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.out = YLeaf(YType.empty, "out")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('out', YLeaf(YType.empty, 'out')),
+                            ])
+                            self.out = None
                             self._segment_path = lambda: "all"
 
                         def __setattr__(self, name, value):
@@ -9682,7 +10171,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Authentication, self).__init__()
@@ -9691,16 +10180,19 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-
-                        self.spi = YLeaf(YType.uint32, "spi")
-
-                        self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                        self.password = YLeaf(YType.str, "password")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('spi', YLeaf(YType.uint32, 'spi')),
+                            ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                            ('password', YLeaf(YType.str, 'password')),
+                        ])
+                        self.enable = None
+                        self.spi = None
+                        self.algorithm = None
+                        self.password = None
                         self._segment_path = lambda: "authentication"
 
                     def __setattr__(self, name, value):
@@ -9749,7 +10241,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.GracefulRestart, self).__init__()
@@ -9758,18 +10250,21 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interval = YLeaf(YType.uint32, "interval")
-
-                        self.strict_lsa_checking = YLeaf(YType.empty, "strict-lsa-checking")
-
-                        self.helper = YLeaf(YType.empty, "helper")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.lifetime = YLeaf(YType.uint32, "lifetime")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interval', YLeaf(YType.uint32, 'interval')),
+                            ('strict_lsa_checking', YLeaf(YType.empty, 'strict-lsa-checking')),
+                            ('helper', YLeaf(YType.empty, 'helper')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                        ])
+                        self.interval = None
+                        self.strict_lsa_checking = None
+                        self.helper = None
+                        self.enable = None
+                        self.lifetime = None
                         self._segment_path = lambda: "graceful-restart"
 
                     def __setattr__(self, name, value):
@@ -9792,7 +10287,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation, self).__init__()
@@ -9801,8 +10296,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"originate" : ("originate", Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("originate", ("originate", Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.originate = None
                         self._children_name_map["originate"] = "originate"
@@ -9854,7 +10351,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate, self).__init__()
@@ -9863,19 +10360,22 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "default-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.always = YLeaf(YType.boolean, "always")
-
-                            self.metric = YLeaf(YType.uint32, "metric")
-
-                            self.metric_type = YLeaf(YType.uint32, "metric-type")
-
-                            self.tag = YLeaf(YType.uint32, "tag")
-
-                            self.route_policy_name = YLeaf(YType.str, "route-policy-name")
+                            self._leafs = OrderedDict([
+                                ('always', YLeaf(YType.boolean, 'always')),
+                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                ('metric_type', YLeaf(YType.uint32, 'metric-type')),
+                                ('tag', YLeaf(YType.uint32, 'tag')),
+                                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                            ])
+                            self.always = None
+                            self.metric = None
+                            self.metric_type = None
+                            self.tag = None
+                            self.route_policy_name = None
                             self._segment_path = lambda: "originate"
 
                         def __setattr__(self, name, value):
@@ -9896,7 +10396,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope, self).__init__()
@@ -9905,8 +10405,10 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.fast_reroute = Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute()
                         self.fast_reroute.parent = self
@@ -9939,7 +10441,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute, self).__init__()
@@ -9948,10 +10450,13 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "process-scope"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix)}
-                            self._child_list_classes = {}
-
-                            self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                            ])
+                            self.fast_reroute_enable = None
 
                             self.per_link = Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink()
                             self.per_link.parent = self
@@ -9994,7 +10499,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink, self).__init__()
@@ -10003,10 +10508,13 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "fast-reroute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces)}
-                                self._child_list_classes = {}
-
-                                self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                ])
+                                self.fast_reroute_use_candidate_only = None
 
                                 self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces()
                                 self.candidate_interfaces.parent = self
@@ -10038,7 +10546,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -10047,8 +10555,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "per-link"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                    self._leafs = OrderedDict()
 
                                     self.candidate_interface = YList(self)
                                     self._segment_path = lambda: "candidate-interfaces"
@@ -10061,7 +10571,7 @@ class Ospfv3(Entity):
                                     """
                                     Candidate backup interface
                                     
-                                    .. attribute:: interface_name  <key>
+                                    .. attribute:: interface_name  (key)
                                     
                                     	Interface
                                     	**type**\: str
@@ -10073,7 +10583,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -10082,11 +10592,14 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "candidate-interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ])
+                                        self.interface_name = None
+                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -10107,7 +10620,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -10116,8 +10629,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "per-link"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                    self._leafs = OrderedDict()
 
                                     self.exclude_interface = YList(self)
                                     self._segment_path = lambda: "exclude-interfaces"
@@ -10130,7 +10645,7 @@ class Ospfv3(Entity):
                                     """
                                     Exclude an interface from becoming a backup
                                     
-                                    .. attribute:: interface_name  <key>
+                                    .. attribute:: interface_name  (key)
                                     
                                     	Interface
                                     	**type**\: str
@@ -10142,7 +10657,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -10151,11 +10666,14 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "exclude-interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ])
+                                        self.interface_name = None
+                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -10187,7 +10705,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
@@ -10196,10 +10714,13 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "fast-reroute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                self._child_list_classes = {}
-
-                                self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                ])
+                                self.fast_reroute_use_candidate_only = None
 
                                 self.candidate_interfaces = Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces()
                                 self.candidate_interfaces.parent = self
@@ -10231,7 +10752,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -10240,8 +10761,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "per-prefix"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                    self._leafs = OrderedDict()
 
                                     self.candidate_interface = YList(self)
                                     self._segment_path = lambda: "candidate-interfaces"
@@ -10254,7 +10777,7 @@ class Ospfv3(Entity):
                                     """
                                     Candidate backup interface
                                     
-                                    .. attribute:: interface_name  <key>
+                                    .. attribute:: interface_name  (key)
                                     
                                     	Interface
                                     	**type**\: str
@@ -10266,7 +10789,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -10275,11 +10798,14 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "candidate-interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ])
+                                        self.interface_name = None
+                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -10300,7 +10826,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -10309,8 +10835,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "per-prefix"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                    self._leafs = OrderedDict()
 
                                     self.exclude_interface = YList(self)
                                     self._segment_path = lambda: "exclude-interfaces"
@@ -10323,7 +10851,7 @@ class Ospfv3(Entity):
                                     """
                                     Exclude an interface from becoming a backup
                                     
-                                    .. attribute:: interface_name  <key>
+                                    .. attribute:: interface_name  (key)
                                     
                                     	Interface
                                     	**type**\: str
@@ -10335,7 +10863,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -10344,11 +10872,14 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "exclude-interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ])
+                                        self.interface_name = None
+                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -10399,7 +10930,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.Encryption, self).__init__()
@@ -10408,20 +10939,23 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-
-                        self.spi = YLeaf(YType.uint32, "spi")
-
-                        self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                        self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                        self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                        self.authentication_password = YLeaf(YType.str, "authentication-password")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('spi', YLeaf(YType.uint32, 'spi')),
+                            ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                            ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                            ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                            ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                        ])
+                        self.enable = None
+                        self.spi = None
+                        self.encryption_algorithm = None
+                        self.encryption_password = None
+                        self.authentication_algorithm = None
+                        self.authentication_password = None
                         self._segment_path = lambda: "encryption"
 
                     def __setattr__(self, name, value):
@@ -10453,7 +10987,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.DefaultVrf.AutoCost, self).__init__()
@@ -10462,13 +10996,16 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "default-vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.disable = YLeaf(YType.empty, "disable")
-
-                        self.reference_bandwidth = YLeaf(YType.uint32, "reference-bandwidth")
+                        self._leafs = OrderedDict([
+                            ('disable', YLeaf(YType.empty, 'disable')),
+                            ('reference_bandwidth', YLeaf(YType.uint32, 'reference-bandwidth')),
+                        ])
+                        self.disable = None
+                        self.reference_bandwidth = None
                         self._segment_path = lambda: "auto-cost"
 
                     def __setattr__(self, name, value):
@@ -10489,7 +11026,7 @@ class Ospfv3(Entity):
                 """
 
                 _prefix = 'ipv6-ospfv3-cfg'
-                _revision = '2017-07-14'
+                _revision = '2018-01-15'
 
                 def __init__(self):
                     super(Ospfv3.Processes.Process.Vrfs, self).__init__()
@@ -10498,8 +11035,10 @@ class Ospfv3(Entity):
                     self.yang_parent_name = "process"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vrf" : ("vrf", Ospfv3.Processes.Process.Vrfs.Vrf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("vrf", ("vrf", Ospfv3.Processes.Process.Vrfs.Vrf))])
+                    self._leafs = OrderedDict()
 
                     self.vrf = YList(self)
                     self._segment_path = lambda: "vrfs"
@@ -10512,7 +11051,7 @@ class Ospfv3(Entity):
                     """
                     Configuration for a particular OSPF VRF
                     
-                    .. attribute:: vrf_name  <key>
+                    .. attribute:: vrf_name  (key)
                     
                     	Name for this VRF
                     	**type**\: str
@@ -10764,7 +11303,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.Vrfs.Vrf, self).__init__()
@@ -10773,50 +11312,53 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "vrfs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"capability" : ("capability", Ospfv3.Processes.Process.Vrfs.Vrf.Capability), "domain-id" : ("domain_id", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId), "area-addresses" : ("area_addresses", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses), "timers" : ("timers", Ospfv3.Processes.Process.Vrfs.Vrf.Timers), "summary-prefixes" : ("summary_prefixes", Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes), "snmp" : ("snmp", Ospfv3.Processes.Process.Vrfs.Vrf.Snmp), "fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute), "distance" : ("distance", Ospfv3.Processes.Process.Vrfs.Vrf.Distance), "maximum" : ("maximum", Ospfv3.Processes.Process.Vrfs.Vrf.Maximum), "redistributes" : ("redistributes", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes), "ignore" : ("ignore", Ospfv3.Processes.Process.Vrfs.Vrf.Ignore), "distribute-list-out" : ("distribute_list_out", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList), "stub-router" : ("stub_router", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter), "bfd" : ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.Bfd), "database-filter" : ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter), "authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.Authentication), "graceful-restart" : ("graceful_restart", Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart), "default-information" : ("default_information", Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation), "process-scope" : ("process_scope", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.Encryption), "auto-cost" : ("auto_cost", Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost)}
-                        self._child_list_classes = {}
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.snmpvrf_trap = YLeaf(YType.empty, "snmpvrf-trap")
-
-                        self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                        self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                        self.passive = YLeaf(YType.boolean, "passive")
-
-                        self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                        self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                        self.priority = YLeaf(YType.uint32, "priority")
-
-                        self.cost = YLeaf(YType.uint32, "cost")
-
-                        self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                        self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                        self.instance = YLeaf(YType.uint32, "instance")
-
-                        self.spf_prefix_priority_policy = YLeaf(YType.str, "spf-prefix-priority-policy")
-
-                        self.router_id = YLeaf(YType.str, "router-id")
-
-                        self.network = YLeaf(YType.enumeration, "network")
-
-                        self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                        self.log_adjacency_changes = YLeaf(YType.enumeration, "log-adjacency-changes")
-
-                        self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
-
-                        self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                        self.ylist_key_names = ['vrf_name']
+                        self._child_container_classes = OrderedDict([("capability", ("capability", Ospfv3.Processes.Process.Vrfs.Vrf.Capability)), ("domain-id", ("domain_id", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId)), ("area-addresses", ("area_addresses", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses)), ("timers", ("timers", Ospfv3.Processes.Process.Vrfs.Vrf.Timers)), ("summary-prefixes", ("summary_prefixes", Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes)), ("snmp", ("snmp", Ospfv3.Processes.Process.Vrfs.Vrf.Snmp)), ("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute)), ("distance", ("distance", Ospfv3.Processes.Process.Vrfs.Vrf.Distance)), ("maximum", ("maximum", Ospfv3.Processes.Process.Vrfs.Vrf.Maximum)), ("redistributes", ("redistributes", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes)), ("ignore", ("ignore", Ospfv3.Processes.Process.Vrfs.Vrf.Ignore)), ("distribute-list-out", ("distribute_list_out", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList)), ("stub-router", ("stub_router", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter)), ("bfd", ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.Bfd)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter)), ("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.Authentication)), ("graceful-restart", ("graceful_restart", Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart)), ("default-information", ("default_information", Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation)), ("process-scope", ("process_scope", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.Encryption)), ("auto-cost", ("auto_cost", Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('snmpvrf_trap', YLeaf(YType.empty, 'snmpvrf-trap')),
+                            ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                            ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                            ('passive', YLeaf(YType.boolean, 'passive')),
+                            ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                            ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                            ('priority', YLeaf(YType.uint32, 'priority')),
+                            ('cost', YLeaf(YType.uint32, 'cost')),
+                            ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                            ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                            ('instance', YLeaf(YType.uint32, 'instance')),
+                            ('spf_prefix_priority_policy', YLeaf(YType.str, 'spf-prefix-priority-policy')),
+                            ('router_id', YLeaf(YType.str, 'router-id')),
+                            ('network', YLeaf(YType.enumeration, 'network')),
+                            ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                            ('log_adjacency_changes', YLeaf(YType.enumeration, 'log-adjacency-changes')),
+                            ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                            ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                        ])
+                        self.vrf_name = None
+                        self.enable = None
+                        self.snmpvrf_trap = None
+                        self.prefix_suppression = None
+                        self.retransmit_interval = None
+                        self.passive = None
+                        self.default_metric = None
+                        self.flood_reduction = None
+                        self.hello_interval = None
+                        self.priority = None
+                        self.cost = None
+                        self.dead_interval = None
+                        self.packet_size = None
+                        self.instance = None
+                        self.spf_prefix_priority_policy = None
+                        self.router_id = None
+                        self.network = None
+                        self.mtu_ignore = None
+                        self.log_adjacency_changes = None
+                        self.demand_circuit = None
+                        self.transmit_delay = None
 
                         self.capability = Ospfv3.Processes.Process.Vrfs.Vrf.Capability()
                         self.capability.parent = self
@@ -10926,7 +11468,7 @@ class Ospfv3(Entity):
                         self.auto_cost = None
                         self._children_name_map["auto_cost"] = "auto-cost"
                         self._children_yang_names.add("auto-cost")
-                        self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                        self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf, ['vrf_name', 'enable', 'snmpvrf_trap', 'prefix_suppression', 'retransmit_interval', 'passive', 'default_metric', 'flood_reduction', 'hello_interval', 'priority', 'cost', 'dead_interval', 'packet_size', 'instance', 'spf_prefix_priority_policy', 'router_id', 'network', 'mtu_ignore', 'log_adjacency_changes', 'demand_circuit', 'transmit_delay'], name, value)
@@ -10946,7 +11488,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Capability, self).__init__()
@@ -10955,10 +11497,13 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.vrf_lite = YLeaf(YType.boolean, "vrf-lite")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_lite', YLeaf(YType.boolean, 'vrf-lite')),
+                            ])
+                            self.vrf_lite = None
                             self._segment_path = lambda: "capability"
 
                         def __setattr__(self, name, value):
@@ -10984,7 +11529,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId, self).__init__()
@@ -10993,8 +11538,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"secondary-domain-ids" : ("secondary_domain_ids", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds), "primary-domain-id" : ("primary_domain_id", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("secondary-domain-ids", ("secondary_domain_ids", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds)), ("primary-domain-id", ("primary_domain_id", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.secondary_domain_ids = Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds()
                             self.secondary_domain_ids.parent = self
@@ -11022,7 +11569,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds, self).__init__()
@@ -11031,8 +11578,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "domain-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"secondary-domain-id" : ("secondary_domain_id", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("secondary-domain-id", ("secondary_domain_id", Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId))])
+                                self._leafs = OrderedDict()
 
                                 self.secondary_domain_id = YList(self)
                                 self._segment_path = lambda: "secondary-domain-ids"
@@ -11045,12 +11594,12 @@ class Ospfv3(Entity):
                                 """
                                 OSPF Secondary domain ID
                                 
-                                .. attribute:: domain_id_type  <key>
+                                .. attribute:: domain_id_type  (key)
                                 
                                 	Secondary domain ID type
                                 	**type**\:  :py:class:`Ospfv3DomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3DomainId>`
                                 
-                                .. attribute:: domain_id_name  <key>
+                                .. attribute:: domain_id_name  (key)
                                 
                                 	Secondary domain ID value
                                 	**type**\: str
@@ -11062,7 +11611,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId, self).__init__()
@@ -11071,13 +11620,16 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "secondary-domain-ids"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.domain_id_type = YLeaf(YType.enumeration, "domain-id-type")
-
-                                    self.domain_id_name = YLeaf(YType.str, "domain-id-name")
-                                    self._segment_path = lambda: "secondary-domain-id" + "[domain-id-type='" + self.domain_id_type.get() + "']" + "[domain-id-name='" + self.domain_id_name.get() + "']"
+                                    self.ylist_key_names = ['domain_id_type','domain_id_name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('domain_id_type', YLeaf(YType.enumeration, 'domain-id-type')),
+                                        ('domain_id_name', YLeaf(YType.str, 'domain-id-name')),
+                                    ])
+                                    self.domain_id_type = None
+                                    self.domain_id_name = None
+                                    self._segment_path = lambda: "secondary-domain-id" + "[domain-id-type='" + str(self.domain_id_type) + "']" + "[domain-id-name='" + str(self.domain_id_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId, ['domain_id_type', 'domain_id_name'], name, value)
@@ -11102,7 +11654,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId, self).__init__()
@@ -11111,12 +11663,15 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "domain-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.domain_id_type = YLeaf(YType.enumeration, "domain-id-type")
-
-                                self.domain_id_name = YLeaf(YType.str, "domain-id-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('domain_id_type', YLeaf(YType.enumeration, 'domain-id-type')),
+                                    ('domain_id_name', YLeaf(YType.str, 'domain-id-name')),
+                                ])
+                                self.domain_id_type = None
+                                self.domain_id_name = None
                                 self._segment_path = lambda: "primary-domain-id"
 
                             def __setattr__(self, name, value):
@@ -11142,7 +11697,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses, self).__init__()
@@ -11151,8 +11706,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"area-address" : ("area_address", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress), "area-area-id" : ("area_area_id", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("area-address", ("area_address", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress)), ("area-area-id", ("area_area_id", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId))])
+                            self._leafs = OrderedDict()
 
                             self.area_address = YList(self)
                             self.area_area_id = YList(self)
@@ -11166,7 +11723,7 @@ class Ospfv3(Entity):
                             """
                             Configuration for a particular area
                             
-                            .. attribute:: address  <key>
+                            .. attribute:: address  (key)
                             
                             	Area ID if in IP address format
                             	**type**\: str
@@ -11349,7 +11906,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, self).__init__()
@@ -11358,46 +11915,49 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication), "bfd" : ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd), "ranges" : ("ranges", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption), "nssa" : ("nssa", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa), "database-filter" : ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList), "interfaces" : ("interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces), "area-scope" : ("area_scope", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope), "sham-links" : ("sham_links", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks), "virtual-links" : ("virtual_links", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks)}
-                                self._child_list_classes = {}
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.stub = YLeaf(YType.boolean, "stub")
-
-                                self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                                self.instance = YLeaf(YType.uint32, "instance")
-
-                                self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                self.passive = YLeaf(YType.boolean, "passive")
-
-                                self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                self.default_cost = YLeaf(YType.uint32, "default-cost")
-
-                                self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                                self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                                self.network = YLeaf(YType.enumeration, "network")
-
-                                self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
-
-                                self.cost = YLeaf(YType.uint32, "cost")
+                                self.ylist_key_names = ['address']
+                                self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication)), ("bfd", ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd)), ("ranges", ("ranges", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption)), ("nssa", ("nssa", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList)), ("interfaces", ("interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces)), ("area-scope", ("area_scope", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope)), ("sham-links", ("sham_links", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks)), ("virtual-links", ("virtual_links", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('stub', YLeaf(YType.boolean, 'stub')),
+                                    ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                                    ('instance', YLeaf(YType.uint32, 'instance')),
+                                    ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                    ('priority', YLeaf(YType.uint32, 'priority')),
+                                    ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                    ('passive', YLeaf(YType.boolean, 'passive')),
+                                    ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                    ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                    ('default_cost', YLeaf(YType.uint32, 'default-cost')),
+                                    ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                                    ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                    ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                                    ('network', YLeaf(YType.enumeration, 'network')),
+                                    ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                    ('cost', YLeaf(YType.uint32, 'cost')),
+                                ])
+                                self.address = None
+                                self.stub = None
+                                self.packet_size = None
+                                self.instance = None
+                                self.demand_circuit = None
+                                self.priority = None
+                                self.prefix_suppression = None
+                                self.enable = None
+                                self.mtu_ignore = None
+                                self.passive = None
+                                self.hello_interval = None
+                                self.dead_interval = None
+                                self.default_cost = None
+                                self.flood_reduction = None
+                                self.retransmit_interval = None
+                                self.ldp_sync = None
+                                self.network = None
+                                self.transmit_delay = None
+                                self.cost = None
 
                                 self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication()
                                 self.authentication.parent = self
@@ -11453,7 +12013,7 @@ class Ospfv3(Entity):
                                 self.virtual_links.parent = self
                                 self._children_name_map["virtual_links"] = "virtual-links"
                                 self._children_yang_names.add("virtual-links")
-                                self._segment_path = lambda: "area-address" + "[address='" + self.address.get() + "']"
+                                self._segment_path = lambda: "area-address" + "[address='" + str(self.address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress, ['address', 'stub', 'packet_size', 'instance', 'demand_circuit', 'priority', 'prefix_suppression', 'enable', 'mtu_ignore', 'passive', 'hello_interval', 'dead_interval', 'default_cost', 'flood_reduction', 'retransmit_interval', 'ldp_sync', 'network', 'transmit_delay', 'cost'], name, value)
@@ -11492,7 +12052,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication, self).__init__()
@@ -11501,16 +12061,19 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enable = YLeaf(YType.boolean, "enable")
-
-                                    self.spi = YLeaf(YType.uint32, "spi")
-
-                                    self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                    self.password = YLeaf(YType.str, "password")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                        ('spi', YLeaf(YType.uint32, 'spi')),
+                                        ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                        ('password', YLeaf(YType.str, 'password')),
+                                    ])
+                                    self.enable = None
+                                    self.spi = None
+                                    self.algorithm = None
+                                    self.password = None
                                     self._segment_path = lambda: "authentication"
 
                                 def __setattr__(self, name, value):
@@ -11547,7 +12110,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd, self).__init__()
@@ -11556,14 +12119,17 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                                    self.interval = YLeaf(YType.uint32, "interval")
-
-                                    self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                        ('interval', YLeaf(YType.uint32, 'interval')),
+                                        ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                                    ])
+                                    self.detection_multiplier = None
+                                    self.interval = None
+                                    self.fast_detect_mode = None
                                     self._segment_path = lambda: "bfd"
 
                                 def __setattr__(self, name, value):
@@ -11584,7 +12150,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges, self).__init__()
@@ -11593,8 +12159,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"range" : ("range", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("range", ("range", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range))])
+                                    self._leafs = OrderedDict()
 
                                     self.range = YList(self)
                                     self._segment_path = lambda: "ranges"
@@ -11608,14 +12176,14 @@ class Ospfv3(Entity):
                                     Summarize inter\-area routes matching
                                     prefix/length
                                     
-                                    .. attribute:: prefix  <key>
+                                    .. attribute:: prefix  (key)
                                     
                                     	IPv6 prefix format
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length  <key>
+                                    .. attribute:: prefix_length  (key)
                                     
                                     	IPV6 prefix length
                                     	**type**\: int
@@ -11641,7 +12209,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range, self).__init__()
@@ -11650,17 +12218,20 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "ranges"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                        self.not_advertise = YLeaf(YType.boolean, "not-advertise")
-
-                                        self.cost = YLeaf(YType.uint32, "cost")
-                                        self._segment_path = lambda: "range" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                                        self.ylist_key_names = ['prefix','prefix_length']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                            ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
+                                            ('cost', YLeaf(YType.uint32, 'cost')),
+                                        ])
+                                        self.prefix = None
+                                        self.prefix_length = None
+                                        self.not_advertise = None
+                                        self.cost = None
+                                        self._segment_path = lambda: "range" + "[prefix='" + str(self.prefix) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range, ['prefix', 'prefix_length', 'not_advertise', 'cost'], name, value)
@@ -11711,7 +12282,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption, self).__init__()
@@ -11720,20 +12291,23 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enable = YLeaf(YType.boolean, "enable")
-
-                                    self.spi = YLeaf(YType.uint32, "spi")
-
-                                    self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                    self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                    self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                    self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                        ('spi', YLeaf(YType.uint32, 'spi')),
+                                        ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                        ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                        ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                        ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                    ])
+                                    self.enable = None
+                                    self.spi = None
+                                    self.encryption_algorithm = None
+                                    self.encryption_password = None
+                                    self.authentication_algorithm = None
+                                    self.authentication_password = None
                                     self._segment_path = lambda: "encryption"
 
                                 def __setattr__(self, name, value):
@@ -11781,7 +12355,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa, self).__init__()
@@ -11790,18 +12364,21 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.no_redistribution = YLeaf(YType.boolean, "no-redistribution")
-
-                                    self.default_info_originate = YLeaf(YType.boolean, "default-info-originate")
-
-                                    self.metric = YLeaf(YType.uint32, "metric")
-
-                                    self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                    self.no_summary = YLeaf(YType.empty, "no-summary")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('no_redistribution', YLeaf(YType.boolean, 'no-redistribution')),
+                                        ('default_info_originate', YLeaf(YType.boolean, 'default-info-originate')),
+                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                        ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                        ('no_summary', YLeaf(YType.empty, 'no-summary')),
+                                    ])
+                                    self.no_redistribution = None
+                                    self.default_info_originate = None
+                                    self.metric = None
+                                    self.metric_type = None
+                                    self.no_summary = None
                                     self._segment_path = lambda: "nssa"
 
                                 def __setattr__(self, name, value):
@@ -11822,7 +12399,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter, self).__init__()
@@ -11831,8 +12408,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.all = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All()
                                     self.all.parent = self
@@ -11855,7 +12434,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All, self).__init__()
@@ -11864,10 +12443,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "database-filter"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out = YLeaf(YType.boolean, "out")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out', YLeaf(YType.boolean, 'out')),
+                                        ])
+                                        self.out = None
                                         self._segment_path = lambda: "all"
 
                                     def __setattr__(self, name, value):
@@ -11881,14 +12463,14 @@ class Ospfv3(Entity):
                                 .. attribute:: in_
                                 
                                 	Filter prefixes installed to RIB
-                                	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_>`
+                                	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In>`
                                 
                                 
 
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList, self).__init__()
@@ -11897,17 +12479,19 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
-                                    self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_()
+                                    self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In()
                                     self.in_.parent = self
                                     self._children_name_map["in_"] = "in"
                                     self._children_yang_names.add("in")
                                     self._segment_path = lambda: "distribute-list"
 
 
-                                class In_(Entity):
+                                class In(Entity):
                                     """
                                     Filter prefixes installed to RIB
                                     
@@ -11921,23 +12505,26 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_, self).__init__()
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In, self).__init__()
 
                                         self.yang_name = "in"
                                         self.yang_parent_name = "distribute-list"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                        ])
+                                        self.prefix_list = None
                                         self._segment_path = lambda: "in"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_, ['prefix_list'], name, value)
+                                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In, ['prefix_list'], name, value)
 
 
                             class Interfaces(Entity):
@@ -11954,7 +12541,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces, self).__init__()
@@ -11963,8 +12550,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"interface" : ("interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("interface", ("interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface))])
+                                    self._leafs = OrderedDict()
 
                                     self.interface = YList(self)
                                     self._segment_path = lambda: "interfaces"
@@ -11977,7 +12566,7 @@ class Ospfv3(Entity):
                                     """
                                     OSPFv3 interface
                                     
-                                    .. attribute:: interface_name  <key>
+                                    .. attribute:: interface_name  (key)
                                     
                                     	Interface to configure
                                     	**type**\: str
@@ -12128,7 +12717,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface, self).__init__()
@@ -12137,42 +12726,45 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication), "neighbors" : ("neighbors", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption), "bfd" : ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd), "database-filter" : ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList), "fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute)}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
-
-                                        self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                        self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                                        self.cost = YLeaf(YType.uint32, "cost")
-
-                                        self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
-
-                                        self.instance = YLeaf(YType.uint32, "instance")
-
-                                        self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                                        self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                        self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                        self.passive = YLeaf(YType.boolean, "passive")
-
-                                        self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                                        self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                        self.priority = YLeaf(YType.uint32, "priority")
-
-                                        self.network = YLeaf(YType.enumeration, "network")
-
-                                        self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication)), ("neighbors", ("neighbors", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption)), ("bfd", ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList)), ("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                            ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                                            ('cost', YLeaf(YType.uint32, 'cost')),
+                                            ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                            ('instance', YLeaf(YType.uint32, 'instance')),
+                                            ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                                            ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                            ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                            ('passive', YLeaf(YType.boolean, 'passive')),
+                                            ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                                            ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                            ('priority', YLeaf(YType.uint32, 'priority')),
+                                            ('network', YLeaf(YType.enumeration, 'network')),
+                                            ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                        ])
+                                        self.interface_name = None
+                                        self.enable = None
+                                        self.dead_interval = None
+                                        self.flood_reduction = None
+                                        self.cost = None
+                                        self.transmit_delay = None
+                                        self.instance = None
+                                        self.ldp_sync = None
+                                        self.mtu_ignore = None
+                                        self.retransmit_interval = None
+                                        self.hello_interval = None
+                                        self.passive = None
+                                        self.packet_size = None
+                                        self.prefix_suppression = None
+                                        self.priority = None
+                                        self.network = None
+                                        self.demand_circuit = None
 
                                         self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication()
                                         self.authentication.parent = self
@@ -12208,7 +12800,7 @@ class Ospfv3(Entity):
                                         self.fast_reroute.parent = self
                                         self._children_name_map["fast_reroute"] = "fast-reroute"
                                         self._children_yang_names.add("fast-reroute")
-                                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface, ['interface_name', 'enable', 'dead_interval', 'flood_reduction', 'cost', 'transmit_delay', 'instance', 'ldp_sync', 'mtu_ignore', 'retransmit_interval', 'hello_interval', 'passive', 'packet_size', 'prefix_suppression', 'priority', 'network', 'demand_circuit'], name, value)
@@ -12247,7 +12839,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication, self).__init__()
@@ -12256,16 +12848,19 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                            self.password = YLeaf(YType.str, "password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                                ('password', YLeaf(YType.str, 'password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.algorithm = None
+                                            self.password = None
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -12286,7 +12881,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors, self).__init__()
@@ -12295,8 +12890,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"neighbor" : ("neighbor", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor))])
+                                            self._leafs = OrderedDict()
 
                                             self.neighbor = YList(self)
                                             self._segment_path = lambda: "neighbors"
@@ -12309,7 +12906,7 @@ class Ospfv3(Entity):
                                             """
                                             IPv6 address
                                             
-                                            .. attribute:: neighbor_address  <key>
+                                            .. attribute:: neighbor_address  (key)
                                             
                                             	IPV6 address
                                             	**type**\: str
@@ -12354,7 +12951,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
@@ -12363,21 +12960,24 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "neighbors"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                                self.poll_interval = YLeaf(YType.uint32, "poll-interval")
-
-                                                self.cost = YLeaf(YType.uint32, "cost")
-
-                                                self.database_filter = YLeaf(YType.boolean, "database-filter")
-
-                                                self.zone = YLeaf(YType.str, "zone")
-                                                self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']"
+                                                self.ylist_key_names = ['neighbor_address']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                                    ('priority', YLeaf(YType.uint32, 'priority')),
+                                                    ('poll_interval', YLeaf(YType.uint32, 'poll-interval')),
+                                                    ('cost', YLeaf(YType.uint32, 'cost')),
+                                                    ('database_filter', YLeaf(YType.boolean, 'database-filter')),
+                                                    ('zone', YLeaf(YType.str, 'zone')),
+                                                ])
+                                                self.neighbor_address = None
+                                                self.priority = None
+                                                self.poll_interval = None
+                                                self.cost = None
+                                                self.database_filter = None
+                                                self.zone = None
+                                                self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter', 'zone'], name, value)
@@ -12428,7 +13028,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption, self).__init__()
@@ -12437,20 +13037,23 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                            self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                            self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                            self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                                ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                                ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                                ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.encryption_algorithm = None
+                                            self.encryption_password = None
+                                            self.authentication_algorithm = None
+                                            self.authentication_password = None
                                             self._segment_path = lambda: "encryption"
 
                                         def __setattr__(self, name, value):
@@ -12487,7 +13090,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd, self).__init__()
@@ -12496,14 +13099,17 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.interval = YLeaf(YType.uint32, "interval")
-
-                                            self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
-
-                                            self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interval', YLeaf(YType.uint32, 'interval')),
+                                                ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                            ])
+                                            self.interval = None
+                                            self.fast_detect_mode = None
+                                            self.detection_multiplier = None
                                             self._segment_path = lambda: "bfd"
 
                                         def __setattr__(self, name, value):
@@ -12524,7 +13130,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter, self).__init__()
@@ -12533,8 +13139,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.all = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All()
                                             self.all.parent = self
@@ -12557,7 +13165,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All, self).__init__()
@@ -12566,10 +13174,13 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "database-filter"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.out = YLeaf(YType.boolean, "out")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('out', YLeaf(YType.boolean, 'out')),
+                                                ])
+                                                self.out = None
                                                 self._segment_path = lambda: "all"
 
                                             def __setattr__(self, name, value):
@@ -12583,14 +13194,14 @@ class Ospfv3(Entity):
                                         .. attribute:: in_
                                         
                                         	Filter prefixes installed to RIB
-                                        	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_>`
+                                        	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In>`
                                         
                                         
 
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList, self).__init__()
@@ -12599,17 +13210,19 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
-                                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_()
+                                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In()
                                             self.in_.parent = self
                                             self._children_name_map["in_"] = "in"
                                             self._children_yang_names.add("in")
                                             self._segment_path = lambda: "distribute-list"
 
 
-                                        class In_(Entity):
+                                        class In(Entity):
                                             """
                                             Filter prefixes installed to RIB
                                             
@@ -12623,23 +13236,26 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_, self).__init__()
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, self).__init__()
 
                                                 self.yang_name = "in"
                                                 self.yang_parent_name = "distribute-list"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                                ])
+                                                self.prefix_list = None
                                                 self._segment_path = lambda: "in"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_, ['prefix_list'], name, value)
+                                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In, ['prefix_list'], name, value)
 
 
                                     class FastReroute(Entity):
@@ -12666,7 +13282,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute, self).__init__()
@@ -12675,10 +13291,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                            ])
+                                            self.fast_reroute_enable = None
 
                                             self.per_link = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink()
                                             self.per_link.parent = self
@@ -12721,7 +13340,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink, self).__init__()
@@ -12730,10 +13349,13 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "fast-reroute"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces)}
-                                                self._child_list_classes = {}
-
-                                                self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                                ])
+                                                self.fast_reroute_use_candidate_only = None
 
                                                 self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
@@ -12765,7 +13387,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -12774,8 +13396,10 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "per-link"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
                                                     self._segment_path = lambda: "candidate-interfaces"
@@ -12788,7 +13412,7 @@ class Ospfv3(Entity):
                                                     """
                                                     Candidate backup interface
                                                     
-                                                    .. attribute:: interface_name  <key>
+                                                    .. attribute:: interface_name  (key)
                                                     
                                                     	Interface
                                                     	**type**\: str
@@ -12800,7 +13424,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2017-07-14'
+                                                    _revision = '2018-01-15'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -12809,11 +13433,14 @@ class Ospfv3(Entity):
                                                         self.yang_parent_name = "candidate-interfaces"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                        self.ylist_key_names = ['interface_name']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                        ])
+                                                        self.interface_name = None
+                                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -12834,7 +13461,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -12843,8 +13470,10 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "per-link"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
                                                     self._segment_path = lambda: "exclude-interfaces"
@@ -12857,7 +13486,7 @@ class Ospfv3(Entity):
                                                     """
                                                     Exclude an interface from becoming a backup
                                                     
-                                                    .. attribute:: interface_name  <key>
+                                                    .. attribute:: interface_name  (key)
                                                     
                                                     	Interface
                                                     	**type**\: str
@@ -12869,7 +13498,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2017-07-14'
+                                                    _revision = '2018-01-15'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -12878,11 +13507,14 @@ class Ospfv3(Entity):
                                                         self.yang_parent_name = "exclude-interfaces"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                        self.ylist_key_names = ['interface_name']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                        ])
+                                                        self.interface_name = None
+                                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -12914,7 +13546,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
@@ -12923,10 +13555,13 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "fast-reroute"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                                self._child_list_classes = {}
-
-                                                self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                                ])
+                                                self.fast_reroute_use_candidate_only = None
 
                                                 self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
@@ -12958,7 +13593,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -12967,8 +13602,10 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "per-prefix"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
                                                     self._segment_path = lambda: "candidate-interfaces"
@@ -12981,7 +13618,7 @@ class Ospfv3(Entity):
                                                     """
                                                     Candidate backup interface
                                                     
-                                                    .. attribute:: interface_name  <key>
+                                                    .. attribute:: interface_name  (key)
                                                     
                                                     	Interface
                                                     	**type**\: str
@@ -12993,7 +13630,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2017-07-14'
+                                                    _revision = '2018-01-15'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -13002,11 +13639,14 @@ class Ospfv3(Entity):
                                                         self.yang_parent_name = "candidate-interfaces"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                        self.ylist_key_names = ['interface_name']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                        ])
+                                                        self.interface_name = None
+                                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -13027,7 +13667,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -13036,8 +13676,10 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "per-prefix"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
                                                     self._segment_path = lambda: "exclude-interfaces"
@@ -13050,7 +13692,7 @@ class Ospfv3(Entity):
                                                     """
                                                     Exclude an interface from becoming a backup
                                                     
-                                                    .. attribute:: interface_name  <key>
+                                                    .. attribute:: interface_name  (key)
                                                     
                                                     	Interface
                                                     	**type**\: str
@@ -13062,7 +13704,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2017-07-14'
+                                                    _revision = '2018-01-15'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -13071,11 +13713,14 @@ class Ospfv3(Entity):
                                                         self.yang_parent_name = "exclude-interfaces"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                        self.ylist_key_names = ['interface_name']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                        ])
+                                                        self.interface_name = None
+                                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -13095,7 +13740,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope, self).__init__()
@@ -13104,8 +13749,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.fast_reroute = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute()
                                     self.fast_reroute.parent = self
@@ -13138,7 +13785,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute, self).__init__()
@@ -13147,10 +13794,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "area-scope"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix)}
-                                        self._child_list_classes = {}
-
-                                        self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                        ])
+                                        self.fast_reroute_enable = None
 
                                         self.per_link = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink()
                                         self.per_link.parent = self
@@ -13193,7 +13843,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink, self).__init__()
@@ -13202,10 +13852,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                            ])
+                                            self.fast_reroute_use_candidate_only = None
 
                                             self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
@@ -13237,7 +13890,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -13246,8 +13899,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
                                                 self._segment_path = lambda: "candidate-interfaces"
@@ -13260,7 +13915,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Candidate backup interface
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -13272,7 +13927,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -13281,11 +13936,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "candidate-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -13306,7 +13964,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -13315,8 +13973,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
                                                 self._segment_path = lambda: "exclude-interfaces"
@@ -13329,7 +13989,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -13341,7 +14001,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -13350,11 +14010,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "exclude-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -13386,7 +14049,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -13395,10 +14058,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                            ])
+                                            self.fast_reroute_use_candidate_only = None
 
                                             self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
@@ -13430,7 +14096,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -13439,8 +14105,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-prefix"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
                                                 self._segment_path = lambda: "candidate-interfaces"
@@ -13453,7 +14121,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Candidate backup interface
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -13465,7 +14133,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -13474,11 +14142,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "candidate-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -13499,7 +14170,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -13508,8 +14179,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-prefix"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
                                                 self._segment_path = lambda: "exclude-interfaces"
@@ -13522,7 +14195,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -13534,7 +14207,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -13543,11 +14216,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "exclude-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -13567,7 +14243,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks, self).__init__()
@@ -13576,8 +14252,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"sham-link" : ("sham_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("sham-link", ("sham_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink))])
+                                    self._leafs = OrderedDict()
 
                                     self.sham_link = YList(self)
                                     self._segment_path = lambda: "sham-links"
@@ -13590,14 +14268,14 @@ class Ospfv3(Entity):
                                     """
                                     ShamLink local and remote endpoints
                                     
-                                    .. attribute:: source_address  <key>
+                                    .. attribute:: source_address  (key)
                                     
                                     	Local sham\-link endpoint
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: destination_address  <key>
+                                    .. attribute:: destination_address  (key)
                                     
                                     	Remote sham\-link endpoint
                                     	**type**\: str
@@ -13660,7 +14338,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, self).__init__()
@@ -13669,22 +14347,25 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "sham-links"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption)}
-                                        self._child_list_classes = {}
-
-                                        self.source_address = YLeaf(YType.str, "source-address")
-
-                                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
-
-                                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                        self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                        self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                        self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                                        self.ylist_key_names = ['source_address','destination_address']
+                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('source_address', YLeaf(YType.str, 'source-address')),
+                                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                            ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                            ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                            ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                        ])
+                                        self.source_address = None
+                                        self.destination_address = None
+                                        self.enable = None
+                                        self.hello_interval = None
+                                        self.dead_interval = None
+                                        self.retransmit_interval = None
+                                        self.transmit_delay = None
 
                                         self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication()
                                         self.authentication.parent = self
@@ -13695,7 +14376,7 @@ class Ospfv3(Entity):
                                         self.encryption.parent = self
                                         self._children_name_map["encryption"] = "encryption"
                                         self._children_yang_names.add("encryption")
-                                        self._segment_path = lambda: "sham-link" + "[source-address='" + self.source_address.get() + "']" + "[destination-address='" + self.destination_address.get() + "']"
+                                        self._segment_path = lambda: "sham-link" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink, ['source_address', 'destination_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
@@ -13734,7 +14415,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication, self).__init__()
@@ -13743,16 +14424,19 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "sham-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                            self.password = YLeaf(YType.str, "password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                                ('password', YLeaf(YType.str, 'password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.algorithm = None
+                                            self.password = None
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -13804,7 +14488,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption, self).__init__()
@@ -13813,20 +14497,23 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "sham-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                            self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                            self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                            self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                                ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                                ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                                ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.encryption_algorithm = None
+                                            self.encryption_password = None
+                                            self.authentication_algorithm = None
+                                            self.authentication_password = None
                                             self._segment_path = lambda: "encryption"
 
                                         def __setattr__(self, name, value):
@@ -13847,7 +14534,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks, self).__init__()
@@ -13856,8 +14543,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"virtual-link" : ("virtual_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("virtual-link", ("virtual_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink))])
+                                    self._leafs = OrderedDict()
 
                                     self.virtual_link = YList(self)
                                     self._segment_path = lambda: "virtual-links"
@@ -13870,7 +14559,7 @@ class Ospfv3(Entity):
                                     """
                                     Router ID of virtual link neighbor
                                     
-                                    .. attribute:: virtual_link_address  <key>
+                                    .. attribute:: virtual_link_address  (key)
                                     
                                     	Router ID of virtual link neighbor
                                     	**type**\: str
@@ -13933,7 +14622,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, self).__init__()
@@ -13942,20 +14631,23 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "virtual-links"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption)}
-                                        self._child_list_classes = {}
-
-                                        self.virtual_link_address = YLeaf(YType.str, "virtual-link-address")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
-
-                                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                        self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                        self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                        self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                                        self.ylist_key_names = ['virtual_link_address']
+                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('virtual_link_address', YLeaf(YType.str, 'virtual-link-address')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                            ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                            ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                            ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                        ])
+                                        self.virtual_link_address = None
+                                        self.enable = None
+                                        self.hello_interval = None
+                                        self.dead_interval = None
+                                        self.retransmit_interval = None
+                                        self.transmit_delay = None
 
                                         self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication()
                                         self.authentication.parent = self
@@ -13966,7 +14658,7 @@ class Ospfv3(Entity):
                                         self.encryption.parent = self
                                         self._children_name_map["encryption"] = "encryption"
                                         self._children_yang_names.add("encryption")
-                                        self._segment_path = lambda: "virtual-link" + "[virtual-link-address='" + self.virtual_link_address.get() + "']"
+                                        self._segment_path = lambda: "virtual-link" + "[virtual-link-address='" + str(self.virtual_link_address) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink, ['virtual_link_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
@@ -14005,7 +14697,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication, self).__init__()
@@ -14014,16 +14706,19 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "virtual-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                            self.password = YLeaf(YType.str, "password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                                ('password', YLeaf(YType.str, 'password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.algorithm = None
+                                            self.password = None
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -14075,7 +14770,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption, self).__init__()
@@ -14084,20 +14779,23 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "virtual-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                            self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                            self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                            self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                                ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                                ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                                ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.encryption_algorithm = None
+                                            self.encryption_password = None
+                                            self.authentication_algorithm = None
+                                            self.authentication_password = None
                                             self._segment_path = lambda: "encryption"
 
                                         def __setattr__(self, name, value):
@@ -14108,7 +14806,7 @@ class Ospfv3(Entity):
                             """
                             Configuration for a particular area
                             
-                            .. attribute:: area_id  <key>
+                            .. attribute:: area_id  (key)
                             
                             	Area ID if in integer format
                             	**type**\: int
@@ -14291,7 +14989,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, self).__init__()
@@ -14300,46 +14998,49 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "area-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication), "bfd" : ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd), "ranges" : ("ranges", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption), "nssa" : ("nssa", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa), "database-filter" : ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList), "interfaces" : ("interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces), "area-scope" : ("area_scope", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope), "sham-links" : ("sham_links", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks), "virtual-links" : ("virtual_links", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks)}
-                                self._child_list_classes = {}
-
-                                self.area_id = YLeaf(YType.uint32, "area-id")
-
-                                self.stub = YLeaf(YType.boolean, "stub")
-
-                                self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                                self.instance = YLeaf(YType.uint32, "instance")
-
-                                self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                self.passive = YLeaf(YType.boolean, "passive")
-
-                                self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                self.default_cost = YLeaf(YType.uint32, "default-cost")
-
-                                self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                                self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                                self.network = YLeaf(YType.enumeration, "network")
-
-                                self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
-
-                                self.cost = YLeaf(YType.uint32, "cost")
+                                self.ylist_key_names = ['area_id']
+                                self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication)), ("bfd", ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd)), ("ranges", ("ranges", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption)), ("nssa", ("nssa", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList)), ("interfaces", ("interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces)), ("area-scope", ("area_scope", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope)), ("sham-links", ("sham_links", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks)), ("virtual-links", ("virtual_links", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('area_id', YLeaf(YType.uint32, 'area-id')),
+                                    ('stub', YLeaf(YType.boolean, 'stub')),
+                                    ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                                    ('instance', YLeaf(YType.uint32, 'instance')),
+                                    ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                    ('priority', YLeaf(YType.uint32, 'priority')),
+                                    ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                    ('passive', YLeaf(YType.boolean, 'passive')),
+                                    ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                    ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                    ('default_cost', YLeaf(YType.uint32, 'default-cost')),
+                                    ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                                    ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                    ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                                    ('network', YLeaf(YType.enumeration, 'network')),
+                                    ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                    ('cost', YLeaf(YType.uint32, 'cost')),
+                                ])
+                                self.area_id = None
+                                self.stub = None
+                                self.packet_size = None
+                                self.instance = None
+                                self.demand_circuit = None
+                                self.priority = None
+                                self.prefix_suppression = None
+                                self.enable = None
+                                self.mtu_ignore = None
+                                self.passive = None
+                                self.hello_interval = None
+                                self.dead_interval = None
+                                self.default_cost = None
+                                self.flood_reduction = None
+                                self.retransmit_interval = None
+                                self.ldp_sync = None
+                                self.network = None
+                                self.transmit_delay = None
+                                self.cost = None
 
                                 self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication()
                                 self.authentication.parent = self
@@ -14395,7 +15096,7 @@ class Ospfv3(Entity):
                                 self.virtual_links.parent = self
                                 self._children_name_map["virtual_links"] = "virtual-links"
                                 self._children_yang_names.add("virtual-links")
-                                self._segment_path = lambda: "area-area-id" + "[area-id='" + self.area_id.get() + "']"
+                                self._segment_path = lambda: "area-area-id" + "[area-id='" + str(self.area_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId, ['area_id', 'stub', 'packet_size', 'instance', 'demand_circuit', 'priority', 'prefix_suppression', 'enable', 'mtu_ignore', 'passive', 'hello_interval', 'dead_interval', 'default_cost', 'flood_reduction', 'retransmit_interval', 'ldp_sync', 'network', 'transmit_delay', 'cost'], name, value)
@@ -14434,7 +15135,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication, self).__init__()
@@ -14443,16 +15144,19 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enable = YLeaf(YType.boolean, "enable")
-
-                                    self.spi = YLeaf(YType.uint32, "spi")
-
-                                    self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                    self.password = YLeaf(YType.str, "password")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                        ('spi', YLeaf(YType.uint32, 'spi')),
+                                        ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                        ('password', YLeaf(YType.str, 'password')),
+                                    ])
+                                    self.enable = None
+                                    self.spi = None
+                                    self.algorithm = None
+                                    self.password = None
                                     self._segment_path = lambda: "authentication"
 
                                 def __setattr__(self, name, value):
@@ -14489,7 +15193,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd, self).__init__()
@@ -14498,14 +15202,17 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                                    self.interval = YLeaf(YType.uint32, "interval")
-
-                                    self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                        ('interval', YLeaf(YType.uint32, 'interval')),
+                                        ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                                    ])
+                                    self.detection_multiplier = None
+                                    self.interval = None
+                                    self.fast_detect_mode = None
                                     self._segment_path = lambda: "bfd"
 
                                 def __setattr__(self, name, value):
@@ -14526,7 +15233,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges, self).__init__()
@@ -14535,8 +15242,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"range" : ("range", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("range", ("range", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range))])
+                                    self._leafs = OrderedDict()
 
                                     self.range = YList(self)
                                     self._segment_path = lambda: "ranges"
@@ -14550,14 +15259,14 @@ class Ospfv3(Entity):
                                     Summarize inter\-area routes matching
                                     prefix/length
                                     
-                                    .. attribute:: prefix  <key>
+                                    .. attribute:: prefix  (key)
                                     
                                     	IPv6 prefix format
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: prefix_length  <key>
+                                    .. attribute:: prefix_length  (key)
                                     
                                     	IPV6 prefix length
                                     	**type**\: int
@@ -14583,7 +15292,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range, self).__init__()
@@ -14592,17 +15301,20 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "ranges"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                        self.not_advertise = YLeaf(YType.boolean, "not-advertise")
-
-                                        self.cost = YLeaf(YType.uint32, "cost")
-                                        self._segment_path = lambda: "range" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                                        self.ylist_key_names = ['prefix','prefix_length']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                            ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
+                                            ('cost', YLeaf(YType.uint32, 'cost')),
+                                        ])
+                                        self.prefix = None
+                                        self.prefix_length = None
+                                        self.not_advertise = None
+                                        self.cost = None
+                                        self._segment_path = lambda: "range" + "[prefix='" + str(self.prefix) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range, ['prefix', 'prefix_length', 'not_advertise', 'cost'], name, value)
@@ -14653,7 +15365,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption, self).__init__()
@@ -14662,20 +15374,23 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.enable = YLeaf(YType.boolean, "enable")
-
-                                    self.spi = YLeaf(YType.uint32, "spi")
-
-                                    self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                    self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                    self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                    self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                        ('spi', YLeaf(YType.uint32, 'spi')),
+                                        ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                        ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                        ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                        ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                    ])
+                                    self.enable = None
+                                    self.spi = None
+                                    self.encryption_algorithm = None
+                                    self.encryption_password = None
+                                    self.authentication_algorithm = None
+                                    self.authentication_password = None
                                     self._segment_path = lambda: "encryption"
 
                                 def __setattr__(self, name, value):
@@ -14723,7 +15438,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa, self).__init__()
@@ -14732,18 +15447,21 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.no_redistribution = YLeaf(YType.boolean, "no-redistribution")
-
-                                    self.default_info_originate = YLeaf(YType.boolean, "default-info-originate")
-
-                                    self.metric = YLeaf(YType.uint32, "metric")
-
-                                    self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                    self.no_summary = YLeaf(YType.empty, "no-summary")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('no_redistribution', YLeaf(YType.boolean, 'no-redistribution')),
+                                        ('default_info_originate', YLeaf(YType.boolean, 'default-info-originate')),
+                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                        ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                        ('no_summary', YLeaf(YType.empty, 'no-summary')),
+                                    ])
+                                    self.no_redistribution = None
+                                    self.default_info_originate = None
+                                    self.metric = None
+                                    self.metric_type = None
+                                    self.no_summary = None
                                     self._segment_path = lambda: "nssa"
 
                                 def __setattr__(self, name, value):
@@ -14764,7 +15482,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter, self).__init__()
@@ -14773,8 +15491,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.all = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All()
                                     self.all.parent = self
@@ -14797,7 +15517,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All, self).__init__()
@@ -14806,10 +15526,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "database-filter"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out = YLeaf(YType.boolean, "out")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out', YLeaf(YType.boolean, 'out')),
+                                        ])
+                                        self.out = None
                                         self._segment_path = lambda: "all"
 
                                     def __setattr__(self, name, value):
@@ -14823,14 +15546,14 @@ class Ospfv3(Entity):
                                 .. attribute:: in_
                                 
                                 	Filter prefixes installed to RIB
-                                	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_>`
+                                	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In>`
                                 
                                 
 
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList, self).__init__()
@@ -14839,17 +15562,19 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
-                                    self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_()
+                                    self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In()
                                     self.in_.parent = self
                                     self._children_name_map["in_"] = "in"
                                     self._children_yang_names.add("in")
                                     self._segment_path = lambda: "distribute-list"
 
 
-                                class In_(Entity):
+                                class In(Entity):
                                     """
                                     Filter prefixes installed to RIB
                                     
@@ -14863,23 +15588,26 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_, self).__init__()
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In, self).__init__()
 
                                         self.yang_name = "in"
                                         self.yang_parent_name = "distribute-list"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                        ])
+                                        self.prefix_list = None
                                         self._segment_path = lambda: "in"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_, ['prefix_list'], name, value)
+                                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In, ['prefix_list'], name, value)
 
 
                             class Interfaces(Entity):
@@ -14896,7 +15624,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces, self).__init__()
@@ -14905,8 +15633,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"interface" : ("interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("interface", ("interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface))])
+                                    self._leafs = OrderedDict()
 
                                     self.interface = YList(self)
                                     self._segment_path = lambda: "interfaces"
@@ -14919,7 +15649,7 @@ class Ospfv3(Entity):
                                     """
                                     OSPFv3 interface
                                     
-                                    .. attribute:: interface_name  <key>
+                                    .. attribute:: interface_name  (key)
                                     
                                     	Interface to configure
                                     	**type**\: str
@@ -15070,7 +15800,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface, self).__init__()
@@ -15079,42 +15809,45 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication), "neighbors" : ("neighbors", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption), "bfd" : ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd), "database-filter" : ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter), "distribute-list" : ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList), "fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute)}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
-
-                                        self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                        self.flood_reduction = YLeaf(YType.boolean, "flood-reduction")
-
-                                        self.cost = YLeaf(YType.uint32, "cost")
-
-                                        self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
-
-                                        self.instance = YLeaf(YType.uint32, "instance")
-
-                                        self.ldp_sync = YLeaf(YType.boolean, "ldp-sync")
-
-                                        self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                        self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                        self.passive = YLeaf(YType.boolean, "passive")
-
-                                        self.packet_size = YLeaf(YType.uint32, "packet-size")
-
-                                        self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                        self.priority = YLeaf(YType.uint32, "priority")
-
-                                        self.network = YLeaf(YType.enumeration, "network")
-
-                                        self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication)), ("neighbors", ("neighbors", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption)), ("bfd", ("bfd", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd)), ("database-filter", ("database_filter", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter)), ("distribute-list", ("distribute_list", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList)), ("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                            ('flood_reduction', YLeaf(YType.boolean, 'flood-reduction')),
+                                            ('cost', YLeaf(YType.uint32, 'cost')),
+                                            ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                            ('instance', YLeaf(YType.uint32, 'instance')),
+                                            ('ldp_sync', YLeaf(YType.boolean, 'ldp-sync')),
+                                            ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                            ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                            ('passive', YLeaf(YType.boolean, 'passive')),
+                                            ('packet_size', YLeaf(YType.uint32, 'packet-size')),
+                                            ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                            ('priority', YLeaf(YType.uint32, 'priority')),
+                                            ('network', YLeaf(YType.enumeration, 'network')),
+                                            ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                        ])
+                                        self.interface_name = None
+                                        self.enable = None
+                                        self.dead_interval = None
+                                        self.flood_reduction = None
+                                        self.cost = None
+                                        self.transmit_delay = None
+                                        self.instance = None
+                                        self.ldp_sync = None
+                                        self.mtu_ignore = None
+                                        self.retransmit_interval = None
+                                        self.hello_interval = None
+                                        self.passive = None
+                                        self.packet_size = None
+                                        self.prefix_suppression = None
+                                        self.priority = None
+                                        self.network = None
+                                        self.demand_circuit = None
 
                                         self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication()
                                         self.authentication.parent = self
@@ -15150,7 +15883,7 @@ class Ospfv3(Entity):
                                         self.fast_reroute.parent = self
                                         self._children_name_map["fast_reroute"] = "fast-reroute"
                                         self._children_yang_names.add("fast-reroute")
-                                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface, ['interface_name', 'enable', 'dead_interval', 'flood_reduction', 'cost', 'transmit_delay', 'instance', 'ldp_sync', 'mtu_ignore', 'retransmit_interval', 'hello_interval', 'passive', 'packet_size', 'prefix_suppression', 'priority', 'network', 'demand_circuit'], name, value)
@@ -15189,7 +15922,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication, self).__init__()
@@ -15198,16 +15931,19 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                            self.password = YLeaf(YType.str, "password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                                ('password', YLeaf(YType.str, 'password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.algorithm = None
+                                            self.password = None
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -15228,7 +15964,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors, self).__init__()
@@ -15237,8 +15973,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"neighbor" : ("neighbor", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor))])
+                                            self._leafs = OrderedDict()
 
                                             self.neighbor = YList(self)
                                             self._segment_path = lambda: "neighbors"
@@ -15251,7 +15989,7 @@ class Ospfv3(Entity):
                                             """
                                             IPv6 address
                                             
-                                            .. attribute:: neighbor_address  <key>
+                                            .. attribute:: neighbor_address  (key)
                                             
                                             	IPV6 address
                                             	**type**\: str
@@ -15296,7 +16034,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
@@ -15305,21 +16043,24 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "neighbors"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                                self.poll_interval = YLeaf(YType.uint32, "poll-interval")
-
-                                                self.cost = YLeaf(YType.uint32, "cost")
-
-                                                self.database_filter = YLeaf(YType.boolean, "database-filter")
-
-                                                self.zone = YLeaf(YType.str, "zone")
-                                                self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']"
+                                                self.ylist_key_names = ['neighbor_address']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                                    ('priority', YLeaf(YType.uint32, 'priority')),
+                                                    ('poll_interval', YLeaf(YType.uint32, 'poll-interval')),
+                                                    ('cost', YLeaf(YType.uint32, 'cost')),
+                                                    ('database_filter', YLeaf(YType.boolean, 'database-filter')),
+                                                    ('zone', YLeaf(YType.str, 'zone')),
+                                                ])
+                                                self.neighbor_address = None
+                                                self.priority = None
+                                                self.poll_interval = None
+                                                self.cost = None
+                                                self.database_filter = None
+                                                self.zone = None
+                                                self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter', 'zone'], name, value)
@@ -15370,7 +16111,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption, self).__init__()
@@ -15379,20 +16120,23 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                            self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                            self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                            self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                                ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                                ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                                ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.encryption_algorithm = None
+                                            self.encryption_password = None
+                                            self.authentication_algorithm = None
+                                            self.authentication_password = None
                                             self._segment_path = lambda: "encryption"
 
                                         def __setattr__(self, name, value):
@@ -15429,7 +16173,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd, self).__init__()
@@ -15438,14 +16182,17 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.interval = YLeaf(YType.uint32, "interval")
-
-                                            self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
-
-                                            self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interval', YLeaf(YType.uint32, 'interval')),
+                                                ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                            ])
+                                            self.interval = None
+                                            self.fast_detect_mode = None
+                                            self.detection_multiplier = None
                                             self._segment_path = lambda: "bfd"
 
                                         def __setattr__(self, name, value):
@@ -15466,7 +16213,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter, self).__init__()
@@ -15475,8 +16222,10 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.all = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All()
                                             self.all.parent = self
@@ -15499,7 +16248,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All, self).__init__()
@@ -15508,10 +16257,13 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "database-filter"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.out = YLeaf(YType.boolean, "out")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('out', YLeaf(YType.boolean, 'out')),
+                                                ])
+                                                self.out = None
                                                 self._segment_path = lambda: "all"
 
                                             def __setattr__(self, name, value):
@@ -15525,14 +16277,14 @@ class Ospfv3(Entity):
                                         .. attribute:: in_
                                         
                                         	Filter prefixes installed to RIB
-                                        	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_>`
+                                        	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In>`
                                         
                                         
 
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList, self).__init__()
@@ -15541,17 +16293,19 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
-                                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_()
+                                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In()
                                             self.in_.parent = self
                                             self._children_name_map["in_"] = "in"
                                             self._children_yang_names.add("in")
                                             self._segment_path = lambda: "distribute-list"
 
 
-                                        class In_(Entity):
+                                        class In(Entity):
                                             """
                                             Filter prefixes installed to RIB
                                             
@@ -15565,23 +16319,26 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
-                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_, self).__init__()
+                                                super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, self).__init__()
 
                                                 self.yang_name = "in"
                                                 self.yang_parent_name = "distribute-list"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                                ])
+                                                self.prefix_list = None
                                                 self._segment_path = lambda: "in"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_, ['prefix_list'], name, value)
+                                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In, ['prefix_list'], name, value)
 
 
                                     class FastReroute(Entity):
@@ -15608,7 +16365,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute, self).__init__()
@@ -15617,10 +16374,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "interface"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                            ])
+                                            self.fast_reroute_enable = None
 
                                             self.per_link = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink()
                                             self.per_link.parent = self
@@ -15663,7 +16423,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink, self).__init__()
@@ -15672,10 +16432,13 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "fast-reroute"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces)}
-                                                self._child_list_classes = {}
-
-                                                self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                                ])
+                                                self.fast_reroute_use_candidate_only = None
 
                                                 self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
@@ -15707,7 +16470,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -15716,8 +16479,10 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "per-link"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
                                                     self._segment_path = lambda: "candidate-interfaces"
@@ -15730,7 +16495,7 @@ class Ospfv3(Entity):
                                                     """
                                                     Candidate backup interface
                                                     
-                                                    .. attribute:: interface_name  <key>
+                                                    .. attribute:: interface_name  (key)
                                                     
                                                     	Interface
                                                     	**type**\: str
@@ -15742,7 +16507,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2017-07-14'
+                                                    _revision = '2018-01-15'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -15751,11 +16516,14 @@ class Ospfv3(Entity):
                                                         self.yang_parent_name = "candidate-interfaces"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                        self.ylist_key_names = ['interface_name']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                        ])
+                                                        self.interface_name = None
+                                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -15776,7 +16544,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -15785,8 +16553,10 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "per-link"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
                                                     self._segment_path = lambda: "exclude-interfaces"
@@ -15799,7 +16569,7 @@ class Ospfv3(Entity):
                                                     """
                                                     Exclude an interface from becoming a backup
                                                     
-                                                    .. attribute:: interface_name  <key>
+                                                    .. attribute:: interface_name  (key)
                                                     
                                                     	Interface
                                                     	**type**\: str
@@ -15811,7 +16581,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2017-07-14'
+                                                    _revision = '2018-01-15'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -15820,11 +16590,14 @@ class Ospfv3(Entity):
                                                         self.yang_parent_name = "exclude-interfaces"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                        self.ylist_key_names = ['interface_name']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                        ])
+                                                        self.interface_name = None
+                                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -15856,7 +16629,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix, self).__init__()
@@ -15865,10 +16638,13 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "fast-reroute"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                                self._child_list_classes = {}
-
-                                                self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                                ])
+                                                self.fast_reroute_use_candidate_only = None
 
                                                 self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces()
                                                 self.candidate_interfaces.parent = self
@@ -15900,7 +16676,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -15909,8 +16685,10 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "per-prefix"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.candidate_interface = YList(self)
                                                     self._segment_path = lambda: "candidate-interfaces"
@@ -15923,7 +16701,7 @@ class Ospfv3(Entity):
                                                     """
                                                     Candidate backup interface
                                                     
-                                                    .. attribute:: interface_name  <key>
+                                                    .. attribute:: interface_name  (key)
                                                     
                                                     	Interface
                                                     	**type**\: str
@@ -15935,7 +16713,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2017-07-14'
+                                                    _revision = '2018-01-15'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -15944,11 +16722,14 @@ class Ospfv3(Entity):
                                                         self.yang_parent_name = "candidate-interfaces"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                        self.ylist_key_names = ['interface_name']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                        ])
+                                                        self.interface_name = None
+                                                        self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -15969,7 +16750,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -15978,8 +16759,10 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "per-prefix"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.exclude_interface = YList(self)
                                                     self._segment_path = lambda: "exclude-interfaces"
@@ -15992,7 +16775,7 @@ class Ospfv3(Entity):
                                                     """
                                                     Exclude an interface from becoming a backup
                                                     
-                                                    .. attribute:: interface_name  <key>
+                                                    .. attribute:: interface_name  (key)
                                                     
                                                     	Interface
                                                     	**type**\: str
@@ -16004,7 +16787,7 @@ class Ospfv3(Entity):
                                                     """
 
                                                     _prefix = 'ipv6-ospfv3-cfg'
-                                                    _revision = '2017-07-14'
+                                                    _revision = '2018-01-15'
 
                                                     def __init__(self):
                                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -16013,11 +16796,14 @@ class Ospfv3(Entity):
                                                         self.yang_parent_name = "exclude-interfaces"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                        self.ylist_key_names = ['interface_name']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                        ])
+                                                        self.interface_name = None
+                                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -16037,7 +16823,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope, self).__init__()
@@ -16046,8 +16832,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.fast_reroute = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute()
                                     self.fast_reroute.parent = self
@@ -16080,7 +16868,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute, self).__init__()
@@ -16089,10 +16877,13 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "area-scope"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix)}
-                                        self._child_list_classes = {}
-
-                                        self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                        ])
+                                        self.fast_reroute_enable = None
 
                                         self.per_link = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink()
                                         self.per_link.parent = self
@@ -16135,7 +16926,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink, self).__init__()
@@ -16144,10 +16935,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                            ])
+                                            self.fast_reroute_use_candidate_only = None
 
                                             self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
@@ -16179,7 +16973,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -16188,8 +16982,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
                                                 self._segment_path = lambda: "candidate-interfaces"
@@ -16202,7 +16998,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Candidate backup interface
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -16214,7 +17010,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -16223,11 +17019,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "candidate-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -16248,7 +17047,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -16257,8 +17056,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-link"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
                                                 self._segment_path = lambda: "exclude-interfaces"
@@ -16271,7 +17072,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -16283,7 +17084,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -16292,11 +17093,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "exclude-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -16328,7 +17132,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix, self).__init__()
@@ -16337,10 +17141,13 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                            self._child_list_classes = {}
-
-                                            self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                            ])
+                                            self.fast_reroute_use_candidate_only = None
 
                                             self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces()
                                             self.candidate_interfaces.parent = self
@@ -16372,7 +17179,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -16381,8 +17188,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-prefix"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.candidate_interface = YList(self)
                                                 self._segment_path = lambda: "candidate-interfaces"
@@ -16395,7 +17204,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Candidate backup interface
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -16407,7 +17216,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -16416,11 +17225,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "candidate-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -16441,7 +17253,7 @@ class Ospfv3(Entity):
                                             """
 
                                             _prefix = 'ipv6-ospfv3-cfg'
-                                            _revision = '2017-07-14'
+                                            _revision = '2018-01-15'
 
                                             def __init__(self):
                                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -16450,8 +17262,10 @@ class Ospfv3(Entity):
                                                 self.yang_parent_name = "per-prefix"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                                self._leafs = OrderedDict()
 
                                                 self.exclude_interface = YList(self)
                                                 self._segment_path = lambda: "exclude-interfaces"
@@ -16464,7 +17278,7 @@ class Ospfv3(Entity):
                                                 """
                                                 Exclude an interface from becoming a backup
                                                 
-                                                .. attribute:: interface_name  <key>
+                                                .. attribute:: interface_name  (key)
                                                 
                                                 	Interface
                                                 	**type**\: str
@@ -16476,7 +17290,7 @@ class Ospfv3(Entity):
                                                 """
 
                                                 _prefix = 'ipv6-ospfv3-cfg'
-                                                _revision = '2017-07-14'
+                                                _revision = '2018-01-15'
 
                                                 def __init__(self):
                                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -16485,11 +17299,14 @@ class Ospfv3(Entity):
                                                     self.yang_parent_name = "exclude-interfaces"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                                    self.ylist_key_names = ['interface_name']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ])
+                                                    self.interface_name = None
+                                                    self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -16509,7 +17326,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks, self).__init__()
@@ -16518,8 +17335,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"sham-link" : ("sham_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("sham-link", ("sham_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink))])
+                                    self._leafs = OrderedDict()
 
                                     self.sham_link = YList(self)
                                     self._segment_path = lambda: "sham-links"
@@ -16532,14 +17351,14 @@ class Ospfv3(Entity):
                                     """
                                     ShamLink local and remote endpoints
                                     
-                                    .. attribute:: source_address  <key>
+                                    .. attribute:: source_address  (key)
                                     
                                     	Local sham\-link endpoint
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: destination_address  <key>
+                                    .. attribute:: destination_address  (key)
                                     
                                     	Remote sham\-link endpoint
                                     	**type**\: str
@@ -16602,7 +17421,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, self).__init__()
@@ -16611,22 +17430,25 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "sham-links"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption)}
-                                        self._child_list_classes = {}
-
-                                        self.source_address = YLeaf(YType.str, "source-address")
-
-                                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
-
-                                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                        self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                        self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                        self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                                        self.ylist_key_names = ['source_address','destination_address']
+                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('source_address', YLeaf(YType.str, 'source-address')),
+                                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                            ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                            ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                            ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                        ])
+                                        self.source_address = None
+                                        self.destination_address = None
+                                        self.enable = None
+                                        self.hello_interval = None
+                                        self.dead_interval = None
+                                        self.retransmit_interval = None
+                                        self.transmit_delay = None
 
                                         self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication()
                                         self.authentication.parent = self
@@ -16637,7 +17459,7 @@ class Ospfv3(Entity):
                                         self.encryption.parent = self
                                         self._children_name_map["encryption"] = "encryption"
                                         self._children_yang_names.add("encryption")
-                                        self._segment_path = lambda: "sham-link" + "[source-address='" + self.source_address.get() + "']" + "[destination-address='" + self.destination_address.get() + "']"
+                                        self._segment_path = lambda: "sham-link" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink, ['source_address', 'destination_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
@@ -16676,7 +17498,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication, self).__init__()
@@ -16685,16 +17507,19 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "sham-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                            self.password = YLeaf(YType.str, "password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                                ('password', YLeaf(YType.str, 'password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.algorithm = None
+                                            self.password = None
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -16746,7 +17571,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption, self).__init__()
@@ -16755,20 +17580,23 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "sham-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                            self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                            self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                            self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                                ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                                ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                                ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.encryption_algorithm = None
+                                            self.encryption_password = None
+                                            self.authentication_algorithm = None
+                                            self.authentication_password = None
                                             self._segment_path = lambda: "encryption"
 
                                         def __setattr__(self, name, value):
@@ -16789,7 +17617,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks, self).__init__()
@@ -16798,8 +17626,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "area-area-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"virtual-link" : ("virtual_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("virtual-link", ("virtual_link", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink))])
+                                    self._leafs = OrderedDict()
 
                                     self.virtual_link = YList(self)
                                     self._segment_path = lambda: "virtual-links"
@@ -16812,7 +17642,7 @@ class Ospfv3(Entity):
                                     """
                                     Router ID of virtual link neighbor
                                     
-                                    .. attribute:: virtual_link_address  <key>
+                                    .. attribute:: virtual_link_address  (key)
                                     
                                     	Router ID of virtual link neighbor
                                     	**type**\: str
@@ -16875,7 +17705,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, self).__init__()
@@ -16884,20 +17714,23 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "virtual-links"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"authentication" : ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication), "encryption" : ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption)}
-                                        self._child_list_classes = {}
-
-                                        self.virtual_link_address = YLeaf(YType.str, "virtual-link-address")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
-
-                                        self.hello_interval = YLeaf(YType.uint32, "hello-interval")
-
-                                        self.dead_interval = YLeaf(YType.uint32, "dead-interval")
-
-                                        self.retransmit_interval = YLeaf(YType.uint32, "retransmit-interval")
-
-                                        self.transmit_delay = YLeaf(YType.uint32, "transmit-delay")
+                                        self.ylist_key_names = ['virtual_link_address']
+                                        self._child_container_classes = OrderedDict([("authentication", ("authentication", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication)), ("encryption", ("encryption", Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('virtual_link_address', YLeaf(YType.str, 'virtual-link-address')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
+                                            ('dead_interval', YLeaf(YType.uint32, 'dead-interval')),
+                                            ('retransmit_interval', YLeaf(YType.uint32, 'retransmit-interval')),
+                                            ('transmit_delay', YLeaf(YType.uint32, 'transmit-delay')),
+                                        ])
+                                        self.virtual_link_address = None
+                                        self.enable = None
+                                        self.hello_interval = None
+                                        self.dead_interval = None
+                                        self.retransmit_interval = None
+                                        self.transmit_delay = None
 
                                         self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication()
                                         self.authentication.parent = self
@@ -16908,7 +17741,7 @@ class Ospfv3(Entity):
                                         self.encryption.parent = self
                                         self._children_name_map["encryption"] = "encryption"
                                         self._children_yang_names.add("encryption")
-                                        self._segment_path = lambda: "virtual-link" + "[virtual-link-address='" + self.virtual_link_address.get() + "']"
+                                        self._segment_path = lambda: "virtual-link" + "[virtual-link-address='" + str(self.virtual_link_address) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink, ['virtual_link_address', 'enable', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay'], name, value)
@@ -16947,7 +17780,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication, self).__init__()
@@ -16956,16 +17789,19 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "virtual-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                            self.password = YLeaf(YType.str, "password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                                ('password', YLeaf(YType.str, 'password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.algorithm = None
+                                            self.password = None
                                             self._segment_path = lambda: "authentication"
 
                                         def __setattr__(self, name, value):
@@ -17017,7 +17853,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption, self).__init__()
@@ -17026,20 +17862,23 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "virtual-link"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.boolean, "enable")
-
-                                            self.spi = YLeaf(YType.uint32, "spi")
-
-                                            self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                                            self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                                            self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                                            self.authentication_password = YLeaf(YType.str, "authentication-password")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                                ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                                ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                                ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                                ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                                            ])
+                                            self.enable = None
+                                            self.spi = None
+                                            self.encryption_algorithm = None
+                                            self.encryption_password = None
+                                            self.authentication_algorithm = None
+                                            self.authentication_password = None
                                             self._segment_path = lambda: "encryption"
 
                                         def __setattr__(self, name, value):
@@ -17070,7 +17909,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers, self).__init__()
@@ -17079,8 +17918,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"pacing" : ("pacing", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing), "lsa-timers" : ("lsa_timers", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers), "throttle" : ("throttle", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("pacing", ("pacing", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing)), ("lsa-timers", ("lsa_timers", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers)), ("throttle", ("throttle", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.pacing = Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing()
                             self.pacing.parent = self
@@ -17133,7 +17974,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing, self).__init__()
@@ -17142,14 +17983,17 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "timers"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.flood = YLeaf(YType.uint32, "flood")
-
-                                self.retransmission = YLeaf(YType.uint32, "retransmission")
-
-                                self.lsa_group = YLeaf(YType.uint32, "lsa-group")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('flood', YLeaf(YType.uint32, 'flood')),
+                                    ('retransmission', YLeaf(YType.uint32, 'retransmission')),
+                                    ('lsa_group', YLeaf(YType.uint32, 'lsa-group')),
+                                ])
+                                self.flood = None
+                                self.retransmission = None
+                                self.lsa_group = None
                                 self._segment_path = lambda: "pacing"
 
                             def __setattr__(self, name, value):
@@ -17174,7 +18018,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers, self).__init__()
@@ -17183,10 +18027,13 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "timers"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.arrival = YLeaf(YType.uint32, "arrival")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('arrival', YLeaf(YType.uint32, 'arrival')),
+                                ])
+                                self.arrival = None
                                 self._segment_path = lambda: "lsa-timers"
 
                             def __setattr__(self, name, value):
@@ -17212,7 +18059,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle, self).__init__()
@@ -17221,8 +18068,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "timers"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"lsa" : ("lsa", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa), "spf" : ("spf", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("lsa", ("lsa", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa)), ("spf", ("spf", Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.lsa = Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa()
                                 self.lsa.parent = self
@@ -17272,7 +18121,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa, self).__init__()
@@ -17281,14 +18130,17 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "throttle"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.first_delay = YLeaf(YType.uint32, "first-delay")
-
-                                    self.minimum_delay = YLeaf(YType.uint32, "minimum-delay")
-
-                                    self.maximum_delay = YLeaf(YType.uint32, "maximum-delay")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('first_delay', YLeaf(YType.uint32, 'first-delay')),
+                                        ('minimum_delay', YLeaf(YType.uint32, 'minimum-delay')),
+                                        ('maximum_delay', YLeaf(YType.uint32, 'maximum-delay')),
+                                    ])
+                                    self.first_delay = None
+                                    self.minimum_delay = None
+                                    self.maximum_delay = None
                                     self._segment_path = lambda: "lsa"
 
                                 def __setattr__(self, name, value):
@@ -17325,7 +18177,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf, self).__init__()
@@ -17334,14 +18186,17 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "throttle"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.first_delay = YLeaf(YType.uint32, "first-delay")
-
-                                    self.minimum_delay = YLeaf(YType.uint32, "minimum-delay")
-
-                                    self.maximum_delay = YLeaf(YType.uint32, "maximum-delay")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('first_delay', YLeaf(YType.uint32, 'first-delay')),
+                                        ('minimum_delay', YLeaf(YType.uint32, 'minimum-delay')),
+                                        ('maximum_delay', YLeaf(YType.uint32, 'maximum-delay')),
+                                    ])
+                                    self.first_delay = None
+                                    self.minimum_delay = None
+                                    self.maximum_delay = None
                                     self._segment_path = lambda: "spf"
 
                                 def __setattr__(self, name, value):
@@ -17363,7 +18218,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes, self).__init__()
@@ -17372,8 +18227,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"summary-prefix" : ("summary_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("summary-prefix", ("summary_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix))])
+                            self._leafs = OrderedDict()
 
                             self.summary_prefix = YList(self)
                             self._segment_path = lambda: "summary-prefixes"
@@ -17386,14 +18243,14 @@ class Ospfv3(Entity):
                             """
                             IPv6 address
                             
-                            .. attribute:: prefix  <key>
+                            .. attribute:: prefix  (key)
                             
                             	IPv6 prefix string format
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: prefix_length  <key>
+                            .. attribute:: prefix_length  (key)
                             
                             	IPV6 prefix length
                             	**type**\: int
@@ -17417,7 +18274,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix, self).__init__()
@@ -17426,17 +18283,20 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "summary-prefixes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                self.not_advertise = YLeaf(YType.boolean, "not-advertise")
-
-                                self.tag = YLeaf(YType.uint32, "tag")
-                                self._segment_path = lambda: "summary-prefix" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                                self.ylist_key_names = ['prefix','prefix_length']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('not_advertise', YLeaf(YType.boolean, 'not-advertise')),
+                                    ('tag', YLeaf(YType.uint32, 'tag')),
+                                ])
+                                self.prefix = None
+                                self.prefix_length = None
+                                self.not_advertise = None
+                                self.tag = None
+                                self._segment_path = lambda: "summary-prefix" + "[prefix='" + str(self.prefix) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix, ['prefix', 'prefix_length', 'not_advertise', 'tag'], name, value)
@@ -17461,7 +18321,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp, self).__init__()
@@ -17470,10 +18330,13 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"trap-rate-limit" : ("trap_rate_limit", Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit)}
-                            self._child_list_classes = {}
-
-                            self.context = YLeaf(YType.str, "context")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("trap-rate-limit", ("trap_rate_limit", Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('context', YLeaf(YType.str, 'context')),
+                            ])
+                            self.context = None
 
                             self.trap_rate_limit = Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit()
                             self.trap_rate_limit.parent = self
@@ -17508,7 +18371,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit, self).__init__()
@@ -17517,12 +18380,15 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "snmp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.window_size = YLeaf(YType.uint32, "window-size")
-
-                                self.max_window_traps = YLeaf(YType.uint32, "max-window-traps")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('window_size', YLeaf(YType.uint32, 'window-size')),
+                                    ('max_window_traps', YLeaf(YType.uint32, 'max-window-traps')),
+                                ])
+                                self.window_size = None
+                                self.max_window_traps = None
                                 self._segment_path = lambda: "trap-rate-limit"
 
                             def __setattr__(self, name, value):
@@ -17548,7 +18414,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute, self).__init__()
@@ -17557,8 +18423,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.per_link = Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink()
                             self.per_link.parent = self
@@ -17586,7 +18454,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink, self).__init__()
@@ -17595,10 +18463,13 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "fast-reroute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.priority = YLeaf(YType.enumeration, "priority")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ])
+                                self.priority = None
                                 self._segment_path = lambda: "per-link"
 
                             def __setattr__(self, name, value):
@@ -17629,7 +18500,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix, self).__init__()
@@ -17638,12 +18509,15 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "fast-reroute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"tiebreakers" : ("tiebreakers", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers)}
-                                self._child_list_classes = {}
-
-                                self.load_sharing_disable = YLeaf(YType.empty, "load-sharing-disable")
-
-                                self.priority = YLeaf(YType.enumeration, "priority")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("tiebreakers", ("tiebreakers", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('load_sharing_disable', YLeaf(YType.empty, 'load-sharing-disable')),
+                                    ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ])
+                                self.load_sharing_disable = None
+                                self.priority = None
 
                                 self.tiebreakers = Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers()
                                 self.tiebreakers.parent = self
@@ -17669,7 +18543,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers, self).__init__()
@@ -17678,8 +18552,10 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "per-prefix"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"tiebreaker" : ("tiebreaker", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("tiebreaker", ("tiebreaker", Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker))])
+                                    self._leafs = OrderedDict()
 
                                     self.tiebreaker = YList(self)
                                     self._segment_path = lambda: "tiebreakers"
@@ -17692,7 +18568,7 @@ class Ospfv3(Entity):
                                     """
                                     Fast\-reroute tiebreakers configuration
                                     
-                                    .. attribute:: tiebreaker_type  <key>
+                                    .. attribute:: tiebreaker_type  (key)
                                     
                                     	Tiebreaker type
                                     	**type**\:  :py:class:`Ospfv3FastRerouteTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteTiebreakers>`
@@ -17711,7 +18587,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, self).__init__()
@@ -17720,13 +18596,16 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "tiebreakers"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.tiebreaker_type = YLeaf(YType.enumeration, "tiebreaker-type")
-
-                                        self.tiebreaker_index = YLeaf(YType.uint32, "tiebreaker-index")
-                                        self._segment_path = lambda: "tiebreaker" + "[tiebreaker-type='" + self.tiebreaker_type.get() + "']"
+                                        self.ylist_key_names = ['tiebreaker_type']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('tiebreaker_type', YLeaf(YType.enumeration, 'tiebreaker-type')),
+                                            ('tiebreaker_index', YLeaf(YType.uint32, 'tiebreaker-index')),
+                                        ])
+                                        self.tiebreaker_type = None
+                                        self.tiebreaker_index = None
+                                        self._segment_path = lambda: "tiebreaker" + "[tiebreaker-type='" + str(self.tiebreaker_type) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
@@ -17739,7 +18618,7 @@ class Ospfv3(Entity):
                         .. attribute:: ospfv3
                         
                         	OSPFv3 administrative distance
-                        	**type**\:  :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3>`
+                        	**type**\:  :py:class:`Ospfv3_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_>`
                         
                         .. attribute:: administrative
                         
@@ -17753,7 +18632,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance, self).__init__()
@@ -17762,12 +18641,15 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ospfv3" : ("ospfv3", Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("ospfv3", ("ospfv3", Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('administrative', YLeaf(YType.uint32, 'administrative')),
+                            ])
+                            self.administrative = None
 
-                            self.administrative = YLeaf(YType.uint32, "administrative")
-
-                            self.ospfv3 = Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3()
+                            self.ospfv3 = Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_()
                             self.ospfv3.parent = self
                             self._children_name_map["ospfv3"] = "ospfv3"
                             self._children_yang_names.add("ospfv3")
@@ -17777,7 +18659,7 @@ class Ospfv3(Entity):
                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Distance, ['administrative'], name, value)
 
 
-                        class Ospfv3(Entity):
+                        class Ospfv3_(Entity):
                             """
                             OSPFv3 administrative distance
                             
@@ -17807,27 +18689,30 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3, self).__init__()
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_, self).__init__()
 
                                 self.yang_name = "ospfv3"
                                 self.yang_parent_name = "distance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.intra_area = YLeaf(YType.uint32, "intra-area")
-
-                                self.inter_area = YLeaf(YType.uint32, "inter-area")
-
-                                self.external = YLeaf(YType.uint32, "external")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('intra_area', YLeaf(YType.uint32, 'intra-area')),
+                                    ('inter_area', YLeaf(YType.uint32, 'inter-area')),
+                                    ('external', YLeaf(YType.uint32, 'external')),
+                                ])
+                                self.intra_area = None
+                                self.inter_area = None
+                                self.external = None
                                 self._segment_path = lambda: "ospfv3"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3, ['intra_area', 'inter_area', 'external'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_, ['intra_area', 'inter_area', 'external'], name, value)
 
 
                     class Maximum(Entity):
@@ -17858,7 +18743,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum, self).__init__()
@@ -17867,12 +18752,15 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"redistributed-prefixes" : ("redistributed_prefixes", Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes)}
-                            self._child_list_classes = {}
-
-                            self.interfaces = YLeaf(YType.uint32, "interfaces")
-
-                            self.paths = YLeaf(YType.uint32, "paths")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("redistributed-prefixes", ("redistributed_prefixes", Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interfaces', YLeaf(YType.uint32, 'interfaces')),
+                                ('paths', YLeaf(YType.uint32, 'paths')),
+                            ])
+                            self.interfaces = None
+                            self.paths = None
 
                             self.redistributed_prefixes = Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes()
                             self.redistributed_prefixes.parent = self
@@ -17912,7 +18800,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes, self).__init__()
@@ -17921,14 +18809,17 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "maximum"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.prefixes = YLeaf(YType.uint32, "prefixes")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.warning_only = YLeaf(YType.empty, "warning-only")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefixes', YLeaf(YType.uint32, 'prefixes')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('warning_only', YLeaf(YType.empty, 'warning-only')),
+                                ])
+                                self.prefixes = None
+                                self.threshold = None
+                                self.warning_only = None
                                 self._segment_path = lambda: "redistributed-prefixes"
 
                             def __setattr__(self, name, value):
@@ -17950,7 +18841,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes, self).__init__()
@@ -17959,8 +18850,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"redistribute" : ("redistribute", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("redistribute", ("redistribute", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute))])
+                            self._leafs = OrderedDict()
 
                             self.redistribute = YList(self)
                             self._segment_path = lambda: "redistributes"
@@ -17974,7 +18867,7 @@ class Ospfv3(Entity):
                             Redistribute information from another routing
                             protocol
                             
-                            .. attribute:: protocol_name  <key>
+                            .. attribute:: protocol_name  (key)
                             
                             	Protocol
                             	**type**\:  :py:class:`Ospfv3ProtocolType2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolType2>`
@@ -18006,7 +18899,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute, self).__init__()
@@ -18015,10 +18908,13 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "redistributes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"connected-or-static-or-subscriber-or-mobile" : ("connected_or_static_or_subscriber_or_mobile", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile)}
-                                self._child_list_classes = {"bgp" : ("bgp", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp), "ospfv3-or-isis-or-application" : ("ospfv3_or_isis_or_application", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication), "eigrp" : ("eigrp", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp)}
-
-                                self.protocol_name = YLeaf(YType.enumeration, "protocol-name")
+                                self.ylist_key_names = ['protocol_name']
+                                self._child_container_classes = OrderedDict([("connected-or-static-or-subscriber-or-mobile", ("connected_or_static_or_subscriber_or_mobile", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile))])
+                                self._child_list_classes = OrderedDict([("bgp", ("bgp", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp)), ("ospfv3-or-isis-or-application", ("ospfv3_or_isis_or_application", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication)), ("eigrp", ("eigrp", Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp))])
+                                self._leafs = OrderedDict([
+                                    ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
+                                ])
+                                self.protocol_name = None
 
                                 self.connected_or_static_or_subscriber_or_mobile = None
                                 self._children_name_map["connected_or_static_or_subscriber_or_mobile"] = "connected-or-static-or-subscriber-or-mobile"
@@ -18027,7 +18923,7 @@ class Ospfv3(Entity):
                                 self.bgp = YList(self)
                                 self.ospfv3_or_isis_or_application = YList(self)
                                 self.eigrp = YList(self)
-                                self._segment_path = lambda: "redistribute" + "[protocol-name='" + self.protocol_name.get() + "']"
+                                self._segment_path = lambda: "redistribute" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute, ['protocol_name'], name, value)
@@ -18101,6 +18997,11 @@ class Ospfv3(Entity):
                                 	Preserve Information (Multi\-Exit Discriminator) of BGP routes
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
+                                .. attribute:: use_rib_metric
+                                
+                                	Use metric from RIB for redistributed routes
+                                	**type**\: bool
+                                
                                 
 
                                 This class is a :ref:`presence class<presence-class>`
@@ -18108,7 +19009,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, self).__init__()
@@ -18117,51 +19018,56 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "redistribute"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.internal_route_type = YLeaf(YType.enumeration, "internal-route-type")
-
-                                    self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                                    self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                    self.tag = YLeaf(YType.uint32, "tag")
-
-                                    self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                    self.external_route_type = YLeaf(YType.enumeration, "external-route-type")
-
-                                    self.nssa_external_route_type = YLeaf(YType.enumeration, "nssa-external-route-type")
-
-                                    self.redistribute_route = YLeaf(YType.boolean, "redistribute-route")
-
-                                    self.isis_route_type = YLeaf(YType.enumeration, "isis-route-type")
-
-                                    self.eigrp_route_type = YLeaf(YType.enumeration, "eigrp-route-type")
-
-                                    self.preserve_med = YLeaf(YType.empty, "preserve-med")
-
-                                    self.preserve_med_info = YLeaf(YType.empty, "preserve-med-info")
+                                    self._leafs = OrderedDict([
+                                        ('internal_route_type', YLeaf(YType.enumeration, 'internal-route-type')),
+                                        ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                                        ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                        ('tag', YLeaf(YType.uint32, 'tag')),
+                                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                        ('external_route_type', YLeaf(YType.enumeration, 'external-route-type')),
+                                        ('nssa_external_route_type', YLeaf(YType.enumeration, 'nssa-external-route-type')),
+                                        ('redistribute_route', YLeaf(YType.boolean, 'redistribute-route')),
+                                        ('isis_route_type', YLeaf(YType.enumeration, 'isis-route-type')),
+                                        ('eigrp_route_type', YLeaf(YType.enumeration, 'eigrp-route-type')),
+                                        ('preserve_med', YLeaf(YType.empty, 'preserve-med')),
+                                        ('preserve_med_info', YLeaf(YType.empty, 'preserve-med-info')),
+                                        ('use_rib_metric', YLeaf(YType.boolean, 'use-rib-metric')),
+                                    ])
+                                    self.internal_route_type = None
+                                    self.default_metric = None
+                                    self.metric_type = None
+                                    self.tag = None
+                                    self.route_policy_name = None
+                                    self.external_route_type = None
+                                    self.nssa_external_route_type = None
+                                    self.redistribute_route = None
+                                    self.isis_route_type = None
+                                    self.eigrp_route_type = None
+                                    self.preserve_med = None
+                                    self.preserve_med_info = None
+                                    self.use_rib_metric = None
                                     self._segment_path = lambda: "connected-or-static-or-subscriber-or-mobile"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile, ['internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
 
 
                             class Bgp(Entity):
                                 """
                                 bgp
                                 
-                                .. attribute:: as_xx  <key>
+                                .. attribute:: as_xx  (key)
                                 
                                 	4\-byte AS number in asdot (X.Y) format \- first half (X)
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
                                 
-                                .. attribute:: as_yy  <key>
+                                .. attribute:: as_yy  (key)
                                 
                                 	4\-byte AS number in asdot (X.Y) format \- second half (Y), or 2\-byte AS number, or 4\-byte AS number in asplain format
                                 	**type**\: int
@@ -18232,12 +19138,17 @@ class Ospfv3(Entity):
                                 	Preserve Information (Multi\-Exit Discriminator) of BGP routes
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
+                                .. attribute:: use_rib_metric
+                                
+                                	Use metric from RIB for redistributed routes
+                                	**type**\: bool
+                                
                                 
 
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, self).__init__()
@@ -18246,47 +19157,52 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "redistribute"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                                    self.as_yy = YLeaf(YType.uint32, "as-yy")
-
-                                    self.internal_route_type = YLeaf(YType.enumeration, "internal-route-type")
-
-                                    self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                                    self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                    self.tag = YLeaf(YType.uint32, "tag")
-
-                                    self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                    self.external_route_type = YLeaf(YType.enumeration, "external-route-type")
-
-                                    self.nssa_external_route_type = YLeaf(YType.enumeration, "nssa-external-route-type")
-
-                                    self.redistribute_route = YLeaf(YType.boolean, "redistribute-route")
-
-                                    self.isis_route_type = YLeaf(YType.enumeration, "isis-route-type")
-
-                                    self.eigrp_route_type = YLeaf(YType.enumeration, "eigrp-route-type")
-
-                                    self.preserve_med = YLeaf(YType.empty, "preserve-med")
-
-                                    self.preserve_med_info = YLeaf(YType.empty, "preserve-med-info")
-                                    self._segment_path = lambda: "bgp" + "[as-xx='" + self.as_xx.get() + "']" + "[as-yy='" + self.as_yy.get() + "']"
+                                    self.ylist_key_names = ['as_xx','as_yy']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                        ('as_yy', YLeaf(YType.uint32, 'as-yy')),
+                                        ('internal_route_type', YLeaf(YType.enumeration, 'internal-route-type')),
+                                        ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                                        ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                        ('tag', YLeaf(YType.uint32, 'tag')),
+                                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                        ('external_route_type', YLeaf(YType.enumeration, 'external-route-type')),
+                                        ('nssa_external_route_type', YLeaf(YType.enumeration, 'nssa-external-route-type')),
+                                        ('redistribute_route', YLeaf(YType.boolean, 'redistribute-route')),
+                                        ('isis_route_type', YLeaf(YType.enumeration, 'isis-route-type')),
+                                        ('eigrp_route_type', YLeaf(YType.enumeration, 'eigrp-route-type')),
+                                        ('preserve_med', YLeaf(YType.empty, 'preserve-med')),
+                                        ('preserve_med_info', YLeaf(YType.empty, 'preserve-med-info')),
+                                        ('use_rib_metric', YLeaf(YType.boolean, 'use-rib-metric')),
+                                    ])
+                                    self.as_xx = None
+                                    self.as_yy = None
+                                    self.internal_route_type = None
+                                    self.default_metric = None
+                                    self.metric_type = None
+                                    self.tag = None
+                                    self.route_policy_name = None
+                                    self.external_route_type = None
+                                    self.nssa_external_route_type = None
+                                    self.redistribute_route = None
+                                    self.isis_route_type = None
+                                    self.eigrp_route_type = None
+                                    self.preserve_med = None
+                                    self.preserve_med_info = None
+                                    self.use_rib_metric = None
+                                    self._segment_path = lambda: "bgp" + "[as-xx='" + str(self.as_xx) + "']" + "[as-yy='" + str(self.as_yy) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp, ['as_xx', 'as_yy', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
 
 
                             class Ospfv3OrIsisOrApplication(Entity):
                                 """
                                 ospfv3 or isis or application
                                 
-                                .. attribute:: process_name  <key>
+                                .. attribute:: process_name  (key)
                                 
                                 	ISIS process name if protocol is ISIS, or OSPFv3 process name if protocol is OSPFv3
                                 	**type**\: str
@@ -18357,12 +19273,17 @@ class Ospfv3(Entity):
                                 	Preserve Information (Multi\-Exit Discriminator) of BGP routes
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
+                                .. attribute:: use_rib_metric
+                                
+                                	Use metric from RIB for redistributed routes
+                                	**type**\: bool
+                                
                                 
 
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, self).__init__()
@@ -18371,45 +19292,50 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "redistribute"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.process_name = YLeaf(YType.str, "process-name")
-
-                                    self.internal_route_type = YLeaf(YType.enumeration, "internal-route-type")
-
-                                    self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                                    self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                    self.tag = YLeaf(YType.uint32, "tag")
-
-                                    self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                    self.external_route_type = YLeaf(YType.enumeration, "external-route-type")
-
-                                    self.nssa_external_route_type = YLeaf(YType.enumeration, "nssa-external-route-type")
-
-                                    self.redistribute_route = YLeaf(YType.boolean, "redistribute-route")
-
-                                    self.isis_route_type = YLeaf(YType.enumeration, "isis-route-type")
-
-                                    self.eigrp_route_type = YLeaf(YType.enumeration, "eigrp-route-type")
-
-                                    self.preserve_med = YLeaf(YType.empty, "preserve-med")
-
-                                    self.preserve_med_info = YLeaf(YType.empty, "preserve-med-info")
-                                    self._segment_path = lambda: "ospfv3-or-isis-or-application" + "[process-name='" + self.process_name.get() + "']"
+                                    self.ylist_key_names = ['process_name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('process_name', YLeaf(YType.str, 'process-name')),
+                                        ('internal_route_type', YLeaf(YType.enumeration, 'internal-route-type')),
+                                        ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                                        ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                        ('tag', YLeaf(YType.uint32, 'tag')),
+                                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                        ('external_route_type', YLeaf(YType.enumeration, 'external-route-type')),
+                                        ('nssa_external_route_type', YLeaf(YType.enumeration, 'nssa-external-route-type')),
+                                        ('redistribute_route', YLeaf(YType.boolean, 'redistribute-route')),
+                                        ('isis_route_type', YLeaf(YType.enumeration, 'isis-route-type')),
+                                        ('eigrp_route_type', YLeaf(YType.enumeration, 'eigrp-route-type')),
+                                        ('preserve_med', YLeaf(YType.empty, 'preserve-med')),
+                                        ('preserve_med_info', YLeaf(YType.empty, 'preserve-med-info')),
+                                        ('use_rib_metric', YLeaf(YType.boolean, 'use-rib-metric')),
+                                    ])
+                                    self.process_name = None
+                                    self.internal_route_type = None
+                                    self.default_metric = None
+                                    self.metric_type = None
+                                    self.tag = None
+                                    self.route_policy_name = None
+                                    self.external_route_type = None
+                                    self.nssa_external_route_type = None
+                                    self.redistribute_route = None
+                                    self.isis_route_type = None
+                                    self.eigrp_route_type = None
+                                    self.preserve_med = None
+                                    self.preserve_med_info = None
+                                    self.use_rib_metric = None
+                                    self._segment_path = lambda: "ospfv3-or-isis-or-application" + "[process-name='" + str(self.process_name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication, ['process_name', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
 
 
                             class Eigrp(Entity):
                                 """
                                 eigrp
                                 
-                                .. attribute:: as_xx  <key>
+                                .. attribute:: as_xx  (key)
                                 
                                 	4\-byte AS number in asdot (X.Y) format \- first half (X)
                                 	**type**\: int
@@ -18480,12 +19406,17 @@ class Ospfv3(Entity):
                                 	Preserve Information (Multi\-Exit Discriminator) of BGP routes
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
+                                .. attribute:: use_rib_metric
+                                
+                                	Use metric from RIB for redistributed routes
+                                	**type**\: bool
+                                
                                 
 
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, self).__init__()
@@ -18494,38 +19425,43 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "redistribute"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                                    self.internal_route_type = YLeaf(YType.enumeration, "internal-route-type")
-
-                                    self.default_metric = YLeaf(YType.uint32, "default-metric")
-
-                                    self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                    self.tag = YLeaf(YType.uint32, "tag")
-
-                                    self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                    self.external_route_type = YLeaf(YType.enumeration, "external-route-type")
-
-                                    self.nssa_external_route_type = YLeaf(YType.enumeration, "nssa-external-route-type")
-
-                                    self.redistribute_route = YLeaf(YType.boolean, "redistribute-route")
-
-                                    self.isis_route_type = YLeaf(YType.enumeration, "isis-route-type")
-
-                                    self.eigrp_route_type = YLeaf(YType.enumeration, "eigrp-route-type")
-
-                                    self.preserve_med = YLeaf(YType.empty, "preserve-med")
-
-                                    self.preserve_med_info = YLeaf(YType.empty, "preserve-med-info")
-                                    self._segment_path = lambda: "eigrp" + "[as-xx='" + self.as_xx.get() + "']"
+                                    self.ylist_key_names = ['as_xx']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                        ('internal_route_type', YLeaf(YType.enumeration, 'internal-route-type')),
+                                        ('default_metric', YLeaf(YType.uint32, 'default-metric')),
+                                        ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                        ('tag', YLeaf(YType.uint32, 'tag')),
+                                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                        ('external_route_type', YLeaf(YType.enumeration, 'external-route-type')),
+                                        ('nssa_external_route_type', YLeaf(YType.enumeration, 'nssa-external-route-type')),
+                                        ('redistribute_route', YLeaf(YType.boolean, 'redistribute-route')),
+                                        ('isis_route_type', YLeaf(YType.enumeration, 'isis-route-type')),
+                                        ('eigrp_route_type', YLeaf(YType.enumeration, 'eigrp-route-type')),
+                                        ('preserve_med', YLeaf(YType.empty, 'preserve-med')),
+                                        ('preserve_med_info', YLeaf(YType.empty, 'preserve-med-info')),
+                                        ('use_rib_metric', YLeaf(YType.boolean, 'use-rib-metric')),
+                                    ])
+                                    self.as_xx = None
+                                    self.internal_route_type = None
+                                    self.default_metric = None
+                                    self.metric_type = None
+                                    self.tag = None
+                                    self.route_policy_name = None
+                                    self.external_route_type = None
+                                    self.nssa_external_route_type = None
+                                    self.redistribute_route = None
+                                    self.isis_route_type = None
+                                    self.eigrp_route_type = None
+                                    self.preserve_med = None
+                                    self.preserve_med_info = None
+                                    self.use_rib_metric = None
+                                    self._segment_path = lambda: "eigrp" + "[as-xx='" + str(self.as_xx) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp, ['as_xx', 'internal_route_type', 'default_metric', 'metric_type', 'tag', 'route_policy_name', 'external_route_type', 'nssa_external_route_type', 'redistribute_route', 'isis_route_type', 'eigrp_route_type', 'preserve_med', 'preserve_med_info', 'use_rib_metric'], name, value)
 
 
                     class Ignore(Entity):
@@ -18542,7 +19478,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore, self).__init__()
@@ -18551,8 +19487,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"lsa" : ("lsa", Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("lsa", ("lsa", Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.lsa = Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa()
                             self.lsa.parent = self
@@ -18576,7 +19514,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa, self).__init__()
@@ -18585,10 +19523,13 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "ignore"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mospf = YLeaf(YType.empty, "mospf")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mospf', YLeaf(YType.empty, 'mospf')),
+                                ])
+                                self.mospf = None
                                 self._segment_path = lambda: "lsa"
 
                             def __setattr__(self, name, value):
@@ -18609,7 +19550,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut, self).__init__()
@@ -18618,8 +19559,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"distribute-outs" : ("distribute_outs", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("distribute-outs", ("distribute_outs", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.distribute_outs = Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts()
                             self.distribute_outs.parent = self
@@ -18642,7 +19585,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts, self).__init__()
@@ -18651,8 +19594,10 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "distribute-list-out"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"distribute-out" : ("distribute_out", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("distribute-out", ("distribute_out", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut))])
+                                self._leafs = OrderedDict()
 
                                 self.distribute_out = YList(self)
                                 self._segment_path = lambda: "distribute-outs"
@@ -18665,22 +19610,37 @@ class Ospfv3(Entity):
                                 """
                                 Filter generated type\-5 LSAs
                                 
-                                .. attribute:: protocol_name  <key>
+                                .. attribute:: protocol_name  (key)
                                 
                                 	none
                                 	**type**\:  :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3Protocol>`
                                 
-                                .. attribute:: as_yy_and_as_xx_and_process_name
+                                .. attribute:: all_or_connected_or_static_prefix_list
                                 
-                                	keys\: as\-yy, as\-xx, process\-name
-                                	**type**\: list of  		 :py:class:`AsYyAndAsXxAndProcessName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName>`
+                                	Prefix\-list name
+                                	**type**\: str
+                                
+                                .. attribute:: bgp
+                                
+                                	bgp
+                                	**type**\: list of  		 :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp>`
+                                
+                                .. attribute:: ospfv3_or_isis
+                                
+                                	ospfv3 or isis
+                                	**type**\: list of  		 :py:class:`Ospfv3OrIsis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis>`
+                                
+                                .. attribute:: eigrp
+                                
+                                	eigrp
+                                	**type**\: list of  		 :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp>`
                                 
                                 
 
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut, self).__init__()
@@ -18689,37 +19649,84 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "distribute-outs"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"as-yy-and-as-xx-and-process-name" : ("as_yy_and_as_xx_and_process_name", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName)}
+                                    self.ylist_key_names = ['protocol_name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("bgp", ("bgp", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp)), ("ospfv3-or-isis", ("ospfv3_or_isis", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis)), ("eigrp", ("eigrp", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp))])
+                                    self._leafs = OrderedDict([
+                                        ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
+                                        ('all_or_connected_or_static_prefix_list', YLeaf(YType.str, 'all-or-connected-or-static-prefix-list')),
+                                    ])
+                                    self.protocol_name = None
+                                    self.all_or_connected_or_static_prefix_list = None
 
-                                    self.protocol_name = YLeaf(YType.enumeration, "protocol-name")
-
-                                    self.as_yy_and_as_xx_and_process_name = YList(self)
-                                    self._segment_path = lambda: "distribute-out" + "[protocol-name='" + self.protocol_name.get() + "']"
+                                    self.bgp = YList(self)
+                                    self.ospfv3_or_isis = YList(self)
+                                    self.eigrp = YList(self)
+                                    self._segment_path = lambda: "distribute-out" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut, ['protocol_name'], name, value)
+                                    self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut, ['protocol_name', 'all_or_connected_or_static_prefix_list'], name, value)
 
 
-                                class AsYyAndAsXxAndProcessName(Entity):
+                                class Bgp(Entity):
                                     """
-                                    keys\: as\-yy, as\-xx, process\-name
+                                    bgp
                                     
-                                    .. attribute:: as_yy  <key>
-                                    
-                                    	4\-byte AS number in asdot (X.Y) format \- second half (Y), or 2\-byte AS number, or 4\-byte AS number in asplain format
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: as_xx  <key>
+                                    .. attribute:: as_xx  (key)
                                     
                                     	4\-byte AS number in asdot (X.Y) format \- first half (X)
                                     	**type**\: int
                                     
                                     	**range:** 1..65535
                                     
-                                    .. attribute:: process_name  <key>
+                                    .. attribute:: as_yy  (key)
+                                    
+                                    	4\-byte AS number in asdot (X.Y) format \- second half (Y), or 2\-byte AS number, or 4\-byte AS number in asplain format
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: prefix_list
+                                    
+                                    	Prefix\-list name
+                                    	**type**\: str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ospfv3-cfg'
+                                    _revision = '2018-01-15'
+
+                                    def __init__(self):
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "distribute-out"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['as_xx','as_yy']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                            ('as_yy', YLeaf(YType.uint32, 'as-yy')),
+                                            ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                        ])
+                                        self.as_xx = None
+                                        self.as_yy = None
+                                        self.prefix_list = None
+                                        self._segment_path = lambda: "bgp" + "[as-xx='" + str(self.as_xx) + "']" + "[as-yy='" + str(self.as_yy) + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Bgp, ['as_xx', 'as_yy', 'prefix_list'], name, value)
+
+
+                                class Ospfv3OrIsis(Entity):
+                                    """
+                                    ospfv3 or isis
+                                    
+                                    .. attribute:: process_name  (key)
                                     
                                     	If ISIS or OSPFv3, specify the instance name
                                     	**type**\: str
@@ -18731,36 +19738,78 @@ class Ospfv3(Entity):
                                     	Prefix\-list name
                                     	**type**\: str
                                     
-                                    	**mandatory**\: True
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ospfv3-cfg'
+                                    _revision = '2018-01-15'
+
+                                    def __init__(self):
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, self).__init__()
+
+                                        self.yang_name = "ospfv3-or-isis"
+                                        self.yang_parent_name = "distribute-out"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['process_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('process_name', YLeaf(YType.str, 'process-name')),
+                                            ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                        ])
+                                        self.process_name = None
+                                        self.prefix_list = None
+                                        self._segment_path = lambda: "ospfv3-or-isis" + "[process-name='" + str(self.process_name) + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Ospfv3OrIsis, ['process_name', 'prefix_list'], name, value)
+
+
+                                class Eigrp(Entity):
+                                    """
+                                    eigrp
+                                    
+                                    .. attribute:: as_xx  (key)
+                                    
+                                    	4\-byte AS number in asdot (X.Y) format \- first half (X)
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..65535
+                                    
+                                    .. attribute:: prefix_list
+                                    
+                                    	Prefix\-list name
+                                    	**type**\: str
                                     
                                     
 
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
-                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName, self).__init__()
+                                        super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, self).__init__()
 
-                                        self.yang_name = "as-yy-and-as-xx-and-process-name"
+                                        self.yang_name = "eigrp"
                                         self.yang_parent_name = "distribute-out"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_yy = YLeaf(YType.uint32, "as-yy")
-
-                                        self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                                        self.process_name = YLeaf(YType.str, "process-name")
-
-                                        self.prefix_list = YLeaf(YType.str, "prefix-list")
-                                        self._segment_path = lambda: "as-yy-and-as-xx-and-process-name" + "[as-yy='" + self.as_yy.get() + "']" + "[as-xx='" + self.as_xx.get() + "']" + "[process-name='" + self.process_name.get() + "']"
+                                        self.ylist_key_names = ['as_xx']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                            ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                        ])
+                                        self.as_xx = None
+                                        self.prefix_list = None
+                                        self._segment_path = lambda: "eigrp" + "[as-xx='" + str(self.as_xx) + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName, ['as_yy', 'as_xx', 'process_name', 'prefix_list'], name, value)
+                                        self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.Eigrp, ['as_xx', 'prefix_list'], name, value)
 
 
                     class DistributeList(Entity):
@@ -18770,14 +19819,14 @@ class Ospfv3(Entity):
                         .. attribute:: in_
                         
                         	Filter prefixes installed to RIB
-                        	**type**\:  :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_>`
+                        	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In>`
                         
                         
 
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList, self).__init__()
@@ -18786,17 +19835,19 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"in" : ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("in", ("in_", Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_()
+                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In()
                             self.in_.parent = self
                             self._children_name_map["in_"] = "in"
                             self._children_yang_names.add("in")
                             self._segment_path = lambda: "distribute-list"
 
 
-                        class In_(Entity):
+                        class In(Entity):
                             """
                             Filter prefixes installed to RIB
                             
@@ -18810,23 +19861,26 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
-                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_, self).__init__()
+                                super(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In, self).__init__()
 
                                 self.yang_name = "in"
                                 self.yang_parent_name = "distribute-list"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                ])
+                                self.prefix_list = None
                                 self._segment_path = lambda: "in"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_, ['prefix_list'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In, ['prefix_list'], name, value)
 
 
                     class StubRouter(Entity):
@@ -18853,7 +19907,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter, self).__init__()
@@ -18862,8 +19916,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"rbit" : ("rbit", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit), "v6bit" : ("v6bit", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit), "max-metric" : ("max_metric", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("rbit", ("rbit", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit)), ("v6bit", ("v6bit", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit)), ("max-metric", ("max_metric", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.rbit = Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit()
                             self.rbit.parent = self
@@ -18900,15 +19956,6 @@ class Ospfv3(Entity):
                             	Unconditionally enter stub router operational state
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
-                            .. attribute:: external_lsa
-                            
-                            	Advertise external LSAs with modified metric in stub router mode
-                            	**type**\: int
-                            
-                            	**range:** 1..16777214
-                            
-                            	**default value**\: 16711680
-                            
                             .. attribute:: on_startup
                             
                             	Enter stub router operational state on startup
@@ -18942,21 +19989,12 @@ class Ospfv3(Entity):
                             
                             	**units**\: second
                             
-                            .. attribute:: summary_lsa
-                            
-                            	Advertise summary LSAs with modified metric in stub router mode
-                            	**type**\: int
-                            
-                            	**range:** 1..16777214
-                            
-                            	**default value**\: 16711680
-                            
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, self).__init__()
@@ -18965,24 +20003,23 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "stub-router"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"on-startup" : ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup)}
-                                self._child_list_classes = {}
-
-                                self.on_switchover = YLeaf(YType.uint32, "on-switchover")
-
-                                self.always = YLeaf(YType.empty, "always")
-
-                                self.external_lsa = YLeaf(YType.uint32, "external-lsa")
-
-                                self.include_stub = YLeaf(YType.empty, "include-stub")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.on_proc_migration = YLeaf(YType.uint32, "on-proc-migration")
-
-                                self.on_proc_restart = YLeaf(YType.uint32, "on-proc-restart")
-
-                                self.summary_lsa = YLeaf(YType.uint32, "summary-lsa")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('on_switchover', YLeaf(YType.uint32, 'on-switchover')),
+                                    ('always', YLeaf(YType.empty, 'always')),
+                                    ('include_stub', YLeaf(YType.empty, 'include-stub')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('on_proc_migration', YLeaf(YType.uint32, 'on-proc-migration')),
+                                    ('on_proc_restart', YLeaf(YType.uint32, 'on-proc-restart')),
+                                ])
+                                self.on_switchover = None
+                                self.always = None
+                                self.include_stub = None
+                                self.enable = None
+                                self.on_proc_migration = None
+                                self.on_proc_restart = None
 
                                 self.on_startup = Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup()
                                 self.on_startup.parent = self
@@ -18991,7 +20028,7 @@ class Ospfv3(Entity):
                                 self._segment_path = lambda: "rbit"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, ['on_switchover', 'always', 'external_lsa', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart', 'summary_lsa'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit, ['on_switchover', 'always', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                             class OnStartup(Entity):
@@ -19019,7 +20056,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup, self).__init__()
@@ -19028,12 +20065,15 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "rbit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.wait_for_bgp = YLeaf(YType.boolean, "wait-for-bgp")
-
-                                    self.wait_time = YLeaf(YType.uint32, "wait-time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
+                                        ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                    ])
+                                    self.wait_for_bgp = None
+                                    self.wait_time = None
                                     self._segment_path = lambda: "on-startup"
 
                                 def __setattr__(self, name, value):
@@ -19058,24 +20098,10 @@ class Ospfv3(Entity):
                             	Unconditionally enter stub router operational state
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
-                            .. attribute:: external_lsa
-                            
-                            	Advertise external LSAs with modified metric in stub router mode
-                            	**type**\: int
-                            
-                            	**range:** 1..16777214
-                            
-                            	**default value**\: 16711680
-                            
                             .. attribute:: on_startup
                             
                             	Enter stub router operational state on startup
                             	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup>`
-                            
-                            .. attribute:: include_stub
-                            
-                            	Advertise stub links with maximum metric in stub router mode
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: enable
                             
@@ -19100,21 +20126,12 @@ class Ospfv3(Entity):
                             
                             	**units**\: second
                             
-                            .. attribute:: summary_lsa
-                            
-                            	Advertise summary LSAs with modified metric in stub router mode
-                            	**type**\: int
-                            
-                            	**range:** 1..16777214
-                            
-                            	**default value**\: 16711680
-                            
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit, self).__init__()
@@ -19123,24 +20140,21 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "stub-router"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"on-startup" : ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup)}
-                                self._child_list_classes = {}
-
-                                self.on_switchover = YLeaf(YType.uint32, "on-switchover")
-
-                                self.always = YLeaf(YType.empty, "always")
-
-                                self.external_lsa = YLeaf(YType.uint32, "external-lsa")
-
-                                self.include_stub = YLeaf(YType.empty, "include-stub")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.on_proc_migration = YLeaf(YType.uint32, "on-proc-migration")
-
-                                self.on_proc_restart = YLeaf(YType.uint32, "on-proc-restart")
-
-                                self.summary_lsa = YLeaf(YType.uint32, "summary-lsa")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('on_switchover', YLeaf(YType.uint32, 'on-switchover')),
+                                    ('always', YLeaf(YType.empty, 'always')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('on_proc_migration', YLeaf(YType.uint32, 'on-proc-migration')),
+                                    ('on_proc_restart', YLeaf(YType.uint32, 'on-proc-restart')),
+                                ])
+                                self.on_switchover = None
+                                self.always = None
+                                self.enable = None
+                                self.on_proc_migration = None
+                                self.on_proc_restart = None
 
                                 self.on_startup = Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup()
                                 self.on_startup.parent = self
@@ -19149,7 +20163,7 @@ class Ospfv3(Entity):
                                 self._segment_path = lambda: "v6bit"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit, ['on_switchover', 'always', 'external_lsa', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart', 'summary_lsa'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit, ['on_switchover', 'always', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                             class OnStartup(Entity):
@@ -19177,7 +20191,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup, self).__init__()
@@ -19186,12 +20200,15 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "v6bit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.wait_for_bgp = YLeaf(YType.boolean, "wait-for-bgp")
-
-                                    self.wait_time = YLeaf(YType.uint32, "wait-time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
+                                        ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                    ])
+                                    self.wait_for_bgp = None
+                                    self.wait_time = None
                                     self._segment_path = lambda: "on-startup"
 
                                 def __setattr__(self, name, value):
@@ -19201,6 +20218,24 @@ class Ospfv3(Entity):
                         class MaxMetric(Entity):
                             """
                             Stub router max\-metric configuration
+                            
+                            .. attribute:: external_lsa
+                            
+                            	Advertise external LSAs with modified metric in stub router mode
+                            	**type**\: int
+                            
+                            	**range:** 1..16777214
+                            
+                            	**default value**\: 16711680
+                            
+                            .. attribute:: summary_lsa
+                            
+                            	Advertise summary LSAs with modified metric in stub router mode
+                            	**type**\: int
+                            
+                            	**range:** 1..16777214
+                            
+                            	**default value**\: 16711680
                             
                             .. attribute:: on_switchover
                             
@@ -19215,15 +20250,6 @@ class Ospfv3(Entity):
                             
                             	Unconditionally enter stub router operational state
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
-                            .. attribute:: external_lsa
-                            
-                            	Advertise external LSAs with modified metric in stub router mode
-                            	**type**\: int
-                            
-                            	**range:** 1..16777214
-                            
-                            	**default value**\: 16711680
                             
                             .. attribute:: on_startup
                             
@@ -19258,21 +20284,12 @@ class Ospfv3(Entity):
                             
                             	**units**\: second
                             
-                            .. attribute:: summary_lsa
-                            
-                            	Advertise summary LSAs with modified metric in stub router mode
-                            	**type**\: int
-                            
-                            	**range:** 1..16777214
-                            
-                            	**default value**\: 16711680
-                            
                             
 
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, self).__init__()
@@ -19281,24 +20298,27 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "stub-router"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"on-startup" : ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup)}
-                                self._child_list_classes = {}
-
-                                self.on_switchover = YLeaf(YType.uint32, "on-switchover")
-
-                                self.always = YLeaf(YType.empty, "always")
-
-                                self.external_lsa = YLeaf(YType.uint32, "external-lsa")
-
-                                self.include_stub = YLeaf(YType.empty, "include-stub")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.on_proc_migration = YLeaf(YType.uint32, "on-proc-migration")
-
-                                self.on_proc_restart = YLeaf(YType.uint32, "on-proc-restart")
-
-                                self.summary_lsa = YLeaf(YType.uint32, "summary-lsa")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("on-startup", ("on_startup", Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('external_lsa', YLeaf(YType.uint32, 'external-lsa')),
+                                    ('summary_lsa', YLeaf(YType.uint32, 'summary-lsa')),
+                                    ('on_switchover', YLeaf(YType.uint32, 'on-switchover')),
+                                    ('always', YLeaf(YType.empty, 'always')),
+                                    ('include_stub', YLeaf(YType.empty, 'include-stub')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('on_proc_migration', YLeaf(YType.uint32, 'on-proc-migration')),
+                                    ('on_proc_restart', YLeaf(YType.uint32, 'on-proc-restart')),
+                                ])
+                                self.external_lsa = None
+                                self.summary_lsa = None
+                                self.on_switchover = None
+                                self.always = None
+                                self.include_stub = None
+                                self.enable = None
+                                self.on_proc_migration = None
+                                self.on_proc_restart = None
 
                                 self.on_startup = Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup()
                                 self.on_startup.parent = self
@@ -19307,7 +20327,7 @@ class Ospfv3(Entity):
                                 self._segment_path = lambda: "max-metric"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, ['on_switchover', 'always', 'external_lsa', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart', 'summary_lsa'], name, value)
+                                self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric, ['external_lsa', 'summary_lsa', 'on_switchover', 'always', 'include_stub', 'enable', 'on_proc_migration', 'on_proc_restart'], name, value)
 
 
                             class OnStartup(Entity):
@@ -19335,7 +20355,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup, self).__init__()
@@ -19344,12 +20364,15 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "max-metric"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.wait_for_bgp = YLeaf(YType.boolean, "wait-for-bgp")
-
-                                    self.wait_time = YLeaf(YType.uint32, "wait-time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('wait_for_bgp', YLeaf(YType.boolean, 'wait-for-bgp')),
+                                        ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                    ])
+                                    self.wait_for_bgp = None
+                                    self.wait_time = None
                                     self._segment_path = lambda: "on-startup"
 
                                 def __setattr__(self, name, value):
@@ -19386,7 +20409,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Bfd, self).__init__()
@@ -19395,14 +20418,17 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interval = YLeaf(YType.uint32, "interval")
-
-                            self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
-
-                            self.fast_detect_mode = YLeaf(YType.enumeration, "fast-detect-mode")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interval', YLeaf(YType.uint32, 'interval')),
+                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('fast_detect_mode', YLeaf(YType.enumeration, 'fast-detect-mode')),
+                            ])
+                            self.interval = None
+                            self.detection_multiplier = None
+                            self.fast_detect_mode = None
                             self._segment_path = lambda: "bfd"
 
                         def __setattr__(self, name, value):
@@ -19423,7 +20449,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter, self).__init__()
@@ -19432,8 +20458,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"all" : ("all", Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("all", ("all", Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.all = Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All()
                             self.all.parent = self
@@ -19456,7 +20484,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All, self).__init__()
@@ -19465,10 +20493,13 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "database-filter"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.out = YLeaf(YType.empty, "out")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('out', YLeaf(YType.empty, 'out')),
+                                ])
+                                self.out = None
                                 self._segment_path = lambda: "all"
 
                             def __setattr__(self, name, value):
@@ -19508,7 +20539,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Authentication, self).__init__()
@@ -19517,16 +20548,19 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.spi = YLeaf(YType.uint32, "spi")
-
-                            self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                            self.password = YLeaf(YType.str, "password")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                ('password', YLeaf(YType.str, 'password')),
+                            ])
+                            self.enable = None
+                            self.spi = None
+                            self.algorithm = None
+                            self.password = None
                             self._segment_path = lambda: "authentication"
 
                         def __setattr__(self, name, value):
@@ -19575,7 +20609,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart, self).__init__()
@@ -19584,18 +20618,21 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interval = YLeaf(YType.uint32, "interval")
-
-                            self.strict_lsa_checking = YLeaf(YType.empty, "strict-lsa-checking")
-
-                            self.helper = YLeaf(YType.empty, "helper")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.lifetime = YLeaf(YType.uint32, "lifetime")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interval', YLeaf(YType.uint32, 'interval')),
+                                ('strict_lsa_checking', YLeaf(YType.empty, 'strict-lsa-checking')),
+                                ('helper', YLeaf(YType.empty, 'helper')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                            ])
+                            self.interval = None
+                            self.strict_lsa_checking = None
+                            self.helper = None
+                            self.enable = None
+                            self.lifetime = None
                             self._segment_path = lambda: "graceful-restart"
 
                         def __setattr__(self, name, value):
@@ -19618,7 +20655,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation, self).__init__()
@@ -19627,8 +20664,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"originate" : ("originate", Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("originate", ("originate", Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.originate = None
                             self._children_name_map["originate"] = "originate"
@@ -19680,7 +20719,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate, self).__init__()
@@ -19689,19 +20728,22 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "default-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.always = YLeaf(YType.boolean, "always")
-
-                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                self.metric_type = YLeaf(YType.uint32, "metric-type")
-
-                                self.tag = YLeaf(YType.uint32, "tag")
-
-                                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
+                                self._leafs = OrderedDict([
+                                    ('always', YLeaf(YType.boolean, 'always')),
+                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                    ('metric_type', YLeaf(YType.uint32, 'metric-type')),
+                                    ('tag', YLeaf(YType.uint32, 'tag')),
+                                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                ])
+                                self.always = None
+                                self.metric = None
+                                self.metric_type = None
+                                self.tag = None
+                                self.route_policy_name = None
                                 self._segment_path = lambda: "originate"
 
                             def __setattr__(self, name, value):
@@ -19722,7 +20764,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope, self).__init__()
@@ -19731,8 +20773,10 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"fast-reroute" : ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("fast-reroute", ("fast_reroute", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.fast_reroute = Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute()
                             self.fast_reroute.parent = self
@@ -19765,7 +20809,7 @@ class Ospfv3(Entity):
                             """
 
                             _prefix = 'ipv6-ospfv3-cfg'
-                            _revision = '2017-07-14'
+                            _revision = '2018-01-15'
 
                             def __init__(self):
                                 super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute, self).__init__()
@@ -19774,10 +20818,13 @@ class Ospfv3(Entity):
                                 self.yang_parent_name = "process-scope"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"per-link" : ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink), "per-prefix" : ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix)}
-                                self._child_list_classes = {}
-
-                                self.fast_reroute_enable = YLeaf(YType.enumeration, "fast-reroute-enable")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("per-link", ("per_link", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink)), ("per-prefix", ("per_prefix", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('fast_reroute_enable', YLeaf(YType.enumeration, 'fast-reroute-enable')),
+                                ])
+                                self.fast_reroute_enable = None
 
                                 self.per_link = Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink()
                                 self.per_link.parent = self
@@ -19820,7 +20867,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink, self).__init__()
@@ -19829,10 +20876,13 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "fast-reroute"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces)}
-                                    self._child_list_classes = {}
-
-                                    self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                    ])
+                                    self.fast_reroute_use_candidate_only = None
 
                                     self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces()
                                     self.candidate_interfaces.parent = self
@@ -19864,7 +20914,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces, self).__init__()
@@ -19873,8 +20923,10 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "per-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface))])
+                                        self._leafs = OrderedDict()
 
                                         self.candidate_interface = YList(self)
                                         self._segment_path = lambda: "candidate-interfaces"
@@ -19887,7 +20939,7 @@ class Ospfv3(Entity):
                                         """
                                         Candidate backup interface
                                         
-                                        .. attribute:: interface_name  <key>
+                                        .. attribute:: interface_name  (key)
                                         
                                         	Interface
                                         	**type**\: str
@@ -19899,7 +20951,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -19908,11 +20960,14 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "candidate-interfaces"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.interface_name = YLeaf(YType.str, "interface-name")
-                                            self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                            self.ylist_key_names = ['interface_name']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                            ])
+                                            self.interface_name = None
+                                            self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -19933,7 +20988,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces, self).__init__()
@@ -19942,8 +20997,10 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "per-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface))])
+                                        self._leafs = OrderedDict()
 
                                         self.exclude_interface = YList(self)
                                         self._segment_path = lambda: "exclude-interfaces"
@@ -19956,7 +21013,7 @@ class Ospfv3(Entity):
                                         """
                                         Exclude an interface from becoming a backup
                                         
-                                        .. attribute:: interface_name  <key>
+                                        .. attribute:: interface_name  (key)
                                         
                                         	Interface
                                         	**type**\: str
@@ -19968,7 +21025,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -19977,11 +21034,14 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "exclude-interfaces"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.interface_name = YLeaf(YType.str, "interface-name")
-                                            self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                            self.ylist_key_names = ['interface_name']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                            ])
+                                            self.interface_name = None
+                                            self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -20013,7 +21073,7 @@ class Ospfv3(Entity):
                                 """
 
                                 _prefix = 'ipv6-ospfv3-cfg'
-                                _revision = '2017-07-14'
+                                _revision = '2018-01-15'
 
                                 def __init__(self):
                                     super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix, self).__init__()
@@ -20022,10 +21082,13 @@ class Ospfv3(Entity):
                                     self.yang_parent_name = "fast-reroute"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"candidate-interfaces" : ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces), "exclude-interfaces" : ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces)}
-                                    self._child_list_classes = {}
-
-                                    self.fast_reroute_use_candidate_only = YLeaf(YType.boolean, "fast-reroute-use-candidate-only")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("candidate-interfaces", ("candidate_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces)), ("exclude-interfaces", ("exclude_interfaces", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('fast_reroute_use_candidate_only', YLeaf(YType.boolean, 'fast-reroute-use-candidate-only')),
+                                    ])
+                                    self.fast_reroute_use_candidate_only = None
 
                                     self.candidate_interfaces = Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces()
                                     self.candidate_interfaces.parent = self
@@ -20057,7 +21120,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces, self).__init__()
@@ -20066,8 +21129,10 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "per-prefix"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"candidate-interface" : ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("candidate-interface", ("candidate_interface", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface))])
+                                        self._leafs = OrderedDict()
 
                                         self.candidate_interface = YList(self)
                                         self._segment_path = lambda: "candidate-interfaces"
@@ -20080,7 +21145,7 @@ class Ospfv3(Entity):
                                         """
                                         Candidate backup interface
                                         
-                                        .. attribute:: interface_name  <key>
+                                        .. attribute:: interface_name  (key)
                                         
                                         	Interface
                                         	**type**\: str
@@ -20092,7 +21157,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, self).__init__()
@@ -20101,11 +21166,14 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "candidate-interfaces"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.interface_name = YLeaf(YType.str, "interface-name")
-                                            self._segment_path = lambda: "candidate-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                            self.ylist_key_names = ['interface_name']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                            ])
+                                            self.interface_name = None
+                                            self._segment_path = lambda: "candidate-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
@@ -20126,7 +21194,7 @@ class Ospfv3(Entity):
                                     """
 
                                     _prefix = 'ipv6-ospfv3-cfg'
-                                    _revision = '2017-07-14'
+                                    _revision = '2018-01-15'
 
                                     def __init__(self):
                                         super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces, self).__init__()
@@ -20135,8 +21203,10 @@ class Ospfv3(Entity):
                                         self.yang_parent_name = "per-prefix"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"exclude-interface" : ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface))])
+                                        self._leafs = OrderedDict()
 
                                         self.exclude_interface = YList(self)
                                         self._segment_path = lambda: "exclude-interfaces"
@@ -20149,7 +21219,7 @@ class Ospfv3(Entity):
                                         """
                                         Exclude an interface from becoming a backup
                                         
-                                        .. attribute:: interface_name  <key>
+                                        .. attribute:: interface_name  (key)
                                         
                                         	Interface
                                         	**type**\: str
@@ -20161,7 +21231,7 @@ class Ospfv3(Entity):
                                         """
 
                                         _prefix = 'ipv6-ospfv3-cfg'
-                                        _revision = '2017-07-14'
+                                        _revision = '2018-01-15'
 
                                         def __init__(self):
                                             super(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -20170,11 +21240,14 @@ class Ospfv3(Entity):
                                             self.yang_parent_name = "exclude-interfaces"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.interface_name = YLeaf(YType.str, "interface-name")
-                                            self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                            self.ylist_key_names = ['interface_name']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                            ])
+                                            self.interface_name = None
+                                            self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -20225,7 +21298,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.Encryption, self).__init__()
@@ -20234,20 +21307,23 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.boolean, "enable")
-
-                            self.spi = YLeaf(YType.uint32, "spi")
-
-                            self.encryption_algorithm = YLeaf(YType.enumeration, "encryption-algorithm")
-
-                            self.encryption_password = YLeaf(YType.str, "encryption-password")
-
-                            self.authentication_algorithm = YLeaf(YType.enumeration, "authentication-algorithm")
-
-                            self.authentication_password = YLeaf(YType.str, "authentication-password")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('spi', YLeaf(YType.uint32, 'spi')),
+                                ('encryption_algorithm', YLeaf(YType.enumeration, 'encryption-algorithm')),
+                                ('encryption_password', YLeaf(YType.str, 'encryption-password')),
+                                ('authentication_algorithm', YLeaf(YType.enumeration, 'authentication-algorithm')),
+                                ('authentication_password', YLeaf(YType.str, 'authentication-password')),
+                            ])
+                            self.enable = None
+                            self.spi = None
+                            self.encryption_algorithm = None
+                            self.encryption_password = None
+                            self.authentication_algorithm = None
+                            self.authentication_password = None
                             self._segment_path = lambda: "encryption"
 
                         def __setattr__(self, name, value):
@@ -20279,7 +21355,7 @@ class Ospfv3(Entity):
                         """
 
                         _prefix = 'ipv6-ospfv3-cfg'
-                        _revision = '2017-07-14'
+                        _revision = '2018-01-15'
 
                         def __init__(self):
                             super(Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost, self).__init__()
@@ -20288,13 +21364,16 @@ class Ospfv3(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.disable = YLeaf(YType.empty, "disable")
-
-                            self.reference_bandwidth = YLeaf(YType.uint32, "reference-bandwidth")
+                            self._leafs = OrderedDict([
+                                ('disable', YLeaf(YType.empty, 'disable')),
+                                ('reference_bandwidth', YLeaf(YType.uint32, 'reference-bandwidth')),
+                            ])
+                            self.disable = None
+                            self.reference_bandwidth = None
                             self._segment_path = lambda: "auto-cost"
 
                         def __setattr__(self, name, value):
@@ -20324,7 +21403,7 @@ class Ospfv3(Entity):
                 """
 
                 _prefix = 'ipv6-ospfv3-cfg'
-                _revision = '2017-07-14'
+                _revision = '2018-01-15'
 
                 def __init__(self):
                     super(Ospfv3.Processes.Process.Af, self).__init__()
@@ -20333,13 +21412,16 @@ class Ospfv3(Entity):
                     self.yang_parent_name = "process"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                    self.saf_name = YLeaf(YType.enumeration, "saf-name")
+                    self._leafs = OrderedDict([
+                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                        ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                    ])
+                    self.af_name = None
+                    self.saf_name = None
                     self._segment_path = lambda: "af"
 
                 def __setattr__(self, name, value):
@@ -20360,7 +21442,7 @@ class Ospfv3(Entity):
                 """
 
                 _prefix = 'ipv6-ospfv3-cfg'
-                _revision = '2017-07-14'
+                _revision = '2018-01-15'
 
                 def __init__(self):
                     super(Ospfv3.Processes.Process.TraceBufs, self).__init__()
@@ -20369,8 +21451,10 @@ class Ospfv3(Entity):
                     self.yang_parent_name = "process"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"trace-buf" : ("trace_buf", Ospfv3.Processes.Process.TraceBufs.TraceBuf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("trace-buf", ("trace_buf", Ospfv3.Processes.Process.TraceBufs.TraceBuf))])
+                    self._leafs = OrderedDict()
 
                     self.trace_buf = YList(self)
                     self._segment_path = lambda: "trace-bufs"
@@ -20384,7 +21468,7 @@ class Ospfv3(Entity):
                     Changes the size of the specified trace
                     buffer
                     
-                    .. attribute:: trace_buf_name  <key>
+                    .. attribute:: trace_buf_name  (key)
                     
                     	Name for this trace buffer
                     	**type**\: str
@@ -20403,7 +21487,7 @@ class Ospfv3(Entity):
                     """
 
                     _prefix = 'ipv6-ospfv3-cfg'
-                    _revision = '2017-07-14'
+                    _revision = '2018-01-15'
 
                     def __init__(self):
                         super(Ospfv3.Processes.Process.TraceBufs.TraceBuf, self).__init__()
@@ -20412,13 +21496,16 @@ class Ospfv3(Entity):
                         self.yang_parent_name = "trace-bufs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.trace_buf_name = YLeaf(YType.str, "trace-buf-name")
-
-                        self.bufsize = YLeaf(YType.enumeration, "bufsize")
-                        self._segment_path = lambda: "trace-buf" + "[trace-buf-name='" + self.trace_buf_name.get() + "']"
+                        self.ylist_key_names = ['trace_buf_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('trace_buf_name', YLeaf(YType.str, 'trace-buf-name')),
+                            ('bufsize', YLeaf(YType.enumeration, 'bufsize')),
+                        ])
+                        self.trace_buf_name = None
+                        self.bufsize = None
+                        self._segment_path = lambda: "trace-buf" + "[trace-buf-name='" + str(self.trace_buf_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospfv3.Processes.Process.TraceBufs.TraceBuf, ['trace_buf_name', 'bufsize'], name, value)

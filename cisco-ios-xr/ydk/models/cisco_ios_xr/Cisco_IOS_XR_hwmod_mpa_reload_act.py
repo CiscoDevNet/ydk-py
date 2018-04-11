@@ -7,9 +7,11 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -38,8 +40,10 @@ class HwModuleSubslot(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-hwmod-mpa-reload-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = HwModuleSubslot.Input()
         self.input.parent = self
@@ -76,12 +80,15 @@ class HwModuleSubslot(Entity):
             self.yang_parent_name = "hw-module-subslot"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.subslot = YLeaf(YType.str, "subslot")
-
-            self.reload = YLeaf(YType.empty, "reload")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('subslot', YLeaf(YType.str, 'subslot')),
+                ('reload', YLeaf(YType.empty, 'reload')),
+            ])
+            self.subslot = None
+            self.reload = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-hwmod-mpa-reload-act:hw-module-subslot/%s" % self._segment_path()
 

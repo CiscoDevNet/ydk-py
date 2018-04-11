@@ -7,15 +7,17 @@ of this MIB module is part of RFC 4268;  see the RFC
 itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class EntityAdminState(Enum):
     """
-    EntityAdminState
+    EntityAdminState (Enum Class)
 
      Represents the various possible administrative states.
 
@@ -54,7 +56,7 @@ class EntityAdminState(Enum):
 
 class EntityOperState(Enum):
     """
-    EntityOperState
+    EntityOperState (Enum Class)
 
      Represents the possible values of operational states.
 
@@ -93,7 +95,7 @@ class EntityOperState(Enum):
 
 class EntityStandbyStatus(Enum):
     """
-    EntityStandbyStatus
+    EntityStandbyStatus (Enum Class)
 
      Represents the possible values of standby status.
 
@@ -144,7 +146,7 @@ class EntityStandbyStatus(Enum):
 
 class EntityUsageState(Enum):
     """
-    EntityUsageState
+    EntityUsageState (Enum Class)
 
      Represents the possible values of usage states.
 

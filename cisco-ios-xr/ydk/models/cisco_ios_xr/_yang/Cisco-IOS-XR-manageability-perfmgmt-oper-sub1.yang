@@ -1,596 +1,719 @@
 submodule Cisco-IOS-XR-manageability-perfmgmt-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-manageability-perfmgmt-oper {
     prefix Cisco-IOS-XR-manageability-perfmgmt-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR manageability-perfmgmt package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
-
   grouping PM-INTERFACE-DATARATE-BAG {
-    description "Datarate information";
+    description
+      "Datarate information";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf input-data-rate {
       type uint32;
       units "bit/s";
-      description "Input datarate in 1000's of bps";
+      description
+        "Input datarate in 1000's of bps";
     }
     leaf input-packet-rate {
       type uint32;
       units "packet/s";
-      description "Input packets per second";
+      description
+        "Input packets per second";
     }
     leaf output-data-rate {
       type uint32;
       units "bit/s";
-      description "Output datarate in 1000's of bps";
+      description
+        "Output datarate in 1000's of bps";
     }
     leaf output-packet-rate {
       type uint32;
       units "packet/s";
-      description "Output packets per second";
+      description
+        "Output packets per second";
     }
     leaf input-peak-rate {
       type uint32;
-      description "Peak input datarate";
+      description
+        "Peak input datarate";
     }
     leaf input-peak-pkts {
       type uint32;
-      description "Peak input packet rate";
+      description
+        "Peak input packet rate";
     }
     leaf output-peak-rate {
       type uint32;
-      description "Peak output datarate";
+      description
+        "Peak output datarate";
     }
     leaf output-peak-pkts {
       type uint32;
-      description "Peak output packet rate";
+      description
+        "Peak output packet rate";
     }
     leaf bandwidth {
       type uint32;
       units "kbit/s";
-      description "Bandwidth (in kbps)";
+      description
+        "Bandwidth (in kbps)";
     }
   }
 
   grouping PM-INTERFACE-BASIC-STATS {
-    description "PM Interface Basic Counters";
+    description
+      "PM Interface Basic Counters";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds from UCT";
+      description
+        "Timestamp of sample in seconds from UCT";
     }
     leaf in-packets {
       type uint64;
-      description "Packets received";
+      description
+        "Packets received";
     }
     leaf in-octets {
       type uint64;
       units "byte";
-      description "Bytes received";
+      description
+        "Bytes received";
     }
     leaf out-packets {
       type uint64;
-      description "Packets sent";
+      description
+        "Packets sent";
     }
     leaf out-octets {
       type uint64;
       units "byte";
-      description "Bytes sent";
+      description
+        "Bytes sent";
     }
     leaf input-total-drops {
       type uint64;
-      description "Inbound correct packets discarded";
+      description
+        "Inbound correct packets discarded";
     }
     leaf input-queue-drops {
       type uint64;
-      description "Input queue drops";
+      description
+        "Input queue drops";
     }
     leaf input-total-errors {
       type uint64;
-      description "Inbound incorrect packets discarded";
+      description
+        "Inbound incorrect packets discarded";
     }
     leaf output-total-drops {
       type uint64;
-      description "Outbound correct packets discarded";
+      description
+        "Outbound correct packets discarded";
     }
     leaf output-queue-drops {
       type uint64;
-      description "Output queue drops";
+      description
+        "Output queue drops";
     }
     leaf output-total-errors {
       type uint64;
-      description "Outbound incorrect packets discarded";
+      description
+        "Outbound incorrect packets discarded";
     }
   }
 
   grouping PM-INTERFACE-GENERIC-BAG {
-    description "PM Interface Generic Counters";
+    description
+      "PM Interface Generic Counters";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf in-packets {
       type uint64;
-      description "Packets received";
+      description
+        "Packets received";
     }
     leaf in-octets {
       type uint64;
       units "byte";
-      description "Bytes received";
+      description
+        "Bytes received";
     }
     leaf out-packets {
       type uint64;
-      description "Packets sent";
+      description
+        "Packets sent";
     }
     leaf out-octets {
       type uint64;
       units "byte";
-      description "Bytes sent";
+      description
+        "Bytes sent";
     }
     leaf in-ucast-pkts {
       type uint64;
-      description "Unicast packets received";
+      description
+        "Unicast packets received";
     }
     leaf in-multicast-pkts {
       type uint64;
-      description "Multicast packets received";
+      description
+        "Multicast packets received";
     }
     leaf in-broadcast-pkts {
       type uint64;
-      description "Broadcast packets received";
+      description
+        "Broadcast packets received";
     }
     leaf out-ucast-pkts {
       type uint64;
-      description "Unicast packets sent";
+      description
+        "Unicast packets sent";
     }
     leaf out-multicast-pkts {
       type uint64;
-      description "Multicast packets sent";
+      description
+        "Multicast packets sent";
     }
     leaf out-broadcast-pkts {
       type uint64;
-      description "Broadcast packets sent";
+      description
+        "Broadcast packets sent";
     }
     leaf output-total-drops {
       type uint32;
-      description "Outbound correct packets discarded";
+      description
+        "Outbound correct packets discarded";
     }
     leaf input-total-drops {
       type uint32;
-      description "Inbound correct packets discarded";
+      description
+        "Inbound correct packets discarded";
     }
     leaf input-queue-drops {
       type uint32;
-      description "Input queue drops";
+      description
+        "Input queue drops";
     }
     leaf input-unknown-proto {
       type uint32;
-      description "Inbound packets discarded with unknown proto";
+      description
+        "Inbound packets discarded with unknown proto";
     }
     leaf output-total-errors {
       type uint32;
-      description "Outbound incorrect packets discarded";
+      description
+        "Outbound incorrect packets discarded";
     }
     leaf output-underrun {
       type uint32;
-      description "Output underruns";
+      description
+        "Output underruns";
     }
     leaf input-total-errors {
       type uint32;
-      description "Inbound incorrect packets discarded";
+      description
+        "Inbound incorrect packets discarded";
     }
     leaf input-crc {
       type uint32;
-      description "Inbound packets discarded with incorrect CRC";
+      description
+        "Inbound packets discarded with incorrect CRC";
     }
     leaf input-overrun {
       type uint32;
-      description "Input overruns";
+      description
+        "Input overruns";
     }
     leaf input-frame {
       type uint32;
-      description "Inbound framing errors";
+      description
+        "Inbound framing errors";
     }
   }
 
   grouping PM-BGP-NBR-BAG {
-    description "PM BGP Neighbor Information";
+    description
+      "PM BGP Neighbor Information";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf input-messages {
       type uint32;
-      description "Number of messages received";
+      description
+        "Number of messages received";
     }
     leaf output-messages {
       type uint32;
-      description "Number of messages sent";
+      description
+        "Number of messages sent";
     }
     leaf input-update-messages {
       type uint32;
-      description "Number of update messages received";
+      description
+        "Number of update messages received";
     }
     leaf output-update-messages {
       type uint32;
-      description "Number of update messages sent";
+      description
+        "Number of update messages sent";
     }
     leaf conn-established {
       type uint32;
-      description "Number of times the connection was established";
+      description
+        "Number of times the connection was established";
     }
     leaf conn-dropped {
       type uint32;
-      description "Number of times connection was dropped";
+      description
+        "Number of times connection was dropped";
     }
     leaf errors-received {
       type uint32;
       description
         "Number of error notifications received on the
-        connection";
+         connection";
     }
     leaf errors-sent {
       type uint32;
       description
         "Number of error notifications sent on the
-        connection";
+         connection";
     }
   }
 
   grouping PM-NODE-MEM-BAG {
-    description "PM System Resources Memory Information";
+    description
+      "PM System Resources Memory Information";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf curr-memory {
       type uint32;
       units "byte";
-      description "Current application memory (Bytes) in use";
+      description
+        "Current application memory (Bytes) in use";
     }
     leaf peak-memory {
       type uint32;
       units "megabyte";
-      description "Max. system memory (MBytes) used since bootup";
+      description
+        "Max. system memory (MBytes) used since bootup";
     }
   }
 
   grouping PM-NODE-PROCESS-BAG {
-    description "PM Process CPU and Memory Information";
+    description
+      "PM Process CPU and Memory Information";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf peak-memory {
       type uint32;
       units "kilobyte";
       description
         "Max. dynamic memory (KBytes) used since startup
-        time";
+         time";
     }
     leaf average-cpu-used {
       type uint32;
-      description "Average %CPU utilization";
+      description
+        "Average %CPU utilization";
     }
     leaf no-threads {
       type uint32;
-      description "Number of threads";
+      description
+        "Number of threads";
     }
   }
 
   grouping PM-NODE-CPU-BAG {
-    description "PM System Resources CPU Information";
+    description
+      "PM System Resources CPU Information";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf no-processes {
       type uint32;
-      description "Number of processes in the system";
+      description
+        "Number of processes in the system";
     }
     leaf average-cpu-used {
       type uint32;
-      description "Average system %CPU utilization";
+      description
+        "Average system %CPU utilization";
     }
   }
 
   grouping PM-MPLS-LDP-BAG {
-    description "PM MPLS LDP Neighbor bag";
+    description
+      "PM MPLS LDP Neighbor bag";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf total-msgs-sent {
       type uint16;
-      description "Total messages sent";
+      description
+        "Total messages sent";
     }
     leaf total-msgs-rcvd {
       type uint16;
-      description "Total messages received";
+      description
+        "Total messages received";
     }
     leaf init-msgs-sent {
       type uint16;
-      description "Init messages sent";
+      description
+        "Init messages sent";
     }
     leaf init-msgs-rcvd {
       type uint16;
-      description "Tnit messages received";
+      description
+        "Tnit messages received";
     }
     leaf address-msgs-sent {
       type uint16;
-      description "Address messages sent";
+      description
+        "Address messages sent";
     }
     leaf address-msgs-rcvd {
       type uint16;
-      description "Address messages received";
+      description
+        "Address messages received";
     }
     leaf address-withdraw-msgs-sent {
       type uint16;
-      description "Address withdraw messages sent";
+      description
+        "Address withdraw messages sent";
     }
     leaf address-withdraw-msgs-rcvd {
       type uint16;
-      description "Address withdraw messages received";
+      description
+        "Address withdraw messages received";
     }
     leaf label-mapping-msgs-sent {
       type uint16;
-      description "Label mapping messages sent";
+      description
+        "Label mapping messages sent";
     }
     leaf label-mapping-msgs-rcvd {
       type uint16;
-      description "Label mapping messages received";
+      description
+        "Label mapping messages received";
     }
     leaf label-withdraw-msgs-sent {
       type uint16;
-      description "Label withdraw messages sent";
+      description
+        "Label withdraw messages sent";
     }
     leaf label-withdraw-msgs-rcvd {
       type uint16;
-      description "Label withdraw messages received";
+      description
+        "Label withdraw messages received";
     }
     leaf label-release-msgs-sent {
       type uint16;
-      description "Label release messages sent";
+      description
+        "Label release messages sent";
     }
     leaf label-release-msgs-rcvd {
       type uint16;
-      description "Label release messages received";
+      description
+        "Label release messages received";
     }
     leaf notification-msgs-sent {
       type uint16;
-      description "Notification messages sent";
+      description
+        "Notification messages sent";
     }
     leaf notification-msgs-rcvd {
       type uint16;
-      description "Notification messages received";
+      description
+        "Notification messages received";
     }
     leaf keepalive-msgs-sent {
       type uint16;
-      description "Keepalive messages sent";
+      description
+        "Keepalive messages sent";
     }
     leaf keepalive-msgs-rcvd {
       type uint16;
-      description "Keepalive messages received";
+      description
+        "Keepalive messages received";
     }
   }
 
   grouping PM-OSPF-V3PROTO-BAG {
-    description "PM OSPF v3 Protocol Information";
+    description
+      "PM OSPF v3 Protocol Information";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf input-packets {
       type uint32;
-      description "Total number of packets received";
+      description
+        "Total number of packets received";
     }
     leaf output-packets {
       type uint32;
-      description "Total number of packets sent";
+      description
+        "Total number of packets sent";
     }
     leaf input-hello-packets {
       type uint32;
-      description "Number of Hello packets received";
+      description
+        "Number of Hello packets received";
     }
     leaf output-hello-packets {
       type uint32;
-      description "Number of Hello packets sent";
+      description
+        "Number of Hello packets sent";
     }
     leaf input-db-ds {
       type uint32;
-      description "Number of DBD packets received";
+      description
+        "Number of DBD packets received";
     }
     leaf input-db-ds-lsa {
       type uint32;
-      description "Number of LSA received in DBD packets";
+      description
+        "Number of LSA received in DBD packets";
     }
     leaf output-db-ds {
       type uint32;
-      description "Number of DBD packets sent";
+      description
+        "Number of DBD packets sent";
     }
     leaf output-db-ds-lsa {
       type uint32;
-      description "Number of LSA sent in DBD packets";
+      description
+        "Number of LSA sent in DBD packets";
     }
     leaf input-ls-requests {
       type uint32;
-      description "Number of LS Requests received";
+      description
+        "Number of LS Requests received";
     }
     leaf input-ls-requests-lsa {
       type uint32;
-      description "Number of LSA received in LS Requests";
+      description
+        "Number of LSA received in LS Requests";
     }
     leaf output-ls-requests {
       type uint32;
-      description "Number of LS Requests sent";
+      description
+        "Number of LS Requests sent";
     }
     leaf output-ls-requests-lsa {
       type uint32;
-      description "Number of LSA sent in LS Requests";
+      description
+        "Number of LSA sent in LS Requests";
     }
     leaf input-lsa-updates {
       type uint32;
-      description "Number of LSA Updates received";
+      description
+        "Number of LSA Updates received";
     }
     leaf input-lsa-updates-lsa {
       type uint32;
-      description "Number of LSA received in LSA Updates";
+      description
+        "Number of LSA received in LSA Updates";
     }
     leaf output-lsa-updates {
       type uint32;
-      description "Number of LSA Updates sent";
+      description
+        "Number of LSA Updates sent";
     }
     leaf output-lsa-updates-lsa {
       type uint32;
-      description "Number of LSA sent in LSA Updates";
+      description
+        "Number of LSA sent in LSA Updates";
     }
     leaf input-lsa-acks {
       type uint32;
-      description "Number of LSA Acknowledgements received";
+      description
+        "Number of LSA Acknowledgements received";
     }
     leaf input-lsa-acks-lsa {
       type uint32;
-      description "Number of LSA received in LSA Acknowledgements";
+      description
+        "Number of LSA received in LSA Acknowledgements";
     }
     leaf output-lsa-acks {
       type uint32;
-      description "Number of LSA Acknowledgements sent";
+      description
+        "Number of LSA Acknowledgements sent";
     }
     leaf output-lsa-acks-lsa {
       type uint32;
-      description "Number of LSA sent in LSA Acknowledgements";
+      description
+        "Number of LSA sent in LSA Acknowledgements";
     }
   }
 
   grouping PM-OSPF-V2PROTO-BAG {
-    description "PM OSPF v2 Protocol Information";
+    description
+      "PM OSPF v2 Protocol Information";
     leaf time-stamp {
       type uint64;
       units "second";
-      description "Timestamp of sample in seconds drom UCT";
+      description
+        "Timestamp of sample in seconds drom UCT";
     }
     leaf input-packets {
       type uint32;
-      description "Total number of packets received";
+      description
+        "Total number of packets received";
     }
     leaf output-packets {
       type uint32;
-      description "Total number of packets sent";
+      description
+        "Total number of packets sent";
     }
     leaf input-hello-packets {
       type uint32;
-      description "Number of Hello packets received";
+      description
+        "Number of Hello packets received";
     }
     leaf output-hello-packets {
       type uint32;
-      description "Number of Hello packets sent";
+      description
+        "Number of Hello packets sent";
     }
     leaf input-db-ds {
       type uint32;
-      description "Number of DBD packets received";
+      description
+        "Number of DBD packets received";
     }
     leaf input-db-ds-lsa {
       type uint32;
-      description "Number of LSA received in DBD packets";
+      description
+        "Number of LSA received in DBD packets";
     }
     leaf output-db-ds {
       type uint32;
-      description "Number of DBD packets sent";
+      description
+        "Number of DBD packets sent";
     }
     leaf output-db-ds-lsa {
       type uint32;
-      description "Number of LSA sent in DBD packets";
+      description
+        "Number of LSA sent in DBD packets";
     }
     leaf input-ls-requests {
       type uint32;
-      description "Number of LS Requests received";
+      description
+        "Number of LS Requests received";
     }
     leaf input-ls-requests-lsa {
       type uint32;
-      description "Number of LSA received in LS Requests";
+      description
+        "Number of LSA received in LS Requests";
     }
     leaf output-ls-requests {
       type uint32;
-      description "Number of LS Requests sent";
+      description
+        "Number of LS Requests sent";
     }
     leaf output-ls-requests-lsa {
       type uint32;
-      description "Number of LSA sent in LS Requests";
+      description
+        "Number of LSA sent in LS Requests";
     }
     leaf input-lsa-updates {
       type uint32;
-      description "Number of LSA Updates received";
+      description
+        "Number of LSA Updates received";
     }
     leaf input-lsa-updates-lsa {
       type uint32;
-      description "Number of LSA received in LSA Updates";
+      description
+        "Number of LSA received in LSA Updates";
     }
     leaf output-lsa-updates {
       type uint32;
-      description "Number of LSA Updates sent";
+      description
+        "Number of LSA Updates sent";
     }
     leaf output-lsa-updates-lsa {
       type uint32;
-      description "Number of LSA sent in LSA Updates";
+      description
+        "Number of LSA sent in LSA Updates";
     }
     leaf input-lsa-acks {
       type uint32;
-      description "Number of LSA Acknowledgements received";
+      description
+        "Number of LSA Acknowledgements received";
     }
     leaf input-lsa-acks-lsa {
       type uint32;
-      description "Number of LSA received in LSA Acknowledgements";
+      description
+        "Number of LSA received in LSA Acknowledgements";
     }
     leaf output-lsa-acks {
       type uint32;
-      description "Number of LSA Acknowledgements sent";
+      description
+        "Number of LSA Acknowledgements sent";
     }
     leaf output-lsa-acks-lsa {
       type uint32;
-      description "Number of LSA sent in LSA Acknowledgements";
+      description
+        "Number of LSA sent in LSA Acknowledgements";
     }
     leaf checksum-errors {
       type uint32;
-      description "Number of packets received with checksum errors";
+      description
+        "Number of packets received with checksum errors";
     }
   }
 }

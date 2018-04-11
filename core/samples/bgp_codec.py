@@ -55,7 +55,7 @@ def run_multiple_routing_bgp(codec_service, provider):
 def init_logging():
     import logging
     logger = logging.getLogger("ydk")
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
     handler = logging.StreamHandler()
     formatter = logging.Formatter(("%(asctime)s - %(name)s - "
                                   "%(levelname)s - %(message)s"))
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     init_logging()
     provider = CodecServiceProvider(type='xml')
     codec_service = CodecService()
-#bgp_run(codec_service, provider)
-    run_routing(codec_service, provider)
-    run_multiple_routing_bgp(codec_service, provider)
+    bgp_run(codec_service, provider)
+#run_routing(codec_service, provider)
+#run_multiple_routing_bgp(codec_service, provider)
     exit()

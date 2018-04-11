@@ -1,120 +1,133 @@
 submodule Cisco-IOS-XR-shellutil-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-shellutil-oper {
     prefix Cisco-IOS-XR-shellutil-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR shellutil package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-01-07" {
+  revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
   }
 
   typedef Time-source {
     type enumeration {
-      enum error {
+      enum "error" {
         value 0;
-        description "Error";
+        description
+          "Error";
       }
-      enum none {
+      enum "none" {
         value 1;
-        description "Unsynchronized time";
+        description
+          "Unsynchronized time";
       }
-      enum ntp {
+      enum "ntp" {
         value 2;
-        description "Network time protocol";
+        description
+          "Network time protocol";
       }
-      enum manual {
+      enum "manual" {
         value 3;
-        description "User configured";
+        description
+          "User configured";
       }
-      enum calendar {
+      enum "calendar" {
         value 4;
-        description "Hardware calendar";
+        description
+          "Hardware calendar";
       }
     }
-    description "Time source";
+    description
+      "Time source";
   }
 
   grouping SYSTEM-UPTIME {
-    description "System uptime";
+    description
+      "System uptime";
     leaf host-name {
       type string;
-      description "Host name";
+      description
+        "Host name";
     }
     leaf uptime {
       type uint32;
       units "second";
       description
         "Amount of time in seconds since this system    
-        was last initialized";
+         was last initialized";
     }
   }
 
   grouping TIME-DATE {
-    description "Date and time";
+    description
+      "Date and time";
     leaf year {
       type uint16;
-      description "Year [0..65535]";
+      description
+        "Year [0..65535]";
     }
     leaf month {
       type uint8;
-      description "Month [1..12]";
+      description
+        "Month [1..12]";
     }
     leaf day {
       type uint8;
-      description "Day [1..31]";
+      description
+        "Day [1..31]";
     }
     leaf hour {
       type uint8;
-      description "Hour [0..23]";
+      description
+        "Hour [0..23]";
     }
     leaf minute {
       type uint8;
-      description "Minute [0..59]";
+      description
+        "Minute [0..59]";
     }
     leaf second {
       type uint8;
-      description "Second [0..60], use 60 for leap-second";
+      description
+        "Second [0..60], use 60 for leap-second";
     }
     leaf millisecond {
       type uint16;
-      description "Millisecond [0..999]";
+      description
+        "Millisecond [0..999]";
     }
     leaf wday {
       type uint16;
-      description "Week Day [0..6]";
+      description
+        "Week Day [0..6]";
     }
     leaf time-zone {
       type string;
-      description "Time zone";
+      description
+        "Time zone";
     }
     leaf time-source {
       type Time-source;
-      description "Time source";
+      description
+        "Time source";
     }
   }
 }

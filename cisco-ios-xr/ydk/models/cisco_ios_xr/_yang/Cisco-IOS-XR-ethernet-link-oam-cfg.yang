@@ -1,284 +1,331 @@
 module Cisco-IOS-XR-ethernet-link-oam-cfg {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-link-oam-cfg";
+  prefix ethernet-link-oam-cfg;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-snmp-agent-cfg {
+    prefix a1;
+  }
+  import Cisco-IOS-XR-l2-eth-infra-cfg {
+    prefix a2;
+  }
+  import Cisco-IOS-XR-ifmgr-cfg {
+    prefix a3;
+  }
 
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-ethernet-link-oam-cfg";
-
-
-  prefix "ethernet-link-oam-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-snmp-agent-cfg { prefix "a1"; }
-
-  import Cisco-IOS-XR-l2-eth-infra-cfg { prefix "a2"; }
-
-  import Cisco-IOS-XR-ifmgr-cfg { prefix "a3"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ethernet-link-oam package configuration.
-
+     
      This YANG module augments the
        Cisco-IOS-XR-snmp-agent-cfg,
        Cisco-IOS-XR-l2-eth-infra-cfg,
        Cisco-IOS-XR-ifmgr-cfg
      modules with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ether-link-oam-threshold-window-multiplier-enum {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "Do not use a multiplier";
+        description
+          "Do not use a multiplier";
       }
-      enum thousand {
+      enum "thousand" {
         value 1;
-        description "Use multiplier of 1000";
+        description
+          "Use multiplier of 1000";
       }
-      enum million {
+      enum "million" {
         value 2;
-        description "Use multiplier of 1,000,000";
+        description
+          "Use multiplier of 1,000,000";
       }
-      enum billion {
+      enum "billion" {
         value 3;
-        description "Use multiplier of 1,000,000,000";
+        description
+          "Use multiplier of 1,000,000,000";
       }
     }
-    description "Ether link oam threshold window multiplier enum";
+    description
+      "Ether link oam threshold window multiplier enum";
   }
+
   typedef Ether-link-oam-threshold-units-frames-enum {
     type enumeration {
-      enum frames {
+      enum "frames" {
         value 3;
-        description "Define threshold in frames";
+        description
+          "Define threshold in frames";
       }
-      enum ppm {
+      enum "ppm" {
         value 4;
-        description "Define threshold in parts per million";
+        description
+          "Define threshold in parts per million";
       }
     }
-    description "Ether link oam threshold units frames enum";
+    description
+      "Ether link oam threshold units frames enum";
   }
+
   typedef Ether-link-oam-threshold-units-symbols-enum {
     type enumeration {
-      enum symbols {
+      enum "symbols" {
         value 2;
-        description "Define threshold in symbols";
+        description
+          "Define threshold in symbols";
       }
-      enum ppm {
+      enum "ppm" {
         value 4;
-        description "Define threshold in parts per million";
+        description
+          "Define threshold in parts per million";
       }
     }
-    description "Ether link oam threshold units symbols enum";
+    description
+      "Ether link oam threshold units symbols enum";
   }
+
   typedef Ether-link-oam-window-units-symbols-enum {
     type enumeration {
-      enum milliseconds {
+      enum "milliseconds" {
         value 1;
-        description "Define window in milliseconds";
+        description
+          "Define window in milliseconds";
       }
-      enum symbols {
+      enum "symbols" {
         value 2;
-        description "Define window in symbols";
+        description
+          "Define window in symbols";
       }
     }
-    description "Ether link oam window units symbols enum";
+    description
+      "Ether link oam window units symbols enum";
   }
+
   typedef Ether-link-oam-window-units-frames-enum {
     type enumeration {
-      enum milliseconds {
+      enum "milliseconds" {
         value 1;
-        description "Define window in milliseconds";
+        description
+          "Define window in milliseconds";
       }
-      enum frames {
+      enum "frames" {
         value 3;
-        description "Define window in frames";
+        description
+          "Define window in frames";
       }
     }
-    description "Ether link oam window units frames enum";
+    description
+      "Ether link oam window units frames enum";
   }
+
   typedef Ether-link-oam-require-mode-enum {
     type enumeration {
-      enum passive {
+      enum "passive" {
         value 0;
-        description "Ethernet Link OAM Passive mode";
+        description
+          "Ethernet Link OAM Passive mode";
       }
-      enum active {
+      enum "active" {
         value 1;
-        description "Ethernet Link OAM Active mode";
+        description
+          "Ethernet Link OAM Active mode";
       }
-      enum dont-care {
+      enum "dont-care" {
         value 2;
-        description "Ethernet Link OAM mode not required";
+        description
+          "Ethernet Link OAM mode not required";
       }
     }
-    description "Ether link oam require mode enum";
+    description
+      "Ether link oam require mode enum";
   }
+
   typedef Ether-link-oam-event-action-enum-efd {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 1;
-        description "Perform no action";
+        description
+          "Perform no action";
       }
-      enum error-disable {
+      enum "error-disable" {
         value 2;
-        description "Disable the interface";
+        description
+          "Disable the interface";
       }
-      enum log {
+      enum "log" {
         value 3;
-        description "Log the event";
+        description
+          "Log the event";
       }
-      enum efd {
+      enum "efd" {
         value 4;
-        description "EFD the interface";
+        description
+          "EFD the interface";
       }
     }
-    description "Ether link oam event action enum efd";
+    description
+      "Ether link oam event action enum efd";
   }
+
   typedef Ether-link-oam-event-action-prim-enum {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 1;
-        description "Perform no action";
+        description
+          "Perform no action";
       }
-      enum log {
+      enum "log" {
         value 3;
-        description "Log the event";
+        description
+          "Log the event";
       }
     }
-    description "Ether link oam event action prim enum";
+    description
+      "Ether link oam event action prim enum";
   }
+
   typedef Ether-link-oam-mode-enum {
     type enumeration {
-      enum passive {
+      enum "passive" {
         value 0;
-        description "Ethernet Link OAM Passive mode";
+        description
+          "Ethernet Link OAM Passive mode";
       }
-      enum active {
+      enum "active" {
         value 1;
-        description "Ethernet Link OAM Active mode";
+        description
+          "Ethernet Link OAM Active mode";
       }
     }
-    description "Ether link oam mode enum";
+    description
+      "Ether link oam mode enum";
   }
+
   typedef Ether-link-oam-event-action-enum {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 1;
-        description "Perform no action";
+        description
+          "Perform no action";
       }
-      enum error-disable {
+      enum "error-disable" {
         value 2;
-        description "Disable the interface";
+        description
+          "Disable the interface";
       }
-      enum log {
+      enum "log" {
         value 3;
-        description "Log the event";
+        description
+          "Log the event";
       }
     }
-    description "Ether link oam event action enum";
+    description
+      "Ether link oam event action enum";
   }
+
   typedef Ether-link-oam-hello-interval-enum {
     type enumeration {
-      enum 1s {
+      enum "1s" {
         value 0;
-        description "1 s OAM hello interval";
+        description
+          "1 s OAM hello interval";
       }
-      enum 100ms {
+      enum "100ms" {
         value 1;
-        description "100 ms OAM hello interval";
+        description
+          "100 ms OAM hello interval";
       }
     }
-    description "Ether link oam hello interval enum";
+    description
+      "Ether link oam hello interval enum";
   }
 
   grouping LINK-MONITORING {
-    description "Common node of profile, ether-link-oam";
-
+    description
+      "Common node of profile, ether-link-oam";
     container link-monitoring {
-      description "Configure link monitor parameters";
-
+      description
+        "Configure link monitor parameters";
       container symbol-period {
-        description "Symbol-period event configuration";
-
+        description
+          "Symbol-period event configuration";
         container window {
           presence "Indicates a window node is configured.";
           description
             "Window size configuration for symbol-period
-            events";
+             events";
           leaf window {
             type uint32 {
               range "1..4294967295";
             }
             mandatory true;
-            description "Size of the symbol-period window";
+            description
+              "Size of the symbol-period window";
           }
           leaf units {
             type Ether-link-oam-window-units-symbols-enum;
             mandatory true;
-            description "Units to use for this window";
+            description
+              "Units to use for this window";
           }
           leaf multiplier {
             type Ether-link-oam-threshold-window-multiplier-enum;
             default "none";
             description
               "The multiplier to use for this window (only
-              valid if 'Units' is Symbols and treated as 1
-              if unspecified)";
+               valid if 'Units' is Symbols and treated as 1
+               if unspecified)";
           }
         }
-
         container threshold {
           description
             "Threshold configuration for symbol-period
-            events";
+             events";
           leaf threshold-low {
             type uint32 {
               range "1..4294967295";
             }
             must "../units";
             default "1";
-            description "The low threshold for symbol-period";
+            description
+              "The low threshold for symbol-period";
           }
           leaf threshold-high {
             type uint32 {
               range "1..4294967295";
             }
             must "../units";
-            description "The high threshold for symbol-period";
+            description
+              "The high threshold for symbol-period";
           }
           leaf units {
             type Ether-link-oam-threshold-units-symbols-enum;
             must "../threshold-low or ../threshold-high";
             default "symbols";
-            description "The units to use for these thresholds";
+            description
+              "The units to use for these thresholds";
           }
           leaf multiplier-low {
             type Ether-link-oam-threshold-window-multiplier-enum;
@@ -286,61 +333,62 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
             default "none";
             description
               "The multiplier to use for the low threshold
-              (only valid if 'Units' is Symbols and treated
-              as 1 if unspecified)";
+               (only valid if 'Units' is Symbols and treated
+               as 1 if unspecified)";
           }
           leaf multiplier-high {
             type Ether-link-oam-threshold-window-multiplier-enum;
             must "../threshold-high and ../units";
             description
               "The multiplier to use for the high threshold
-              (only valid if 'Units' is Symbols and treated
-              as 1 if unspecified)";
+               (only valid if 'Units' is Symbols and treated
+               as 1 if unspecified)";
           }
         }
       }
-
       container frame-period {
-        description "Frame-period event configuration";
-
+        description
+          "Frame-period event configuration";
         container window {
           presence "Indicates a window node is configured.";
           description
             "Window size configuration for frame-period
-            events";
+             events";
           leaf window {
             type uint32 {
               range "1..4294967295";
             }
             mandatory true;
-            description "Size of the frame-period window";
+            description
+              "Size of the frame-period window";
           }
           leaf units {
             type Ether-link-oam-window-units-frames-enum;
             mandatory true;
-            description "The units to use for this window";
+            description
+              "The units to use for this window";
           }
           leaf multiplier {
             type Ether-link-oam-threshold-window-multiplier-enum;
             default "none";
             description
               "The multiplier to use for this window (only
-              valid if 'Units' is Frames and treated as 1
-              if unspecified)";
+               valid if 'Units' is Frames and treated as 1
+               if unspecified)";
           }
         }
-
         container threshold {
           description
             "Threshold configuration for frame-period
-            events";
+             events";
           leaf threshold-low {
             type uint32 {
               range "1..4294967295";
             }
             must "../units";
             default "1";
-            description "The low threshold for frame-period events";
+            description
+              "The low threshold for frame-period events";
           }
           leaf threshold-high {
             type uint32 {
@@ -354,7 +402,8 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
             type Ether-link-oam-threshold-units-frames-enum;
             must "../threshold-low or ../threshold-high";
             default "ppm";
-            description "The units to use for these thresholds";
+            description
+              "The units to use for these thresholds";
           }
           leaf multiplier-low {
             type Ether-link-oam-threshold-window-multiplier-enum;
@@ -362,27 +411,26 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
             default "none";
             description
               "The multiplier to use for the low threshold
-              (only valid if 'Units' is Frames and treated
-              as 1 if unspecified)";
+               (only valid if 'Units' is Frames and treated
+               as 1 if unspecified)";
           }
           leaf multiplier-high {
             type Ether-link-oam-threshold-window-multiplier-enum;
             must "../threshold-high and ../units";
             description
               "The multiplier to use for the high threshold
-              (only valid if 'Units' is Frames and treated
-              as 1 if unspecified)";
+               (only valid if 'Units' is Frames and treated
+               as 1 if unspecified)";
           }
         }
       }
-
       container frame-seconds {
-        description "Frame-seconds event configuration";
-
+        description
+          "Frame-seconds event configuration";
         container threshold {
           description
             "Threshold configuration for frame-seconds
-            events";
+             events";
           leaf threshold-low {
             type uint32 {
               range "1..900";
@@ -409,27 +457,29 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
           default "60000";
           description
             "Window size configuration for frame-seconds
-            events";
+             events";
         }
       }
-
       container frame {
-        description "Frame event configuration";
-
+        description
+          "Frame event configuration";
         container threshold {
-          description "Threshold configuration for frame events";
+          description
+            "Threshold configuration for frame events";
           leaf threshold-low {
             type uint32 {
               range "1..4294967295";
             }
             default "1";
-            description "The low threshold for frame events";
+            description
+              "The low threshold for frame events";
           }
           leaf threshold-high {
             type uint32 {
               range "1..4294967295";
             }
-            description "The high threshold for frame events";
+            description
+              "The high threshold for frame events";
           }
           leaf multiplier-low {
             type Ether-link-oam-threshold-window-multiplier-enum;
@@ -437,14 +487,14 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
             default "none";
             description
               "The multiplier to use for the low threshold
-              (treated as 1 if unspecified)";
+               (treated as 1 if unspecified)";
           }
           leaf multiplier-high {
             type Ether-link-oam-threshold-window-multiplier-enum;
             must "../threshold-high";
             description
               "The multiplier to use for the high threshold
-              (treated as 1 if unspecified)";
+               (treated as 1 if unspecified)";
           }
         }
         leaf window {
@@ -453,52 +503,58 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
           }
           units "millisecond";
           default "1000";
-          description "Window size configuration for frame events";
+          description
+            "Window size configuration for frame events";
         }
       }
       leaf monitoring {
         type boolean;
-        description "Enable or disable monitoring";
+        description
+          "Enable or disable monitoring";
       }
     }
   }
 
-  augment "/a3:interface-configurations/a3:interface-configuration"+
-    "/a2:ethernet-features" {
-    leaf ether-link-oam-enable {
-      type empty;
-      description "Enable Ethernet Link OAM on the interface";
-    }
+  augment "/a3:interface-configurations/a3:interface-configuration/a2:ethernet-features" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-l2-eth-infra-cfg'";
+       'Cisco-IOS-XR-l2-eth-infra-cfg'";
+    leaf ether-link-oam-enable {
+      type empty;
+      description
+        "Enable Ethernet Link OAM on the interface";
+    }
   }
-
-  augment "/a3:interface-configurations/a3:interface-configuration"+
-    "/a2:ethernet-features" {
-
+  augment "/a3:interface-configurations/a3:interface-configuration/a2:ethernet-features" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-l2-eth-infra-cfg'";
     container ether-link-oam {
-      description "Ethernet Link OAM Interface Configuration";
-
+      description
+        "Ethernet Link OAM Interface Configuration";
       container action {
-        description "Configure action parameters";
+        description
+          "Configure action parameters";
         leaf dying-gasp {
           type Ether-link-oam-event-action-enum;
-          description "Action to perform when a dying gasp occurs";
+          description
+            "Action to perform when a dying gasp occurs";
         }
         leaf link-fault {
           type Ether-link-oam-event-action-enum-efd;
-          description "Action to perform when a link fault occurs";
+          description
+            "Action to perform when a link fault occurs";
         }
         leaf capabilities-conflict {
           type Ether-link-oam-event-action-enum-efd;
           description
             "Action to perform when a capabilities conflict
-            occurs";
+             occurs";
         }
         leaf session-up {
           type Ether-link-oam-event-action-prim-enum;
-          description "Action to perform when a session comes up";
+          description
+            "Action to perform when a session comes up";
         }
         leaf critical-event {
           type Ether-link-oam-event-action-enum;
@@ -509,55 +565,57 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
           type Ether-link-oam-event-action-prim-enum;
           description
             "Action to perform when remote loopback is
-            entered or exited";
+             entered or exited";
         }
         leaf wiring-conflict {
           type Ether-link-oam-event-action-enum-efd;
           description
             "Action to perform when a wiring conflict
-            occurs";
+             occurs";
         }
         leaf high-threshold {
           type Ether-link-oam-event-action-enum;
           description
             "Action to perform when a high-threshold event
-            occurs";
+             occurs";
         }
         leaf discovery-timeout {
           type Ether-link-oam-event-action-enum-efd;
           description
             "Action to perform when discovery timeout
-            occurs";
+             occurs";
         }
         leaf session-down {
           type Ether-link-oam-event-action-enum-efd;
-          description "Action to perform when a session comes down";
+          description
+            "Action to perform when a session comes down";
         }
       }
-
       container require-remote {
-        description "Configure remote requirement parameters";
+        description
+          "Configure remote requirement parameters";
         leaf mode {
           type Ether-link-oam-require-mode-enum;
-          description "Possible required peer modes";
+          description
+            "Possible required peer modes";
         }
         leaf mib-retrieval {
           type boolean;
           description
             "Enable or disable MIB retrieval peer
-            requirement";
+             requirement";
         }
         leaf remote-loopback {
           type boolean;
           description
             "Enable or disable remote loopback peer
-            requirement";
+             requirement";
         }
         leaf link-monitoring {
           type boolean;
           description
             "Enable or disable link monitoring peer
-            requirement";
+             requirement";
         }
       }
       leaf timeout {
@@ -566,55 +624,59 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
         }
         description
           "Connection timeout period in number of lost
-          heartbeats";
+           heartbeats";
       }
       leaf mode {
         type Ether-link-oam-mode-enum;
-        description "Possible Ethernet Link OAM modes";
+        description
+          "Possible Ethernet Link OAM modes";
       }
       leaf mib-retrieval {
         type boolean;
-        description "Enable or disable MIB retrieval";
+        description
+          "Enable or disable MIB retrieval";
       }
       leaf profile-name {
         type string;
-        description "Set the profile to use on the interface";
+        description
+          "Set the profile to use on the interface";
       }
       leaf remote-loopback {
         type boolean;
-        description "Enable or disable remote loopback";
+        description
+          "Enable or disable remote loopback";
       }
       leaf hello-interval {
         type Ether-link-oam-hello-interval-enum;
-        description "Possible Ethernet Link OAM hello intervals";
+        description
+          "Possible Ethernet Link OAM hello intervals";
       }
       leaf udlf {
         type boolean;
         description
           "Enable or disable uni-directional link-fault
-          detection";
+           detection";
       }
       uses LINK-MONITORING;
     }
+  }
+  augment "/a2:ethernet-features" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-l2-eth-infra-cfg'";
-  }
-
-  augment "/a2:ethernet-features" {
-
+       'Cisco-IOS-XR-l2-eth-infra-cfg'";
     container ether-link-oam {
-      description "Ethernet Link OAM Global Configuration";
-
+      description
+        "Ethernet Link OAM Global Configuration";
       container profiles {
-        description "Table of Ethernet Link OAM profiles";
-
+        description
+          "Table of Ethernet Link OAM profiles";
         list profile {
           key "profile";
-          description "Name of the profile";
-
+          description
+            "Name of the profile";
           container action {
-            description "Configure action parameters";
+            description
+              "Configure action parameters";
             leaf dying-gasp {
               type Ether-link-oam-event-action-enum;
               description
@@ -629,7 +691,7 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
               type Ether-link-oam-event-action-enum;
               description
                 "Action to perform when a critical event
-                occurs";
+                 occurs";
             }
             leaf session-down {
               type Ether-link-oam-event-action-enum-efd;
@@ -640,42 +702,42 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
               type Ether-link-oam-event-action-enum-efd;
               description
                 "Action to perform when discovery timeout
-                occurs";
+                 occurs";
             }
             leaf high-threshold {
               type Ether-link-oam-event-action-enum;
               description
                 "Action to perform when a high-threshold
-                event occurs";
+                 event occurs";
             }
             leaf capabilities-conflict {
               type Ether-link-oam-event-action-enum-efd;
               description
                 "Action to perform when a capabilities
-                conflict occurs";
+                 conflict occurs";
             }
             leaf remote-loopback {
               type Ether-link-oam-event-action-prim-enum;
               description
                 "Action to perform when remote loopback is
-                entered or exited";
+                 entered or exited";
             }
             leaf link-fault {
               type Ether-link-oam-event-action-enum-efd;
               description
                 "Action to perform when a link fault message
-                is received";
+                 is received";
             }
             leaf wiring-conflict {
               type Ether-link-oam-event-action-enum-efd;
               description
                 "Action to perform when a wiring conflict
-                occurs";
+                 occurs";
             }
           }
-
           container require-remote {
-            description "Configure remote requirement parameters";
+            description
+              "Configure remote requirement parameters";
             leaf mib-retrieval {
               type boolean;
               description
@@ -683,30 +745,32 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
             }
             leaf mode {
               type Ether-link-oam-require-mode-enum;
-              description "Possible required OAM modes";
+              description
+                "Possible required OAM modes";
             }
             leaf remote-loopback {
               type boolean;
               description
                 "Enable or disable remote loopback
-                requirement";
+                 requirement";
             }
             leaf link-monitoring {
               type boolean;
               description
                 "Enable or disable link monitoring
-                requirement";
+                 requirement";
             }
           }
           leaf mib-retrieval {
             type boolean;
-            description "Enable or disable MIB retrieval support";
+            description
+              "Enable or disable MIB retrieval support";
           }
           leaf udlf {
             type boolean;
             description
               "Enable or disable uni-directional link-fault
-              detection support";
+               detection support";
           }
           leaf hello-interval {
             type Ether-link-oam-hello-interval-enum;
@@ -715,11 +779,13 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
           }
           leaf mode {
             type Ether-link-oam-mode-enum;
-            description "Set the OAM mode to passive";
+            description
+              "Set the OAM mode to passive";
           }
           leaf remote-loopback {
             type boolean;
-            description "Enable or disable remote loopback support";
+            description
+              "Enable or disable remote loopback support";
           }
           leaf timeout {
             type uint32 {
@@ -727,32 +793,30 @@ module Cisco-IOS-XR-ethernet-link-oam-cfg {
             }
             description
               "Connection timeout period in number of lost
-              heartbeats";
+               heartbeats";
           }
           leaf profile {
             type xr:Cisco-ios-xr-string;
-            description "none";
+            description
+              "none";
           }
           uses LINK-MONITORING;
         }
       }
     }
+  }
+  augment "/a1:snmp/a1:notification" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-l2-eth-infra-cfg'";
-  }
-
-  augment "/a1:snmp/a1:notification" {
-
+       'Cisco-IOS-XR-snmp-agent-cfg'";
     container oam {
-      description "802.3 OAM MIB notification configuration";
+      description
+        "802.3 OAM MIB notification configuration";
       leaf enable {
         type empty;
-        description "Enable 802.3 OAM MIB notifications";
+        description
+          "Enable 802.3 OAM MIB notifications";
       }
     }
-    description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-snmp-agent-cfg'";
   }
 }

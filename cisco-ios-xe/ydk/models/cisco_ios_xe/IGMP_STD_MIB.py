@@ -3,9 +3,11 @@
 The MIB module for IGMP Management.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -39,8 +41,10 @@ class IGMPSTDMIB(Entity):
         self.yang_parent_name = "IGMP-STD-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"igmpInterfaceTable" : ("igmpinterfacetable", IGMPSTDMIB.Igmpinterfacetable), "igmpCacheTable" : ("igmpcachetable", IGMPSTDMIB.Igmpcachetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("igmpInterfaceTable", ("igmpinterfacetable", IGMPSTDMIB.Igmpinterfacetable)), ("igmpCacheTable", ("igmpcachetable", IGMPSTDMIB.Igmpcachetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.igmpinterfacetable = IGMPSTDMIB.Igmpinterfacetable()
         self.igmpinterfacetable.parent = self
@@ -78,8 +82,10 @@ class IGMPSTDMIB(Entity):
             self.yang_parent_name = "IGMP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"igmpInterfaceEntry" : ("igmpinterfaceentry", IGMPSTDMIB.Igmpinterfacetable.Igmpinterfaceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("igmpInterfaceEntry", ("igmpinterfaceentry", IGMPSTDMIB.Igmpinterfacetable.Igmpinterfaceentry))])
+            self._leafs = OrderedDict()
 
             self.igmpinterfaceentry = YList(self)
             self._segment_path = lambda: "igmpInterfaceTable"
@@ -94,7 +100,7 @@ class IGMPSTDMIB(Entity):
             An entry (conceptual row) representing an interface on
             which IGMP is enabled.
             
-            .. attribute:: igmpinterfaceifindex  <key>
+            .. attribute:: igmpinterfaceifindex  (key)
             
             	The ifIndex value of the interface for which IGMP is enabled
             	**type**\: int
@@ -217,39 +223,42 @@ class IGMPSTDMIB(Entity):
                 self.yang_parent_name = "igmpInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.igmpinterfaceifindex = YLeaf(YType.int32, "igmpInterfaceIfIndex")
-
-                self.igmpinterfacequeryinterval = YLeaf(YType.uint32, "igmpInterfaceQueryInterval")
-
-                self.igmpinterfacestatus = YLeaf(YType.enumeration, "igmpInterfaceStatus")
-
-                self.igmpinterfaceversion = YLeaf(YType.uint32, "igmpInterfaceVersion")
-
-                self.igmpinterfacequerier = YLeaf(YType.str, "igmpInterfaceQuerier")
-
-                self.igmpinterfacequerymaxresponsetime = YLeaf(YType.uint32, "igmpInterfaceQueryMaxResponseTime")
-
-                self.igmpinterfacequerieruptime = YLeaf(YType.uint32, "igmpInterfaceQuerierUpTime")
-
-                self.igmpinterfacequerierexpirytime = YLeaf(YType.uint32, "igmpInterfaceQuerierExpiryTime")
-
-                self.igmpinterfaceversion1queriertimer = YLeaf(YType.uint32, "igmpInterfaceVersion1QuerierTimer")
-
-                self.igmpinterfacewrongversionqueries = YLeaf(YType.uint32, "igmpInterfaceWrongVersionQueries")
-
-                self.igmpinterfacejoins = YLeaf(YType.uint32, "igmpInterfaceJoins")
-
-                self.igmpinterfaceproxyifindex = YLeaf(YType.int32, "igmpInterfaceProxyIfIndex")
-
-                self.igmpinterfacegroups = YLeaf(YType.uint32, "igmpInterfaceGroups")
-
-                self.igmpinterfacerobustness = YLeaf(YType.uint32, "igmpInterfaceRobustness")
-
-                self.igmpinterfacelastmembqueryintvl = YLeaf(YType.uint32, "igmpInterfaceLastMembQueryIntvl")
-                self._segment_path = lambda: "igmpInterfaceEntry" + "[igmpInterfaceIfIndex='" + self.igmpinterfaceifindex.get() + "']"
+                self.ylist_key_names = ['igmpinterfaceifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('igmpinterfaceifindex', YLeaf(YType.int32, 'igmpInterfaceIfIndex')),
+                    ('igmpinterfacequeryinterval', YLeaf(YType.uint32, 'igmpInterfaceQueryInterval')),
+                    ('igmpinterfacestatus', YLeaf(YType.enumeration, 'igmpInterfaceStatus')),
+                    ('igmpinterfaceversion', YLeaf(YType.uint32, 'igmpInterfaceVersion')),
+                    ('igmpinterfacequerier', YLeaf(YType.str, 'igmpInterfaceQuerier')),
+                    ('igmpinterfacequerymaxresponsetime', YLeaf(YType.uint32, 'igmpInterfaceQueryMaxResponseTime')),
+                    ('igmpinterfacequerieruptime', YLeaf(YType.uint32, 'igmpInterfaceQuerierUpTime')),
+                    ('igmpinterfacequerierexpirytime', YLeaf(YType.uint32, 'igmpInterfaceQuerierExpiryTime')),
+                    ('igmpinterfaceversion1queriertimer', YLeaf(YType.uint32, 'igmpInterfaceVersion1QuerierTimer')),
+                    ('igmpinterfacewrongversionqueries', YLeaf(YType.uint32, 'igmpInterfaceWrongVersionQueries')),
+                    ('igmpinterfacejoins', YLeaf(YType.uint32, 'igmpInterfaceJoins')),
+                    ('igmpinterfaceproxyifindex', YLeaf(YType.int32, 'igmpInterfaceProxyIfIndex')),
+                    ('igmpinterfacegroups', YLeaf(YType.uint32, 'igmpInterfaceGroups')),
+                    ('igmpinterfacerobustness', YLeaf(YType.uint32, 'igmpInterfaceRobustness')),
+                    ('igmpinterfacelastmembqueryintvl', YLeaf(YType.uint32, 'igmpInterfaceLastMembQueryIntvl')),
+                ])
+                self.igmpinterfaceifindex = None
+                self.igmpinterfacequeryinterval = None
+                self.igmpinterfacestatus = None
+                self.igmpinterfaceversion = None
+                self.igmpinterfacequerier = None
+                self.igmpinterfacequerymaxresponsetime = None
+                self.igmpinterfacequerieruptime = None
+                self.igmpinterfacequerierexpirytime = None
+                self.igmpinterfaceversion1queriertimer = None
+                self.igmpinterfacewrongversionqueries = None
+                self.igmpinterfacejoins = None
+                self.igmpinterfaceproxyifindex = None
+                self.igmpinterfacegroups = None
+                self.igmpinterfacerobustness = None
+                self.igmpinterfacelastmembqueryintvl = None
+                self._segment_path = lambda: "igmpInterfaceEntry" + "[igmpInterfaceIfIndex='" + str(self.igmpinterfaceifindex) + "']"
                 self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/igmpInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -280,8 +289,10 @@ class IGMPSTDMIB(Entity):
             self.yang_parent_name = "IGMP-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"igmpCacheEntry" : ("igmpcacheentry", IGMPSTDMIB.Igmpcachetable.Igmpcacheentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("igmpCacheEntry", ("igmpcacheentry", IGMPSTDMIB.Igmpcachetable.Igmpcacheentry))])
+            self._leafs = OrderedDict()
 
             self.igmpcacheentry = YList(self)
             self._segment_path = lambda: "igmpCacheTable"
@@ -295,14 +306,14 @@ class IGMPSTDMIB(Entity):
             """
             An entry (conceptual row) in the igmpCacheTable.
             
-            .. attribute:: igmpcacheaddress  <key>
+            .. attribute:: igmpcacheaddress  (key)
             
             	The IP multicast group address for which this entry contains information
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: igmpcacheifindex  <key>
+            .. attribute:: igmpcacheifindex  (key)
             
             	The interface for which this entry contains information for an IP multicast group address
             	**type**\: int
@@ -361,25 +372,28 @@ class IGMPSTDMIB(Entity):
                 self.yang_parent_name = "igmpCacheTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.igmpcacheaddress = YLeaf(YType.str, "igmpCacheAddress")
-
-                self.igmpcacheifindex = YLeaf(YType.int32, "igmpCacheIfIndex")
-
-                self.igmpcacheself = YLeaf(YType.boolean, "igmpCacheSelf")
-
-                self.igmpcachelastreporter = YLeaf(YType.str, "igmpCacheLastReporter")
-
-                self.igmpcacheuptime = YLeaf(YType.uint32, "igmpCacheUpTime")
-
-                self.igmpcacheexpirytime = YLeaf(YType.uint32, "igmpCacheExpiryTime")
-
-                self.igmpcachestatus = YLeaf(YType.enumeration, "igmpCacheStatus")
-
-                self.igmpcacheversion1hosttimer = YLeaf(YType.uint32, "igmpCacheVersion1HostTimer")
-                self._segment_path = lambda: "igmpCacheEntry" + "[igmpCacheAddress='" + self.igmpcacheaddress.get() + "']" + "[igmpCacheIfIndex='" + self.igmpcacheifindex.get() + "']"
+                self.ylist_key_names = ['igmpcacheaddress','igmpcacheifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('igmpcacheaddress', YLeaf(YType.str, 'igmpCacheAddress')),
+                    ('igmpcacheifindex', YLeaf(YType.int32, 'igmpCacheIfIndex')),
+                    ('igmpcacheself', YLeaf(YType.boolean, 'igmpCacheSelf')),
+                    ('igmpcachelastreporter', YLeaf(YType.str, 'igmpCacheLastReporter')),
+                    ('igmpcacheuptime', YLeaf(YType.uint32, 'igmpCacheUpTime')),
+                    ('igmpcacheexpirytime', YLeaf(YType.uint32, 'igmpCacheExpiryTime')),
+                    ('igmpcachestatus', YLeaf(YType.enumeration, 'igmpCacheStatus')),
+                    ('igmpcacheversion1hosttimer', YLeaf(YType.uint32, 'igmpCacheVersion1HostTimer')),
+                ])
+                self.igmpcacheaddress = None
+                self.igmpcacheifindex = None
+                self.igmpcacheself = None
+                self.igmpcachelastreporter = None
+                self.igmpcacheuptime = None
+                self.igmpcacheexpirytime = None
+                self.igmpcachestatus = None
+                self.igmpcacheversion1hosttimer = None
+                self._segment_path = lambda: "igmpCacheEntry" + "[igmpCacheAddress='" + str(self.igmpcacheaddress) + "']" + "[igmpCacheIfIndex='" + str(self.igmpcacheifindex) + "']"
                 self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/igmpCacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

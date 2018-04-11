@@ -1,23 +1,27 @@
 """ Cisco_IOS_XE_virtual_service_oper 
 
-This module contains a collection of YANG definitions for monitoring
-virtual services in a Network Element.Copyright (c) 2016\-2017 by Cisco Systems, Inc.All rights reserved.
+This module contains a collection of YANG definitions for
+monitoring virtual services in a Network Element.
+Copyright (c) 2016\-2017 by Cisco Systems, Inc.
+All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
 class VirtualServices(Entity):
     """
-    Names and Status of virtual services on the device
+    Information on all virtual services
     
     .. attribute:: virtual_service
     
-    	A virtual service
+    	List of virtual services
     	**type**\: list of  		 :py:class:`VirtualService <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService>`
     
     
@@ -25,7 +29,7 @@ class VirtualServices(Entity):
     """
 
     _prefix = 'virtual-service-ios-xe-oper'
-    _revision = '2017-02-07'
+    _revision = '2017-09-25'
 
     def __init__(self):
         super(VirtualServices, self).__init__()
@@ -35,8 +39,10 @@ class VirtualServices(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-virtual-service-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"virtual-service" : ("virtual_service", VirtualServices.VirtualService)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("virtual-service", ("virtual_service", VirtualServices.VirtualService))])
+        self._leafs = OrderedDict()
 
         self.virtual_service = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-virtual-service-oper:virtual-services"
@@ -47,46 +53,51 @@ class VirtualServices(Entity):
 
     class VirtualService(Entity):
         """
-        A virtual service.
+        List of virtual services
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
-        	The name of the virtual service
+        	Virtual service name
         	**type**\: str
         
         .. attribute:: details
         
-        	Details of the virtual service
+        	Virtual service details
         	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details>`
         
         .. attribute:: utilization
         
-        	Utilization of device resources for a virtual\-service
+        	Virtual service resource utilization details
         	**type**\:  :py:class:`Utilization <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization>`
         
         .. attribute:: network_utils
         
-        	list of the network utilizations for the virtual\-service
+        	Virtual service network utilization details
         	**type**\:  :py:class:`NetworkUtils <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkUtils>`
         
         .. attribute:: storage_utils
         
-        	List of the storage utilizations for the virtual\-service
+        	Virtual service storage utilization details
         	**type**\:  :py:class:`StorageUtils <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.StorageUtils>`
+        
+        .. attribute:: processes
+        
+        	Virtual service process details
+        	**type**\:  :py:class:`Processes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Processes>`
         
         .. attribute:: attached_devices
         
-        	Details for the devices attached to this virtual service
+        	Virtual service attached device details
         	**type**\:  :py:class:`AttachedDevices <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.AttachedDevices>`
         
         .. attribute:: network_interfaces
         
-        	Details for the network interfaces
+        	Virtual service network interface details
         	**type**\:  :py:class:`NetworkInterfaces <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkInterfaces>`
         
         .. attribute:: guest_routes
         
-        	Routes for the guest interface
+        	Virtual service guest route details
         	**type**\:  :py:class:`GuestRoutes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.GuestRoutes>`
         
         
@@ -94,7 +105,7 @@ class VirtualServices(Entity):
         """
 
         _prefix = 'virtual-service-ios-xe-oper'
-        _revision = '2017-02-07'
+        _revision = '2017-09-25'
 
         def __init__(self):
             super(VirtualServices.VirtualService, self).__init__()
@@ -103,10 +114,13 @@ class VirtualServices(Entity):
             self.yang_parent_name = "virtual-services"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"details" : ("details", VirtualServices.VirtualService.Details), "utilization" : ("utilization", VirtualServices.VirtualService.Utilization), "network-utils" : ("network_utils", VirtualServices.VirtualService.NetworkUtils), "storage-utils" : ("storage_utils", VirtualServices.VirtualService.StorageUtils), "attached-devices" : ("attached_devices", VirtualServices.VirtualService.AttachedDevices), "network-interfaces" : ("network_interfaces", VirtualServices.VirtualService.NetworkInterfaces), "guest-routes" : ("guest_routes", VirtualServices.VirtualService.GuestRoutes)}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
+            self.ylist_key_names = ['name']
+            self._child_container_classes = OrderedDict([("details", ("details", VirtualServices.VirtualService.Details)), ("utilization", ("utilization", VirtualServices.VirtualService.Utilization)), ("network-utils", ("network_utils", VirtualServices.VirtualService.NetworkUtils)), ("storage-utils", ("storage_utils", VirtualServices.VirtualService.StorageUtils)), ("processes", ("processes", VirtualServices.VirtualService.Processes)), ("attached-devices", ("attached_devices", VirtualServices.VirtualService.AttachedDevices)), ("network-interfaces", ("network_interfaces", VirtualServices.VirtualService.NetworkInterfaces)), ("guest-routes", ("guest_routes", VirtualServices.VirtualService.GuestRoutes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+            ])
+            self.name = None
 
             self.details = VirtualServices.VirtualService.Details()
             self.details.parent = self
@@ -128,6 +142,11 @@ class VirtualServices(Entity):
             self._children_name_map["storage_utils"] = "storage-utils"
             self._children_yang_names.add("storage-utils")
 
+            self.processes = VirtualServices.VirtualService.Processes()
+            self.processes.parent = self
+            self._children_name_map["processes"] = "processes"
+            self._children_yang_names.add("processes")
+
             self.attached_devices = VirtualServices.VirtualService.AttachedDevices()
             self.attached_devices.parent = self
             self._children_name_map["attached_devices"] = "attached-devices"
@@ -142,7 +161,7 @@ class VirtualServices(Entity):
             self.guest_routes.parent = self
             self._children_name_map["guest_routes"] = "guest-routes"
             self._children_yang_names.add("guest-routes")
-            self._segment_path = lambda: "virtual-service" + "[name='" + self.name.get() + "']"
+            self._segment_path = lambda: "virtual-service" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-virtual-service-oper:virtual-services/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -151,7 +170,7 @@ class VirtualServices(Entity):
 
         class Details(Entity):
             """
-            Details of the virtual service.
+            Virtual service details
             
             .. attribute:: state
             
@@ -160,32 +179,32 @@ class VirtualServices(Entity):
             
             .. attribute:: package_information
             
-            	Details of the package for the virtual\-service
+            	Virtual service packaging information
             	**type**\:  :py:class:`PackageInformation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation>`
             
             .. attribute:: detailed_guest_status
             
-            	Details on the guest status
+            	Guest status details
             	**type**\:  :py:class:`DetailedGuestStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.DetailedGuestStatus>`
             
             .. attribute:: activated_profile_name
             
-            	The activated profile name
+            	Activated profile name
             	**type**\: str
             
             .. attribute:: resource_reservation
             
-            	Details of the resources reserved for this virtual service
+            	Resource reservation details
             	**type**\:  :py:class:`ResourceReservation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.ResourceReservation>`
             
             .. attribute:: guest_interface
             
-            	The name of a guest interface
+            	Guest interface name
             	**type**\: str
             
             .. attribute:: resource_admission
             
-            	Resources being allocated for the virtual\-service
+            	Resources allocated for the virtual service
             	**type**\:  :py:class:`ResourceAdmission <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.ResourceAdmission>`
             
             
@@ -193,7 +212,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-02-07'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.Details, self).__init__()
@@ -202,14 +221,17 @@ class VirtualServices(Entity):
                 self.yang_parent_name = "virtual-service"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"package-information" : ("package_information", VirtualServices.VirtualService.Details.PackageInformation), "detailed-guest-status" : ("detailed_guest_status", VirtualServices.VirtualService.Details.DetailedGuestStatus), "resource-reservation" : ("resource_reservation", VirtualServices.VirtualService.Details.ResourceReservation), "resource-admission" : ("resource_admission", VirtualServices.VirtualService.Details.ResourceAdmission)}
-                self._child_list_classes = {}
-
-                self.state = YLeaf(YType.str, "state")
-
-                self.activated_profile_name = YLeaf(YType.str, "activated-profile-name")
-
-                self.guest_interface = YLeaf(YType.str, "guest-interface")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("package-information", ("package_information", VirtualServices.VirtualService.Details.PackageInformation)), ("detailed-guest-status", ("detailed_guest_status", VirtualServices.VirtualService.Details.DetailedGuestStatus)), ("resource-reservation", ("resource_reservation", VirtualServices.VirtualService.Details.ResourceReservation)), ("resource-admission", ("resource_admission", VirtualServices.VirtualService.Details.ResourceAdmission))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('state', YLeaf(YType.str, 'state')),
+                    ('activated_profile_name', YLeaf(YType.str, 'activated-profile-name')),
+                    ('guest_interface', YLeaf(YType.str, 'guest-interface')),
+                ])
+                self.state = None
+                self.activated_profile_name = None
+                self.guest_interface = None
 
                 self.package_information = VirtualServices.VirtualService.Details.PackageInformation()
                 self.package_information.parent = self
@@ -238,31 +260,31 @@ class VirtualServices(Entity):
 
             class PackageInformation(Entity):
                 """
-                Details of the package for the virtual\-service.
+                Virtual service packaging information
                 
                 .. attribute:: name
                 
-                	Name of the package for the virtual\-service
+                	Package name
                 	**type**\: str
                 
                 .. attribute:: path
                 
-                	Path to the package
+                	Package path
                 	**type**\: str
                 
                 .. attribute:: application
                 
-                	Details of the application
+                	Application details
                 	**type**\:  :py:class:`Application <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Application>`
                 
                 .. attribute:: signing
                 
-                	Details of the key signing
+                	Key signing details
                 	**type**\:  :py:class:`Signing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Signing>`
                 
                 .. attribute:: licensing
                 
-                	Details about the license
+                	Licensing details
                 	**type**\:  :py:class:`Licensing <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.PackageInformation.Licensing>`
                 
                 
@@ -270,7 +292,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Details.PackageInformation, self).__init__()
@@ -279,12 +301,15 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"application" : ("application", VirtualServices.VirtualService.Details.PackageInformation.Application), "signing" : ("signing", VirtualServices.VirtualService.Details.PackageInformation.Signing), "licensing" : ("licensing", VirtualServices.VirtualService.Details.PackageInformation.Licensing)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.path = YLeaf(YType.str, "path")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("application", ("application", VirtualServices.VirtualService.Details.PackageInformation.Application)), ("signing", ("signing", VirtualServices.VirtualService.Details.PackageInformation.Signing)), ("licensing", ("licensing", VirtualServices.VirtualService.Details.PackageInformation.Licensing))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('path', YLeaf(YType.str, 'path')),
+                    ])
+                    self.name = None
+                    self.path = None
 
                     self.application = VirtualServices.VirtualService.Details.PackageInformation.Application()
                     self.application.parent = self
@@ -308,21 +333,26 @@ class VirtualServices(Entity):
 
                 class Application(Entity):
                     """
-                    Details of the application.
+                    Application details
                     
                     .. attribute:: name
                     
-                    	Name of the application
+                    	Application name
                     	**type**\: str
                     
                     .. attribute:: installed_version
                     
-                    	Version of the application
+                    	Application version
                     	**type**\: str
                     
                     .. attribute:: description
                     
-                    	Description of the application
+                    	Application description
+                    	**type**\: str
+                    
+                    .. attribute:: type
+                    
+                    	Application type
                     	**type**\: str
                     
                     
@@ -330,7 +360,7 @@ class VirtualServices(Entity):
                     """
 
                     _prefix = 'virtual-service-ios-xe-oper'
-                    _revision = '2017-02-07'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(VirtualServices.VirtualService.Details.PackageInformation.Application, self).__init__()
@@ -339,32 +369,37 @@ class VirtualServices(Entity):
                         self.yang_parent_name = "package-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.installed_version = YLeaf(YType.str, "installed-version")
-
-                        self.description = YLeaf(YType.str, "description")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('installed_version', YLeaf(YType.str, 'installed-version')),
+                            ('description', YLeaf(YType.str, 'description')),
+                            ('type', YLeaf(YType.str, 'type')),
+                        ])
+                        self.name = None
+                        self.installed_version = None
+                        self.description = None
+                        self.type = None
                         self._segment_path = lambda: "application"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(VirtualServices.VirtualService.Details.PackageInformation.Application, ['name', 'installed_version', 'description'], name, value)
+                        self._perform_setattr(VirtualServices.VirtualService.Details.PackageInformation.Application, ['name', 'installed_version', 'description', 'type'], name, value)
 
 
                 class Signing(Entity):
                     """
-                    Details of the key signing.
+                    Key signing details
                     
                     .. attribute:: key_type
                     
-                    	The Type of the signed key
+                    	Signed key type
                     	**type**\: str
                     
                     .. attribute:: method
                     
-                    	The method the key was signed
+                    	Method the key was signed
                     	**type**\: str
                     
                     
@@ -372,7 +407,7 @@ class VirtualServices(Entity):
                     """
 
                     _prefix = 'virtual-service-ios-xe-oper'
-                    _revision = '2017-02-07'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(VirtualServices.VirtualService.Details.PackageInformation.Signing, self).__init__()
@@ -381,12 +416,15 @@ class VirtualServices(Entity):
                         self.yang_parent_name = "package-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.key_type = YLeaf(YType.str, "key-type")
-
-                        self.method = YLeaf(YType.str, "method")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('key_type', YLeaf(YType.str, 'key-type')),
+                            ('method', YLeaf(YType.str, 'method')),
+                        ])
+                        self.key_type = None
+                        self.method = None
                         self._segment_path = lambda: "signing"
 
                     def __setattr__(self, name, value):
@@ -395,16 +433,16 @@ class VirtualServices(Entity):
 
                 class Licensing(Entity):
                     """
-                    Details about the license.
+                    Licensing details
                     
                     .. attribute:: name
                     
-                    	The name of the license
+                    	License name
                     	**type**\: str
                     
                     .. attribute:: version
                     
-                    	The version of the license
+                    	License version
                     	**type**\: str
                     
                     
@@ -412,7 +450,7 @@ class VirtualServices(Entity):
                     """
 
                     _prefix = 'virtual-service-ios-xe-oper'
-                    _revision = '2017-02-07'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(VirtualServices.VirtualService.Details.PackageInformation.Licensing, self).__init__()
@@ -421,12 +459,15 @@ class VirtualServices(Entity):
                         self.yang_parent_name = "package-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.version = YLeaf(YType.str, "version")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('version', YLeaf(YType.str, 'version')),
+                        ])
+                        self.name = None
+                        self.version = None
                         self._segment_path = lambda: "licensing"
 
                     def __setattr__(self, name, value):
@@ -435,11 +476,11 @@ class VirtualServices(Entity):
 
             class DetailedGuestStatus(Entity):
                 """
-                Details on the guest status.
+                Guest status details
                 
                 .. attribute:: processes
                 
-                	All the processes
+                	List of all processes
                 	**type**\:  :py:class:`Processes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes>`
                 
                 
@@ -447,7 +488,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Details.DetailedGuestStatus, self).__init__()
@@ -456,8 +497,10 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"processes" : ("processes", VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("processes", ("processes", VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.processes = VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes()
                     self.processes.parent = self
@@ -468,16 +511,16 @@ class VirtualServices(Entity):
 
                 class Processes(Entity):
                     """
-                    All the processes.
+                    List of all processes
                     
                     .. attribute:: name
                     
-                    	Name of the proccess
+                    	Process name
                     	**type**\: str
                     
                     .. attribute:: status
                     
-                    	Status of the proccess
+                    	Process status
                     	**type**\: str
                     
                     .. attribute:: pid
@@ -487,12 +530,12 @@ class VirtualServices(Entity):
                     
                     .. attribute:: uptime
                     
-                    	Up time of the proccess
+                    	Process uptime
                     	**type**\: str
                     
                     .. attribute:: memory
                     
-                    	Memory of the proccess
+                    	Amount of process memory
                     	**type**\: str
                     
                     
@@ -500,7 +543,7 @@ class VirtualServices(Entity):
                     """
 
                     _prefix = 'virtual-service-ios-xe-oper'
-                    _revision = '2017-02-07'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes, self).__init__()
@@ -509,18 +552,21 @@ class VirtualServices(Entity):
                         self.yang_parent_name = "detailed-guest-status"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.status = YLeaf(YType.str, "status")
-
-                        self.pid = YLeaf(YType.str, "pid")
-
-                        self.uptime = YLeaf(YType.str, "uptime")
-
-                        self.memory = YLeaf(YType.str, "memory")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('status', YLeaf(YType.str, 'status')),
+                            ('pid', YLeaf(YType.str, 'pid')),
+                            ('uptime', YLeaf(YType.str, 'uptime')),
+                            ('memory', YLeaf(YType.str, 'memory')),
+                        ])
+                        self.name = None
+                        self.status = None
+                        self.pid = None
+                        self.uptime = None
+                        self.memory = None
                         self._segment_path = lambda: "processes"
 
                     def __setattr__(self, name, value):
@@ -529,25 +575,25 @@ class VirtualServices(Entity):
 
             class ResourceReservation(Entity):
                 """
-                Details of the resources reserved for this virtual service.
+                Resource reservation details
                 
                 .. attribute:: disk
                 
-                	The amount of reserverd disk space in MB
+                	Amount of reserverd disk space in MB
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: memory
                 
-                	The amount of reserved memory in MB
+                	Amount of reserved memory in MB
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: cpu
                 
-                	The percentage of reserved cpu
+                	Amount of reserved cpu in unit
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
@@ -557,7 +603,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Details.ResourceReservation, self).__init__()
@@ -566,14 +612,17 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.disk = YLeaf(YType.uint64, "disk")
-
-                    self.memory = YLeaf(YType.uint64, "memory")
-
-                    self.cpu = YLeaf(YType.uint64, "cpu")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('disk', YLeaf(YType.uint64, 'disk')),
+                        ('memory', YLeaf(YType.uint64, 'memory')),
+                        ('cpu', YLeaf(YType.uint64, 'cpu')),
+                    ])
+                    self.disk = None
+                    self.memory = None
+                    self.cpu = None
                     self._segment_path = lambda: "resource-reservation"
 
                 def __setattr__(self, name, value):
@@ -582,33 +631,33 @@ class VirtualServices(Entity):
 
             class ResourceAdmission(Entity):
                 """
-                Resources being allocated for the virtual\-service.
+                Resources allocated for the virtual service
                 
                 .. attribute:: state
                 
-                	Thes status the of the resource allocation
+                	Status of the resource allocation
                 	**type**\: str
                 
                 .. attribute:: disk_space
                 
-                	The amount of disk space being allocated for the virtual\-service
+                	Amount of disk space allocated for the virtual service in MB
                 	**type**\: str
                 
                 .. attribute:: memory
                 
-                	The amount of memory being allocated for the virtual\-service
+                	Amount of memory allocated for the virtual service in MB
                 	**type**\: str
                 
                 .. attribute:: cpu
                 
-                	The percentage of cpu being allocated for the virtual\-service
+                	Percentage of cpu allocated for the virtual\-service in unit
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: vcpus
                 
-                	The amount of VCPUs being allocated for the virtual\-service
+                	Amount of VCPUs allocated for the virtual service
                 	**type**\: str
                 
                 
@@ -616,7 +665,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Details.ResourceAdmission, self).__init__()
@@ -625,18 +674,21 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.state = YLeaf(YType.str, "state")
-
-                    self.disk_space = YLeaf(YType.str, "disk-space")
-
-                    self.memory = YLeaf(YType.str, "memory")
-
-                    self.cpu = YLeaf(YType.uint64, "cpu")
-
-                    self.vcpus = YLeaf(YType.str, "vcpus")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('state', YLeaf(YType.str, 'state')),
+                        ('disk_space', YLeaf(YType.str, 'disk-space')),
+                        ('memory', YLeaf(YType.str, 'memory')),
+                        ('cpu', YLeaf(YType.uint64, 'cpu')),
+                        ('vcpus', YLeaf(YType.str, 'vcpus')),
+                    ])
+                    self.state = None
+                    self.disk_space = None
+                    self.memory = None
+                    self.cpu = None
+                    self.vcpus = None
                     self._segment_path = lambda: "resource-admission"
 
                 def __setattr__(self, name, value):
@@ -645,21 +697,21 @@ class VirtualServices(Entity):
 
         class Utilization(Entity):
             """
-            Utilization of device resources for a virtual\-service.
+            Virtual service resource utilization details
             
             .. attribute:: name
             
-            	The name of the virtual service
+            	Name of the virtual service
             	**type**\: str
             
             .. attribute:: cpu_util
             
-            	Details on the CPU utilization for the virtual\-service
+            	CPU utilization information
             	**type**\:  :py:class:`CpuUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization.CpuUtil>`
             
             .. attribute:: memory_util
             
-            	Details on the memory usage for the virtual\-service
+            	Memory utilization information
             	**type**\:  :py:class:`MemoryUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Utilization.MemoryUtil>`
             
             
@@ -667,7 +719,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-02-07'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.Utilization, self).__init__()
@@ -676,10 +728,13 @@ class VirtualServices(Entity):
                 self.yang_parent_name = "virtual-service"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"cpu-util" : ("cpu_util", VirtualServices.VirtualService.Utilization.CpuUtil), "memory-util" : ("memory_util", VirtualServices.VirtualService.Utilization.MemoryUtil)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("cpu-util", ("cpu_util", VirtualServices.VirtualService.Utilization.CpuUtil)), ("memory-util", ("memory_util", VirtualServices.VirtualService.Utilization.MemoryUtil))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.cpu_util = VirtualServices.VirtualService.Utilization.CpuUtil()
                 self.cpu_util.parent = self
@@ -698,25 +753,25 @@ class VirtualServices(Entity):
 
             class CpuUtil(Entity):
                 """
-                Details on the CPU utilization for the virtual\-service.
+                CPU utilization information
                 
                 .. attribute:: requested_application_util
                 
-                	Percentage of requested CPU utilization by the virtual\-service
+                	Amount of requested CPU utilization by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: actual_application_util
                 
-                	Percetnage of CPU actual utilization for the virtual\-service
+                	Percetnage of CPU actual utilization for the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: cpu_state
                 
-                	The state of the CPU utilization for the virtual\-service
+                	State of the CPU utilization for the virtual\-service
                 	**type**\: str
                 
                 
@@ -724,7 +779,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Utilization.CpuUtil, self).__init__()
@@ -733,14 +788,17 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "utilization"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.requested_application_util = YLeaf(YType.uint64, "requested-application-util")
-
-                    self.actual_application_util = YLeaf(YType.uint64, "actual-application-util")
-
-                    self.cpu_state = YLeaf(YType.str, "cpu-state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('requested_application_util', YLeaf(YType.uint64, 'requested-application-util')),
+                        ('actual_application_util', YLeaf(YType.uint64, 'actual-application-util')),
+                        ('cpu_state', YLeaf(YType.str, 'cpu-state')),
+                    ])
+                    self.requested_application_util = None
+                    self.actual_application_util = None
+                    self.cpu_state = None
                     self._segment_path = lambda: "cpu-util"
 
                 def __setattr__(self, name, value):
@@ -749,16 +807,16 @@ class VirtualServices(Entity):
 
             class MemoryUtil(Entity):
                 """
-                Details on the memory usage for the virtual\-service.
+                Memory utilization information
                 
                 .. attribute:: memory_allocation
                 
-                	Amount of memory being allocated for the virtual\-service in KB
+                	Amount of memory allocated for the virtual service in MB
                 	**type**\: str
                 
                 .. attribute:: memory_used
                 
-                	Amount of memory being used for the virtual\-service in KB
+                	Amount of used memory for the virtual service in KB
                 	**type**\: str
                 
                 
@@ -766,7 +824,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Utilization.MemoryUtil, self).__init__()
@@ -775,12 +833,15 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "utilization"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.memory_allocation = YLeaf(YType.str, "memory-allocation")
-
-                    self.memory_used = YLeaf(YType.str, "memory-used")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('memory_allocation', YLeaf(YType.str, 'memory-allocation')),
+                        ('memory_used', YLeaf(YType.str, 'memory-used')),
+                    ])
+                    self.memory_allocation = None
+                    self.memory_used = None
                     self._segment_path = lambda: "memory-util"
 
                 def __setattr__(self, name, value):
@@ -789,11 +850,11 @@ class VirtualServices(Entity):
 
         class NetworkUtils(Entity):
             """
-            list of the network utilizations for the virtual\-service.
+            Virtual service network utilization details
             
             .. attribute:: network_util
             
-            	Details on a network utilization for the virtual\-service
+            	A list of network utilization details
             	**type**\: list of  		 :py:class:`NetworkUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkUtils.NetworkUtil>`
             
             
@@ -801,7 +862,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-02-07'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.NetworkUtils, self).__init__()
@@ -810,8 +871,10 @@ class VirtualServices(Entity):
                 self.yang_parent_name = "virtual-service"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"network-util" : ("network_util", VirtualServices.VirtualService.NetworkUtils.NetworkUtil)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("network-util", ("network_util", VirtualServices.VirtualService.NetworkUtils.NetworkUtil))])
+                self._leafs = OrderedDict()
 
                 self.network_util = YList(self)
                 self._segment_path = lambda: "network-utils"
@@ -822,56 +885,56 @@ class VirtualServices(Entity):
 
             class NetworkUtil(Entity):
                 """
-                Details on a network utilization for the virtual\-service.
+                A list of network utilization details
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
-                	The name of the network that is being used for the virtual\-service
+                	Name of the network used for the virtual service
                 	**type**\: str
                 
-                .. attribute:: alias  <key>
+                .. attribute:: alias
                 
-                	The alias of the network that is being used for the virtual\-service
+                	Alias of the network used by the virtual service
                 	**type**\: str
                 
                 .. attribute:: rx_packets
                 
-                	The number of rx packets being utilized for the virtual\-service
+                	Number of packets received by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_bytes
                 
-                	The number of rx bytes being utilized for the virtual\-service
+                	Number of octets received by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_errors
                 
-                	The number of rx errors
+                	Number of RX errors by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_packets
                 
-                	The number of tx packets being utilized for the virtual\-service
+                	Number of packets transmitted by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_bytes
                 
-                	The number of tx bytes being utilized for the virtual\-service
+                	Number of octets transmitted by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_errors
                 
-                	The number of tx errors
+                	Number of TX errors by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
@@ -881,7 +944,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.NetworkUtils.NetworkUtil, self).__init__()
@@ -890,25 +953,28 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "network-utils"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.alias = YLeaf(YType.str, "alias")
-
-                    self.rx_packets = YLeaf(YType.uint64, "rx-packets")
-
-                    self.rx_bytes = YLeaf(YType.uint64, "rx-bytes")
-
-                    self.rx_errors = YLeaf(YType.uint64, "rx-errors")
-
-                    self.tx_packets = YLeaf(YType.uint64, "tx-packets")
-
-                    self.tx_bytes = YLeaf(YType.uint64, "tx-bytes")
-
-                    self.tx_errors = YLeaf(YType.uint64, "tx-errors")
-                    self._segment_path = lambda: "network-util" + "[name='" + self.name.get() + "']" + "[alias='" + self.alias.get() + "']"
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('alias', YLeaf(YType.str, 'alias')),
+                        ('rx_packets', YLeaf(YType.uint64, 'rx-packets')),
+                        ('rx_bytes', YLeaf(YType.uint64, 'rx-bytes')),
+                        ('rx_errors', YLeaf(YType.uint64, 'rx-errors')),
+                        ('tx_packets', YLeaf(YType.uint64, 'tx-packets')),
+                        ('tx_bytes', YLeaf(YType.uint64, 'tx-bytes')),
+                        ('tx_errors', YLeaf(YType.uint64, 'tx-errors')),
+                    ])
+                    self.name = None
+                    self.alias = None
+                    self.rx_packets = None
+                    self.rx_bytes = None
+                    self.rx_errors = None
+                    self.tx_packets = None
+                    self.tx_bytes = None
+                    self.tx_errors = None
+                    self._segment_path = lambda: "network-util" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.NetworkUtils.NetworkUtil, ['name', 'alias', 'rx_packets', 'rx_bytes', 'rx_errors', 'tx_packets', 'tx_bytes', 'tx_errors'], name, value)
@@ -916,11 +982,11 @@ class VirtualServices(Entity):
 
         class StorageUtils(Entity):
             """
-            List of the storage utilizations for the virtual\-service.
+            Virtual service storage utilization details
             
             .. attribute:: storage_util
             
-            	Details on a storage utilization for the virtual\-service
+            	List of storage utilization details
             	**type**\: list of  		 :py:class:`StorageUtil <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.StorageUtils.StorageUtil>`
             
             
@@ -928,7 +994,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-02-07'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.StorageUtils, self).__init__()
@@ -937,8 +1003,10 @@ class VirtualServices(Entity):
                 self.yang_parent_name = "virtual-service"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"storage-util" : ("storage_util", VirtualServices.VirtualService.StorageUtils.StorageUtil)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("storage-util", ("storage_util", VirtualServices.VirtualService.StorageUtils.StorageUtil))])
+                self._leafs = OrderedDict()
 
                 self.storage_util = YList(self)
                 self._segment_path = lambda: "storage-utils"
@@ -949,75 +1017,75 @@ class VirtualServices(Entity):
 
             class StorageUtil(Entity):
                 """
-                Details on a storage utilization for the virtual\-service.
+                List of storage utilization details
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
-                	The name of the storage process being used for the virtual\-service
+                	Name of the storage device used for the virtual service
                 	**type**\: str
                 
-                .. attribute:: alias  <key>
+                .. attribute:: alias
                 
-                	The alias of the storage process being used for the virtual\-service
+                	Alias of the storage device used by the virtual service
                 	**type**\: str
                 
                 .. attribute:: rd_bytes
                 
-                	The number of RD bytes being used for the virtual\-service
+                	Number of bytes read by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rd_requests
                 
-                	The number of rd requests being used for the virtual\-service
+                	Number of read requests made by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: errors
                 
-                	The name of errors on the storage process
+                	Number of storage error seen by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: wr_bytes
                 
-                	The number of WR bytes for the virtual\-service
+                	Number of bytes written by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: wr_requests
                 
-                	The number of WR requests for the virtual\-service
+                	Number of write requests made by the virtual service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: capacity
                 
-                	The storage capactity in 1K blocks
+                	Storage capactity in 1K blocks
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: available
                 
-                	The available storage in 1K blocks
+                	Available storage in 1K blocks
                 	**type**\: str
                 
                 .. attribute:: used
                 
-                	The number of 1K blocks being used
+                	Used storage in 1K blocks
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: usage
                 
-                	The percetage of storage capactiy being used
+                	Percetage of storage capactiy used by the virtual service
                 	**type**\: str
                 
                 
@@ -1025,7 +1093,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.StorageUtils.StorageUtil, self).__init__()
@@ -1034,43 +1102,145 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "storage-utils"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.alias = YLeaf(YType.str, "alias")
-
-                    self.rd_bytes = YLeaf(YType.uint64, "rd-bytes")
-
-                    self.rd_requests = YLeaf(YType.uint64, "rd-requests")
-
-                    self.errors = YLeaf(YType.uint64, "errors")
-
-                    self.wr_bytes = YLeaf(YType.uint64, "wr-bytes")
-
-                    self.wr_requests = YLeaf(YType.uint64, "wr-requests")
-
-                    self.capacity = YLeaf(YType.uint64, "capacity")
-
-                    self.available = YLeaf(YType.str, "available")
-
-                    self.used = YLeaf(YType.uint64, "used")
-
-                    self.usage = YLeaf(YType.str, "usage")
-                    self._segment_path = lambda: "storage-util" + "[name='" + self.name.get() + "']" + "[alias='" + self.alias.get() + "']"
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('alias', YLeaf(YType.str, 'alias')),
+                        ('rd_bytes', YLeaf(YType.uint64, 'rd-bytes')),
+                        ('rd_requests', YLeaf(YType.uint64, 'rd-requests')),
+                        ('errors', YLeaf(YType.uint64, 'errors')),
+                        ('wr_bytes', YLeaf(YType.uint64, 'wr-bytes')),
+                        ('wr_requests', YLeaf(YType.uint64, 'wr-requests')),
+                        ('capacity', YLeaf(YType.uint64, 'capacity')),
+                        ('available', YLeaf(YType.str, 'available')),
+                        ('used', YLeaf(YType.uint64, 'used')),
+                        ('usage', YLeaf(YType.str, 'usage')),
+                    ])
+                    self.name = None
+                    self.alias = None
+                    self.rd_bytes = None
+                    self.rd_requests = None
+                    self.errors = None
+                    self.wr_bytes = None
+                    self.wr_requests = None
+                    self.capacity = None
+                    self.available = None
+                    self.used = None
+                    self.usage = None
+                    self._segment_path = lambda: "storage-util" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.StorageUtils.StorageUtil, ['name', 'alias', 'rd_bytes', 'rd_requests', 'errors', 'wr_bytes', 'wr_requests', 'capacity', 'available', 'used', 'usage'], name, value)
 
 
+        class Processes(Entity):
+            """
+            Virtual service process details
+            
+            .. attribute:: process
+            
+            	List of process details
+            	**type**\: list of  		 :py:class:`Process <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.Processes.Process>`
+            
+            
+
+            """
+
+            _prefix = 'virtual-service-ios-xe-oper'
+            _revision = '2017-09-25'
+
+            def __init__(self):
+                super(VirtualServices.VirtualService.Processes, self).__init__()
+
+                self.yang_name = "processes"
+                self.yang_parent_name = "virtual-service"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("process", ("process", VirtualServices.VirtualService.Processes.Process))])
+                self._leafs = OrderedDict()
+
+                self.process = YList(self)
+                self._segment_path = lambda: "processes"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(VirtualServices.VirtualService.Processes, [], name, value)
+
+
+            class Process(Entity):
+                """
+                List of process details
+                
+                .. attribute:: name  (key)
+                
+                	Process name
+                	**type**\: str
+                
+                .. attribute:: status
+                
+                	Process status
+                	**type**\: str
+                
+                .. attribute:: pid
+                
+                	Process ID
+                	**type**\: str
+                
+                .. attribute:: uptime
+                
+                	Process uptime
+                	**type**\: str
+                
+                .. attribute:: memory
+                
+                	Amount of process memory
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'virtual-service-ios-xe-oper'
+                _revision = '2017-09-25'
+
+                def __init__(self):
+                    super(VirtualServices.VirtualService.Processes.Process, self).__init__()
+
+                    self.yang_name = "process"
+                    self.yang_parent_name = "processes"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('status', YLeaf(YType.str, 'status')),
+                        ('pid', YLeaf(YType.str, 'pid')),
+                        ('uptime', YLeaf(YType.str, 'uptime')),
+                        ('memory', YLeaf(YType.str, 'memory')),
+                    ])
+                    self.name = None
+                    self.status = None
+                    self.pid = None
+                    self.uptime = None
+                    self.memory = None
+                    self._segment_path = lambda: "process" + "[name='" + str(self.name) + "']"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(VirtualServices.VirtualService.Processes.Process, ['name', 'status', 'pid', 'uptime', 'memory'], name, value)
+
+
         class AttachedDevices(Entity):
             """
-            Details for the devices attached to this virtual service.
+            Virtual service attached device details
             
             .. attribute:: attached_device
             
-            	List of attached devices
+            	A list of attached device details
             	**type**\: list of  		 :py:class:`AttachedDevice <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.AttachedDevices.AttachedDevice>`
             
             
@@ -1078,7 +1248,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-02-07'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.AttachedDevices, self).__init__()
@@ -1087,8 +1257,10 @@ class VirtualServices(Entity):
                 self.yang_parent_name = "virtual-service"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"attached-device" : ("attached_device", VirtualServices.VirtualService.AttachedDevices.AttachedDevice)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("attached-device", ("attached_device", VirtualServices.VirtualService.AttachedDevices.AttachedDevice))])
+                self._leafs = OrderedDict()
 
                 self.attached_device = YList(self)
                 self._segment_path = lambda: "attached-devices"
@@ -1099,21 +1271,21 @@ class VirtualServices(Entity):
 
             class AttachedDevice(Entity):
                 """
-                List of attached devices.
+                A list of attached device details
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
-                	The name of the attached device
+                	Attached device name
                 	**type**\: str
                 
                 .. attribute:: type
                 
-                	The type of the attached device
+                	Attached device type
                 	**type**\: str
                 
                 .. attribute:: alias
                 
-                	The alias for the attached device
+                	Attached device alias
                 	**type**\: str
                 
                 
@@ -1121,7 +1293,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.AttachedDevices.AttachedDevice, self).__init__()
@@ -1130,15 +1302,18 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "attached-devices"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.type = YLeaf(YType.str, "type")
-
-                    self.alias = YLeaf(YType.str, "alias")
-                    self._segment_path = lambda: "attached-device" + "[name='" + self.name.get() + "']"
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('type', YLeaf(YType.str, 'type')),
+                        ('alias', YLeaf(YType.str, 'alias')),
+                    ])
+                    self.name = None
+                    self.type = None
+                    self.alias = None
+                    self._segment_path = lambda: "attached-device" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.AttachedDevices.AttachedDevice, ['name', 'type', 'alias'], name, value)
@@ -1146,11 +1321,11 @@ class VirtualServices(Entity):
 
         class NetworkInterfaces(Entity):
             """
-            Details for the network interfaces.
+            Virtual service network interface details
             
             .. attribute:: network_interface
             
-            	Details for a network interface
+            	A list of network interface details
             	**type**\: list of  		 :py:class:`NetworkInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_virtual_service_oper.VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface>`
             
             
@@ -1158,7 +1333,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-02-07'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.NetworkInterfaces, self).__init__()
@@ -1167,8 +1342,10 @@ class VirtualServices(Entity):
                 self.yang_parent_name = "virtual-service"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"network-interface" : ("network_interface", VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("network-interface", ("network_interface", VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface))])
+                self._leafs = OrderedDict()
 
                 self.network_interface = YList(self)
                 self._segment_path = lambda: "network-interfaces"
@@ -1179,26 +1356,33 @@ class VirtualServices(Entity):
 
             class NetworkInterface(Entity):
                 """
-                Details for a network interface.
+                A list of network interface details
                 
-                .. attribute:: mac_address  <key>
+                .. attribute:: mac_address  (key)
                 
-                	The MAC address for the network interface
+                	MAC address for the network interface
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: attached_interface
                 
-                	Name of the the attached interface
+                	Attached interface name
                 	**type**\: str
+                
+                .. attribute:: ipv4_address
+                
+                	IPv4 address for the network interface
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 
 
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface, self).__init__()
@@ -1207,21 +1391,26 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "network-interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.attached_interface = YLeaf(YType.str, "attached-interface")
-                    self._segment_path = lambda: "network-interface" + "[mac-address='" + self.mac_address.get() + "']"
+                    self.ylist_key_names = ['mac_address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                        ('attached_interface', YLeaf(YType.str, 'attached-interface')),
+                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                    ])
+                    self.mac_address = None
+                    self.attached_interface = None
+                    self.ipv4_address = None
+                    self._segment_path = lambda: "network-interface" + "[mac-address='" + str(self.mac_address) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface, ['mac_address', 'attached_interface'], name, value)
+                    self._perform_setattr(VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface, ['mac_address', 'attached_interface', 'ipv4_address'], name, value)
 
 
         class GuestRoutes(Entity):
             """
-            Routes for the guest interface.
+            Virtual service guest route details
             
             .. attribute:: guest_route
             
@@ -1233,7 +1422,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-02-07'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.GuestRoutes, self).__init__()
@@ -1242,8 +1431,10 @@ class VirtualServices(Entity):
                 self.yang_parent_name = "virtual-service"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"guest-route" : ("guest_route", VirtualServices.VirtualService.GuestRoutes.GuestRoute)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("guest-route", ("guest_route", VirtualServices.VirtualService.GuestRoutes.GuestRoute))])
+                self._leafs = OrderedDict()
 
                 self.guest_route = YList(self)
                 self._segment_path = lambda: "guest-routes"
@@ -1254,11 +1445,11 @@ class VirtualServices(Entity):
 
             class GuestRoute(Entity):
                 """
-                List of guest routes for a guest interface.
+                List of guest routes for a guest interface
                 
-                .. attribute:: route  <key>
+                .. attribute:: route  (key)
                 
-                	A guest route for a guest interface
+                	Guest route of the guest interface
                 	**type**\: str
                 
                 
@@ -1266,7 +1457,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-02-07'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.GuestRoutes.GuestRoute, self).__init__()
@@ -1275,11 +1466,14 @@ class VirtualServices(Entity):
                     self.yang_parent_name = "guest-routes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.route = YLeaf(YType.str, "route")
-                    self._segment_path = lambda: "guest-route" + "[route='" + self.route.get() + "']"
+                    self.ylist_key_names = ['route']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('route', YLeaf(YType.str, 'route')),
+                    ])
+                    self.route = None
+                    self._segment_path = lambda: "guest-route" + "[route='" + str(self.route) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.GuestRoutes.GuestRoute, ['route'], name, value)

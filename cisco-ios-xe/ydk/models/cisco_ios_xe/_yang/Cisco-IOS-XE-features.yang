@@ -92,6 +92,12 @@ module Cisco-IOS-XE-features {
     //Cisco-IOS-XE-bgp 
   }
 
+  feature macsec {
+    description
+      "macsec";
+    //Cisco-IOS-XE-ethernet
+  }
+
   feature mem-size {
     description
       "Memory size commands";

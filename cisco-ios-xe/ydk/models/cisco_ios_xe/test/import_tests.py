@@ -217,6 +217,11 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_CISCO_ENVMON_MIB(self):
+        from ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB import CiscoEnvMonState
+        from ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB import CISCOENVMONMIB
+
+
     def test_CISCO_ETHERLIKE_EXT_MIB(self):
         from ydk.models.cisco_ios_xe.CISCO_ETHERLIKE_EXT_MIB import CISCOETHERLIKEEXTMIB
 
@@ -454,6 +459,13 @@ class ImportTest(unittest.TestCase):
 
     def test_CISCO_PING_MIB(self):
         from ydk.models.cisco_ios_xe.CISCO_PING_MIB import CISCOPINGMIB
+
+
+    def test_CISCO_POWER_ETHERNET_EXT_MIB(self):
+        from ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB import CpeExtLldpPwrType
+        from ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB import CpeExtLldpPwrSrc
+        from ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB import CpeExtPwrPriority
+        from ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB import CISCOPOWERETHERNETEXTMIB
 
 
     def test_CISCO_PROCESS_MIB(self):
@@ -697,6 +709,11 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_aaa_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper import AaaSessProtType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper import AaaData
+
+
     def test_Cisco_IOS_XE_acl(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl import AclPortType
 
@@ -710,6 +727,10 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_atm(self):
+        pass
+
+
+    def test_Cisco_IOS_XE_avb(self):
         pass
 
 
@@ -781,6 +802,26 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_cellular(self):
+        pass
+
+
+    def test_Cisco_IOS_XE_cellwan_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import ModemStatus
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import CwRadioPowerStatus
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import RadioBandwidth
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import ModemTechnology
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import RatPreference
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import RatTechnology
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import ServiceStatus
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import ModemService
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import LteCa
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import RegState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import PacketSessStatus
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import ProfileScope
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper import CellwanOperData
+
+
     def test_Cisco_IOS_XE_cfm_oper(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cfm_oper import CfmLastClearedType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_cfm_oper import CfmStatistics
@@ -790,8 +831,12 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper import CheckpointArchives
 
 
-    def test_Cisco_IOS_XE_common_types(self):
+    def test_Cisco_IOS_XE_coap(self):
         pass
+
+
+    def test_Cisco_IOS_XE_common_types(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_common_types import AddrType
 
 
     def test_Cisco_IOS_XE_controller(self):
@@ -806,12 +851,31 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_device_hardware_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper import HwType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper import AlarmSeverity
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper import DeviceHardwareData
+
+
+    def test_Cisco_IOS_XE_device_sensor(self):
+        pass
+
+
     def test_Cisco_IOS_XE_device_tracking(self):
         pass
 
 
     def test_Cisco_IOS_XE_dhcp(self):
         pass
+
+
+    def test_Cisco_IOS_XE_dhcp_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper import DhcpServerBindingState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper import DhcpServerBindingType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper import DhcpClientState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper import DhcpExpiryOption
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper import DhcpClientIdType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper import DhcpOperData
 
 
     def test_Cisco_IOS_XE_diagnostics(self):
@@ -846,6 +910,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper import EnvironmentSensors
 
 
+    def test_Cisco_IOS_XE_eta(self):
+        pass
+
+
     def test_Cisco_IOS_XE_ethernet(self):
         pass
 
@@ -858,11 +926,21 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_fib_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper import FibAddressFamily
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper import EncapsulationHeaderType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper import FibPathType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper import FibOperData
+
+
     def test_Cisco_IOS_XE_flow(self):
         pass
 
 
     def test_Cisco_IOS_XE_flow_monitor_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper import FlowExporterIpwriteStatsType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper import FlowMonitorCacheType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper import FlowMonitorCacheState
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper import FlowMonitors
 
 
@@ -886,6 +964,21 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_interfaces_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import QosMatchType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import ThreshUnit
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import QosDirection
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import IntfState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import EtherDuplex
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import EtherSpeed
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import OperState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import IetfIntfType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import SerialCrc
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import SubrateSpeed
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import T1E1LoopbackMode
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper import Interfaces
+
+
     def test_Cisco_IOS_XE_ip(self):
         pass
 
@@ -901,6 +994,11 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XE_ipv6(self):
         pass
+
+
+    def test_Cisco_IOS_XE_ipv6_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ipv6_oper import Ipv6NdTdlState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ipv6_oper import Ipv6Data
 
 
     def test_Cisco_IOS_XE_isis(self):
@@ -937,6 +1035,8 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper import LispAddressFamilyType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper import LispIaftypeType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper import LispMapReplyActionType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper import LispRlocStateType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper import LispSessionStateType
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper import LispState
 
 
@@ -953,6 +1053,10 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_mdt_cfg(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg import MdtXfrmAttrType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg import MdtXfrmOpType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg import MdtXfrmLogicOp
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg import MdtXfrmOperator
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg import MdtSubscriptions
 
 
@@ -978,6 +1082,10 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XE_mld(self):
+        pass
+
+
+    def test_Cisco_IOS_XE_mmode(self):
         pass
 
 
@@ -1082,8 +1190,16 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_mvrp(self):
+        pass
+
+
     def test_Cisco_IOS_XE_nat(self):
         pass
+
+
+    def test_Cisco_IOS_XE_nat_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_nat_oper import NatData
 
 
     def test_Cisco_IOS_XE_native(self):
@@ -1108,12 +1224,28 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_ntp_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper import RefClockSourceType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper import KissCodeType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper import RefidPktTypeInfo
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper import NtpOperData
+
+
     def test_Cisco_IOS_XE_object_group(self):
         pass
 
 
     def test_Cisco_IOS_XE_ospf(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf import RedistOspfExternalType
+
+
+    def test_Cisco_IOS_XE_ospf_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper import AddressFamily
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper import OspfOperationMode
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper import OspfNetworkType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper import OspfAuthType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper import NbrStateType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper import OspfOperData
 
 
     def test_Cisco_IOS_XE_ospfv3(self):
@@ -1168,12 +1300,22 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_ppp_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper import PppIosAuthType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper import PppoeOperationalRole
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper import PppData
+
+
     def test_Cisco_IOS_XE_process_cpu_oper(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper import CpuUsage
 
 
     def test_Cisco_IOS_XE_process_memory_oper(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_memory_oper import MemoryUsageProcesses
+
+
+    def test_Cisco_IOS_XE_ptp(self):
+        pass
 
 
     def test_Cisco_IOS_XE_qos(self):
@@ -1191,9 +1333,17 @@ class ImportTest(unittest.TestCase):
     def test_Cisco_IOS_XE_rpc(self):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Switch
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Default
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Clear
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Release
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Reload
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Cellular
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import License
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Service
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import VirtualService
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Copy
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Delete
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import AppHosting
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc import Guestshell
 
 
     def test_Cisco_IOS_XE_rsvp(self):
@@ -1234,6 +1384,29 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XE_spanning_tree(self):
         pass
+
+
+    def test_Cisco_IOS_XE_spanning_tree_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper import StpPortState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper import StpPortRole
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper import StpLinkRole
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper import StpPortGuard
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper import StpPortBpduguard
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper import StpPortBpdufilter
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper import StpMode
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper import StpDetails
+
+
+    def test_Cisco_IOS_XE_stackwise_virtual(self):
+        pass
+
+
+    def test_Cisco_IOS_XE_switch(self):
+        pass
+
+
+    def test_Cisco_IOS_XE_tcam_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_tcam_oper import TcamDetails
 
 
     def test_Cisco_IOS_XE_template(self):
@@ -1277,6 +1450,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.Cisco_IOS_XE_types import MonthType
 
 
+    def test_Cisco_IOS_XE_udld(self):
+        pass
+
+
     def test_Cisco_IOS_XE_umbrella(self):
         pass
 
@@ -1293,6 +1470,11 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_vlan_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper import VlanStatusType
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper import Vlans
+
+
     def test_Cisco_IOS_XE_voice(self):
         pass
 
@@ -1301,7 +1483,20 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XE_vrrp_oper(self):
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper import ProtoVersion
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper import MasterReason
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper import VrrpProtoState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper import OmpStateUpdown
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper import TrackState
+        from ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper import VrrpOperData
+
+
     def test_Cisco_IOS_XE_vservice(self):
+        pass
+
+
+    def test_Cisco_IOS_XE_vstack(self):
         pass
 
 
@@ -1544,6 +1739,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.PIM_MIB import PIMMIB
 
 
+    def test_POWER_ETHERNET_MIB(self):
+        from ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB import POWERETHERNETMIB
+
+
     def test_P_BRIDGE_MIB(self):
         from ydk.models.cisco_ios_xe.P_BRIDGE_MIB import EnabledStatus
         from ydk.models.cisco_ios_xe.P_BRIDGE_MIB import PBRIDGEMIB
@@ -1695,23 +1894,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.cisco_ia import Rollback
 
 
-    def test_cisco_odm(self):
-        from ydk.models.cisco_ios_xe.cisco_odm import Parsername
-        from ydk.models.cisco_ios_xe.cisco_odm import BGP
-        from ydk.models.cisco_ios_xe.cisco_odm import IPRoute
-        from ydk.models.cisco_ios_xe.cisco_odm import FlowMonitor
-        from ydk.models.cisco_ios_xe.cisco_odm import BFDNeighbors
-        from ydk.models.cisco_ios_xe.cisco_odm import BridgeDomain
-        from ydk.models.cisco_ios_xe.cisco_odm import Diffserv
-        from ydk.models.cisco_ios_xe.cisco_odm import VirtualService
-        from ydk.models.cisco_ios_xe.cisco_odm import MPLSLDPNeighbors
-        from ydk.models.cisco_ios_xe.cisco_odm import PlatformSoftware
-        from ydk.models.cisco_ios_xe.cisco_odm import MPLSStaticBinding
-        from ydk.models.cisco_ios_xe.cisco_odm import MPLSForwardingTable
-        from ydk.models.cisco_ios_xe.cisco_odm import OSPF
-        from ydk.models.cisco_ios_xe.cisco_odm import EthernetCFMStats
-
-
     def test_cisco_ospf(self):
         from ydk.models.cisco_ios_xe.cisco_ospf import OspfExternalType
         from ydk.models.cisco_ios_xe.cisco_ospf import AccessListInOutType
@@ -1772,11 +1954,35 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xe.cisco_self_mgmt import NetconfYang
 
 
+    def test_cisco_smart_license(self):
+        from ydk.models.cisco_ios_xe.cisco_smart_license import NotifRegisterFailureEnum
+        from ydk.models.cisco_ios_xe.cisco_smart_license import RegistrationStateEnum
+        from ydk.models.cisco_ios_xe.cisco_smart_license import AuthorizationStateEnum
+        from ydk.models.cisco_ios_xe.cisco_smart_license import UtilityReportingTypeEnum
+        from ydk.models.cisco_ios_xe.cisco_smart_license import TransportTypeEnum
+        from ydk.models.cisco_ios_xe.cisco_smart_license import EnforcementModeEnum
+        from ydk.models.cisco_ios_xe.cisco_smart_license import ErrorEnum
+        from ydk.models.cisco_ios_xe.cisco_smart_license import RegisterIdToken
+        from ydk.models.cisco_ios_xe.cisco_smart_license import DeRegister
+        from ydk.models.cisco_ios_xe.cisco_smart_license import RenewId
+        from ydk.models.cisco_ios_xe.cisco_smart_license import RenewAuth
+        from ydk.models.cisco_ios_xe.cisco_smart_license import Licensing
+
+
+    def test_cisco_smart_license_errors(self):
+        pass
+
+
     def test_cisco_storm_control(self):
         from ydk.models.cisco_ios_xe.cisco_storm_control import StormControlAction
         from ydk.models.cisco_ios_xe.cisco_storm_control import ActionDrop
         from ydk.models.cisco_ios_xe.cisco_storm_control import ActionSnmpTrap
         from ydk.models.cisco_ios_xe.cisco_storm_control import ActionShutdown
+
+
+    def test_cisco_xe_ietf_yang_push_ext(self):
+        from ydk.models.cisco_ios_xe.cisco_xe_ietf_yang_push_ext import EncodeTdl
+        from ydk.models.cisco_ios_xe.cisco_xe_ietf_yang_push_ext import TdlStream
 
 
     def test_common_mpls_static(self):

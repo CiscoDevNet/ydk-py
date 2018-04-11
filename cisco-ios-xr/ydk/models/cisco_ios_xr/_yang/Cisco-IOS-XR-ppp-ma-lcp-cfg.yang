@@ -1,99 +1,100 @@
 module Cisco-IOS-XR-ppp-ma-lcp-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ppp-ma-lcp-cfg";
+  prefix ppp-ma-lcp-cfg;
 
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-ifmgr-cfg {
+    prefix a1;
+  }
 
-  prefix "ppp-ma-lcp-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ppp-ma-lcp package configuration.
-
+     
      This YANG module augments the
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ppp-authentication-method {
     type enumeration {
-      enum pap {
+      enum "pap" {
         value 1;
-        description "PAP";
+        description
+          "PAP";
       }
-      enum chap {
+      enum "chap" {
         value 2;
-        description "CHAP";
+        description
+          "CHAP";
       }
-      enum ms-chap {
+      enum "ms-chap" {
         value 3;
-        description "MS CHAP";
+        description
+          "MS CHAP";
       }
     }
-    description "Ppp authentication method";
+    description
+      "Ppp authentication method";
   }
 
   augment "/a1:interface-configurations/a1:interface-configuration" {
-
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-ifmgr-cfg'";
     container ppp {
-      description "Interface PPP configuration data";
-
+      description
+        "Interface PPP configuration data";
       container mcmp {
-        description "PPP Multiclass Multilink parameters";
-
+        description
+          "PPP Multiclass Multilink parameters";
         container local {
           description
             "This specifies the MCMP options for the local
-            host";
+             host";
           leaf initial {
             type uint32 {
               range "1..16";
             }
             default "2";
-            description "Local Initial #classes";
+            description
+              "Local Initial #classes";
           }
           leaf maximum {
             type uint32 {
               range "1..16";
             }
             default "4";
-            description "Local Maximum #classes";
+            description
+              "Local Maximum #classes";
           }
         }
         leaf enable {
           type empty;
           description
             "This specifies that MCMP is enabled on this
-            interface";
+             interface";
         }
         leaf remote {
           type uint32 {
@@ -104,17 +105,16 @@ module Cisco-IOS-XR-ppp-ma-lcp-cfg {
             "This specifies the MCMP options for the peer";
         }
       }
-
       container lcp {
-        description "PPP LCP configuration data";
-
+        description
+          "PPP LCP configuration data";
         container multilink {
-          description "Multilink configuration";
-
+          description
+            "Multilink configuration";
           container minimum-active {
             description
               "Minimum criteria for the linestate of a
-              Multilink PPPinterface to be brought up";
+               Multilink PPPinterface to be brought up";
             leaf links {
               type uint32 {
                 range "1..65535";
@@ -122,49 +122,49 @@ module Cisco-IOS-XR-ppp-ma-lcp-cfg {
               default "1";
               description
                 "Number of active links needed to bring up an
-                MP interface";
+                 MP interface";
             }
           }
         }
-
         container pap {
           description
             "Password Authentication Protocol (PAP)
-            configuration data";
-
+             configuration data";
           container send-user-info {
             description
               "This specifies the outbound PAP username and
-              password";
+               password";
             leaf username {
               type string;
-              description "Outbound PAP username";
+              description
+                "Outbound PAP username";
             }
             leaf password {
               type xr:Proprietary-password;
-              description "Outbound PAP password";
+              description
+                "Outbound PAP password";
             }
           }
           leaf refuse {
             type empty;
             description
               "This specifies whether to refuse to
-              authenticate using PAP";
+               authenticate using PAP";
           }
         }
-
         container loop-back {
-          description "Loopback configuration";
+          description
+            "Loopback configuration";
           leaf ignore {
             type empty;
-            description "Allow magic numbers to be equal";
+            description
+              "Allow magic numbers to be equal";
           }
         }
-
         container ms-chap {
           description
             "Microsoft Challenge Handshake Authentication
-            Protocol (MS-CHAP) configuration data";
+             Protocol (MS-CHAP) configuration data";
           leaf password {
             type xr:Proprietary-password;
             description
@@ -172,23 +172,23 @@ module Cisco-IOS-XR-ppp-ma-lcp-cfg {
           }
           leaf host-name {
             type string;
-            description "This specifies the MS-CHAP hostname";
+            description
+              "This specifies the MS-CHAP hostname";
           }
           leaf refuse {
             type empty;
             description
               "This specifies whether to refuse to
-              authenticate using MS-CHAP";
+               authenticate using MS-CHAP";
           }
         }
-
         container authentication {
-          description "PPP authentication parameters";
-
+          description
+            "PPP authentication parameters";
           container method {
             description
               "This specifies the PPP link authentication
-              method";
+               method";
             leaf name {
               type string;
               description
@@ -199,7 +199,7 @@ module Cisco-IOS-XR-ppp-ma-lcp-cfg {
               max-elements "3";
               description
                 "Select between one and three authentication
-                methods in order of preference";
+                 methods in order of preference";
             }
           }
           leaf max-authentication-failures {
@@ -208,7 +208,7 @@ module Cisco-IOS-XR-ppp-ma-lcp-cfg {
             }
             description
               "This specifies whether to allow multiple
-              authentication failures and, if so, how many";
+               authentication failures and, if so, how many";
           }
           leaf timeout {
             type uint32 {
@@ -217,39 +217,37 @@ module Cisco-IOS-XR-ppp-ma-lcp-cfg {
             default "10";
             description
               "Maximum time to wait for an authentication
-              response";
+               response";
           }
         }
-
         container chap {
           description
             "Challenge Handshake Authentication Protocol
-            (CHAP) configuration data";
+             (CHAP) configuration data";
           leaf password {
             type xr:Proprietary-password;
-            description "This specifies the default CHAP password";
+            description
+              "This specifies the default CHAP password";
           }
           leaf host-name {
             type string;
-            description "This specifies the CHAP hostname";
+            description
+              "This specifies the CHAP hostname";
           }
           leaf refuse {
             type empty;
             description
               "This specifies whether to refuse to
-              authenticate using CHAP";
+               authenticate using CHAP";
           }
         }
         leaf service-type {
           type int32;
           description
             "This specifies whether to allow multiple
-            authentication failures and, if so, how many";
+             authentication failures and, if so, how many";
         }
       }
     }
-    description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-ifmgr-cfg'";
   }
 }

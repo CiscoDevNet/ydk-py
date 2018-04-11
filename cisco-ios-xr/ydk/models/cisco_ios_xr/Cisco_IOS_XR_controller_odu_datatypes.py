@@ -7,15 +7,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class Mode(Enum):
     """
-    Mode
+    Mode (Enum Class)
 
     Mode
 
@@ -48,7 +50,7 @@ class Mode(Enum):
 
 class OduDelay(Enum):
     """
-    OduDelay
+    OduDelay (Enum Class)
 
     Odu delay
 
@@ -69,7 +71,7 @@ class OduDelay(Enum):
 
 class OduTimeSlotGranularity(Enum):
     """
-    OduTimeSlotGranularity
+    OduTimeSlotGranularity (Enum Class)
 
     Odu time slot granularity
 
@@ -90,7 +92,7 @@ class OduTimeSlotGranularity(Enum):
 
 class OtnChildControllerName(Enum):
     """
-    OtnChildControllerName
+    OtnChildControllerName (Enum Class)
 
     Otn child controller name
 
@@ -153,7 +155,7 @@ class OtnChildControllerName(Enum):
 
 class OtnChildFlexControllerName(Enum):
     """
-    OtnChildFlexControllerName
+    OtnChildFlexControllerName (Enum Class)
 
     Otn child flex controller name
 
@@ -168,7 +170,7 @@ class OtnChildFlexControllerName(Enum):
 
 class OtnExpTtiTypeDapi(Enum):
     """
-    OtnExpTtiTypeDapi
+    OtnExpTtiTypeDapi (Enum Class)
 
     Otn exp tti type dapi
 
@@ -183,7 +185,7 @@ class OtnExpTtiTypeDapi(Enum):
 
 class OtnExpTtiTypeFull(Enum):
     """
-    OtnExpTtiTypeFull
+    OtnExpTtiTypeFull (Enum Class)
 
     Otn exp tti type full
 
@@ -204,7 +206,7 @@ class OtnExpTtiTypeFull(Enum):
 
 class OtnExpTtiTypeOs(Enum):
     """
-    OtnExpTtiTypeOs
+    OtnExpTtiTypeOs (Enum Class)
 
     Otn exp tti type os
 
@@ -225,7 +227,7 @@ class OtnExpTtiTypeOs(Enum):
 
 class OtnExpTtiTypeSapi(Enum):
     """
-    OtnExpTtiTypeSapi
+    OtnExpTtiTypeSapi (Enum Class)
 
     Otn exp tti type sapi
 
@@ -240,7 +242,7 @@ class OtnExpTtiTypeSapi(Enum):
 
 class OtnFlexMapping(Enum):
     """
-    OtnFlexMapping
+    OtnFlexMapping (Enum Class)
 
     Otn flex mapping
 
@@ -267,7 +269,7 @@ class OtnFlexMapping(Enum):
 
 class OtnLoopback(Enum):
     """
-    OtnLoopback
+    OtnLoopback (Enum Class)
 
     Otn loopback
 
@@ -288,7 +290,7 @@ class OtnLoopback(Enum):
 
 class OtnMapping(Enum):
     """
-    OtnMapping
+    OtnMapping (Enum Class)
 
     Otn mapping
 
@@ -321,7 +323,7 @@ class OtnMapping(Enum):
 
 class OtnPerMon(Enum):
     """
-    OtnPerMon
+    OtnPerMon (Enum Class)
 
     Otn per mon
 
@@ -342,7 +344,7 @@ class OtnPerMon(Enum):
 
 class OtnSecAdminState(Enum):
     """
-    OtnSecAdminState
+    OtnSecAdminState (Enum Class)
 
     Otn sec admin state
 
@@ -363,7 +365,7 @@ class OtnSecAdminState(Enum):
 
 class OtnSendTtiTypeDapi(Enum):
     """
-    OtnSendTtiTypeDapi
+    OtnSendTtiTypeDapi (Enum Class)
 
     Otn send tti type dapi
 
@@ -378,7 +380,7 @@ class OtnSendTtiTypeDapi(Enum):
 
 class OtnSendTtiTypeFull(Enum):
     """
-    OtnSendTtiTypeFull
+    OtnSendTtiTypeFull (Enum Class)
 
     Otn send tti type full
 
@@ -399,7 +401,7 @@ class OtnSendTtiTypeFull(Enum):
 
 class OtnSendTtiTypeOs(Enum):
     """
-    OtnSendTtiTypeOs
+    OtnSendTtiTypeOs (Enum Class)
 
     Otn send tti type os
 
@@ -420,7 +422,7 @@ class OtnSendTtiTypeOs(Enum):
 
 class OtnSendTtiTypeSapi(Enum):
     """
-    OtnSendTtiTypeSapi
+    OtnSendTtiTypeSapi (Enum Class)
 
     Otn send tti type sapi
 
@@ -435,7 +437,7 @@ class OtnSendTtiTypeSapi(Enum):
 
 class OtnTermination(Enum):
     """
-    OtnTermination
+    OtnTermination (Enum Class)
 
     Otn termination
 
@@ -450,7 +452,7 @@ class OtnTermination(Enum):
 
 class Otnpmtimca(Enum):
     """
-    Otnpmtimca
+    Otnpmtimca (Enum Class)
 
     Otnpmtimca
 
@@ -471,7 +473,7 @@ class Otnpmtimca(Enum):
 
 class OtntcmMode(Enum):
     """
-    OtntcmMode
+    OtntcmMode (Enum Class)
 
     Otntcm mode
 
@@ -498,7 +500,7 @@ class OtntcmMode(Enum):
 
 class Otntcmca(Enum):
     """
-    Otntcmca
+    Otntcmca (Enum Class)
 
     Otntcmca
 
@@ -519,7 +521,7 @@ class Otntcmca(Enum):
 
 class Pattern(Enum):
     """
-    Pattern
+    Pattern (Enum Class)
 
     Pattern
 

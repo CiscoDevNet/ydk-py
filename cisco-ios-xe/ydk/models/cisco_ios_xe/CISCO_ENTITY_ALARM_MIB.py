@@ -8,15 +8,17 @@ physical entity, it must be represented by a row in the
 entPhysicalTable (see ENTITY\-MIB).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AlarmSeverity(Enum):
     """
-    AlarmSeverity
+    AlarmSeverity (Enum Class)
 
     Each alarm type defined by a vendor type employed by the
 
@@ -145,8 +147,10 @@ class CISCOENTITYALARMMIB(Entity):
         self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ceAlarmMonitoring" : ("cealarmmonitoring", CISCOENTITYALARMMIB.Cealarmmonitoring), "ceAlarmHistory" : ("cealarmhistory", CISCOENTITYALARMMIB.Cealarmhistory), "ceAlarmFiltering" : ("cealarmfiltering", CISCOENTITYALARMMIB.Cealarmfiltering), "ceAlarmDescrMapTable" : ("cealarmdescrmaptable", CISCOENTITYALARMMIB.Cealarmdescrmaptable), "ceAlarmDescrTable" : ("cealarmdescrtable", CISCOENTITYALARMMIB.Cealarmdescrtable), "ceAlarmTable" : ("cealarmtable", CISCOENTITYALARMMIB.Cealarmtable), "ceAlarmHistTable" : ("cealarmhisttable", CISCOENTITYALARMMIB.Cealarmhisttable), "ceAlarmFilterProfileTable" : ("cealarmfilterprofiletable", CISCOENTITYALARMMIB.Cealarmfilterprofiletable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ceAlarmMonitoring", ("cealarmmonitoring", CISCOENTITYALARMMIB.Cealarmmonitoring)), ("ceAlarmHistory", ("cealarmhistory", CISCOENTITYALARMMIB.Cealarmhistory)), ("ceAlarmFiltering", ("cealarmfiltering", CISCOENTITYALARMMIB.Cealarmfiltering)), ("ceAlarmDescrMapTable", ("cealarmdescrmaptable", CISCOENTITYALARMMIB.Cealarmdescrmaptable)), ("ceAlarmDescrTable", ("cealarmdescrtable", CISCOENTITYALARMMIB.Cealarmdescrtable)), ("ceAlarmTable", ("cealarmtable", CISCOENTITYALARMMIB.Cealarmtable)), ("ceAlarmHistTable", ("cealarmhisttable", CISCOENTITYALARMMIB.Cealarmhisttable)), ("ceAlarmFilterProfileTable", ("cealarmfilterprofiletable", CISCOENTITYALARMMIB.Cealarmfilterprofiletable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cealarmmonitoring = CISCOENTITYALARMMIB.Cealarmmonitoring()
         self.cealarmmonitoring.parent = self
@@ -234,16 +238,19 @@ class CISCOENTITYALARMMIB(Entity):
             self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cealarmcriticalcount = YLeaf(YType.uint32, "ceAlarmCriticalCount")
-
-            self.cealarmmajorcount = YLeaf(YType.uint32, "ceAlarmMajorCount")
-
-            self.cealarmminorcount = YLeaf(YType.uint32, "ceAlarmMinorCount")
-
-            self.cealarmcutoff = YLeaf(YType.boolean, "ceAlarmCutOff")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cealarmcriticalcount', YLeaf(YType.uint32, 'ceAlarmCriticalCount')),
+                ('cealarmmajorcount', YLeaf(YType.uint32, 'ceAlarmMajorCount')),
+                ('cealarmminorcount', YLeaf(YType.uint32, 'ceAlarmMinorCount')),
+                ('cealarmcutoff', YLeaf(YType.boolean, 'ceAlarmCutOff')),
+            ])
+            self.cealarmcriticalcount = None
+            self.cealarmmajorcount = None
+            self.cealarmminorcount = None
+            self.cealarmcutoff = None
             self._segment_path = lambda: "ceAlarmMonitoring"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
 
@@ -283,12 +290,15 @@ class CISCOENTITYALARMMIB(Entity):
             self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cealarmhisttablesize = YLeaf(YType.int32, "ceAlarmHistTableSize")
-
-            self.cealarmhistlastindex = YLeaf(YType.uint32, "ceAlarmHistLastIndex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cealarmhisttablesize', YLeaf(YType.int32, 'ceAlarmHistTableSize')),
+                ('cealarmhistlastindex', YLeaf(YType.uint32, 'ceAlarmHistLastIndex')),
+            ])
+            self.cealarmhisttablesize = None
+            self.cealarmhistlastindex = None
             self._segment_path = lambda: "ceAlarmHistory"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
 
@@ -335,14 +345,17 @@ class CISCOENTITYALARMMIB(Entity):
             self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cealarmnotifiesenable = YLeaf(YType.int32, "ceAlarmNotifiesEnable")
-
-            self.cealarmsyslogenable = YLeaf(YType.int32, "ceAlarmSyslogEnable")
-
-            self.cealarmfilterprofileindexnext = YLeaf(YType.uint32, "ceAlarmFilterProfileIndexNext")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cealarmnotifiesenable', YLeaf(YType.int32, 'ceAlarmNotifiesEnable')),
+                ('cealarmsyslogenable', YLeaf(YType.int32, 'ceAlarmSyslogEnable')),
+                ('cealarmfilterprofileindexnext', YLeaf(YType.uint32, 'ceAlarmFilterProfileIndexNext')),
+            ])
+            self.cealarmnotifiesenable = None
+            self.cealarmsyslogenable = None
+            self.cealarmfilterprofileindexnext = None
             self._segment_path = lambda: "ceAlarmFiltering"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
 
@@ -375,8 +388,10 @@ class CISCOENTITYALARMMIB(Entity):
             self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceAlarmDescrMapEntry" : ("cealarmdescrmapentry", CISCOENTITYALARMMIB.Cealarmdescrmaptable.Cealarmdescrmapentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceAlarmDescrMapEntry", ("cealarmdescrmapentry", CISCOENTITYALARMMIB.Cealarmdescrmaptable.Cealarmdescrmapentry))])
+            self._leafs = OrderedDict()
 
             self.cealarmdescrmapentry = YList(self)
             self._segment_path = lambda: "ceAlarmDescrMapTable"
@@ -390,7 +405,7 @@ class CISCOENTITYALARMMIB(Entity):
             """
             A mapping between an alarm description and a vendor type.
             
-            .. attribute:: cealarmdescrindex  <key>
+            .. attribute:: cealarmdescrindex  (key)
             
             	This object uniquely identifies an alarm description
             	**type**\: int
@@ -418,13 +433,16 @@ class CISCOENTITYALARMMIB(Entity):
                 self.yang_parent_name = "ceAlarmDescrMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cealarmdescrindex = YLeaf(YType.uint32, "ceAlarmDescrIndex")
-
-                self.cealarmdescrvendortype = YLeaf(YType.str, "ceAlarmDescrVendorType")
-                self._segment_path = lambda: "ceAlarmDescrMapEntry" + "[ceAlarmDescrIndex='" + self.cealarmdescrindex.get() + "']"
+                self.ylist_key_names = ['cealarmdescrindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cealarmdescrindex', YLeaf(YType.uint32, 'ceAlarmDescrIndex')),
+                    ('cealarmdescrvendortype', YLeaf(YType.str, 'ceAlarmDescrVendorType')),
+                ])
+                self.cealarmdescrindex = None
+                self.cealarmdescrvendortype = None
+                self._segment_path = lambda: "ceAlarmDescrMapEntry" + "[ceAlarmDescrIndex='" + str(self.cealarmdescrindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmDescrMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -458,8 +476,10 @@ class CISCOENTITYALARMMIB(Entity):
             self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceAlarmDescrEntry" : ("cealarmdescrentry", CISCOENTITYALARMMIB.Cealarmdescrtable.Cealarmdescrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceAlarmDescrEntry", ("cealarmdescrentry", CISCOENTITYALARMMIB.Cealarmdescrtable.Cealarmdescrentry))])
+            self._leafs = OrderedDict()
 
             self.cealarmdescrentry = YList(self)
             self._segment_path = lambda: "ceAlarmDescrTable"
@@ -473,7 +493,7 @@ class CISCOENTITYALARMMIB(Entity):
             """
             A collection of attributes that describe an alarm type.
             
-            .. attribute:: cealarmdescrindex  <key>
+            .. attribute:: cealarmdescrindex  (key)
             
             	
             	**type**\: int
@@ -482,7 +502,7 @@ class CISCOENTITYALARMMIB(Entity):
             
             	**refers to**\:  :py:class:`cealarmdescrindex <ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB.CISCOENTITYALARMMIB.Cealarmdescrmaptable.Cealarmdescrmapentry>`
             
-            .. attribute:: cealarmdescralarmtype  <key>
+            .. attribute:: cealarmdescralarmtype  (key)
             
             	This object specifies the alarm type being described
             	**type**\: int
@@ -515,17 +535,20 @@ class CISCOENTITYALARMMIB(Entity):
                 self.yang_parent_name = "ceAlarmDescrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cealarmdescrindex = YLeaf(YType.str, "ceAlarmDescrIndex")
-
-                self.cealarmdescralarmtype = YLeaf(YType.int32, "ceAlarmDescrAlarmType")
-
-                self.cealarmdescrseverity = YLeaf(YType.int32, "ceAlarmDescrSeverity")
-
-                self.cealarmdescrtext = YLeaf(YType.str, "ceAlarmDescrText")
-                self._segment_path = lambda: "ceAlarmDescrEntry" + "[ceAlarmDescrIndex='" + self.cealarmdescrindex.get() + "']" + "[ceAlarmDescrAlarmType='" + self.cealarmdescralarmtype.get() + "']"
+                self.ylist_key_names = ['cealarmdescrindex','cealarmdescralarmtype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cealarmdescrindex', YLeaf(YType.str, 'ceAlarmDescrIndex')),
+                    ('cealarmdescralarmtype', YLeaf(YType.int32, 'ceAlarmDescrAlarmType')),
+                    ('cealarmdescrseverity', YLeaf(YType.int32, 'ceAlarmDescrSeverity')),
+                    ('cealarmdescrtext', YLeaf(YType.str, 'ceAlarmDescrText')),
+                ])
+                self.cealarmdescrindex = None
+                self.cealarmdescralarmtype = None
+                self.cealarmdescrseverity = None
+                self.cealarmdescrtext = None
+                self._segment_path = lambda: "ceAlarmDescrEntry" + "[ceAlarmDescrIndex='" + str(self.cealarmdescrindex) + "']" + "[ceAlarmDescrAlarmType='" + str(self.cealarmdescralarmtype) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmDescrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -558,8 +581,10 @@ class CISCOENTITYALARMMIB(Entity):
             self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceAlarmEntry" : ("cealarmentry", CISCOENTITYALARMMIB.Cealarmtable.Cealarmentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceAlarmEntry", ("cealarmentry", CISCOENTITYALARMMIB.Cealarmtable.Cealarmentry))])
+            self._leafs = OrderedDict()
 
             self.cealarmentry = YList(self)
             self._segment_path = lambda: "ceAlarmTable"
@@ -575,7 +600,7 @@ class CISCOENTITYALARMMIB(Entity):
             corresponding physical entity, including a list of those
             alarms currently being asserted by that physical entity.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -619,17 +644,20 @@ class CISCOENTITYALARMMIB(Entity):
                 self.yang_parent_name = "ceAlarmTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.cealarmfilterprofile = YLeaf(YType.uint32, "ceAlarmFilterProfile")
-
-                self.cealarmseverity = YLeaf(YType.int32, "ceAlarmSeverity")
-
-                self.cealarmlist = YLeaf(YType.str, "ceAlarmList")
-                self._segment_path = lambda: "ceAlarmEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('cealarmfilterprofile', YLeaf(YType.uint32, 'ceAlarmFilterProfile')),
+                    ('cealarmseverity', YLeaf(YType.int32, 'ceAlarmSeverity')),
+                    ('cealarmlist', YLeaf(YType.str, 'ceAlarmList')),
+                ])
+                self.entphysicalindex = None
+                self.cealarmfilterprofile = None
+                self.cealarmseverity = None
+                self.cealarmlist = None
+                self._segment_path = lambda: "ceAlarmEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -660,8 +688,10 @@ class CISCOENTITYALARMMIB(Entity):
             self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceAlarmHistEntry" : ("cealarmhistentry", CISCOENTITYALARMMIB.Cealarmhisttable.Cealarmhistentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceAlarmHistEntry", ("cealarmhistentry", CISCOENTITYALARMMIB.Cealarmhisttable.Cealarmhistentry))])
+            self._leafs = OrderedDict()
 
             self.cealarmhistentry = YList(self)
             self._segment_path = lambda: "ceAlarmHistTable"
@@ -676,7 +706,7 @@ class CISCOENTITYALARMMIB(Entity):
             The information conveyed by a ceAlarmIndicate or
             ceAlarmClear trap.
             
-            .. attribute:: cealarmhistindex  <key>
+            .. attribute:: cealarmhistindex  (key)
             
             	An integer value uniquely identifying the entry in the table. The value of this object starts at '1' and monotonically increases for each alarm condition transition monitored by the agent.  If the value of this object is '4294967295', the agent will reset it to '1' upon monitoring the next alarm condition transition
             	**type**\: int
@@ -728,21 +758,24 @@ class CISCOENTITYALARMMIB(Entity):
                 self.yang_parent_name = "ceAlarmHistTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cealarmhistindex = YLeaf(YType.uint32, "ceAlarmHistIndex")
-
-                self.cealarmhisttype = YLeaf(YType.enumeration, "ceAlarmHistType")
-
-                self.cealarmhistentphysicalindex = YLeaf(YType.int32, "ceAlarmHistEntPhysicalIndex")
-
-                self.cealarmhistalarmtype = YLeaf(YType.int32, "ceAlarmHistAlarmType")
-
-                self.cealarmhistseverity = YLeaf(YType.enumeration, "ceAlarmHistSeverity")
-
-                self.cealarmhisttimestamp = YLeaf(YType.uint32, "ceAlarmHistTimeStamp")
-                self._segment_path = lambda: "ceAlarmHistEntry" + "[ceAlarmHistIndex='" + self.cealarmhistindex.get() + "']"
+                self.ylist_key_names = ['cealarmhistindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cealarmhistindex', YLeaf(YType.uint32, 'ceAlarmHistIndex')),
+                    ('cealarmhisttype', YLeaf(YType.enumeration, 'ceAlarmHistType')),
+                    ('cealarmhistentphysicalindex', YLeaf(YType.int32, 'ceAlarmHistEntPhysicalIndex')),
+                    ('cealarmhistalarmtype', YLeaf(YType.int32, 'ceAlarmHistAlarmType')),
+                    ('cealarmhistseverity', YLeaf(YType.enumeration, 'ceAlarmHistSeverity')),
+                    ('cealarmhisttimestamp', YLeaf(YType.uint32, 'ceAlarmHistTimeStamp')),
+                ])
+                self.cealarmhistindex = None
+                self.cealarmhisttype = None
+                self.cealarmhistentphysicalindex = None
+                self.cealarmhistalarmtype = None
+                self.cealarmhistseverity = None
+                self.cealarmhisttimestamp = None
+                self._segment_path = lambda: "ceAlarmHistEntry" + "[ceAlarmHistIndex='" + str(self.cealarmhistindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmHistTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -750,7 +783,7 @@ class CISCOENTITYALARMMIB(Entity):
 
             class Cealarmhisttype(Enum):
                 """
-                Cealarmhisttype
+                Cealarmhisttype (Enum Class)
 
                 This object specifies whether the agent created the entry as
 
@@ -791,8 +824,10 @@ class CISCOENTITYALARMMIB(Entity):
             self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceAlarmFilterProfileEntry" : ("cealarmfilterprofileentry", CISCOENTITYALARMMIB.Cealarmfilterprofiletable.Cealarmfilterprofileentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceAlarmFilterProfileEntry", ("cealarmfilterprofileentry", CISCOENTITYALARMMIB.Cealarmfilterprofiletable.Cealarmfilterprofileentry))])
+            self._leafs = OrderedDict()
 
             self.cealarmfilterprofileentry = YList(self)
             self._segment_path = lambda: "ceAlarmFilterProfileTable"
@@ -827,7 +862,7 @@ class CISCOENTITYALARMMIB(Entity):
                 type is enabled, then the agent generates the appropriate
                 syslog message.
             
-            .. attribute:: cealarmfilterindex  <key>
+            .. attribute:: cealarmfilterindex  (key)
             
             	This object uniquely identifies the alarm filter profile
             	**type**\: int
@@ -879,21 +914,24 @@ class CISCOENTITYALARMMIB(Entity):
                 self.yang_parent_name = "ceAlarmFilterProfileTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cealarmfilterindex = YLeaf(YType.uint32, "ceAlarmFilterIndex")
-
-                self.cealarmfilterstatus = YLeaf(YType.enumeration, "ceAlarmFilterStatus")
-
-                self.cealarmfilteralias = YLeaf(YType.str, "ceAlarmFilterAlias")
-
-                self.cealarmfilteralarmsenabled = YLeaf(YType.str, "ceAlarmFilterAlarmsEnabled")
-
-                self.cealarmfilternotifiesenabled = YLeaf(YType.str, "ceAlarmFilterNotifiesEnabled")
-
-                self.cealarmfiltersyslogenabled = YLeaf(YType.str, "ceAlarmFilterSyslogEnabled")
-                self._segment_path = lambda: "ceAlarmFilterProfileEntry" + "[ceAlarmFilterIndex='" + self.cealarmfilterindex.get() + "']"
+                self.ylist_key_names = ['cealarmfilterindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cealarmfilterindex', YLeaf(YType.uint32, 'ceAlarmFilterIndex')),
+                    ('cealarmfilterstatus', YLeaf(YType.enumeration, 'ceAlarmFilterStatus')),
+                    ('cealarmfilteralias', YLeaf(YType.str, 'ceAlarmFilterAlias')),
+                    ('cealarmfilteralarmsenabled', YLeaf(YType.str, 'ceAlarmFilterAlarmsEnabled')),
+                    ('cealarmfilternotifiesenabled', YLeaf(YType.str, 'ceAlarmFilterNotifiesEnabled')),
+                    ('cealarmfiltersyslogenabled', YLeaf(YType.str, 'ceAlarmFilterSyslogEnabled')),
+                ])
+                self.cealarmfilterindex = None
+                self.cealarmfilterstatus = None
+                self.cealarmfilteralias = None
+                self.cealarmfilteralarmsenabled = None
+                self.cealarmfilternotifiesenabled = None
+                self.cealarmfiltersyslogenabled = None
+                self._segment_path = lambda: "ceAlarmFilterProfileEntry" + "[ceAlarmFilterIndex='" + str(self.cealarmfilterindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmFilterProfileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

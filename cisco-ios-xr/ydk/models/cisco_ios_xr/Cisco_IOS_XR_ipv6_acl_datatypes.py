@@ -7,15 +7,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class Ipv6AclDscpNumber(Enum):
     """
-    Ipv6AclDscpNumber
+    Ipv6AclDscpNumber (Enum Class)
 
     Ipv6 acl dscp number
 
@@ -150,7 +152,7 @@ class Ipv6AclDscpNumber(Enum):
 
 class Ipv6AclGrantEnum(Enum):
     """
-    Ipv6AclGrantEnum
+    Ipv6AclGrantEnum (Enum Class)
 
     Ipv6 acl grant enum
 
@@ -171,7 +173,7 @@ class Ipv6AclGrantEnum(Enum):
 
 class Ipv6AclIcmpTypeCodeEnum(Enum):
     """
-    Ipv6AclIcmpTypeCodeEnum
+    Ipv6AclIcmpTypeCodeEnum (Enum Class)
 
     Ipv6 acl icmp type code enum
 
@@ -396,7 +398,7 @@ class Ipv6AclIcmpTypeCodeEnum(Enum):
 
 class Ipv6AclLoggingEnum(Enum):
     """
-    Ipv6AclLoggingEnum
+    Ipv6AclLoggingEnum (Enum Class)
 
     Ipv6 acl logging enum
 
@@ -419,7 +421,7 @@ class Ipv6AclLoggingEnum(Enum):
 
 class Ipv6AclOperatorEnum(Enum):
     """
-    Ipv6AclOperatorEnum
+    Ipv6AclOperatorEnum (Enum Class)
 
     Ipv6 acl operator enum
 
@@ -458,7 +460,7 @@ class Ipv6AclOperatorEnum(Enum):
 
 class Ipv6AclPortNumber(Enum):
     """
-    Ipv6AclPortNumber
+    Ipv6AclPortNumber (Enum Class)
 
     Ipv6 acl port number
 
@@ -811,7 +813,7 @@ class Ipv6AclPortNumber(Enum):
 
 class Ipv6AclPrecedenceNumber(Enum):
     """
-    Ipv6AclPrecedenceNumber
+    Ipv6AclPrecedenceNumber (Enum Class)
 
     Ipv6 acl precedence number
 
@@ -870,7 +872,7 @@ class Ipv6AclPrecedenceNumber(Enum):
 
 class Ipv6AclProtocolNumber(Enum):
     """
-    Ipv6AclProtocolNumber
+    Ipv6AclProtocolNumber (Enum Class)
 
     Ipv6 acl protocol number
 
@@ -981,7 +983,7 @@ class Ipv6AclProtocolNumber(Enum):
 
 class Ipv6AclStatusEnum(Enum):
     """
-    Ipv6AclStatusEnum
+    Ipv6AclStatusEnum (Enum Class)
 
     Ipv6 acl status enum
 
@@ -1002,7 +1004,7 @@ class Ipv6AclStatusEnum(Enum):
 
 class Ipv6AclTcpBitsNumber(Enum):
     """
-    Ipv6AclTcpBitsNumber
+    Ipv6AclTcpBitsNumber (Enum Class)
 
     Ipv6 acl tcp bits number
 
@@ -1053,7 +1055,7 @@ class Ipv6AclTcpBitsNumber(Enum):
 
 class Ipv6AclTcpMatchOperatorEnum(Enum):
     """
-    Ipv6AclTcpMatchOperatorEnum
+    Ipv6AclTcpMatchOperatorEnum (Enum Class)
 
     Ipv6 acl tcp match operator enum
 
@@ -1076,7 +1078,7 @@ class Ipv6AclTcpMatchOperatorEnum(Enum):
 
 class Ipv6AclTypeEnum(Enum):
     """
-    Ipv6AclTypeEnum
+    Ipv6AclTypeEnum (Enum Class)
 
     Ipv6 acl type enum
 
@@ -1097,7 +1099,7 @@ class Ipv6AclTypeEnum(Enum):
 
 class Ipv6PrefixMatchExactLength(Enum):
     """
-    Ipv6PrefixMatchExactLength
+    Ipv6PrefixMatchExactLength (Enum Class)
 
     Ipv6 prefix match exact length
 
@@ -1112,7 +1114,7 @@ class Ipv6PrefixMatchExactLength(Enum):
 
 class Ipv6PrefixMatchMaxLength(Enum):
     """
-    Ipv6PrefixMatchMaxLength
+    Ipv6PrefixMatchMaxLength (Enum Class)
 
     Ipv6 prefix match max length
 
@@ -1129,7 +1131,7 @@ class Ipv6PrefixMatchMaxLength(Enum):
 
 class Ipv6PrefixMatchMinLength(Enum):
     """
-    Ipv6PrefixMatchMinLength
+    Ipv6PrefixMatchMinLength (Enum Class)
 
     Ipv6 prefix match min length
 

@@ -7,15 +7,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class BgpAddressFamily(Enum):
     """
-    BgpAddressFamily
+    BgpAddressFamily (Enum Class)
 
     Bgp address family
 
@@ -180,7 +182,7 @@ class BgpAddressFamily(Enum):
 
 class BgpAdvertiseLocalLabeledRouteCfg(Enum):
     """
-    BgpAdvertiseLocalLabeledRouteCfg
+    BgpAdvertiseLocalLabeledRouteCfg (Enum Class)
 
     Bgp advertise local labeled route cfg
 
@@ -201,7 +203,7 @@ class BgpAdvertiseLocalLabeledRouteCfg(Enum):
 
 class BgpAfAdditionalPathsCfg(Enum):
     """
-    BgpAfAdditionalPathsCfg
+    BgpAfAdditionalPathsCfg (Enum Class)
 
     Bgp af additional paths cfg
 
@@ -222,7 +224,7 @@ class BgpAfAdditionalPathsCfg(Enum):
 
 class BgpNbrCapAdditionalPathsCfg(Enum):
     """
-    BgpNbrCapAdditionalPathsCfg
+    BgpNbrCapAdditionalPathsCfg (Enum Class)
 
     Bgp nbr cap additional paths cfg
 
@@ -243,7 +245,7 @@ class BgpNbrCapAdditionalPathsCfg(Enum):
 
 class BgpOfficialAddressFamily(Enum):
     """
-    BgpOfficialAddressFamily
+    BgpOfficialAddressFamily (Enum Class)
 
     Bgp official address family
 
@@ -282,7 +284,7 @@ class BgpOfficialAddressFamily(Enum):
 
 class BgpPrecedenceDscp(Enum):
     """
-    BgpPrecedenceDscp
+    BgpPrecedenceDscp (Enum Class)
 
     Bgp precedence dscp
 
@@ -459,7 +461,7 @@ class BgpPrecedenceDscp(Enum):
 
 class BgpSubsequentAddressFamily(Enum):
     """
-    BgpSubsequentAddressFamily
+    BgpSubsequentAddressFamily (Enum Class)
 
     Bgp subsequent address family
 
@@ -576,7 +578,7 @@ class BgpSubsequentAddressFamily(Enum):
 
 class BgpTos(Enum):
     """
-    BgpTos
+    BgpTos (Enum Class)
 
     Bgp tos
 
@@ -597,7 +599,7 @@ class BgpTos(Enum):
 
 class BgpUpdateFilterAction(Enum):
     """
-    BgpUpdateFilterAction
+    BgpUpdateFilterAction (Enum Class)
 
     Bgp update filter action
 

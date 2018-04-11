@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class HardwareModule(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-prm-hwmod-sr-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"segment-routing" : ("segment_routing", HardwareModule.SegmentRouting)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("segment-routing", ("segment_routing", HardwareModule.SegmentRouting))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.segment_routing = HardwareModule.SegmentRouting()
         self.segment_routing.parent = self
@@ -75,8 +79,10 @@ class HardwareModule(Entity):
             self.yang_parent_name = "hardware-module"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"reserve" : ("reserve", HardwareModule.SegmentRouting.Reserve)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("reserve", ("reserve", HardwareModule.SegmentRouting.Reserve))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.reserve = HardwareModule.SegmentRouting.Reserve()
             self.reserve.parent = self
@@ -109,8 +115,10 @@ class HardwareModule(Entity):
                 self.yang_parent_name = "segment-routing"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"service-label" : ("service_label", HardwareModule.SegmentRouting.Reserve.ServiceLabel)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("service-label", ("service_label", HardwareModule.SegmentRouting.Reserve.ServiceLabel))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.service_label = HardwareModule.SegmentRouting.Reserve.ServiceLabel()
                 self.service_label.parent = self
@@ -143,10 +151,13 @@ class HardwareModule(Entity):
                     self.yang_parent_name = "reserve"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enable = YLeaf(YType.empty, "enable")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.enable = None
                     self._segment_path = lambda: "service-label"
                     self._absolute_path = lambda: "Cisco-IOS-XR-prm-hwmod-sr-cfg:hardware-module/segment-routing/reserve/%s" % self._segment_path()
 

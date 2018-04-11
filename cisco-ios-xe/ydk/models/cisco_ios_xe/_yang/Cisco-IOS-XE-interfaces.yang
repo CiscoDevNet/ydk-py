@@ -42,6 +42,23 @@ submodule Cisco-IOS-XE-interfaces {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-12-14 {
+     description
+       "Added Change interface Cellular name pattern";
+  }
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-10-30 {
+    description
+      "Fix out of sync between CDB and running config for interface mop enabled";
+  }
+  revision 2017-09-15 {
+    description
+      "This revison has changes for hte new 2gig interface addition";
+  }
   revision 2017-08-30 {
     description
       "Move UTD interface support";
@@ -228,7 +245,7 @@ submodule Cisco-IOS-XE-interfaces {
           "Ten Gigabit Ethernet";
         type string;
       }
-      leaf TwentyFiveGigabitEthernet {
+      leaf TwentyFiveGigE {
         description
           "Twenty Five Gigabit Ethernet ";
         type string;
@@ -238,6 +255,13 @@ submodule Cisco-IOS-XE-interfaces {
           "Forty Gigabit Ethernet";
         type string;
       }
+
+      leaf TwoGigabitEthernet {
+        description
+          "Two Gigabit Ethernet ";
+        type string;
+      }
+
       leaf HundredGigE {
         description
           "Hundred Gigabit Ethernet";
@@ -2534,6 +2558,31 @@ submodule Cisco-IOS-XE-interfaces {
         uses interface-common-grouping;
       }
 
+      // interface TwoGigabitEthernet
+      list TwoGigabitEthernet {
+        description
+          "Two Gigabit Ethernet";
+        key "name";
+        leaf name {
+          type string;
+        }
+        leaf media-type {
+          description
+            "Media type";
+          type enumeration {
+            enum "auto-select";
+            enum "rj45";
+            enum "sfp";
+          }
+        }
+        leaf port-type {
+          type enumeration {
+            enum "nni";
+          }
+        }
+        uses interface-common-grouping;
+      }
+
       // interface FiveGigabitEthernet
       list FiveGigabitEthernet {
         description
@@ -2583,8 +2632,8 @@ submodule Cisco-IOS-XE-interfaces {
         }
         uses interface-common-grouping;
       }
-      // interface FiveGigabitEthernet
-      list TwentyFiveGigabitEthernet {
+      // interface TwentyFiveGigE
+      list TwentyFiveGigE {
         description
           "Twenty Five Gigabit Ethernet";
         key "name";
@@ -2640,6 +2689,11 @@ submodule Cisco-IOS-XE-interfaces {
         key "name";
         leaf name {
           type string;
+        }
+        leaf enable {
+          description
+          "To enable or disable HundredGig Traffic";
+          type empty;
         }
         uses interface-common-grouping;
       }
@@ -2835,7 +2889,7 @@ submodule Cisco-IOS-XE-interfaces {
         key "name";
         leaf name {
           type string {
-            pattern "([0-9])+(/([0-9])+)?";
+            pattern "([0-9])+(/([0-9])+)*";
           }
         }
         uses interface-common-grouping;
@@ -2896,9 +2950,7 @@ submodule Cisco-IOS-XE-interfaces {
           "Serial interface";
         key "name";
         leaf name {
-          type string {
-            pattern "([0-9])+/([0-9])+/([0-9])+\\.([0-9])+/([0-9])+/([0-9])+/([0-9])+:([0-9])";
-          }
+          type string;
         }
         uses interface-common-grouping;
       }

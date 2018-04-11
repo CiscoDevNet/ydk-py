@@ -11,15 +11,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class HsrpBAf(Enum):
     """
-    HsrpBAf
+    HsrpBAf (Enum Class)
 
     Hsrp b af
 
@@ -46,7 +48,7 @@ class HsrpBAf(Enum):
 
 class HsrpBfdSessionState(Enum):
     """
-    HsrpBfdSessionState
+    HsrpBfdSessionState (Enum Class)
 
     Hsrp bfd session state
 
@@ -79,7 +81,7 @@ class HsrpBfdSessionState(Enum):
 
 class HsrpStateChangeReason(Enum):
     """
-    HsrpStateChangeReason
+    HsrpStateChangeReason (Enum Class)
 
     Hsrp state change reason
 
@@ -250,7 +252,7 @@ class HsrpStateChangeReason(Enum):
 
 class HsrpVmacState(Enum):
     """
-    HsrpVmacState
+    HsrpVmacState (Enum Class)
 
     Hsrp vmac state
 
@@ -283,7 +285,7 @@ class HsrpVmacState(Enum):
 
 class StandbyGrpState(Enum):
     """
-    StandbyGrpState
+    StandbyGrpState (Enum Class)
 
     Standby grp state
 
@@ -371,8 +373,10 @@ class Hsrp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-hsrp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipv4" : ("ipv4", Hsrp.Ipv4), "mgo-sessions" : ("mgo_sessions", Hsrp.MgoSessions), "ipv6" : ("ipv6", Hsrp.Ipv6), "bfd-sessions" : ("bfd_sessions", Hsrp.BfdSessions), "summary" : ("summary", Hsrp.Summary)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Hsrp.Ipv4)), ("mgo-sessions", ("mgo_sessions", Hsrp.MgoSessions)), ("ipv6", ("ipv6", Hsrp.Ipv6)), ("bfd-sessions", ("bfd_sessions", Hsrp.BfdSessions)), ("summary", ("summary", Hsrp.Summary))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ipv4 = Hsrp.Ipv4()
         self.ipv4.parent = self
@@ -434,8 +438,10 @@ class Hsrp(Entity):
             self.yang_parent_name = "hsrp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"groups" : ("groups", Hsrp.Ipv4.Groups), "tracked-interfaces" : ("tracked_interfaces", Hsrp.Ipv4.TrackedInterfaces), "interfaces" : ("interfaces", Hsrp.Ipv4.Interfaces)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("groups", ("groups", Hsrp.Ipv4.Groups)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Ipv4.TrackedInterfaces)), ("interfaces", ("interfaces", Hsrp.Ipv4.Interfaces))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.groups = Hsrp.Ipv4.Groups()
             self.groups.parent = self
@@ -478,8 +484,10 @@ class Hsrp(Entity):
                 self.yang_parent_name = "ipv4"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"group" : ("group", Hsrp.Ipv4.Groups.Group)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("group", ("group", Hsrp.Ipv4.Groups.Group))])
+                self._leafs = OrderedDict()
 
                 self.group = YList(self)
                 self._segment_path = lambda: "groups"
@@ -493,14 +501,14 @@ class Hsrp(Entity):
                 """
                 An HSRP standby group
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	The interface name
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
-                .. attribute:: group_number  <key>
+                .. attribute:: group_number  (key)
                 
                 	The HSRP group number
                 	**type**\: int
@@ -997,138 +1005,141 @@ class Hsrp(Entity):
                     self.yang_parent_name = "groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"resign-sent-time" : ("resign_sent_time", Hsrp.Ipv4.Groups.Group.ResignSentTime), "resign-received-time" : ("resign_received_time", Hsrp.Ipv4.Groups.Group.ResignReceivedTime), "coup-sent-time" : ("coup_sent_time", Hsrp.Ipv4.Groups.Group.CoupSentTime), "coup-received-time" : ("coup_received_time", Hsrp.Ipv4.Groups.Group.CoupReceivedTime), "statistics" : ("statistics", Hsrp.Ipv4.Groups.Group.Statistics)}
-                    self._child_list_classes = {"global-address" : ("global_address", Hsrp.Ipv4.Groups.Group.GlobalAddress), "state-change-history" : ("state_change_history", Hsrp.Ipv4.Groups.Group.StateChangeHistory)}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.group_number = YLeaf(YType.int32, "group-number")
-
-                    self.authentication_string = YLeaf(YType.str, "authentication-string")
-
-                    self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
-
-                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
-
-                    self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                    self.version = YLeaf(YType.uint8, "version")
-
-                    self.session_name = YLeaf(YType.str, "session-name")
-
-                    self.slaves = YLeaf(YType.uint32, "slaves")
-
-                    self.is_slave = YLeaf(YType.boolean, "is-slave")
-
-                    self.followed_session_name = YLeaf(YType.str, "followed-session-name")
-
-                    self.configured_priority = YLeaf(YType.uint8, "configured-priority")
-
-                    self.preempt_delay = YLeaf(YType.uint32, "preempt-delay")
-
-                    self.preempt_timer_secs = YLeaf(YType.uint32, "preempt-timer-secs")
-
-                    self.hello_time = YLeaf(YType.uint32, "hello-time")
-
-                    self.hold_time = YLeaf(YType.uint32, "hold-time")
-
-                    self.learned_hello_time = YLeaf(YType.uint32, "learned-hello-time")
-
-                    self.learned_hold_time = YLeaf(YType.uint32, "learned-hold-time")
-
-                    self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
-
-                    self.reload_delay_time = YLeaf(YType.uint32, "reload-delay-time")
-
-                    self.virtual_ip_address = YLeaf(YType.str, "virtual-ip-address")
-
-                    self.virtual_linklocal_ipv6_address = YLeaf(YType.str, "virtual-linklocal-ipv6-address")
-
-                    self.active_ip_address = YLeaf(YType.str, "active-ip-address")
-
-                    self.active_ipv6_address = YLeaf(YType.str, "active-ipv6-address")
-
-                    self.active_mac_address = YLeaf(YType.str, "active-mac-address")
-
-                    self.standby_ip_address = YLeaf(YType.str, "standby-ip-address")
-
-                    self.standby_ipv6_address = YLeaf(YType.str, "standby-ipv6-address")
-
-                    self.standby_mac_address = YLeaf(YType.str, "standby-mac-address")
-
-                    self.hsrp_router_state = YLeaf(YType.enumeration, "hsrp-router-state")
-
-                    self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.router_priority = YLeaf(YType.uint8, "router-priority")
-
-                    self.active_priority = YLeaf(YType.uint8, "active-priority")
-
-                    self.active_timer_flag = YLeaf(YType.boolean, "active-timer-flag")
-
-                    self.active_timer_secs = YLeaf(YType.uint32, "active-timer-secs")
-
-                    self.active_timer_msecs = YLeaf(YType.uint32, "active-timer-msecs")
-
-                    self.standby_timer_flag = YLeaf(YType.boolean, "standby-timer-flag")
-
-                    self.standby_timer_secs = YLeaf(YType.uint32, "standby-timer-secs")
-
-                    self.standby_timer_msecs = YLeaf(YType.uint32, "standby-timer-msecs")
-
-                    self.hello_timer_flag = YLeaf(YType.boolean, "hello-timer-flag")
-
-                    self.hello_timer_secs = YLeaf(YType.uint32, "hello-timer-secs")
-
-                    self.hello_timer_msecs = YLeaf(YType.uint32, "hello-timer-msecs")
-
-                    self.delay_timer_flag = YLeaf(YType.boolean, "delay-timer-flag")
-
-                    self.delay_timer_secs = YLeaf(YType.uint32, "delay-timer-secs")
-
-                    self.delay_timer_msecs = YLeaf(YType.uint32, "delay-timer-msecs")
-
-                    self.current_state_timer_secs = YLeaf(YType.uint32, "current-state-timer-secs")
-
-                    self.state_change_count = YLeaf(YType.uint32, "state-change-count")
-
-                    self.tracked_interface_count = YLeaf(YType.uint32, "tracked-interface-count")
-
-                    self.tracked_interface_up_count = YLeaf(YType.uint32, "tracked-interface-up-count")
-
-                    self.preempt_enabled = YLeaf(YType.boolean, "preempt-enabled")
-
-                    self.use_configured_timers = YLeaf(YType.boolean, "use-configured-timers")
-
-                    self.use_configured_virtual_ip = YLeaf(YType.boolean, "use-configured-virtual-ip")
-
-                    self.use_bia_configured = YLeaf(YType.boolean, "use-bia-configured")
-
-                    self.configured_timers = YLeaf(YType.boolean, "configured-timers")
-
-                    self.configured_mac_address = YLeaf(YType.boolean, "configured-mac-address")
-
-                    self.redirects_disabled = YLeaf(YType.boolean, "redirects-disabled")
-
-                    self.bfd_enabled = YLeaf(YType.boolean, "bfd-enabled")
-
-                    self.bfd_interface = YLeaf(YType.str, "bfd-interface")
-
-                    self.bfd_peer_ip_address = YLeaf(YType.str, "bfd-peer-ip-address")
-
-                    self.bfd_peer_ipv6_address = YLeaf(YType.str, "bfd-peer-ipv6-address")
-
-                    self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
-
-                    self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
-
-                    self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
-
-                    self.virtual_mac_address_state = YLeaf(YType.enumeration, "virtual-mac-address-state")
-
-                    self.secondary_address = YLeafList(YType.str, "secondary-address")
+                    self.ylist_key_names = ['interface_name','group_number']
+                    self._child_container_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Hsrp.Ipv4.Groups.Group.ResignSentTime)), ("resign-received-time", ("resign_received_time", Hsrp.Ipv4.Groups.Group.ResignReceivedTime)), ("coup-sent-time", ("coup_sent_time", Hsrp.Ipv4.Groups.Group.CoupSentTime)), ("coup-received-time", ("coup_received_time", Hsrp.Ipv4.Groups.Group.CoupReceivedTime)), ("statistics", ("statistics", Hsrp.Ipv4.Groups.Group.Statistics))])
+                    self._child_list_classes = OrderedDict([("global-address", ("global_address", Hsrp.Ipv4.Groups.Group.GlobalAddress)), ("state-change-history", ("state_change_history", Hsrp.Ipv4.Groups.Group.StateChangeHistory))])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('group_number', YLeaf(YType.int32, 'group-number')),
+                        ('authentication_string', YLeaf(YType.str, 'authentication-string')),
+                        ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
+                        ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
+                        ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                        ('version', YLeaf(YType.uint8, 'version')),
+                        ('session_name', YLeaf(YType.str, 'session-name')),
+                        ('slaves', YLeaf(YType.uint32, 'slaves')),
+                        ('is_slave', YLeaf(YType.boolean, 'is-slave')),
+                        ('followed_session_name', YLeaf(YType.str, 'followed-session-name')),
+                        ('configured_priority', YLeaf(YType.uint8, 'configured-priority')),
+                        ('preempt_delay', YLeaf(YType.uint32, 'preempt-delay')),
+                        ('preempt_timer_secs', YLeaf(YType.uint32, 'preempt-timer-secs')),
+                        ('hello_time', YLeaf(YType.uint32, 'hello-time')),
+                        ('hold_time', YLeaf(YType.uint32, 'hold-time')),
+                        ('learned_hello_time', YLeaf(YType.uint32, 'learned-hello-time')),
+                        ('learned_hold_time', YLeaf(YType.uint32, 'learned-hold-time')),
+                        ('min_delay_time', YLeaf(YType.uint32, 'min-delay-time')),
+                        ('reload_delay_time', YLeaf(YType.uint32, 'reload-delay-time')),
+                        ('virtual_ip_address', YLeaf(YType.str, 'virtual-ip-address')),
+                        ('virtual_linklocal_ipv6_address', YLeaf(YType.str, 'virtual-linklocal-ipv6-address')),
+                        ('active_ip_address', YLeaf(YType.str, 'active-ip-address')),
+                        ('active_ipv6_address', YLeaf(YType.str, 'active-ipv6-address')),
+                        ('active_mac_address', YLeaf(YType.str, 'active-mac-address')),
+                        ('standby_ip_address', YLeaf(YType.str, 'standby-ip-address')),
+                        ('standby_ipv6_address', YLeaf(YType.str, 'standby-ipv6-address')),
+                        ('standby_mac_address', YLeaf(YType.str, 'standby-mac-address')),
+                        ('hsrp_router_state', YLeaf(YType.enumeration, 'hsrp-router-state')),
+                        ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('router_priority', YLeaf(YType.uint8, 'router-priority')),
+                        ('active_priority', YLeaf(YType.uint8, 'active-priority')),
+                        ('active_timer_flag', YLeaf(YType.boolean, 'active-timer-flag')),
+                        ('active_timer_secs', YLeaf(YType.uint32, 'active-timer-secs')),
+                        ('active_timer_msecs', YLeaf(YType.uint32, 'active-timer-msecs')),
+                        ('standby_timer_flag', YLeaf(YType.boolean, 'standby-timer-flag')),
+                        ('standby_timer_secs', YLeaf(YType.uint32, 'standby-timer-secs')),
+                        ('standby_timer_msecs', YLeaf(YType.uint32, 'standby-timer-msecs')),
+                        ('hello_timer_flag', YLeaf(YType.boolean, 'hello-timer-flag')),
+                        ('hello_timer_secs', YLeaf(YType.uint32, 'hello-timer-secs')),
+                        ('hello_timer_msecs', YLeaf(YType.uint32, 'hello-timer-msecs')),
+                        ('delay_timer_flag', YLeaf(YType.boolean, 'delay-timer-flag')),
+                        ('delay_timer_secs', YLeaf(YType.uint32, 'delay-timer-secs')),
+                        ('delay_timer_msecs', YLeaf(YType.uint32, 'delay-timer-msecs')),
+                        ('current_state_timer_secs', YLeaf(YType.uint32, 'current-state-timer-secs')),
+                        ('state_change_count', YLeaf(YType.uint32, 'state-change-count')),
+                        ('tracked_interface_count', YLeaf(YType.uint32, 'tracked-interface-count')),
+                        ('tracked_interface_up_count', YLeaf(YType.uint32, 'tracked-interface-up-count')),
+                        ('preempt_enabled', YLeaf(YType.boolean, 'preempt-enabled')),
+                        ('use_configured_timers', YLeaf(YType.boolean, 'use-configured-timers')),
+                        ('use_configured_virtual_ip', YLeaf(YType.boolean, 'use-configured-virtual-ip')),
+                        ('use_bia_configured', YLeaf(YType.boolean, 'use-bia-configured')),
+                        ('configured_timers', YLeaf(YType.boolean, 'configured-timers')),
+                        ('configured_mac_address', YLeaf(YType.boolean, 'configured-mac-address')),
+                        ('redirects_disabled', YLeaf(YType.boolean, 'redirects-disabled')),
+                        ('bfd_enabled', YLeaf(YType.boolean, 'bfd-enabled')),
+                        ('bfd_interface', YLeaf(YType.str, 'bfd-interface')),
+                        ('bfd_peer_ip_address', YLeaf(YType.str, 'bfd-peer-ip-address')),
+                        ('bfd_peer_ipv6_address', YLeaf(YType.str, 'bfd-peer-ipv6-address')),
+                        ('bfd_session_state', YLeaf(YType.enumeration, 'bfd-session-state')),
+                        ('bfd_interval', YLeaf(YType.uint32, 'bfd-interval')),
+                        ('bfd_multiplier', YLeaf(YType.uint32, 'bfd-multiplier')),
+                        ('virtual_mac_address_state', YLeaf(YType.enumeration, 'virtual-mac-address-state')),
+                        ('secondary_address', YLeafList(YType.str, 'secondary-address')),
+                    ])
+                    self.interface_name = None
+                    self.group_number = None
+                    self.authentication_string = None
+                    self.virtual_mac_address = None
+                    self.hsrp_group_number = None
+                    self.address_family = None
+                    self.version = None
+                    self.session_name = None
+                    self.slaves = None
+                    self.is_slave = None
+                    self.followed_session_name = None
+                    self.configured_priority = None
+                    self.preempt_delay = None
+                    self.preempt_timer_secs = None
+                    self.hello_time = None
+                    self.hold_time = None
+                    self.learned_hello_time = None
+                    self.learned_hold_time = None
+                    self.min_delay_time = None
+                    self.reload_delay_time = None
+                    self.virtual_ip_address = None
+                    self.virtual_linklocal_ipv6_address = None
+                    self.active_ip_address = None
+                    self.active_ipv6_address = None
+                    self.active_mac_address = None
+                    self.standby_ip_address = None
+                    self.standby_ipv6_address = None
+                    self.standby_mac_address = None
+                    self.hsrp_router_state = None
+                    self.interface_name_xr = None
+                    self.interface = None
+                    self.router_priority = None
+                    self.active_priority = None
+                    self.active_timer_flag = None
+                    self.active_timer_secs = None
+                    self.active_timer_msecs = None
+                    self.standby_timer_flag = None
+                    self.standby_timer_secs = None
+                    self.standby_timer_msecs = None
+                    self.hello_timer_flag = None
+                    self.hello_timer_secs = None
+                    self.hello_timer_msecs = None
+                    self.delay_timer_flag = None
+                    self.delay_timer_secs = None
+                    self.delay_timer_msecs = None
+                    self.current_state_timer_secs = None
+                    self.state_change_count = None
+                    self.tracked_interface_count = None
+                    self.tracked_interface_up_count = None
+                    self.preempt_enabled = None
+                    self.use_configured_timers = None
+                    self.use_configured_virtual_ip = None
+                    self.use_bia_configured = None
+                    self.configured_timers = None
+                    self.configured_mac_address = None
+                    self.redirects_disabled = None
+                    self.bfd_enabled = None
+                    self.bfd_interface = None
+                    self.bfd_peer_ip_address = None
+                    self.bfd_peer_ipv6_address = None
+                    self.bfd_session_state = None
+                    self.bfd_interval = None
+                    self.bfd_multiplier = None
+                    self.virtual_mac_address_state = None
+                    self.secondary_address = []
 
                     self.resign_sent_time = Hsrp.Ipv4.Groups.Group.ResignSentTime()
                     self.resign_sent_time.parent = self
@@ -1157,7 +1168,7 @@ class Hsrp(Entity):
 
                     self.global_address = YList(self)
                     self.state_change_history = YList(self)
-                    self._segment_path = lambda: "group" + "[interface-name='" + self.interface_name.get() + "']" + "[group-number='" + self.group_number.get() + "']"
+                    self._segment_path = lambda: "group" + "[interface-name='" + str(self.interface_name) + "']" + "[group-number='" + str(self.group_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1200,12 +1211,15 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                        ])
+                        self.seconds = None
+                        self.nanoseconds = None
                         self._segment_path = lambda: "resign-sent-time"
 
                     def __setattr__(self, name, value):
@@ -1248,12 +1262,15 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                        ])
+                        self.seconds = None
+                        self.nanoseconds = None
                         self._segment_path = lambda: "resign-received-time"
 
                     def __setattr__(self, name, value):
@@ -1296,12 +1313,15 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                        ])
+                        self.seconds = None
+                        self.nanoseconds = None
                         self._segment_path = lambda: "coup-sent-time"
 
                     def __setattr__(self, name, value):
@@ -1344,12 +1364,15 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                        ])
+                        self.seconds = None
+                        self.nanoseconds = None
                         self._segment_path = lambda: "coup-received-time"
 
                     def __setattr__(self, name, value):
@@ -1479,38 +1502,41 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.active_transitions = YLeaf(YType.uint32, "active-transitions")
-
-                        self.standby_transitions = YLeaf(YType.uint32, "standby-transitions")
-
-                        self.speak_transitions = YLeaf(YType.uint32, "speak-transitions")
-
-                        self.listen_transitions = YLeaf(YType.uint32, "listen-transitions")
-
-                        self.learn_transitions = YLeaf(YType.uint32, "learn-transitions")
-
-                        self.init_transitions = YLeaf(YType.uint32, "init-transitions")
-
-                        self.hello_packets_sent = YLeaf(YType.uint32, "hello-packets-sent")
-
-                        self.resign_packets_sent = YLeaf(YType.uint32, "resign-packets-sent")
-
-                        self.coup_packets_sent = YLeaf(YType.uint32, "coup-packets-sent")
-
-                        self.hello_packets_received = YLeaf(YType.uint32, "hello-packets-received")
-
-                        self.resign_packets_received = YLeaf(YType.uint32, "resign-packets-received")
-
-                        self.coup_packets_received = YLeaf(YType.uint32, "coup-packets-received")
-
-                        self.auth_fail_received = YLeaf(YType.uint32, "auth-fail-received")
-
-                        self.invalid_timer_received = YLeaf(YType.uint32, "invalid-timer-received")
-
-                        self.mismatch_virtual_ip_address_received = YLeaf(YType.uint32, "mismatch-virtual-ip-address-received")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('active_transitions', YLeaf(YType.uint32, 'active-transitions')),
+                            ('standby_transitions', YLeaf(YType.uint32, 'standby-transitions')),
+                            ('speak_transitions', YLeaf(YType.uint32, 'speak-transitions')),
+                            ('listen_transitions', YLeaf(YType.uint32, 'listen-transitions')),
+                            ('learn_transitions', YLeaf(YType.uint32, 'learn-transitions')),
+                            ('init_transitions', YLeaf(YType.uint32, 'init-transitions')),
+                            ('hello_packets_sent', YLeaf(YType.uint32, 'hello-packets-sent')),
+                            ('resign_packets_sent', YLeaf(YType.uint32, 'resign-packets-sent')),
+                            ('coup_packets_sent', YLeaf(YType.uint32, 'coup-packets-sent')),
+                            ('hello_packets_received', YLeaf(YType.uint32, 'hello-packets-received')),
+                            ('resign_packets_received', YLeaf(YType.uint32, 'resign-packets-received')),
+                            ('coup_packets_received', YLeaf(YType.uint32, 'coup-packets-received')),
+                            ('auth_fail_received', YLeaf(YType.uint32, 'auth-fail-received')),
+                            ('invalid_timer_received', YLeaf(YType.uint32, 'invalid-timer-received')),
+                            ('mismatch_virtual_ip_address_received', YLeaf(YType.uint32, 'mismatch-virtual-ip-address-received')),
+                        ])
+                        self.active_transitions = None
+                        self.standby_transitions = None
+                        self.speak_transitions = None
+                        self.listen_transitions = None
+                        self.learn_transitions = None
+                        self.init_transitions = None
+                        self.hello_packets_sent = None
+                        self.resign_packets_sent = None
+                        self.coup_packets_sent = None
+                        self.hello_packets_received = None
+                        self.resign_packets_received = None
+                        self.coup_packets_received = None
+                        self.auth_fail_received = None
+                        self.invalid_timer_received = None
+                        self.mismatch_virtual_ip_address_received = None
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
@@ -1542,10 +1568,13 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                        ])
+                        self.ipv6_address = None
                         self._segment_path = lambda: "global-address"
 
                     def __setattr__(self, name, value):
@@ -1590,14 +1619,17 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"time" : ("time", Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time)}
-                        self._child_list_classes = {}
-
-                        self.old_state = YLeaf(YType.enumeration, "old-state")
-
-                        self.new_state = YLeaf(YType.enumeration, "new-state")
-
-                        self.reason = YLeaf(YType.enumeration, "reason")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("time", ("time", Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('old_state', YLeaf(YType.enumeration, 'old-state')),
+                            ('new_state', YLeaf(YType.enumeration, 'new-state')),
+                            ('reason', YLeaf(YType.enumeration, 'reason')),
+                        ])
+                        self.old_state = None
+                        self.new_state = None
+                        self.reason = None
 
                         self.time = Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time()
                         self.time.parent = self
@@ -1645,12 +1677,15 @@ class Hsrp(Entity):
                             self.yang_parent_name = "state-change-history"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('seconds', YLeaf(YType.uint32, 'seconds')),
+                                ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ])
+                            self.seconds = None
+                            self.nanoseconds = None
                             self._segment_path = lambda: "time"
 
                         def __setattr__(self, name, value):
@@ -1680,8 +1715,10 @@ class Hsrp(Entity):
                 self.yang_parent_name = "ipv4"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tracked-interface" : ("tracked_interface", Hsrp.Ipv4.TrackedInterfaces.TrackedInterface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Ipv4.TrackedInterfaces.TrackedInterface))])
+                self._leafs = OrderedDict()
 
                 self.tracked_interface = YList(self)
                 self._segment_path = lambda: "tracked-interfaces"
@@ -1695,21 +1732,21 @@ class Hsrp(Entity):
                 """
                 An HSRP tracked interface entry
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	The interface name of the interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
-                .. attribute:: group_number  <key>
+                .. attribute:: group_number  (key)
                 
                 	The HSRP group number
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: tracked_interface_name  <key>
+                .. attribute:: tracked_interface_name  (key)
                 
                 	The interface name of the interface being tracked
                 	**type**\: str
@@ -1768,27 +1805,30 @@ class Hsrp(Entity):
                     self.yang_parent_name = "tracked-interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.group_number = YLeaf(YType.int32, "group-number")
-
-                    self.tracked_interface_name = YLeaf(YType.str, "tracked-interface-name")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
-
-                    self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
-
-                    self.interface_up_flag = YLeaf(YType.boolean, "interface-up-flag")
-
-                    self.tracked_interface_name_xr = YLeaf(YType.str, "tracked-interface-name-xr")
-
-                    self.is_object = YLeaf(YType.boolean, "is-object")
-                    self._segment_path = lambda: "tracked-interface" + "[interface-name='" + self.interface_name.get() + "']" + "[group-number='" + self.group_number.get() + "']" + "[tracked-interface-name='" + self.tracked_interface_name.get() + "']"
+                    self.ylist_key_names = ['interface_name','group_number','tracked_interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('group_number', YLeaf(YType.int32, 'group-number')),
+                        ('tracked_interface_name', YLeaf(YType.str, 'tracked-interface-name')),
+                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
+                        ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                        ('interface_up_flag', YLeaf(YType.boolean, 'interface-up-flag')),
+                        ('tracked_interface_name_xr', YLeaf(YType.str, 'tracked-interface-name-xr')),
+                        ('is_object', YLeaf(YType.boolean, 'is-object')),
+                    ])
+                    self.interface_name = None
+                    self.group_number = None
+                    self.tracked_interface_name = None
+                    self.interface = None
+                    self.hsrp_group_number = None
+                    self.priority_decrement = None
+                    self.interface_up_flag = None
+                    self.tracked_interface_name_xr = None
+                    self.is_object = None
+                    self._segment_path = lambda: "tracked-interface" + "[interface-name='" + str(self.interface_name) + "']" + "[group-number='" + str(self.group_number) + "']" + "[tracked-interface-name='" + str(self.tracked_interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/tracked-interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1818,8 +1858,10 @@ class Hsrp(Entity):
                 self.yang_parent_name = "ipv4"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Hsrp.Ipv4.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", Hsrp.Ipv4.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -1833,7 +1875,7 @@ class Hsrp(Entity):
                 """
                 A HSRP interface entry
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	The interface name
                 	**type**\: str
@@ -1871,20 +1913,23 @@ class Hsrp(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"statistics" : ("statistics", Hsrp.Ipv4.Interfaces.Interface.Statistics)}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.use_bia_flag = YLeaf(YType.boolean, "use-bia-flag")
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Hsrp.Ipv4.Interfaces.Interface.Statistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('use_bia_flag', YLeaf(YType.boolean, 'use-bia-flag')),
+                    ])
+                    self.interface_name = None
+                    self.interface = None
+                    self.use_bia_flag = None
 
                     self.statistics = Hsrp.Ipv4.Interfaces.Interface.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
                     self._children_yang_names.add("statistics")
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1972,26 +2017,29 @@ class Hsrp(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.advert_packets_sent = YLeaf(YType.uint32, "advert-packets-sent")
-
-                        self.advert_packets_received = YLeaf(YType.uint32, "advert-packets-received")
-
-                        self.long_packets_received = YLeaf(YType.uint32, "long-packets-received")
-
-                        self.short_packets_received = YLeaf(YType.uint32, "short-packets-received")
-
-                        self.invalid_version_received = YLeaf(YType.uint32, "invalid-version-received")
-
-                        self.invalid_operation_code_received = YLeaf(YType.uint32, "invalid-operation-code-received")
-
-                        self.unknown_group_received = YLeaf(YType.uint32, "unknown-group-received")
-
-                        self.inoperational_group_received = YLeaf(YType.uint32, "inoperational-group-received")
-
-                        self.conflict_source_ip_address_received = YLeaf(YType.uint32, "conflict-source-ip-address-received")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('advert_packets_sent', YLeaf(YType.uint32, 'advert-packets-sent')),
+                            ('advert_packets_received', YLeaf(YType.uint32, 'advert-packets-received')),
+                            ('long_packets_received', YLeaf(YType.uint32, 'long-packets-received')),
+                            ('short_packets_received', YLeaf(YType.uint32, 'short-packets-received')),
+                            ('invalid_version_received', YLeaf(YType.uint32, 'invalid-version-received')),
+                            ('invalid_operation_code_received', YLeaf(YType.uint32, 'invalid-operation-code-received')),
+                            ('unknown_group_received', YLeaf(YType.uint32, 'unknown-group-received')),
+                            ('inoperational_group_received', YLeaf(YType.uint32, 'inoperational-group-received')),
+                            ('conflict_source_ip_address_received', YLeaf(YType.uint32, 'conflict-source-ip-address-received')),
+                        ])
+                        self.advert_packets_sent = None
+                        self.advert_packets_received = None
+                        self.long_packets_received = None
+                        self.short_packets_received = None
+                        self.invalid_version_received = None
+                        self.invalid_operation_code_received = None
+                        self.unknown_group_received = None
+                        self.inoperational_group_received = None
+                        self.conflict_source_ip_address_received = None
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
@@ -2021,8 +2069,10 @@ class Hsrp(Entity):
             self.yang_parent_name = "hsrp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mgo-session" : ("mgo_session", Hsrp.MgoSessions.MgoSession)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mgo-session", ("mgo_session", Hsrp.MgoSessions.MgoSession))])
+            self._leafs = OrderedDict()
 
             self.mgo_session = YList(self)
             self._segment_path = lambda: "mgo-sessions"
@@ -2036,7 +2086,7 @@ class Hsrp(Entity):
             """
             HSRP MGO session
             
-            .. attribute:: session_name  <key>
+            .. attribute:: session_name  (key)
             
             	HSRP MGO session name
             	**type**\: str
@@ -2093,23 +2143,26 @@ class Hsrp(Entity):
                 self.yang_parent_name = "mgo-sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"slave" : ("slave", Hsrp.MgoSessions.MgoSession.Slave)}
-
-                self.session_name = YLeaf(YType.str, "session-name")
-
-                self.primary_session_name = YLeaf(YType.str, "primary-session-name")
-
-                self.primary_session_interface = YLeaf(YType.str, "primary-session-interface")
-
-                self.primary_af_name = YLeaf(YType.enumeration, "primary-af-name")
-
-                self.primary_session_number = YLeaf(YType.uint32, "primary-session-number")
-
-                self.primary_session_state = YLeaf(YType.enumeration, "primary-session-state")
+                self.ylist_key_names = ['session_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("slave", ("slave", Hsrp.MgoSessions.MgoSession.Slave))])
+                self._leafs = OrderedDict([
+                    ('session_name', YLeaf(YType.str, 'session-name')),
+                    ('primary_session_name', YLeaf(YType.str, 'primary-session-name')),
+                    ('primary_session_interface', YLeaf(YType.str, 'primary-session-interface')),
+                    ('primary_af_name', YLeaf(YType.enumeration, 'primary-af-name')),
+                    ('primary_session_number', YLeaf(YType.uint32, 'primary-session-number')),
+                    ('primary_session_state', YLeaf(YType.enumeration, 'primary-session-state')),
+                ])
+                self.session_name = None
+                self.primary_session_name = None
+                self.primary_session_interface = None
+                self.primary_af_name = None
+                self.primary_session_number = None
+                self.primary_session_state = None
 
                 self.slave = YList(self)
-                self._segment_path = lambda: "mgo-session" + "[session-name='" + self.session_name.get() + "']"
+                self._segment_path = lambda: "mgo-session" + "[session-name='" + str(self.session_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/mgo-sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2148,12 +2201,15 @@ class Hsrp(Entity):
                     self.yang_parent_name = "mgo-session"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.slave_group_interface = YLeaf(YType.str, "slave-group-interface")
-
-                    self.slave_group_number = YLeaf(YType.uint32, "slave-group-number")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('slave_group_interface', YLeaf(YType.str, 'slave-group-interface')),
+                        ('slave_group_number', YLeaf(YType.uint32, 'slave-group-number')),
+                    ])
+                    self.slave_group_interface = None
+                    self.slave_group_number = None
                     self._segment_path = lambda: "slave"
 
                 def __setattr__(self, name, value):
@@ -2193,8 +2249,10 @@ class Hsrp(Entity):
             self.yang_parent_name = "hsrp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"tracked-interfaces" : ("tracked_interfaces", Hsrp.Ipv6.TrackedInterfaces), "groups" : ("groups", Hsrp.Ipv6.Groups), "interfaces" : ("interfaces", Hsrp.Ipv6.Interfaces)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("tracked-interfaces", ("tracked_interfaces", Hsrp.Ipv6.TrackedInterfaces)), ("groups", ("groups", Hsrp.Ipv6.Groups)), ("interfaces", ("interfaces", Hsrp.Ipv6.Interfaces))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.tracked_interfaces = Hsrp.Ipv6.TrackedInterfaces()
             self.tracked_interfaces.parent = self
@@ -2237,8 +2295,10 @@ class Hsrp(Entity):
                 self.yang_parent_name = "ipv6"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tracked-interface" : ("tracked_interface", Hsrp.Ipv6.TrackedInterfaces.TrackedInterface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tracked-interface", ("tracked_interface", Hsrp.Ipv6.TrackedInterfaces.TrackedInterface))])
+                self._leafs = OrderedDict()
 
                 self.tracked_interface = YList(self)
                 self._segment_path = lambda: "tracked-interfaces"
@@ -2252,21 +2312,21 @@ class Hsrp(Entity):
                 """
                 An HSRP tracked interface entry
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	The interface name of the interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
-                .. attribute:: group_number  <key>
+                .. attribute:: group_number  (key)
                 
                 	The HSRP group number
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: tracked_interface_name  <key>
+                .. attribute:: tracked_interface_name  (key)
                 
                 	The interface name of the interface being tracked
                 	**type**\: str
@@ -2325,27 +2385,30 @@ class Hsrp(Entity):
                     self.yang_parent_name = "tracked-interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.group_number = YLeaf(YType.int32, "group-number")
-
-                    self.tracked_interface_name = YLeaf(YType.str, "tracked-interface-name")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
-
-                    self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
-
-                    self.interface_up_flag = YLeaf(YType.boolean, "interface-up-flag")
-
-                    self.tracked_interface_name_xr = YLeaf(YType.str, "tracked-interface-name-xr")
-
-                    self.is_object = YLeaf(YType.boolean, "is-object")
-                    self._segment_path = lambda: "tracked-interface" + "[interface-name='" + self.interface_name.get() + "']" + "[group-number='" + self.group_number.get() + "']" + "[tracked-interface-name='" + self.tracked_interface_name.get() + "']"
+                    self.ylist_key_names = ['interface_name','group_number','tracked_interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('group_number', YLeaf(YType.int32, 'group-number')),
+                        ('tracked_interface_name', YLeaf(YType.str, 'tracked-interface-name')),
+                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
+                        ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                        ('interface_up_flag', YLeaf(YType.boolean, 'interface-up-flag')),
+                        ('tracked_interface_name_xr', YLeaf(YType.str, 'tracked-interface-name-xr')),
+                        ('is_object', YLeaf(YType.boolean, 'is-object')),
+                    ])
+                    self.interface_name = None
+                    self.group_number = None
+                    self.tracked_interface_name = None
+                    self.interface = None
+                    self.hsrp_group_number = None
+                    self.priority_decrement = None
+                    self.interface_up_flag = None
+                    self.tracked_interface_name_xr = None
+                    self.is_object = None
+                    self._segment_path = lambda: "tracked-interface" + "[interface-name='" + str(self.interface_name) + "']" + "[group-number='" + str(self.group_number) + "']" + "[tracked-interface-name='" + str(self.tracked_interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/tracked-interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2375,8 +2438,10 @@ class Hsrp(Entity):
                 self.yang_parent_name = "ipv6"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"group" : ("group", Hsrp.Ipv6.Groups.Group)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("group", ("group", Hsrp.Ipv6.Groups.Group))])
+                self._leafs = OrderedDict()
 
                 self.group = YList(self)
                 self._segment_path = lambda: "groups"
@@ -2390,14 +2455,14 @@ class Hsrp(Entity):
                 """
                 An HSRP standby group
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	The interface name
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
-                .. attribute:: group_number  <key>
+                .. attribute:: group_number  (key)
                 
                 	The HSRP group number
                 	**type**\: int
@@ -2894,138 +2959,141 @@ class Hsrp(Entity):
                     self.yang_parent_name = "groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"resign-sent-time" : ("resign_sent_time", Hsrp.Ipv6.Groups.Group.ResignSentTime), "resign-received-time" : ("resign_received_time", Hsrp.Ipv6.Groups.Group.ResignReceivedTime), "coup-sent-time" : ("coup_sent_time", Hsrp.Ipv6.Groups.Group.CoupSentTime), "coup-received-time" : ("coup_received_time", Hsrp.Ipv6.Groups.Group.CoupReceivedTime), "statistics" : ("statistics", Hsrp.Ipv6.Groups.Group.Statistics)}
-                    self._child_list_classes = {"global-address" : ("global_address", Hsrp.Ipv6.Groups.Group.GlobalAddress), "state-change-history" : ("state_change_history", Hsrp.Ipv6.Groups.Group.StateChangeHistory)}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.group_number = YLeaf(YType.int32, "group-number")
-
-                    self.authentication_string = YLeaf(YType.str, "authentication-string")
-
-                    self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
-
-                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
-
-                    self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                    self.version = YLeaf(YType.uint8, "version")
-
-                    self.session_name = YLeaf(YType.str, "session-name")
-
-                    self.slaves = YLeaf(YType.uint32, "slaves")
-
-                    self.is_slave = YLeaf(YType.boolean, "is-slave")
-
-                    self.followed_session_name = YLeaf(YType.str, "followed-session-name")
-
-                    self.configured_priority = YLeaf(YType.uint8, "configured-priority")
-
-                    self.preempt_delay = YLeaf(YType.uint32, "preempt-delay")
-
-                    self.preempt_timer_secs = YLeaf(YType.uint32, "preempt-timer-secs")
-
-                    self.hello_time = YLeaf(YType.uint32, "hello-time")
-
-                    self.hold_time = YLeaf(YType.uint32, "hold-time")
-
-                    self.learned_hello_time = YLeaf(YType.uint32, "learned-hello-time")
-
-                    self.learned_hold_time = YLeaf(YType.uint32, "learned-hold-time")
-
-                    self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
-
-                    self.reload_delay_time = YLeaf(YType.uint32, "reload-delay-time")
-
-                    self.virtual_ip_address = YLeaf(YType.str, "virtual-ip-address")
-
-                    self.virtual_linklocal_ipv6_address = YLeaf(YType.str, "virtual-linklocal-ipv6-address")
-
-                    self.active_ip_address = YLeaf(YType.str, "active-ip-address")
-
-                    self.active_ipv6_address = YLeaf(YType.str, "active-ipv6-address")
-
-                    self.active_mac_address = YLeaf(YType.str, "active-mac-address")
-
-                    self.standby_ip_address = YLeaf(YType.str, "standby-ip-address")
-
-                    self.standby_ipv6_address = YLeaf(YType.str, "standby-ipv6-address")
-
-                    self.standby_mac_address = YLeaf(YType.str, "standby-mac-address")
-
-                    self.hsrp_router_state = YLeaf(YType.enumeration, "hsrp-router-state")
-
-                    self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.router_priority = YLeaf(YType.uint8, "router-priority")
-
-                    self.active_priority = YLeaf(YType.uint8, "active-priority")
-
-                    self.active_timer_flag = YLeaf(YType.boolean, "active-timer-flag")
-
-                    self.active_timer_secs = YLeaf(YType.uint32, "active-timer-secs")
-
-                    self.active_timer_msecs = YLeaf(YType.uint32, "active-timer-msecs")
-
-                    self.standby_timer_flag = YLeaf(YType.boolean, "standby-timer-flag")
-
-                    self.standby_timer_secs = YLeaf(YType.uint32, "standby-timer-secs")
-
-                    self.standby_timer_msecs = YLeaf(YType.uint32, "standby-timer-msecs")
-
-                    self.hello_timer_flag = YLeaf(YType.boolean, "hello-timer-flag")
-
-                    self.hello_timer_secs = YLeaf(YType.uint32, "hello-timer-secs")
-
-                    self.hello_timer_msecs = YLeaf(YType.uint32, "hello-timer-msecs")
-
-                    self.delay_timer_flag = YLeaf(YType.boolean, "delay-timer-flag")
-
-                    self.delay_timer_secs = YLeaf(YType.uint32, "delay-timer-secs")
-
-                    self.delay_timer_msecs = YLeaf(YType.uint32, "delay-timer-msecs")
-
-                    self.current_state_timer_secs = YLeaf(YType.uint32, "current-state-timer-secs")
-
-                    self.state_change_count = YLeaf(YType.uint32, "state-change-count")
-
-                    self.tracked_interface_count = YLeaf(YType.uint32, "tracked-interface-count")
-
-                    self.tracked_interface_up_count = YLeaf(YType.uint32, "tracked-interface-up-count")
-
-                    self.preempt_enabled = YLeaf(YType.boolean, "preempt-enabled")
-
-                    self.use_configured_timers = YLeaf(YType.boolean, "use-configured-timers")
-
-                    self.use_configured_virtual_ip = YLeaf(YType.boolean, "use-configured-virtual-ip")
-
-                    self.use_bia_configured = YLeaf(YType.boolean, "use-bia-configured")
-
-                    self.configured_timers = YLeaf(YType.boolean, "configured-timers")
-
-                    self.configured_mac_address = YLeaf(YType.boolean, "configured-mac-address")
-
-                    self.redirects_disabled = YLeaf(YType.boolean, "redirects-disabled")
-
-                    self.bfd_enabled = YLeaf(YType.boolean, "bfd-enabled")
-
-                    self.bfd_interface = YLeaf(YType.str, "bfd-interface")
-
-                    self.bfd_peer_ip_address = YLeaf(YType.str, "bfd-peer-ip-address")
-
-                    self.bfd_peer_ipv6_address = YLeaf(YType.str, "bfd-peer-ipv6-address")
-
-                    self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
-
-                    self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
-
-                    self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
-
-                    self.virtual_mac_address_state = YLeaf(YType.enumeration, "virtual-mac-address-state")
-
-                    self.secondary_address = YLeafList(YType.str, "secondary-address")
+                    self.ylist_key_names = ['interface_name','group_number']
+                    self._child_container_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Hsrp.Ipv6.Groups.Group.ResignSentTime)), ("resign-received-time", ("resign_received_time", Hsrp.Ipv6.Groups.Group.ResignReceivedTime)), ("coup-sent-time", ("coup_sent_time", Hsrp.Ipv6.Groups.Group.CoupSentTime)), ("coup-received-time", ("coup_received_time", Hsrp.Ipv6.Groups.Group.CoupReceivedTime)), ("statistics", ("statistics", Hsrp.Ipv6.Groups.Group.Statistics))])
+                    self._child_list_classes = OrderedDict([("global-address", ("global_address", Hsrp.Ipv6.Groups.Group.GlobalAddress)), ("state-change-history", ("state_change_history", Hsrp.Ipv6.Groups.Group.StateChangeHistory))])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('group_number', YLeaf(YType.int32, 'group-number')),
+                        ('authentication_string', YLeaf(YType.str, 'authentication-string')),
+                        ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
+                        ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
+                        ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                        ('version', YLeaf(YType.uint8, 'version')),
+                        ('session_name', YLeaf(YType.str, 'session-name')),
+                        ('slaves', YLeaf(YType.uint32, 'slaves')),
+                        ('is_slave', YLeaf(YType.boolean, 'is-slave')),
+                        ('followed_session_name', YLeaf(YType.str, 'followed-session-name')),
+                        ('configured_priority', YLeaf(YType.uint8, 'configured-priority')),
+                        ('preempt_delay', YLeaf(YType.uint32, 'preempt-delay')),
+                        ('preempt_timer_secs', YLeaf(YType.uint32, 'preempt-timer-secs')),
+                        ('hello_time', YLeaf(YType.uint32, 'hello-time')),
+                        ('hold_time', YLeaf(YType.uint32, 'hold-time')),
+                        ('learned_hello_time', YLeaf(YType.uint32, 'learned-hello-time')),
+                        ('learned_hold_time', YLeaf(YType.uint32, 'learned-hold-time')),
+                        ('min_delay_time', YLeaf(YType.uint32, 'min-delay-time')),
+                        ('reload_delay_time', YLeaf(YType.uint32, 'reload-delay-time')),
+                        ('virtual_ip_address', YLeaf(YType.str, 'virtual-ip-address')),
+                        ('virtual_linklocal_ipv6_address', YLeaf(YType.str, 'virtual-linklocal-ipv6-address')),
+                        ('active_ip_address', YLeaf(YType.str, 'active-ip-address')),
+                        ('active_ipv6_address', YLeaf(YType.str, 'active-ipv6-address')),
+                        ('active_mac_address', YLeaf(YType.str, 'active-mac-address')),
+                        ('standby_ip_address', YLeaf(YType.str, 'standby-ip-address')),
+                        ('standby_ipv6_address', YLeaf(YType.str, 'standby-ipv6-address')),
+                        ('standby_mac_address', YLeaf(YType.str, 'standby-mac-address')),
+                        ('hsrp_router_state', YLeaf(YType.enumeration, 'hsrp-router-state')),
+                        ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('router_priority', YLeaf(YType.uint8, 'router-priority')),
+                        ('active_priority', YLeaf(YType.uint8, 'active-priority')),
+                        ('active_timer_flag', YLeaf(YType.boolean, 'active-timer-flag')),
+                        ('active_timer_secs', YLeaf(YType.uint32, 'active-timer-secs')),
+                        ('active_timer_msecs', YLeaf(YType.uint32, 'active-timer-msecs')),
+                        ('standby_timer_flag', YLeaf(YType.boolean, 'standby-timer-flag')),
+                        ('standby_timer_secs', YLeaf(YType.uint32, 'standby-timer-secs')),
+                        ('standby_timer_msecs', YLeaf(YType.uint32, 'standby-timer-msecs')),
+                        ('hello_timer_flag', YLeaf(YType.boolean, 'hello-timer-flag')),
+                        ('hello_timer_secs', YLeaf(YType.uint32, 'hello-timer-secs')),
+                        ('hello_timer_msecs', YLeaf(YType.uint32, 'hello-timer-msecs')),
+                        ('delay_timer_flag', YLeaf(YType.boolean, 'delay-timer-flag')),
+                        ('delay_timer_secs', YLeaf(YType.uint32, 'delay-timer-secs')),
+                        ('delay_timer_msecs', YLeaf(YType.uint32, 'delay-timer-msecs')),
+                        ('current_state_timer_secs', YLeaf(YType.uint32, 'current-state-timer-secs')),
+                        ('state_change_count', YLeaf(YType.uint32, 'state-change-count')),
+                        ('tracked_interface_count', YLeaf(YType.uint32, 'tracked-interface-count')),
+                        ('tracked_interface_up_count', YLeaf(YType.uint32, 'tracked-interface-up-count')),
+                        ('preempt_enabled', YLeaf(YType.boolean, 'preempt-enabled')),
+                        ('use_configured_timers', YLeaf(YType.boolean, 'use-configured-timers')),
+                        ('use_configured_virtual_ip', YLeaf(YType.boolean, 'use-configured-virtual-ip')),
+                        ('use_bia_configured', YLeaf(YType.boolean, 'use-bia-configured')),
+                        ('configured_timers', YLeaf(YType.boolean, 'configured-timers')),
+                        ('configured_mac_address', YLeaf(YType.boolean, 'configured-mac-address')),
+                        ('redirects_disabled', YLeaf(YType.boolean, 'redirects-disabled')),
+                        ('bfd_enabled', YLeaf(YType.boolean, 'bfd-enabled')),
+                        ('bfd_interface', YLeaf(YType.str, 'bfd-interface')),
+                        ('bfd_peer_ip_address', YLeaf(YType.str, 'bfd-peer-ip-address')),
+                        ('bfd_peer_ipv6_address', YLeaf(YType.str, 'bfd-peer-ipv6-address')),
+                        ('bfd_session_state', YLeaf(YType.enumeration, 'bfd-session-state')),
+                        ('bfd_interval', YLeaf(YType.uint32, 'bfd-interval')),
+                        ('bfd_multiplier', YLeaf(YType.uint32, 'bfd-multiplier')),
+                        ('virtual_mac_address_state', YLeaf(YType.enumeration, 'virtual-mac-address-state')),
+                        ('secondary_address', YLeafList(YType.str, 'secondary-address')),
+                    ])
+                    self.interface_name = None
+                    self.group_number = None
+                    self.authentication_string = None
+                    self.virtual_mac_address = None
+                    self.hsrp_group_number = None
+                    self.address_family = None
+                    self.version = None
+                    self.session_name = None
+                    self.slaves = None
+                    self.is_slave = None
+                    self.followed_session_name = None
+                    self.configured_priority = None
+                    self.preempt_delay = None
+                    self.preempt_timer_secs = None
+                    self.hello_time = None
+                    self.hold_time = None
+                    self.learned_hello_time = None
+                    self.learned_hold_time = None
+                    self.min_delay_time = None
+                    self.reload_delay_time = None
+                    self.virtual_ip_address = None
+                    self.virtual_linklocal_ipv6_address = None
+                    self.active_ip_address = None
+                    self.active_ipv6_address = None
+                    self.active_mac_address = None
+                    self.standby_ip_address = None
+                    self.standby_ipv6_address = None
+                    self.standby_mac_address = None
+                    self.hsrp_router_state = None
+                    self.interface_name_xr = None
+                    self.interface = None
+                    self.router_priority = None
+                    self.active_priority = None
+                    self.active_timer_flag = None
+                    self.active_timer_secs = None
+                    self.active_timer_msecs = None
+                    self.standby_timer_flag = None
+                    self.standby_timer_secs = None
+                    self.standby_timer_msecs = None
+                    self.hello_timer_flag = None
+                    self.hello_timer_secs = None
+                    self.hello_timer_msecs = None
+                    self.delay_timer_flag = None
+                    self.delay_timer_secs = None
+                    self.delay_timer_msecs = None
+                    self.current_state_timer_secs = None
+                    self.state_change_count = None
+                    self.tracked_interface_count = None
+                    self.tracked_interface_up_count = None
+                    self.preempt_enabled = None
+                    self.use_configured_timers = None
+                    self.use_configured_virtual_ip = None
+                    self.use_bia_configured = None
+                    self.configured_timers = None
+                    self.configured_mac_address = None
+                    self.redirects_disabled = None
+                    self.bfd_enabled = None
+                    self.bfd_interface = None
+                    self.bfd_peer_ip_address = None
+                    self.bfd_peer_ipv6_address = None
+                    self.bfd_session_state = None
+                    self.bfd_interval = None
+                    self.bfd_multiplier = None
+                    self.virtual_mac_address_state = None
+                    self.secondary_address = []
 
                     self.resign_sent_time = Hsrp.Ipv6.Groups.Group.ResignSentTime()
                     self.resign_sent_time.parent = self
@@ -3054,7 +3122,7 @@ class Hsrp(Entity):
 
                     self.global_address = YList(self)
                     self.state_change_history = YList(self)
-                    self._segment_path = lambda: "group" + "[interface-name='" + self.interface_name.get() + "']" + "[group-number='" + self.group_number.get() + "']"
+                    self._segment_path = lambda: "group" + "[interface-name='" + str(self.interface_name) + "']" + "[group-number='" + str(self.group_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3097,12 +3165,15 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                        ])
+                        self.seconds = None
+                        self.nanoseconds = None
                         self._segment_path = lambda: "resign-sent-time"
 
                     def __setattr__(self, name, value):
@@ -3145,12 +3216,15 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                        ])
+                        self.seconds = None
+                        self.nanoseconds = None
                         self._segment_path = lambda: "resign-received-time"
 
                     def __setattr__(self, name, value):
@@ -3193,12 +3267,15 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                        ])
+                        self.seconds = None
+                        self.nanoseconds = None
                         self._segment_path = lambda: "coup-sent-time"
 
                     def __setattr__(self, name, value):
@@ -3241,12 +3318,15 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                        ])
+                        self.seconds = None
+                        self.nanoseconds = None
                         self._segment_path = lambda: "coup-received-time"
 
                     def __setattr__(self, name, value):
@@ -3376,38 +3456,41 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.active_transitions = YLeaf(YType.uint32, "active-transitions")
-
-                        self.standby_transitions = YLeaf(YType.uint32, "standby-transitions")
-
-                        self.speak_transitions = YLeaf(YType.uint32, "speak-transitions")
-
-                        self.listen_transitions = YLeaf(YType.uint32, "listen-transitions")
-
-                        self.learn_transitions = YLeaf(YType.uint32, "learn-transitions")
-
-                        self.init_transitions = YLeaf(YType.uint32, "init-transitions")
-
-                        self.hello_packets_sent = YLeaf(YType.uint32, "hello-packets-sent")
-
-                        self.resign_packets_sent = YLeaf(YType.uint32, "resign-packets-sent")
-
-                        self.coup_packets_sent = YLeaf(YType.uint32, "coup-packets-sent")
-
-                        self.hello_packets_received = YLeaf(YType.uint32, "hello-packets-received")
-
-                        self.resign_packets_received = YLeaf(YType.uint32, "resign-packets-received")
-
-                        self.coup_packets_received = YLeaf(YType.uint32, "coup-packets-received")
-
-                        self.auth_fail_received = YLeaf(YType.uint32, "auth-fail-received")
-
-                        self.invalid_timer_received = YLeaf(YType.uint32, "invalid-timer-received")
-
-                        self.mismatch_virtual_ip_address_received = YLeaf(YType.uint32, "mismatch-virtual-ip-address-received")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('active_transitions', YLeaf(YType.uint32, 'active-transitions')),
+                            ('standby_transitions', YLeaf(YType.uint32, 'standby-transitions')),
+                            ('speak_transitions', YLeaf(YType.uint32, 'speak-transitions')),
+                            ('listen_transitions', YLeaf(YType.uint32, 'listen-transitions')),
+                            ('learn_transitions', YLeaf(YType.uint32, 'learn-transitions')),
+                            ('init_transitions', YLeaf(YType.uint32, 'init-transitions')),
+                            ('hello_packets_sent', YLeaf(YType.uint32, 'hello-packets-sent')),
+                            ('resign_packets_sent', YLeaf(YType.uint32, 'resign-packets-sent')),
+                            ('coup_packets_sent', YLeaf(YType.uint32, 'coup-packets-sent')),
+                            ('hello_packets_received', YLeaf(YType.uint32, 'hello-packets-received')),
+                            ('resign_packets_received', YLeaf(YType.uint32, 'resign-packets-received')),
+                            ('coup_packets_received', YLeaf(YType.uint32, 'coup-packets-received')),
+                            ('auth_fail_received', YLeaf(YType.uint32, 'auth-fail-received')),
+                            ('invalid_timer_received', YLeaf(YType.uint32, 'invalid-timer-received')),
+                            ('mismatch_virtual_ip_address_received', YLeaf(YType.uint32, 'mismatch-virtual-ip-address-received')),
+                        ])
+                        self.active_transitions = None
+                        self.standby_transitions = None
+                        self.speak_transitions = None
+                        self.listen_transitions = None
+                        self.learn_transitions = None
+                        self.init_transitions = None
+                        self.hello_packets_sent = None
+                        self.resign_packets_sent = None
+                        self.coup_packets_sent = None
+                        self.hello_packets_received = None
+                        self.resign_packets_received = None
+                        self.coup_packets_received = None
+                        self.auth_fail_received = None
+                        self.invalid_timer_received = None
+                        self.mismatch_virtual_ip_address_received = None
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
@@ -3439,10 +3522,13 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                        ])
+                        self.ipv6_address = None
                         self._segment_path = lambda: "global-address"
 
                     def __setattr__(self, name, value):
@@ -3487,14 +3573,17 @@ class Hsrp(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"time" : ("time", Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time)}
-                        self._child_list_classes = {}
-
-                        self.old_state = YLeaf(YType.enumeration, "old-state")
-
-                        self.new_state = YLeaf(YType.enumeration, "new-state")
-
-                        self.reason = YLeaf(YType.enumeration, "reason")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("time", ("time", Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('old_state', YLeaf(YType.enumeration, 'old-state')),
+                            ('new_state', YLeaf(YType.enumeration, 'new-state')),
+                            ('reason', YLeaf(YType.enumeration, 'reason')),
+                        ])
+                        self.old_state = None
+                        self.new_state = None
+                        self.reason = None
 
                         self.time = Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time()
                         self.time.parent = self
@@ -3542,12 +3631,15 @@ class Hsrp(Entity):
                             self.yang_parent_name = "state-change-history"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('seconds', YLeaf(YType.uint32, 'seconds')),
+                                ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ])
+                            self.seconds = None
+                            self.nanoseconds = None
                             self._segment_path = lambda: "time"
 
                         def __setattr__(self, name, value):
@@ -3577,8 +3669,10 @@ class Hsrp(Entity):
                 self.yang_parent_name = "ipv6"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Hsrp.Ipv6.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", Hsrp.Ipv6.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -3592,7 +3686,7 @@ class Hsrp(Entity):
                 """
                 A HSRP interface entry
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	The interface name
                 	**type**\: str
@@ -3630,20 +3724,23 @@ class Hsrp(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"statistics" : ("statistics", Hsrp.Ipv6.Interfaces.Interface.Statistics)}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.use_bia_flag = YLeaf(YType.boolean, "use-bia-flag")
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Hsrp.Ipv6.Interfaces.Interface.Statistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('use_bia_flag', YLeaf(YType.boolean, 'use-bia-flag')),
+                    ])
+                    self.interface_name = None
+                    self.interface = None
+                    self.use_bia_flag = None
 
                     self.statistics = Hsrp.Ipv6.Interfaces.Interface.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
                     self._children_yang_names.add("statistics")
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3731,26 +3828,29 @@ class Hsrp(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.advert_packets_sent = YLeaf(YType.uint32, "advert-packets-sent")
-
-                        self.advert_packets_received = YLeaf(YType.uint32, "advert-packets-received")
-
-                        self.long_packets_received = YLeaf(YType.uint32, "long-packets-received")
-
-                        self.short_packets_received = YLeaf(YType.uint32, "short-packets-received")
-
-                        self.invalid_version_received = YLeaf(YType.uint32, "invalid-version-received")
-
-                        self.invalid_operation_code_received = YLeaf(YType.uint32, "invalid-operation-code-received")
-
-                        self.unknown_group_received = YLeaf(YType.uint32, "unknown-group-received")
-
-                        self.inoperational_group_received = YLeaf(YType.uint32, "inoperational-group-received")
-
-                        self.conflict_source_ip_address_received = YLeaf(YType.uint32, "conflict-source-ip-address-received")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('advert_packets_sent', YLeaf(YType.uint32, 'advert-packets-sent')),
+                            ('advert_packets_received', YLeaf(YType.uint32, 'advert-packets-received')),
+                            ('long_packets_received', YLeaf(YType.uint32, 'long-packets-received')),
+                            ('short_packets_received', YLeaf(YType.uint32, 'short-packets-received')),
+                            ('invalid_version_received', YLeaf(YType.uint32, 'invalid-version-received')),
+                            ('invalid_operation_code_received', YLeaf(YType.uint32, 'invalid-operation-code-received')),
+                            ('unknown_group_received', YLeaf(YType.uint32, 'unknown-group-received')),
+                            ('inoperational_group_received', YLeaf(YType.uint32, 'inoperational-group-received')),
+                            ('conflict_source_ip_address_received', YLeaf(YType.uint32, 'conflict-source-ip-address-received')),
+                        ])
+                        self.advert_packets_sent = None
+                        self.advert_packets_received = None
+                        self.long_packets_received = None
+                        self.short_packets_received = None
+                        self.invalid_version_received = None
+                        self.invalid_operation_code_received = None
+                        self.unknown_group_received = None
+                        self.inoperational_group_received = None
+                        self.conflict_source_ip_address_received = None
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
@@ -3780,8 +3880,10 @@ class Hsrp(Entity):
             self.yang_parent_name = "hsrp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"bfd-session" : ("bfd_session", Hsrp.BfdSessions.BfdSession)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("bfd-session", ("bfd_session", Hsrp.BfdSessions.BfdSession))])
+            self._leafs = OrderedDict()
 
             self.bfd_session = YList(self)
             self._segment_path = lambda: "bfd-sessions"
@@ -3795,14 +3897,14 @@ class Hsrp(Entity):
             """
             An HSRP BFD Session
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9./\-]+
             
-            .. attribute:: ip_address  <key>
+            .. attribute:: ip_address  (key)
             
             	Destination IP Address of BFD Session
             	**type**\: union of the below types:
@@ -3879,29 +3981,32 @@ class Hsrp(Entity):
                 self.yang_parent_name = "bfd-sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"group" : ("group", Hsrp.BfdSessions.BfdSession.Group)}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.ip_address = YLeaf(YType.str, "ip-address")
-
-                self.bfd_interface_name = YLeaf(YType.str, "bfd-interface-name")
-
-                self.session_address_family = YLeaf(YType.enumeration, "session-address-family")
-
-                self.destination_address = YLeaf(YType.str, "destination-address")
-
-                self.destination_ipv6_address = YLeaf(YType.str, "destination-ipv6-address")
-
-                self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
-
-                self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
-
-                self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
+                self.ylist_key_names = ['interface_name','ip_address']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("group", ("group", Hsrp.BfdSessions.BfdSession.Group))])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('ip_address', YLeaf(YType.str, 'ip-address')),
+                    ('bfd_interface_name', YLeaf(YType.str, 'bfd-interface-name')),
+                    ('session_address_family', YLeaf(YType.enumeration, 'session-address-family')),
+                    ('destination_address', YLeaf(YType.str, 'destination-address')),
+                    ('destination_ipv6_address', YLeaf(YType.str, 'destination-ipv6-address')),
+                    ('bfd_session_state', YLeaf(YType.enumeration, 'bfd-session-state')),
+                    ('bfd_interval', YLeaf(YType.uint32, 'bfd-interval')),
+                    ('bfd_multiplier', YLeaf(YType.uint32, 'bfd-multiplier')),
+                ])
+                self.interface_name = None
+                self.ip_address = None
+                self.bfd_interface_name = None
+                self.session_address_family = None
+                self.destination_address = None
+                self.destination_ipv6_address = None
+                self.bfd_session_state = None
+                self.bfd_interval = None
+                self.bfd_multiplier = None
 
                 self.group = YList(self)
-                self._segment_path = lambda: "bfd-session" + "[interface-name='" + self.interface_name.get() + "']" + "[ip-address='" + self.ip_address.get() + "']"
+                self._segment_path = lambda: "bfd-session" + "[interface-name='" + str(self.interface_name) + "']" + "[ip-address='" + str(self.ip_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/bfd-sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3940,12 +4045,15 @@ class Hsrp(Entity):
                     self.yang_parent_name = "bfd-session"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('hsrp_group_number', YLeaf(YType.uint32, 'hsrp-group-number')),
+                    ])
+                    self.interface_name = None
+                    self.hsrp_group_number = None
                     self._segment_path = lambda: "group"
 
                 def __setattr__(self, name, value):
@@ -4397,130 +4505,133 @@ class Hsrp(Entity):
             self.yang_parent_name = "hsrp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ipv4_sessions_active = YLeaf(YType.uint32, "ipv4-sessions-active")
-
-            self.ipv4_sessions_standby = YLeaf(YType.uint32, "ipv4-sessions-standby")
-
-            self.ipv4_sessions_speak = YLeaf(YType.uint32, "ipv4-sessions-speak")
-
-            self.ipv4_sessions_listen = YLeaf(YType.uint32, "ipv4-sessions-listen")
-
-            self.ipv4_sessions_learn = YLeaf(YType.uint32, "ipv4-sessions-learn")
-
-            self.ipv4_sessions_init = YLeaf(YType.uint32, "ipv4-sessions-init")
-
-            self.ipv4_slaves_active = YLeaf(YType.uint32, "ipv4-slaves-active")
-
-            self.ipv4_slaves_standby = YLeaf(YType.uint32, "ipv4-slaves-standby")
-
-            self.ipv4_slaves_speak = YLeaf(YType.uint32, "ipv4-slaves-speak")
-
-            self.ipv4_slaves_listen = YLeaf(YType.uint32, "ipv4-slaves-listen")
-
-            self.ipv4_slaves_learn = YLeaf(YType.uint32, "ipv4-slaves-learn")
-
-            self.ipv4_slaves_init = YLeaf(YType.uint32, "ipv4-slaves-init")
-
-            self.ipv4_virtual_ip_addresses_active_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-active-up")
-
-            self.ipv4_virtual_ip_addresses_active_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-active-down")
-
-            self.ipv4_virtual_ip_addresses_standby_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-standby-up")
-
-            self.ipv4_virtual_ip_addresses_standby_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-standby-down")
-
-            self.ipv4_virtual_ip_addresses_speak_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-speak-up")
-
-            self.ipv4_virtual_ip_addresses_speak_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-speak-down")
-
-            self.ipv4_virtual_ip_addresses_listen_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-listen-up")
-
-            self.ipv4_virtual_ip_addresses_listen_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-listen-down")
-
-            self.ipv4_virtual_ip_addresses_learn_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-learn-up")
-
-            self.ipv4_virtual_ip_addresses_learn_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-learn-down")
-
-            self.ipv4_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-up")
-
-            self.ipv4_virtual_ip_addresses_init_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-down")
-
-            self.ipv6_sessions_active = YLeaf(YType.uint32, "ipv6-sessions-active")
-
-            self.ipv6_sessions_standby = YLeaf(YType.uint32, "ipv6-sessions-standby")
-
-            self.ipv6_sessions_speak = YLeaf(YType.uint32, "ipv6-sessions-speak")
-
-            self.ipv6_sessions_listen = YLeaf(YType.uint32, "ipv6-sessions-listen")
-
-            self.ipv6_sessions_learn = YLeaf(YType.uint32, "ipv6-sessions-learn")
-
-            self.ipv6_sessions_init = YLeaf(YType.uint32, "ipv6-sessions-init")
-
-            self.ipv6_slaves_active = YLeaf(YType.uint32, "ipv6-slaves-active")
-
-            self.ipv6_slaves_standby = YLeaf(YType.uint32, "ipv6-slaves-standby")
-
-            self.ipv6_slaves_speak = YLeaf(YType.uint32, "ipv6-slaves-speak")
-
-            self.ipv6_slaves_listen = YLeaf(YType.uint32, "ipv6-slaves-listen")
-
-            self.ipv6_slaves_learn = YLeaf(YType.uint32, "ipv6-slaves-learn")
-
-            self.ipv6_slaves_init = YLeaf(YType.uint32, "ipv6-slaves-init")
-
-            self.ipv6_virtual_ip_addresses_active_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-active-up")
-
-            self.ipv6_virtual_ip_addresses_active_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-active-down")
-
-            self.ipv6_virtual_ip_addresses_standby_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-standby-up")
-
-            self.ipv6_virtual_ip_addresses_standby_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-standby-down")
-
-            self.ipv6_virtual_ip_addresses_speak_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-speak-up")
-
-            self.ipv6_virtual_ip_addresses_speak_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-speak-down")
-
-            self.ipv6_virtual_ip_addresses_listen_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-listen-up")
-
-            self.ipv6_virtual_ip_addresses_listen_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-listen-down")
-
-            self.ipv6_virtual_ip_addresses_learn_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-learn-up")
-
-            self.ipv6_virtual_ip_addresses_learn_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-learn-down")
-
-            self.ipv6_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-up")
-
-            self.ipv6_virtual_ip_addresses_init_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-down")
-
-            self.interfaces_ipv4_state_up = YLeaf(YType.uint32, "interfaces-ipv4-state-up")
-
-            self.interfaces_ipv4_state_down = YLeaf(YType.uint32, "interfaces-ipv4-state-down")
-
-            self.tracked_interfaces_ipv4_state_up = YLeaf(YType.uint32, "tracked-interfaces-ipv4-state-up")
-
-            self.tracked_interfaces_ipv4_state_down = YLeaf(YType.uint32, "tracked-interfaces-ipv4-state-down")
-
-            self.tracked_objects_up = YLeaf(YType.uint32, "tracked-objects-up")
-
-            self.tracked_objects_down = YLeaf(YType.uint32, "tracked-objects-down")
-
-            self.interfaces_ipv6_state_up = YLeaf(YType.uint32, "interfaces-ipv6-state-up")
-
-            self.interfaces_ipv6_state_down = YLeaf(YType.uint32, "interfaces-ipv6-state-down")
-
-            self.tracked_interfaces_ipv6_state_up = YLeaf(YType.uint32, "tracked-interfaces-ipv6-state-up")
-
-            self.tracked_interfaces_ipv6_state_down = YLeaf(YType.uint32, "tracked-interfaces-ipv6-state-down")
-
-            self.bfd_sessions_up = YLeaf(YType.uint32, "bfd-sessions-up")
-
-            self.bfd_sessions_down = YLeaf(YType.uint32, "bfd-sessions-down")
-
-            self.bfd_session_inactive = YLeaf(YType.uint32, "bfd-session-inactive")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ipv4_sessions_active', YLeaf(YType.uint32, 'ipv4-sessions-active')),
+                ('ipv4_sessions_standby', YLeaf(YType.uint32, 'ipv4-sessions-standby')),
+                ('ipv4_sessions_speak', YLeaf(YType.uint32, 'ipv4-sessions-speak')),
+                ('ipv4_sessions_listen', YLeaf(YType.uint32, 'ipv4-sessions-listen')),
+                ('ipv4_sessions_learn', YLeaf(YType.uint32, 'ipv4-sessions-learn')),
+                ('ipv4_sessions_init', YLeaf(YType.uint32, 'ipv4-sessions-init')),
+                ('ipv4_slaves_active', YLeaf(YType.uint32, 'ipv4-slaves-active')),
+                ('ipv4_slaves_standby', YLeaf(YType.uint32, 'ipv4-slaves-standby')),
+                ('ipv4_slaves_speak', YLeaf(YType.uint32, 'ipv4-slaves-speak')),
+                ('ipv4_slaves_listen', YLeaf(YType.uint32, 'ipv4-slaves-listen')),
+                ('ipv4_slaves_learn', YLeaf(YType.uint32, 'ipv4-slaves-learn')),
+                ('ipv4_slaves_init', YLeaf(YType.uint32, 'ipv4-slaves-init')),
+                ('ipv4_virtual_ip_addresses_active_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-active-up')),
+                ('ipv4_virtual_ip_addresses_active_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-active-down')),
+                ('ipv4_virtual_ip_addresses_standby_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-standby-up')),
+                ('ipv4_virtual_ip_addresses_standby_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-standby-down')),
+                ('ipv4_virtual_ip_addresses_speak_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-speak-up')),
+                ('ipv4_virtual_ip_addresses_speak_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-speak-down')),
+                ('ipv4_virtual_ip_addresses_listen_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-listen-up')),
+                ('ipv4_virtual_ip_addresses_listen_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-listen-down')),
+                ('ipv4_virtual_ip_addresses_learn_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-learn-up')),
+                ('ipv4_virtual_ip_addresses_learn_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-learn-down')),
+                ('ipv4_virtual_ip_addresses_init_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-init-up')),
+                ('ipv4_virtual_ip_addresses_init_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-init-down')),
+                ('ipv6_sessions_active', YLeaf(YType.uint32, 'ipv6-sessions-active')),
+                ('ipv6_sessions_standby', YLeaf(YType.uint32, 'ipv6-sessions-standby')),
+                ('ipv6_sessions_speak', YLeaf(YType.uint32, 'ipv6-sessions-speak')),
+                ('ipv6_sessions_listen', YLeaf(YType.uint32, 'ipv6-sessions-listen')),
+                ('ipv6_sessions_learn', YLeaf(YType.uint32, 'ipv6-sessions-learn')),
+                ('ipv6_sessions_init', YLeaf(YType.uint32, 'ipv6-sessions-init')),
+                ('ipv6_slaves_active', YLeaf(YType.uint32, 'ipv6-slaves-active')),
+                ('ipv6_slaves_standby', YLeaf(YType.uint32, 'ipv6-slaves-standby')),
+                ('ipv6_slaves_speak', YLeaf(YType.uint32, 'ipv6-slaves-speak')),
+                ('ipv6_slaves_listen', YLeaf(YType.uint32, 'ipv6-slaves-listen')),
+                ('ipv6_slaves_learn', YLeaf(YType.uint32, 'ipv6-slaves-learn')),
+                ('ipv6_slaves_init', YLeaf(YType.uint32, 'ipv6-slaves-init')),
+                ('ipv6_virtual_ip_addresses_active_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-active-up')),
+                ('ipv6_virtual_ip_addresses_active_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-active-down')),
+                ('ipv6_virtual_ip_addresses_standby_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-standby-up')),
+                ('ipv6_virtual_ip_addresses_standby_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-standby-down')),
+                ('ipv6_virtual_ip_addresses_speak_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-speak-up')),
+                ('ipv6_virtual_ip_addresses_speak_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-speak-down')),
+                ('ipv6_virtual_ip_addresses_listen_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-listen-up')),
+                ('ipv6_virtual_ip_addresses_listen_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-listen-down')),
+                ('ipv6_virtual_ip_addresses_learn_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-learn-up')),
+                ('ipv6_virtual_ip_addresses_learn_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-learn-down')),
+                ('ipv6_virtual_ip_addresses_init_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-init-up')),
+                ('ipv6_virtual_ip_addresses_init_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-init-down')),
+                ('interfaces_ipv4_state_up', YLeaf(YType.uint32, 'interfaces-ipv4-state-up')),
+                ('interfaces_ipv4_state_down', YLeaf(YType.uint32, 'interfaces-ipv4-state-down')),
+                ('tracked_interfaces_ipv4_state_up', YLeaf(YType.uint32, 'tracked-interfaces-ipv4-state-up')),
+                ('tracked_interfaces_ipv4_state_down', YLeaf(YType.uint32, 'tracked-interfaces-ipv4-state-down')),
+                ('tracked_objects_up', YLeaf(YType.uint32, 'tracked-objects-up')),
+                ('tracked_objects_down', YLeaf(YType.uint32, 'tracked-objects-down')),
+                ('interfaces_ipv6_state_up', YLeaf(YType.uint32, 'interfaces-ipv6-state-up')),
+                ('interfaces_ipv6_state_down', YLeaf(YType.uint32, 'interfaces-ipv6-state-down')),
+                ('tracked_interfaces_ipv6_state_up', YLeaf(YType.uint32, 'tracked-interfaces-ipv6-state-up')),
+                ('tracked_interfaces_ipv6_state_down', YLeaf(YType.uint32, 'tracked-interfaces-ipv6-state-down')),
+                ('bfd_sessions_up', YLeaf(YType.uint32, 'bfd-sessions-up')),
+                ('bfd_sessions_down', YLeaf(YType.uint32, 'bfd-sessions-down')),
+                ('bfd_session_inactive', YLeaf(YType.uint32, 'bfd-session-inactive')),
+            ])
+            self.ipv4_sessions_active = None
+            self.ipv4_sessions_standby = None
+            self.ipv4_sessions_speak = None
+            self.ipv4_sessions_listen = None
+            self.ipv4_sessions_learn = None
+            self.ipv4_sessions_init = None
+            self.ipv4_slaves_active = None
+            self.ipv4_slaves_standby = None
+            self.ipv4_slaves_speak = None
+            self.ipv4_slaves_listen = None
+            self.ipv4_slaves_learn = None
+            self.ipv4_slaves_init = None
+            self.ipv4_virtual_ip_addresses_active_up = None
+            self.ipv4_virtual_ip_addresses_active_down = None
+            self.ipv4_virtual_ip_addresses_standby_up = None
+            self.ipv4_virtual_ip_addresses_standby_down = None
+            self.ipv4_virtual_ip_addresses_speak_up = None
+            self.ipv4_virtual_ip_addresses_speak_down = None
+            self.ipv4_virtual_ip_addresses_listen_up = None
+            self.ipv4_virtual_ip_addresses_listen_down = None
+            self.ipv4_virtual_ip_addresses_learn_up = None
+            self.ipv4_virtual_ip_addresses_learn_down = None
+            self.ipv4_virtual_ip_addresses_init_up = None
+            self.ipv4_virtual_ip_addresses_init_down = None
+            self.ipv6_sessions_active = None
+            self.ipv6_sessions_standby = None
+            self.ipv6_sessions_speak = None
+            self.ipv6_sessions_listen = None
+            self.ipv6_sessions_learn = None
+            self.ipv6_sessions_init = None
+            self.ipv6_slaves_active = None
+            self.ipv6_slaves_standby = None
+            self.ipv6_slaves_speak = None
+            self.ipv6_slaves_listen = None
+            self.ipv6_slaves_learn = None
+            self.ipv6_slaves_init = None
+            self.ipv6_virtual_ip_addresses_active_up = None
+            self.ipv6_virtual_ip_addresses_active_down = None
+            self.ipv6_virtual_ip_addresses_standby_up = None
+            self.ipv6_virtual_ip_addresses_standby_down = None
+            self.ipv6_virtual_ip_addresses_speak_up = None
+            self.ipv6_virtual_ip_addresses_speak_down = None
+            self.ipv6_virtual_ip_addresses_listen_up = None
+            self.ipv6_virtual_ip_addresses_listen_down = None
+            self.ipv6_virtual_ip_addresses_learn_up = None
+            self.ipv6_virtual_ip_addresses_learn_down = None
+            self.ipv6_virtual_ip_addresses_init_up = None
+            self.ipv6_virtual_ip_addresses_init_down = None
+            self.interfaces_ipv4_state_up = None
+            self.interfaces_ipv4_state_down = None
+            self.tracked_interfaces_ipv4_state_up = None
+            self.tracked_interfaces_ipv4_state_down = None
+            self.tracked_objects_up = None
+            self.tracked_objects_down = None
+            self.interfaces_ipv6_state_up = None
+            self.interfaces_ipv6_state_down = None
+            self.tracked_interfaces_ipv6_state_up = None
+            self.tracked_interfaces_ipv6_state_down = None
+            self.bfd_sessions_up = None
+            self.bfd_sessions_down = None
+            self.bfd_session_inactive = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self._segment_path()
 

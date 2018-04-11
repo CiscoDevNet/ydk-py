@@ -8,9 +8,11 @@ information that are either excluded by EtherLike\-MIB
 or specific to Cisco products.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -44,8 +46,10 @@ class CISCOETHERLIKEEXTMIB(Entity):
         self.yang_parent_name = "CISCO-ETHERLIKE-EXT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ceeDot3PauseExtTable" : ("ceedot3pauseexttable", CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable), "ceeSubInterfaceTable" : ("ceesubinterfacetable", CISCOETHERLIKEEXTMIB.Ceesubinterfacetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ceeDot3PauseExtTable", ("ceedot3pauseexttable", CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable)), ("ceeSubInterfaceTable", ("ceesubinterfacetable", CISCOETHERLIKEEXTMIB.Ceesubinterfacetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ceedot3pauseexttable = CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable()
         self.ceedot3pauseexttable.parent = self
@@ -89,8 +93,10 @@ class CISCOETHERLIKEEXTMIB(Entity):
             self.yang_parent_name = "CISCO-ETHERLIKE-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceeDot3PauseExtEntry" : ("ceedot3pauseextentry", CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable.Ceedot3Pauseextentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceeDot3PauseExtEntry", ("ceedot3pauseextentry", CISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable.Ceedot3Pauseextentry))])
+            self._leafs = OrderedDict()
 
             self.ceedot3pauseextentry = YList(self)
             self._segment_path = lambda: "ceeDot3PauseExtTable"
@@ -107,7 +113,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
             on a single ethernet\-like interface, in extension 
             to dot3PauseEntry in Etherlike\-MIB.
             
-            .. attribute:: dot3statsindex  <key>
+            .. attribute:: dot3statsindex  (key)
             
             	
             	**type**\: int
@@ -140,15 +146,18 @@ class CISCOETHERLIKEEXTMIB(Entity):
                 self.yang_parent_name = "ceeDot3PauseExtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot3statsindex = YLeaf(YType.str, "dot3StatsIndex")
-
-                self.ceedot3pauseextadminmode = YLeaf(YType.bits, "ceeDot3PauseExtAdminMode")
-
-                self.ceedot3pauseextopermode = YLeaf(YType.bits, "ceeDot3PauseExtOperMode")
-                self._segment_path = lambda: "ceeDot3PauseExtEntry" + "[dot3StatsIndex='" + self.dot3statsindex.get() + "']"
+                self.ylist_key_names = ['dot3statsindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot3statsindex', YLeaf(YType.str, 'dot3StatsIndex')),
+                    ('ceedot3pauseextadminmode', YLeaf(YType.bits, 'ceeDot3PauseExtAdminMode')),
+                    ('ceedot3pauseextopermode', YLeaf(YType.bits, 'ceeDot3PauseExtOperMode')),
+                ])
+                self.dot3statsindex = None
+                self.ceedot3pauseextadminmode = Bits()
+                self.ceedot3pauseextopermode = Bits()
+                self._segment_path = lambda: "ceeDot3PauseExtEntry" + "[dot3StatsIndex='" + str(self.dot3statsindex) + "']"
                 self._absolute_path = lambda: "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/ceeDot3PauseExtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -186,8 +195,10 @@ class CISCOETHERLIKEEXTMIB(Entity):
             self.yang_parent_name = "CISCO-ETHERLIKE-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceeSubInterfaceEntry" : ("ceesubinterfaceentry", CISCOETHERLIKEEXTMIB.Ceesubinterfacetable.Ceesubinterfaceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceeSubInterfaceEntry", ("ceesubinterfaceentry", CISCOETHERLIKEEXTMIB.Ceesubinterfacetable.Ceesubinterfaceentry))])
+            self._leafs = OrderedDict()
 
             self.ceesubinterfaceentry = YList(self)
             self._segment_path = lambda: "ceeSubInterfaceTable"
@@ -211,7 +222,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
             associated to the Ethernet\-like interface is deleted.
             Typically, when the card is removed from the device.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -243,13 +254,16 @@ class CISCOETHERLIKEEXTMIB(Entity):
                 self.yang_parent_name = "ceeSubInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.ceesubinterfacecount = YLeaf(YType.uint32, "ceeSubInterfaceCount")
-                self._segment_path = lambda: "ceeSubInterfaceEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('ceesubinterfacecount', YLeaf(YType.uint32, 'ceeSubInterfaceCount')),
+                ])
+                self.ifindex = None
+                self.ceesubinterfacecount = None
+                self._segment_path = lambda: "ceeSubInterfaceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/ceeSubInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

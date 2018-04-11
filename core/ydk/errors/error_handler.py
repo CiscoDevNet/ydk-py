@@ -17,32 +17,32 @@ import sys
 import inspect
 import contextlib
 
-from ydk.errors import YPYError as _YPYError
-from ydk.errors import YPYCoreError as _YPYCoreError
-from ydk.errors import YPYCodecError as _YPYCodecError
-from ydk.errors import YPYClientError as _YPYClientError
-from ydk.errors import YPYIllegalStateError as _YPYIllegalStateError
-from ydk.errors import YPYInvalidArgumentError as _YPYInvalidArgumentError
-from ydk.errors import YPYModelError as _YPYModelError
-from ydk.errors import YPYOperationNotSupportedError as _YPYOperationNotSupportedError
-from ydk.errors import YPYServiceError as _YPYServiceError
-from ydk.errors import YPYServiceProviderError as _YPYServiceProviderError
+from ydk.errors import YError as _YError
+from ydk.errors import YCoreError as _YCoreError
+from ydk.errors import YCodecError as _YCodecError
+from ydk.errors import YClientError as _YClientError
+from ydk.errors import YIllegalStateError as _YIllegalStateError
+from ydk.errors import YInvalidArgumentError as _YInvalidArgumentError
+from ydk.errors import YModelError as _YModelError
+from ydk.errors import YOperationNotSupportedError as _YOperationNotSupportedError
+from ydk.errors import YServiceError as _YServiceError
+from ydk.errors import YServiceProviderError as _YServiceProviderError
 
 
 if sys.version_info > (3, 0):
     inspect.getargspec = inspect.getfullargspec
 
 
-_ERRORS = {"YError": _YPYError,
-           "YCoreError": _YPYCoreError,
-           "YCodecError": _YPYCodecError,
-           "YClientError": _YPYClientError,
-           "YIllegalStateError": _YPYIllegalStateError,
-           "YInvalidArgumentError": _YPYInvalidArgumentError,
-           "YModelError": _YPYModelError,
-           "YOperationNotSupportedError": _YPYOperationNotSupportedError,
-           "YServiceError": _YPYServiceError,
-           "YServiceProviderError": _YPYServiceProviderError,
+_ERRORS = {"YError": _YError,
+           "YCoreError": _YCoreError,
+           "YCodecError": _YCodecError,
+           "YClientError": _YClientError,
+           "YIllegalStateError": _YIllegalStateError,
+           "YInvalidArgumentError": _YInvalidArgumentError,
+           "YModelError": _YModelError,
+           "YOperationNotSupportedError": _YOperationNotSupportedError,
+           "YServiceError": _YServiceError,
+           "YServiceProviderError": _YServiceProviderError,
 }
 
 
@@ -65,18 +65,18 @@ def handle_runtime_error():
         msg = str(err)
         if ":" in msg:
             etype_str, msg = msg.split(":", 1)
-            etype = _ERRORS.get(etype_str, _YPYError)
+            etype = _ERRORS.get(etype_str, _YError)
         else:
-            etype = _YPYError
+            etype = _YError
             msg = msg
         _exc = etype(msg)
     except TypeError as err:
         msg = str(err)
         if ':' in msg:
             etype_str, msg = msg.split(':', 1)
-            _exc = _YPYServiceError(msg)
+            _exc = _YServiceError(msg)
         else:
-            _exc = _YPYError(msg)
+            _exc = _YError(msg)
     finally:
         if _exc:
             _raise(_exc)
@@ -84,12 +84,12 @@ def handle_runtime_error():
 
 @contextlib.contextmanager
 def handle_type_error():
-    """Rethrow TypeError as YPYModelError"""
+    """Rethrow TypeError as YModelError"""
     _exc = None
     try:
         yield
     except TypeError as err:
-        _exc = _YPYModelError(str(err))
+        _exc = _YModelError(str(err))
     finally:
         if _exc:
             _raise(_exc)
@@ -108,6 +108,6 @@ def check_argument(func):
         _, pname, ename = inspect.getargspec(func).args[:3]
         if provider is None or entity is None:
             err_msg = "'{0}' and '{1}' cannot be None".format(pname, ename)
-            raise _YPYServiceError(error_msg=err_msg)
+            raise _YServiceError(error_msg=err_msg)
         return func(self, provider, entity, *args, **kwargs)
     return helper

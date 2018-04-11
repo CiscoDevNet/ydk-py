@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class SdrInventory(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-sdr-invmgr-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"racks" : ("racks", SdrInventory.Racks)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("racks", ("racks", SdrInventory.Racks))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.racks = SdrInventory.Racks()
         self.racks.parent = self
@@ -75,8 +79,10 @@ class SdrInventory(Entity):
             self.yang_parent_name = "sdr-inventory"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rack" : ("rack", SdrInventory.Racks.Rack)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rack", ("rack", SdrInventory.Racks.Rack))])
+            self._leafs = OrderedDict()
 
             self.rack = YList(self)
             self._segment_path = lambda: "racks"
@@ -90,7 +96,7 @@ class SdrInventory(Entity):
             """
             Rack name
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Rack name
             	**type**\: str
@@ -116,13 +122,16 @@ class SdrInventory(Entity):
                 self.yang_parent_name = "racks"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"slot" : ("slot", SdrInventory.Racks.Rack.Slot)}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("slot", ("slot", SdrInventory.Racks.Rack.Slot))])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.slot = YList(self)
-                self._segment_path = lambda: "rack" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "rack" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sdr-invmgr-oper:sdr-inventory/racks/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -133,7 +142,7 @@ class SdrInventory(Entity):
                 """
                 Slot name
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Slot name
                 	**type**\: str
@@ -159,13 +168,16 @@ class SdrInventory(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"card" : ("card", SdrInventory.Racks.Rack.Slot.Card)}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("card", ("card", SdrInventory.Racks.Rack.Slot.Card))])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.card = YList(self)
-                    self._segment_path = lambda: "slot" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "slot" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrInventory.Racks.Rack.Slot, ['name'], name, value)
@@ -175,7 +187,7 @@ class SdrInventory(Entity):
                     """
                     Card
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Card
                     	**type**\: str
@@ -201,16 +213,19 @@ class SdrInventory(Entity):
                         self.yang_parent_name = "slot"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"attributes" : ("attributes", SdrInventory.Racks.Rack.Slot.Card.Attributes)}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = ['name']
+                        self._child_container_classes = OrderedDict([("attributes", ("attributes", SdrInventory.Racks.Rack.Slot.Card.Attributes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
 
                         self.attributes = SdrInventory.Racks.Rack.Slot.Card.Attributes()
                         self.attributes.parent = self
                         self._children_name_map["attributes"] = "attributes"
                         self._children_yang_names.add("attributes")
-                        self._segment_path = lambda: "card" + "[name='" + self.name.get() + "']"
+                        self._segment_path = lambda: "card" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card, ['name'], name, value)
@@ -344,36 +359,39 @@ class SdrInventory(Entity):
                             self.yang_parent_name = "card"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.config_state_string = YLeaf(YType.str, "config-state-string")
-
-                            self.power = YLeaf(YType.uint32, "power")
-
-                            self.config_state = YLeaf(YType.uint32, "config-state")
-
-                            self.card_state = YLeaf(YType.uint32, "card-state")
-
-                            self.vm_state = YLeaf(YType.uint32, "vm-state")
-
-                            self.card_admin_state = YLeaf(YType.uint32, "card-admin-state")
-
-                            self.card_type = YLeaf(YType.uint32, "card-type")
-
-                            self.card_type_string = YLeaf(YType.str, "card-type-string")
-
-                            self.node_name_string = YLeaf(YType.str, "node-name-string")
-
-                            self.pi_slot_number = YLeaf(YType.uint32, "pi-slot-number")
-
-                            self.shutdown = YLeaf(YType.uint32, "shutdown")
-
-                            self.ctype = YLeaf(YType.uint32, "ctype")
-
-                            self.card_state_string = YLeaf(YType.str, "card-state-string")
-
-                            self.monitor = YLeaf(YType.uint32, "monitor")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('config_state_string', YLeaf(YType.str, 'config-state-string')),
+                                ('power', YLeaf(YType.uint32, 'power')),
+                                ('config_state', YLeaf(YType.uint32, 'config-state')),
+                                ('card_state', YLeaf(YType.uint32, 'card-state')),
+                                ('vm_state', YLeaf(YType.uint32, 'vm-state')),
+                                ('card_admin_state', YLeaf(YType.uint32, 'card-admin-state')),
+                                ('card_type', YLeaf(YType.uint32, 'card-type')),
+                                ('card_type_string', YLeaf(YType.str, 'card-type-string')),
+                                ('node_name_string', YLeaf(YType.str, 'node-name-string')),
+                                ('pi_slot_number', YLeaf(YType.uint32, 'pi-slot-number')),
+                                ('shutdown', YLeaf(YType.uint32, 'shutdown')),
+                                ('ctype', YLeaf(YType.uint32, 'ctype')),
+                                ('card_state_string', YLeaf(YType.str, 'card-state-string')),
+                                ('monitor', YLeaf(YType.uint32, 'monitor')),
+                            ])
+                            self.config_state_string = None
+                            self.power = None
+                            self.config_state = None
+                            self.card_state = None
+                            self.vm_state = None
+                            self.card_admin_state = None
+                            self.card_type = None
+                            self.card_type_string = None
+                            self.node_name_string = None
+                            self.pi_slot_number = None
+                            self.shutdown = None
+                            self.ctype = None
+                            self.card_state_string = None
+                            self.monitor = None
                             self._segment_path = lambda: "attributes"
 
                         def __setattr__(self, name, value):

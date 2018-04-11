@@ -1,323 +1,387 @@
 submodule Cisco-IOS-XR-plat-chas-invmgr-oper-sub2 {
-
   belongs-to Cisco-IOS-XR-plat-chas-invmgr-oper {
     prefix Cisco-IOS-XR-plat-chas-invmgr-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR plat-chas-invmgr package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2018-01-22 {
     description
-      "Fixing backward compatibility error in module.";
+      "Fixing incorrect spelling for node-description in module.";
   }
-
-  revision "2015-01-07" {
+  revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
   }
 
   typedef Node-state {
     type enumeration {
-      enum not-present {
+      enum "not-present" {
         value 0;
-        description "Not present";
+        description
+          "Not present";
       }
-      enum present {
+      enum "present" {
         value 1;
-        description "Present";
+        description
+          "Present";
       }
-      enum reset {
+      enum "reset" {
         value 2;
-        description "Reset";
+        description
+          "Reset";
       }
-      enum rommon {
+      enum "rommon" {
         value 3;
-        description "Card booting or rommon";
+        description
+          "Card booting or rommon";
       }
-      enum mbi-boot {
+      enum "mbi-boot" {
         value 4;
-        description "MBI booting";
+        description
+          "MBI booting";
       }
-      enum mbi-run {
+      enum "mbi-run" {
         value 5;
-        description "Running MBI";
+        description
+          "Running MBI";
       }
-      enum xr-run {
+      enum "xr-run" {
         value 6;
-        description "Running ENA";
+        description
+          "Running ENA";
       }
-      enum bring-down {
+      enum "bring-down" {
         value 7;
-        description "Bringdown";
+        description
+          "Bringdown";
       }
-      enum xr-fail {
+      enum "xr-fail" {
         value 8;
-        description "ENA failure";
+        description
+          "ENA failure";
       }
-      enum fdiag-run {
+      enum "fdiag-run" {
         value 9;
-        description "Running FDIAG";
+        description
+          "Running FDIAG";
       }
-      enum fdiag-fail {
+      enum "fdiag-fail" {
         value 10;
-        description "FDIAG failure";
+        description
+          "FDIAG failure";
       }
-      enum power {
+      enum "power" {
         value 11;
-        description "Powered";
+        description
+          "Powered";
       }
-      enum unpower {
+      enum "unpower" {
         value 12;
-        description "Unpowered";
+        description
+          "Unpowered";
       }
-      enum mdr-warm-reload {
+      enum "mdr-warm-reload" {
         value 13;
-        description "MDR warm reload";
+        description
+          "MDR warm reload";
       }
-      enum mdr-mbi-run {
+      enum "mdr-mbi-run" {
         value 14;
-        description "MDR running MBI";
+        description
+          "MDR running MBI";
       }
-      enum maintenance-mode {
+      enum "maintenance-mode" {
         value 15;
-        description "Maintenance mode";
+        description
+          "Maintenance mode";
       }
-      enum admin-down {
+      enum "admin-down" {
         value 16;
-        description "Admin down";
+        description
+          "Admin down";
       }
-      enum not-monitor {
+      enum "not-monitor" {
         value 17;
-        description "No MON";
+        description
+          "No MON";
       }
-      enum unknown-card {
+      enum "unknown-card" {
         value 18;
-        description "Unknown";
+        description
+          "Unknown";
       }
-      enum failed {
+      enum "failed" {
         value 19;
-        description "Failed";
+        description
+          "Failed";
       }
-      enum ok {
+      enum "ok" {
         value 20;
-        description "OK";
+        description
+          "OK";
       }
-      enum missing {
+      enum "missing" {
         value 21;
-        description "Missing";
+        description
+          "Missing";
       }
-      enum diag-download {
+      enum "diag-download" {
         value 22;
-        description "Field diag downloading";
+        description
+          "Field diag downloading";
       }
-      enum diag-not-monitor {
+      enum "diag-not-monitor" {
         value 23;
-        description "Field diag unmonitor";
+        description
+          "Field diag unmonitor";
       }
-      enum fabric-diag-not-monitor {
+      enum "fabric-diag-not-monitor" {
         value 24;
-        description "Fabric field diag unmonitor";
+        description
+          "Fabric field diag unmonitor";
       }
-      enum diag-rp-launch {
+      enum "diag-rp-launch" {
         value 25;
-        description "Field diag RP launching";
+        description
+          "Field diag RP launching";
       }
-      enum diag-run {
+      enum "diag-run" {
         value 26;
-        description "Field diag running";
+        description
+          "Field diag running";
       }
-      enum diag-pass {
+      enum "diag-pass" {
         value 27;
-        description "Field diag pass";
+        description
+          "Field diag pass";
       }
-      enum diag-fail {
+      enum "diag-fail" {
         value 28;
-        description "Field diag fail";
+        description
+          "Field diag fail";
       }
-      enum diag-timeout {
+      enum "diag-timeout" {
         value 29;
-        description "Field diag timeout";
+        description
+          "Field diag timeout";
       }
-      enum disable {
+      enum "disable" {
         value 30;
-        description "Disable";
+        description
+          "Disable";
       }
-      enum spa-boot {
+      enum "spa-boot" {
         value 31;
-        description "SPA booting";
+        description
+          "SPA booting";
       }
-      enum not-allowed-online {
+      enum "not-allowed-online" {
         value 32;
-        description "Not allowed online";
+        description
+          "Not allowed online";
       }
-      enum stop {
+      enum "stop" {
         value 33;
-        description "Stopped";
+        description
+          "Stopped";
       }
-      enum incomp-version {
+      enum "incomp-version" {
         value 34;
-        description "Incompatible FW version";
+        description
+          "Incompatible FW version";
       }
-      enum fpd-hold {
+      enum "fpd-hold" {
         value 35;
-        description "FPD hold";
+        description
+          "FPD hold";
       }
-      enum xr-preparation {
+      enum "xr-preparation" {
         value 36;
-        description "XR preparation";
+        description
+          "XR preparation";
       }
-      enum sync-ready {
+      enum "sync-ready" {
         value 37;
-        description "Sync ready state";
+        description
+          "Sync ready state";
       }
-      enum xr-isolate {
+      enum "xr-isolate" {
         value 38;
-        description "Node isolate state";
+        description
+          "Node isolate state";
       }
-      enum ready {
+      enum "ready" {
         value 39;
-        description "Ready";
+        description
+          "Ready";
       }
-      enum invalid {
+      enum "invalid" {
         value 40;
-        description "Invalid";
+        description
+          "Invalid";
       }
-      enum operational {
+      enum "operational" {
         value 41;
-        description "Operational";
+        description
+          "Operational";
       }
-      enum operational-lock {
+      enum "operational-lock" {
         value 42;
-        description "Operational lock";
+        description
+          "Operational lock";
       }
-      enum going-down {
+      enum "going-down" {
         value 43;
-        description "Going down";
+        description
+          "Going down";
       }
-      enum going-offline {
+      enum "going-offline" {
         value 44;
-        description "Going offline";
+        description
+          "Going offline";
       }
-      enum going-online {
+      enum "going-online" {
         value 45;
-        description "Going online";
+        description
+          "Going online";
       }
-      enum offline {
+      enum "offline" {
         value 46;
-        description "Offline";
+        description
+          "Offline";
       }
-      enum up {
+      enum "up" {
         value 47;
-        description "Up";
+        description
+          "Up";
       }
-      enum down {
+      enum "down" {
         value 48;
-        description "Down";
+        description
+          "Down";
       }
-      enum max {
+      enum "max" {
         value 49;
-        description "Max";
+        description
+          "Max";
       }
-      enum unknown {
+      enum "unknown" {
         value 50;
-        description "Unknown";
+        description
+          "Unknown";
       }
     }
-    description "Node state detail";
+    description
+      "Node state detail";
   }
+
   typedef Card-redundancy-state {
     type enumeration {
-      enum active {
+      enum "active" {
         value 1;
-        description "Active";
+        description
+          "Active";
       }
-      enum standby {
+      enum "standby" {
         value 2;
-        description "Standby";
+        description
+          "Standby";
       }
     }
-    description "Redundancy state detail";
+    description
+      "Redundancy state detail";
   }
 
   grouping VM-INFO {
-    description "VM Info";
-    leaf node-descriptiton {
+    description
+      "VM Info";
+    leaf node-description {
       type string;
-      description "Node Type";
+      description
+        "Node Type";
     }
     leaf red-role {
       type string;
-      description "Node Redundency Role";
+      description
+        "Node Redundency Role";
     }
     leaf partner-name {
       type string;
-      description "Partner Name";
+      description
+        "Partner Name";
     }
     leaf software-status {
       type string;
-      description "SW status";
+      description
+        "SW status";
     }
     leaf node-ip {
       type string;
-      description "Node IP Address";
+      description
+        "Node IP Address";
     }
   }
 
   grouping PLATFORM-INFO {
-    description "Platform information";
+    description
+      "Platform information";
     leaf card-type {
       type string;
-      description "Card type";
+      description
+        "Card type";
     }
     leaf card-redundancy-state {
       type Card-redundancy-state;
-      description "Redundancy state";
+      description
+        "Redundancy state";
     }
     leaf plim {
       type string;
-      description "PLIM";
+      description
+        "PLIM";
     }
     leaf state {
       type Node-state;
-      description "State";
+      description
+        "State";
     }
     leaf is-monitored {
       type boolean;
-      description "True if power state is active";
+      description
+        "True if power state is active";
     }
     leaf is-powered {
       type boolean;
-      description "True if monitor state is active";
+      description
+        "True if monitor state is active";
     }
     leaf is-shutdown {
       type boolean;
-      description "True if shutdown state is active";
+      description
+        "True if shutdown state is active";
     }
     leaf admin-state {
       type string;
-      description "Admin state";
+      description
+        "Admin state";
     }
   }
 }

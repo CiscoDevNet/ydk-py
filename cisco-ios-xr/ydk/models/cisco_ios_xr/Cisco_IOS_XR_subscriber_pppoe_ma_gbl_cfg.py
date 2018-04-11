@@ -15,15 +15,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class PppoeInvalidSessionIdBehavior(Enum):
     """
-    PppoeInvalidSessionIdBehavior
+    PppoeInvalidSessionIdBehavior (Enum Class)
 
     Pppoe invalid session id behavior
 
@@ -79,12 +81,15 @@ class PppoeCfg(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"pppoe-bba-groups" : ("pppoe_bba_groups", PppoeCfg.PppoeBbaGroups)}
-        self._child_list_classes = {}
-
-        self.session_id_space_flat = YLeaf(YType.empty, "session-id-space-flat")
-
-        self.in_flight_window = YLeaf(YType.uint32, "in-flight-window")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("pppoe-bba-groups", ("pppoe_bba_groups", PppoeCfg.PppoeBbaGroups))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('session_id_space_flat', YLeaf(YType.empty, 'session-id-space-flat')),
+            ('in_flight_window', YLeaf(YType.uint32, 'in-flight-window')),
+        ])
+        self.session_id_space_flat = None
+        self.in_flight_window = None
 
         self.pppoe_bba_groups = PppoeCfg.PppoeBbaGroups()
         self.pppoe_bba_groups.parent = self
@@ -119,8 +124,10 @@ class PppoeCfg(Entity):
             self.yang_parent_name = "pppoe-cfg"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"pppoe-bba-group" : ("pppoe_bba_group", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("pppoe-bba-group", ("pppoe_bba_group", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup))])
+            self._leafs = OrderedDict()
 
             self.pppoe_bba_group = YList(self)
             self._segment_path = lambda: "pppoe-bba-groups"
@@ -134,7 +141,7 @@ class PppoeCfg(Entity):
             """
             PPPoE BBA\-Group configuration data
             
-            .. attribute:: bba_group  <key>
+            .. attribute:: bba_group  (key)
             
             	BBA\-Group name
             	**type**\: str
@@ -199,18 +206,21 @@ class PppoeCfg(Entity):
                 self.yang_parent_name = "pppoe-bba-groups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"tag" : ("tag", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag), "sessions" : ("sessions", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions), "control-packets" : ("control_packets", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets), "pa-do-delay" : ("pa_do_delay", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay)}
-                self._child_list_classes = {}
-
-                self.bba_group = YLeaf(YType.str, "bba-group")
-
-                self.completion_timeout = YLeaf(YType.uint32, "completion-timeout")
-
-                self.invalid_session_id = YLeaf(YType.enumeration, "invalid-session-id")
-
-                self.enable_padt_after_shut_down = YLeaf(YType.empty, "enable-padt-after-shut-down")
-
-                self.mtu = YLeaf(YType.uint32, "mtu")
+                self.ylist_key_names = ['bba_group']
+                self._child_container_classes = OrderedDict([("tag", ("tag", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag)), ("sessions", ("sessions", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions)), ("control-packets", ("control_packets", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets)), ("pa-do-delay", ("pa_do_delay", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('bba_group', YLeaf(YType.str, 'bba-group')),
+                    ('completion_timeout', YLeaf(YType.uint32, 'completion-timeout')),
+                    ('invalid_session_id', YLeaf(YType.enumeration, 'invalid-session-id')),
+                    ('enable_padt_after_shut_down', YLeaf(YType.empty, 'enable-padt-after-shut-down')),
+                    ('mtu', YLeaf(YType.uint32, 'mtu')),
+                ])
+                self.bba_group = None
+                self.completion_timeout = None
+                self.invalid_session_id = None
+                self.enable_padt_after_shut_down = None
+                self.mtu = None
 
                 self.tag = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag()
                 self.tag.parent = self
@@ -231,7 +241,7 @@ class PppoeCfg(Entity):
                 self.pa_do_delay.parent = self
                 self._children_name_map["pa_do_delay"] = "pa-do-delay"
                 self._children_yang_names.add("pa-do-delay")
-                self._segment_path = lambda: "pppoe-bba-group" + "[bba-group='" + self.bba_group.get() + "']"
+                self._segment_path = lambda: "pppoe-bba-group" + "[bba-group='" + str(self.bba_group) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -288,14 +298,17 @@ class PppoeCfg(Entity):
                     self.yang_parent_name = "pppoe-bba-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"padr" : ("padr", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr), "service-name-configureds" : ("service_name_configureds", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds), "ppp-max-payload" : ("ppp_max_payload", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload)}
-                    self._child_list_classes = {}
-
-                    self.ppp_max_payload_deny = YLeaf(YType.empty, "ppp-max-payload-deny")
-
-                    self.service_selection_disable = YLeaf(YType.empty, "service-selection-disable")
-
-                    self.ac_name = YLeaf(YType.str, "ac-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("padr", ("padr", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr)), ("service-name-configureds", ("service_name_configureds", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds)), ("ppp-max-payload", ("ppp_max_payload", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ppp_max_payload_deny', YLeaf(YType.empty, 'ppp-max-payload-deny')),
+                        ('service_selection_disable', YLeaf(YType.empty, 'service-selection-disable')),
+                        ('ac_name', YLeaf(YType.str, 'ac-name')),
+                    ])
+                    self.ppp_max_payload_deny = None
+                    self.service_selection_disable = None
+                    self.ac_name = None
 
                     self.padr = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr()
                     self.padr.parent = self
@@ -344,12 +357,15 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "tag"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_unique_relay_session_id = YLeaf(YType.empty, "session-unique-relay-session-id")
-
-                        self.invalid_payload_allow = YLeaf(YType.empty, "invalid-payload-allow")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_unique_relay_session_id', YLeaf(YType.empty, 'session-unique-relay-session-id')),
+                            ('invalid_payload_allow', YLeaf(YType.empty, 'invalid-payload-allow')),
+                        ])
+                        self.session_unique_relay_session_id = None
+                        self.invalid_payload_allow = None
                         self._segment_path = lambda: "padr"
 
                     def __setattr__(self, name, value):
@@ -379,8 +395,10 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "tag"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"service-name-configured" : ("service_name_configured", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("service-name-configured", ("service_name_configured", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured))])
+                        self._leafs = OrderedDict()
 
                         self.service_name_configured = YList(self)
                         self._segment_path = lambda: "service-name-configureds"
@@ -393,7 +411,7 @@ class PppoeCfg(Entity):
                         """
                         Service name supported on this group
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	Service name
                         	**type**\: str
@@ -414,11 +432,14 @@ class PppoeCfg(Entity):
                             self.yang_parent_name = "service-name-configureds"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-                            self._segment_path = lambda: "service-name-configured" + "[name='" + self.name.get() + "']"
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                            ])
+                            self.name = None
+                            self._segment_path = lambda: "service-name-configured" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured, ['name'], name, value)
@@ -462,13 +483,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "tag"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.min = YLeaf(YType.uint32, "min")
-
-                        self.max = YLeaf(YType.uint32, "max")
+                        self._leafs = OrderedDict([
+                            ('min', YLeaf(YType.uint32, 'min')),
+                            ('max', YLeaf(YType.uint32, 'max')),
+                        ])
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "ppp-max-payload"
 
                     def __setattr__(self, name, value):
@@ -640,8 +664,10 @@ class PppoeCfg(Entity):
                     self.yang_parent_name = "pppoe-bba-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"vlan-throttle" : ("vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle), "inner-vlan-throttle" : ("inner_vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle), "remote-id-limit" : ("remote_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit), "mac-iwf-access-interface-throttle" : ("mac_iwf_access_interface_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle), "access-interface-limit" : ("access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit), "mac-access-interface-throttle" : ("mac_access_interface_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle), "outer-vlan-limit" : ("outer_vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit), "circuit-id-throttle" : ("circuit_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle), "mac-limit" : ("mac_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit), "circuit-id-limit" : ("circuit_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit), "mac-iwf-limit" : ("mac_iwf_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit), "mac-iwf-access-interface-limit" : ("mac_iwf_access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit), "inner-vlan-limit" : ("inner_vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit), "outer-vlan-throttle" : ("outer_vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle), "mac-throttle" : ("mac_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle), "circuit-id-and-remote-id-limit" : ("circuit_id_and_remote_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit), "vlan-limit" : ("vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit), "mac-access-interface-limit" : ("mac_access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit), "remote-id-throttle" : ("remote_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle), "max-limit" : ("max_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit), "circuit-id-and-remote-id-throttle" : ("circuit_id_and_remote_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("vlan-throttle", ("vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle)), ("inner-vlan-throttle", ("inner_vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle)), ("remote-id-limit", ("remote_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit)), ("mac-iwf-access-interface-throttle", ("mac_iwf_access_interface_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle)), ("access-interface-limit", ("access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit)), ("mac-access-interface-throttle", ("mac_access_interface_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle)), ("outer-vlan-limit", ("outer_vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit)), ("circuit-id-throttle", ("circuit_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle)), ("mac-limit", ("mac_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit)), ("circuit-id-limit", ("circuit_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit)), ("mac-iwf-limit", ("mac_iwf_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit)), ("mac-iwf-access-interface-limit", ("mac_iwf_access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit)), ("inner-vlan-limit", ("inner_vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit)), ("outer-vlan-throttle", ("outer_vlan_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle)), ("mac-throttle", ("mac_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle)), ("circuit-id-and-remote-id-limit", ("circuit_id_and_remote_id_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit)), ("vlan-limit", ("vlan_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit)), ("mac-access-interface-limit", ("mac_access_interface_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit)), ("remote-id-throttle", ("remote_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle)), ("max-limit", ("max_limit", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit)), ("circuit-id-and-remote-id-throttle", ("circuit_id_and_remote_id_throttle", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.vlan_throttle = None
                     self._children_name_map["vlan_throttle"] = "vlan-throttle"
@@ -777,15 +803,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "vlan-throttle"
 
                     def __setattr__(self, name, value):
@@ -839,15 +868,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "inner-vlan-throttle"
 
                     def __setattr__(self, name, value):
@@ -890,13 +922,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "remote-id-limit"
 
                     def __setattr__(self, name, value):
@@ -951,15 +986,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "mac-iwf-access-interface-throttle"
 
                     def __setattr__(self, name, value):
@@ -1002,13 +1040,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "access-interface-limit"
 
                     def __setattr__(self, name, value):
@@ -1062,15 +1103,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "mac-access-interface-throttle"
 
                     def __setattr__(self, name, value):
@@ -1113,13 +1157,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "outer-vlan-limit"
 
                     def __setattr__(self, name, value):
@@ -1173,15 +1220,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "circuit-id-throttle"
 
                     def __setattr__(self, name, value):
@@ -1225,13 +1275,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "mac-limit"
 
                     def __setattr__(self, name, value):
@@ -1274,13 +1327,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "circuit-id-limit"
 
                     def __setattr__(self, name, value):
@@ -1324,13 +1380,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "mac-iwf-limit"
 
                     def __setattr__(self, name, value):
@@ -1374,13 +1433,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "mac-iwf-access-interface-limit"
 
                     def __setattr__(self, name, value):
@@ -1423,13 +1485,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "inner-vlan-limit"
 
                     def __setattr__(self, name, value):
@@ -1483,15 +1548,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "outer-vlan-throttle"
 
                     def __setattr__(self, name, value):
@@ -1545,15 +1613,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "mac-throttle"
 
                     def __setattr__(self, name, value):
@@ -1597,13 +1668,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "circuit-id-and-remote-id-limit"
 
                     def __setattr__(self, name, value):
@@ -1647,13 +1721,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "vlan-limit"
 
                     def __setattr__(self, name, value):
@@ -1697,13 +1774,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "mac-access-interface-limit"
 
                     def __setattr__(self, name, value):
@@ -1757,15 +1837,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "remote-id-throttle"
 
                     def __setattr__(self, name, value):
@@ -1808,13 +1891,16 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.limit = YLeaf(YType.uint32, "limit")
-
-                        self.threshold = YLeaf(YType.uint32, "threshold")
+                        self._leafs = OrderedDict([
+                            ('limit', YLeaf(YType.uint32, 'limit')),
+                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                        ])
+                        self.limit = None
+                        self.threshold = None
                         self._segment_path = lambda: "max-limit"
 
                     def __setattr__(self, name, value):
@@ -1868,15 +1954,18 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.throttle = YLeaf(YType.uint32, "throttle")
-
-                        self.request_period = YLeaf(YType.uint32, "request-period")
-
-                        self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                        self._leafs = OrderedDict([
+                            ('throttle', YLeaf(YType.uint32, 'throttle')),
+                            ('request_period', YLeaf(YType.uint32, 'request-period')),
+                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                        ])
+                        self.throttle = None
+                        self.request_period = None
+                        self.blocking_period = None
                         self._segment_path = lambda: "circuit-id-and-remote-id-throttle"
 
                     def __setattr__(self, name, value):
@@ -1908,10 +1997,13 @@ class PppoeCfg(Entity):
                     self.yang_parent_name = "pppoe-bba-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.priority = YLeaf(YType.uint32, "priority")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('priority', YLeaf(YType.uint32, 'priority')),
+                    ])
+                    self.priority = None
                     self._segment_path = lambda: "control-packets"
 
                 def __setattr__(self, name, value):
@@ -1993,14 +2085,17 @@ class PppoeCfg(Entity):
                     self.yang_parent_name = "pppoe-bba-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"remote-id-substrings" : ("remote_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings), "remote-id-strings" : ("remote_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings), "service-name-strings" : ("service_name_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings), "circuit-id-substrings" : ("circuit_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings), "service-name-substrings" : ("service_name_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings), "circuit-id-strings" : ("circuit_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings)}
-                    self._child_list_classes = {}
-
-                    self.default = YLeaf(YType.uint32, "default")
-
-                    self.circuit_id = YLeaf(YType.uint32, "circuit-id")
-
-                    self.remote_id = YLeaf(YType.uint32, "remote-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("remote-id-substrings", ("remote_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings)), ("remote-id-strings", ("remote_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings)), ("service-name-strings", ("service_name_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings)), ("circuit-id-substrings", ("circuit_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings)), ("service-name-substrings", ("service_name_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings)), ("circuit-id-strings", ("circuit_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('default', YLeaf(YType.uint32, 'default')),
+                        ('circuit_id', YLeaf(YType.uint32, 'circuit-id')),
+                        ('remote_id', YLeaf(YType.uint32, 'remote-id')),
+                    ])
+                    self.default = None
+                    self.circuit_id = None
+                    self.remote_id = None
 
                     self.remote_id_substrings = PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings()
                     self.remote_id_substrings.parent = self
@@ -2061,8 +2156,10 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "pa-do-delay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"remote-id-substring" : ("remote_id_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("remote-id-substring", ("remote_id_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring))])
+                        self._leafs = OrderedDict()
 
                         self.remote_id_substring = YList(self)
                         self._segment_path = lambda: "remote-id-substrings"
@@ -2076,7 +2173,7 @@ class PppoeCfg(Entity):
                         Delay the PADO response when the received
                         Remote ID contains the given string
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	The string to be contained within the received Remote ID
                         	**type**\: str
@@ -2108,13 +2205,16 @@ class PppoeCfg(Entity):
                             self.yang_parent_name = "remote-id-substrings"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.delay = YLeaf(YType.uint32, "delay")
-                            self._segment_path = lambda: "remote-id-substring" + "[name='" + self.name.get() + "']"
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('delay', YLeaf(YType.uint32, 'delay')),
+                            ])
+                            self.name = None
+                            self.delay = None
+                            self._segment_path = lambda: "remote-id-substring" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring, ['name', 'delay'], name, value)
@@ -2144,8 +2244,10 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "pa-do-delay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"remote-id-string" : ("remote_id_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("remote-id-string", ("remote_id_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString))])
+                        self._leafs = OrderedDict()
 
                         self.remote_id_string = YList(self)
                         self._segment_path = lambda: "remote-id-strings"
@@ -2159,7 +2261,7 @@ class PppoeCfg(Entity):
                         Delay the PADO response when there is an
                         exact match on the received Remote ID
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	The string to exactly match the received Remote ID
                         	**type**\: str
@@ -2191,13 +2293,16 @@ class PppoeCfg(Entity):
                             self.yang_parent_name = "remote-id-strings"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.delay = YLeaf(YType.uint32, "delay")
-                            self._segment_path = lambda: "remote-id-string" + "[name='" + self.name.get() + "']"
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('delay', YLeaf(YType.uint32, 'delay')),
+                            ])
+                            self.name = None
+                            self.delay = None
+                            self._segment_path = lambda: "remote-id-string" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString, ['name', 'delay'], name, value)
@@ -2227,8 +2332,10 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "pa-do-delay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"service-name-string" : ("service_name_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("service-name-string", ("service_name_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString))])
+                        self._leafs = OrderedDict()
 
                         self.service_name_string = YList(self)
                         self._segment_path = lambda: "service-name-strings"
@@ -2242,7 +2349,7 @@ class PppoeCfg(Entity):
                         Delay the PADO response when there is an
                         exact match on the received Service Name
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	The string to exactly match the received Service Name
                         	**type**\: str
@@ -2274,13 +2381,16 @@ class PppoeCfg(Entity):
                             self.yang_parent_name = "service-name-strings"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.delay = YLeaf(YType.uint32, "delay")
-                            self._segment_path = lambda: "service-name-string" + "[name='" + self.name.get() + "']"
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('delay', YLeaf(YType.uint32, 'delay')),
+                            ])
+                            self.name = None
+                            self.delay = None
+                            self._segment_path = lambda: "service-name-string" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString, ['name', 'delay'], name, value)
@@ -2310,8 +2420,10 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "pa-do-delay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"circuit-id-substring" : ("circuit_id_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("circuit-id-substring", ("circuit_id_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring))])
+                        self._leafs = OrderedDict()
 
                         self.circuit_id_substring = YList(self)
                         self._segment_path = lambda: "circuit-id-substrings"
@@ -2325,7 +2437,7 @@ class PppoeCfg(Entity):
                         Delay the PADO response when the received
                         Circuit ID contains the given string
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	The string to be contained within the received Circuit ID
                         	**type**\: str
@@ -2357,13 +2469,16 @@ class PppoeCfg(Entity):
                             self.yang_parent_name = "circuit-id-substrings"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.delay = YLeaf(YType.uint32, "delay")
-                            self._segment_path = lambda: "circuit-id-substring" + "[name='" + self.name.get() + "']"
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('delay', YLeaf(YType.uint32, 'delay')),
+                            ])
+                            self.name = None
+                            self.delay = None
+                            self._segment_path = lambda: "circuit-id-substring" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring, ['name', 'delay'], name, value)
@@ -2393,8 +2508,10 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "pa-do-delay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"service-name-substring" : ("service_name_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("service-name-substring", ("service_name_substring", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring))])
+                        self._leafs = OrderedDict()
 
                         self.service_name_substring = YList(self)
                         self._segment_path = lambda: "service-name-substrings"
@@ -2408,7 +2525,7 @@ class PppoeCfg(Entity):
                         Delay the PADO response when the received
                         Service Name contains the given string
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	The string to be contained within the received Service Name
                         	**type**\: str
@@ -2440,13 +2557,16 @@ class PppoeCfg(Entity):
                             self.yang_parent_name = "service-name-substrings"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.delay = YLeaf(YType.uint32, "delay")
-                            self._segment_path = lambda: "service-name-substring" + "[name='" + self.name.get() + "']"
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('delay', YLeaf(YType.uint32, 'delay')),
+                            ])
+                            self.name = None
+                            self.delay = None
+                            self._segment_path = lambda: "service-name-substring" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring, ['name', 'delay'], name, value)
@@ -2476,8 +2596,10 @@ class PppoeCfg(Entity):
                         self.yang_parent_name = "pa-do-delay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"circuit-id-string" : ("circuit_id_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("circuit-id-string", ("circuit_id_string", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString))])
+                        self._leafs = OrderedDict()
 
                         self.circuit_id_string = YList(self)
                         self._segment_path = lambda: "circuit-id-strings"
@@ -2491,7 +2613,7 @@ class PppoeCfg(Entity):
                         Delay the PADO response when there is an
                         exact match on the received Circuit ID
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	The string to exactly match the received Circuit ID
                         	**type**\: str
@@ -2523,13 +2645,16 @@ class PppoeCfg(Entity):
                             self.yang_parent_name = "circuit-id-strings"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.delay = YLeaf(YType.uint32, "delay")
-                            self._segment_path = lambda: "circuit-id-string" + "[name='" + self.name.get() + "']"
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('delay', YLeaf(YType.uint32, 'delay')),
+                            ])
+                            self.name = None
+                            self.delay = None
+                            self._segment_path = lambda: "circuit-id-string" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString, ['name', 'delay'], name, value)

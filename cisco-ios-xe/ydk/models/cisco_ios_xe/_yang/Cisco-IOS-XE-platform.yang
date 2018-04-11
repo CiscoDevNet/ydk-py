@@ -219,7 +219,7 @@ module Cisco-IOS-XE-platform {
     }
     container l2vpn {
       description
-        "Configure platform l2vpn global configurtion";
+        "Configure platform l2vpn global configuration";
       leaf hdlc-pass-through {
         description
           "l2vpn HDLC force pass through";
@@ -451,9 +451,37 @@ module Cisco-IOS-XE-platform {
   }
 
   /////////////////////////////////////////////////////////
+  // native / shell 
+  /////////////////////////////////////////////////////////
+  grouping config-shell-grouping {
+  container shell {
+    description
+      "Configure shell command";
+    list trigger {
+      description
+        "Set shell trigger configuration";
+      key "word";
+	  leaf word {
+        type string;
+      }		 
+	  leaf line {
+        type string;
+      }
+    } 	   
+  }
+  }
+
+  /////////////////////////////////////////////////////////
   // platform
   /////////////////////////////////////////////////////////
   augment "/ios:native/ios:platform" {
     uses config-platform-grouping;
   } //augment
+  /////////////////////////////////////////////////////////
+  // native / shell 
+  /////////////////////////////////////////////////////////
+  augment "/ios:native" {
+    uses config-shell-grouping;
+  } //augment
+
 } //module

@@ -7,15 +7,17 @@ version of this MIB module is part of RFC 3411;
 see the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class SnmpSecurityLevel(Enum):
     """
-    SnmpSecurityLevel
+    SnmpSecurityLevel (Enum Class)
 
     A Level of Security at which SNMP messages can be
 
@@ -114,8 +116,10 @@ class SNMPFRAMEWORKMIB(Entity):
         self.yang_parent_name = "SNMP-FRAMEWORK-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"snmpEngine" : ("snmpengine", SNMPFRAMEWORKMIB.Snmpengine)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("snmpEngine", ("snmpengine", SNMPFRAMEWORKMIB.Snmpengine))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.snmpengine = SNMPFRAMEWORKMIB.Snmpengine()
         self.snmpengine.parent = self
@@ -172,16 +176,19 @@ class SNMPFRAMEWORKMIB(Entity):
             self.yang_parent_name = "SNMP-FRAMEWORK-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.snmpengineid = YLeaf(YType.str, "snmpEngineID")
-
-            self.snmpengineboots = YLeaf(YType.int32, "snmpEngineBoots")
-
-            self.snmpenginetime = YLeaf(YType.int32, "snmpEngineTime")
-
-            self.snmpenginemaxmessagesize = YLeaf(YType.int32, "snmpEngineMaxMessageSize")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('snmpengineid', YLeaf(YType.str, 'snmpEngineID')),
+                ('snmpengineboots', YLeaf(YType.int32, 'snmpEngineBoots')),
+                ('snmpenginetime', YLeaf(YType.int32, 'snmpEngineTime')),
+                ('snmpenginemaxmessagesize', YLeaf(YType.int32, 'snmpEngineMaxMessageSize')),
+            ])
+            self.snmpengineid = None
+            self.snmpengineboots = None
+            self.snmpenginetime = None
+            self.snmpenginemaxmessagesize = None
             self._segment_path = lambda: "snmpEngine"
             self._absolute_path = lambda: "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB/%s" % self._segment_path()
 

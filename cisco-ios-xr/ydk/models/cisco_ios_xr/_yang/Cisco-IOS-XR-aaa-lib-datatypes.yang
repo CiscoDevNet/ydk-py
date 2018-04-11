@@ -1,38 +1,31 @@
 module Cisco-IOS-XR-aaa-lib-datatypes {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-lib-datatypes";
+  prefix aaa-lib-datatypes;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
-  namespace "http://cisco.com/ns"+
-    "/yang/Cisco-IOS-XR-aaa-lib-datatypes";
-
-
-  prefix "aaa-lib-datatypes";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of generally useful
      derived YANG data types.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2017-11-14 {
+    description
+      "Added AAAMethodAccounting";
+  }
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
@@ -41,141 +34,270 @@ module Cisco-IOS-XR-aaa-lib-datatypes {
     type uint32 {
       range "1..65535";
     }
-    description "Aaa port range";
+    description
+      "Aaa port range";
   }
+
   typedef Aaa-accounting {
     type enumeration {
-      enum not-set {
+      enum "not-set" {
         value 0;
-        description "Not Set";
+        description
+          "Not Set";
       }
-      enum start-stop {
+      enum "start-stop" {
         value 1;
-        description "Start Stop";
+        description
+          "Start Stop";
       }
-      enum stop-only {
+      enum "stop-only" {
         value 2;
-        description "Stop Only";
+        description
+          "Stop Only";
       }
     }
-    description "Aaa accounting";
+    description
+      "Aaa accounting";
   }
+
   typedef Aaa-accounting-rp-failover {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 0;
-        description "Disable rpfailover";
+        description
+          "Disable rpfailover";
       }
-      enum enable {
+      enum "enable" {
         value 1;
-        description "Enable rpfailover";
+        description
+          "Enable rpfailover";
       }
     }
-    description "Aaa accounting rp failover";
+    description
+      "Aaa accounting rp failover";
   }
+
   typedef Aaa-accounting-broadcast {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 0;
-        description "Disable Broadcast";
+        description
+          "Disable Broadcast";
       }
-      enum enable {
+      enum "enable" {
         value 1;
-        description "Enable Broadcast";
+        description
+          "Enable Broadcast";
       }
     }
-    description "Aaa accounting broadcast";
+    description
+      "Aaa accounting broadcast";
   }
+
+  typedef Aaa-method-accounting {
+    type enumeration {
+      enum "not-set" {
+        value 0;
+        description
+          "Not Set";
+      }
+      enum "none" {
+        value 1;
+        description
+          "None";
+      }
+      enum "radius" {
+        value 3;
+        description
+          "Radius";
+      }
+      enum "tacacs-plus" {
+        value 4;
+        description
+          "TACACS+";
+      }
+      enum "dsmd" {
+        value 5;
+        description
+          "DSMD";
+      }
+      enum "sgbp" {
+        value 6;
+        description
+          "SGBP";
+      }
+      enum "acct-d" {
+        value 7;
+        description
+          "AcctD";
+      }
+      enum "error" {
+        value 8;
+        description
+          "Error";
+      }
+      enum "if-authenticated" {
+        value 9;
+        description
+          "If Authenticated";
+      }
+      enum "server-group" {
+        value 10;
+        description
+          "Server Group";
+      }
+      enum "server-group-not-defined" {
+        value 11;
+        description
+          "Server Group Not Defined";
+      }
+      enum "line" {
+        value 12;
+        description
+          "Line";
+      }
+      enum "enable" {
+        value 13;
+        description
+          "Enable";
+      }
+      enum "kerberos" {
+        value 14;
+        description
+          "Kerberos";
+      }
+      enum "diameter" {
+        value 15;
+        description
+          "Diameter";
+      }
+      enum "last" {
+        value 16;
+        description
+          "Last";
+      }
+      enum "local" {
+        value 17;
+        description
+          "Local";
+      }
+    }
+    description
+      "Aaa method accounting";
+  }
+
   typedef Aaa-method {
     type enumeration {
-      enum not-set {
+      enum "not-set" {
         value 0;
-        description "Not Set";
+        description
+          "Not Set";
       }
-      enum none {
+      enum "none" {
         value 1;
-        description "None";
+        description
+          "None";
       }
-      enum local {
+      enum "local" {
         value 2;
-        description "Local";
+        description
+          "Local";
       }
-      enum radius {
+      enum "radius" {
         value 3;
-        description "Radius";
+        description
+          "Radius";
       }
-      enum tacacs-plus {
+      enum "tacacs-plus" {
         value 4;
-        description "TACACS+";
+        description
+          "TACACS+";
       }
-      enum dsmd {
+      enum "dsmd" {
         value 5;
-        description "DSMD";
+        description
+          "DSMD";
       }
-      enum sgbp {
+      enum "sgbp" {
         value 6;
-        description "SGBP";
+        description
+          "SGBP";
       }
-      enum acct-d {
+      enum "acct-d" {
         value 7;
-        description "AcctD";
+        description
+          "AcctD";
       }
-      enum error {
+      enum "error" {
         value 8;
-        description "Error";
+        description
+          "Error";
       }
-      enum if-authenticated {
+      enum "if-authenticated" {
         value 9;
-        description "If Authenticated";
+        description
+          "If Authenticated";
       }
-      enum server-group {
+      enum "server-group" {
         value 10;
-        description "Server Group";
+        description
+          "Server Group";
       }
-      enum server-group-not-defined {
+      enum "server-group-not-defined" {
         value 11;
-        description "Server Group Not Defined";
+        description
+          "Server Group Not Defined";
       }
-      enum line {
+      enum "line" {
         value 12;
-        description "Line";
+        description
+          "Line";
       }
-      enum enable {
+      enum "enable" {
         value 13;
-        description "Enable";
+        description
+          "Enable";
       }
-      enum kerberos {
+      enum "kerberos" {
         value 14;
-        description "Kerberos";
+        description
+          "Kerberos";
       }
-      enum diameter {
+      enum "diameter" {
         value 15;
-        description "Diameter";
+        description
+          "Diameter";
       }
-      enum last {
+      enum "last" {
         value 16;
-        description "Last";
+        description
+          "Last";
       }
     }
-    description "Aaa method";
+    description
+      "Aaa method";
   }
+
   typedef Aaa-accounting-update {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "Not Set";
+        description
+          "Not Set";
       }
-      enum newinfo {
+      enum "newinfo" {
         value 3;
         description
           "Update records for new accountable information
-          only";
+           only";
       }
-      enum periodic {
+      enum "periodic" {
         value 4;
-        description "Update records at periodic intervals";
+        description
+          "Update records at periodic intervals";
       }
     }
-    description "Aaa accounting update";
+    description
+      "Aaa accounting update";
   }
 }

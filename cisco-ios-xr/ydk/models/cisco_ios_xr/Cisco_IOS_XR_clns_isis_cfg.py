@@ -15,15 +15,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class IsisAdjCheck(Enum):
     """
-    IsisAdjCheck
+    IsisAdjCheck (Enum Class)
 
     Isis adj check
 
@@ -38,7 +40,7 @@ class IsisAdjCheck(Enum):
 
 class IsisAdvTypeExternal(Enum):
     """
-    IsisAdvTypeExternal
+    IsisAdvTypeExternal (Enum Class)
 
     Isis adv type external
 
@@ -53,7 +55,7 @@ class IsisAdvTypeExternal(Enum):
 
 class IsisAdvTypeInterLevel(Enum):
     """
-    IsisAdvTypeInterLevel
+    IsisAdvTypeInterLevel (Enum Class)
 
     Isis adv type inter level
 
@@ -68,7 +70,7 @@ class IsisAdvTypeInterLevel(Enum):
 
 class IsisApplyWeight(Enum):
     """
-    IsisApplyWeight
+    IsisApplyWeight (Enum Class)
 
     Isis apply weight
 
@@ -80,16 +82,22 @@ class IsisApplyWeight(Enum):
 
     	Apply weight to UCMP prefixes
 
+    .. data:: ecmp_only_bandwidth = 3
+
+    	Apply weight to ECMP prefixes
+
     """
 
     ecmp_only = Enum.YLeaf(1, "ecmp-only")
 
     ucmp_only = Enum.YLeaf(2, "ucmp-only")
 
+    ecmp_only_bandwidth = Enum.YLeaf(3, "ecmp-only-bandwidth")
+
 
 class IsisAttachedBit(Enum):
     """
-    IsisAttachedBit
+    IsisAttachedBit (Enum Class)
 
     Isis attached bit
 
@@ -116,7 +124,7 @@ class IsisAttachedBit(Enum):
 
 class IsisAuthenticationAlgorithm(Enum):
     """
-    IsisAuthenticationAlgorithm
+    IsisAuthenticationAlgorithm (Enum Class)
 
     Isis authentication algorithm
 
@@ -143,7 +151,7 @@ class IsisAuthenticationAlgorithm(Enum):
 
 class IsisAuthenticationFailureMode(Enum):
     """
-    IsisAuthenticationFailureMode
+    IsisAuthenticationFailureMode (Enum Class)
 
     Isis authentication failure mode
 
@@ -164,7 +172,7 @@ class IsisAuthenticationFailureMode(Enum):
 
 class IsisConfigurableLevels(Enum):
     """
-    IsisConfigurableLevels
+    IsisConfigurableLevels (Enum Class)
 
     Isis configurable levels
 
@@ -191,7 +199,7 @@ class IsisConfigurableLevels(Enum):
 
 class IsisHelloPadding(Enum):
     """
-    IsisHelloPadding
+    IsisHelloPadding (Enum Class)
 
     Isis hello padding
 
@@ -212,7 +220,7 @@ class IsisHelloPadding(Enum):
 
 class IsisInterfaceAfState(Enum):
     """
-    IsisInterfaceAfState
+    IsisInterfaceAfState (Enum Class)
 
     Isis interface af state
 
@@ -227,7 +235,7 @@ class IsisInterfaceAfState(Enum):
 
 class IsisInterfaceFrrTiebreaker(Enum):
     """
-    IsisInterfaceFrrTiebreaker
+    IsisInterfaceFrrTiebreaker (Enum Class)
 
     Isis interface frr tiebreaker
 
@@ -248,7 +256,7 @@ class IsisInterfaceFrrTiebreaker(Enum):
 
 class IsisInterfaceState(Enum):
     """
-    IsisInterfaceState
+    IsisInterfaceState (Enum Class)
 
     Isis interface state
 
@@ -281,7 +289,7 @@ class IsisInterfaceState(Enum):
 
 class IsisLabelPreference(Enum):
     """
-    IsisLabelPreference
+    IsisLabelPreference (Enum Class)
 
     Isis label preference
 
@@ -302,7 +310,7 @@ class IsisLabelPreference(Enum):
 
 class IsisMetric(Enum):
     """
-    IsisMetric
+    IsisMetric (Enum Class)
 
     Isis metric
 
@@ -314,16 +322,28 @@ class IsisMetric(Enum):
 
     	External metric
 
+    .. data:: rib_internal = 2
+
+    	RIB Internal metric
+
+    .. data:: rib_external = 3
+
+    	RIB External metric
+
     """
 
     internal = Enum.YLeaf(0, "internal")
 
     external = Enum.YLeaf(1, "external")
 
+    rib_internal = Enum.YLeaf(2, "rib-internal")
+
+    rib_external = Enum.YLeaf(3, "rib-external")
+
 
 class IsisMetricStyle(Enum):
     """
-    IsisMetricStyle
+    IsisMetricStyle (Enum Class)
 
     Isis metric style
 
@@ -350,7 +370,7 @@ class IsisMetricStyle(Enum):
 
 class IsisMetricStyleTransition(Enum):
     """
-    IsisMetricStyleTransition
+    IsisMetricStyleTransition (Enum Class)
 
     Isis metric style transition
 
@@ -371,7 +391,7 @@ class IsisMetricStyleTransition(Enum):
 
 class IsisMibAdjacencyChangeBoolean(Enum):
     """
-    IsisMibAdjacencyChangeBoolean
+    IsisMibAdjacencyChangeBoolean (Enum Class)
 
     Isis mib adjacency change boolean
 
@@ -392,7 +412,7 @@ class IsisMibAdjacencyChangeBoolean(Enum):
 
 class IsisMibAllBoolean(Enum):
     """
-    IsisMibAllBoolean
+    IsisMibAllBoolean (Enum Class)
 
     Isis mib all boolean
 
@@ -413,7 +433,7 @@ class IsisMibAllBoolean(Enum):
 
 class IsisMibAreaMismatchBoolean(Enum):
     """
-    IsisMibAreaMismatchBoolean
+    IsisMibAreaMismatchBoolean (Enum Class)
 
     Isis mib area mismatch boolean
 
@@ -434,7 +454,7 @@ class IsisMibAreaMismatchBoolean(Enum):
 
 class IsisMibAttemptToExceedMaxSequenceBoolean(Enum):
     """
-    IsisMibAttemptToExceedMaxSequenceBoolean
+    IsisMibAttemptToExceedMaxSequenceBoolean (Enum Class)
 
     Isis mib attempt to exceed max sequence boolean
 
@@ -455,7 +475,7 @@ class IsisMibAttemptToExceedMaxSequenceBoolean(Enum):
 
 class IsisMibAuthenticationFailureBoolean(Enum):
     """
-    IsisMibAuthenticationFailureBoolean
+    IsisMibAuthenticationFailureBoolean (Enum Class)
 
     Isis mib authentication failure boolean
 
@@ -476,7 +496,7 @@ class IsisMibAuthenticationFailureBoolean(Enum):
 
 class IsisMibAuthenticationTypeFailureBoolean(Enum):
     """
-    IsisMibAuthenticationTypeFailureBoolean
+    IsisMibAuthenticationTypeFailureBoolean (Enum Class)
 
     Isis mib authentication type failure boolean
 
@@ -497,7 +517,7 @@ class IsisMibAuthenticationTypeFailureBoolean(Enum):
 
 class IsisMibCorruptedLspDetectedBoolean(Enum):
     """
-    IsisMibCorruptedLspDetectedBoolean
+    IsisMibCorruptedLspDetectedBoolean (Enum Class)
 
     Isis mib corrupted lsp detected boolean
 
@@ -518,7 +538,7 @@ class IsisMibCorruptedLspDetectedBoolean(Enum):
 
 class IsisMibDatabaseOverFlowBoolean(Enum):
     """
-    IsisMibDatabaseOverFlowBoolean
+    IsisMibDatabaseOverFlowBoolean (Enum Class)
 
     Isis mib database over flow boolean
 
@@ -539,7 +559,7 @@ class IsisMibDatabaseOverFlowBoolean(Enum):
 
 class IsisMibIdLengthMismatchBoolean(Enum):
     """
-    IsisMibIdLengthMismatchBoolean
+    IsisMibIdLengthMismatchBoolean (Enum Class)
 
     Isis mib id length mismatch boolean
 
@@ -560,7 +580,7 @@ class IsisMibIdLengthMismatchBoolean(Enum):
 
 class IsisMibLspErrorDetectedBoolean(Enum):
     """
-    IsisMibLspErrorDetectedBoolean
+    IsisMibLspErrorDetectedBoolean (Enum Class)
 
     Isis mib lsp error detected boolean
 
@@ -581,7 +601,7 @@ class IsisMibLspErrorDetectedBoolean(Enum):
 
 class IsisMibLspTooLargeToPropagateBoolean(Enum):
     """
-    IsisMibLspTooLargeToPropagateBoolean
+    IsisMibLspTooLargeToPropagateBoolean (Enum Class)
 
     Isis mib lsp too large to propagate boolean
 
@@ -602,7 +622,7 @@ class IsisMibLspTooLargeToPropagateBoolean(Enum):
 
 class IsisMibManualAddressDropsBoolean(Enum):
     """
-    IsisMibManualAddressDropsBoolean
+    IsisMibManualAddressDropsBoolean (Enum Class)
 
     Isis mib manual address drops boolean
 
@@ -623,7 +643,7 @@ class IsisMibManualAddressDropsBoolean(Enum):
 
 class IsisMibMaxAreaAddressMismatchBoolean(Enum):
     """
-    IsisMibMaxAreaAddressMismatchBoolean
+    IsisMibMaxAreaAddressMismatchBoolean (Enum Class)
 
     Isis mib max area address mismatch boolean
 
@@ -644,7 +664,7 @@ class IsisMibMaxAreaAddressMismatchBoolean(Enum):
 
 class IsisMibOriginatedLspBufferSizeMismatchBoolean(Enum):
     """
-    IsisMibOriginatedLspBufferSizeMismatchBoolean
+    IsisMibOriginatedLspBufferSizeMismatchBoolean (Enum Class)
 
     Isis mib originated lsp buffer size mismatch
 
@@ -667,7 +687,7 @@ class IsisMibOriginatedLspBufferSizeMismatchBoolean(Enum):
 
 class IsisMibOwnLspPurgeBoolean(Enum):
     """
-    IsisMibOwnLspPurgeBoolean
+    IsisMibOwnLspPurgeBoolean (Enum Class)
 
     Isis mib own lsp purge boolean
 
@@ -688,7 +708,7 @@ class IsisMibOwnLspPurgeBoolean(Enum):
 
 class IsisMibProtocolsSupportedMismatchBoolean(Enum):
     """
-    IsisMibProtocolsSupportedMismatchBoolean
+    IsisMibProtocolsSupportedMismatchBoolean (Enum Class)
 
     Isis mib protocols supported mismatch boolean
 
@@ -709,7 +729,7 @@ class IsisMibProtocolsSupportedMismatchBoolean(Enum):
 
 class IsisMibRejectedAdjacencyBoolean(Enum):
     """
-    IsisMibRejectedAdjacencyBoolean
+    IsisMibRejectedAdjacencyBoolean (Enum Class)
 
     Isis mib rejected adjacency boolean
 
@@ -730,7 +750,7 @@ class IsisMibRejectedAdjacencyBoolean(Enum):
 
 class IsisMibSequenceNumberSkipBoolean(Enum):
     """
-    IsisMibSequenceNumberSkipBoolean
+    IsisMibSequenceNumberSkipBoolean (Enum Class)
 
     Isis mib sequence number skip boolean
 
@@ -751,7 +771,7 @@ class IsisMibSequenceNumberSkipBoolean(Enum):
 
 class IsisMibVersionSkewBoolean(Enum):
     """
-    IsisMibVersionSkewBoolean
+    IsisMibVersionSkewBoolean (Enum Class)
 
     Isis mib version skew boolean
 
@@ -772,7 +792,7 @@ class IsisMibVersionSkewBoolean(Enum):
 
 class IsisMicroLoopAvoidance(Enum):
     """
-    IsisMicroLoopAvoidance
+    IsisMicroLoopAvoidance (Enum Class)
 
     Isis micro loop avoidance
 
@@ -807,7 +827,7 @@ class IsisMicroLoopAvoidance(Enum):
 
 class IsisNsfFlavor(Enum):
     """
-    IsisNsfFlavor
+    IsisNsfFlavor (Enum Class)
 
     Isis nsf flavor
 
@@ -828,7 +848,7 @@ class IsisNsfFlavor(Enum):
 
 class IsisOverloadBitMode(Enum):
     """
-    IsisOverloadBitMode
+    IsisOverloadBitMode (Enum Class)
 
     Isis overload bit mode
 
@@ -855,7 +875,7 @@ class IsisOverloadBitMode(Enum):
 
 class IsisPrefixPriority(Enum):
     """
-    IsisPrefixPriority
+    IsisPrefixPriority (Enum Class)
 
     Isis prefix priority
 
@@ -882,7 +902,7 @@ class IsisPrefixPriority(Enum):
 
 class IsisRedistProto(Enum):
     """
-    IsisRedistProto
+    IsisRedistProto (Enum Class)
 
     Isis redist proto
 
@@ -957,7 +977,7 @@ class IsisRedistProto(Enum):
 
 class IsisRemoteLfa(Enum):
     """
-    IsisRemoteLfa
+    IsisRemoteLfa (Enum Class)
 
     Isis remote lfa
 
@@ -978,7 +998,7 @@ class IsisRemoteLfa(Enum):
 
 class IsisSnpAuth(Enum):
     """
-    IsisSnpAuth
+    IsisSnpAuth (Enum Class)
 
     Isis snp auth
 
@@ -999,7 +1019,7 @@ class IsisSnpAuth(Enum):
 
 class IsisTracingMode(Enum):
     """
-    IsisTracingMode
+    IsisTracingMode (Enum Class)
 
     Isis tracing mode
 
@@ -1026,7 +1046,7 @@ class IsisTracingMode(Enum):
 
 class IsisexplicitNullFlag(Enum):
     """
-    IsisexplicitNullFlag
+    IsisexplicitNullFlag (Enum Class)
 
     Isisexplicit null flag
 
@@ -1047,7 +1067,7 @@ class IsisexplicitNullFlag(Enum):
 
 class Isisfrr(Enum):
     """
-    Isisfrr
+    Isisfrr (Enum Class)
 
     Isisfrr
 
@@ -1068,7 +1088,7 @@ class Isisfrr(Enum):
 
 class IsisfrrLoadSharing(Enum):
     """
-    IsisfrrLoadSharing
+    IsisfrrLoadSharing (Enum Class)
 
     Isisfrr load sharing
 
@@ -1085,7 +1105,7 @@ class IsisfrrLoadSharing(Enum):
 
 class IsisfrrTiebreaker(Enum):
     """
-    IsisfrrTiebreaker
+    IsisfrrTiebreaker (Enum Class)
 
     Isisfrr tiebreaker
 
@@ -1136,7 +1156,7 @@ class IsisfrrTiebreaker(Enum):
 
 class IsisispfState(Enum):
     """
-    IsisispfState
+    IsisispfState (Enum Class)
 
     Isisispf state
 
@@ -1151,7 +1171,7 @@ class IsisispfState(Enum):
 
 class IsisphpFlag(Enum):
     """
-    IsisphpFlag
+    IsisphpFlag (Enum Class)
 
     Isisphp flag
 
@@ -1172,7 +1192,7 @@ class IsisphpFlag(Enum):
 
 class Isissid1(Enum):
     """
-    Isissid1
+    Isissid1 (Enum Class)
 
     Isissid1
 
@@ -1193,7 +1213,7 @@ class Isissid1(Enum):
 
 class IsissidProtected(Enum):
     """
-    IsissidProtected
+    IsissidProtected (Enum Class)
 
     Isissid protected
 
@@ -1214,7 +1234,7 @@ class IsissidProtected(Enum):
 
 class NflagClear(Enum):
     """
-    NflagClear
+    NflagClear (Enum Class)
 
     Nflag clear
 
@@ -1248,7 +1268,7 @@ class Isis(Entity):
     """
 
     _prefix = 'clns-isis-cfg'
-    _revision = '2017-06-02'
+    _revision = '2017-11-20'
 
     def __init__(self):
         super(Isis, self).__init__()
@@ -1258,8 +1278,10 @@ class Isis(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-clns-isis-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"instances" : ("instances", Isis.Instances)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("instances", ("instances", Isis.Instances))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.instances = Isis.Instances()
         self.instances.parent = self
@@ -1282,7 +1304,7 @@ class Isis(Entity):
         """
 
         _prefix = 'clns-isis-cfg'
-        _revision = '2017-06-02'
+        _revision = '2017-11-20'
 
         def __init__(self):
             super(Isis.Instances, self).__init__()
@@ -1291,8 +1313,10 @@ class Isis(Entity):
             self.yang_parent_name = "isis"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"instance" : ("instance", Isis.Instances.Instance)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("instance", ("instance", Isis.Instances.Instance))])
+            self._leafs = OrderedDict()
 
             self.instance = YList(self)
             self._segment_path = lambda: "instances"
@@ -1306,7 +1330,7 @@ class Isis(Entity):
             """
             Configuration for a single IS\-IS instance
             
-            .. attribute:: instance_name  <key>
+            .. attribute:: instance_name  (key)
             
             	Instance identifier
             	**type**\: str
@@ -1443,6 +1467,13 @@ class Isis(Entity):
             
             	**default value**\: basic
             
+            .. attribute:: vrf_context
+            
+            	VRF context for ISIS process
+            	**type**\: str
+            
+            	**length:** 1..32
+            
             .. attribute:: instance_id
             
             	Instance ID of the IS\-IS process
@@ -1472,7 +1503,7 @@ class Isis(Entity):
             """
 
             _prefix = 'clns-isis-cfg'
-            _revision = '2017-06-02'
+            _revision = '2017-11-20'
 
             def __init__(self):
                 super(Isis.Instances.Instance, self).__init__()
@@ -1481,28 +1512,33 @@ class Isis(Entity):
                 self.yang_parent_name = "instances"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"srgb" : ("srgb", Isis.Instances.Instance.Srgb), "lsp-generation-intervals" : ("lsp_generation_intervals", Isis.Instances.Instance.LspGenerationIntervals), "lsp-arrival-times" : ("lsp_arrival_times", Isis.Instances.Instance.LspArrivalTimes), "trace-buffer-size" : ("trace_buffer_size", Isis.Instances.Instance.TraceBufferSize), "max-link-metrics" : ("max_link_metrics", Isis.Instances.Instance.MaxLinkMetrics), "adjacency-stagger" : ("adjacency_stagger", Isis.Instances.Instance.AdjacencyStagger), "afs" : ("afs", Isis.Instances.Instance.Afs), "lsp-refresh-intervals" : ("lsp_refresh_intervals", Isis.Instances.Instance.LspRefreshIntervals), "distribute" : ("distribute", Isis.Instances.Instance.Distribute), "lsp-accept-passwords" : ("lsp_accept_passwords", Isis.Instances.Instance.LspAcceptPasswords), "lsp-mtus" : ("lsp_mtus", Isis.Instances.Instance.LspMtus), "nsf" : ("nsf", Isis.Instances.Instance.Nsf), "link-groups" : ("link_groups", Isis.Instances.Instance.LinkGroups), "lsp-check-intervals" : ("lsp_check_intervals", Isis.Instances.Instance.LspCheckIntervals), "lsp-passwords" : ("lsp_passwords", Isis.Instances.Instance.LspPasswords), "nets" : ("nets", Isis.Instances.Instance.Nets), "lsp-lifetimes" : ("lsp_lifetimes", Isis.Instances.Instance.LspLifetimes), "overload-bits" : ("overload_bits", Isis.Instances.Instance.OverloadBits), "interfaces" : ("interfaces", Isis.Instances.Instance.Interfaces)}
-                self._child_list_classes = {}
-
-                self.instance_name = YLeaf(YType.str, "instance-name")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.log_adjacency_changes = YLeaf(YType.empty, "log-adjacency-changes")
-
-                self.ignore_lsp_errors = YLeaf(YType.boolean, "ignore-lsp-errors")
-
-                self.is_type = YLeaf(YType.enumeration, "is-type")
-
-                self.tracing_mode = YLeaf(YType.enumeration, "tracing-mode")
-
-                self.instance_id = YLeaf(YType.uint32, "instance-id")
-
-                self.dynamic_host_name = YLeaf(YType.boolean, "dynamic-host-name")
-
-                self.nsr = YLeaf(YType.empty, "nsr")
-
-                self.log_pdu_drops = YLeaf(YType.empty, "log-pdu-drops")
+                self.ylist_key_names = ['instance_name']
+                self._child_container_classes = OrderedDict([("srgb", ("srgb", Isis.Instances.Instance.Srgb)), ("lsp-generation-intervals", ("lsp_generation_intervals", Isis.Instances.Instance.LspGenerationIntervals)), ("lsp-arrival-times", ("lsp_arrival_times", Isis.Instances.Instance.LspArrivalTimes)), ("trace-buffer-size", ("trace_buffer_size", Isis.Instances.Instance.TraceBufferSize)), ("max-link-metrics", ("max_link_metrics", Isis.Instances.Instance.MaxLinkMetrics)), ("adjacency-stagger", ("adjacency_stagger", Isis.Instances.Instance.AdjacencyStagger)), ("afs", ("afs", Isis.Instances.Instance.Afs)), ("lsp-refresh-intervals", ("lsp_refresh_intervals", Isis.Instances.Instance.LspRefreshIntervals)), ("distribute", ("distribute", Isis.Instances.Instance.Distribute)), ("lsp-accept-passwords", ("lsp_accept_passwords", Isis.Instances.Instance.LspAcceptPasswords)), ("lsp-mtus", ("lsp_mtus", Isis.Instances.Instance.LspMtus)), ("nsf", ("nsf", Isis.Instances.Instance.Nsf)), ("link-groups", ("link_groups", Isis.Instances.Instance.LinkGroups)), ("lsp-check-intervals", ("lsp_check_intervals", Isis.Instances.Instance.LspCheckIntervals)), ("lsp-passwords", ("lsp_passwords", Isis.Instances.Instance.LspPasswords)), ("nets", ("nets", Isis.Instances.Instance.Nets)), ("lsp-lifetimes", ("lsp_lifetimes", Isis.Instances.Instance.LspLifetimes)), ("overload-bits", ("overload_bits", Isis.Instances.Instance.OverloadBits)), ("interfaces", ("interfaces", Isis.Instances.Instance.Interfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('instance_name', YLeaf(YType.str, 'instance-name')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                    ('log_adjacency_changes', YLeaf(YType.empty, 'log-adjacency-changes')),
+                    ('ignore_lsp_errors', YLeaf(YType.boolean, 'ignore-lsp-errors')),
+                    ('is_type', YLeaf(YType.enumeration, 'is-type')),
+                    ('tracing_mode', YLeaf(YType.enumeration, 'tracing-mode')),
+                    ('vrf_context', YLeaf(YType.str, 'vrf-context')),
+                    ('instance_id', YLeaf(YType.uint32, 'instance-id')),
+                    ('dynamic_host_name', YLeaf(YType.boolean, 'dynamic-host-name')),
+                    ('nsr', YLeaf(YType.empty, 'nsr')),
+                    ('log_pdu_drops', YLeaf(YType.empty, 'log-pdu-drops')),
+                ])
+                self.instance_name = None
+                self.running = None
+                self.log_adjacency_changes = None
+                self.ignore_lsp_errors = None
+                self.is_type = None
+                self.tracing_mode = None
+                self.vrf_context = None
+                self.instance_id = None
+                self.dynamic_host_name = None
+                self.nsr = None
+                self.log_pdu_drops = None
 
                 self.srgb = None
                 self._children_name_map["srgb"] = "srgb"
@@ -1595,11 +1631,11 @@ class Isis(Entity):
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
-                self._segment_path = lambda: "instance" + "[instance-name='" + self.instance_name.get() + "']"
+                self._segment_path = lambda: "instance" + "[instance-name='" + str(self.instance_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-clns-isis-cfg:isis/instances/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Isis.Instances.Instance, ['instance_name', 'running', 'log_adjacency_changes', 'ignore_lsp_errors', 'is_type', 'tracing_mode', 'instance_id', 'dynamic_host_name', 'nsr', 'log_pdu_drops'], name, value)
+                self._perform_setattr(Isis.Instances.Instance, ['instance_name', 'running', 'log_adjacency_changes', 'ignore_lsp_errors', 'is_type', 'tracing_mode', 'vrf_context', 'instance_id', 'dynamic_host_name', 'nsr', 'log_pdu_drops'], name, value)
 
 
             class Srgb(Entity):
@@ -1631,7 +1667,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Srgb, self).__init__()
@@ -1640,13 +1676,16 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.lower_bound = YLeaf(YType.uint32, "lower-bound")
-
-                    self.upper_bound = YLeaf(YType.uint32, "upper-bound")
+                    self._leafs = OrderedDict([
+                        ('lower_bound', YLeaf(YType.uint32, 'lower-bound')),
+                        ('upper_bound', YLeaf(YType.uint32, 'upper-bound')),
+                    ])
+                    self.lower_bound = None
+                    self.upper_bound = None
                     self._segment_path = lambda: "srgb"
 
                 def __setattr__(self, name, value):
@@ -1667,7 +1706,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspGenerationIntervals, self).__init__()
@@ -1676,8 +1715,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-generation-interval" : ("lsp_generation_interval", Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-generation-interval", ("lsp_generation_interval", Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_generation_interval = YList(self)
                     self._segment_path = lambda: "lsp-generation-intervals"
@@ -1690,7 +1731,7 @@ class Isis(Entity):
                     """
                     LSP generation scheduling parameters
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -1727,7 +1768,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval, self).__init__()
@@ -1736,17 +1777,20 @@ class Isis(Entity):
                         self.yang_parent_name = "lsp-generation-intervals"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.maximum_wait = YLeaf(YType.uint32, "maximum-wait")
-
-                        self.initial_wait = YLeaf(YType.uint32, "initial-wait")
-
-                        self.secondary_wait = YLeaf(YType.uint32, "secondary-wait")
-                        self._segment_path = lambda: "lsp-generation-interval" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('maximum_wait', YLeaf(YType.uint32, 'maximum-wait')),
+                            ('initial_wait', YLeaf(YType.uint32, 'initial-wait')),
+                            ('secondary_wait', YLeaf(YType.uint32, 'secondary-wait')),
+                        ])
+                        self.level = None
+                        self.maximum_wait = None
+                        self.initial_wait = None
+                        self.secondary_wait = None
+                        self._segment_path = lambda: "lsp-generation-interval" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
@@ -1766,7 +1810,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspArrivalTimes, self).__init__()
@@ -1775,8 +1819,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-arrival-time" : ("lsp_arrival_time", Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-arrival-time", ("lsp_arrival_time", Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_arrival_time = YList(self)
                     self._segment_path = lambda: "lsp-arrival-times"
@@ -1789,7 +1835,7 @@ class Isis(Entity):
                     """
                     Minimum LSP arrival time
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -1826,7 +1872,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime, self).__init__()
@@ -1835,17 +1881,20 @@ class Isis(Entity):
                         self.yang_parent_name = "lsp-arrival-times"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.maximum_wait = YLeaf(YType.uint32, "maximum-wait")
-
-                        self.initial_wait = YLeaf(YType.uint32, "initial-wait")
-
-                        self.secondary_wait = YLeaf(YType.uint32, "secondary-wait")
-                        self._segment_path = lambda: "lsp-arrival-time" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('maximum_wait', YLeaf(YType.uint32, 'maximum-wait')),
+                            ('initial_wait', YLeaf(YType.uint32, 'initial-wait')),
+                            ('secondary_wait', YLeaf(YType.uint32, 'secondary-wait')),
+                        ])
+                        self.level = None
+                        self.maximum_wait = None
+                        self.initial_wait = None
+                        self.secondary_wait = None
+                        self._segment_path = lambda: "lsp-arrival-time" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
@@ -1888,7 +1937,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.TraceBufferSize, self).__init__()
@@ -1897,16 +1946,19 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.detailed = YLeaf(YType.uint32, "detailed")
-
-                    self.standard = YLeaf(YType.uint32, "standard")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-
-                    self.hello = YLeaf(YType.uint32, "hello")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('detailed', YLeaf(YType.uint32, 'detailed')),
+                        ('standard', YLeaf(YType.uint32, 'standard')),
+                        ('severe', YLeaf(YType.uint32, 'severe')),
+                        ('hello', YLeaf(YType.uint32, 'hello')),
+                    ])
+                    self.detailed = None
+                    self.standard = None
+                    self.severe = None
+                    self.hello = None
                     self._segment_path = lambda: "trace-buffer-size"
 
                 def __setattr__(self, name, value):
@@ -1927,7 +1979,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.MaxLinkMetrics, self).__init__()
@@ -1936,8 +1988,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"max-link-metric" : ("max_link_metric", Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("max-link-metric", ("max_link_metric", Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric))])
+                    self._leafs = OrderedDict()
 
                     self.max_link_metric = YList(self)
                     self._segment_path = lambda: "max-link-metrics"
@@ -1950,7 +2004,7 @@ class Isis(Entity):
                     """
                     Max Link Metric
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -1960,7 +2014,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric, self).__init__()
@@ -1969,11 +2023,14 @@ class Isis(Entity):
                         self.yang_parent_name = "max-link-metrics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-                        self._segment_path = lambda: "max-link-metric" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                        ])
+                        self.level = None
+                        self._segment_path = lambda: "max-link-metric" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric, ['level'], name, value)
@@ -2008,7 +2065,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.AdjacencyStagger, self).__init__()
@@ -2017,13 +2074,16 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.initial_nbr = YLeaf(YType.uint32, "initial-nbr")
-
-                    self.max_nbr = YLeaf(YType.uint32, "max-nbr")
+                    self._leafs = OrderedDict([
+                        ('initial_nbr', YLeaf(YType.uint32, 'initial-nbr')),
+                        ('max_nbr', YLeaf(YType.uint32, 'max-nbr')),
+                    ])
+                    self.initial_nbr = None
+                    self.max_nbr = None
                     self._segment_path = lambda: "adjacency-stagger"
 
                 def __setattr__(self, name, value):
@@ -2044,7 +2104,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Afs, self).__init__()
@@ -2053,8 +2113,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"af" : ("af", Isis.Instances.Instance.Afs.Af)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("af", ("af", Isis.Instances.Instance.Afs.Af))])
+                    self._leafs = OrderedDict()
 
                     self.af = YList(self)
                     self._segment_path = lambda: "afs"
@@ -2069,12 +2131,12 @@ class Isis(Entity):
                     a named (non\-default) topology is being
                     created it must be multicast.
                     
-                    .. attribute:: af_name  <key>
+                    .. attribute:: af_name  (key)
                     
                     	Address family
                     	**type**\:  :py:class:`IsisAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamily>`
                     
-                    .. attribute:: saf_name  <key>
+                    .. attribute:: saf_name  (key)
                     
                     	Sub address family
                     	**type**\:  :py:class:`IsisSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamily>`
@@ -2096,7 +2158,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.Afs.Af, self).__init__()
@@ -2105,19 +2167,22 @@ class Isis(Entity):
                         self.yang_parent_name = "afs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"af-data" : ("af_data", Isis.Instances.Instance.Afs.Af.AfData)}
-                        self._child_list_classes = {"topology-name" : ("topology_name", Isis.Instances.Instance.Afs.Af.TopologyName)}
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.saf_name = YLeaf(YType.enumeration, "saf-name")
+                        self.ylist_key_names = ['af_name','saf_name']
+                        self._child_container_classes = OrderedDict([("af-data", ("af_data", Isis.Instances.Instance.Afs.Af.AfData))])
+                        self._child_list_classes = OrderedDict([("topology-name", ("topology_name", Isis.Instances.Instance.Afs.Af.TopologyName))])
+                        self._leafs = OrderedDict([
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                        ])
+                        self.af_name = None
+                        self.saf_name = None
 
                         self.af_data = None
                         self._children_name_map["af_data"] = "af-data"
                         self._children_yang_names.add("af-data")
 
                         self.topology_name = YList(self)
-                        self._segment_path = lambda: "af" + "[af-name='" + self.af_name.get() + "']" + "[saf-name='" + self.saf_name.get() + "']"
+                        self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.Afs.Af, ['af_name', 'saf_name'], name, value)
@@ -2309,7 +2374,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Afs.Af.AfData, self).__init__()
@@ -2318,31 +2383,34 @@ class Isis(Entity):
                             self.yang_parent_name = "af"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"segment-routing" : ("segment_routing", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting), "metric-styles" : ("metric_styles", Isis.Instances.Instance.Afs.Af.AfData.MetricStyles), "frr-table" : ("frr_table", Isis.Instances.Instance.Afs.Af.AfData.FrrTable), "router-id" : ("router_id", Isis.Instances.Instance.Afs.Af.AfData.RouterId), "spf-prefix-priorities" : ("spf_prefix_priorities", Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities), "summary-prefixes" : ("summary_prefixes", Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes), "micro-loop-avoidance" : ("micro_loop_avoidance", Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance), "ucmp" : ("ucmp", Isis.Instances.Instance.Afs.Af.AfData.Ucmp), "max-redist-prefixes" : ("max_redist_prefixes", Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes), "propagations" : ("propagations", Isis.Instances.Instance.Afs.Af.AfData.Propagations), "redistributions" : ("redistributions", Isis.Instances.Instance.Afs.Af.AfData.Redistributions), "spf-periodic-intervals" : ("spf_periodic_intervals", Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals), "spf-intervals" : ("spf_intervals", Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals), "monitor-convergence" : ("monitor_convergence", Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence), "default-information" : ("default_information", Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation), "admin-distances" : ("admin_distances", Isis.Instances.Instance.Afs.Af.AfData.AdminDistances), "ispf" : ("ispf", Isis.Instances.Instance.Afs.Af.AfData.Ispf), "mpls-ldp-global" : ("mpls_ldp_global", Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal), "mpls" : ("mpls", Isis.Instances.Instance.Afs.Af.AfData.Mpls), "manual-adj-sids" : ("manual_adj_sids", Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids), "metrics" : ("metrics", Isis.Instances.Instance.Afs.Af.AfData.Metrics), "weights" : ("weights", Isis.Instances.Instance.Afs.Af.AfData.Weights)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("segment-routing", ("segment_routing", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting)), ("metric-styles", ("metric_styles", Isis.Instances.Instance.Afs.Af.AfData.MetricStyles)), ("frr-table", ("frr_table", Isis.Instances.Instance.Afs.Af.AfData.FrrTable)), ("router-id", ("router_id", Isis.Instances.Instance.Afs.Af.AfData.RouterId)), ("spf-prefix-priorities", ("spf_prefix_priorities", Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities)), ("summary-prefixes", ("summary_prefixes", Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes)), ("micro-loop-avoidance", ("micro_loop_avoidance", Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance)), ("ucmp", ("ucmp", Isis.Instances.Instance.Afs.Af.AfData.Ucmp)), ("max-redist-prefixes", ("max_redist_prefixes", Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes)), ("propagations", ("propagations", Isis.Instances.Instance.Afs.Af.AfData.Propagations)), ("redistributions", ("redistributions", Isis.Instances.Instance.Afs.Af.AfData.Redistributions)), ("spf-periodic-intervals", ("spf_periodic_intervals", Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals)), ("spf-intervals", ("spf_intervals", Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals)), ("monitor-convergence", ("monitor_convergence", Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence)), ("default-information", ("default_information", Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation)), ("admin-distances", ("admin_distances", Isis.Instances.Instance.Afs.Af.AfData.AdminDistances)), ("ispf", ("ispf", Isis.Instances.Instance.Afs.Af.AfData.Ispf)), ("mpls-ldp-global", ("mpls_ldp_global", Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal)), ("mpls", ("mpls", Isis.Instances.Instance.Afs.Af.AfData.Mpls)), ("manual-adj-sids", ("manual_adj_sids", Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids)), ("metrics", ("metrics", Isis.Instances.Instance.Afs.Af.AfData.Metrics)), ("weights", ("weights", Isis.Instances.Instance.Afs.Af.AfData.Weights))])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
-
-                            self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                            self.single_topology = YLeaf(YType.empty, "single-topology")
-
-                            self.adjacency_check = YLeaf(YType.enumeration, "adjacency-check")
-
-                            self.advertise_link_attributes = YLeaf(YType.boolean, "advertise-link-attributes")
-
-                            self.apply_weight = YLeaf(YType.enumeration, "apply-weight")
-
-                            self.default_admin_distance = YLeaf(YType.uint32, "default-admin-distance")
-
-                            self.advertise_passive_only = YLeaf(YType.empty, "advertise-passive-only")
-
-                            self.ignore_attached_bit = YLeaf(YType.boolean, "ignore-attached-bit")
-
-                            self.attached_bit = YLeaf(YType.enumeration, "attached-bit")
-
-                            self.route_source_first_hop = YLeaf(YType.boolean, "route-source-first-hop")
+                            self._leafs = OrderedDict([
+                                ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                ('single_topology', YLeaf(YType.empty, 'single-topology')),
+                                ('adjacency_check', YLeaf(YType.enumeration, 'adjacency-check')),
+                                ('advertise_link_attributes', YLeaf(YType.boolean, 'advertise-link-attributes')),
+                                ('apply_weight', YLeaf(YType.enumeration, 'apply-weight')),
+                                ('default_admin_distance', YLeaf(YType.uint32, 'default-admin-distance')),
+                                ('advertise_passive_only', YLeaf(YType.empty, 'advertise-passive-only')),
+                                ('ignore_attached_bit', YLeaf(YType.boolean, 'ignore-attached-bit')),
+                                ('attached_bit', YLeaf(YType.enumeration, 'attached-bit')),
+                                ('route_source_first_hop', YLeaf(YType.boolean, 'route-source-first-hop')),
+                            ])
+                            self.maximum_paths = None
+                            self.topology_id = None
+                            self.single_topology = None
+                            self.adjacency_check = None
+                            self.advertise_link_attributes = None
+                            self.apply_weight = None
+                            self.default_admin_distance = None
+                            self.advertise_passive_only = None
+                            self.ignore_attached_bit = None
+                            self.attached_bit = None
+                            self.route_source_first_hop = None
 
                             self.segment_routing = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting()
                             self.segment_routing.parent = self
@@ -2483,7 +2551,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting, self).__init__()
@@ -2492,12 +2560,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"prefix-sid-map" : ("prefix_sid_map", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap)}
-                                self._child_list_classes = {}
-
-                                self.bundle_member_adj_sid = YLeaf(YType.empty, "bundle-member-adj-sid")
-
-                                self.mpls = YLeaf(YType.enumeration, "mpls")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("prefix-sid-map", ("prefix_sid_map", Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('bundle_member_adj_sid', YLeaf(YType.empty, 'bundle-member-adj-sid')),
+                                    ('mpls', YLeaf(YType.enumeration, 'mpls')),
+                                ])
+                                self.bundle_member_adj_sid = None
+                                self.mpls = None
 
                                 self.prefix_sid_map = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap()
                                 self.prefix_sid_map.parent = self
@@ -2529,7 +2600,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap, self).__init__()
@@ -2538,12 +2609,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "segment-routing"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.advertise_local = YLeaf(YType.empty, "advertise-local")
-
-                                    self.receive = YLeaf(YType.boolean, "receive")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('advertise_local', YLeaf(YType.empty, 'advertise-local')),
+                                        ('receive', YLeaf(YType.boolean, 'receive')),
+                                    ])
+                                    self.advertise_local = None
+                                    self.receive = None
                                     self._segment_path = lambda: "prefix-sid-map"
 
                                 def __setattr__(self, name, value):
@@ -2564,7 +2638,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles, self).__init__()
@@ -2573,8 +2647,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"metric-style" : ("metric_style", Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("metric-style", ("metric_style", Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle))])
+                                self._leafs = OrderedDict()
 
                                 self.metric_style = YList(self)
                                 self._segment_path = lambda: "metric-styles"
@@ -2587,7 +2663,7 @@ class Isis(Entity):
                                 """
                                 Configuration of metric style in LSPs
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -2611,7 +2687,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle, self).__init__()
@@ -2620,15 +2696,18 @@ class Isis(Entity):
                                     self.yang_parent_name = "metric-styles"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.style = YLeaf(YType.enumeration, "style")
-
-                                    self.transition_state = YLeaf(YType.enumeration, "transition-state")
-                                    self._segment_path = lambda: "metric-style" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('style', YLeaf(YType.enumeration, 'style')),
+                                        ('transition_state', YLeaf(YType.enumeration, 'transition-state')),
+                                    ])
+                                    self.level = None
+                                    self.style = None
+                                    self.transition_state = None
+                                    self._segment_path = lambda: "metric-style" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle, ['level', 'style', 'transition_state'], name, value)
@@ -2668,7 +2747,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable, self).__init__()
@@ -2677,8 +2756,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"frr-load-sharings" : ("frr_load_sharings", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings), "priority-limits" : ("priority_limits", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits), "frr-remote-lfa-prefixes" : ("frr_remote_lfa_prefixes", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes), "frr-tiebreakers" : ("frr_tiebreakers", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers), "frr-use-cand-onlies" : ("frr_use_cand_onlies", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("frr-load-sharings", ("frr_load_sharings", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings)), ("priority-limits", ("priority_limits", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits)), ("frr-remote-lfa-prefixes", ("frr_remote_lfa_prefixes", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes)), ("frr-tiebreakers", ("frr_tiebreakers", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers)), ("frr-use-cand-onlies", ("frr_use_cand_onlies", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.frr_load_sharings = Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings()
                                 self.frr_load_sharings.parent = self
@@ -2722,7 +2803,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings, self).__init__()
@@ -2731,8 +2812,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"frr-load-sharing" : ("frr_load_sharing", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("frr-load-sharing", ("frr_load_sharing", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing))])
+                                    self._leafs = OrderedDict()
 
                                     self.frr_load_sharing = YList(self)
                                     self._segment_path = lambda: "frr-load-sharings"
@@ -2745,7 +2828,7 @@ class Isis(Entity):
                                     """
                                     Disable load sharing
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -2762,7 +2845,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing, self).__init__()
@@ -2771,13 +2854,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "frr-load-sharings"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.load_sharing = YLeaf(YType.enumeration, "load-sharing")
-                                        self._segment_path = lambda: "frr-load-sharing" + "[level='" + self.level.get() + "']"
+                                        self.ylist_key_names = ['level']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('load_sharing', YLeaf(YType.enumeration, 'load-sharing')),
+                                        ])
+                                        self.level = None
+                                        self.load_sharing = None
+                                        self._segment_path = lambda: "frr-load-sharing" + "[level='" + str(self.level) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing, ['level', 'load_sharing'], name, value)
@@ -2797,7 +2883,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits, self).__init__()
@@ -2806,8 +2892,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"priority-limit" : ("priority_limit", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("priority-limit", ("priority_limit", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit))])
+                                    self._leafs = OrderedDict()
 
                                     self.priority_limit = YList(self)
                                     self._segment_path = lambda: "priority-limits"
@@ -2821,12 +2909,12 @@ class Isis(Entity):
                                     Limit backup computation upto the prefix
                                     priority
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
-                                    .. attribute:: frr_type  <key>
+                                    .. attribute:: frr_type  (key)
                                     
                                     	Computation Type
                                     	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
@@ -2843,7 +2931,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit, self).__init__()
@@ -2852,15 +2940,18 @@ class Isis(Entity):
                                         self.yang_parent_name = "priority-limits"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.frr_type = YLeaf(YType.enumeration, "frr-type")
-
-                                        self.priority = YLeaf(YType.enumeration, "priority")
-                                        self._segment_path = lambda: "priority-limit" + "[level='" + self.level.get() + "']" + "[frr-type='" + self.frr_type.get() + "']"
+                                        self.ylist_key_names = ['level','frr_type']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('frr_type', YLeaf(YType.enumeration, 'frr-type')),
+                                            ('priority', YLeaf(YType.enumeration, 'priority')),
+                                        ])
+                                        self.level = None
+                                        self.frr_type = None
+                                        self.priority = None
+                                        self._segment_path = lambda: "priority-limit" + "[level='" + str(self.level) + "']" + "[frr-type='" + str(self.frr_type) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit, ['level', 'frr_type', 'priority'], name, value)
@@ -2881,7 +2972,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes, self).__init__()
@@ -2890,8 +2981,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"frr-remote-lfa-prefix" : ("frr_remote_lfa_prefix", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("frr-remote-lfa-prefix", ("frr_remote_lfa_prefix", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix))])
+                                    self._leafs = OrderedDict()
 
                                     self.frr_remote_lfa_prefix = YList(self)
                                     self._segment_path = lambda: "frr-remote-lfa-prefixes"
@@ -2905,7 +2998,7 @@ class Isis(Entity):
                                     Filter remote LFA router IDs using
                                     prefix\-list
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -2924,7 +3017,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, self).__init__()
@@ -2933,13 +3026,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "frr-remote-lfa-prefixes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.prefix_list_name = YLeaf(YType.str, "prefix-list-name")
-                                        self._segment_path = lambda: "frr-remote-lfa-prefix" + "[level='" + self.level.get() + "']"
+                                        self.ylist_key_names = ['level']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
+                                        ])
+                                        self.level = None
+                                        self.prefix_list_name = None
+                                        self._segment_path = lambda: "frr-remote-lfa-prefix" + "[level='" + str(self.level) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, ['level', 'prefix_list_name'], name, value)
@@ -2959,7 +3055,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers, self).__init__()
@@ -2968,8 +3064,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"frr-tiebreaker" : ("frr_tiebreaker", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("frr-tiebreaker", ("frr_tiebreaker", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker))])
+                                    self._leafs = OrderedDict()
 
                                     self.frr_tiebreaker = YList(self)
                                     self._segment_path = lambda: "frr-tiebreakers"
@@ -2982,12 +3080,12 @@ class Isis(Entity):
                                     """
                                     Configure tiebreaker for multiple backups
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
-                                    .. attribute:: tiebreaker  <key>
+                                    .. attribute:: tiebreaker  (key)
                                     
                                     	Tiebreaker for which configuration applies
                                     	**type**\:  :py:class:`IsisfrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreaker>`
@@ -3006,7 +3104,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker, self).__init__()
@@ -3015,15 +3113,18 @@ class Isis(Entity):
                                         self.yang_parent_name = "frr-tiebreakers"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.tiebreaker = YLeaf(YType.enumeration, "tiebreaker")
-
-                                        self.index = YLeaf(YType.uint32, "index")
-                                        self._segment_path = lambda: "frr-tiebreaker" + "[level='" + self.level.get() + "']" + "[tiebreaker='" + self.tiebreaker.get() + "']"
+                                        self.ylist_key_names = ['level','tiebreaker']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
+                                            ('index', YLeaf(YType.uint32, 'index')),
+                                        ])
+                                        self.level = None
+                                        self.tiebreaker = None
+                                        self.index = None
+                                        self._segment_path = lambda: "frr-tiebreaker" + "[level='" + str(self.level) + "']" + "[tiebreaker='" + str(self.tiebreaker) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
@@ -3043,7 +3144,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies, self).__init__()
@@ -3052,8 +3153,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"frr-use-cand-only" : ("frr_use_cand_only", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("frr-use-cand-only", ("frr_use_cand_only", Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly))])
+                                    self._leafs = OrderedDict()
 
                                     self.frr_use_cand_only = YList(self)
                                     self._segment_path = lambda: "frr-use-cand-onlies"
@@ -3067,12 +3170,12 @@ class Isis(Entity):
                                     Configure use candidate only to exclude
                                     interfaces as backup
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
-                                    .. attribute:: frr_type  <key>
+                                    .. attribute:: frr_type  (key)
                                     
                                     	Computation Type
                                     	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
@@ -3082,7 +3185,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, self).__init__()
@@ -3091,13 +3194,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "frr-use-cand-onlies"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.frr_type = YLeaf(YType.enumeration, "frr-type")
-                                        self._segment_path = lambda: "frr-use-cand-only" + "[level='" + self.level.get() + "']" + "[frr-type='" + self.frr_type.get() + "']"
+                                        self.ylist_key_names = ['level','frr_type']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('frr_type', YLeaf(YType.enumeration, 'frr-type')),
+                                        ])
+                                        self.level = None
+                                        self.frr_type = None
+                                        self._segment_path = lambda: "frr-use-cand-only" + "[level='" + str(self.level) + "']" + "[frr-type='" + str(self.frr_type) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, ['level', 'frr_type'], name, value)
@@ -3133,7 +3239,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.RouterId, self).__init__()
@@ -3142,12 +3248,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ])
+                                self.address = None
+                                self.interface_name = None
                                 self._segment_path = lambda: "router-id"
 
                             def __setattr__(self, name, value):
@@ -3168,7 +3277,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities, self).__init__()
@@ -3177,8 +3286,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"spf-prefix-priority" : ("spf_prefix_priority", Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("spf-prefix-priority", ("spf_prefix_priority", Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority))])
+                                self._leafs = OrderedDict()
 
                                 self.spf_prefix_priority = YList(self)
                                 self._segment_path = lambda: "spf-prefix-priorities"
@@ -3191,12 +3302,12 @@ class Isis(Entity):
                                 """
                                 Determine SPF priority for prefixes
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	SPF Level for prefix prioritization
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
-                                .. attribute:: prefix_priority_type  <key>
+                                .. attribute:: prefix_priority_type  (key)
                                 
                                 	SPF Priority to assign matching prefixes
                                 	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
@@ -3220,7 +3331,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority, self).__init__()
@@ -3229,17 +3340,20 @@ class Isis(Entity):
                                     self.yang_parent_name = "spf-prefix-priorities"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.prefix_priority_type = YLeaf(YType.enumeration, "prefix-priority-type")
-
-                                    self.admin_tag = YLeaf(YType.uint32, "admin-tag")
-
-                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-                                    self._segment_path = lambda: "spf-prefix-priority" + "[level='" + self.level.get() + "']" + "[prefix-priority-type='" + self.prefix_priority_type.get() + "']"
+                                    self.ylist_key_names = ['level','prefix_priority_type']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('prefix_priority_type', YLeaf(YType.enumeration, 'prefix-priority-type')),
+                                        ('admin_tag', YLeaf(YType.uint32, 'admin-tag')),
+                                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                    ])
+                                    self.level = None
+                                    self.prefix_priority_type = None
+                                    self.admin_tag = None
+                                    self.access_list_name = None
+                                    self._segment_path = lambda: "spf-prefix-priority" + "[level='" + str(self.level) + "']" + "[prefix-priority-type='" + str(self.prefix_priority_type) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority, ['level', 'prefix_priority_type', 'admin_tag', 'access_list_name'], name, value)
@@ -3259,7 +3373,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes, self).__init__()
@@ -3268,8 +3382,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"summary-prefix" : ("summary_prefix", Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("summary-prefix", ("summary_prefix", Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix))])
+                                self._leafs = OrderedDict()
 
                                 self.summary_prefix = YList(self)
                                 self._segment_path = lambda: "summary-prefixes"
@@ -3282,7 +3398,7 @@ class Isis(Entity):
                                 """
                                 Configure IP address prefixes to advertise
                                 
-                                .. attribute:: address_prefix  <key>
+                                .. attribute:: address_prefix  (key)
                                 
                                 	IP summary address prefix
                                 	**type**\: union of the below types:
@@ -3314,7 +3430,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix, self).__init__()
@@ -3323,15 +3439,18 @@ class Isis(Entity):
                                     self.yang_parent_name = "summary-prefixes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address_prefix = YLeaf(YType.str, "address-prefix")
-
-                                    self.tag = YLeaf(YType.uint32, "tag")
-
-                                    self.level = YLeaf(YType.uint32, "level")
-                                    self._segment_path = lambda: "summary-prefix" + "[address-prefix='" + self.address_prefix.get() + "']"
+                                    self.ylist_key_names = ['address_prefix']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                        ('tag', YLeaf(YType.uint32, 'tag')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.address_prefix = None
+                                    self.tag = None
+                                    self.level = None
+                                    self._segment_path = lambda: "summary-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix, ['address_prefix', 'tag', 'level'], name, value)
@@ -3345,8 +3464,6 @@ class Isis(Entity):
                             
                             	MicroLoop avoidance enable configuration
                             	**type**\:  :py:class:`IsisMicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidance>`
-                            
-                            	**default value**\: micro-loop-avoidance-all
                             
                             .. attribute:: rib_update_delay
                             
@@ -3364,7 +3481,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance, self).__init__()
@@ -3373,12 +3490,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.enumeration, "enable")
-
-                                self.rib_update_delay = YLeaf(YType.uint32, "rib-update-delay")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.enumeration, 'enable')),
+                                    ('rib_update_delay', YLeaf(YType.uint32, 'rib-update-delay')),
+                                ])
+                                self.enable = None
+                                self.rib_update_delay = None
                                 self._segment_path = lambda: "micro-loop-avoidance"
 
                             def __setattr__(self, name, value):
@@ -3415,7 +3535,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp, self).__init__()
@@ -3424,10 +3544,13 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"enable" : ("enable", Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable), "exclude-interfaces" : ("exclude_interfaces", Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces)}
-                                self._child_list_classes = {}
-
-                                self.delay_interval = YLeaf(YType.uint32, "delay-interval")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("enable", ("enable", Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable)), ("exclude-interfaces", ("exclude_interfaces", Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('delay_interval', YLeaf(YType.uint32, 'delay-interval')),
+                                ])
+                                self.delay_interval = None
 
                                 self.enable = Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable()
                                 self.enable.parent = self
@@ -3469,7 +3592,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable, self).__init__()
@@ -3478,12 +3601,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "ucmp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.variance = YLeaf(YType.uint32, "variance")
-
-                                    self.prefix_list_name = YLeaf(YType.str, "prefix-list-name")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('variance', YLeaf(YType.uint32, 'variance')),
+                                        ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
+                                    ])
+                                    self.variance = None
+                                    self.prefix_list_name = None
                                     self._segment_path = lambda: "enable"
 
                                 def __setattr__(self, name, value):
@@ -3505,7 +3631,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces, self).__init__()
@@ -3514,8 +3640,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "ucmp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"exclude-interface" : ("exclude_interface", Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface))])
+                                    self._leafs = OrderedDict()
 
                                     self.exclude_interface = YList(self)
                                     self._segment_path = lambda: "exclude-interfaces"
@@ -3529,7 +3657,7 @@ class Isis(Entity):
                                     Exclude this interface from UCMP path
                                     computation
                                     
-                                    .. attribute:: interface_name  <key>
+                                    .. attribute:: interface_name  (key)
                                     
                                     	Name of the interface to be excluded
                                     	**type**\: str
@@ -3541,7 +3669,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -3550,11 +3678,14 @@ class Isis(Entity):
                                         self.yang_parent_name = "exclude-interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ])
+                                        self.interface_name = None
+                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -3575,7 +3706,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes, self).__init__()
@@ -3584,8 +3715,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"max-redist-prefix" : ("max_redist_prefix", Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("max-redist-prefix", ("max_redist_prefix", Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix))])
+                                self._leafs = OrderedDict()
 
                                 self.max_redist_prefix = YList(self)
                                 self._segment_path = lambda: "max-redist-prefixes"
@@ -3600,7 +3733,7 @@ class Isis(Entity):
                                 redistributed prefixes which may be
                                 included in the local system's LSP
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -3619,7 +3752,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix, self).__init__()
@@ -3628,13 +3761,16 @@ class Isis(Entity):
                                     self.yang_parent_name = "max-redist-prefixes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.prefix_limit = YLeaf(YType.uint32, "prefix-limit")
-                                    self._segment_path = lambda: "max-redist-prefix" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
+                                    ])
+                                    self.level = None
+                                    self.prefix_limit = None
+                                    self._segment_path = lambda: "max-redist-prefix" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix, ['level', 'prefix_limit'], name, value)
@@ -3654,7 +3790,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Propagations, self).__init__()
@@ -3663,8 +3799,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"propagation" : ("propagation", Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("propagation", ("propagation", Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation))])
+                                self._leafs = OrderedDict()
 
                                 self.propagation = YList(self)
                                 self._segment_path = lambda: "propagations"
@@ -3677,12 +3815,12 @@ class Isis(Entity):
                                 """
                                 Propagate routes between IS\-IS levels
                                 
-                                .. attribute:: source_level  <key>
+                                .. attribute:: source_level  (key)
                                 
                                 	Source level for routes
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
-                                .. attribute:: destination_level  <key>
+                                .. attribute:: destination_level  (key)
                                 
                                 	Destination level for routes.  Must differ from SourceLevel
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -3701,7 +3839,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation, self).__init__()
@@ -3710,15 +3848,18 @@ class Isis(Entity):
                                     self.yang_parent_name = "propagations"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.source_level = YLeaf(YType.enumeration, "source-level")
-
-                                    self.destination_level = YLeaf(YType.enumeration, "destination-level")
-
-                                    self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-                                    self._segment_path = lambda: "propagation" + "[source-level='" + self.source_level.get() + "']" + "[destination-level='" + self.destination_level.get() + "']"
+                                    self.ylist_key_names = ['source_level','destination_level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('source_level', YLeaf(YType.enumeration, 'source-level')),
+                                        ('destination_level', YLeaf(YType.enumeration, 'destination-level')),
+                                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ])
+                                    self.source_level = None
+                                    self.destination_level = None
+                                    self.route_policy_name = None
+                                    self._segment_path = lambda: "propagation" + "[source-level='" + str(self.source_level) + "']" + "[destination-level='" + str(self.destination_level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation, ['source_level', 'destination_level', 'route_policy_name'], name, value)
@@ -3738,7 +3879,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions, self).__init__()
@@ -3747,8 +3888,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"redistribution" : ("redistribution", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("redistribution", ("redistribution", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution))])
+                                self._leafs = OrderedDict()
 
                                 self.redistribution = YList(self)
                                 self._segment_path = lambda: "redistributions"
@@ -3762,7 +3905,7 @@ class Isis(Entity):
                                 Redistribution of other protocols into
                                 this IS\-IS instance
                                 
-                                .. attribute:: protocol_name  <key>
+                                .. attribute:: protocol_name  (key)
                                 
                                 	The protocol to be redistributed.  OSPFv3 may not be specified for an IPv4 topology and OSPF may not be specified for an IPv6 topology
                                 	**type**\:  :py:class:`IsisRedistProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProto>`
@@ -3794,7 +3937,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution, self).__init__()
@@ -3803,10 +3946,13 @@ class Isis(Entity):
                                     self.yang_parent_name = "redistributions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"connected-or-static-or-rip-or-subscriber-or-mobile" : ("connected_or_static_or_rip_or_subscriber_or_mobile", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile)}
-                                    self._child_list_classes = {"ospf-or-ospfv3-or-isis-or-application" : ("ospf_or_ospfv3_or_isis_or_application", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication), "bgp" : ("bgp", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp), "eigrp" : ("eigrp", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp)}
-
-                                    self.protocol_name = YLeaf(YType.enumeration, "protocol-name")
+                                    self.ylist_key_names = ['protocol_name']
+                                    self._child_container_classes = OrderedDict([("connected-or-static-or-rip-or-subscriber-or-mobile", ("connected_or_static_or_rip_or_subscriber_or_mobile", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile))])
+                                    self._child_list_classes = OrderedDict([("ospf-or-ospfv3-or-isis-or-application", ("ospf_or_ospfv3_or_isis_or_application", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication)), ("bgp", ("bgp", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp)), ("eigrp", ("eigrp", Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp))])
+                                    self._leafs = OrderedDict([
+                                        ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
+                                    ])
+                                    self.protocol_name = None
 
                                     self.connected_or_static_or_rip_or_subscriber_or_mobile = None
                                     self._children_name_map["connected_or_static_or_rip_or_subscriber_or_mobile"] = "connected-or-static-or-rip-or-subscriber-or-mobile"
@@ -3815,7 +3961,7 @@ class Isis(Entity):
                                     self.ospf_or_ospfv3_or_isis_or_application = YList(self)
                                     self.bgp = YList(self)
                                     self.eigrp = YList(self)
-                                    self._segment_path = lambda: "redistribution" + "[protocol-name='" + self.protocol_name.get() + "']"
+                                    self._segment_path = lambda: "redistribution" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution, ['protocol_name'], name, value)
@@ -3864,7 +4010,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, self).__init__()
@@ -3873,19 +4019,22 @@ class Isis(Entity):
                                         self.yang_parent_name = "redistribution"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
                                         self.is_presence_container = True
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.levels = YLeaf(YType.enumeration, "levels")
-
-                                        self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                        self.ospf_route_type = YLeaf(YType.int32, "ospf-route-type")
+                                        self._leafs = OrderedDict([
+                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                            ('levels', YLeaf(YType.enumeration, 'levels')),
+                                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                            ('ospf_route_type', YLeaf(YType.int32, 'ospf-route-type')),
+                                        ])
+                                        self.metric = None
+                                        self.levels = None
+                                        self.route_policy_name = None
+                                        self.metric_type = None
+                                        self.ospf_route_type = None
                                         self._segment_path = lambda: "connected-or-static-or-rip-or-subscriber-or-mobile"
 
                                     def __setattr__(self, name, value):
@@ -3896,7 +4045,7 @@ class Isis(Entity):
                                     """
                                     ospf or ospfv3 or isis or application
                                     
-                                    .. attribute:: instance_name  <key>
+                                    .. attribute:: instance_name  (key)
                                     
                                     	Protocol Instance Identifier.  Mandatory for ISIS, OSPF and application, must not be specified otherwise
                                     	**type**\: str
@@ -3939,7 +4088,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, self).__init__()
@@ -3948,21 +4097,24 @@ class Isis(Entity):
                                         self.yang_parent_name = "redistribution"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.instance_name = YLeaf(YType.str, "instance-name")
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.levels = YLeaf(YType.enumeration, "levels")
-
-                                        self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                        self.ospf_route_type = YLeaf(YType.int32, "ospf-route-type")
-                                        self._segment_path = lambda: "ospf-or-ospfv3-or-isis-or-application" + "[instance-name='" + self.instance_name.get() + "']"
+                                        self.ylist_key_names = ['instance_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('instance_name', YLeaf(YType.str, 'instance-name')),
+                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                            ('levels', YLeaf(YType.enumeration, 'levels')),
+                                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                            ('ospf_route_type', YLeaf(YType.int32, 'ospf-route-type')),
+                                        ])
+                                        self.instance_name = None
+                                        self.metric = None
+                                        self.levels = None
+                                        self.route_policy_name = None
+                                        self.metric_type = None
+                                        self.ospf_route_type = None
+                                        self._segment_path = lambda: "ospf-or-ospfv3-or-isis-or-application" + "[instance-name='" + str(self.instance_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, ['instance_name', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
@@ -3972,14 +4124,14 @@ class Isis(Entity):
                                     """
                                     bgp
                                     
-                                    .. attribute:: as_xx  <key>
+                                    .. attribute:: as_xx  (key)
                                     
                                     	First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: as_yy  <key>
+                                    .. attribute:: as_yy  (key)
                                     
                                     	Second half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if first half is zero
                                     	**type**\: int
@@ -4022,7 +4174,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp, self).__init__()
@@ -4031,23 +4183,26 @@ class Isis(Entity):
                                         self.yang_parent_name = "redistribution"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                                        self.as_yy = YLeaf(YType.uint32, "as-yy")
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.levels = YLeaf(YType.enumeration, "levels")
-
-                                        self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                        self.ospf_route_type = YLeaf(YType.int32, "ospf-route-type")
-                                        self._segment_path = lambda: "bgp" + "[as-xx='" + self.as_xx.get() + "']" + "[as-yy='" + self.as_yy.get() + "']"
+                                        self.ylist_key_names = ['as_xx','as_yy']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                            ('as_yy', YLeaf(YType.uint32, 'as-yy')),
+                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                            ('levels', YLeaf(YType.enumeration, 'levels')),
+                                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                            ('ospf_route_type', YLeaf(YType.int32, 'ospf-route-type')),
+                                        ])
+                                        self.as_xx = None
+                                        self.as_yy = None
+                                        self.metric = None
+                                        self.levels = None
+                                        self.route_policy_name = None
+                                        self.metric_type = None
+                                        self.ospf_route_type = None
+                                        self._segment_path = lambda: "bgp" + "[as-xx='" + str(self.as_xx) + "']" + "[as-yy='" + str(self.as_yy) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp, ['as_xx', 'as_yy', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
@@ -4057,7 +4212,7 @@ class Isis(Entity):
                                     """
                                     eigrp
                                     
-                                    .. attribute:: as_zz  <key>
+                                    .. attribute:: as_zz  (key)
                                     
                                     	Eigrp as number
                                     	**type**\: int
@@ -4100,7 +4255,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp, self).__init__()
@@ -4109,21 +4264,24 @@ class Isis(Entity):
                                         self.yang_parent_name = "redistribution"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_zz = YLeaf(YType.uint32, "as-zz")
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.levels = YLeaf(YType.enumeration, "levels")
-
-                                        self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                        self.ospf_route_type = YLeaf(YType.int32, "ospf-route-type")
-                                        self._segment_path = lambda: "eigrp" + "[as-zz='" + self.as_zz.get() + "']"
+                                        self.ylist_key_names = ['as_zz']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_zz', YLeaf(YType.uint32, 'as-zz')),
+                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                            ('levels', YLeaf(YType.enumeration, 'levels')),
+                                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                            ('ospf_route_type', YLeaf(YType.int32, 'ospf-route-type')),
+                                        ])
+                                        self.as_zz = None
+                                        self.metric = None
+                                        self.levels = None
+                                        self.route_policy_name = None
+                                        self.metric_type = None
+                                        self.ospf_route_type = None
+                                        self._segment_path = lambda: "eigrp" + "[as-zz='" + str(self.as_zz) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp, ['as_zz', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
@@ -4143,7 +4301,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals, self).__init__()
@@ -4152,8 +4310,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"spf-periodic-interval" : ("spf_periodic_interval", Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("spf-periodic-interval", ("spf_periodic_interval", Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval))])
+                                self._leafs = OrderedDict()
 
                                 self.spf_periodic_interval = YList(self)
                                 self._segment_path = lambda: "spf-periodic-intervals"
@@ -4166,7 +4326,7 @@ class Isis(Entity):
                                 """
                                 Maximum interval between spf runs
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -4187,7 +4347,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval, self).__init__()
@@ -4196,13 +4356,16 @@ class Isis(Entity):
                                     self.yang_parent_name = "spf-periodic-intervals"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.periodic_interval = YLeaf(YType.uint32, "periodic-interval")
-                                    self._segment_path = lambda: "spf-periodic-interval" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('periodic_interval', YLeaf(YType.uint32, 'periodic-interval')),
+                                    ])
+                                    self.level = None
+                                    self.periodic_interval = None
+                                    self._segment_path = lambda: "spf-periodic-interval" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval, ['level', 'periodic_interval'], name, value)
@@ -4222,7 +4385,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals, self).__init__()
@@ -4231,8 +4394,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"spf-interval" : ("spf_interval", Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("spf-interval", ("spf_interval", Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval))])
+                                self._leafs = OrderedDict()
 
                                 self.spf_interval = YList(self)
                                 self._segment_path = lambda: "spf-intervals"
@@ -4245,7 +4410,7 @@ class Isis(Entity):
                                 """
                                 Route calculation scheduling parameters
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -4282,7 +4447,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval, self).__init__()
@@ -4291,17 +4456,20 @@ class Isis(Entity):
                                     self.yang_parent_name = "spf-intervals"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.maximum_wait = YLeaf(YType.uint32, "maximum-wait")
-
-                                    self.initial_wait = YLeaf(YType.uint32, "initial-wait")
-
-                                    self.secondary_wait = YLeaf(YType.uint32, "secondary-wait")
-                                    self._segment_path = lambda: "spf-interval" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('maximum_wait', YLeaf(YType.uint32, 'maximum-wait')),
+                                        ('initial_wait', YLeaf(YType.uint32, 'initial-wait')),
+                                        ('secondary_wait', YLeaf(YType.uint32, 'secondary-wait')),
+                                    ])
+                                    self.level = None
+                                    self.maximum_wait = None
+                                    self.initial_wait = None
+                                    self.secondary_wait = None
+                                    self._segment_path = lambda: "spf-interval" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
@@ -4333,7 +4501,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence, self).__init__()
@@ -4342,14 +4510,17 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.track_ip_frr = YLeaf(YType.empty, "track-ip-frr")
-
-                                self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('track_ip_frr', YLeaf(YType.empty, 'track-ip-frr')),
+                                    ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                ])
+                                self.enable = None
+                                self.track_ip_frr = None
+                                self.prefix_list = None
                                 self._segment_path = lambda: "monitor-convergence"
 
                             def __setattr__(self, name, value):
@@ -4385,7 +4556,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation, self).__init__()
@@ -4394,14 +4565,17 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.use_policy = YLeaf(YType.boolean, "use-policy")
-
-                                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                self.external = YLeaf(YType.empty, "external")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('use_policy', YLeaf(YType.boolean, 'use-policy')),
+                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                    ('external', YLeaf(YType.empty, 'external')),
+                                ])
+                                self.use_policy = None
+                                self.policy_name = None
+                                self.external = None
                                 self._segment_path = lambda: "default-information"
 
                             def __setattr__(self, name, value):
@@ -4423,7 +4597,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances, self).__init__()
@@ -4432,8 +4606,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"admin-distance" : ("admin_distance", Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("admin-distance", ("admin_distance", Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance))])
+                                self._leafs = OrderedDict()
 
                                 self.admin_distance = YList(self)
                                 self._segment_path = lambda: "admin-distances"
@@ -4450,7 +4626,7 @@ class Isis(Entity):
                                 only those that match the supplied prefix
                                 list if this is specified
                                 
-                                .. attribute:: address_prefix  <key>
+                                .. attribute:: address_prefix  (key)
                                 
                                 	IP route source prefix
                                 	**type**\: union of the below types:
@@ -4484,7 +4660,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance, self).__init__()
@@ -4493,15 +4669,18 @@ class Isis(Entity):
                                     self.yang_parent_name = "admin-distances"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address_prefix = YLeaf(YType.str, "address-prefix")
-
-                                    self.distance = YLeaf(YType.uint32, "distance")
-
-                                    self.prefix_list = YLeaf(YType.str, "prefix-list")
-                                    self._segment_path = lambda: "admin-distance" + "[address-prefix='" + self.address_prefix.get() + "']"
+                                    self.ylist_key_names = ['address_prefix']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                        ('distance', YLeaf(YType.uint32, 'distance')),
+                                        ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                    ])
+                                    self.address_prefix = None
+                                    self.distance = None
+                                    self.prefix_list = None
+                                    self._segment_path = lambda: "admin-distance" + "[address-prefix='" + str(self.address_prefix) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance, ['address_prefix', 'distance', 'prefix_list'], name, value)
@@ -4521,7 +4700,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Ispf, self).__init__()
@@ -4530,8 +4709,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"states" : ("states", Isis.Instances.Instance.Afs.Af.AfData.Ispf.States)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("states", ("states", Isis.Instances.Instance.Afs.Af.AfData.Ispf.States))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.states = Isis.Instances.Instance.Afs.Af.AfData.Ispf.States()
                                 self.states.parent = self
@@ -4554,7 +4735,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States, self).__init__()
@@ -4563,8 +4744,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "ispf"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"state" : ("state", Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("state", ("state", Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State))])
+                                    self._leafs = OrderedDict()
 
                                     self.state = YList(self)
                                     self._segment_path = lambda: "states"
@@ -4577,7 +4760,7 @@ class Isis(Entity):
                                     """
                                     Enable/disable ISPF
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -4594,7 +4777,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State, self).__init__()
@@ -4603,13 +4786,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "states"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.state = YLeaf(YType.enumeration, "state")
-                                        self._segment_path = lambda: "state" + "[level='" + self.level.get() + "']"
+                                        self.ylist_key_names = ['level']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                        ])
+                                        self.level = None
+                                        self.state = None
+                                        self._segment_path = lambda: "state" + "[level='" + str(self.level) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State, ['level', 'state'], name, value)
@@ -4631,7 +4817,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal, self).__init__()
@@ -4640,10 +4826,13 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.auto_config = YLeaf(YType.boolean, "auto-config")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('auto_config', YLeaf(YType.boolean, 'auto-config')),
+                                ])
+                                self.auto_config = None
                                 self._segment_path = lambda: "mpls-ldp-global"
 
                             def __setattr__(self, name, value):
@@ -4681,7 +4870,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Mpls, self).__init__()
@@ -4690,12 +4879,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"router-id" : ("router_id", Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId), "level" : ("level", Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level)}
-                                self._child_list_classes = {}
-
-                                self.igp_intact = YLeaf(YType.empty, "igp-intact")
-
-                                self.multicast_intact = YLeaf(YType.empty, "multicast-intact")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("router-id", ("router_id", Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId)), ("level", ("level", Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_intact', YLeaf(YType.empty, 'igp-intact')),
+                                    ('multicast_intact', YLeaf(YType.empty, 'multicast-intact')),
+                                ])
+                                self.igp_intact = None
+                                self.multicast_intact = None
 
                                 self.router_id = Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId()
                                 self.router_id.parent = self
@@ -4736,7 +4928,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId, self).__init__()
@@ -4745,12 +4937,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "mpls"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address = YLeaf(YType.str, "address")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ])
+                                    self.address = None
+                                    self.interface_name = None
                                     self._segment_path = lambda: "router-id"
 
                                 def __setattr__(self, name, value):
@@ -4777,7 +4972,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level, self).__init__()
@@ -4786,12 +4981,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "mpls"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level1 = YLeaf(YType.boolean, "level1")
-
-                                    self.level2 = YLeaf(YType.boolean, "level2")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level1', YLeaf(YType.boolean, 'level1')),
+                                        ('level2', YLeaf(YType.boolean, 'level2')),
+                                    ])
+                                    self.level1 = None
+                                    self.level2 = None
                                     self._segment_path = lambda: "level"
 
                                 def __setattr__(self, name, value):
@@ -4812,7 +5010,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids, self).__init__()
@@ -4821,8 +5019,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"manual-adj-sid" : ("manual_adj_sid", Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("manual-adj-sid", ("manual_adj_sid", Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid))])
+                                self._leafs = OrderedDict()
 
                                 self.manual_adj_sid = YList(self)
                                 self._segment_path = lambda: "manual-adj-sids"
@@ -4835,17 +5035,17 @@ class Isis(Entity):
                                 """
                                 Assign adjancency SID to an interface
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
-                                .. attribute:: sid_type  <key>
+                                .. attribute:: sid_type  (key)
                                 
                                 	Sid type aboslute or index
                                 	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                 
-                                .. attribute:: sid  <key>
+                                .. attribute:: sid  (key)
                                 
                                 	Sid value
                                 	**type**\: int
@@ -4864,7 +5064,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid, self).__init__()
@@ -4873,17 +5073,20 @@ class Isis(Entity):
                                     self.yang_parent_name = "manual-adj-sids"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                                    self.sid = YLeaf(YType.uint32, "sid")
-
-                                    self.protected = YLeaf(YType.enumeration, "protected")
-                                    self._segment_path = lambda: "manual-adj-sid" + "[level='" + self.level.get() + "']" + "[sid-type='" + self.sid_type.get() + "']" + "[sid='" + self.sid.get() + "']"
+                                    self.ylist_key_names = ['level','sid_type','sid']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                        ('sid', YLeaf(YType.uint32, 'sid')),
+                                        ('protected', YLeaf(YType.enumeration, 'protected')),
+                                    ])
+                                    self.level = None
+                                    self.sid_type = None
+                                    self.sid = None
+                                    self.protected = None
+                                    self._segment_path = lambda: "manual-adj-sid" + "[level='" + str(self.level) + "']" + "[sid-type='" + str(self.sid_type) + "']" + "[sid='" + str(self.sid) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
@@ -4903,7 +5106,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Metrics, self).__init__()
@@ -4912,8 +5115,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"metric" : ("metric", Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("metric", ("metric", Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric))])
+                                self._leafs = OrderedDict()
 
                                 self.metric = YList(self)
                                 self._segment_path = lambda: "metrics"
@@ -4933,7 +5138,7 @@ class Isis(Entity):
                                 value.  All routers exclude links with the
                                 maximum wide metric (16777215) from their SPF
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -4943,7 +5148,7 @@ class Isis(Entity):
                                 	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
                                 	**type**\: union of the below types:
                                 
-                                		**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
+                                		**type**\:  :py:class:`Metric_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_>`
                                 
                                 		**type**\: int
                                 
@@ -4956,7 +5161,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric, self).__init__()
@@ -4965,20 +5170,23 @@ class Isis(Entity):
                                     self.yang_parent_name = "metrics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.metric = YLeaf(YType.str, "metric")
-                                    self._segment_path = lambda: "metric" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('metric', YLeaf(YType.str, 'metric')),
+                                    ])
+                                    self.level = None
+                                    self.metric = None
+                                    self._segment_path = lambda: "metric" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric, ['level', 'metric'], name, value)
 
-                                class Metric(Enum):
+                                class Metric_(Enum):
                                     """
-                                    Metric
+                                    Metric\_ (Enum Class)
 
                                     Allowed metric\: <1\-63> for narrow,
 
@@ -5010,7 +5218,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.AfData.Weights, self).__init__()
@@ -5019,8 +5227,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "af-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"weight" : ("weight", Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("weight", ("weight", Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight))])
+                                self._leafs = OrderedDict()
 
                                 self.weight = YList(self)
                                 self._segment_path = lambda: "weights"
@@ -5034,7 +5244,7 @@ class Isis(Entity):
                                 Weight configuration under interface for load
                                 balancing
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -5053,7 +5263,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight, self).__init__()
@@ -5062,13 +5272,16 @@ class Isis(Entity):
                                     self.yang_parent_name = "weights"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.weight = YLeaf(YType.uint32, "weight")
-                                    self._segment_path = lambda: "weight" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('weight', YLeaf(YType.uint32, 'weight')),
+                                    ])
+                                    self.level = None
+                                    self.weight = None
+                                    self._segment_path = lambda: "weight" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight, ['level', 'weight'], name, value)
@@ -5078,7 +5291,7 @@ class Isis(Entity):
                         """
                         keys\: topology\-name
                         
-                        .. attribute:: topology_name  <key>
+                        .. attribute:: topology_name  (key)
                         
                         	Topology Name
                         	**type**\: str
@@ -5265,7 +5478,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Afs.Af.TopologyName, self).__init__()
@@ -5274,32 +5487,35 @@ class Isis(Entity):
                             self.yang_parent_name = "af"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"segment-routing" : ("segment_routing", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting), "metric-styles" : ("metric_styles", Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles), "frr-table" : ("frr_table", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable), "router-id" : ("router_id", Isis.Instances.Instance.Afs.Af.TopologyName.RouterId), "spf-prefix-priorities" : ("spf_prefix_priorities", Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities), "summary-prefixes" : ("summary_prefixes", Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes), "micro-loop-avoidance" : ("micro_loop_avoidance", Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance), "ucmp" : ("ucmp", Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp), "max-redist-prefixes" : ("max_redist_prefixes", Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes), "propagations" : ("propagations", Isis.Instances.Instance.Afs.Af.TopologyName.Propagations), "redistributions" : ("redistributions", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions), "spf-periodic-intervals" : ("spf_periodic_intervals", Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals), "spf-intervals" : ("spf_intervals", Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals), "monitor-convergence" : ("monitor_convergence", Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence), "default-information" : ("default_information", Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation), "admin-distances" : ("admin_distances", Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances), "ispf" : ("ispf", Isis.Instances.Instance.Afs.Af.TopologyName.Ispf), "mpls-ldp-global" : ("mpls_ldp_global", Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal), "mpls" : ("mpls", Isis.Instances.Instance.Afs.Af.TopologyName.Mpls), "manual-adj-sids" : ("manual_adj_sids", Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids), "metrics" : ("metrics", Isis.Instances.Instance.Afs.Af.TopologyName.Metrics), "weights" : ("weights", Isis.Instances.Instance.Afs.Af.TopologyName.Weights)}
-                            self._child_list_classes = {}
-
-                            self.topology_name = YLeaf(YType.str, "topology-name")
-
-                            self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
-
-                            self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                            self.single_topology = YLeaf(YType.empty, "single-topology")
-
-                            self.adjacency_check = YLeaf(YType.enumeration, "adjacency-check")
-
-                            self.advertise_link_attributes = YLeaf(YType.boolean, "advertise-link-attributes")
-
-                            self.apply_weight = YLeaf(YType.enumeration, "apply-weight")
-
-                            self.default_admin_distance = YLeaf(YType.uint32, "default-admin-distance")
-
-                            self.advertise_passive_only = YLeaf(YType.empty, "advertise-passive-only")
-
-                            self.ignore_attached_bit = YLeaf(YType.boolean, "ignore-attached-bit")
-
-                            self.attached_bit = YLeaf(YType.enumeration, "attached-bit")
-
-                            self.route_source_first_hop = YLeaf(YType.boolean, "route-source-first-hop")
+                            self.ylist_key_names = ['topology_name']
+                            self._child_container_classes = OrderedDict([("segment-routing", ("segment_routing", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting)), ("metric-styles", ("metric_styles", Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles)), ("frr-table", ("frr_table", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable)), ("router-id", ("router_id", Isis.Instances.Instance.Afs.Af.TopologyName.RouterId)), ("spf-prefix-priorities", ("spf_prefix_priorities", Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities)), ("summary-prefixes", ("summary_prefixes", Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes)), ("micro-loop-avoidance", ("micro_loop_avoidance", Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance)), ("ucmp", ("ucmp", Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp)), ("max-redist-prefixes", ("max_redist_prefixes", Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes)), ("propagations", ("propagations", Isis.Instances.Instance.Afs.Af.TopologyName.Propagations)), ("redistributions", ("redistributions", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions)), ("spf-periodic-intervals", ("spf_periodic_intervals", Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals)), ("spf-intervals", ("spf_intervals", Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals)), ("monitor-convergence", ("monitor_convergence", Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence)), ("default-information", ("default_information", Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation)), ("admin-distances", ("admin_distances", Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances)), ("ispf", ("ispf", Isis.Instances.Instance.Afs.Af.TopologyName.Ispf)), ("mpls-ldp-global", ("mpls_ldp_global", Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal)), ("mpls", ("mpls", Isis.Instances.Instance.Afs.Af.TopologyName.Mpls)), ("manual-adj-sids", ("manual_adj_sids", Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids)), ("metrics", ("metrics", Isis.Instances.Instance.Afs.Af.TopologyName.Metrics)), ("weights", ("weights", Isis.Instances.Instance.Afs.Af.TopologyName.Weights))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('topology_name', YLeaf(YType.str, 'topology-name')),
+                                ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                ('single_topology', YLeaf(YType.empty, 'single-topology')),
+                                ('adjacency_check', YLeaf(YType.enumeration, 'adjacency-check')),
+                                ('advertise_link_attributes', YLeaf(YType.boolean, 'advertise-link-attributes')),
+                                ('apply_weight', YLeaf(YType.enumeration, 'apply-weight')),
+                                ('default_admin_distance', YLeaf(YType.uint32, 'default-admin-distance')),
+                                ('advertise_passive_only', YLeaf(YType.empty, 'advertise-passive-only')),
+                                ('ignore_attached_bit', YLeaf(YType.boolean, 'ignore-attached-bit')),
+                                ('attached_bit', YLeaf(YType.enumeration, 'attached-bit')),
+                                ('route_source_first_hop', YLeaf(YType.boolean, 'route-source-first-hop')),
+                            ])
+                            self.topology_name = None
+                            self.maximum_paths = None
+                            self.topology_id = None
+                            self.single_topology = None
+                            self.adjacency_check = None
+                            self.advertise_link_attributes = None
+                            self.apply_weight = None
+                            self.default_admin_distance = None
+                            self.advertise_passive_only = None
+                            self.ignore_attached_bit = None
+                            self.attached_bit = None
+                            self.route_source_first_hop = None
 
                             self.segment_routing = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting()
                             self.segment_routing.parent = self
@@ -5410,7 +5626,7 @@ class Isis(Entity):
                             self.weights.parent = self
                             self._children_name_map["weights"] = "weights"
                             self._children_yang_names.add("weights")
-                            self._segment_path = lambda: "topology-name" + "[topology-name='" + self.topology_name.get() + "']"
+                            self._segment_path = lambda: "topology-name" + "[topology-name='" + str(self.topology_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName, ['topology_name', 'maximum_paths', 'topology_id', 'single_topology', 'adjacency_check', 'advertise_link_attributes', 'apply_weight', 'default_admin_distance', 'advertise_passive_only', 'ignore_attached_bit', 'attached_bit', 'route_source_first_hop'], name, value)
@@ -5440,7 +5656,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting, self).__init__()
@@ -5449,12 +5665,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"prefix-sid-map" : ("prefix_sid_map", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap)}
-                                self._child_list_classes = {}
-
-                                self.bundle_member_adj_sid = YLeaf(YType.empty, "bundle-member-adj-sid")
-
-                                self.mpls = YLeaf(YType.enumeration, "mpls")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("prefix-sid-map", ("prefix_sid_map", Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('bundle_member_adj_sid', YLeaf(YType.empty, 'bundle-member-adj-sid')),
+                                    ('mpls', YLeaf(YType.enumeration, 'mpls')),
+                                ])
+                                self.bundle_member_adj_sid = None
+                                self.mpls = None
 
                                 self.prefix_sid_map = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap()
                                 self.prefix_sid_map.parent = self
@@ -5486,7 +5705,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap, self).__init__()
@@ -5495,12 +5714,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "segment-routing"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.advertise_local = YLeaf(YType.empty, "advertise-local")
-
-                                    self.receive = YLeaf(YType.boolean, "receive")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('advertise_local', YLeaf(YType.empty, 'advertise-local')),
+                                        ('receive', YLeaf(YType.boolean, 'receive')),
+                                    ])
+                                    self.advertise_local = None
+                                    self.receive = None
                                     self._segment_path = lambda: "prefix-sid-map"
 
                                 def __setattr__(self, name, value):
@@ -5521,7 +5743,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles, self).__init__()
@@ -5530,8 +5752,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"metric-style" : ("metric_style", Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("metric-style", ("metric_style", Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle))])
+                                self._leafs = OrderedDict()
 
                                 self.metric_style = YList(self)
                                 self._segment_path = lambda: "metric-styles"
@@ -5544,7 +5768,7 @@ class Isis(Entity):
                                 """
                                 Configuration of metric style in LSPs
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -5568,7 +5792,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle, self).__init__()
@@ -5577,15 +5801,18 @@ class Isis(Entity):
                                     self.yang_parent_name = "metric-styles"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.style = YLeaf(YType.enumeration, "style")
-
-                                    self.transition_state = YLeaf(YType.enumeration, "transition-state")
-                                    self._segment_path = lambda: "metric-style" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('style', YLeaf(YType.enumeration, 'style')),
+                                        ('transition_state', YLeaf(YType.enumeration, 'transition-state')),
+                                    ])
+                                    self.level = None
+                                    self.style = None
+                                    self.transition_state = None
+                                    self._segment_path = lambda: "metric-style" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle, ['level', 'style', 'transition_state'], name, value)
@@ -5625,7 +5852,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable, self).__init__()
@@ -5634,8 +5861,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"frr-load-sharings" : ("frr_load_sharings", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings), "priority-limits" : ("priority_limits", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits), "frr-remote-lfa-prefixes" : ("frr_remote_lfa_prefixes", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes), "frr-tiebreakers" : ("frr_tiebreakers", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers), "frr-use-cand-onlies" : ("frr_use_cand_onlies", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("frr-load-sharings", ("frr_load_sharings", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings)), ("priority-limits", ("priority_limits", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits)), ("frr-remote-lfa-prefixes", ("frr_remote_lfa_prefixes", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes)), ("frr-tiebreakers", ("frr_tiebreakers", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers)), ("frr-use-cand-onlies", ("frr_use_cand_onlies", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.frr_load_sharings = Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings()
                                 self.frr_load_sharings.parent = self
@@ -5679,7 +5908,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings, self).__init__()
@@ -5688,8 +5917,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"frr-load-sharing" : ("frr_load_sharing", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("frr-load-sharing", ("frr_load_sharing", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing))])
+                                    self._leafs = OrderedDict()
 
                                     self.frr_load_sharing = YList(self)
                                     self._segment_path = lambda: "frr-load-sharings"
@@ -5702,7 +5933,7 @@ class Isis(Entity):
                                     """
                                     Disable load sharing
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -5719,7 +5950,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing, self).__init__()
@@ -5728,13 +5959,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "frr-load-sharings"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.load_sharing = YLeaf(YType.enumeration, "load-sharing")
-                                        self._segment_path = lambda: "frr-load-sharing" + "[level='" + self.level.get() + "']"
+                                        self.ylist_key_names = ['level']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('load_sharing', YLeaf(YType.enumeration, 'load-sharing')),
+                                        ])
+                                        self.level = None
+                                        self.load_sharing = None
+                                        self._segment_path = lambda: "frr-load-sharing" + "[level='" + str(self.level) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing, ['level', 'load_sharing'], name, value)
@@ -5754,7 +5988,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits, self).__init__()
@@ -5763,8 +5997,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"priority-limit" : ("priority_limit", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("priority-limit", ("priority_limit", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit))])
+                                    self._leafs = OrderedDict()
 
                                     self.priority_limit = YList(self)
                                     self._segment_path = lambda: "priority-limits"
@@ -5778,12 +6014,12 @@ class Isis(Entity):
                                     Limit backup computation upto the prefix
                                     priority
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
-                                    .. attribute:: frr_type  <key>
+                                    .. attribute:: frr_type  (key)
                                     
                                     	Computation Type
                                     	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
@@ -5800,7 +6036,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit, self).__init__()
@@ -5809,15 +6045,18 @@ class Isis(Entity):
                                         self.yang_parent_name = "priority-limits"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.frr_type = YLeaf(YType.enumeration, "frr-type")
-
-                                        self.priority = YLeaf(YType.enumeration, "priority")
-                                        self._segment_path = lambda: "priority-limit" + "[level='" + self.level.get() + "']" + "[frr-type='" + self.frr_type.get() + "']"
+                                        self.ylist_key_names = ['level','frr_type']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('frr_type', YLeaf(YType.enumeration, 'frr-type')),
+                                            ('priority', YLeaf(YType.enumeration, 'priority')),
+                                        ])
+                                        self.level = None
+                                        self.frr_type = None
+                                        self.priority = None
+                                        self._segment_path = lambda: "priority-limit" + "[level='" + str(self.level) + "']" + "[frr-type='" + str(self.frr_type) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit, ['level', 'frr_type', 'priority'], name, value)
@@ -5838,7 +6077,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes, self).__init__()
@@ -5847,8 +6086,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"frr-remote-lfa-prefix" : ("frr_remote_lfa_prefix", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("frr-remote-lfa-prefix", ("frr_remote_lfa_prefix", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix))])
+                                    self._leafs = OrderedDict()
 
                                     self.frr_remote_lfa_prefix = YList(self)
                                     self._segment_path = lambda: "frr-remote-lfa-prefixes"
@@ -5862,7 +6103,7 @@ class Isis(Entity):
                                     Filter remote LFA router IDs using
                                     prefix\-list
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -5881,7 +6122,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, self).__init__()
@@ -5890,13 +6131,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "frr-remote-lfa-prefixes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.prefix_list_name = YLeaf(YType.str, "prefix-list-name")
-                                        self._segment_path = lambda: "frr-remote-lfa-prefix" + "[level='" + self.level.get() + "']"
+                                        self.ylist_key_names = ['level']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
+                                        ])
+                                        self.level = None
+                                        self.prefix_list_name = None
+                                        self._segment_path = lambda: "frr-remote-lfa-prefix" + "[level='" + str(self.level) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, ['level', 'prefix_list_name'], name, value)
@@ -5916,7 +6160,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers, self).__init__()
@@ -5925,8 +6169,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"frr-tiebreaker" : ("frr_tiebreaker", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("frr-tiebreaker", ("frr_tiebreaker", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker))])
+                                    self._leafs = OrderedDict()
 
                                     self.frr_tiebreaker = YList(self)
                                     self._segment_path = lambda: "frr-tiebreakers"
@@ -5939,12 +6185,12 @@ class Isis(Entity):
                                     """
                                     Configure tiebreaker for multiple backups
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
-                                    .. attribute:: tiebreaker  <key>
+                                    .. attribute:: tiebreaker  (key)
                                     
                                     	Tiebreaker for which configuration applies
                                     	**type**\:  :py:class:`IsisfrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreaker>`
@@ -5963,7 +6209,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker, self).__init__()
@@ -5972,15 +6218,18 @@ class Isis(Entity):
                                         self.yang_parent_name = "frr-tiebreakers"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.tiebreaker = YLeaf(YType.enumeration, "tiebreaker")
-
-                                        self.index = YLeaf(YType.uint32, "index")
-                                        self._segment_path = lambda: "frr-tiebreaker" + "[level='" + self.level.get() + "']" + "[tiebreaker='" + self.tiebreaker.get() + "']"
+                                        self.ylist_key_names = ['level','tiebreaker']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
+                                            ('index', YLeaf(YType.uint32, 'index')),
+                                        ])
+                                        self.level = None
+                                        self.tiebreaker = None
+                                        self.index = None
+                                        self._segment_path = lambda: "frr-tiebreaker" + "[level='" + str(self.level) + "']" + "[tiebreaker='" + str(self.tiebreaker) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
@@ -6000,7 +6249,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies, self).__init__()
@@ -6009,8 +6258,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "frr-table"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"frr-use-cand-only" : ("frr_use_cand_only", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("frr-use-cand-only", ("frr_use_cand_only", Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly))])
+                                    self._leafs = OrderedDict()
 
                                     self.frr_use_cand_only = YList(self)
                                     self._segment_path = lambda: "frr-use-cand-onlies"
@@ -6024,12 +6275,12 @@ class Isis(Entity):
                                     Configure use candidate only to exclude
                                     interfaces as backup
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                     
-                                    .. attribute:: frr_type  <key>
+                                    .. attribute:: frr_type  (key)
                                     
                                     	Computation Type
                                     	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
@@ -6039,7 +6290,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, self).__init__()
@@ -6048,13 +6299,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "frr-use-cand-onlies"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.frr_type = YLeaf(YType.enumeration, "frr-type")
-                                        self._segment_path = lambda: "frr-use-cand-only" + "[level='" + self.level.get() + "']" + "[frr-type='" + self.frr_type.get() + "']"
+                                        self.ylist_key_names = ['level','frr_type']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('frr_type', YLeaf(YType.enumeration, 'frr-type')),
+                                        ])
+                                        self.level = None
+                                        self.frr_type = None
+                                        self._segment_path = lambda: "frr-use-cand-only" + "[level='" + str(self.level) + "']" + "[frr-type='" + str(self.frr_type) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, ['level', 'frr_type'], name, value)
@@ -6090,7 +6344,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.RouterId, self).__init__()
@@ -6099,12 +6353,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ])
+                                self.address = None
+                                self.interface_name = None
                                 self._segment_path = lambda: "router-id"
 
                             def __setattr__(self, name, value):
@@ -6125,7 +6382,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities, self).__init__()
@@ -6134,8 +6391,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"spf-prefix-priority" : ("spf_prefix_priority", Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("spf-prefix-priority", ("spf_prefix_priority", Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority))])
+                                self._leafs = OrderedDict()
 
                                 self.spf_prefix_priority = YList(self)
                                 self._segment_path = lambda: "spf-prefix-priorities"
@@ -6148,12 +6407,12 @@ class Isis(Entity):
                                 """
                                 Determine SPF priority for prefixes
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	SPF Level for prefix prioritization
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
-                                .. attribute:: prefix_priority_type  <key>
+                                .. attribute:: prefix_priority_type  (key)
                                 
                                 	SPF Priority to assign matching prefixes
                                 	**type**\:  :py:class:`IsisPrefixPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority>`
@@ -6177,7 +6436,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority, self).__init__()
@@ -6186,17 +6445,20 @@ class Isis(Entity):
                                     self.yang_parent_name = "spf-prefix-priorities"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.prefix_priority_type = YLeaf(YType.enumeration, "prefix-priority-type")
-
-                                    self.admin_tag = YLeaf(YType.uint32, "admin-tag")
-
-                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-                                    self._segment_path = lambda: "spf-prefix-priority" + "[level='" + self.level.get() + "']" + "[prefix-priority-type='" + self.prefix_priority_type.get() + "']"
+                                    self.ylist_key_names = ['level','prefix_priority_type']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('prefix_priority_type', YLeaf(YType.enumeration, 'prefix-priority-type')),
+                                        ('admin_tag', YLeaf(YType.uint32, 'admin-tag')),
+                                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                    ])
+                                    self.level = None
+                                    self.prefix_priority_type = None
+                                    self.admin_tag = None
+                                    self.access_list_name = None
+                                    self._segment_path = lambda: "spf-prefix-priority" + "[level='" + str(self.level) + "']" + "[prefix-priority-type='" + str(self.prefix_priority_type) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority, ['level', 'prefix_priority_type', 'admin_tag', 'access_list_name'], name, value)
@@ -6216,7 +6478,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes, self).__init__()
@@ -6225,8 +6487,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"summary-prefix" : ("summary_prefix", Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("summary-prefix", ("summary_prefix", Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix))])
+                                self._leafs = OrderedDict()
 
                                 self.summary_prefix = YList(self)
                                 self._segment_path = lambda: "summary-prefixes"
@@ -6239,7 +6503,7 @@ class Isis(Entity):
                                 """
                                 Configure IP address prefixes to advertise
                                 
-                                .. attribute:: address_prefix  <key>
+                                .. attribute:: address_prefix  (key)
                                 
                                 	IP summary address prefix
                                 	**type**\: union of the below types:
@@ -6271,7 +6535,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix, self).__init__()
@@ -6280,15 +6544,18 @@ class Isis(Entity):
                                     self.yang_parent_name = "summary-prefixes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address_prefix = YLeaf(YType.str, "address-prefix")
-
-                                    self.tag = YLeaf(YType.uint32, "tag")
-
-                                    self.level = YLeaf(YType.uint32, "level")
-                                    self._segment_path = lambda: "summary-prefix" + "[address-prefix='" + self.address_prefix.get() + "']"
+                                    self.ylist_key_names = ['address_prefix']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                        ('tag', YLeaf(YType.uint32, 'tag')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.address_prefix = None
+                                    self.tag = None
+                                    self.level = None
+                                    self._segment_path = lambda: "summary-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix, ['address_prefix', 'tag', 'level'], name, value)
@@ -6302,8 +6569,6 @@ class Isis(Entity):
                             
                             	MicroLoop avoidance enable configuration
                             	**type**\:  :py:class:`IsisMicroLoopAvoidance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidance>`
-                            
-                            	**default value**\: micro-loop-avoidance-all
                             
                             .. attribute:: rib_update_delay
                             
@@ -6321,7 +6586,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance, self).__init__()
@@ -6330,12 +6595,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.enumeration, "enable")
-
-                                self.rib_update_delay = YLeaf(YType.uint32, "rib-update-delay")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.enumeration, 'enable')),
+                                    ('rib_update_delay', YLeaf(YType.uint32, 'rib-update-delay')),
+                                ])
+                                self.enable = None
+                                self.rib_update_delay = None
                                 self._segment_path = lambda: "micro-loop-avoidance"
 
                             def __setattr__(self, name, value):
@@ -6372,7 +6640,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp, self).__init__()
@@ -6381,10 +6649,13 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"enable" : ("enable", Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable), "exclude-interfaces" : ("exclude_interfaces", Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces)}
-                                self._child_list_classes = {}
-
-                                self.delay_interval = YLeaf(YType.uint32, "delay-interval")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("enable", ("enable", Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable)), ("exclude-interfaces", ("exclude_interfaces", Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('delay_interval', YLeaf(YType.uint32, 'delay-interval')),
+                                ])
+                                self.delay_interval = None
 
                                 self.enable = Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable()
                                 self.enable.parent = self
@@ -6426,7 +6697,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable, self).__init__()
@@ -6435,12 +6706,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "ucmp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.variance = YLeaf(YType.uint32, "variance")
-
-                                    self.prefix_list_name = YLeaf(YType.str, "prefix-list-name")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('variance', YLeaf(YType.uint32, 'variance')),
+                                        ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
+                                    ])
+                                    self.variance = None
+                                    self.prefix_list_name = None
                                     self._segment_path = lambda: "enable"
 
                                 def __setattr__(self, name, value):
@@ -6462,7 +6736,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces, self).__init__()
@@ -6471,8 +6745,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "ucmp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"exclude-interface" : ("exclude_interface", Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("exclude-interface", ("exclude_interface", Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface))])
+                                    self._leafs = OrderedDict()
 
                                     self.exclude_interface = YList(self)
                                     self._segment_path = lambda: "exclude-interfaces"
@@ -6486,7 +6762,7 @@ class Isis(Entity):
                                     Exclude this interface from UCMP path
                                     computation
                                     
-                                    .. attribute:: interface_name  <key>
+                                    .. attribute:: interface_name  (key)
                                     
                                     	Name of the interface to be excluded
                                     	**type**\: str
@@ -6498,7 +6774,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface, self).__init__()
@@ -6507,11 +6783,14 @@ class Isis(Entity):
                                         self.yang_parent_name = "exclude-interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                        self.ylist_key_names = ['interface_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ])
+                                        self.interface_name = None
+                                        self._segment_path = lambda: "exclude-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
@@ -6532,7 +6811,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes, self).__init__()
@@ -6541,8 +6820,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"max-redist-prefix" : ("max_redist_prefix", Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("max-redist-prefix", ("max_redist_prefix", Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix))])
+                                self._leafs = OrderedDict()
 
                                 self.max_redist_prefix = YList(self)
                                 self._segment_path = lambda: "max-redist-prefixes"
@@ -6557,7 +6838,7 @@ class Isis(Entity):
                                 redistributed prefixes which may be
                                 included in the local system's LSP
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -6576,7 +6857,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix, self).__init__()
@@ -6585,13 +6866,16 @@ class Isis(Entity):
                                     self.yang_parent_name = "max-redist-prefixes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.prefix_limit = YLeaf(YType.uint32, "prefix-limit")
-                                    self._segment_path = lambda: "max-redist-prefix" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
+                                    ])
+                                    self.level = None
+                                    self.prefix_limit = None
+                                    self._segment_path = lambda: "max-redist-prefix" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix, ['level', 'prefix_limit'], name, value)
@@ -6611,7 +6895,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations, self).__init__()
@@ -6620,8 +6904,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"propagation" : ("propagation", Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("propagation", ("propagation", Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation))])
+                                self._leafs = OrderedDict()
 
                                 self.propagation = YList(self)
                                 self._segment_path = lambda: "propagations"
@@ -6634,12 +6920,12 @@ class Isis(Entity):
                                 """
                                 Propagate routes between IS\-IS levels
                                 
-                                .. attribute:: source_level  <key>
+                                .. attribute:: source_level  (key)
                                 
                                 	Source level for routes
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
-                                .. attribute:: destination_level  <key>
+                                .. attribute:: destination_level  (key)
                                 
                                 	Destination level for routes.  Must differ from SourceLevel
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -6658,7 +6944,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation, self).__init__()
@@ -6667,15 +6953,18 @@ class Isis(Entity):
                                     self.yang_parent_name = "propagations"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.source_level = YLeaf(YType.enumeration, "source-level")
-
-                                    self.destination_level = YLeaf(YType.enumeration, "destination-level")
-
-                                    self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-                                    self._segment_path = lambda: "propagation" + "[source-level='" + self.source_level.get() + "']" + "[destination-level='" + self.destination_level.get() + "']"
+                                    self.ylist_key_names = ['source_level','destination_level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('source_level', YLeaf(YType.enumeration, 'source-level')),
+                                        ('destination_level', YLeaf(YType.enumeration, 'destination-level')),
+                                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                    ])
+                                    self.source_level = None
+                                    self.destination_level = None
+                                    self.route_policy_name = None
+                                    self._segment_path = lambda: "propagation" + "[source-level='" + str(self.source_level) + "']" + "[destination-level='" + str(self.destination_level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation, ['source_level', 'destination_level', 'route_policy_name'], name, value)
@@ -6695,7 +6984,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions, self).__init__()
@@ -6704,8 +6993,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"redistribution" : ("redistribution", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("redistribution", ("redistribution", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution))])
+                                self._leafs = OrderedDict()
 
                                 self.redistribution = YList(self)
                                 self._segment_path = lambda: "redistributions"
@@ -6719,7 +7010,7 @@ class Isis(Entity):
                                 Redistribution of other protocols into
                                 this IS\-IS instance
                                 
-                                .. attribute:: protocol_name  <key>
+                                .. attribute:: protocol_name  (key)
                                 
                                 	The protocol to be redistributed.  OSPFv3 may not be specified for an IPv4 topology and OSPF may not be specified for an IPv6 topology
                                 	**type**\:  :py:class:`IsisRedistProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProto>`
@@ -6751,7 +7042,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution, self).__init__()
@@ -6760,10 +7051,13 @@ class Isis(Entity):
                                     self.yang_parent_name = "redistributions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"connected-or-static-or-rip-or-subscriber-or-mobile" : ("connected_or_static_or_rip_or_subscriber_or_mobile", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile)}
-                                    self._child_list_classes = {"ospf-or-ospfv3-or-isis-or-application" : ("ospf_or_ospfv3_or_isis_or_application", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication), "bgp" : ("bgp", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp), "eigrp" : ("eigrp", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp)}
-
-                                    self.protocol_name = YLeaf(YType.enumeration, "protocol-name")
+                                    self.ylist_key_names = ['protocol_name']
+                                    self._child_container_classes = OrderedDict([("connected-or-static-or-rip-or-subscriber-or-mobile", ("connected_or_static_or_rip_or_subscriber_or_mobile", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile))])
+                                    self._child_list_classes = OrderedDict([("ospf-or-ospfv3-or-isis-or-application", ("ospf_or_ospfv3_or_isis_or_application", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication)), ("bgp", ("bgp", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp)), ("eigrp", ("eigrp", Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp))])
+                                    self._leafs = OrderedDict([
+                                        ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
+                                    ])
+                                    self.protocol_name = None
 
                                     self.connected_or_static_or_rip_or_subscriber_or_mobile = None
                                     self._children_name_map["connected_or_static_or_rip_or_subscriber_or_mobile"] = "connected-or-static-or-rip-or-subscriber-or-mobile"
@@ -6772,7 +7066,7 @@ class Isis(Entity):
                                     self.ospf_or_ospfv3_or_isis_or_application = YList(self)
                                     self.bgp = YList(self)
                                     self.eigrp = YList(self)
-                                    self._segment_path = lambda: "redistribution" + "[protocol-name='" + self.protocol_name.get() + "']"
+                                    self._segment_path = lambda: "redistribution" + "[protocol-name='" + str(self.protocol_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution, ['protocol_name'], name, value)
@@ -6821,7 +7115,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, self).__init__()
@@ -6830,19 +7124,22 @@ class Isis(Entity):
                                         self.yang_parent_name = "redistribution"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
                                         self.is_presence_container = True
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.levels = YLeaf(YType.enumeration, "levels")
-
-                                        self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                        self.ospf_route_type = YLeaf(YType.int32, "ospf-route-type")
+                                        self._leafs = OrderedDict([
+                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                            ('levels', YLeaf(YType.enumeration, 'levels')),
+                                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                            ('ospf_route_type', YLeaf(YType.int32, 'ospf-route-type')),
+                                        ])
+                                        self.metric = None
+                                        self.levels = None
+                                        self.route_policy_name = None
+                                        self.metric_type = None
+                                        self.ospf_route_type = None
                                         self._segment_path = lambda: "connected-or-static-or-rip-or-subscriber-or-mobile"
 
                                     def __setattr__(self, name, value):
@@ -6853,7 +7150,7 @@ class Isis(Entity):
                                     """
                                     ospf or ospfv3 or isis or application
                                     
-                                    .. attribute:: instance_name  <key>
+                                    .. attribute:: instance_name  (key)
                                     
                                     	Protocol Instance Identifier.  Mandatory for ISIS, OSPF and application, must not be specified otherwise
                                     	**type**\: str
@@ -6896,7 +7193,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, self).__init__()
@@ -6905,21 +7202,24 @@ class Isis(Entity):
                                         self.yang_parent_name = "redistribution"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.instance_name = YLeaf(YType.str, "instance-name")
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.levels = YLeaf(YType.enumeration, "levels")
-
-                                        self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                        self.ospf_route_type = YLeaf(YType.int32, "ospf-route-type")
-                                        self._segment_path = lambda: "ospf-or-ospfv3-or-isis-or-application" + "[instance-name='" + self.instance_name.get() + "']"
+                                        self.ylist_key_names = ['instance_name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('instance_name', YLeaf(YType.str, 'instance-name')),
+                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                            ('levels', YLeaf(YType.enumeration, 'levels')),
+                                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                            ('ospf_route_type', YLeaf(YType.int32, 'ospf-route-type')),
+                                        ])
+                                        self.instance_name = None
+                                        self.metric = None
+                                        self.levels = None
+                                        self.route_policy_name = None
+                                        self.metric_type = None
+                                        self.ospf_route_type = None
+                                        self._segment_path = lambda: "ospf-or-ospfv3-or-isis-or-application" + "[instance-name='" + str(self.instance_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, ['instance_name', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
@@ -6929,14 +7229,14 @@ class Isis(Entity):
                                     """
                                     bgp
                                     
-                                    .. attribute:: as_xx  <key>
+                                    .. attribute:: as_xx  (key)
                                     
                                     	First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: as_yy  <key>
+                                    .. attribute:: as_yy  (key)
                                     
                                     	Second half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if first half is zero
                                     	**type**\: int
@@ -6979,7 +7279,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp, self).__init__()
@@ -6988,23 +7288,26 @@ class Isis(Entity):
                                         self.yang_parent_name = "redistribution"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                                        self.as_yy = YLeaf(YType.uint32, "as-yy")
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.levels = YLeaf(YType.enumeration, "levels")
-
-                                        self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                        self.ospf_route_type = YLeaf(YType.int32, "ospf-route-type")
-                                        self._segment_path = lambda: "bgp" + "[as-xx='" + self.as_xx.get() + "']" + "[as-yy='" + self.as_yy.get() + "']"
+                                        self.ylist_key_names = ['as_xx','as_yy']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                            ('as_yy', YLeaf(YType.uint32, 'as-yy')),
+                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                            ('levels', YLeaf(YType.enumeration, 'levels')),
+                                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                            ('ospf_route_type', YLeaf(YType.int32, 'ospf-route-type')),
+                                        ])
+                                        self.as_xx = None
+                                        self.as_yy = None
+                                        self.metric = None
+                                        self.levels = None
+                                        self.route_policy_name = None
+                                        self.metric_type = None
+                                        self.ospf_route_type = None
+                                        self._segment_path = lambda: "bgp" + "[as-xx='" + str(self.as_xx) + "']" + "[as-yy='" + str(self.as_yy) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp, ['as_xx', 'as_yy', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
@@ -7014,7 +7317,7 @@ class Isis(Entity):
                                     """
                                     eigrp
                                     
-                                    .. attribute:: as_zz  <key>
+                                    .. attribute:: as_zz  (key)
                                     
                                     	Eigrp as number
                                     	**type**\: int
@@ -7057,7 +7360,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp, self).__init__()
@@ -7066,21 +7369,24 @@ class Isis(Entity):
                                         self.yang_parent_name = "redistribution"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_zz = YLeaf(YType.uint32, "as-zz")
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.levels = YLeaf(YType.enumeration, "levels")
-
-                                        self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                        self.ospf_route_type = YLeaf(YType.int32, "ospf-route-type")
-                                        self._segment_path = lambda: "eigrp" + "[as-zz='" + self.as_zz.get() + "']"
+                                        self.ylist_key_names = ['as_zz']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_zz', YLeaf(YType.uint32, 'as-zz')),
+                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                            ('levels', YLeaf(YType.enumeration, 'levels')),
+                                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                            ('ospf_route_type', YLeaf(YType.int32, 'ospf-route-type')),
+                                        ])
+                                        self.as_zz = None
+                                        self.metric = None
+                                        self.levels = None
+                                        self.route_policy_name = None
+                                        self.metric_type = None
+                                        self.ospf_route_type = None
+                                        self._segment_path = lambda: "eigrp" + "[as-zz='" + str(self.as_zz) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp, ['as_zz', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
@@ -7100,7 +7406,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals, self).__init__()
@@ -7109,8 +7415,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"spf-periodic-interval" : ("spf_periodic_interval", Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("spf-periodic-interval", ("spf_periodic_interval", Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval))])
+                                self._leafs = OrderedDict()
 
                                 self.spf_periodic_interval = YList(self)
                                 self._segment_path = lambda: "spf-periodic-intervals"
@@ -7123,7 +7431,7 @@ class Isis(Entity):
                                 """
                                 Maximum interval between spf runs
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -7144,7 +7452,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval, self).__init__()
@@ -7153,13 +7461,16 @@ class Isis(Entity):
                                     self.yang_parent_name = "spf-periodic-intervals"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.periodic_interval = YLeaf(YType.uint32, "periodic-interval")
-                                    self._segment_path = lambda: "spf-periodic-interval" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('periodic_interval', YLeaf(YType.uint32, 'periodic-interval')),
+                                    ])
+                                    self.level = None
+                                    self.periodic_interval = None
+                                    self._segment_path = lambda: "spf-periodic-interval" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval, ['level', 'periodic_interval'], name, value)
@@ -7179,7 +7490,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals, self).__init__()
@@ -7188,8 +7499,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"spf-interval" : ("spf_interval", Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("spf-interval", ("spf_interval", Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval))])
+                                self._leafs = OrderedDict()
 
                                 self.spf_interval = YList(self)
                                 self._segment_path = lambda: "spf-intervals"
@@ -7202,7 +7515,7 @@ class Isis(Entity):
                                 """
                                 Route calculation scheduling parameters
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -7239,7 +7552,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval, self).__init__()
@@ -7248,17 +7561,20 @@ class Isis(Entity):
                                     self.yang_parent_name = "spf-intervals"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.maximum_wait = YLeaf(YType.uint32, "maximum-wait")
-
-                                    self.initial_wait = YLeaf(YType.uint32, "initial-wait")
-
-                                    self.secondary_wait = YLeaf(YType.uint32, "secondary-wait")
-                                    self._segment_path = lambda: "spf-interval" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('maximum_wait', YLeaf(YType.uint32, 'maximum-wait')),
+                                        ('initial_wait', YLeaf(YType.uint32, 'initial-wait')),
+                                        ('secondary_wait', YLeaf(YType.uint32, 'secondary-wait')),
+                                    ])
+                                    self.level = None
+                                    self.maximum_wait = None
+                                    self.initial_wait = None
+                                    self.secondary_wait = None
+                                    self._segment_path = lambda: "spf-interval" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
@@ -7290,7 +7606,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence, self).__init__()
@@ -7299,14 +7615,17 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.track_ip_frr = YLeaf(YType.empty, "track-ip-frr")
-
-                                self.prefix_list = YLeaf(YType.str, "prefix-list")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('track_ip_frr', YLeaf(YType.empty, 'track-ip-frr')),
+                                    ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                ])
+                                self.enable = None
+                                self.track_ip_frr = None
+                                self.prefix_list = None
                                 self._segment_path = lambda: "monitor-convergence"
 
                             def __setattr__(self, name, value):
@@ -7342,7 +7661,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation, self).__init__()
@@ -7351,14 +7670,17 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.use_policy = YLeaf(YType.boolean, "use-policy")
-
-                                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                self.external = YLeaf(YType.empty, "external")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('use_policy', YLeaf(YType.boolean, 'use-policy')),
+                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                    ('external', YLeaf(YType.empty, 'external')),
+                                ])
+                                self.use_policy = None
+                                self.policy_name = None
+                                self.external = None
                                 self._segment_path = lambda: "default-information"
 
                             def __setattr__(self, name, value):
@@ -7380,7 +7702,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances, self).__init__()
@@ -7389,8 +7711,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"admin-distance" : ("admin_distance", Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("admin-distance", ("admin_distance", Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance))])
+                                self._leafs = OrderedDict()
 
                                 self.admin_distance = YList(self)
                                 self._segment_path = lambda: "admin-distances"
@@ -7407,7 +7731,7 @@ class Isis(Entity):
                                 only those that match the supplied prefix
                                 list if this is specified
                                 
-                                .. attribute:: address_prefix  <key>
+                                .. attribute:: address_prefix  (key)
                                 
                                 	IP route source prefix
                                 	**type**\: union of the below types:
@@ -7441,7 +7765,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance, self).__init__()
@@ -7450,15 +7774,18 @@ class Isis(Entity):
                                     self.yang_parent_name = "admin-distances"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address_prefix = YLeaf(YType.str, "address-prefix")
-
-                                    self.distance = YLeaf(YType.uint32, "distance")
-
-                                    self.prefix_list = YLeaf(YType.str, "prefix-list")
-                                    self._segment_path = lambda: "admin-distance" + "[address-prefix='" + self.address_prefix.get() + "']"
+                                    self.ylist_key_names = ['address_prefix']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                        ('distance', YLeaf(YType.uint32, 'distance')),
+                                        ('prefix_list', YLeaf(YType.str, 'prefix-list')),
+                                    ])
+                                    self.address_prefix = None
+                                    self.distance = None
+                                    self.prefix_list = None
+                                    self._segment_path = lambda: "admin-distance" + "[address-prefix='" + str(self.address_prefix) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance, ['address_prefix', 'distance', 'prefix_list'], name, value)
@@ -7478,7 +7805,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf, self).__init__()
@@ -7487,8 +7814,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"states" : ("states", Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("states", ("states", Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.states = Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States()
                                 self.states.parent = self
@@ -7511,7 +7840,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States, self).__init__()
@@ -7520,8 +7849,10 @@ class Isis(Entity):
                                     self.yang_parent_name = "ispf"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"state" : ("state", Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("state", ("state", Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State))])
+                                    self._leafs = OrderedDict()
 
                                     self.state = YList(self)
                                     self._segment_path = lambda: "states"
@@ -7534,7 +7865,7 @@ class Isis(Entity):
                                     """
                                     Enable/disable ISPF
                                     
-                                    .. attribute:: level  <key>
+                                    .. attribute:: level  (key)
                                     
                                     	Level to which configuration applies
                                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -7551,7 +7882,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State, self).__init__()
@@ -7560,13 +7891,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "states"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.level = YLeaf(YType.enumeration, "level")
-
-                                        self.state = YLeaf(YType.enumeration, "state")
-                                        self._segment_path = lambda: "state" + "[level='" + self.level.get() + "']"
+                                        self.ylist_key_names = ['level']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('level', YLeaf(YType.enumeration, 'level')),
+                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                        ])
+                                        self.level = None
+                                        self.state = None
+                                        self._segment_path = lambda: "state" + "[level='" + str(self.level) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State, ['level', 'state'], name, value)
@@ -7588,7 +7922,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal, self).__init__()
@@ -7597,10 +7931,13 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.auto_config = YLeaf(YType.boolean, "auto-config")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('auto_config', YLeaf(YType.boolean, 'auto-config')),
+                                ])
+                                self.auto_config = None
                                 self._segment_path = lambda: "mpls-ldp-global"
 
                             def __setattr__(self, name, value):
@@ -7638,7 +7975,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls, self).__init__()
@@ -7647,12 +7984,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"router-id" : ("router_id", Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId), "level" : ("level", Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level)}
-                                self._child_list_classes = {}
-
-                                self.igp_intact = YLeaf(YType.empty, "igp-intact")
-
-                                self.multicast_intact = YLeaf(YType.empty, "multicast-intact")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("router-id", ("router_id", Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId)), ("level", ("level", Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_intact', YLeaf(YType.empty, 'igp-intact')),
+                                    ('multicast_intact', YLeaf(YType.empty, 'multicast-intact')),
+                                ])
+                                self.igp_intact = None
+                                self.multicast_intact = None
 
                                 self.router_id = Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId()
                                 self.router_id.parent = self
@@ -7693,7 +8033,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId, self).__init__()
@@ -7702,12 +8042,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "mpls"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address = YLeaf(YType.str, "address")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ])
+                                    self.address = None
+                                    self.interface_name = None
                                     self._segment_path = lambda: "router-id"
 
                                 def __setattr__(self, name, value):
@@ -7734,7 +8077,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level, self).__init__()
@@ -7743,12 +8086,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "mpls"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level1 = YLeaf(YType.boolean, "level1")
-
-                                    self.level2 = YLeaf(YType.boolean, "level2")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level1', YLeaf(YType.boolean, 'level1')),
+                                        ('level2', YLeaf(YType.boolean, 'level2')),
+                                    ])
+                                    self.level1 = None
+                                    self.level2 = None
                                     self._segment_path = lambda: "level"
 
                                 def __setattr__(self, name, value):
@@ -7769,7 +8115,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids, self).__init__()
@@ -7778,8 +8124,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"manual-adj-sid" : ("manual_adj_sid", Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("manual-adj-sid", ("manual_adj_sid", Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid))])
+                                self._leafs = OrderedDict()
 
                                 self.manual_adj_sid = YList(self)
                                 self._segment_path = lambda: "manual-adj-sids"
@@ -7792,17 +8140,17 @@ class Isis(Entity):
                                 """
                                 Assign adjancency SID to an interface
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                 
-                                .. attribute:: sid_type  <key>
+                                .. attribute:: sid_type  (key)
                                 
                                 	Sid type aboslute or index
                                 	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                 
-                                .. attribute:: sid  <key>
+                                .. attribute:: sid  (key)
                                 
                                 	Sid value
                                 	**type**\: int
@@ -7821,7 +8169,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid, self).__init__()
@@ -7830,17 +8178,20 @@ class Isis(Entity):
                                     self.yang_parent_name = "manual-adj-sids"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                                    self.sid = YLeaf(YType.uint32, "sid")
-
-                                    self.protected = YLeaf(YType.enumeration, "protected")
-                                    self._segment_path = lambda: "manual-adj-sid" + "[level='" + self.level.get() + "']" + "[sid-type='" + self.sid_type.get() + "']" + "[sid='" + self.sid.get() + "']"
+                                    self.ylist_key_names = ['level','sid_type','sid']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                        ('sid', YLeaf(YType.uint32, 'sid')),
+                                        ('protected', YLeaf(YType.enumeration, 'protected')),
+                                    ])
+                                    self.level = None
+                                    self.sid_type = None
+                                    self.sid = None
+                                    self.protected = None
+                                    self._segment_path = lambda: "manual-adj-sid" + "[level='" + str(self.level) + "']" + "[sid-type='" + str(self.sid_type) + "']" + "[sid='" + str(self.sid) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
@@ -7860,7 +8211,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics, self).__init__()
@@ -7869,8 +8220,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"metric" : ("metric", Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("metric", ("metric", Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric))])
+                                self._leafs = OrderedDict()
 
                                 self.metric = YList(self)
                                 self._segment_path = lambda: "metrics"
@@ -7890,7 +8243,7 @@ class Isis(Entity):
                                 value.  All routers exclude links with the
                                 maximum wide metric (16777215) from their SPF
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -7900,7 +8253,7 @@ class Isis(Entity):
                                 	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
                                 	**type**\: union of the below types:
                                 
-                                		**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
+                                		**type**\:  :py:class:`Metric_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_>`
                                 
                                 		**type**\: int
                                 
@@ -7913,7 +8266,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric, self).__init__()
@@ -7922,20 +8275,23 @@ class Isis(Entity):
                                     self.yang_parent_name = "metrics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.metric = YLeaf(YType.str, "metric")
-                                    self._segment_path = lambda: "metric" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('metric', YLeaf(YType.str, 'metric')),
+                                    ])
+                                    self.level = None
+                                    self.metric = None
+                                    self._segment_path = lambda: "metric" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric, ['level', 'metric'], name, value)
 
-                                class Metric(Enum):
+                                class Metric_(Enum):
                                     """
-                                    Metric
+                                    Metric\_ (Enum Class)
 
                                     Allowed metric\: <1\-63> for narrow,
 
@@ -7967,7 +8323,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Afs.Af.TopologyName.Weights, self).__init__()
@@ -7976,8 +8332,10 @@ class Isis(Entity):
                                 self.yang_parent_name = "topology-name"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"weight" : ("weight", Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("weight", ("weight", Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight))])
+                                self._leafs = OrderedDict()
 
                                 self.weight = YList(self)
                                 self._segment_path = lambda: "weights"
@@ -7991,7 +8349,7 @@ class Isis(Entity):
                                 Weight configuration under interface for load
                                 balancing
                                 
-                                .. attribute:: level  <key>
+                                .. attribute:: level  (key)
                                 
                                 	Level to which configuration applies
                                 	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -8010,7 +8368,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight, self).__init__()
@@ -8019,13 +8377,16 @@ class Isis(Entity):
                                     self.yang_parent_name = "weights"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.level = YLeaf(YType.enumeration, "level")
-
-                                    self.weight = YLeaf(YType.uint32, "weight")
-                                    self._segment_path = lambda: "weight" + "[level='" + self.level.get() + "']"
+                                    self.ylist_key_names = ['level']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level', YLeaf(YType.enumeration, 'level')),
+                                        ('weight', YLeaf(YType.uint32, 'weight')),
+                                    ])
+                                    self.level = None
+                                    self.weight = None
+                                    self._segment_path = lambda: "weight" + "[level='" + str(self.level) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight, ['level', 'weight'], name, value)
@@ -8045,7 +8406,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspRefreshIntervals, self).__init__()
@@ -8054,8 +8415,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-refresh-interval" : ("lsp_refresh_interval", Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-refresh-interval", ("lsp_refresh_interval", Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_refresh_interval = YList(self)
                     self._segment_path = lambda: "lsp-refresh-intervals"
@@ -8069,7 +8432,7 @@ class Isis(Entity):
                     Interval between re\-flooding of unchanged
                     LSPs
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -8090,7 +8453,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval, self).__init__()
@@ -8099,13 +8462,16 @@ class Isis(Entity):
                         self.yang_parent_name = "lsp-refresh-intervals"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.interval = YLeaf(YType.uint32, "interval")
-                        self._segment_path = lambda: "lsp-refresh-interval" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('interval', YLeaf(YType.uint32, 'interval')),
+                        ])
+                        self.level = None
+                        self.interval = None
+                        self._segment_path = lambda: "lsp-refresh-interval" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval, ['level', 'interval'], name, value)
@@ -8143,7 +8509,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Distribute, self).__init__()
@@ -8152,15 +8518,18 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.dist_inst_id = YLeaf(YType.uint32, "dist-inst-id")
-
-                    self.level = YLeaf(YType.enumeration, "level")
-
-                    self.dist_throttle = YLeaf(YType.uint32, "dist-throttle")
+                    self._leafs = OrderedDict([
+                        ('dist_inst_id', YLeaf(YType.uint32, 'dist-inst-id')),
+                        ('level', YLeaf(YType.enumeration, 'level')),
+                        ('dist_throttle', YLeaf(YType.uint32, 'dist-throttle')),
+                    ])
+                    self.dist_inst_id = None
+                    self.level = None
+                    self.dist_throttle = None
                     self._segment_path = lambda: "distribute"
 
                 def __setattr__(self, name, value):
@@ -8181,7 +8550,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspAcceptPasswords, self).__init__()
@@ -8190,8 +8559,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-accept-password" : ("lsp_accept_password", Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-accept-password", ("lsp_accept_password", Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_accept_password = YList(self)
                     self._segment_path = lambda: "lsp-accept-passwords"
@@ -8206,7 +8577,7 @@ class Isis(Entity):
                     existence of an LSPPassword of the same level
                     .
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -8225,7 +8596,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword, self).__init__()
@@ -8234,13 +8605,16 @@ class Isis(Entity):
                         self.yang_parent_name = "lsp-accept-passwords"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.password = YLeaf(YType.str, "password")
-                        self._segment_path = lambda: "lsp-accept-password" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('password', YLeaf(YType.str, 'password')),
+                        ])
+                        self.level = None
+                        self.password = None
+                        self._segment_path = lambda: "lsp-accept-password" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword, ['level', 'password'], name, value)
@@ -8260,7 +8634,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspMtus, self).__init__()
@@ -8269,8 +8643,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-mtu" : ("lsp_mtu", Isis.Instances.Instance.LspMtus.LspMtu)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-mtu", ("lsp_mtu", Isis.Instances.Instance.LspMtus.LspMtu))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_mtu = YList(self)
                     self._segment_path = lambda: "lsp-mtus"
@@ -8283,7 +8659,7 @@ class Isis(Entity):
                     """
                     LSP MTU
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -8304,7 +8680,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspMtus.LspMtu, self).__init__()
@@ -8313,13 +8689,16 @@ class Isis(Entity):
                         self.yang_parent_name = "lsp-mtus"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.mtu = YLeaf(YType.uint32, "mtu")
-                        self._segment_path = lambda: "lsp-mtu" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('mtu', YLeaf(YType.uint32, 'mtu')),
+                        ])
+                        self.level = None
+                        self.mtu = None
+                        self._segment_path = lambda: "lsp-mtu" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspMtus.LspMtu, ['level', 'mtu'], name, value)
@@ -8370,7 +8749,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Nsf, self).__init__()
@@ -8379,16 +8758,19 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.flavor = YLeaf(YType.enumeration, "flavor")
-
-                    self.interface_timer = YLeaf(YType.uint32, "interface-timer")
-
-                    self.max_interface_timer_expiry = YLeaf(YType.uint32, "max-interface-timer-expiry")
-
-                    self.lifetime = YLeaf(YType.uint32, "lifetime")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('flavor', YLeaf(YType.enumeration, 'flavor')),
+                        ('interface_timer', YLeaf(YType.uint32, 'interface-timer')),
+                        ('max_interface_timer_expiry', YLeaf(YType.uint32, 'max-interface-timer-expiry')),
+                        ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                    ])
+                    self.flavor = None
+                    self.interface_timer = None
+                    self.max_interface_timer_expiry = None
+                    self.lifetime = None
                     self._segment_path = lambda: "nsf"
 
                 def __setattr__(self, name, value):
@@ -8409,7 +8791,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LinkGroups, self).__init__()
@@ -8418,8 +8800,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"link-group" : ("link_group", Isis.Instances.Instance.LinkGroups.LinkGroup)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("link-group", ("link_group", Isis.Instances.Instance.LinkGroups.LinkGroup))])
+                    self._leafs = OrderedDict()
 
                     self.link_group = YList(self)
                     self._segment_path = lambda: "link-groups"
@@ -8432,17 +8816,12 @@ class Isis(Entity):
                     """
                     Configuration for link group name
                     
-                    .. attribute:: link_group_name  <key>
+                    .. attribute:: link_group_name  (key)
                     
                     	Link Group Name
                     	**type**\: str
                     
                     	**length:** 1..40
-                    
-                    .. attribute:: enable
-                    
-                    	Flag to indicate that linkgroup should be running.  This must be the first object created when a linkgroup is configured, and the last object deleted when it is deconfigured.  When this object is deleted, the IS\-IS linkgroup will be removed
-                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: metric_offset
                     
@@ -8474,7 +8853,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LinkGroups.LinkGroup, self).__init__()
@@ -8483,22 +8862,23 @@ class Isis(Entity):
                         self.yang_parent_name = "link-groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.link_group_name = YLeaf(YType.str, "link-group-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.metric_offset = YLeaf(YType.uint32, "metric-offset")
-
-                        self.revert_members = YLeaf(YType.uint32, "revert-members")
-
-                        self.minimum_members = YLeaf(YType.uint32, "minimum-members")
-                        self._segment_path = lambda: "link-group" + "[link-group-name='" + self.link_group_name.get() + "']"
+                        self.ylist_key_names = ['link_group_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('link_group_name', YLeaf(YType.str, 'link-group-name')),
+                            ('metric_offset', YLeaf(YType.uint32, 'metric-offset')),
+                            ('revert_members', YLeaf(YType.uint32, 'revert-members')),
+                            ('minimum_members', YLeaf(YType.uint32, 'minimum-members')),
+                        ])
+                        self.link_group_name = None
+                        self.metric_offset = None
+                        self.revert_members = None
+                        self.minimum_members = None
+                        self._segment_path = lambda: "link-group" + "[link-group-name='" + str(self.link_group_name) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Isis.Instances.Instance.LinkGroups.LinkGroup, ['link_group_name', 'enable', 'metric_offset', 'revert_members', 'minimum_members'], name, value)
+                        self._perform_setattr(Isis.Instances.Instance.LinkGroups.LinkGroup, ['link_group_name', 'metric_offset', 'revert_members', 'minimum_members'], name, value)
 
 
             class LspCheckIntervals(Entity):
@@ -8515,7 +8895,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspCheckIntervals, self).__init__()
@@ -8524,8 +8904,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-check-interval" : ("lsp_check_interval", Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-check-interval", ("lsp_check_interval", Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_check_interval = YList(self)
                     self._segment_path = lambda: "lsp-check-intervals"
@@ -8538,7 +8920,7 @@ class Isis(Entity):
                     """
                     LSP checksum check interval parameters
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -8559,7 +8941,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval, self).__init__()
@@ -8568,13 +8950,16 @@ class Isis(Entity):
                         self.yang_parent_name = "lsp-check-intervals"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.interval = YLeaf(YType.uint32, "interval")
-                        self._segment_path = lambda: "lsp-check-interval" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('interval', YLeaf(YType.uint32, 'interval')),
+                        ])
+                        self.level = None
+                        self.interval = None
+                        self._segment_path = lambda: "lsp-check-interval" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval, ['level', 'interval'], name, value)
@@ -8594,7 +8979,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspPasswords, self).__init__()
@@ -8603,8 +8988,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-password" : ("lsp_password", Isis.Instances.Instance.LspPasswords.LspPassword)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-password", ("lsp_password", Isis.Instances.Instance.LspPasswords.LspPassword))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_password = YList(self)
                     self._segment_path = lambda: "lsp-passwords"
@@ -8618,7 +9005,7 @@ class Isis(Entity):
                     LSP/SNP passwords. This must exist if an
                     LSPAcceptPassword of the same level exists.
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -8658,7 +9045,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspPasswords.LspPassword, self).__init__()
@@ -8667,19 +9054,22 @@ class Isis(Entity):
                         self.yang_parent_name = "lsp-passwords"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                        self.failure_mode = YLeaf(YType.enumeration, "failure-mode")
-
-                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
-
-                        self.password = YLeaf(YType.str, "password")
-                        self._segment_path = lambda: "lsp-password" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                            ('failure_mode', YLeaf(YType.enumeration, 'failure-mode')),
+                            ('authentication_type', YLeaf(YType.enumeration, 'authentication-type')),
+                            ('password', YLeaf(YType.str, 'password')),
+                        ])
+                        self.level = None
+                        self.algorithm = None
+                        self.failure_mode = None
+                        self.authentication_type = None
+                        self.password = None
+                        self._segment_path = lambda: "lsp-password" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspPasswords.LspPassword, ['level', 'algorithm', 'failure_mode', 'authentication_type', 'password'], name, value)
@@ -8699,7 +9089,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Nets, self).__init__()
@@ -8708,8 +9098,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"net" : ("net", Isis.Instances.Instance.Nets.Net)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("net", ("net", Isis.Instances.Instance.Nets.Net))])
+                    self._leafs = OrderedDict()
 
                     self.net = YList(self)
                     self._segment_path = lambda: "nets"
@@ -8722,7 +9114,7 @@ class Isis(Entity):
                     """
                     Network Entity Title (NET)
                     
-                    .. attribute:: net_name  <key>
+                    .. attribute:: net_name  (key)
                     
                     	Network Entity Title
                     	**type**\: str
@@ -8734,7 +9126,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.Nets.Net, self).__init__()
@@ -8743,11 +9135,14 @@ class Isis(Entity):
                         self.yang_parent_name = "nets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.net_name = YLeaf(YType.str, "net-name")
-                        self._segment_path = lambda: "net" + "[net-name='" + self.net_name.get() + "']"
+                        self.ylist_key_names = ['net_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('net_name', YLeaf(YType.str, 'net-name')),
+                        ])
+                        self.net_name = None
+                        self._segment_path = lambda: "net" + "[net-name='" + str(self.net_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.Nets.Net, ['net_name'], name, value)
@@ -8767,7 +9162,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.LspLifetimes, self).__init__()
@@ -8776,8 +9171,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lsp-lifetime" : ("lsp_lifetime", Isis.Instances.Instance.LspLifetimes.LspLifetime)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lsp-lifetime", ("lsp_lifetime", Isis.Instances.Instance.LspLifetimes.LspLifetime))])
+                    self._leafs = OrderedDict()
 
                     self.lsp_lifetime = YList(self)
                     self._segment_path = lambda: "lsp-lifetimes"
@@ -8790,7 +9187,7 @@ class Isis(Entity):
                     """
                     Maximum LSP lifetime
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -8811,7 +9208,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.LspLifetimes.LspLifetime, self).__init__()
@@ -8820,13 +9217,16 @@ class Isis(Entity):
                         self.yang_parent_name = "lsp-lifetimes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.lifetime = YLeaf(YType.uint32, "lifetime")
-                        self._segment_path = lambda: "lsp-lifetime" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                        ])
+                        self.level = None
+                        self.lifetime = None
+                        self._segment_path = lambda: "lsp-lifetime" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspLifetimes.LspLifetime, ['level', 'lifetime'], name, value)
@@ -8846,7 +9246,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.OverloadBits, self).__init__()
@@ -8855,8 +9255,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"overload-bit" : ("overload_bit", Isis.Instances.Instance.OverloadBits.OverloadBit)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("overload-bit", ("overload_bit", Isis.Instances.Instance.OverloadBits.OverloadBit))])
+                    self._leafs = OrderedDict()
 
                     self.overload_bit = YList(self)
                     self._segment_path = lambda: "overload-bits"
@@ -8876,7 +9278,7 @@ class Isis(Entity):
                     union discriminated on an integer value of
                     the ISISOverloadBitModeType.
                     
-                    .. attribute:: level  <key>
+                    .. attribute:: level  (key)
                     
                     	Level to which configuration applies
                     	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -8910,7 +9312,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.OverloadBits.OverloadBit, self).__init__()
@@ -8919,19 +9321,22 @@ class Isis(Entity):
                         self.yang_parent_name = "overload-bits"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.enumeration, "level")
-
-                        self.overload_bit_mode = YLeaf(YType.enumeration, "overload-bit-mode")
-
-                        self.hippity_period = YLeaf(YType.uint32, "hippity-period")
-
-                        self.external_adv_type = YLeaf(YType.enumeration, "external-adv-type")
-
-                        self.inter_level_adv_type = YLeaf(YType.enumeration, "inter-level-adv-type")
-                        self._segment_path = lambda: "overload-bit" + "[level='" + self.level.get() + "']"
+                        self.ylist_key_names = ['level']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.enumeration, 'level')),
+                            ('overload_bit_mode', YLeaf(YType.enumeration, 'overload-bit-mode')),
+                            ('hippity_period', YLeaf(YType.uint32, 'hippity-period')),
+                            ('external_adv_type', YLeaf(YType.enumeration, 'external-adv-type')),
+                            ('inter_level_adv_type', YLeaf(YType.enumeration, 'inter-level-adv-type')),
+                        ])
+                        self.level = None
+                        self.overload_bit_mode = None
+                        self.hippity_period = None
+                        self.external_adv_type = None
+                        self.inter_level_adv_type = None
+                        self._segment_path = lambda: "overload-bit" + "[level='" + str(self.level) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.OverloadBits.OverloadBit, ['level', 'overload_bit_mode', 'hippity_period', 'external_adv_type', 'inter_level_adv_type'], name, value)
@@ -8951,7 +9356,7 @@ class Isis(Entity):
                 """
 
                 _prefix = 'clns-isis-cfg'
-                _revision = '2017-06-02'
+                _revision = '2017-11-20'
 
                 def __init__(self):
                     super(Isis.Instances.Instance.Interfaces, self).__init__()
@@ -8960,8 +9365,10 @@ class Isis(Entity):
                     self.yang_parent_name = "instance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Isis.Instances.Instance.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Isis.Instances.Instance.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -8974,7 +9381,7 @@ class Isis(Entity):
                     """
                     Configuration for an IS\-IS interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -9094,7 +9501,7 @@ class Isis(Entity):
                     """
 
                     _prefix = 'clns-isis-cfg'
-                    _revision = '2017-06-02'
+                    _revision = '2017-11-20'
 
                     def __init__(self):
                         super(Isis.Instances.Instance.Interfaces.Interface, self).__init__()
@@ -9103,22 +9510,25 @@ class Isis(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"lsp-retransmit-throttle-intervals" : ("lsp_retransmit_throttle_intervals", Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals), "lsp-retransmit-intervals" : ("lsp_retransmit_intervals", Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals), "bfd" : ("bfd", Isis.Instances.Instance.Interfaces.Interface.Bfd), "priorities" : ("priorities", Isis.Instances.Instance.Interfaces.Interface.Priorities), "hello-accept-passwords" : ("hello_accept_passwords", Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords), "hello-passwords" : ("hello_passwords", Isis.Instances.Instance.Interfaces.Interface.HelloPasswords), "hello-paddings" : ("hello_paddings", Isis.Instances.Instance.Interfaces.Interface.HelloPaddings), "hello-multipliers" : ("hello_multipliers", Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers), "lsp-fast-flood-thresholds" : ("lsp_fast_flood_thresholds", Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds), "prefix-attribute-n-flag-clears" : ("prefix_attribute_n_flag_clears", Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears), "hello-intervals" : ("hello_intervals", Isis.Instances.Instance.Interfaces.Interface.HelloIntervals), "interface-afs" : ("interface_afs", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs), "csnp-intervals" : ("csnp_intervals", Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals), "lsp-intervals" : ("lsp_intervals", Isis.Instances.Instance.Interfaces.Interface.LspIntervals)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.running = YLeaf(YType.empty, "running")
-
-                        self.circuit_type = YLeaf(YType.enumeration, "circuit-type")
-
-                        self.point_to_point = YLeaf(YType.empty, "point-to-point")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.mesh_group = YLeaf(YType.str, "mesh-group")
-
-                        self.link_down_fast_detect = YLeaf(YType.empty, "link-down-fast-detect")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("lsp-retransmit-throttle-intervals", ("lsp_retransmit_throttle_intervals", Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals)), ("lsp-retransmit-intervals", ("lsp_retransmit_intervals", Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals)), ("bfd", ("bfd", Isis.Instances.Instance.Interfaces.Interface.Bfd)), ("priorities", ("priorities", Isis.Instances.Instance.Interfaces.Interface.Priorities)), ("hello-accept-passwords", ("hello_accept_passwords", Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords)), ("hello-passwords", ("hello_passwords", Isis.Instances.Instance.Interfaces.Interface.HelloPasswords)), ("hello-paddings", ("hello_paddings", Isis.Instances.Instance.Interfaces.Interface.HelloPaddings)), ("hello-multipliers", ("hello_multipliers", Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers)), ("lsp-fast-flood-thresholds", ("lsp_fast_flood_thresholds", Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds)), ("prefix-attribute-n-flag-clears", ("prefix_attribute_n_flag_clears", Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears)), ("hello-intervals", ("hello_intervals", Isis.Instances.Instance.Interfaces.Interface.HelloIntervals)), ("interface-afs", ("interface_afs", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs)), ("csnp-intervals", ("csnp_intervals", Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals)), ("lsp-intervals", ("lsp_intervals", Isis.Instances.Instance.Interfaces.Interface.LspIntervals))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('running', YLeaf(YType.empty, 'running')),
+                            ('circuit_type', YLeaf(YType.enumeration, 'circuit-type')),
+                            ('point_to_point', YLeaf(YType.empty, 'point-to-point')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('mesh_group', YLeaf(YType.str, 'mesh-group')),
+                            ('link_down_fast_detect', YLeaf(YType.empty, 'link-down-fast-detect')),
+                        ])
+                        self.interface_name = None
+                        self.running = None
+                        self.circuit_type = None
+                        self.point_to_point = None
+                        self.state = None
+                        self.mesh_group = None
+                        self.link_down_fast_detect = None
 
                         self.lsp_retransmit_throttle_intervals = Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals()
                         self.lsp_retransmit_throttle_intervals.parent = self
@@ -9189,14 +9599,14 @@ class Isis(Entity):
                         self.lsp_intervals.parent = self
                         self._children_name_map["lsp_intervals"] = "lsp-intervals"
                         self._children_yang_names.add("lsp-intervals")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface, ['interface_name', 'running', 'circuit_type', 'point_to_point', 'state', 'mesh_group', 'link_down_fast_detect'], name, value)
 
                     class MeshGroup(Enum):
                         """
-                        MeshGroup
+                        MeshGroup (Enum Class)
 
                         Mesh\-group configuration
 
@@ -9227,7 +9637,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals, self).__init__()
@@ -9236,8 +9646,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"lsp-retransmit-throttle-interval" : ("lsp_retransmit_throttle_interval", Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("lsp-retransmit-throttle-interval", ("lsp_retransmit_throttle_interval", Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval))])
+                            self._leafs = OrderedDict()
 
                             self.lsp_retransmit_throttle_interval = YList(self)
                             self._segment_path = lambda: "lsp-retransmit-throttle-intervals"
@@ -9251,7 +9663,7 @@ class Isis(Entity):
                             Minimum interval betwen retransissions of
                             different LSPs
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9272,7 +9684,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval, self).__init__()
@@ -9281,13 +9693,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "lsp-retransmit-throttle-intervals"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-                                self._segment_path = lambda: "lsp-retransmit-throttle-interval" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                ])
+                                self.level = None
+                                self.interval = None
+                                self._segment_path = lambda: "lsp-retransmit-throttle-interval" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval, ['level', 'interval'], name, value)
@@ -9307,7 +9722,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals, self).__init__()
@@ -9316,8 +9731,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"lsp-retransmit-interval" : ("lsp_retransmit_interval", Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("lsp-retransmit-interval", ("lsp_retransmit_interval", Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval))])
+                            self._leafs = OrderedDict()
 
                             self.lsp_retransmit_interval = YList(self)
                             self._segment_path = lambda: "lsp-retransmit-intervals"
@@ -9331,7 +9748,7 @@ class Isis(Entity):
                             Interval between retransmissions of the
                             same LSP
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9352,7 +9769,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval, self).__init__()
@@ -9361,13 +9778,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "lsp-retransmit-intervals"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-                                self._segment_path = lambda: "lsp-retransmit-interval" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                ])
+                                self.level = None
+                                self.interval = None
+                                self._segment_path = lambda: "lsp-retransmit-interval" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval, ['level', 'interval'], name, value)
@@ -9408,7 +9828,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.Bfd, self).__init__()
@@ -9417,16 +9837,19 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable_ipv6 = YLeaf(YType.boolean, "enable-ipv6")
-
-                            self.enable_ipv4 = YLeaf(YType.boolean, "enable-ipv4")
-
-                            self.interval = YLeaf(YType.uint32, "interval")
-
-                            self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable_ipv6', YLeaf(YType.boolean, 'enable-ipv6')),
+                                ('enable_ipv4', YLeaf(YType.boolean, 'enable-ipv4')),
+                                ('interval', YLeaf(YType.uint32, 'interval')),
+                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ])
+                            self.enable_ipv6 = None
+                            self.enable_ipv4 = None
+                            self.interval = None
+                            self.detection_multiplier = None
                             self._segment_path = lambda: "bfd"
 
                         def __setattr__(self, name, value):
@@ -9447,7 +9870,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.Priorities, self).__init__()
@@ -9456,8 +9879,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"priority" : ("priority", Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("priority", ("priority", Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority))])
+                            self._leafs = OrderedDict()
 
                             self.priority = YList(self)
                             self._segment_path = lambda: "priorities"
@@ -9470,7 +9895,7 @@ class Isis(Entity):
                             """
                             DIS\-election priority
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9489,7 +9914,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority, self).__init__()
@@ -9498,13 +9923,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "priorities"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.priority_value = YLeaf(YType.uint32, "priority-value")
-                                self._segment_path = lambda: "priority" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('priority_value', YLeaf(YType.uint32, 'priority-value')),
+                                ])
+                                self.level = None
+                                self.priority_value = None
+                                self._segment_path = lambda: "priority" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority, ['level', 'priority_value'], name, value)
@@ -9524,7 +9952,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords, self).__init__()
@@ -9533,8 +9961,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"hello-accept-password" : ("hello_accept_password", Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("hello-accept-password", ("hello_accept_password", Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword))])
+                            self._leafs = OrderedDict()
 
                             self.hello_accept_password = YList(self)
                             self._segment_path = lambda: "hello-accept-passwords"
@@ -9549,7 +9979,7 @@ class Isis(Entity):
                             existence of a HelloPassword of the same
                             level.
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9568,7 +9998,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword, self).__init__()
@@ -9577,13 +10007,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "hello-accept-passwords"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.password = YLeaf(YType.str, "password")
-                                self._segment_path = lambda: "hello-accept-password" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('password', YLeaf(YType.str, 'password')),
+                                ])
+                                self.level = None
+                                self.password = None
+                                self._segment_path = lambda: "hello-accept-password" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword, ['level', 'password'], name, value)
@@ -9603,7 +10036,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords, self).__init__()
@@ -9612,8 +10045,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"hello-password" : ("hello_password", Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("hello-password", ("hello_password", Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword))])
+                            self._leafs = OrderedDict()
 
                             self.hello_password = YList(self)
                             self._segment_path = lambda: "hello-passwords"
@@ -9628,7 +10063,7 @@ class Isis(Entity):
                             HelloAcceptPassword of the same level
                             exists.
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9661,7 +10096,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword, self).__init__()
@@ -9670,17 +10105,20 @@ class Isis(Entity):
                                 self.yang_parent_name = "hello-passwords"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.algorithm = YLeaf(YType.enumeration, "algorithm")
-
-                                self.failure_mode = YLeaf(YType.enumeration, "failure-mode")
-
-                                self.password = YLeaf(YType.str, "password")
-                                self._segment_path = lambda: "hello-password" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('algorithm', YLeaf(YType.enumeration, 'algorithm')),
+                                    ('failure_mode', YLeaf(YType.enumeration, 'failure-mode')),
+                                    ('password', YLeaf(YType.str, 'password')),
+                                ])
+                                self.level = None
+                                self.algorithm = None
+                                self.failure_mode = None
+                                self.password = None
+                                self._segment_path = lambda: "hello-password" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword, ['level', 'algorithm', 'failure_mode', 'password'], name, value)
@@ -9700,7 +10138,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings, self).__init__()
@@ -9709,8 +10147,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"hello-padding" : ("hello_padding", Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("hello-padding", ("hello_padding", Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding))])
+                            self._leafs = OrderedDict()
 
                             self.hello_padding = YList(self)
                             self._segment_path = lambda: "hello-paddings"
@@ -9723,7 +10163,7 @@ class Isis(Entity):
                             """
                             Pad IIHs to the interface MTU
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9740,7 +10180,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding, self).__init__()
@@ -9749,13 +10189,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "hello-paddings"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.padding_type = YLeaf(YType.enumeration, "padding-type")
-                                self._segment_path = lambda: "hello-padding" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('padding_type', YLeaf(YType.enumeration, 'padding-type')),
+                                ])
+                                self.level = None
+                                self.padding_type = None
+                                self._segment_path = lambda: "hello-padding" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding, ['level', 'padding_type'], name, value)
@@ -9775,7 +10218,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers, self).__init__()
@@ -9784,8 +10227,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"hello-multiplier" : ("hello_multiplier", Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("hello-multiplier", ("hello_multiplier", Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier))])
+                            self._leafs = OrderedDict()
 
                             self.hello_multiplier = YList(self)
                             self._segment_path = lambda: "hello-multipliers"
@@ -9800,7 +10245,7 @@ class Isis(Entity):
                             of successive IIHs that may be missed on an
                             adjacency before it is considered down.
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9819,7 +10264,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier, self).__init__()
@@ -9828,13 +10273,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "hello-multipliers"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.multiplier = YLeaf(YType.uint32, "multiplier")
-                                self._segment_path = lambda: "hello-multiplier" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('multiplier', YLeaf(YType.uint32, 'multiplier')),
+                                ])
+                                self.level = None
+                                self.multiplier = None
+                                self._segment_path = lambda: "hello-multiplier" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier, ['level', 'multiplier'], name, value)
@@ -9854,7 +10302,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds, self).__init__()
@@ -9863,8 +10311,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"lsp-fast-flood-threshold" : ("lsp_fast_flood_threshold", Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("lsp-fast-flood-threshold", ("lsp_fast_flood_threshold", Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold))])
+                            self._leafs = OrderedDict()
 
                             self.lsp_fast_flood_threshold = YList(self)
                             self._segment_path = lambda: "lsp-fast-flood-thresholds"
@@ -9878,7 +10328,7 @@ class Isis(Entity):
                             Number of LSPs to send back to back on an
                             interface.
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9897,7 +10347,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold, self).__init__()
@@ -9906,13 +10356,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "lsp-fast-flood-thresholds"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.count = YLeaf(YType.uint32, "count")
-                                self._segment_path = lambda: "lsp-fast-flood-threshold" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('count', YLeaf(YType.uint32, 'count')),
+                                ])
+                                self.level = None
+                                self.count = None
+                                self._segment_path = lambda: "lsp-fast-flood-threshold" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold, ['level', 'count'], name, value)
@@ -9932,7 +10385,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears, self).__init__()
@@ -9941,8 +10394,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"prefix-attribute-n-flag-clear" : ("prefix_attribute_n_flag_clear", Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("prefix-attribute-n-flag-clear", ("prefix_attribute_n_flag_clear", Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear))])
+                            self._leafs = OrderedDict()
 
                             self.prefix_attribute_n_flag_clear = YList(self)
                             self._segment_path = lambda: "prefix-attribute-n-flag-clears"
@@ -9956,7 +10411,7 @@ class Isis(Entity):
                             Clear the N flag in prefix attribute flags
                             sub\-TLV
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -9966,7 +10421,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear, self).__init__()
@@ -9975,11 +10430,14 @@ class Isis(Entity):
                                 self.yang_parent_name = "prefix-attribute-n-flag-clears"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-                                self._segment_path = lambda: "prefix-attribute-n-flag-clear" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                ])
+                                self.level = None
+                                self._segment_path = lambda: "prefix-attribute-n-flag-clear" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear, ['level'], name, value)
@@ -9999,7 +10457,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals, self).__init__()
@@ -10008,8 +10466,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"hello-interval" : ("hello_interval", Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("hello-interval", ("hello_interval", Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval))])
+                            self._leafs = OrderedDict()
 
                             self.hello_interval = YList(self)
                             self._segment_path = lambda: "hello-intervals"
@@ -10025,7 +10485,7 @@ class Isis(Entity):
                             will be three times quicker on a LAN
                             interface which has been electted DIS.
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -10046,7 +10506,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval, self).__init__()
@@ -10055,13 +10515,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "hello-intervals"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-                                self._segment_path = lambda: "hello-interval" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                ])
+                                self.level = None
+                                self.interval = None
+                                self._segment_path = lambda: "hello-interval" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval, ['level', 'interval'], name, value)
@@ -10081,7 +10544,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs, self).__init__()
@@ -10090,8 +10553,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"interface-af" : ("interface_af", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("interface-af", ("interface_af", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf))])
+                            self._leafs = OrderedDict()
 
                             self.interface_af = YList(self)
                             self._segment_path = lambda: "interface-afs"
@@ -10109,12 +10574,12 @@ class Isis(Entity):
                             mustbe set first and delete last in the
                             router configuration.
                             
-                            .. attribute:: af_name  <key>
+                            .. attribute:: af_name  (key)
                             
                             	Address family
                             	**type**\:  :py:class:`IsisAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamily>`
                             
-                            .. attribute:: saf_name  <key>
+                            .. attribute:: saf_name  (key)
                             
                             	Sub address family
                             	**type**\:  :py:class:`IsisSubAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamily>`
@@ -10134,7 +10599,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf, self).__init__()
@@ -10143,12 +10608,15 @@ class Isis(Entity):
                                 self.yang_parent_name = "interface-afs"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"interface-af-data" : ("interface_af_data", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData)}
-                                self._child_list_classes = {"topology-name" : ("topology_name", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName)}
-
-                                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                                self.saf_name = YLeaf(YType.enumeration, "saf-name")
+                                self.ylist_key_names = ['af_name','saf_name']
+                                self._child_container_classes = OrderedDict([("interface-af-data", ("interface_af_data", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData))])
+                                self._child_list_classes = OrderedDict([("topology-name", ("topology_name", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName))])
+                                self._leafs = OrderedDict([
+                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                                ])
+                                self.af_name = None
+                                self.saf_name = None
 
                                 self.interface_af_data = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData()
                                 self.interface_af_data.parent = self
@@ -10156,7 +10624,7 @@ class Isis(Entity):
                                 self._children_yang_names.add("interface-af-data")
 
                                 self.topology_name = YList(self)
-                                self._segment_path = lambda: "interface-af" + "[af-name='" + self.af_name.get() + "']" + "[saf-name='" + self.saf_name.get() + "']"
+                                self._segment_path = lambda: "interface-af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf, ['af_name', 'saf_name'], name, value)
@@ -10237,7 +10705,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData, self).__init__()
@@ -10246,12 +10714,15 @@ class Isis(Entity):
                                     self.yang_parent_name = "interface-af"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"prefix-sid" : ("prefix_sid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid), "interface-frr-table" : ("interface_frr_table", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable), "mpls-ldp" : ("mpls_ldp", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp), "prefix-sspfsid" : ("prefix_sspfsid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid), "auto-metrics" : ("auto_metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics), "admin-tags" : ("admin_tags", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags), "interface-link-group" : ("interface_link_group", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup), "manual-adj-sids" : ("manual_adj_sids", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids), "metrics" : ("metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics), "weights" : ("weights", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights)}
-                                    self._child_list_classes = {}
-
-                                    self.interface_af_state = YLeaf(YType.enumeration, "interface-af-state")
-
-                                    self.running = YLeaf(YType.empty, "running")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("prefix-sid", ("prefix_sid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid)), ("interface-frr-table", ("interface_frr_table", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable)), ("mpls-ldp", ("mpls_ldp", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp)), ("prefix-sspfsid", ("prefix_sspfsid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid)), ("auto-metrics", ("auto_metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics)), ("admin-tags", ("admin_tags", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags)), ("interface-link-group", ("interface_link_group", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup)), ("manual-adj-sids", ("manual_adj_sids", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids)), ("metrics", ("metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics)), ("weights", ("weights", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_af_state', YLeaf(YType.enumeration, 'interface-af-state')),
+                                        ('running', YLeaf(YType.empty, 'running')),
+                                    ])
+                                    self.interface_af_state = None
+                                    self.running = None
 
                                     self.prefix_sid = None
                                     self._children_name_map["prefix_sid"] = "prefix-sid"
@@ -10356,7 +10827,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid, self).__init__()
@@ -10365,19 +10836,22 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
                                         self.is_presence_container = True
-
-                                        self.type = YLeaf(YType.enumeration, "type")
-
-                                        self.value = YLeaf(YType.uint32, "value")
-
-                                        self.php = YLeaf(YType.enumeration, "php")
-
-                                        self.explicit_null = YLeaf(YType.enumeration, "explicit-null")
-
-                                        self.nflag_clear = YLeaf(YType.enumeration, "nflag-clear")
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                            ('php', YLeaf(YType.enumeration, 'php')),
+                                            ('explicit_null', YLeaf(YType.enumeration, 'explicit-null')),
+                                            ('nflag_clear', YLeaf(YType.enumeration, 'nflag-clear')),
+                                        ])
+                                        self.type = None
+                                        self.value = None
+                                        self.php = None
+                                        self.explicit_null = None
+                                        self.nflag_clear = None
                                         self._segment_path = lambda: "prefix-sid"
 
                                     def __setattr__(self, name, value):
@@ -10433,7 +10907,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable, self).__init__()
@@ -10442,8 +10916,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"frrlfa-candidate-interfaces" : ("frrlfa_candidate_interfaces", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces), "frr-remote-lfa-max-metrics" : ("frr_remote_lfa_max_metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics), "frr-types" : ("frr_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes), "frr-remote-lfa-types" : ("frr_remote_lfa_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes), "interface-frr-tiebreaker-defaults" : ("interface_frr_tiebreaker_defaults", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults), "frrtilfa-types" : ("frrtilfa_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes), "frr-exclude-interfaces" : ("frr_exclude_interfaces", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces), "interface-frr-tiebreakers" : ("interface_frr_tiebreakers", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("frrlfa-candidate-interfaces", ("frrlfa_candidate_interfaces", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces)), ("frr-remote-lfa-max-metrics", ("frr_remote_lfa_max_metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics)), ("frr-types", ("frr_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes)), ("frr-remote-lfa-types", ("frr_remote_lfa_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes)), ("interface-frr-tiebreaker-defaults", ("interface_frr_tiebreaker_defaults", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults)), ("frrtilfa-types", ("frrtilfa_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes)), ("frr-exclude-interfaces", ("frr_exclude_interfaces", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces)), ("interface-frr-tiebreakers", ("interface_frr_tiebreakers", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.frrlfa_candidate_interfaces = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces()
                                         self.frrlfa_candidate_interfaces.parent = self
@@ -10501,7 +10977,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces, self).__init__()
@@ -10510,8 +10986,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frrlfa-candidate-interface" : ("frrlfa_candidate_interface", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frrlfa-candidate-interface", ("frrlfa_candidate_interface", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.frrlfa_candidate_interface = YList(self)
                                             self._segment_path = lambda: "frrlfa-candidate-interfaces"
@@ -10525,14 +11003,14 @@ class Isis(Entity):
                                             Include an interface to LFA candidate
                                             in computation
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
                                             
                                             	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
-                                            .. attribute:: frr_type  <key>
+                                            .. attribute:: frr_type  (key)
                                             
                                             	Computation Type
                                             	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
@@ -10551,7 +11029,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, self).__init__()
@@ -10560,15 +11038,18 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frrlfa-candidate-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                                self.frr_type = YLeaf(YType.enumeration, "frr-type")
-
-                                                self.level = YLeaf(YType.uint32, "level")
-                                                self._segment_path = lambda: "frrlfa-candidate-interface" + "[interface-name='" + self.interface_name.get() + "']" + "[frr-type='" + self.frr_type.get() + "']"
+                                                self.ylist_key_names = ['interface_name','frr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ('frr_type', YLeaf(YType.enumeration, 'frr-type')),
+                                                    ('level', YLeaf(YType.uint32, 'level')),
+                                                ])
+                                                self.interface_name = None
+                                                self.frr_type = None
+                                                self.level = None
+                                                self._segment_path = lambda: "frrlfa-candidate-interface" + "[interface-name='" + str(self.interface_name) + "']" + "[frr-type='" + str(self.frr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, ['interface_name', 'frr_type', 'level'], name, value)
@@ -10588,7 +11069,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, self).__init__()
@@ -10597,8 +11078,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frr-remote-lfa-max-metric" : ("frr_remote_lfa_max_metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frr-remote-lfa-max-metric", ("frr_remote_lfa_max_metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric))])
+                                            self._leafs = OrderedDict()
 
                                             self.frr_remote_lfa_max_metric = YList(self)
                                             self._segment_path = lambda: "frr-remote-lfa-max-metrics"
@@ -10612,7 +11095,7 @@ class Isis(Entity):
                                             Configure the maximum metric for
                                             selecting a remote LFA node
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -10631,7 +11114,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, self).__init__()
@@ -10640,13 +11123,16 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frr-remote-lfa-max-metrics"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-
-                                                self.max_metric = YLeaf(YType.uint32, "max-metric")
-                                                self._segment_path = lambda: "frr-remote-lfa-max-metric" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                    ('max_metric', YLeaf(YType.uint32, 'max-metric')),
+                                                ])
+                                                self.level = None
+                                                self.max_metric = None
+                                                self._segment_path = lambda: "frr-remote-lfa-max-metric" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, ['level', 'max_metric'], name, value)
@@ -10666,7 +11152,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes, self).__init__()
@@ -10675,8 +11161,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frr-type" : ("frr_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frr-type", ("frr_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType))])
+                                            self._leafs = OrderedDict()
 
                                             self.frr_type = YList(self)
                                             self._segment_path = lambda: "frr-types"
@@ -10690,7 +11178,7 @@ class Isis(Entity):
                                             Type of computation for prefixes
                                             reachable via interface
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -10707,7 +11195,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType, self).__init__()
@@ -10716,13 +11204,16 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frr-types"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-
-                                                self.type = YLeaf(YType.enumeration, "type")
-                                                self._segment_path = lambda: "frr-type" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                ])
+                                                self.level = None
+                                                self.type = None
+                                                self._segment_path = lambda: "frr-type" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType, ['level', 'type'], name, value)
@@ -10742,7 +11233,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes, self).__init__()
@@ -10751,8 +11242,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frr-remote-lfa-type" : ("frr_remote_lfa_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frr-remote-lfa-type", ("frr_remote_lfa_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType))])
+                                            self._leafs = OrderedDict()
 
                                             self.frr_remote_lfa_type = YList(self)
                                             self._segment_path = lambda: "frr-remote-lfa-types"
@@ -10766,7 +11259,7 @@ class Isis(Entity):
                                             Enable remote lfa for a particular
                                             level
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -10783,7 +11276,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, self).__init__()
@@ -10792,13 +11285,16 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frr-remote-lfa-types"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-
-                                                self.type = YLeaf(YType.enumeration, "type")
-                                                self._segment_path = lambda: "frr-remote-lfa-type" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                ])
+                                                self.level = None
+                                                self.type = None
+                                                self._segment_path = lambda: "frr-remote-lfa-type" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, ['level', 'type'], name, value)
@@ -10819,7 +11315,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, self).__init__()
@@ -10828,8 +11324,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"interface-frr-tiebreaker-default" : ("interface_frr_tiebreaker_default", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("interface-frr-tiebreaker-default", ("interface_frr_tiebreaker_default", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault))])
+                                            self._leafs = OrderedDict()
 
                                             self.interface_frr_tiebreaker_default = YList(self)
                                             self._segment_path = lambda: "interface-frr-tiebreaker-defaults"
@@ -10842,7 +11340,7 @@ class Isis(Entity):
                                             """
                                             Configure default tiebreaker
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -10852,7 +11350,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, self).__init__()
@@ -10861,11 +11359,14 @@ class Isis(Entity):
                                                 self.yang_parent_name = "interface-frr-tiebreaker-defaults"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-                                                self._segment_path = lambda: "interface-frr-tiebreaker-default" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                ])
+                                                self.level = None
+                                                self._segment_path = lambda: "interface-frr-tiebreaker-default" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, ['level'], name, value)
@@ -10885,7 +11386,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes, self).__init__()
@@ -10894,8 +11395,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frrtilfa-type" : ("frrtilfa_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frrtilfa-type", ("frrtilfa_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType))])
+                                            self._leafs = OrderedDict()
 
                                             self.frrtilfa_type = YList(self)
                                             self._segment_path = lambda: "frrtilfa-types"
@@ -10908,7 +11411,7 @@ class Isis(Entity):
                                             """
                                             Enable TI lfa for a particular level
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -10918,7 +11421,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, self).__init__()
@@ -10927,11 +11430,14 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frrtilfa-types"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-                                                self._segment_path = lambda: "frrtilfa-type" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                ])
+                                                self.level = None
+                                                self._segment_path = lambda: "frrtilfa-type" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, ['level'], name, value)
@@ -10951,7 +11457,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces, self).__init__()
@@ -10960,8 +11466,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frr-exclude-interface" : ("frr_exclude_interface", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frr-exclude-interface", ("frr_exclude_interface", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.frr_exclude_interface = YList(self)
                                             self._segment_path = lambda: "frr-exclude-interfaces"
@@ -10974,14 +11482,14 @@ class Isis(Entity):
                                             """
                                             Exclude an interface from computation
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
                                             
                                             	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
-                                            .. attribute:: frr_type  <key>
+                                            .. attribute:: frr_type  (key)
                                             
                                             	Computation Type
                                             	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
@@ -11000,7 +11508,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, self).__init__()
@@ -11009,15 +11517,18 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frr-exclude-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                                self.frr_type = YLeaf(YType.enumeration, "frr-type")
-
-                                                self.level = YLeaf(YType.uint32, "level")
-                                                self._segment_path = lambda: "frr-exclude-interface" + "[interface-name='" + self.interface_name.get() + "']" + "[frr-type='" + self.frr_type.get() + "']"
+                                                self.ylist_key_names = ['interface_name','frr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ('frr_type', YLeaf(YType.enumeration, 'frr-type')),
+                                                    ('level', YLeaf(YType.uint32, 'level')),
+                                                ])
+                                                self.interface_name = None
+                                                self.frr_type = None
+                                                self.level = None
+                                                self._segment_path = lambda: "frr-exclude-interface" + "[interface-name='" + str(self.interface_name) + "']" + "[frr-type='" + str(self.frr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, ['interface_name', 'frr_type', 'level'], name, value)
@@ -11037,7 +11548,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers, self).__init__()
@@ -11046,8 +11557,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"interface-frr-tiebreaker" : ("interface_frr_tiebreaker", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("interface-frr-tiebreaker", ("interface_frr_tiebreaker", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker))])
+                                            self._leafs = OrderedDict()
 
                                             self.interface_frr_tiebreaker = YList(self)
                                             self._segment_path = lambda: "interface-frr-tiebreakers"
@@ -11061,12 +11574,12 @@ class Isis(Entity):
                                             Configure tiebreaker for multiple
                                             backups
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
-                                            .. attribute:: tiebreaker  <key>
+                                            .. attribute:: tiebreaker  (key)
                                             
                                             	Tiebreaker for which configuration applies
                                             	**type**\:  :py:class:`IsisInterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceFrrTiebreaker>`
@@ -11085,7 +11598,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, self).__init__()
@@ -11094,15 +11607,18 @@ class Isis(Entity):
                                                 self.yang_parent_name = "interface-frr-tiebreakers"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-
-                                                self.tiebreaker = YLeaf(YType.enumeration, "tiebreaker")
-
-                                                self.index = YLeaf(YType.uint32, "index")
-                                                self._segment_path = lambda: "interface-frr-tiebreaker" + "[level='" + self.level.get() + "']" + "[tiebreaker='" + self.tiebreaker.get() + "']"
+                                                self.ylist_key_names = ['level','tiebreaker']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                    ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
+                                                    ('index', YLeaf(YType.uint32, 'index')),
+                                                ])
+                                                self.level = None
+                                                self.tiebreaker = None
+                                                self.index = None
+                                                self._segment_path = lambda: "interface-frr-tiebreaker" + "[level='" + str(self.level) + "']" + "[tiebreaker='" + str(self.tiebreaker) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
@@ -11126,7 +11642,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp, self).__init__()
@@ -11135,10 +11651,13 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.sync_level = YLeaf(YType.uint32, "sync-level")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sync_level', YLeaf(YType.uint32, 'sync-level')),
+                                        ])
+                                        self.sync_level = None
                                         self._segment_path = lambda: "mpls-ldp"
 
                                     def __setattr__(self, name, value):
@@ -11196,7 +11715,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid, self).__init__()
@@ -11205,19 +11724,22 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
                                         self.is_presence_container = True
-
-                                        self.type = YLeaf(YType.enumeration, "type")
-
-                                        self.value = YLeaf(YType.uint32, "value")
-
-                                        self.php = YLeaf(YType.enumeration, "php")
-
-                                        self.explicit_null = YLeaf(YType.enumeration, "explicit-null")
-
-                                        self.nflag_clear = YLeaf(YType.enumeration, "nflag-clear")
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                            ('php', YLeaf(YType.enumeration, 'php')),
+                                            ('explicit_null', YLeaf(YType.enumeration, 'explicit-null')),
+                                            ('nflag_clear', YLeaf(YType.enumeration, 'nflag-clear')),
+                                        ])
+                                        self.type = None
+                                        self.value = None
+                                        self.php = None
+                                        self.explicit_null = None
+                                        self.nflag_clear = None
                                         self._segment_path = lambda: "prefix-sspfsid"
 
                                     def __setattr__(self, name, value):
@@ -11238,7 +11760,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics, self).__init__()
@@ -11247,8 +11769,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"auto-metric" : ("auto_metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("auto-metric", ("auto_metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric))])
+                                        self._leafs = OrderedDict()
 
                                         self.auto_metric = YList(self)
                                         self._segment_path = lambda: "auto-metrics"
@@ -11269,7 +11793,7 @@ class Isis(Entity):
                                         <1\-16777214> is allowed as the
                                         auto\-metric value.
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -11288,7 +11812,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric, self).__init__()
@@ -11297,13 +11821,16 @@ class Isis(Entity):
                                             self.yang_parent_name = "auto-metrics"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.proactive_protect = YLeaf(YType.uint32, "proactive-protect")
-                                            self._segment_path = lambda: "auto-metric" + "[level='" + self.level.get() + "']"
+                                            self.ylist_key_names = ['level']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('proactive_protect', YLeaf(YType.uint32, 'proactive-protect')),
+                                            ])
+                                            self.level = None
+                                            self.proactive_protect = None
+                                            self._segment_path = lambda: "auto-metric" + "[level='" + str(self.level) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric, ['level', 'proactive_protect'], name, value)
@@ -11323,7 +11850,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags, self).__init__()
@@ -11332,8 +11859,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"admin-tag" : ("admin_tag", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("admin-tag", ("admin_tag", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag))])
+                                        self._leafs = OrderedDict()
 
                                         self.admin_tag = YList(self)
                                         self._segment_path = lambda: "admin-tags"
@@ -11347,7 +11876,7 @@ class Isis(Entity):
                                         Admin tag for advertised interface
                                         connected routes
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -11366,7 +11895,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag, self).__init__()
@@ -11375,13 +11904,16 @@ class Isis(Entity):
                                             self.yang_parent_name = "admin-tags"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.admin_tag = YLeaf(YType.uint32, "admin-tag")
-                                            self._segment_path = lambda: "admin-tag" + "[level='" + self.level.get() + "']"
+                                            self.ylist_key_names = ['level']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('admin_tag', YLeaf(YType.uint32, 'admin-tag')),
+                                            ])
+                                            self.level = None
+                                            self.admin_tag = None
+                                            self._segment_path = lambda: "admin-tag" + "[level='" + str(self.level) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag, ['level', 'admin_tag'], name, value)
@@ -11416,7 +11948,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup, self).__init__()
@@ -11425,13 +11957,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
                                         self.is_presence_container = True
-
-                                        self.link_group = YLeaf(YType.str, "link-group")
-
-                                        self.level = YLeaf(YType.uint32, "level")
+                                        self._leafs = OrderedDict([
+                                            ('link_group', YLeaf(YType.str, 'link-group')),
+                                            ('level', YLeaf(YType.uint32, 'level')),
+                                        ])
+                                        self.link_group = None
+                                        self.level = None
                                         self._segment_path = lambda: "interface-link-group"
 
                                     def __setattr__(self, name, value):
@@ -11452,7 +11987,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids, self).__init__()
@@ -11461,8 +11996,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"manual-adj-sid" : ("manual_adj_sid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("manual-adj-sid", ("manual_adj_sid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid))])
+                                        self._leafs = OrderedDict()
 
                                         self.manual_adj_sid = YList(self)
                                         self._segment_path = lambda: "manual-adj-sids"
@@ -11475,17 +12012,17 @@ class Isis(Entity):
                                         """
                                         Assign adjancency SID to an interface
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
-                                        .. attribute:: sid_type  <key>
+                                        .. attribute:: sid_type  (key)
                                         
                                         	Sid type aboslute or index
                                         	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                         
-                                        .. attribute:: sid  <key>
+                                        .. attribute:: sid  (key)
                                         
                                         	Sid value
                                         	**type**\: int
@@ -11504,7 +12041,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid, self).__init__()
@@ -11513,17 +12050,20 @@ class Isis(Entity):
                                             self.yang_parent_name = "manual-adj-sids"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                                            self.sid = YLeaf(YType.uint32, "sid")
-
-                                            self.protected = YLeaf(YType.enumeration, "protected")
-                                            self._segment_path = lambda: "manual-adj-sid" + "[level='" + self.level.get() + "']" + "[sid-type='" + self.sid_type.get() + "']" + "[sid='" + self.sid.get() + "']"
+                                            self.ylist_key_names = ['level','sid_type','sid']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                                ('sid', YLeaf(YType.uint32, 'sid')),
+                                                ('protected', YLeaf(YType.enumeration, 'protected')),
+                                            ])
+                                            self.level = None
+                                            self.sid_type = None
+                                            self.sid = None
+                                            self.protected = None
+                                            self._segment_path = lambda: "manual-adj-sid" + "[level='" + str(self.level) + "']" + "[sid-type='" + str(self.sid_type) + "']" + "[sid='" + str(self.sid) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
@@ -11543,7 +12083,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics, self).__init__()
@@ -11552,8 +12092,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"metric" : ("metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("metric", ("metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric))])
+                                        self._leafs = OrderedDict()
 
                                         self.metric = YList(self)
                                         self._segment_path = lambda: "metrics"
@@ -11573,7 +12115,7 @@ class Isis(Entity):
                                         value.  All routers exclude links with the
                                         maximum wide metric (16777215) from their SPF
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -11583,7 +12125,7 @@ class Isis(Entity):
                                         	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
                                         	**type**\: union of the below types:
                                         
-                                        		**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
+                                        		**type**\:  :py:class:`Metric_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_>`
                                         
                                         		**type**\: int
                                         
@@ -11596,7 +12138,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric, self).__init__()
@@ -11605,20 +12147,23 @@ class Isis(Entity):
                                             self.yang_parent_name = "metrics"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.metric = YLeaf(YType.str, "metric")
-                                            self._segment_path = lambda: "metric" + "[level='" + self.level.get() + "']"
+                                            self.ylist_key_names = ['level']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('metric', YLeaf(YType.str, 'metric')),
+                                            ])
+                                            self.level = None
+                                            self.metric = None
+                                            self._segment_path = lambda: "metric" + "[level='" + str(self.level) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric, ['level', 'metric'], name, value)
 
-                                        class Metric(Enum):
+                                        class Metric_(Enum):
                                             """
-                                            Metric
+                                            Metric\_ (Enum Class)
 
                                             Allowed metric\: <1\-63> for narrow,
 
@@ -11650,7 +12195,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights, self).__init__()
@@ -11659,8 +12204,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "interface-af-data"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"weight" : ("weight", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("weight", ("weight", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight))])
+                                        self._leafs = OrderedDict()
 
                                         self.weight = YList(self)
                                         self._segment_path = lambda: "weights"
@@ -11674,7 +12221,7 @@ class Isis(Entity):
                                         Weight configuration under interface for load
                                         balancing
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -11693,7 +12240,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight, self).__init__()
@@ -11702,13 +12249,16 @@ class Isis(Entity):
                                             self.yang_parent_name = "weights"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.weight = YLeaf(YType.uint32, "weight")
-                                            self._segment_path = lambda: "weight" + "[level='" + self.level.get() + "']"
+                                            self.ylist_key_names = ['level']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('weight', YLeaf(YType.uint32, 'weight')),
+                                            ])
+                                            self.level = None
+                                            self.weight = None
+                                            self._segment_path = lambda: "weight" + "[level='" + str(self.level) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight, ['level', 'weight'], name, value)
@@ -11718,7 +12268,7 @@ class Isis(Entity):
                                 """
                                 keys\: topology\-name
                                 
-                                .. attribute:: topology_name  <key>
+                                .. attribute:: topology_name  (key)
                                 
                                 	Topology Name
                                 	**type**\: str
@@ -11796,7 +12346,7 @@ class Isis(Entity):
                                 """
 
                                 _prefix = 'clns-isis-cfg'
-                                _revision = '2017-06-02'
+                                _revision = '2017-11-20'
 
                                 def __init__(self):
                                     super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName, self).__init__()
@@ -11805,14 +12355,17 @@ class Isis(Entity):
                                     self.yang_parent_name = "interface-af"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"prefix-sid" : ("prefix_sid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid), "interface-frr-table" : ("interface_frr_table", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable), "mpls-ldp" : ("mpls_ldp", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp), "prefix-sspfsid" : ("prefix_sspfsid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid), "auto-metrics" : ("auto_metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics), "admin-tags" : ("admin_tags", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags), "interface-link-group" : ("interface_link_group", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup), "manual-adj-sids" : ("manual_adj_sids", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids), "metrics" : ("metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics), "weights" : ("weights", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights)}
-                                    self._child_list_classes = {}
-
-                                    self.topology_name = YLeaf(YType.str, "topology-name")
-
-                                    self.interface_af_state = YLeaf(YType.enumeration, "interface-af-state")
-
-                                    self.running = YLeaf(YType.empty, "running")
+                                    self.ylist_key_names = ['topology_name']
+                                    self._child_container_classes = OrderedDict([("prefix-sid", ("prefix_sid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid)), ("interface-frr-table", ("interface_frr_table", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable)), ("mpls-ldp", ("mpls_ldp", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp)), ("prefix-sspfsid", ("prefix_sspfsid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid)), ("auto-metrics", ("auto_metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics)), ("admin-tags", ("admin_tags", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags)), ("interface-link-group", ("interface_link_group", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup)), ("manual-adj-sids", ("manual_adj_sids", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids)), ("metrics", ("metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics)), ("weights", ("weights", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('topology_name', YLeaf(YType.str, 'topology-name')),
+                                        ('interface_af_state', YLeaf(YType.enumeration, 'interface-af-state')),
+                                        ('running', YLeaf(YType.empty, 'running')),
+                                    ])
+                                    self.topology_name = None
+                                    self.interface_af_state = None
+                                    self.running = None
 
                                     self.prefix_sid = None
                                     self._children_name_map["prefix_sid"] = "prefix-sid"
@@ -11860,7 +12413,7 @@ class Isis(Entity):
                                     self.weights.parent = self
                                     self._children_name_map["weights"] = "weights"
                                     self._children_yang_names.add("weights")
-                                    self._segment_path = lambda: "topology-name" + "[topology-name='" + self.topology_name.get() + "']"
+                                    self._segment_path = lambda: "topology-name" + "[topology-name='" + str(self.topology_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName, ['topology_name', 'interface_af_state', 'running'], name, value)
@@ -11917,7 +12470,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid, self).__init__()
@@ -11926,19 +12479,22 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
                                         self.is_presence_container = True
-
-                                        self.type = YLeaf(YType.enumeration, "type")
-
-                                        self.value = YLeaf(YType.uint32, "value")
-
-                                        self.php = YLeaf(YType.enumeration, "php")
-
-                                        self.explicit_null = YLeaf(YType.enumeration, "explicit-null")
-
-                                        self.nflag_clear = YLeaf(YType.enumeration, "nflag-clear")
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                            ('php', YLeaf(YType.enumeration, 'php')),
+                                            ('explicit_null', YLeaf(YType.enumeration, 'explicit-null')),
+                                            ('nflag_clear', YLeaf(YType.enumeration, 'nflag-clear')),
+                                        ])
+                                        self.type = None
+                                        self.value = None
+                                        self.php = None
+                                        self.explicit_null = None
+                                        self.nflag_clear = None
                                         self._segment_path = lambda: "prefix-sid"
 
                                     def __setattr__(self, name, value):
@@ -11994,7 +12550,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable, self).__init__()
@@ -12003,8 +12559,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"frrlfa-candidate-interfaces" : ("frrlfa_candidate_interfaces", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces), "frr-remote-lfa-max-metrics" : ("frr_remote_lfa_max_metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics), "frr-types" : ("frr_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes), "frr-remote-lfa-types" : ("frr_remote_lfa_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes), "interface-frr-tiebreaker-defaults" : ("interface_frr_tiebreaker_defaults", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults), "frrtilfa-types" : ("frrtilfa_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes), "frr-exclude-interfaces" : ("frr_exclude_interfaces", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces), "interface-frr-tiebreakers" : ("interface_frr_tiebreakers", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("frrlfa-candidate-interfaces", ("frrlfa_candidate_interfaces", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces)), ("frr-remote-lfa-max-metrics", ("frr_remote_lfa_max_metrics", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics)), ("frr-types", ("frr_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes)), ("frr-remote-lfa-types", ("frr_remote_lfa_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes)), ("interface-frr-tiebreaker-defaults", ("interface_frr_tiebreaker_defaults", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults)), ("frrtilfa-types", ("frrtilfa_types", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes)), ("frr-exclude-interfaces", ("frr_exclude_interfaces", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces)), ("interface-frr-tiebreakers", ("interface_frr_tiebreakers", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.frrlfa_candidate_interfaces = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces()
                                         self.frrlfa_candidate_interfaces.parent = self
@@ -12062,7 +12620,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces, self).__init__()
@@ -12071,8 +12629,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frrlfa-candidate-interface" : ("frrlfa_candidate_interface", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frrlfa-candidate-interface", ("frrlfa_candidate_interface", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.frrlfa_candidate_interface = YList(self)
                                             self._segment_path = lambda: "frrlfa-candidate-interfaces"
@@ -12086,14 +12646,14 @@ class Isis(Entity):
                                             Include an interface to LFA candidate
                                             in computation
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
                                             
                                             	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
-                                            .. attribute:: frr_type  <key>
+                                            .. attribute:: frr_type  (key)
                                             
                                             	Computation Type
                                             	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
@@ -12112,7 +12672,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, self).__init__()
@@ -12121,15 +12681,18 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frrlfa-candidate-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                                self.frr_type = YLeaf(YType.enumeration, "frr-type")
-
-                                                self.level = YLeaf(YType.uint32, "level")
-                                                self._segment_path = lambda: "frrlfa-candidate-interface" + "[interface-name='" + self.interface_name.get() + "']" + "[frr-type='" + self.frr_type.get() + "']"
+                                                self.ylist_key_names = ['interface_name','frr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ('frr_type', YLeaf(YType.enumeration, 'frr-type')),
+                                                    ('level', YLeaf(YType.uint32, 'level')),
+                                                ])
+                                                self.interface_name = None
+                                                self.frr_type = None
+                                                self.level = None
+                                                self._segment_path = lambda: "frrlfa-candidate-interface" + "[interface-name='" + str(self.interface_name) + "']" + "[frr-type='" + str(self.frr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, ['interface_name', 'frr_type', 'level'], name, value)
@@ -12149,7 +12712,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics, self).__init__()
@@ -12158,8 +12721,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frr-remote-lfa-max-metric" : ("frr_remote_lfa_max_metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frr-remote-lfa-max-metric", ("frr_remote_lfa_max_metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric))])
+                                            self._leafs = OrderedDict()
 
                                             self.frr_remote_lfa_max_metric = YList(self)
                                             self._segment_path = lambda: "frr-remote-lfa-max-metrics"
@@ -12173,7 +12738,7 @@ class Isis(Entity):
                                             Configure the maximum metric for
                                             selecting a remote LFA node
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -12192,7 +12757,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, self).__init__()
@@ -12201,13 +12766,16 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frr-remote-lfa-max-metrics"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-
-                                                self.max_metric = YLeaf(YType.uint32, "max-metric")
-                                                self._segment_path = lambda: "frr-remote-lfa-max-metric" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                    ('max_metric', YLeaf(YType.uint32, 'max-metric')),
+                                                ])
+                                                self.level = None
+                                                self.max_metric = None
+                                                self._segment_path = lambda: "frr-remote-lfa-max-metric" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, ['level', 'max_metric'], name, value)
@@ -12227,7 +12795,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes, self).__init__()
@@ -12236,8 +12804,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frr-type" : ("frr_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frr-type", ("frr_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType))])
+                                            self._leafs = OrderedDict()
 
                                             self.frr_type = YList(self)
                                             self._segment_path = lambda: "frr-types"
@@ -12251,7 +12821,7 @@ class Isis(Entity):
                                             Type of computation for prefixes
                                             reachable via interface
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -12268,7 +12838,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType, self).__init__()
@@ -12277,13 +12847,16 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frr-types"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-
-                                                self.type = YLeaf(YType.enumeration, "type")
-                                                self._segment_path = lambda: "frr-type" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                ])
+                                                self.level = None
+                                                self.type = None
+                                                self._segment_path = lambda: "frr-type" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType, ['level', 'type'], name, value)
@@ -12303,7 +12876,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes, self).__init__()
@@ -12312,8 +12885,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frr-remote-lfa-type" : ("frr_remote_lfa_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frr-remote-lfa-type", ("frr_remote_lfa_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType))])
+                                            self._leafs = OrderedDict()
 
                                             self.frr_remote_lfa_type = YList(self)
                                             self._segment_path = lambda: "frr-remote-lfa-types"
@@ -12327,7 +12902,7 @@ class Isis(Entity):
                                             Enable remote lfa for a particular
                                             level
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -12344,7 +12919,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, self).__init__()
@@ -12353,13 +12928,16 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frr-remote-lfa-types"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-
-                                                self.type = YLeaf(YType.enumeration, "type")
-                                                self._segment_path = lambda: "frr-remote-lfa-type" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                ])
+                                                self.level = None
+                                                self.type = None
+                                                self._segment_path = lambda: "frr-remote-lfa-type" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, ['level', 'type'], name, value)
@@ -12380,7 +12958,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults, self).__init__()
@@ -12389,8 +12967,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"interface-frr-tiebreaker-default" : ("interface_frr_tiebreaker_default", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("interface-frr-tiebreaker-default", ("interface_frr_tiebreaker_default", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault))])
+                                            self._leafs = OrderedDict()
 
                                             self.interface_frr_tiebreaker_default = YList(self)
                                             self._segment_path = lambda: "interface-frr-tiebreaker-defaults"
@@ -12403,7 +12983,7 @@ class Isis(Entity):
                                             """
                                             Configure default tiebreaker
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -12413,7 +12993,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, self).__init__()
@@ -12422,11 +13002,14 @@ class Isis(Entity):
                                                 self.yang_parent_name = "interface-frr-tiebreaker-defaults"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-                                                self._segment_path = lambda: "interface-frr-tiebreaker-default" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                ])
+                                                self.level = None
+                                                self._segment_path = lambda: "interface-frr-tiebreaker-default" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, ['level'], name, value)
@@ -12446,7 +13029,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes, self).__init__()
@@ -12455,8 +13038,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frrtilfa-type" : ("frrtilfa_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frrtilfa-type", ("frrtilfa_type", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType))])
+                                            self._leafs = OrderedDict()
 
                                             self.frrtilfa_type = YList(self)
                                             self._segment_path = lambda: "frrtilfa-types"
@@ -12469,7 +13054,7 @@ class Isis(Entity):
                                             """
                                             Enable TI lfa for a particular level
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -12479,7 +13064,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, self).__init__()
@@ -12488,11 +13073,14 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frrtilfa-types"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-                                                self._segment_path = lambda: "frrtilfa-type" + "[level='" + self.level.get() + "']"
+                                                self.ylist_key_names = ['level']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                ])
+                                                self.level = None
+                                                self._segment_path = lambda: "frrtilfa-type" + "[level='" + str(self.level) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, ['level'], name, value)
@@ -12512,7 +13100,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces, self).__init__()
@@ -12521,8 +13109,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"frr-exclude-interface" : ("frr_exclude_interface", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("frr-exclude-interface", ("frr_exclude_interface", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface))])
+                                            self._leafs = OrderedDict()
 
                                             self.frr_exclude_interface = YList(self)
                                             self._segment_path = lambda: "frr-exclude-interfaces"
@@ -12535,14 +13125,14 @@ class Isis(Entity):
                                             """
                                             Exclude an interface from computation
                                             
-                                            .. attribute:: interface_name  <key>
+                                            .. attribute:: interface_name  (key)
                                             
                                             	Interface
                                             	**type**\: str
                                             
                                             	**pattern:** [a\-zA\-Z0\-9./\-]+
                                             
-                                            .. attribute:: frr_type  <key>
+                                            .. attribute:: frr_type  (key)
                                             
                                             	Computation Type
                                             	**type**\:  :py:class:`Isisfrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isisfrr>`
@@ -12561,7 +13151,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, self).__init__()
@@ -12570,15 +13160,18 @@ class Isis(Entity):
                                                 self.yang_parent_name = "frr-exclude-interfaces"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                                self.frr_type = YLeaf(YType.enumeration, "frr-type")
-
-                                                self.level = YLeaf(YType.uint32, "level")
-                                                self._segment_path = lambda: "frr-exclude-interface" + "[interface-name='" + self.interface_name.get() + "']" + "[frr-type='" + self.frr_type.get() + "']"
+                                                self.ylist_key_names = ['interface_name','frr_type']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                                    ('frr_type', YLeaf(YType.enumeration, 'frr-type')),
+                                                    ('level', YLeaf(YType.uint32, 'level')),
+                                                ])
+                                                self.interface_name = None
+                                                self.frr_type = None
+                                                self.level = None
+                                                self._segment_path = lambda: "frr-exclude-interface" + "[interface-name='" + str(self.interface_name) + "']" + "[frr-type='" + str(self.frr_type) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, ['interface_name', 'frr_type', 'level'], name, value)
@@ -12598,7 +13191,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers, self).__init__()
@@ -12607,8 +13200,10 @@ class Isis(Entity):
                                             self.yang_parent_name = "interface-frr-table"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"interface-frr-tiebreaker" : ("interface_frr_tiebreaker", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("interface-frr-tiebreaker", ("interface_frr_tiebreaker", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker))])
+                                            self._leafs = OrderedDict()
 
                                             self.interface_frr_tiebreaker = YList(self)
                                             self._segment_path = lambda: "interface-frr-tiebreakers"
@@ -12622,12 +13217,12 @@ class Isis(Entity):
                                             Configure tiebreaker for multiple
                                             backups
                                             
-                                            .. attribute:: level  <key>
+                                            .. attribute:: level  (key)
                                             
                                             	Level to which configuration applies
                                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                             
-                                            .. attribute:: tiebreaker  <key>
+                                            .. attribute:: tiebreaker  (key)
                                             
                                             	Tiebreaker for which configuration applies
                                             	**type**\:  :py:class:`IsisInterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceFrrTiebreaker>`
@@ -12646,7 +13241,7 @@ class Isis(Entity):
                                             """
 
                                             _prefix = 'clns-isis-cfg'
-                                            _revision = '2017-06-02'
+                                            _revision = '2017-11-20'
 
                                             def __init__(self):
                                                 super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, self).__init__()
@@ -12655,15 +13250,18 @@ class Isis(Entity):
                                                 self.yang_parent_name = "interface-frr-tiebreakers"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.level = YLeaf(YType.enumeration, "level")
-
-                                                self.tiebreaker = YLeaf(YType.enumeration, "tiebreaker")
-
-                                                self.index = YLeaf(YType.uint32, "index")
-                                                self._segment_path = lambda: "interface-frr-tiebreaker" + "[level='" + self.level.get() + "']" + "[tiebreaker='" + self.tiebreaker.get() + "']"
+                                                self.ylist_key_names = ['level','tiebreaker']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                                    ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
+                                                    ('index', YLeaf(YType.uint32, 'index')),
+                                                ])
+                                                self.level = None
+                                                self.tiebreaker = None
+                                                self.index = None
+                                                self._segment_path = lambda: "interface-frr-tiebreaker" + "[level='" + str(self.level) + "']" + "[tiebreaker='" + str(self.tiebreaker) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
@@ -12687,7 +13285,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp, self).__init__()
@@ -12696,10 +13294,13 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.sync_level = YLeaf(YType.uint32, "sync-level")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sync_level', YLeaf(YType.uint32, 'sync-level')),
+                                        ])
+                                        self.sync_level = None
                                         self._segment_path = lambda: "mpls-ldp"
 
                                     def __setattr__(self, name, value):
@@ -12757,7 +13358,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid, self).__init__()
@@ -12766,19 +13367,22 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
                                         self.is_presence_container = True
-
-                                        self.type = YLeaf(YType.enumeration, "type")
-
-                                        self.value = YLeaf(YType.uint32, "value")
-
-                                        self.php = YLeaf(YType.enumeration, "php")
-
-                                        self.explicit_null = YLeaf(YType.enumeration, "explicit-null")
-
-                                        self.nflag_clear = YLeaf(YType.enumeration, "nflag-clear")
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                            ('php', YLeaf(YType.enumeration, 'php')),
+                                            ('explicit_null', YLeaf(YType.enumeration, 'explicit-null')),
+                                            ('nflag_clear', YLeaf(YType.enumeration, 'nflag-clear')),
+                                        ])
+                                        self.type = None
+                                        self.value = None
+                                        self.php = None
+                                        self.explicit_null = None
+                                        self.nflag_clear = None
                                         self._segment_path = lambda: "prefix-sspfsid"
 
                                     def __setattr__(self, name, value):
@@ -12799,7 +13403,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics, self).__init__()
@@ -12808,8 +13412,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"auto-metric" : ("auto_metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("auto-metric", ("auto_metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric))])
+                                        self._leafs = OrderedDict()
 
                                         self.auto_metric = YList(self)
                                         self._segment_path = lambda: "auto-metrics"
@@ -12830,7 +13436,7 @@ class Isis(Entity):
                                         <1\-16777214> is allowed as the
                                         auto\-metric value.
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -12849,7 +13455,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric, self).__init__()
@@ -12858,13 +13464,16 @@ class Isis(Entity):
                                             self.yang_parent_name = "auto-metrics"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.proactive_protect = YLeaf(YType.uint32, "proactive-protect")
-                                            self._segment_path = lambda: "auto-metric" + "[level='" + self.level.get() + "']"
+                                            self.ylist_key_names = ['level']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('proactive_protect', YLeaf(YType.uint32, 'proactive-protect')),
+                                            ])
+                                            self.level = None
+                                            self.proactive_protect = None
+                                            self._segment_path = lambda: "auto-metric" + "[level='" + str(self.level) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric, ['level', 'proactive_protect'], name, value)
@@ -12884,7 +13493,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags, self).__init__()
@@ -12893,8 +13502,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"admin-tag" : ("admin_tag", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("admin-tag", ("admin_tag", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag))])
+                                        self._leafs = OrderedDict()
 
                                         self.admin_tag = YList(self)
                                         self._segment_path = lambda: "admin-tags"
@@ -12908,7 +13519,7 @@ class Isis(Entity):
                                         Admin tag for advertised interface
                                         connected routes
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -12927,7 +13538,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag, self).__init__()
@@ -12936,13 +13547,16 @@ class Isis(Entity):
                                             self.yang_parent_name = "admin-tags"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.admin_tag = YLeaf(YType.uint32, "admin-tag")
-                                            self._segment_path = lambda: "admin-tag" + "[level='" + self.level.get() + "']"
+                                            self.ylist_key_names = ['level']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('admin_tag', YLeaf(YType.uint32, 'admin-tag')),
+                                            ])
+                                            self.level = None
+                                            self.admin_tag = None
+                                            self._segment_path = lambda: "admin-tag" + "[level='" + str(self.level) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag, ['level', 'admin_tag'], name, value)
@@ -12977,7 +13591,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup, self).__init__()
@@ -12986,13 +13600,16 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
                                         self.is_presence_container = True
-
-                                        self.link_group = YLeaf(YType.str, "link-group")
-
-                                        self.level = YLeaf(YType.uint32, "level")
+                                        self._leafs = OrderedDict([
+                                            ('link_group', YLeaf(YType.str, 'link-group')),
+                                            ('level', YLeaf(YType.uint32, 'level')),
+                                        ])
+                                        self.link_group = None
+                                        self.level = None
                                         self._segment_path = lambda: "interface-link-group"
 
                                     def __setattr__(self, name, value):
@@ -13013,7 +13630,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids, self).__init__()
@@ -13022,8 +13639,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"manual-adj-sid" : ("manual_adj_sid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("manual-adj-sid", ("manual_adj_sid", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid))])
+                                        self._leafs = OrderedDict()
 
                                         self.manual_adj_sid = YList(self)
                                         self._segment_path = lambda: "manual-adj-sids"
@@ -13036,17 +13655,17 @@ class Isis(Entity):
                                         """
                                         Assign adjancency SID to an interface
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
                                         
-                                        .. attribute:: sid_type  <key>
+                                        .. attribute:: sid_type  (key)
                                         
                                         	Sid type aboslute or index
                                         	**type**\:  :py:class:`Isissid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isissid1>`
                                         
-                                        .. attribute:: sid  <key>
+                                        .. attribute:: sid  (key)
                                         
                                         	Sid value
                                         	**type**\: int
@@ -13065,7 +13684,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid, self).__init__()
@@ -13074,17 +13693,20 @@ class Isis(Entity):
                                             self.yang_parent_name = "manual-adj-sids"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                                            self.sid = YLeaf(YType.uint32, "sid")
-
-                                            self.protected = YLeaf(YType.enumeration, "protected")
-                                            self._segment_path = lambda: "manual-adj-sid" + "[level='" + self.level.get() + "']" + "[sid-type='" + self.sid_type.get() + "']" + "[sid='" + self.sid.get() + "']"
+                                            self.ylist_key_names = ['level','sid_type','sid']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                                ('sid', YLeaf(YType.uint32, 'sid')),
+                                                ('protected', YLeaf(YType.enumeration, 'protected')),
+                                            ])
+                                            self.level = None
+                                            self.sid_type = None
+                                            self.sid = None
+                                            self.protected = None
+                                            self._segment_path = lambda: "manual-adj-sid" + "[level='" + str(self.level) + "']" + "[sid-type='" + str(self.sid_type) + "']" + "[sid='" + str(self.sid) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
@@ -13104,7 +13726,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics, self).__init__()
@@ -13113,8 +13735,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"metric" : ("metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("metric", ("metric", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric))])
+                                        self._leafs = OrderedDict()
 
                                         self.metric = YList(self)
                                         self._segment_path = lambda: "metrics"
@@ -13134,7 +13758,7 @@ class Isis(Entity):
                                         value.  All routers exclude links with the
                                         maximum wide metric (16777215) from their SPF
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -13144,7 +13768,7 @@ class Isis(Entity):
                                         	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
                                         	**type**\: union of the below types:
                                         
-                                        		**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric>`
+                                        		**type**\:  :py:class:`Metric_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_>`
                                         
                                         		**type**\: int
                                         
@@ -13157,7 +13781,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric, self).__init__()
@@ -13166,20 +13790,23 @@ class Isis(Entity):
                                             self.yang_parent_name = "metrics"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.metric = YLeaf(YType.str, "metric")
-                                            self._segment_path = lambda: "metric" + "[level='" + self.level.get() + "']"
+                                            self.ylist_key_names = ['level']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('metric', YLeaf(YType.str, 'metric')),
+                                            ])
+                                            self.level = None
+                                            self.metric = None
+                                            self._segment_path = lambda: "metric" + "[level='" + str(self.level) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric, ['level', 'metric'], name, value)
 
-                                        class Metric(Enum):
+                                        class Metric_(Enum):
                                             """
-                                            Metric
+                                            Metric\_ (Enum Class)
 
                                             Allowed metric\: <1\-63> for narrow,
 
@@ -13211,7 +13838,7 @@ class Isis(Entity):
                                     """
 
                                     _prefix = 'clns-isis-cfg'
-                                    _revision = '2017-06-02'
+                                    _revision = '2017-11-20'
 
                                     def __init__(self):
                                         super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights, self).__init__()
@@ -13220,8 +13847,10 @@ class Isis(Entity):
                                         self.yang_parent_name = "topology-name"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"weight" : ("weight", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("weight", ("weight", Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight))])
+                                        self._leafs = OrderedDict()
 
                                         self.weight = YList(self)
                                         self._segment_path = lambda: "weights"
@@ -13235,7 +13864,7 @@ class Isis(Entity):
                                         Weight configuration under interface for load
                                         balancing
                                         
-                                        .. attribute:: level  <key>
+                                        .. attribute:: level  (key)
                                         
                                         	Level to which configuration applies
                                         	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -13254,7 +13883,7 @@ class Isis(Entity):
                                         """
 
                                         _prefix = 'clns-isis-cfg'
-                                        _revision = '2017-06-02'
+                                        _revision = '2017-11-20'
 
                                         def __init__(self):
                                             super(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight, self).__init__()
@@ -13263,13 +13892,16 @@ class Isis(Entity):
                                             self.yang_parent_name = "weights"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.level = YLeaf(YType.enumeration, "level")
-
-                                            self.weight = YLeaf(YType.uint32, "weight")
-                                            self._segment_path = lambda: "weight" + "[level='" + self.level.get() + "']"
+                                            self.ylist_key_names = ['level']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('level', YLeaf(YType.enumeration, 'level')),
+                                                ('weight', YLeaf(YType.uint32, 'weight')),
+                                            ])
+                                            self.level = None
+                                            self.weight = None
+                                            self._segment_path = lambda: "weight" + "[level='" + str(self.level) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight, ['level', 'weight'], name, value)
@@ -13289,7 +13921,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals, self).__init__()
@@ -13298,8 +13930,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"csnp-interval" : ("csnp_interval", Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("csnp-interval", ("csnp_interval", Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval))])
+                            self._leafs = OrderedDict()
 
                             self.csnp_interval = YList(self)
                             self._segment_path = lambda: "csnp-intervals"
@@ -13314,7 +13948,7 @@ class Isis(Entity):
                             default value as this depends on the media
                             type of the interface.
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -13335,7 +13969,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval, self).__init__()
@@ -13344,13 +13978,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "csnp-intervals"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-                                self._segment_path = lambda: "csnp-interval" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                ])
+                                self.level = None
+                                self.interval = None
+                                self._segment_path = lambda: "csnp-interval" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval, ['level', 'interval'], name, value)
@@ -13370,7 +14007,7 @@ class Isis(Entity):
                         """
 
                         _prefix = 'clns-isis-cfg'
-                        _revision = '2017-06-02'
+                        _revision = '2017-11-20'
 
                         def __init__(self):
                             super(Isis.Instances.Instance.Interfaces.Interface.LspIntervals, self).__init__()
@@ -13379,8 +14016,10 @@ class Isis(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"lsp-interval" : ("lsp_interval", Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("lsp-interval", ("lsp_interval", Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval))])
+                            self._leafs = OrderedDict()
 
                             self.lsp_interval = YList(self)
                             self._segment_path = lambda: "lsp-intervals"
@@ -13394,7 +14033,7 @@ class Isis(Entity):
                             Interval between transmission of LSPs on
                             interface.
                             
-                            .. attribute:: level  <key>
+                            .. attribute:: level  (key)
                             
                             	Level to which configuration applies
                             	**type**\:  :py:class:`IsisInternalLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel>`
@@ -13415,7 +14054,7 @@ class Isis(Entity):
                             """
 
                             _prefix = 'clns-isis-cfg'
-                            _revision = '2017-06-02'
+                            _revision = '2017-11-20'
 
                             def __init__(self):
                                 super(Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval, self).__init__()
@@ -13424,13 +14063,16 @@ class Isis(Entity):
                                 self.yang_parent_name = "lsp-intervals"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.level = YLeaf(YType.enumeration, "level")
-
-                                self.interval = YLeaf(YType.uint32, "interval")
-                                self._segment_path = lambda: "lsp-interval" + "[level='" + self.level.get() + "']"
+                                self.ylist_key_names = ['level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('level', YLeaf(YType.enumeration, 'level')),
+                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                ])
+                                self.level = None
+                                self.interval = None
+                                self._segment_path = lambda: "lsp-interval" + "[level='" + str(self.level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval, ['level', 'interval'], name, value)

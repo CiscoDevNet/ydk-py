@@ -11,9 +11,11 @@ amplifiers can still receive a signal if one of the two fiber
 pairs is broken.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -58,8 +60,10 @@ class Aps(Entity):
         self.yang_parent_name = "openconfig-transport-line-protection"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"aps-modules" : ("aps_modules", Aps.ApsModules)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("aps-modules", ("aps_modules", Aps.ApsModules))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.aps_modules = Aps.ApsModules()
         self.aps_modules.parent = self
@@ -92,8 +96,10 @@ class Aps(Entity):
             self.yang_parent_name = "aps"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"aps-module" : ("aps_module", Aps.ApsModules.ApsModule)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("aps-module", ("aps_module", Aps.ApsModules.ApsModule))])
+            self._leafs = OrderedDict()
 
             self.aps_module = YList(self)
             self._segment_path = lambda: "aps-modules"
@@ -108,7 +114,7 @@ class Aps(Entity):
             List of automatic protection switch modules present
             in the device
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Reference to the config name list key
             	**type**\: str
@@ -144,10 +150,13 @@ class Aps(Entity):
                 self.yang_parent_name = "aps-modules"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Aps.ApsModules.ApsModule.Config), "state" : ("state", Aps.ApsModules.ApsModule.State), "ports" : ("ports", Aps.ApsModules.ApsModule.Ports)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("config", ("config", Aps.ApsModules.ApsModule.Config)), ("state", ("state", Aps.ApsModules.ApsModule.State)), ("ports", ("ports", Aps.ApsModules.ApsModule.Ports))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.config = Aps.ApsModules.ApsModule.Config()
                 self.config.parent = self
@@ -163,7 +172,7 @@ class Aps(Entity):
                 self.ports.parent = self
                 self._children_name_map["ports"] = "ports"
                 self._children_yang_names.add("ports")
-                self._segment_path = lambda: "aps-module" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "aps-module" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "openconfig-transport-line-protection:aps/aps-modules/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -237,20 +246,23 @@ class Aps(Entity):
                     self.yang_parent_name = "aps-module"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.revertive = YLeaf(YType.boolean, "revertive")
-
-                    self.primary_switch_threshold = YLeaf(YType.str, "primary-switch-threshold")
-
-                    self.primary_switch_hysteresis = YLeaf(YType.str, "primary-switch-hysteresis")
-
-                    self.secondary_switch_threshold = YLeaf(YType.str, "secondary-switch-threshold")
-
-                    self.secondary_switch_hysteresis = YLeaf(YType.str, "secondary-switch-hysteresis")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('revertive', YLeaf(YType.boolean, 'revertive')),
+                        ('primary_switch_threshold', YLeaf(YType.str, 'primary-switch-threshold')),
+                        ('primary_switch_hysteresis', YLeaf(YType.str, 'primary-switch-hysteresis')),
+                        ('secondary_switch_threshold', YLeaf(YType.str, 'secondary-switch-threshold')),
+                        ('secondary_switch_hysteresis', YLeaf(YType.str, 'secondary-switch-hysteresis')),
+                    ])
+                    self.name = None
+                    self.revertive = None
+                    self.primary_switch_threshold = None
+                    self.primary_switch_hysteresis = None
+                    self.secondary_switch_threshold = None
+                    self.secondary_switch_hysteresis = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -329,22 +341,25 @@ class Aps(Entity):
                     self.yang_parent_name = "aps-module"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.revertive = YLeaf(YType.boolean, "revertive")
-
-                    self.primary_switch_threshold = YLeaf(YType.str, "primary-switch-threshold")
-
-                    self.primary_switch_hysteresis = YLeaf(YType.str, "primary-switch-hysteresis")
-
-                    self.secondary_switch_threshold = YLeaf(YType.str, "secondary-switch-threshold")
-
-                    self.secondary_switch_hysteresis = YLeaf(YType.str, "secondary-switch-hysteresis")
-
-                    self.active_path = YLeaf(YType.identityref, "active-path")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('revertive', YLeaf(YType.boolean, 'revertive')),
+                        ('primary_switch_threshold', YLeaf(YType.str, 'primary-switch-threshold')),
+                        ('primary_switch_hysteresis', YLeaf(YType.str, 'primary-switch-hysteresis')),
+                        ('secondary_switch_threshold', YLeaf(YType.str, 'secondary-switch-threshold')),
+                        ('secondary_switch_hysteresis', YLeaf(YType.str, 'secondary-switch-hysteresis')),
+                        ('active_path', YLeaf(YType.identityref, 'active-path')),
+                    ])
+                    self.name = None
+                    self.revertive = None
+                    self.primary_switch_threshold = None
+                    self.primary_switch_hysteresis = None
+                    self.secondary_switch_threshold = None
+                    self.secondary_switch_hysteresis = None
+                    self.active_path = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -399,8 +414,10 @@ class Aps(Entity):
                     self.yang_parent_name = "aps-module"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"line-primary-in" : ("line_primary_in", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn), "line-primary-out" : ("line_primary_out", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut), "line-secondary-in" : ("line_secondary_in", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn), "line-secondary-out" : ("line_secondary_out", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut), "common-in" : ("common_in", Aps.ApsModules.ApsModule.Ports.CommonIn), "common-output" : ("common_output", Aps.ApsModules.ApsModule.Ports.CommonOutput)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("line-primary-in", ("line_primary_in", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn)), ("line-primary-out", ("line_primary_out", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut)), ("line-secondary-in", ("line_secondary_in", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn)), ("line-secondary-out", ("line_secondary_out", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut)), ("common-in", ("common_in", Aps.ApsModules.ApsModule.Ports.CommonIn)), ("common-output", ("common_output", Aps.ApsModules.ApsModule.Ports.CommonOutput))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.line_primary_in = Aps.ApsModules.ApsModule.Ports.LinePrimaryIn()
                     self.line_primary_in.parent = self
@@ -463,8 +480,10 @@ class Aps(Entity):
                         self.yang_parent_name = "ports"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config), "state" : ("state", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config)), ("state", ("state", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config()
                         self.config.parent = self
@@ -512,12 +531,15 @@ class Aps(Entity):
                             self.yang_parent_name = "line-primary-in"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                            ])
+                            self.enabled = None
+                            self.target_attenuation = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -572,14 +594,17 @@ class Aps(Entity):
                             self.yang_parent_name = "line-primary-in"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"optical-power" : ("optical_power", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower)}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
-
-                            self.attenuation = YLeaf(YType.str, "attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                            ])
+                            self.enabled = None
+                            self.target_attenuation = None
+                            self.attenuation = None
 
                             self.optical_power = Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower()
                             self.optical_power.parent = self
@@ -650,16 +675,19 @@ class Aps(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "optical-power"
 
                             def __setattr__(self, name, value):
@@ -695,8 +723,10 @@ class Aps(Entity):
                         self.yang_parent_name = "ports"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config), "state" : ("state", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config)), ("state", ("state", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config()
                         self.config.parent = self
@@ -737,10 +767,13 @@ class Aps(Entity):
                             self.yang_parent_name = "line-primary-out"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                            ])
+                            self.target_attenuation = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -788,12 +821,15 @@ class Aps(Entity):
                             self.yang_parent_name = "line-primary-out"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"optical-power" : ("optical_power", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower)}
-                            self._child_list_classes = {}
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
-
-                            self.attenuation = YLeaf(YType.str, "attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                            ])
+                            self.target_attenuation = None
+                            self.attenuation = None
 
                             self.optical_power = Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower()
                             self.optical_power.parent = self
@@ -864,16 +900,19 @@ class Aps(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "optical-power"
 
                             def __setattr__(self, name, value):
@@ -909,8 +948,10 @@ class Aps(Entity):
                         self.yang_parent_name = "ports"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config), "state" : ("state", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config)), ("state", ("state", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config()
                         self.config.parent = self
@@ -958,12 +999,15 @@ class Aps(Entity):
                             self.yang_parent_name = "line-secondary-in"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                            ])
+                            self.enabled = None
+                            self.target_attenuation = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1018,14 +1062,17 @@ class Aps(Entity):
                             self.yang_parent_name = "line-secondary-in"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"optical-power" : ("optical_power", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower)}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
-
-                            self.attenuation = YLeaf(YType.str, "attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                            ])
+                            self.enabled = None
+                            self.target_attenuation = None
+                            self.attenuation = None
 
                             self.optical_power = Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower()
                             self.optical_power.parent = self
@@ -1096,16 +1143,19 @@ class Aps(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "optical-power"
 
                             def __setattr__(self, name, value):
@@ -1141,8 +1191,10 @@ class Aps(Entity):
                         self.yang_parent_name = "ports"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config), "state" : ("state", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config)), ("state", ("state", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config()
                         self.config.parent = self
@@ -1183,10 +1235,13 @@ class Aps(Entity):
                             self.yang_parent_name = "line-secondary-out"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                            ])
+                            self.target_attenuation = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1234,12 +1289,15 @@ class Aps(Entity):
                             self.yang_parent_name = "line-secondary-out"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"optical-power" : ("optical_power", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower)}
-                            self._child_list_classes = {}
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
-
-                            self.attenuation = YLeaf(YType.str, "attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                            ])
+                            self.target_attenuation = None
+                            self.attenuation = None
 
                             self.optical_power = Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower()
                             self.optical_power.parent = self
@@ -1310,16 +1368,19 @@ class Aps(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "optical-power"
 
                             def __setattr__(self, name, value):
@@ -1355,8 +1416,10 @@ class Aps(Entity):
                         self.yang_parent_name = "ports"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Aps.ApsModules.ApsModule.Ports.CommonIn.Config), "state" : ("state", Aps.ApsModules.ApsModule.Ports.CommonIn.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Aps.ApsModules.ApsModule.Ports.CommonIn.Config)), ("state", ("state", Aps.ApsModules.ApsModule.Ports.CommonIn.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Aps.ApsModules.ApsModule.Ports.CommonIn.Config()
                         self.config.parent = self
@@ -1404,12 +1467,15 @@ class Aps(Entity):
                             self.yang_parent_name = "common-in"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                            ])
+                            self.enabled = None
+                            self.target_attenuation = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1464,14 +1530,17 @@ class Aps(Entity):
                             self.yang_parent_name = "common-in"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"optical-power" : ("optical_power", Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower)}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
-
-                            self.attenuation = YLeaf(YType.str, "attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                            ])
+                            self.enabled = None
+                            self.target_attenuation = None
+                            self.attenuation = None
 
                             self.optical_power = Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower()
                             self.optical_power.parent = self
@@ -1542,16 +1611,19 @@ class Aps(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "optical-power"
 
                             def __setattr__(self, name, value):
@@ -1587,8 +1659,10 @@ class Aps(Entity):
                         self.yang_parent_name = "ports"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Aps.ApsModules.ApsModule.Ports.CommonOutput.Config), "state" : ("state", Aps.ApsModules.ApsModule.Ports.CommonOutput.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Aps.ApsModules.ApsModule.Ports.CommonOutput.Config)), ("state", ("state", Aps.ApsModules.ApsModule.Ports.CommonOutput.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Aps.ApsModules.ApsModule.Ports.CommonOutput.Config()
                         self.config.parent = self
@@ -1629,10 +1703,13 @@ class Aps(Entity):
                             self.yang_parent_name = "common-output"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                            ])
+                            self.target_attenuation = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1680,12 +1757,15 @@ class Aps(Entity):
                             self.yang_parent_name = "common-output"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"optical-power" : ("optical_power", Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower)}
-                            self._child_list_classes = {}
-
-                            self.target_attenuation = YLeaf(YType.str, "target-attenuation")
-
-                            self.attenuation = YLeaf(YType.str, "attenuation")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                            ])
+                            self.target_attenuation = None
+                            self.attenuation = None
 
                             self.optical_power = Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower()
                             self.optical_power.parent = self
@@ -1756,16 +1836,19 @@ class Aps(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "optical-power"
 
                             def __setattr__(self, name, value):

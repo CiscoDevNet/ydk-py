@@ -23,9 +23,11 @@ This version of this YANG module is part of RFC XXXX
 full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -102,8 +104,10 @@ class RoutingState(Entity):
         self.yang_parent_name = "ietf-routing"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"routing-instance" : ("routing_instance", RoutingState.RoutingInstance)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("routing-instance", ("routing_instance", RoutingState.RoutingInstance))])
+        self._leafs = OrderedDict()
 
         self.routing_instance = YList(self)
         self._segment_path = lambda: "ietf-routing:routing-state"
@@ -127,7 +131,7 @@ class RoutingState(Entity):
         create user\-controlled routing instances in
         configuration.
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	The name of the routing instance.  For system\-controlled instances the name is persistent, i.e., it SHOULD NOT change across reboots
         	**type**\: str
@@ -173,14 +177,17 @@ class RoutingState(Entity):
             self.yang_parent_name = "routing-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interfaces" : ("interfaces", RoutingState.RoutingInstance.Interfaces), "routing-protocols" : ("routing_protocols", RoutingState.RoutingInstance.RoutingProtocols), "ribs" : ("ribs", RoutingState.RoutingInstance.Ribs)}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.type = YLeaf(YType.identityref, "type")
-
-            self.router_id = YLeaf(YType.str, "router-id")
+            self.ylist_key_names = ['name']
+            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", RoutingState.RoutingInstance.Interfaces)), ("routing-protocols", ("routing_protocols", RoutingState.RoutingInstance.RoutingProtocols)), ("ribs", ("ribs", RoutingState.RoutingInstance.Ribs))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('type', YLeaf(YType.identityref, 'type')),
+                ('router_id', YLeaf(YType.str, 'router-id')),
+            ])
+            self.name = None
+            self.type = None
+            self.router_id = None
 
             self.interfaces = RoutingState.RoutingInstance.Interfaces()
             self.interfaces.parent = self
@@ -196,7 +203,7 @@ class RoutingState(Entity):
             self.ribs.parent = self
             self._children_name_map["ribs"] = "ribs"
             self._children_yang_names.add("ribs")
-            self._segment_path = lambda: "routing-instance" + "[name='" + self.name.get() + "']"
+            self._segment_path = lambda: "routing-instance" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-routing:routing-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -229,10 +236,13 @@ class RoutingState(Entity):
                 self.yang_parent_name = "routing-instance"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface = YLeafList(YType.str, "interface")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface', YLeafList(YType.str, 'interface')),
+                ])
+                self.interface = []
                 self._segment_path = lambda: "interfaces"
 
             def __setattr__(self, name, value):
@@ -262,8 +272,10 @@ class RoutingState(Entity):
                 self.yang_parent_name = "routing-instance"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"routing-protocol" : ("routing_protocol", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("routing-protocol", ("routing_protocol", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol))])
+                self._leafs = OrderedDict()
 
                 self.routing_protocol = YList(self)
                 self._segment_path = lambda: "routing-protocols"
@@ -280,12 +292,12 @@ class RoutingState(Entity):
                 system\-controlled instance of the type 'direct'. Other
                 instances MAY be created by configuration.
                 
-                .. attribute:: type  <key>
+                .. attribute:: type  (key)
                 
                 	Type of the routing protocol
                 	**type**\:  :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	The name of the routing protocol instance.  For system\-controlled instances this name is persistent, i.e., it SHOULD NOT change across reboots
                 	**type**\: str
@@ -309,18 +321,21 @@ class RoutingState(Entity):
                     self.yang_parent_name = "routing-protocols"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"ietf-ospf:ospf" : ("ospf", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf)}
-                    self._child_list_classes = {}
-
-                    self.type = YLeaf(YType.identityref, "type")
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['type','name']
+                    self._child_container_classes = OrderedDict([("ietf-ospf:ospf", ("ospf", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.identityref, 'type')),
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.type = None
+                    self.name = None
 
                     self.ospf = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf()
                     self.ospf.parent = self
-                    self._children_name_map["ospf"] = "ospf"
-                    self._children_yang_names.add("ospf")
-                    self._segment_path = lambda: "routing-protocol" + "[type='" + self.type.get() + "']" + "[name='" + self.name.get() + "']"
+                    self._children_name_map["ospf"] = "ietf-ospf:ospf"
+                    self._children_yang_names.add("ietf-ospf:ospf")
+                    self._segment_path = lambda: "routing-protocol" + "[type='" + str(self.type) + "']" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol, ['type', 'name'], name, value)
@@ -354,10 +369,13 @@ class RoutingState(Entity):
                         self.yang_parent_name = "routing-protocol"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"instance" : ("instance", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance)}
-
-                        self.operation_mode = YLeaf(YType.identityref, "operation-mode")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("instance", ("instance", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance))])
+                        self._leafs = OrderedDict([
+                            ('operation_mode', YLeaf(YType.identityref, 'operation-mode')),
+                        ])
+                        self.operation_mode = None
 
                         self.instance = YList(self)
                         self._segment_path = lambda: "ietf-ospf:ospf"
@@ -370,7 +388,7 @@ class RoutingState(Entity):
                         """
                         An OSPF routing protocol instance.
                         
-                        .. attribute:: af  <key>
+                        .. attribute:: af  (key)
                         
                         	Address\-family of the instance
                         	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
@@ -411,17 +429,20 @@ class RoutingState(Entity):
                             self.yang_parent_name = "ospf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"area" : ("area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area), "as-scope-lsas" : ("as_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas), "topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology)}
-
-                            self.af = YLeaf(YType.identityref, "af")
-
-                            self.router_id = YLeaf(YType.str, "router-id")
+                            self.ylist_key_names = ['af']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("area", ("area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area)), ("as-scope-lsas", ("as_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas)), ("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology))])
+                            self._leafs = OrderedDict([
+                                ('af', YLeaf(YType.identityref, 'af')),
+                                ('router_id', YLeaf(YType.str, 'router-id')),
+                            ])
+                            self.af = None
+                            self.router_id = None
 
                             self.area = YList(self)
                             self.as_scope_lsas = YList(self)
                             self.topology = YList(self)
-                            self._segment_path = lambda: "instance" + "[af='" + self.af.get() + "']"
+                            self._segment_path = lambda: "instance" + "[af='" + str(self.af) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance, ['af', 'router_id'], name, value)
@@ -431,7 +452,7 @@ class RoutingState(Entity):
                             """
                             List of OSPF areas
                             
-                            .. attribute:: area_id  <key>
+                            .. attribute:: area_id  (key)
                             
                             	Area ID
                             	**type**\: union of the below types:
@@ -468,14 +489,17 @@ class RoutingState(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"interfaces" : ("interfaces", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces), "area-scope-lsas" : ("area_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas)}
-
-                                self.area_id = YLeaf(YType.str, "area-id")
+                                self.ylist_key_names = ['area_id']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("interfaces", ("interfaces", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces)), ("area-scope-lsas", ("area_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas))])
+                                self._leafs = OrderedDict([
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                ])
+                                self.area_id = None
 
                                 self.interfaces = YList(self)
                                 self.area_scope_lsas = YList(self)
-                                self._segment_path = lambda: "area" + "[area-id='" + self.area_id.get() + "']"
+                                self._segment_path = lambda: "area" + "[area-id='" + str(self.area_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area, ['area_id'], name, value)
@@ -485,7 +509,7 @@ class RoutingState(Entity):
                                 """
                                 List of OSPF interfaces.
                                 
-                                .. attribute:: interface  <key>
+                                .. attribute:: interface  (key)
                                 
                                 	Interface
                                 	**type**\: str
@@ -673,48 +697,51 @@ class RoutingState(Entity):
                                     self.yang_parent_name = "area"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"multi-area" : ("multi_area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea), "static-neighbors" : ("static_neighbors", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors), "fast-reroute" : ("fast_reroute", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute), "ttl-security" : ("ttl_security", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity), "authentication" : ("authentication", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication)}
-                                    self._child_list_classes = {"neighbor" : ("neighbor", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor), "link-scope-lsas" : ("link_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas), "topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology)}
-
-                                    self.interface = YLeaf(YType.str, "interface")
-
-                                    self.network_type = YLeaf(YType.enumeration, "network-type")
-
-                                    self.passive = YLeaf(YType.boolean, "passive")
-
-                                    self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
-
-                                    self.node_flag = YLeaf(YType.boolean, "node-flag")
-
-                                    self.cost = YLeaf(YType.uint16, "cost")
-
-                                    self.hello_interval = YLeaf(YType.uint16, "hello-interval")
-
-                                    self.dead_interval = YLeaf(YType.uint16, "dead-interval")
-
-                                    self.retransmit_interval = YLeaf(YType.uint16, "retransmit-interval")
-
-                                    self.transmit_delay = YLeaf(YType.uint16, "transmit-delay")
-
-                                    self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                    self.lls = YLeaf(YType.boolean, "lls")
-
-                                    self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                    self.bfd = YLeaf(YType.boolean, "bfd")
-
-                                    self.enable = YLeaf(YType.boolean, "enable")
-
-                                    self.state = YLeaf(YType.str, "state")
-
-                                    self.hello_timer = YLeaf(YType.uint32, "hello-timer")
-
-                                    self.wait_timer = YLeaf(YType.uint32, "wait-timer")
-
-                                    self.dr = YLeaf(YType.str, "dr")
-
-                                    self.bdr = YLeaf(YType.str, "bdr")
+                                    self.ylist_key_names = ['interface']
+                                    self._child_container_classes = OrderedDict([("multi-area", ("multi_area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea)), ("static-neighbors", ("static_neighbors", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors)), ("fast-reroute", ("fast_reroute", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute)), ("ttl-security", ("ttl_security", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity)), ("authentication", ("authentication", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication))])
+                                    self._child_list_classes = OrderedDict([("neighbor", ("neighbor", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor)), ("link-scope-lsas", ("link_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas)), ("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology))])
+                                    self._leafs = OrderedDict([
+                                        ('interface', YLeaf(YType.str, 'interface')),
+                                        ('network_type', YLeaf(YType.enumeration, 'network-type')),
+                                        ('passive', YLeaf(YType.boolean, 'passive')),
+                                        ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                        ('node_flag', YLeaf(YType.boolean, 'node-flag')),
+                                        ('cost', YLeaf(YType.uint16, 'cost')),
+                                        ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
+                                        ('dead_interval', YLeaf(YType.uint16, 'dead-interval')),
+                                        ('retransmit_interval', YLeaf(YType.uint16, 'retransmit-interval')),
+                                        ('transmit_delay', YLeaf(YType.uint16, 'transmit-delay')),
+                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                        ('lls', YLeaf(YType.boolean, 'lls')),
+                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                        ('bfd', YLeaf(YType.boolean, 'bfd')),
+                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                        ('state', YLeaf(YType.str, 'state')),
+                                        ('hello_timer', YLeaf(YType.uint32, 'hello-timer')),
+                                        ('wait_timer', YLeaf(YType.uint32, 'wait-timer')),
+                                        ('dr', YLeaf(YType.str, 'dr')),
+                                        ('bdr', YLeaf(YType.str, 'bdr')),
+                                    ])
+                                    self.interface = None
+                                    self.network_type = None
+                                    self.passive = None
+                                    self.demand_circuit = None
+                                    self.node_flag = None
+                                    self.cost = None
+                                    self.hello_interval = None
+                                    self.dead_interval = None
+                                    self.retransmit_interval = None
+                                    self.transmit_delay = None
+                                    self.mtu_ignore = None
+                                    self.lls = None
+                                    self.prefix_suppression = None
+                                    self.bfd = None
+                                    self.enable = None
+                                    self.state = None
+                                    self.hello_timer = None
+                                    self.wait_timer = None
+                                    self.dr = None
+                                    self.bdr = None
 
                                     self.multi_area = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea()
                                     self.multi_area.parent = self
@@ -744,14 +771,14 @@ class RoutingState(Entity):
                                     self.neighbor = YList(self)
                                     self.link_scope_lsas = YList(self)
                                     self.topology = YList(self)
-                                    self._segment_path = lambda: "interfaces" + "[interface='" + self.interface.get() + "']"
+                                    self._segment_path = lambda: "interfaces" + "[interface='" + str(self.interface) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces, ['interface', 'network_type', 'passive', 'demand_circuit', 'node_flag', 'cost', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay', 'mtu_ignore', 'lls', 'prefix_suppression', 'bfd', 'enable', 'state', 'hello_timer', 'wait_timer', 'dr', 'bdr'], name, value)
 
                                 class NetworkType(Enum):
                                     """
-                                    NetworkType
+                                    NetworkType (Enum Class)
 
                                     Network type.
 
@@ -823,12 +850,15 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.multi_area_id = YLeaf(YType.str, "multi-area-id")
-
-                                        self.cost = YLeaf(YType.uint16, "cost")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('multi_area_id', YLeaf(YType.str, 'multi-area-id')),
+                                            ('cost', YLeaf(YType.uint16, 'cost')),
+                                        ])
+                                        self.multi_area_id = None
+                                        self.cost = None
                                         self._segment_path = lambda: "multi-area"
 
                                     def __setattr__(self, name, value):
@@ -858,8 +888,10 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"neighbor" : ("neighbor", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor))])
+                                        self._leafs = OrderedDict()
 
                                         self.neighbor = YList(self)
                                         self._segment_path = lambda: "static-neighbors"
@@ -872,7 +904,7 @@ class RoutingState(Entity):
                                         """
                                         Specify a neighbor router.
                                         
-                                        .. attribute:: address  <key>
+                                        .. attribute:: address  (key)
                                         
                                         	Neighbor IP address
                                         	**type**\: union of the below types:
@@ -922,17 +954,20 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "static-neighbors"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.address = YLeaf(YType.str, "address")
-
-                                            self.cost = YLeaf(YType.uint16, "cost")
-
-                                            self.poll_interval = YLeaf(YType.uint16, "poll-interval")
-
-                                            self.priority = YLeaf(YType.uint8, "priority")
-                                            self._segment_path = lambda: "neighbor" + "[address='" + self.address.get() + "']"
+                                            self.ylist_key_names = ['address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('cost', YLeaf(YType.uint16, 'cost')),
+                                                ('poll_interval', YLeaf(YType.uint16, 'poll-interval')),
+                                                ('priority', YLeaf(YType.uint8, 'priority')),
+                                            ])
+                                            self.address = None
+                                            self.cost = None
+                                            self.poll_interval = None
+                                            self.priority = None
+                                            self._segment_path = lambda: "neighbor" + "[address='" + str(self.address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor, ['address', 'cost', 'poll_interval', 'priority'], name, value)
@@ -961,8 +996,10 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"lfa" : ("lfa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("lfa", ("lfa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.lfa = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa()
                                         self.lfa.parent = self
@@ -1004,12 +1041,15 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"remote-lfa" : ("remote_lfa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa)}
-                                            self._child_list_classes = {}
-
-                                            self.candidate_disabled = YLeaf(YType.boolean, "candidate-disabled")
-
-                                            self.enabled = YLeaf(YType.boolean, "enabled")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('candidate_disabled', YLeaf(YType.boolean, 'candidate-disabled')),
+                                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                            ])
+                                            self.candidate_disabled = None
+                                            self.enabled = None
 
                                             self.remote_lfa = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa()
                                             self.remote_lfa.parent = self
@@ -1044,10 +1084,13 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "lfa"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                                ])
+                                                self.enabled = None
                                                 self._segment_path = lambda: "remote-lfa"
 
                                             def __setattr__(self, name, value):
@@ -1084,12 +1127,15 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.hops = YLeaf(YType.uint8, "hops")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('hops', YLeaf(YType.uint8, 'hops')),
+                                        ])
+                                        self.enable = None
+                                        self.hops = None
                                         self._segment_path = lambda: "ttl-security"
 
                                     def __setattr__(self, name, value):
@@ -1136,14 +1182,17 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"crypto-algorithm" : ("crypto_algorithm", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm)}
-                                        self._child_list_classes = {}
-
-                                        self.sa = YLeaf(YType.str, "sa")
-
-                                        self.key_chain = YLeaf(YType.str, "key-chain")
-
-                                        self.key = YLeaf(YType.str, "key")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("crypto-algorithm", ("crypto_algorithm", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sa', YLeaf(YType.str, 'sa')),
+                                            ('key_chain', YLeaf(YType.str, 'key-chain')),
+                                            ('key', YLeaf(YType.str, 'key')),
+                                        ])
+                                        self.sa = None
+                                        self.key_chain = None
+                                        self.key = None
 
                                         self.crypto_algorithm = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm()
                                         self.crypto_algorithm.parent = self
@@ -1213,24 +1262,27 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "authentication"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.hmac_sha1_12 = YLeaf(YType.empty, "hmac-sha1-12")
-
-                                            self.hmac_sha1_20 = YLeaf(YType.empty, "hmac-sha1-20")
-
-                                            self.md5 = YLeaf(YType.empty, "md5")
-
-                                            self.sha_1 = YLeaf(YType.empty, "sha-1")
-
-                                            self.hmac_sha_1 = YLeaf(YType.empty, "hmac-sha-1")
-
-                                            self.hmac_sha_256 = YLeaf(YType.empty, "hmac-sha-256")
-
-                                            self.hmac_sha_384 = YLeaf(YType.empty, "hmac-sha-384")
-
-                                            self.hmac_sha_512 = YLeaf(YType.empty, "hmac-sha-512")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
+                                                ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
+                                                ('md5', YLeaf(YType.empty, 'md5')),
+                                                ('sha_1', YLeaf(YType.empty, 'sha-1')),
+                                                ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
+                                                ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
+                                                ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
+                                                ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                                            ])
+                                            self.hmac_sha1_12 = None
+                                            self.hmac_sha1_20 = None
+                                            self.md5 = None
+                                            self.sha_1 = None
+                                            self.hmac_sha_1 = None
+                                            self.hmac_sha_256 = None
+                                            self.hmac_sha_384 = None
+                                            self.hmac_sha_512 = None
                                             self._segment_path = lambda: "crypto-algorithm"
 
                                         def __setattr__(self, name, value):
@@ -1241,7 +1293,7 @@ class RoutingState(Entity):
                                     """
                                     List of OSPF neighbors.
                                     
-                                    .. attribute:: neighbor_id  <key>
+                                    .. attribute:: neighbor_id  (key)
                                     
                                     	Neighbor ID
                                     	**type**\: str
@@ -1294,19 +1346,22 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.neighbor_id = YLeaf(YType.str, "neighbor-id")
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.dr = YLeaf(YType.str, "dr")
-
-                                        self.bdr = YLeaf(YType.str, "bdr")
-
-                                        self.state = YLeaf(YType.enumeration, "state")
-                                        self._segment_path = lambda: "neighbor" + "[neighbor-id='" + self.neighbor_id.get() + "']"
+                                        self.ylist_key_names = ['neighbor_id']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('dr', YLeaf(YType.str, 'dr')),
+                                            ('bdr', YLeaf(YType.str, 'bdr')),
+                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                        ])
+                                        self.neighbor_id = None
+                                        self.address = None
+                                        self.dr = None
+                                        self.bdr = None
+                                        self.state = None
+                                        self._segment_path = lambda: "neighbor" + "[neighbor-id='" + str(self.neighbor_id) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor, ['neighbor_id', 'address', 'dr', 'bdr', 'state'], name, value)
@@ -1316,7 +1371,7 @@ class RoutingState(Entity):
                                     """
                                     List OSPF link scope LSA databases
                                     
-                                    .. attribute:: lsa_type  <key>
+                                    .. attribute:: lsa_type  (key)
                                     
                                     	OSPF link scope LSA type
                                     	**type**\: int
@@ -1342,13 +1397,16 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"link-scope-lsa" : ("link_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa)}
-
-                                        self.lsa_type = YLeaf(YType.uint8, "lsa-type")
+                                        self.ylist_key_names = ['lsa_type']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("link-scope-lsa", ("link_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa))])
+                                        self._leafs = OrderedDict([
+                                            ('lsa_type', YLeaf(YType.uint8, 'lsa-type')),
+                                        ])
+                                        self.lsa_type = None
 
                                         self.link_scope_lsa = YList(self)
-                                        self._segment_path = lambda: "link-scope-lsas" + "[lsa-type='" + self.lsa_type.get() + "']"
+                                        self._segment_path = lambda: "link-scope-lsas" + "[lsa-type='" + str(self.lsa_type) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas, ['lsa_type'], name, value)
@@ -1358,7 +1416,7 @@ class RoutingState(Entity):
                                         """
                                         List of OSPF link scope LSAs
                                         
-                                        .. attribute:: lsa_id  <key>
+                                        .. attribute:: lsa_id  (key)
                                         
                                         	LSA ID
                                         	**type**\: union of the below types:
@@ -1371,7 +1429,7 @@ class RoutingState(Entity):
                                         
                                         			**range:** 0..4294967295
                                         
-                                        .. attribute:: adv_router  <key>
+                                        .. attribute:: adv_router  (key)
                                         
                                         	Advertising router
                                         	**type**\: str
@@ -1414,16 +1472,19 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "link-scope-lsas"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"ospfv2" : ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2), "ospfv3" : ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3)}
-                                            self._child_list_classes = {}
-
-                                            self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                            self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                            self.decoded_completed = YLeaf(YType.boolean, "decoded-completed")
-
-                                            self.raw_data = YLeaf(YType.str, "raw-data")
+                                            self.ylist_key_names = ['lsa_id','adv_router']
+                                            self._child_container_classes = OrderedDict([("ospfv2", ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2)), ("ospfv3", ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                                ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                                ('decoded_completed', YLeaf(YType.boolean, 'decoded-completed')),
+                                                ('raw_data', YLeaf(YType.str, 'raw-data')),
+                                            ])
+                                            self.lsa_id = None
+                                            self.adv_router = None
+                                            self.decoded_completed = None
+                                            self.raw_data = None
 
                                             self.ospfv2 = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2()
                                             self.ospfv2.parent = self
@@ -1434,7 +1495,7 @@ class RoutingState(Entity):
                                             self.ospfv3.parent = self
                                             self._children_name_map["ospfv3"] = "ospfv3"
                                             self._children_yang_names.add("ospfv3")
-                                            self._segment_path = lambda: "link-scope-lsa" + "[lsa-id='" + self.lsa_id.get() + "']" + "[adv-router='" + self.adv_router.get() + "']"
+                                            self._segment_path = lambda: "link-scope-lsa" + "[lsa-id='" + str(self.lsa_id) + "']" + "[adv-router='" + str(self.adv_router) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa, ['lsa_id', 'adv_router', 'decoded_completed', 'raw_data'], name, value)
@@ -1468,8 +1529,10 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "link-scope-lsa"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"header" : ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header), "body" : ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("header", ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header)), ("body", ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.header = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header()
                                                 self.header.parent = self
@@ -1585,28 +1648,31 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "ospfv2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.options = YLeaf(YType.bits, "options")
-
-                                                    self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                                    self.opaque_type = YLeaf(YType.uint8, "opaque-type")
-
-                                                    self.opaque_id = YLeaf(YType.uint32, "opaque-id")
-
-                                                    self.age = YLeaf(YType.uint16, "age")
-
-                                                    self.type = YLeaf(YType.uint16, "type")
-
-                                                    self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                                    self.seq_num = YLeaf(YType.str, "seq-num")
-
-                                                    self.checksum = YLeaf(YType.str, "checksum")
-
-                                                    self.length = YLeaf(YType.uint16, "length")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('options', YLeaf(YType.bits, 'options')),
+                                                        ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                                        ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
+                                                        ('opaque_id', YLeaf(YType.uint32, 'opaque-id')),
+                                                        ('age', YLeaf(YType.uint16, 'age')),
+                                                        ('type', YLeaf(YType.uint16, 'type')),
+                                                        ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                                        ('seq_num', YLeaf(YType.str, 'seq-num')),
+                                                        ('checksum', YLeaf(YType.str, 'checksum')),
+                                                        ('length', YLeaf(YType.uint16, 'length')),
+                                                    ])
+                                                    self.options = Bits()
+                                                    self.lsa_id = None
+                                                    self.opaque_type = None
+                                                    self.opaque_id = None
+                                                    self.age = None
+                                                    self.type = None
+                                                    self.adv_router = None
+                                                    self.seq_num = None
+                                                    self.checksum = None
+                                                    self.length = None
                                                     self._segment_path = lambda: "header"
 
                                                 def __setattr__(self, name, value):
@@ -1656,8 +1722,10 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "ospfv2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"router" : ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router), "network" : ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network), "summary" : ("summary", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary), "external" : ("external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External), "opaque" : ("opaque", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque)}
-                                                    self._child_list_classes = {}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("router", ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router)), ("network", ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network)), ("summary", ("summary", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary)), ("external", ("external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External)), ("opaque", ("opaque", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
 
                                                     self.router = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router()
                                                     self.router.parent = self
@@ -1721,12 +1789,15 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link)}
-
-                                                        self.flags = YLeaf(YType.bits, "flags")
-
-                                                        self.num_of_links = YLeaf(YType.uint16, "num-of-links")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link))])
+                                                        self._leafs = OrderedDict([
+                                                            ('flags', YLeaf(YType.bits, 'flags')),
+                                                            ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
+                                                        ])
+                                                        self.flags = Bits()
+                                                        self.num_of_links = None
 
                                                         self.link = YList(self)
                                                         self._segment_path = lambda: "router"
@@ -1739,7 +1810,7 @@ class RoutingState(Entity):
                                                         """
                                                         Router LSA link.
                                                         
-                                                        .. attribute:: link_id  <key>
+                                                        .. attribute:: link_id  (key)
                                                         
                                                         	Link ID
                                                         	**type**\: union of the below types:
@@ -1752,7 +1823,7 @@ class RoutingState(Entity):
                                                         
                                                         			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                         
-                                                        .. attribute:: link_data  <key>
+                                                        .. attribute:: link_data  (key)
                                                         
                                                         	Link data
                                                         	**type**\: union of the below types:
@@ -1791,17 +1862,20 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "router"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology)}
-
-                                                            self.link_id = YLeaf(YType.str, "link-id")
-
-                                                            self.link_data = YLeaf(YType.str, "link-data")
-
-                                                            self.type = YLeaf(YType.uint8, "type")
+                                                            self.ylist_key_names = ['link_id','link_data']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology))])
+                                                            self._leafs = OrderedDict([
+                                                                ('link_id', YLeaf(YType.str, 'link-id')),
+                                                                ('link_data', YLeaf(YType.str, 'link-data')),
+                                                                ('type', YLeaf(YType.uint8, 'type')),
+                                                            ])
+                                                            self.link_id = None
+                                                            self.link_data = None
+                                                            self.type = None
 
                                                             self.topology = YList(self)
-                                                            self._segment_path = lambda: "link" + "[link-id='" + self.link_id.get() + "']" + "[link-data='" + self.link_data.get() + "']"
+                                                            self._segment_path = lambda: "link" + "[link-id='" + str(self.link_id) + "']" + "[link-data='" + str(self.link_data) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link, ['link_id', 'link_data', 'type'], name, value)
@@ -1811,7 +1885,7 @@ class RoutingState(Entity):
                                                             """
                                                             Topology specific information.
                                                             
-                                                            .. attribute:: mt_id  <key>
+                                                            .. attribute:: mt_id  (key)
                                                             
                                                             	The MT\-ID for topology enabled on the link
                                                             	**type**\: int
@@ -1839,13 +1913,16 @@ class RoutingState(Entity):
                                                                 self.yang_parent_name = "link"
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
-                                                                self._child_container_classes = {}
-                                                                self._child_list_classes = {}
-
-                                                                self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                                self.metric = YLeaf(YType.uint16, "metric")
-                                                                self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                                self.ylist_key_names = ['mt_id']
+                                                                self._child_container_classes = OrderedDict([])
+                                                                self._child_list_classes = OrderedDict([])
+                                                                self._leafs = OrderedDict([
+                                                                    ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                                    ('metric', YLeaf(YType.uint16, 'metric')),
+                                                                ])
+                                                                self.mt_id = None
+                                                                self.metric = None
+                                                                self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
@@ -1883,12 +1960,15 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.network_mask = YLeaf(YType.str, "network-mask")
-
-                                                        self.attached_router = YLeafList(YType.str, "attached-router")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                            ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                        ])
+                                                        self.network_mask = None
+                                                        self.attached_router = []
                                                         self._segment_path = lambda: "network"
 
                                                     def __setattr__(self, name, value):
@@ -1925,10 +2005,13 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology)}
-
-                                                        self.network_mask = YLeaf(YType.str, "network-mask")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology))])
+                                                        self._leafs = OrderedDict([
+                                                            ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                        ])
+                                                        self.network_mask = None
 
                                                         self.topology = YList(self)
                                                         self._segment_path = lambda: "summary"
@@ -1941,7 +2024,7 @@ class RoutingState(Entity):
                                                         """
                                                         Topology specific information.
                                                         
-                                                        .. attribute:: mt_id  <key>
+                                                        .. attribute:: mt_id  (key)
                                                         
                                                         	The MT\-ID for topology enabled on the link
                                                         	**type**\: int
@@ -1969,13 +2052,16 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "summary"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                            self.metric = YLeaf(YType.uint32, "metric")
-                                                            self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                            self.ylist_key_names = ['mt_id']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ])
+                                                            self.mt_id = None
+                                                            self.metric = None
+                                                            self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
@@ -2011,10 +2097,13 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology)}
-
-                                                        self.network_mask = YLeaf(YType.str, "network-mask")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology))])
+                                                        self._leafs = OrderedDict([
+                                                            ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                        ])
+                                                        self.network_mask = None
 
                                                         self.topology = YList(self)
                                                         self._segment_path = lambda: "external"
@@ -2027,7 +2116,7 @@ class RoutingState(Entity):
                                                         """
                                                         Topology specific information.
                                                         
-                                                        .. attribute:: mt_id  <key>
+                                                        .. attribute:: mt_id  (key)
                                                         
                                                         	The MT\-ID for topology enabled on the link
                                                         	**type**\: int
@@ -2074,19 +2163,22 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "external"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                            self.flags = YLeaf(YType.bits, "flags")
-
-                                                            self.metric = YLeaf(YType.uint32, "metric")
-
-                                                            self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                            self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-                                                            self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                            self.ylist_key_names = ['mt_id']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                                ('flags', YLeaf(YType.bits, 'flags')),
+                                                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                                                ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                                ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                            ])
+                                                            self.mt_id = None
+                                                            self.flags = Bits()
+                                                            self.metric = None
+                                                            self.forwarding_address = None
+                                                            self.external_route_tag = None
+                                                            self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
@@ -2125,8 +2217,10 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"router-address-tlv" : ("router_address_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv), "link-tlv" : ("link_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv)}
-                                                        self._child_list_classes = {"unknown-tlv" : ("unknown_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv)}
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("router-address-tlv", ("router_address_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv)), ("link-tlv", ("link_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv))])
+                                                        self._child_list_classes = OrderedDict([("unknown-tlv", ("unknown_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv))])
+                                                        self._leafs = OrderedDict()
 
                                                         self.router_address_tlv = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv()
                                                         self.router_address_tlv.parent = self
@@ -2149,7 +2243,7 @@ class RoutingState(Entity):
                                                         """
                                                         Unknown TLV.
                                                         
-                                                        .. attribute:: type  <key>
+                                                        .. attribute:: type  (key)
                                                         
                                                         	TLV type
                                                         	**type**\: int
@@ -2184,15 +2278,18 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "opaque"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.type = YLeaf(YType.uint16, "type")
-
-                                                            self.length = YLeaf(YType.uint16, "length")
-
-                                                            self.value = YLeaf(YType.str, "value")
-                                                            self._segment_path = lambda: "unknown-tlv" + "[type='" + self.type.get() + "']"
+                                                            self.ylist_key_names = ['type']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('type', YLeaf(YType.uint16, 'type')),
+                                                                ('length', YLeaf(YType.uint16, 'length')),
+                                                                ('value', YLeaf(YType.str, 'value')),
+                                                            ])
+                                                            self.type = None
+                                                            self.length = None
+                                                            self.value = None
+                                                            self._segment_path = lambda: "unknown-tlv" + "[type='" + str(self.type) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
@@ -2223,10 +2320,13 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "opaque"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.router_address = YLeaf(YType.str, "router-address")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('router_address', YLeaf(YType.str, 'router-address')),
+                                                            ])
+                                                            self.router_address = None
                                                             self._segment_path = lambda: "router-address-tlv"
 
                                                         def __setattr__(self, name, value):
@@ -2329,26 +2429,29 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "opaque"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {"unknown-subtlv" : ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv)}
-
-                                                            self.link_type = YLeaf(YType.uint8, "link-type")
-
-                                                            self.link_id = YLeaf(YType.str, "link-id")
-
-                                                            self.local_if_ipv4_addr = YLeafList(YType.str, "local-if-ipv4-addr")
-
-                                                            self.local_remote_ipv4_addr = YLeafList(YType.str, "local-remote-ipv4-addr")
-
-                                                            self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                                                            self.max_bandwidth = YLeaf(YType.str, "max-bandwidth")
-
-                                                            self.max_reservable_bandwidth = YLeaf(YType.str, "max-reservable-bandwidth")
-
-                                                            self.unreserved_bandwidth = YLeaf(YType.str, "unreserved-bandwidth")
-
-                                                            self.admin_group = YLeaf(YType.uint32, "admin-group")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([("unknown-subtlv", ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv))])
+                                                            self._leafs = OrderedDict([
+                                                                ('link_type', YLeaf(YType.uint8, 'link-type')),
+                                                                ('link_id', YLeaf(YType.str, 'link-id')),
+                                                                ('local_if_ipv4_addr', YLeafList(YType.str, 'local-if-ipv4-addr')),
+                                                                ('local_remote_ipv4_addr', YLeafList(YType.str, 'local-remote-ipv4-addr')),
+                                                                ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                                                                ('max_bandwidth', YLeaf(YType.str, 'max-bandwidth')),
+                                                                ('max_reservable_bandwidth', YLeaf(YType.str, 'max-reservable-bandwidth')),
+                                                                ('unreserved_bandwidth', YLeaf(YType.str, 'unreserved-bandwidth')),
+                                                                ('admin_group', YLeaf(YType.uint32, 'admin-group')),
+                                                            ])
+                                                            self.link_type = None
+                                                            self.link_id = None
+                                                            self.local_if_ipv4_addr = []
+                                                            self.local_remote_ipv4_addr = []
+                                                            self.te_metric = None
+                                                            self.max_bandwidth = None
+                                                            self.max_reservable_bandwidth = None
+                                                            self.unreserved_bandwidth = None
+                                                            self.admin_group = None
 
                                                             self.unknown_subtlv = YList(self)
                                                             self._segment_path = lambda: "link-tlv"
@@ -2361,7 +2464,7 @@ class RoutingState(Entity):
                                                             """
                                                             Unknown sub\-TLV.
                                                             
-                                                            .. attribute:: type  <key>
+                                                            .. attribute:: type  (key)
                                                             
                                                             	TLV type
                                                             	**type**\: int
@@ -2396,15 +2499,18 @@ class RoutingState(Entity):
                                                                 self.yang_parent_name = "link-tlv"
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
-                                                                self._child_container_classes = {}
-                                                                self._child_list_classes = {}
-
-                                                                self.type = YLeaf(YType.uint16, "type")
-
-                                                                self.length = YLeaf(YType.uint16, "length")
-
-                                                                self.value = YLeaf(YType.str, "value")
-                                                                self._segment_path = lambda: "unknown-subtlv" + "[type='" + self.type.get() + "']"
+                                                                self.ylist_key_names = ['type']
+                                                                self._child_container_classes = OrderedDict([])
+                                                                self._child_list_classes = OrderedDict([])
+                                                                self._leafs = OrderedDict([
+                                                                    ('type', YLeaf(YType.uint16, 'type')),
+                                                                    ('length', YLeaf(YType.uint16, 'length')),
+                                                                    ('value', YLeaf(YType.str, 'value')),
+                                                                ])
+                                                                self.type = None
+                                                                self.length = None
+                                                                self.value = None
+                                                                self._segment_path = lambda: "unknown-subtlv" + "[type='" + str(self.type) + "']"
 
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
@@ -2438,8 +2544,10 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "link-scope-lsa"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"header" : ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header), "body" : ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("header", ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header)), ("body", ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.header = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header()
                                                 self.header.parent = self
@@ -2537,24 +2645,27 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "ospfv3"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.lsa_id = YLeaf(YType.uint32, "lsa-id")
-
-                                                    self.age = YLeaf(YType.uint16, "age")
-
-                                                    self.type = YLeaf(YType.uint16, "type")
-
-                                                    self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                                    self.seq_num = YLeaf(YType.str, "seq-num")
-
-                                                    self.checksum = YLeaf(YType.str, "checksum")
-
-                                                    self.length = YLeaf(YType.uint16, "length")
-
-                                                    self.options = YLeaf(YType.bits, "options")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('lsa_id', YLeaf(YType.uint32, 'lsa-id')),
+                                                        ('age', YLeaf(YType.uint16, 'age')),
+                                                        ('type', YLeaf(YType.uint16, 'type')),
+                                                        ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                                        ('seq_num', YLeaf(YType.str, 'seq-num')),
+                                                        ('checksum', YLeaf(YType.str, 'checksum')),
+                                                        ('length', YLeaf(YType.uint16, 'length')),
+                                                        ('options', YLeaf(YType.bits, 'options')),
+                                                    ])
+                                                    self.lsa_id = None
+                                                    self.age = None
+                                                    self.type = None
+                                                    self.adv_router = None
+                                                    self.seq_num = None
+                                                    self.checksum = None
+                                                    self.length = None
+                                                    self.options = Bits()
                                                     self._segment_path = lambda: "header"
 
                                                 def __setattr__(self, name, value):
@@ -2619,8 +2730,10 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "ospfv3"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"router" : ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router), "network" : ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network), "inter-area-prefix" : ("inter_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix), "inter-area-router" : ("inter_area_router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter), "as-external" : ("as_external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal), "nssa" : ("nssa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa), "link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link), "intra-area-prefix" : ("intra_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix)}
-                                                    self._child_list_classes = {}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("router", ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router)), ("network", ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network)), ("inter-area-prefix", ("inter_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix)), ("inter-area-router", ("inter_area_router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter)), ("as-external", ("as_external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal)), ("nssa", ("nssa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa)), ("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link)), ("intra-area-prefix", ("intra_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
 
                                                     self.router = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router()
                                                     self.router.parent = self
@@ -2701,12 +2814,15 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link)}
-
-                                                        self.flags = YLeaf(YType.bits, "flags")
-
-                                                        self.options = YLeaf(YType.bits, "options")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link))])
+                                                        self._leafs = OrderedDict([
+                                                            ('flags', YLeaf(YType.bits, 'flags')),
+                                                            ('options', YLeaf(YType.bits, 'options')),
+                                                        ])
+                                                        self.flags = Bits()
+                                                        self.options = Bits()
 
                                                         self.link = YList(self)
                                                         self._segment_path = lambda: "router"
@@ -2719,21 +2835,21 @@ class RoutingState(Entity):
                                                         """
                                                         Router LSA link.
                                                         
-                                                        .. attribute:: interface_id  <key>
+                                                        .. attribute:: interface_id  (key)
                                                         
                                                         	Interface ID
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
-                                                        .. attribute:: neighbor_interface_id  <key>
+                                                        .. attribute:: neighbor_interface_id  (key)
                                                         
                                                         	Neighbor Interface ID
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
                                                         
-                                                        .. attribute:: neighbor_router_id  <key>
+                                                        .. attribute:: neighbor_router_id  (key)
                                                         
                                                         	Neighbor Router ID
                                                         	**type**\: str
@@ -2768,19 +2884,22 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "router"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.interface_id = YLeaf(YType.uint32, "interface-id")
-
-                                                            self.neighbor_interface_id = YLeaf(YType.uint32, "neighbor-interface-id")
-
-                                                            self.neighbor_router_id = YLeaf(YType.str, "neighbor-router-id")
-
-                                                            self.type = YLeaf(YType.uint8, "type")
-
-                                                            self.metric = YLeaf(YType.uint16, "metric")
-                                                            self._segment_path = lambda: "link" + "[interface-id='" + self.interface_id.get() + "']" + "[neighbor-interface-id='" + self.neighbor_interface_id.get() + "']" + "[neighbor-router-id='" + self.neighbor_router_id.get() + "']"
+                                                            self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('interface_id', YLeaf(YType.uint32, 'interface-id')),
+                                                                ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
+                                                                ('neighbor_router_id', YLeaf(YType.str, 'neighbor-router-id')),
+                                                                ('type', YLeaf(YType.uint8, 'type')),
+                                                                ('metric', YLeaf(YType.uint16, 'metric')),
+                                                            ])
+                                                            self.interface_id = None
+                                                            self.neighbor_interface_id = None
+                                                            self.neighbor_router_id = None
+                                                            self.type = None
+                                                            self.metric = None
+                                                            self._segment_path = lambda: "link" + "[interface-id='" + str(self.interface_id) + "']" + "[neighbor-interface-id='" + str(self.neighbor_interface_id) + "']" + "[neighbor-router-id='" + str(self.neighbor_router_id) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
@@ -2818,12 +2937,15 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.options = YLeaf(YType.bits, "options")
-
-                                                        self.attached_router = YLeafList(YType.str, "attached-router")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('options', YLeaf(YType.bits, 'options')),
+                                                            ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                        ])
+                                                        self.options = Bits()
+                                                        self.attached_router = []
                                                         self._segment_path = lambda: "network"
 
                                                     def __setattr__(self, name, value):
@@ -2867,14 +2989,17 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                                        self.prefix_options = YLeaf(YType.str, "prefix-options")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                        ])
+                                                        self.metric = None
+                                                        self.prefix = None
+                                                        self.prefix_options = None
                                                         self._segment_path = lambda: "inter-area-prefix"
 
                                                     def __setattr__(self, name, value):
@@ -2920,14 +3045,17 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.options = YLeaf(YType.bits, "options")
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                                        self.destination_router_id = YLeaf(YType.str, "destination-router-id")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('options', YLeaf(YType.bits, 'options')),
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('destination_router_id', YLeaf(YType.str, 'destination-router-id')),
+                                                        ])
+                                                        self.options = Bits()
+                                                        self.metric = None
+                                                        self.destination_router_id = None
                                                         self._segment_path = lambda: "inter-area-router"
 
                                                     def __setattr__(self, name, value):
@@ -3004,24 +3132,27 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                                        self.flags = YLeaf(YType.bits, "flags")
-
-                                                        self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                                        self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                        self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                        self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-
-                                                        self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('flags', YLeaf(YType.bits, 'flags')),
+                                                            ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                            ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                            ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                            ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                        ])
+                                                        self.metric = None
+                                                        self.flags = Bits()
+                                                        self.referenced_ls_type = None
+                                                        self.prefix = None
+                                                        self.prefix_options = None
+                                                        self.forwarding_address = None
+                                                        self.external_route_tag = None
+                                                        self.referenced_link_state_id = None
                                                         self._segment_path = lambda: "as-external"
 
                                                     def __setattr__(self, name, value):
@@ -3098,24 +3229,27 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                                        self.flags = YLeaf(YType.bits, "flags")
-
-                                                        self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                                        self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                        self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                        self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-
-                                                        self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('flags', YLeaf(YType.bits, 'flags')),
+                                                            ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                            ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                            ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                            ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                        ])
+                                                        self.metric = None
+                                                        self.flags = Bits()
+                                                        self.referenced_ls_type = None
+                                                        self.prefix = None
+                                                        self.prefix_options = None
+                                                        self.forwarding_address = None
+                                                        self.external_route_tag = None
+                                                        self.referenced_link_state_id = None
                                                         self._segment_path = lambda: "nssa"
 
                                                     def __setattr__(self, name, value):
@@ -3179,16 +3313,19 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"prefix-list" : ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList)}
-
-                                                        self.rtr_priority = YLeaf(YType.uint8, "rtr-priority")
-
-                                                        self.options = YLeaf(YType.bits, "options")
-
-                                                        self.link_local_interface_address = YLeaf(YType.str, "link-local-interface-address")
-
-                                                        self.num_of_prefixes = YLeaf(YType.uint32, "num-of-prefixes")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList))])
+                                                        self._leafs = OrderedDict([
+                                                            ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
+                                                            ('options', YLeaf(YType.bits, 'options')),
+                                                            ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
+                                                            ('num_of_prefixes', YLeaf(YType.uint32, 'num-of-prefixes')),
+                                                        ])
+                                                        self.rtr_priority = None
+                                                        self.options = Bits()
+                                                        self.link_local_interface_address = None
+                                                        self.num_of_prefixes = None
 
                                                         self.prefix_list = YList(self)
                                                         self._segment_path = lambda: "link"
@@ -3201,7 +3338,7 @@ class RoutingState(Entity):
                                                         """
                                                         List of prefixes associated with the link.
                                                         
-                                                        .. attribute:: prefix  <key>
+                                                        .. attribute:: prefix  (key)
                                                         
                                                         	Prefix
                                                         	**type**\: str
@@ -3227,13 +3364,16 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "link"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.prefix = YLeaf(YType.str, "prefix")
-
-                                                            self.prefix_options = YLeaf(YType.str, "prefix-options")
-                                                            self._segment_path = lambda: "prefix-list" + "[prefix='" + self.prefix.get() + "']"
+                                                            self.ylist_key_names = ['prefix']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                                                ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                            ])
+                                                            self.prefix = None
+                                                            self.prefix_options = None
+                                                            self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
@@ -3290,16 +3430,19 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "body"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"prefix-list" : ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList)}
-
-                                                        self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                        self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
-
-                                                        self.referenced_adv_router = YLeaf(YType.str, "referenced-adv-router")
-
-                                                        self.num_of_prefixes = YLeaf(YType.uint16, "num-of-prefixes")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList))])
+                                                        self._leafs = OrderedDict([
+                                                            ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                            ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                            ('referenced_adv_router', YLeaf(YType.str, 'referenced-adv-router')),
+                                                            ('num_of_prefixes', YLeaf(YType.uint16, 'num-of-prefixes')),
+                                                        ])
+                                                        self.referenced_ls_type = None
+                                                        self.referenced_link_state_id = None
+                                                        self.referenced_adv_router = None
+                                                        self.num_of_prefixes = None
 
                                                         self.prefix_list = YList(self)
                                                         self._segment_path = lambda: "intra-area-prefix"
@@ -3312,7 +3455,7 @@ class RoutingState(Entity):
                                                         """
                                                         List of prefixes associated with the link.
                                                         
-                                                        .. attribute:: prefix  <key>
+                                                        .. attribute:: prefix  (key)
                                                         
                                                         	Prefix
                                                         	**type**\: str
@@ -3345,15 +3488,18 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "intra-area-prefix"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.prefix = YLeaf(YType.str, "prefix")
-
-                                                            self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                            self.metric = YLeaf(YType.uint32, "metric")
-                                                            self._segment_path = lambda: "prefix-list" + "[prefix='" + self.prefix.get() + "']"
+                                                            self.ylist_key_names = ['prefix']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                                                ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ])
+                                                            self.prefix = None
+                                                            self.prefix_options = None
+                                                            self.metric = None
+                                                            self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
@@ -3363,7 +3509,7 @@ class RoutingState(Entity):
                                     """
                                     OSPF interface topology.
                                     
-                                    .. attribute:: name  <key>
+                                    .. attribute:: name  (key)
                                     
                                     	One of the topology enabled on this interface
                                     	**type**\: str
@@ -3384,11 +3530,14 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "interfaces"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.name = YLeaf(YType.str, "name")
-                                        self._segment_path = lambda: "topology" + "[name='" + self.name.get() + "']"
+                                        self.ylist_key_names = ['name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                        ])
+                                        self.name = None
+                                        self._segment_path = lambda: "topology" + "[name='" + str(self.name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology, ['name'], name, value)
@@ -3398,7 +3547,7 @@ class RoutingState(Entity):
                                 """
                                 List OSPF area scope LSA databases
                                 
-                                .. attribute:: lsa_type  <key>
+                                .. attribute:: lsa_type  (key)
                                 
                                 	OSPF area scope LSA type
                                 	**type**\: int
@@ -3424,13 +3573,16 @@ class RoutingState(Entity):
                                     self.yang_parent_name = "area"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"area-scope-lsa" : ("area_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa)}
-
-                                    self.lsa_type = YLeaf(YType.uint8, "lsa-type")
+                                    self.ylist_key_names = ['lsa_type']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("area-scope-lsa", ("area_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa))])
+                                    self._leafs = OrderedDict([
+                                        ('lsa_type', YLeaf(YType.uint8, 'lsa-type')),
+                                    ])
+                                    self.lsa_type = None
 
                                     self.area_scope_lsa = YList(self)
-                                    self._segment_path = lambda: "area-scope-lsas" + "[lsa-type='" + self.lsa_type.get() + "']"
+                                    self._segment_path = lambda: "area-scope-lsas" + "[lsa-type='" + str(self.lsa_type) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas, ['lsa_type'], name, value)
@@ -3440,7 +3592,7 @@ class RoutingState(Entity):
                                     """
                                     List of OSPF area scope LSAs
                                     
-                                    .. attribute:: lsa_id  <key>
+                                    .. attribute:: lsa_id  (key)
                                     
                                     	LSA ID
                                     	**type**\: union of the below types:
@@ -3453,7 +3605,7 @@ class RoutingState(Entity):
                                     
                                     			**range:** 0..4294967295
                                     
-                                    .. attribute:: adv_router  <key>
+                                    .. attribute:: adv_router  (key)
                                     
                                     	Advertising router
                                     	**type**\: str
@@ -3496,16 +3648,19 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "area-scope-lsas"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"ospfv2" : ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2), "ospfv3" : ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3)}
-                                        self._child_list_classes = {}
-
-                                        self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                        self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                        self.decoded_completed = YLeaf(YType.boolean, "decoded-completed")
-
-                                        self.raw_data = YLeaf(YType.str, "raw-data")
+                                        self.ylist_key_names = ['lsa_id','adv_router']
+                                        self._child_container_classes = OrderedDict([("ospfv2", ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2)), ("ospfv3", ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                            ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                            ('decoded_completed', YLeaf(YType.boolean, 'decoded-completed')),
+                                            ('raw_data', YLeaf(YType.str, 'raw-data')),
+                                        ])
+                                        self.lsa_id = None
+                                        self.adv_router = None
+                                        self.decoded_completed = None
+                                        self.raw_data = None
 
                                         self.ospfv2 = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2()
                                         self.ospfv2.parent = self
@@ -3516,7 +3671,7 @@ class RoutingState(Entity):
                                         self.ospfv3.parent = self
                                         self._children_name_map["ospfv3"] = "ospfv3"
                                         self._children_yang_names.add("ospfv3")
-                                        self._segment_path = lambda: "area-scope-lsa" + "[lsa-id='" + self.lsa_id.get() + "']" + "[adv-router='" + self.adv_router.get() + "']"
+                                        self._segment_path = lambda: "area-scope-lsa" + "[lsa-id='" + str(self.lsa_id) + "']" + "[adv-router='" + str(self.adv_router) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa, ['lsa_id', 'adv_router', 'decoded_completed', 'raw_data'], name, value)
@@ -3550,8 +3705,10 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "area-scope-lsa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"header" : ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header), "body" : ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("header", ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header)), ("body", ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.header = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header()
                                             self.header.parent = self
@@ -3667,28 +3824,31 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "ospfv2"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.options = YLeaf(YType.bits, "options")
-
-                                                self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                                self.opaque_type = YLeaf(YType.uint8, "opaque-type")
-
-                                                self.opaque_id = YLeaf(YType.uint32, "opaque-id")
-
-                                                self.age = YLeaf(YType.uint16, "age")
-
-                                                self.type = YLeaf(YType.uint16, "type")
-
-                                                self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                                self.seq_num = YLeaf(YType.str, "seq-num")
-
-                                                self.checksum = YLeaf(YType.str, "checksum")
-
-                                                self.length = YLeaf(YType.uint16, "length")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('options', YLeaf(YType.bits, 'options')),
+                                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                                    ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
+                                                    ('opaque_id', YLeaf(YType.uint32, 'opaque-id')),
+                                                    ('age', YLeaf(YType.uint16, 'age')),
+                                                    ('type', YLeaf(YType.uint16, 'type')),
+                                                    ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                                    ('seq_num', YLeaf(YType.str, 'seq-num')),
+                                                    ('checksum', YLeaf(YType.str, 'checksum')),
+                                                    ('length', YLeaf(YType.uint16, 'length')),
+                                                ])
+                                                self.options = Bits()
+                                                self.lsa_id = None
+                                                self.opaque_type = None
+                                                self.opaque_id = None
+                                                self.age = None
+                                                self.type = None
+                                                self.adv_router = None
+                                                self.seq_num = None
+                                                self.checksum = None
+                                                self.length = None
                                                 self._segment_path = lambda: "header"
 
                                             def __setattr__(self, name, value):
@@ -3738,8 +3898,10 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "ospfv2"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"router" : ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router), "network" : ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network), "summary" : ("summary", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary), "external" : ("external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External), "opaque" : ("opaque", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("router", ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router)), ("network", ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network)), ("summary", ("summary", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary)), ("external", ("external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External)), ("opaque", ("opaque", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.router = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router()
                                                 self.router.parent = self
@@ -3803,12 +3965,15 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link)}
-
-                                                    self.flags = YLeaf(YType.bits, "flags")
-
-                                                    self.num_of_links = YLeaf(YType.uint16, "num-of-links")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link))])
+                                                    self._leafs = OrderedDict([
+                                                        ('flags', YLeaf(YType.bits, 'flags')),
+                                                        ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
+                                                    ])
+                                                    self.flags = Bits()
+                                                    self.num_of_links = None
 
                                                     self.link = YList(self)
                                                     self._segment_path = lambda: "router"
@@ -3821,7 +3986,7 @@ class RoutingState(Entity):
                                                     """
                                                     Router LSA link.
                                                     
-                                                    .. attribute:: link_id  <key>
+                                                    .. attribute:: link_id  (key)
                                                     
                                                     	Link ID
                                                     	**type**\: union of the below types:
@@ -3834,7 +3999,7 @@ class RoutingState(Entity):
                                                     
                                                     			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                     
-                                                    .. attribute:: link_data  <key>
+                                                    .. attribute:: link_data  (key)
                                                     
                                                     	Link data
                                                     	**type**\: union of the below types:
@@ -3873,17 +4038,20 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "router"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology)}
-
-                                                        self.link_id = YLeaf(YType.str, "link-id")
-
-                                                        self.link_data = YLeaf(YType.str, "link-data")
-
-                                                        self.type = YLeaf(YType.uint8, "type")
+                                                        self.ylist_key_names = ['link_id','link_data']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology))])
+                                                        self._leafs = OrderedDict([
+                                                            ('link_id', YLeaf(YType.str, 'link-id')),
+                                                            ('link_data', YLeaf(YType.str, 'link-data')),
+                                                            ('type', YLeaf(YType.uint8, 'type')),
+                                                        ])
+                                                        self.link_id = None
+                                                        self.link_data = None
+                                                        self.type = None
 
                                                         self.topology = YList(self)
-                                                        self._segment_path = lambda: "link" + "[link-id='" + self.link_id.get() + "']" + "[link-data='" + self.link_data.get() + "']"
+                                                        self._segment_path = lambda: "link" + "[link-id='" + str(self.link_id) + "']" + "[link-data='" + str(self.link_data) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link, ['link_id', 'link_data', 'type'], name, value)
@@ -3893,7 +4061,7 @@ class RoutingState(Entity):
                                                         """
                                                         Topology specific information.
                                                         
-                                                        .. attribute:: mt_id  <key>
+                                                        .. attribute:: mt_id  (key)
                                                         
                                                         	The MT\-ID for topology enabled on the link
                                                         	**type**\: int
@@ -3921,13 +4089,16 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "link"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                            self.metric = YLeaf(YType.uint16, "metric")
-                                                            self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                            self.ylist_key_names = ['mt_id']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                                ('metric', YLeaf(YType.uint16, 'metric')),
+                                                            ])
+                                                            self.mt_id = None
+                                                            self.metric = None
+                                                            self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
@@ -3965,12 +4136,15 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.network_mask = YLeaf(YType.str, "network-mask")
-
-                                                    self.attached_router = YLeafList(YType.str, "attached-router")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                        ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                    ])
+                                                    self.network_mask = None
+                                                    self.attached_router = []
                                                     self._segment_path = lambda: "network"
 
                                                 def __setattr__(self, name, value):
@@ -4007,10 +4181,13 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology)}
-
-                                                    self.network_mask = YLeaf(YType.str, "network-mask")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology))])
+                                                    self._leafs = OrderedDict([
+                                                        ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                    ])
+                                                    self.network_mask = None
 
                                                     self.topology = YList(self)
                                                     self._segment_path = lambda: "summary"
@@ -4023,7 +4200,7 @@ class RoutingState(Entity):
                                                     """
                                                     Topology specific information.
                                                     
-                                                    .. attribute:: mt_id  <key>
+                                                    .. attribute:: mt_id  (key)
                                                     
                                                     	The MT\-ID for topology enabled on the link
                                                     	**type**\: int
@@ -4051,13 +4228,16 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "summary"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-                                                        self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                        self.ylist_key_names = ['mt_id']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ])
+                                                        self.mt_id = None
+                                                        self.metric = None
+                                                        self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
@@ -4093,10 +4273,13 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology)}
-
-                                                    self.network_mask = YLeaf(YType.str, "network-mask")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology))])
+                                                    self._leafs = OrderedDict([
+                                                        ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                    ])
+                                                    self.network_mask = None
 
                                                     self.topology = YList(self)
                                                     self._segment_path = lambda: "external"
@@ -4109,7 +4292,7 @@ class RoutingState(Entity):
                                                     """
                                                     Topology specific information.
                                                     
-                                                    .. attribute:: mt_id  <key>
+                                                    .. attribute:: mt_id  (key)
                                                     
                                                     	The MT\-ID for topology enabled on the link
                                                     	**type**\: int
@@ -4156,19 +4339,22 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "external"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                        self.flags = YLeaf(YType.bits, "flags")
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                                        self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                        self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-                                                        self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                        self.ylist_key_names = ['mt_id']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                            ('flags', YLeaf(YType.bits, 'flags')),
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                            ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                        ])
+                                                        self.mt_id = None
+                                                        self.flags = Bits()
+                                                        self.metric = None
+                                                        self.forwarding_address = None
+                                                        self.external_route_tag = None
+                                                        self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
@@ -4207,8 +4393,10 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"router-address-tlv" : ("router_address_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv), "link-tlv" : ("link_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv)}
-                                                    self._child_list_classes = {"unknown-tlv" : ("unknown_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv)}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("router-address-tlv", ("router_address_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv)), ("link-tlv", ("link_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv))])
+                                                    self._child_list_classes = OrderedDict([("unknown-tlv", ("unknown_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv))])
+                                                    self._leafs = OrderedDict()
 
                                                     self.router_address_tlv = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv()
                                                     self.router_address_tlv.parent = self
@@ -4231,7 +4419,7 @@ class RoutingState(Entity):
                                                     """
                                                     Unknown TLV.
                                                     
-                                                    .. attribute:: type  <key>
+                                                    .. attribute:: type  (key)
                                                     
                                                     	TLV type
                                                     	**type**\: int
@@ -4266,15 +4454,18 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "opaque"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.type = YLeaf(YType.uint16, "type")
-
-                                                        self.length = YLeaf(YType.uint16, "length")
-
-                                                        self.value = YLeaf(YType.str, "value")
-                                                        self._segment_path = lambda: "unknown-tlv" + "[type='" + self.type.get() + "']"
+                                                        self.ylist_key_names = ['type']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('type', YLeaf(YType.uint16, 'type')),
+                                                            ('length', YLeaf(YType.uint16, 'length')),
+                                                            ('value', YLeaf(YType.str, 'value')),
+                                                        ])
+                                                        self.type = None
+                                                        self.length = None
+                                                        self.value = None
+                                                        self._segment_path = lambda: "unknown-tlv" + "[type='" + str(self.type) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
@@ -4305,10 +4496,13 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "opaque"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.router_address = YLeaf(YType.str, "router-address")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('router_address', YLeaf(YType.str, 'router-address')),
+                                                        ])
+                                                        self.router_address = None
                                                         self._segment_path = lambda: "router-address-tlv"
 
                                                     def __setattr__(self, name, value):
@@ -4411,26 +4605,29 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "opaque"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"unknown-subtlv" : ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv)}
-
-                                                        self.link_type = YLeaf(YType.uint8, "link-type")
-
-                                                        self.link_id = YLeaf(YType.str, "link-id")
-
-                                                        self.local_if_ipv4_addr = YLeafList(YType.str, "local-if-ipv4-addr")
-
-                                                        self.local_remote_ipv4_addr = YLeafList(YType.str, "local-remote-ipv4-addr")
-
-                                                        self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                                                        self.max_bandwidth = YLeaf(YType.str, "max-bandwidth")
-
-                                                        self.max_reservable_bandwidth = YLeaf(YType.str, "max-reservable-bandwidth")
-
-                                                        self.unreserved_bandwidth = YLeaf(YType.str, "unreserved-bandwidth")
-
-                                                        self.admin_group = YLeaf(YType.uint32, "admin-group")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("unknown-subtlv", ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv))])
+                                                        self._leafs = OrderedDict([
+                                                            ('link_type', YLeaf(YType.uint8, 'link-type')),
+                                                            ('link_id', YLeaf(YType.str, 'link-id')),
+                                                            ('local_if_ipv4_addr', YLeafList(YType.str, 'local-if-ipv4-addr')),
+                                                            ('local_remote_ipv4_addr', YLeafList(YType.str, 'local-remote-ipv4-addr')),
+                                                            ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                                                            ('max_bandwidth', YLeaf(YType.str, 'max-bandwidth')),
+                                                            ('max_reservable_bandwidth', YLeaf(YType.str, 'max-reservable-bandwidth')),
+                                                            ('unreserved_bandwidth', YLeaf(YType.str, 'unreserved-bandwidth')),
+                                                            ('admin_group', YLeaf(YType.uint32, 'admin-group')),
+                                                        ])
+                                                        self.link_type = None
+                                                        self.link_id = None
+                                                        self.local_if_ipv4_addr = []
+                                                        self.local_remote_ipv4_addr = []
+                                                        self.te_metric = None
+                                                        self.max_bandwidth = None
+                                                        self.max_reservable_bandwidth = None
+                                                        self.unreserved_bandwidth = None
+                                                        self.admin_group = None
 
                                                         self.unknown_subtlv = YList(self)
                                                         self._segment_path = lambda: "link-tlv"
@@ -4443,7 +4640,7 @@ class RoutingState(Entity):
                                                         """
                                                         Unknown sub\-TLV.
                                                         
-                                                        .. attribute:: type  <key>
+                                                        .. attribute:: type  (key)
                                                         
                                                         	TLV type
                                                         	**type**\: int
@@ -4478,15 +4675,18 @@ class RoutingState(Entity):
                                                             self.yang_parent_name = "link-tlv"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.type = YLeaf(YType.uint16, "type")
-
-                                                            self.length = YLeaf(YType.uint16, "length")
-
-                                                            self.value = YLeaf(YType.str, "value")
-                                                            self._segment_path = lambda: "unknown-subtlv" + "[type='" + self.type.get() + "']"
+                                                            self.ylist_key_names = ['type']
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('type', YLeaf(YType.uint16, 'type')),
+                                                                ('length', YLeaf(YType.uint16, 'length')),
+                                                                ('value', YLeaf(YType.str, 'value')),
+                                                            ])
+                                                            self.type = None
+                                                            self.length = None
+                                                            self.value = None
+                                                            self._segment_path = lambda: "unknown-subtlv" + "[type='" + str(self.type) + "']"
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
@@ -4520,8 +4720,10 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "area-scope-lsa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"header" : ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header), "body" : ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("header", ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header)), ("body", ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.header = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header()
                                             self.header.parent = self
@@ -4619,24 +4821,27 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "ospfv3"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.lsa_id = YLeaf(YType.uint32, "lsa-id")
-
-                                                self.age = YLeaf(YType.uint16, "age")
-
-                                                self.type = YLeaf(YType.uint16, "type")
-
-                                                self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                                self.seq_num = YLeaf(YType.str, "seq-num")
-
-                                                self.checksum = YLeaf(YType.str, "checksum")
-
-                                                self.length = YLeaf(YType.uint16, "length")
-
-                                                self.options = YLeaf(YType.bits, "options")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('lsa_id', YLeaf(YType.uint32, 'lsa-id')),
+                                                    ('age', YLeaf(YType.uint16, 'age')),
+                                                    ('type', YLeaf(YType.uint16, 'type')),
+                                                    ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                                    ('seq_num', YLeaf(YType.str, 'seq-num')),
+                                                    ('checksum', YLeaf(YType.str, 'checksum')),
+                                                    ('length', YLeaf(YType.uint16, 'length')),
+                                                    ('options', YLeaf(YType.bits, 'options')),
+                                                ])
+                                                self.lsa_id = None
+                                                self.age = None
+                                                self.type = None
+                                                self.adv_router = None
+                                                self.seq_num = None
+                                                self.checksum = None
+                                                self.length = None
+                                                self.options = Bits()
                                                 self._segment_path = lambda: "header"
 
                                             def __setattr__(self, name, value):
@@ -4701,8 +4906,10 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "ospfv3"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"router" : ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router), "network" : ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network), "inter-area-prefix" : ("inter_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix), "inter-area-router" : ("inter_area_router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter), "as-external" : ("as_external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal), "nssa" : ("nssa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa), "link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link), "intra-area-prefix" : ("intra_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("router", ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router)), ("network", ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network)), ("inter-area-prefix", ("inter_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix)), ("inter-area-router", ("inter_area_router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter)), ("as-external", ("as_external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal)), ("nssa", ("nssa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa)), ("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link)), ("intra-area-prefix", ("intra_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.router = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router()
                                                 self.router.parent = self
@@ -4783,12 +4990,15 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link)}
-
-                                                    self.flags = YLeaf(YType.bits, "flags")
-
-                                                    self.options = YLeaf(YType.bits, "options")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link))])
+                                                    self._leafs = OrderedDict([
+                                                        ('flags', YLeaf(YType.bits, 'flags')),
+                                                        ('options', YLeaf(YType.bits, 'options')),
+                                                    ])
+                                                    self.flags = Bits()
+                                                    self.options = Bits()
 
                                                     self.link = YList(self)
                                                     self._segment_path = lambda: "router"
@@ -4801,21 +5011,21 @@ class RoutingState(Entity):
                                                     """
                                                     Router LSA link.
                                                     
-                                                    .. attribute:: interface_id  <key>
+                                                    .. attribute:: interface_id  (key)
                                                     
                                                     	Interface ID
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: neighbor_interface_id  <key>
+                                                    .. attribute:: neighbor_interface_id  (key)
                                                     
                                                     	Neighbor Interface ID
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
                                                     
-                                                    .. attribute:: neighbor_router_id  <key>
+                                                    .. attribute:: neighbor_router_id  (key)
                                                     
                                                     	Neighbor Router ID
                                                     	**type**\: str
@@ -4850,19 +5060,22 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "router"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.interface_id = YLeaf(YType.uint32, "interface-id")
-
-                                                        self.neighbor_interface_id = YLeaf(YType.uint32, "neighbor-interface-id")
-
-                                                        self.neighbor_router_id = YLeaf(YType.str, "neighbor-router-id")
-
-                                                        self.type = YLeaf(YType.uint8, "type")
-
-                                                        self.metric = YLeaf(YType.uint16, "metric")
-                                                        self._segment_path = lambda: "link" + "[interface-id='" + self.interface_id.get() + "']" + "[neighbor-interface-id='" + self.neighbor_interface_id.get() + "']" + "[neighbor-router-id='" + self.neighbor_router_id.get() + "']"
+                                                        self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('interface_id', YLeaf(YType.uint32, 'interface-id')),
+                                                            ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
+                                                            ('neighbor_router_id', YLeaf(YType.str, 'neighbor-router-id')),
+                                                            ('type', YLeaf(YType.uint8, 'type')),
+                                                            ('metric', YLeaf(YType.uint16, 'metric')),
+                                                        ])
+                                                        self.interface_id = None
+                                                        self.neighbor_interface_id = None
+                                                        self.neighbor_router_id = None
+                                                        self.type = None
+                                                        self.metric = None
+                                                        self._segment_path = lambda: "link" + "[interface-id='" + str(self.interface_id) + "']" + "[neighbor-interface-id='" + str(self.neighbor_interface_id) + "']" + "[neighbor-router-id='" + str(self.neighbor_router_id) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
@@ -4900,12 +5113,15 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.options = YLeaf(YType.bits, "options")
-
-                                                    self.attached_router = YLeafList(YType.str, "attached-router")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('options', YLeaf(YType.bits, 'options')),
+                                                        ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                    ])
+                                                    self.options = Bits()
+                                                    self.attached_router = []
                                                     self._segment_path = lambda: "network"
 
                                                 def __setattr__(self, name, value):
@@ -4949,14 +5165,17 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.metric = YLeaf(YType.uint32, "metric")
-
-                                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                                    self.prefix_options = YLeaf(YType.str, "prefix-options")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                    ])
+                                                    self.metric = None
+                                                    self.prefix = None
+                                                    self.prefix_options = None
                                                     self._segment_path = lambda: "inter-area-prefix"
 
                                                 def __setattr__(self, name, value):
@@ -5002,14 +5221,17 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.options = YLeaf(YType.bits, "options")
-
-                                                    self.metric = YLeaf(YType.uint32, "metric")
-
-                                                    self.destination_router_id = YLeaf(YType.str, "destination-router-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('options', YLeaf(YType.bits, 'options')),
+                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ('destination_router_id', YLeaf(YType.str, 'destination-router-id')),
+                                                    ])
+                                                    self.options = Bits()
+                                                    self.metric = None
+                                                    self.destination_router_id = None
                                                     self._segment_path = lambda: "inter-area-router"
 
                                                 def __setattr__(self, name, value):
@@ -5086,24 +5308,27 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.metric = YLeaf(YType.uint32, "metric")
-
-                                                    self.flags = YLeaf(YType.bits, "flags")
-
-                                                    self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                                    self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                    self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                    self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-
-                                                    self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ('flags', YLeaf(YType.bits, 'flags')),
+                                                        ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                        ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                        ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                        ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                    ])
+                                                    self.metric = None
+                                                    self.flags = Bits()
+                                                    self.referenced_ls_type = None
+                                                    self.prefix = None
+                                                    self.prefix_options = None
+                                                    self.forwarding_address = None
+                                                    self.external_route_tag = None
+                                                    self.referenced_link_state_id = None
                                                     self._segment_path = lambda: "as-external"
 
                                                 def __setattr__(self, name, value):
@@ -5180,24 +5405,27 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.metric = YLeaf(YType.uint32, "metric")
-
-                                                    self.flags = YLeaf(YType.bits, "flags")
-
-                                                    self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                                    self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                    self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                    self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-
-                                                    self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ('flags', YLeaf(YType.bits, 'flags')),
+                                                        ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                        ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                        ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                        ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                    ])
+                                                    self.metric = None
+                                                    self.flags = Bits()
+                                                    self.referenced_ls_type = None
+                                                    self.prefix = None
+                                                    self.prefix_options = None
+                                                    self.forwarding_address = None
+                                                    self.external_route_tag = None
+                                                    self.referenced_link_state_id = None
                                                     self._segment_path = lambda: "nssa"
 
                                                 def __setattr__(self, name, value):
@@ -5261,16 +5489,19 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"prefix-list" : ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList)}
-
-                                                    self.rtr_priority = YLeaf(YType.uint8, "rtr-priority")
-
-                                                    self.options = YLeaf(YType.bits, "options")
-
-                                                    self.link_local_interface_address = YLeaf(YType.str, "link-local-interface-address")
-
-                                                    self.num_of_prefixes = YLeaf(YType.uint32, "num-of-prefixes")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList))])
+                                                    self._leafs = OrderedDict([
+                                                        ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
+                                                        ('options', YLeaf(YType.bits, 'options')),
+                                                        ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
+                                                        ('num_of_prefixes', YLeaf(YType.uint32, 'num-of-prefixes')),
+                                                    ])
+                                                    self.rtr_priority = None
+                                                    self.options = Bits()
+                                                    self.link_local_interface_address = None
+                                                    self.num_of_prefixes = None
 
                                                     self.prefix_list = YList(self)
                                                     self._segment_path = lambda: "link"
@@ -5283,7 +5514,7 @@ class RoutingState(Entity):
                                                     """
                                                     List of prefixes associated with the link.
                                                     
-                                                    .. attribute:: prefix  <key>
+                                                    .. attribute:: prefix  (key)
                                                     
                                                     	Prefix
                                                     	**type**\: str
@@ -5309,13 +5540,16 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "link"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                                        self.prefix_options = YLeaf(YType.str, "prefix-options")
-                                                        self._segment_path = lambda: "prefix-list" + "[prefix='" + self.prefix.get() + "']"
+                                                        self.ylist_key_names = ['prefix']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                        ])
+                                                        self.prefix = None
+                                                        self.prefix_options = None
+                                                        self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
@@ -5372,16 +5606,19 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "body"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"prefix-list" : ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList)}
-
-                                                    self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                    self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
-
-                                                    self.referenced_adv_router = YLeaf(YType.str, "referenced-adv-router")
-
-                                                    self.num_of_prefixes = YLeaf(YType.uint16, "num-of-prefixes")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList))])
+                                                    self._leafs = OrderedDict([
+                                                        ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                        ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                        ('referenced_adv_router', YLeaf(YType.str, 'referenced-adv-router')),
+                                                        ('num_of_prefixes', YLeaf(YType.uint16, 'num-of-prefixes')),
+                                                    ])
+                                                    self.referenced_ls_type = None
+                                                    self.referenced_link_state_id = None
+                                                    self.referenced_adv_router = None
+                                                    self.num_of_prefixes = None
 
                                                     self.prefix_list = YList(self)
                                                     self._segment_path = lambda: "intra-area-prefix"
@@ -5394,7 +5631,7 @@ class RoutingState(Entity):
                                                     """
                                                     List of prefixes associated with the link.
                                                     
-                                                    .. attribute:: prefix  <key>
+                                                    .. attribute:: prefix  (key)
                                                     
                                                     	Prefix
                                                     	**type**\: str
@@ -5427,15 +5664,18 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "intra-area-prefix"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                                        self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                        self.metric = YLeaf(YType.uint32, "metric")
-                                                        self._segment_path = lambda: "prefix-list" + "[prefix='" + self.prefix.get() + "']"
+                                                        self.ylist_key_names = ['prefix']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ])
+                                                        self.prefix = None
+                                                        self.prefix_options = None
+                                                        self.metric = None
+                                                        self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
@@ -5445,7 +5685,7 @@ class RoutingState(Entity):
                             """
                             List OSPF AS scope LSA databases
                             
-                            .. attribute:: lsa_type  <key>
+                            .. attribute:: lsa_type  (key)
                             
                             	OSPF AS scope LSA type
                             	**type**\: int
@@ -5471,13 +5711,16 @@ class RoutingState(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"as-scope-lsa" : ("as_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa)}
-
-                                self.lsa_type = YLeaf(YType.uint8, "lsa-type")
+                                self.ylist_key_names = ['lsa_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("as-scope-lsa", ("as_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa))])
+                                self._leafs = OrderedDict([
+                                    ('lsa_type', YLeaf(YType.uint8, 'lsa-type')),
+                                ])
+                                self.lsa_type = None
 
                                 self.as_scope_lsa = YList(self)
-                                self._segment_path = lambda: "as-scope-lsas" + "[lsa-type='" + self.lsa_type.get() + "']"
+                                self._segment_path = lambda: "as-scope-lsas" + "[lsa-type='" + str(self.lsa_type) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas, ['lsa_type'], name, value)
@@ -5487,7 +5730,7 @@ class RoutingState(Entity):
                                 """
                                 List of OSPF AS scope LSAs
                                 
-                                .. attribute:: lsa_id  <key>
+                                .. attribute:: lsa_id  (key)
                                 
                                 	LSA ID
                                 	**type**\: union of the below types:
@@ -5500,7 +5743,7 @@ class RoutingState(Entity):
                                 
                                 			**range:** 0..4294967295
                                 
-                                .. attribute:: adv_router  <key>
+                                .. attribute:: adv_router  (key)
                                 
                                 	Advertising router
                                 	**type**\: str
@@ -5543,16 +5786,19 @@ class RoutingState(Entity):
                                     self.yang_parent_name = "as-scope-lsas"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"ospfv2" : ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2), "ospfv3" : ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3)}
-                                    self._child_list_classes = {}
-
-                                    self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                    self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                    self.decoded_completed = YLeaf(YType.boolean, "decoded-completed")
-
-                                    self.raw_data = YLeaf(YType.str, "raw-data")
+                                    self.ylist_key_names = ['lsa_id','adv_router']
+                                    self._child_container_classes = OrderedDict([("ospfv2", ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2)), ("ospfv3", ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                        ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                        ('decoded_completed', YLeaf(YType.boolean, 'decoded-completed')),
+                                        ('raw_data', YLeaf(YType.str, 'raw-data')),
+                                    ])
+                                    self.lsa_id = None
+                                    self.adv_router = None
+                                    self.decoded_completed = None
+                                    self.raw_data = None
 
                                     self.ospfv2 = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2()
                                     self.ospfv2.parent = self
@@ -5563,7 +5809,7 @@ class RoutingState(Entity):
                                     self.ospfv3.parent = self
                                     self._children_name_map["ospfv3"] = "ospfv3"
                                     self._children_yang_names.add("ospfv3")
-                                    self._segment_path = lambda: "as-scope-lsa" + "[lsa-id='" + self.lsa_id.get() + "']" + "[adv-router='" + self.adv_router.get() + "']"
+                                    self._segment_path = lambda: "as-scope-lsa" + "[lsa-id='" + str(self.lsa_id) + "']" + "[adv-router='" + str(self.adv_router) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa, ['lsa_id', 'adv_router', 'decoded_completed', 'raw_data'], name, value)
@@ -5597,8 +5843,10 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "as-scope-lsa"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"header" : ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header), "body" : ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("header", ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header)), ("body", ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.header = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header()
                                         self.header.parent = self
@@ -5714,28 +5962,31 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "ospfv2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.options = YLeaf(YType.bits, "options")
-
-                                            self.lsa_id = YLeaf(YType.str, "lsa-id")
-
-                                            self.opaque_type = YLeaf(YType.uint8, "opaque-type")
-
-                                            self.opaque_id = YLeaf(YType.uint32, "opaque-id")
-
-                                            self.age = YLeaf(YType.uint16, "age")
-
-                                            self.type = YLeaf(YType.uint16, "type")
-
-                                            self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                            self.seq_num = YLeaf(YType.str, "seq-num")
-
-                                            self.checksum = YLeaf(YType.str, "checksum")
-
-                                            self.length = YLeaf(YType.uint16, "length")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('options', YLeaf(YType.bits, 'options')),
+                                                ('lsa_id', YLeaf(YType.str, 'lsa-id')),
+                                                ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
+                                                ('opaque_id', YLeaf(YType.uint32, 'opaque-id')),
+                                                ('age', YLeaf(YType.uint16, 'age')),
+                                                ('type', YLeaf(YType.uint16, 'type')),
+                                                ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                                ('seq_num', YLeaf(YType.str, 'seq-num')),
+                                                ('checksum', YLeaf(YType.str, 'checksum')),
+                                                ('length', YLeaf(YType.uint16, 'length')),
+                                            ])
+                                            self.options = Bits()
+                                            self.lsa_id = None
+                                            self.opaque_type = None
+                                            self.opaque_id = None
+                                            self.age = None
+                                            self.type = None
+                                            self.adv_router = None
+                                            self.seq_num = None
+                                            self.checksum = None
+                                            self.length = None
                                             self._segment_path = lambda: "header"
 
                                         def __setattr__(self, name, value):
@@ -5785,8 +6036,10 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "ospfv2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"router" : ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router), "network" : ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network), "summary" : ("summary", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary), "external" : ("external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External), "opaque" : ("opaque", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("router", ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router)), ("network", ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network)), ("summary", ("summary", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary)), ("external", ("external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External)), ("opaque", ("opaque", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.router = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router()
                                             self.router.parent = self
@@ -5850,12 +6103,15 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link)}
-
-                                                self.flags = YLeaf(YType.bits, "flags")
-
-                                                self.num_of_links = YLeaf(YType.uint16, "num-of-links")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link))])
+                                                self._leafs = OrderedDict([
+                                                    ('flags', YLeaf(YType.bits, 'flags')),
+                                                    ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
+                                                ])
+                                                self.flags = Bits()
+                                                self.num_of_links = None
 
                                                 self.link = YList(self)
                                                 self._segment_path = lambda: "router"
@@ -5868,7 +6124,7 @@ class RoutingState(Entity):
                                                 """
                                                 Router LSA link.
                                                 
-                                                .. attribute:: link_id  <key>
+                                                .. attribute:: link_id  (key)
                                                 
                                                 	Link ID
                                                 	**type**\: union of the below types:
@@ -5881,7 +6137,7 @@ class RoutingState(Entity):
                                                 
                                                 			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                                                 
-                                                .. attribute:: link_data  <key>
+                                                .. attribute:: link_data  (key)
                                                 
                                                 	Link data
                                                 	**type**\: union of the below types:
@@ -5920,17 +6176,20 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "router"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology)}
-
-                                                    self.link_id = YLeaf(YType.str, "link-id")
-
-                                                    self.link_data = YLeaf(YType.str, "link-data")
-
-                                                    self.type = YLeaf(YType.uint8, "type")
+                                                    self.ylist_key_names = ['link_id','link_data']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology))])
+                                                    self._leafs = OrderedDict([
+                                                        ('link_id', YLeaf(YType.str, 'link-id')),
+                                                        ('link_data', YLeaf(YType.str, 'link-data')),
+                                                        ('type', YLeaf(YType.uint8, 'type')),
+                                                    ])
+                                                    self.link_id = None
+                                                    self.link_data = None
+                                                    self.type = None
 
                                                     self.topology = YList(self)
-                                                    self._segment_path = lambda: "link" + "[link-id='" + self.link_id.get() + "']" + "[link-data='" + self.link_data.get() + "']"
+                                                    self._segment_path = lambda: "link" + "[link-id='" + str(self.link_id) + "']" + "[link-data='" + str(self.link_data) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link, ['link_id', 'link_data', 'type'], name, value)
@@ -5940,7 +6199,7 @@ class RoutingState(Entity):
                                                     """
                                                     Topology specific information.
                                                     
-                                                    .. attribute:: mt_id  <key>
+                                                    .. attribute:: mt_id  (key)
                                                     
                                                     	The MT\-ID for topology enabled on the link
                                                     	**type**\: int
@@ -5968,13 +6227,16 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "link"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                        self.metric = YLeaf(YType.uint16, "metric")
-                                                        self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                        self.ylist_key_names = ['mt_id']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                            ('metric', YLeaf(YType.uint16, 'metric')),
+                                                        ])
+                                                        self.mt_id = None
+                                                        self.metric = None
+                                                        self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
@@ -6012,12 +6274,15 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.network_mask = YLeaf(YType.str, "network-mask")
-
-                                                self.attached_router = YLeafList(YType.str, "attached-router")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                    ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                ])
+                                                self.network_mask = None
+                                                self.attached_router = []
                                                 self._segment_path = lambda: "network"
 
                                             def __setattr__(self, name, value):
@@ -6054,10 +6319,13 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology)}
-
-                                                self.network_mask = YLeaf(YType.str, "network-mask")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology))])
+                                                self._leafs = OrderedDict([
+                                                    ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                ])
+                                                self.network_mask = None
 
                                                 self.topology = YList(self)
                                                 self._segment_path = lambda: "summary"
@@ -6070,7 +6338,7 @@ class RoutingState(Entity):
                                                 """
                                                 Topology specific information.
                                                 
-                                                .. attribute:: mt_id  <key>
+                                                .. attribute:: mt_id  (key)
                                                 
                                                 	The MT\-ID for topology enabled on the link
                                                 	**type**\: int
@@ -6098,13 +6366,16 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "summary"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                    self.metric = YLeaf(YType.uint32, "metric")
-                                                    self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                    self.ylist_key_names = ['mt_id']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                    ])
+                                                    self.mt_id = None
+                                                    self.metric = None
+                                                    self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
@@ -6140,10 +6411,13 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"topology" : ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology)}
-
-                                                self.network_mask = YLeaf(YType.str, "network-mask")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology))])
+                                                self._leafs = OrderedDict([
+                                                    ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                ])
+                                                self.network_mask = None
 
                                                 self.topology = YList(self)
                                                 self._segment_path = lambda: "external"
@@ -6156,7 +6430,7 @@ class RoutingState(Entity):
                                                 """
                                                 Topology specific information.
                                                 
-                                                .. attribute:: mt_id  <key>
+                                                .. attribute:: mt_id  (key)
                                                 
                                                 	The MT\-ID for topology enabled on the link
                                                 	**type**\: int
@@ -6203,19 +6477,22 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "external"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mt_id = YLeaf(YType.uint8, "mt-id")
-
-                                                    self.flags = YLeaf(YType.bits, "flags")
-
-                                                    self.metric = YLeaf(YType.uint32, "metric")
-
-                                                    self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                    self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-                                                    self._segment_path = lambda: "topology" + "[mt-id='" + self.mt_id.get() + "']"
+                                                    self.ylist_key_names = ['mt_id']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mt_id', YLeaf(YType.uint8, 'mt-id')),
+                                                        ('flags', YLeaf(YType.bits, 'flags')),
+                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                        ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                    ])
+                                                    self.mt_id = None
+                                                    self.flags = Bits()
+                                                    self.metric = None
+                                                    self.forwarding_address = None
+                                                    self.external_route_tag = None
+                                                    self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
@@ -6254,8 +6531,10 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"router-address-tlv" : ("router_address_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv), "link-tlv" : ("link_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv)}
-                                                self._child_list_classes = {"unknown-tlv" : ("unknown_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("router-address-tlv", ("router_address_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv)), ("link-tlv", ("link_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv))])
+                                                self._child_list_classes = OrderedDict([("unknown-tlv", ("unknown_tlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv))])
+                                                self._leafs = OrderedDict()
 
                                                 self.router_address_tlv = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv()
                                                 self.router_address_tlv.parent = self
@@ -6278,7 +6557,7 @@ class RoutingState(Entity):
                                                 """
                                                 Unknown TLV.
                                                 
-                                                .. attribute:: type  <key>
+                                                .. attribute:: type  (key)
                                                 
                                                 	TLV type
                                                 	**type**\: int
@@ -6313,15 +6592,18 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "opaque"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.type = YLeaf(YType.uint16, "type")
-
-                                                    self.length = YLeaf(YType.uint16, "length")
-
-                                                    self.value = YLeaf(YType.str, "value")
-                                                    self._segment_path = lambda: "unknown-tlv" + "[type='" + self.type.get() + "']"
+                                                    self.ylist_key_names = ['type']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('type', YLeaf(YType.uint16, 'type')),
+                                                        ('length', YLeaf(YType.uint16, 'length')),
+                                                        ('value', YLeaf(YType.str, 'value')),
+                                                    ])
+                                                    self.type = None
+                                                    self.length = None
+                                                    self.value = None
+                                                    self._segment_path = lambda: "unknown-tlv" + "[type='" + str(self.type) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
@@ -6352,10 +6634,13 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "opaque"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.router_address = YLeaf(YType.str, "router-address")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('router_address', YLeaf(YType.str, 'router-address')),
+                                                    ])
+                                                    self.router_address = None
                                                     self._segment_path = lambda: "router-address-tlv"
 
                                                 def __setattr__(self, name, value):
@@ -6458,26 +6743,29 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "opaque"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"unknown-subtlv" : ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv)}
-
-                                                    self.link_type = YLeaf(YType.uint8, "link-type")
-
-                                                    self.link_id = YLeaf(YType.str, "link-id")
-
-                                                    self.local_if_ipv4_addr = YLeafList(YType.str, "local-if-ipv4-addr")
-
-                                                    self.local_remote_ipv4_addr = YLeafList(YType.str, "local-remote-ipv4-addr")
-
-                                                    self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                                                    self.max_bandwidth = YLeaf(YType.str, "max-bandwidth")
-
-                                                    self.max_reservable_bandwidth = YLeaf(YType.str, "max-reservable-bandwidth")
-
-                                                    self.unreserved_bandwidth = YLeaf(YType.str, "unreserved-bandwidth")
-
-                                                    self.admin_group = YLeaf(YType.uint32, "admin-group")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("unknown-subtlv", ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv))])
+                                                    self._leafs = OrderedDict([
+                                                        ('link_type', YLeaf(YType.uint8, 'link-type')),
+                                                        ('link_id', YLeaf(YType.str, 'link-id')),
+                                                        ('local_if_ipv4_addr', YLeafList(YType.str, 'local-if-ipv4-addr')),
+                                                        ('local_remote_ipv4_addr', YLeafList(YType.str, 'local-remote-ipv4-addr')),
+                                                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                                                        ('max_bandwidth', YLeaf(YType.str, 'max-bandwidth')),
+                                                        ('max_reservable_bandwidth', YLeaf(YType.str, 'max-reservable-bandwidth')),
+                                                        ('unreserved_bandwidth', YLeaf(YType.str, 'unreserved-bandwidth')),
+                                                        ('admin_group', YLeaf(YType.uint32, 'admin-group')),
+                                                    ])
+                                                    self.link_type = None
+                                                    self.link_id = None
+                                                    self.local_if_ipv4_addr = []
+                                                    self.local_remote_ipv4_addr = []
+                                                    self.te_metric = None
+                                                    self.max_bandwidth = None
+                                                    self.max_reservable_bandwidth = None
+                                                    self.unreserved_bandwidth = None
+                                                    self.admin_group = None
 
                                                     self.unknown_subtlv = YList(self)
                                                     self._segment_path = lambda: "link-tlv"
@@ -6490,7 +6778,7 @@ class RoutingState(Entity):
                                                     """
                                                     Unknown sub\-TLV.
                                                     
-                                                    .. attribute:: type  <key>
+                                                    .. attribute:: type  (key)
                                                     
                                                     	TLV type
                                                     	**type**\: int
@@ -6525,15 +6813,18 @@ class RoutingState(Entity):
                                                         self.yang_parent_name = "link-tlv"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.type = YLeaf(YType.uint16, "type")
-
-                                                        self.length = YLeaf(YType.uint16, "length")
-
-                                                        self.value = YLeaf(YType.str, "value")
-                                                        self._segment_path = lambda: "unknown-subtlv" + "[type='" + self.type.get() + "']"
+                                                        self.ylist_key_names = ['type']
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('type', YLeaf(YType.uint16, 'type')),
+                                                            ('length', YLeaf(YType.uint16, 'length')),
+                                                            ('value', YLeaf(YType.str, 'value')),
+                                                        ])
+                                                        self.type = None
+                                                        self.length = None
+                                                        self.value = None
+                                                        self._segment_path = lambda: "unknown-subtlv" + "[type='" + str(self.type) + "']"
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
@@ -6567,8 +6858,10 @@ class RoutingState(Entity):
                                         self.yang_parent_name = "as-scope-lsa"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"header" : ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header), "body" : ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("header", ("header", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header)), ("body", ("body", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.header = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header()
                                         self.header.parent = self
@@ -6666,24 +6959,27 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "ospfv3"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.lsa_id = YLeaf(YType.uint32, "lsa-id")
-
-                                            self.age = YLeaf(YType.uint16, "age")
-
-                                            self.type = YLeaf(YType.uint16, "type")
-
-                                            self.adv_router = YLeaf(YType.str, "adv-router")
-
-                                            self.seq_num = YLeaf(YType.str, "seq-num")
-
-                                            self.checksum = YLeaf(YType.str, "checksum")
-
-                                            self.length = YLeaf(YType.uint16, "length")
-
-                                            self.options = YLeaf(YType.bits, "options")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('lsa_id', YLeaf(YType.uint32, 'lsa-id')),
+                                                ('age', YLeaf(YType.uint16, 'age')),
+                                                ('type', YLeaf(YType.uint16, 'type')),
+                                                ('adv_router', YLeaf(YType.str, 'adv-router')),
+                                                ('seq_num', YLeaf(YType.str, 'seq-num')),
+                                                ('checksum', YLeaf(YType.str, 'checksum')),
+                                                ('length', YLeaf(YType.uint16, 'length')),
+                                                ('options', YLeaf(YType.bits, 'options')),
+                                            ])
+                                            self.lsa_id = None
+                                            self.age = None
+                                            self.type = None
+                                            self.adv_router = None
+                                            self.seq_num = None
+                                            self.checksum = None
+                                            self.length = None
+                                            self.options = Bits()
                                             self._segment_path = lambda: "header"
 
                                         def __setattr__(self, name, value):
@@ -6748,8 +7044,10 @@ class RoutingState(Entity):
                                             self.yang_parent_name = "ospfv3"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"router" : ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router), "network" : ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network), "inter-area-prefix" : ("inter_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix), "inter-area-router" : ("inter_area_router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter), "as-external" : ("as_external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal), "nssa" : ("nssa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa), "link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link), "intra-area-prefix" : ("intra_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("router", ("router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router)), ("network", ("network", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network)), ("inter-area-prefix", ("inter_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix)), ("inter-area-router", ("inter_area_router", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter)), ("as-external", ("as_external", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal)), ("nssa", ("nssa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa)), ("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link)), ("intra-area-prefix", ("intra_area_prefix", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.router = RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router()
                                             self.router.parent = self
@@ -6830,12 +7128,15 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"link" : ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link)}
-
-                                                self.flags = YLeaf(YType.bits, "flags")
-
-                                                self.options = YLeaf(YType.bits, "options")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link))])
+                                                self._leafs = OrderedDict([
+                                                    ('flags', YLeaf(YType.bits, 'flags')),
+                                                    ('options', YLeaf(YType.bits, 'options')),
+                                                ])
+                                                self.flags = Bits()
+                                                self.options = Bits()
 
                                                 self.link = YList(self)
                                                 self._segment_path = lambda: "router"
@@ -6848,21 +7149,21 @@ class RoutingState(Entity):
                                                 """
                                                 Router LSA link.
                                                 
-                                                .. attribute:: interface_id  <key>
+                                                .. attribute:: interface_id  (key)
                                                 
                                                 	Interface ID
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: neighbor_interface_id  <key>
+                                                .. attribute:: neighbor_interface_id  (key)
                                                 
                                                 	Neighbor Interface ID
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
                                                 
-                                                .. attribute:: neighbor_router_id  <key>
+                                                .. attribute:: neighbor_router_id  (key)
                                                 
                                                 	Neighbor Router ID
                                                 	**type**\: str
@@ -6897,19 +7198,22 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "router"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.interface_id = YLeaf(YType.uint32, "interface-id")
-
-                                                    self.neighbor_interface_id = YLeaf(YType.uint32, "neighbor-interface-id")
-
-                                                    self.neighbor_router_id = YLeaf(YType.str, "neighbor-router-id")
-
-                                                    self.type = YLeaf(YType.uint8, "type")
-
-                                                    self.metric = YLeaf(YType.uint16, "metric")
-                                                    self._segment_path = lambda: "link" + "[interface-id='" + self.interface_id.get() + "']" + "[neighbor-interface-id='" + self.neighbor_interface_id.get() + "']" + "[neighbor-router-id='" + self.neighbor_router_id.get() + "']"
+                                                    self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('interface_id', YLeaf(YType.uint32, 'interface-id')),
+                                                        ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
+                                                        ('neighbor_router_id', YLeaf(YType.str, 'neighbor-router-id')),
+                                                        ('type', YLeaf(YType.uint8, 'type')),
+                                                        ('metric', YLeaf(YType.uint16, 'metric')),
+                                                    ])
+                                                    self.interface_id = None
+                                                    self.neighbor_interface_id = None
+                                                    self.neighbor_router_id = None
+                                                    self.type = None
+                                                    self.metric = None
+                                                    self._segment_path = lambda: "link" + "[interface-id='" + str(self.interface_id) + "']" + "[neighbor-interface-id='" + str(self.neighbor_interface_id) + "']" + "[neighbor-router-id='" + str(self.neighbor_router_id) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
@@ -6947,12 +7251,15 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.options = YLeaf(YType.bits, "options")
-
-                                                self.attached_router = YLeafList(YType.str, "attached-router")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('options', YLeaf(YType.bits, 'options')),
+                                                    ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                ])
+                                                self.options = Bits()
+                                                self.attached_router = []
                                                 self._segment_path = lambda: "network"
 
                                             def __setattr__(self, name, value):
@@ -6996,14 +7303,17 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                                self.prefix_options = YLeaf(YType.str, "prefix-options")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                                    ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                ])
+                                                self.metric = None
+                                                self.prefix = None
+                                                self.prefix_options = None
                                                 self._segment_path = lambda: "inter-area-prefix"
 
                                             def __setattr__(self, name, value):
@@ -7049,14 +7359,17 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.options = YLeaf(YType.bits, "options")
-
-                                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                                self.destination_router_id = YLeaf(YType.str, "destination-router-id")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('options', YLeaf(YType.bits, 'options')),
+                                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                                    ('destination_router_id', YLeaf(YType.str, 'destination-router-id')),
+                                                ])
+                                                self.options = Bits()
+                                                self.metric = None
+                                                self.destination_router_id = None
                                                 self._segment_path = lambda: "inter-area-router"
 
                                             def __setattr__(self, name, value):
@@ -7133,24 +7446,27 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                                self.flags = YLeaf(YType.bits, "flags")
-
-                                                self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                                self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-
-                                                self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                                    ('flags', YLeaf(YType.bits, 'flags')),
+                                                    ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                                    ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                    ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                    ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                    ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                ])
+                                                self.metric = None
+                                                self.flags = Bits()
+                                                self.referenced_ls_type = None
+                                                self.prefix = None
+                                                self.prefix_options = None
+                                                self.forwarding_address = None
+                                                self.external_route_tag = None
+                                                self.referenced_link_state_id = None
                                                 self._segment_path = lambda: "as-external"
 
                                             def __setattr__(self, name, value):
@@ -7227,24 +7543,27 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                                self.flags = YLeaf(YType.bits, "flags")
-
-                                                self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                                self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                self.forwarding_address = YLeaf(YType.str, "forwarding-address")
-
-                                                self.external_route_tag = YLeaf(YType.uint32, "external-route-tag")
-
-                                                self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('metric', YLeaf(YType.uint32, 'metric')),
+                                                    ('flags', YLeaf(YType.bits, 'flags')),
+                                                    ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                                    ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                    ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
+                                                    ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                    ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                ])
+                                                self.metric = None
+                                                self.flags = Bits()
+                                                self.referenced_ls_type = None
+                                                self.prefix = None
+                                                self.prefix_options = None
+                                                self.forwarding_address = None
+                                                self.external_route_tag = None
+                                                self.referenced_link_state_id = None
                                                 self._segment_path = lambda: "nssa"
 
                                             def __setattr__(self, name, value):
@@ -7308,16 +7627,19 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"prefix-list" : ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList)}
-
-                                                self.rtr_priority = YLeaf(YType.uint8, "rtr-priority")
-
-                                                self.options = YLeaf(YType.bits, "options")
-
-                                                self.link_local_interface_address = YLeaf(YType.str, "link-local-interface-address")
-
-                                                self.num_of_prefixes = YLeaf(YType.uint32, "num-of-prefixes")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList))])
+                                                self._leafs = OrderedDict([
+                                                    ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
+                                                    ('options', YLeaf(YType.bits, 'options')),
+                                                    ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
+                                                    ('num_of_prefixes', YLeaf(YType.uint32, 'num-of-prefixes')),
+                                                ])
+                                                self.rtr_priority = None
+                                                self.options = Bits()
+                                                self.link_local_interface_address = None
+                                                self.num_of_prefixes = None
 
                                                 self.prefix_list = YList(self)
                                                 self._segment_path = lambda: "link"
@@ -7330,7 +7652,7 @@ class RoutingState(Entity):
                                                 """
                                                 List of prefixes associated with the link.
                                                 
-                                                .. attribute:: prefix  <key>
+                                                .. attribute:: prefix  (key)
                                                 
                                                 	Prefix
                                                 	**type**\: str
@@ -7356,13 +7678,16 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "link"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                                    self.prefix_options = YLeaf(YType.str, "prefix-options")
-                                                    self._segment_path = lambda: "prefix-list" + "[prefix='" + self.prefix.get() + "']"
+                                                    self.ylist_key_names = ['prefix']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                    ])
+                                                    self.prefix = None
+                                                    self.prefix_options = None
+                                                    self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
@@ -7419,16 +7744,19 @@ class RoutingState(Entity):
                                                 self.yang_parent_name = "body"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"prefix-list" : ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList)}
-
-                                                self.referenced_ls_type = YLeaf(YType.uint16, "referenced-ls-type")
-
-                                                self.referenced_link_state_id = YLeaf(YType.uint32, "referenced-link-state-id")
-
-                                                self.referenced_adv_router = YLeaf(YType.str, "referenced-adv-router")
-
-                                                self.num_of_prefixes = YLeaf(YType.uint16, "num-of-prefixes")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList))])
+                                                self._leafs = OrderedDict([
+                                                    ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
+                                                    ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                    ('referenced_adv_router', YLeaf(YType.str, 'referenced-adv-router')),
+                                                    ('num_of_prefixes', YLeaf(YType.uint16, 'num-of-prefixes')),
+                                                ])
+                                                self.referenced_ls_type = None
+                                                self.referenced_link_state_id = None
+                                                self.referenced_adv_router = None
+                                                self.num_of_prefixes = None
 
                                                 self.prefix_list = YList(self)
                                                 self._segment_path = lambda: "intra-area-prefix"
@@ -7441,7 +7769,7 @@ class RoutingState(Entity):
                                                 """
                                                 List of prefixes associated with the link.
                                                 
-                                                .. attribute:: prefix  <key>
+                                                .. attribute:: prefix  (key)
                                                 
                                                 	Prefix
                                                 	**type**\: str
@@ -7474,15 +7802,18 @@ class RoutingState(Entity):
                                                     self.yang_parent_name = "intra-area-prefix"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                                    self.prefix_options = YLeaf(YType.str, "prefix-options")
-
-                                                    self.metric = YLeaf(YType.uint32, "metric")
-                                                    self._segment_path = lambda: "prefix-list" + "[prefix='" + self.prefix.get() + "']"
+                                                    self.ylist_key_names = ['prefix']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                    ])
+                                                    self.prefix = None
+                                                    self.prefix_options = None
+                                                    self.metric = None
+                                                    self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
@@ -7492,7 +7823,7 @@ class RoutingState(Entity):
                             """
                             OSPF topology.
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: name  (key)
                             
                             	RIB
                             	**type**\: str
@@ -7518,13 +7849,16 @@ class RoutingState(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"area" : ("area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area)}
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = ['name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("area", ("area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area))])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.name = None
 
                                 self.area = YList(self)
-                                self._segment_path = lambda: "topology" + "[name='" + self.name.get() + "']"
+                                self._segment_path = lambda: "topology" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology, ['name'], name, value)
@@ -7534,7 +7868,7 @@ class RoutingState(Entity):
                                 """
                                 List of ospf areas
                                 
-                                .. attribute:: area_id  <key>
+                                .. attribute:: area_id  (key)
                                 
                                 	Area ID
                                 	**type**\: union of the below types:
@@ -7561,11 +7895,14 @@ class RoutingState(Entity):
                                     self.yang_parent_name = "topology"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.area_id = YLeaf(YType.str, "area-id")
-                                    self._segment_path = lambda: "area" + "[area-id='" + self.area_id.get() + "']"
+                                    self.ylist_key_names = ['area_id']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ])
+                                    self.area_id = None
+                                    self._segment_path = lambda: "area" + "[area-id='" + str(self.area_id) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, ['area_id'], name, value)
@@ -7594,8 +7931,10 @@ class RoutingState(Entity):
                 self.yang_parent_name = "routing-instance"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"rib" : ("rib", RoutingState.RoutingInstance.Ribs.Rib)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("rib", ("rib", RoutingState.RoutingInstance.Ribs.Rib))])
+                self._leafs = OrderedDict()
 
                 self.rib = YList(self)
                 self._segment_path = lambda: "ribs"
@@ -7614,7 +7953,7 @@ class RoutingState(Entity):
                 provide one system\-controlled default RIB for each
                 supported address family.
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	The name of the RIB
                 	**type**\: str
@@ -7652,20 +7991,23 @@ class RoutingState(Entity):
                     self.yang_parent_name = "ribs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"routes" : ("routes", RoutingState.RoutingInstance.Ribs.Rib.Routes)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.address_family = YLeaf(YType.identityref, "address-family")
-
-                    self.default_rib = YLeaf(YType.boolean, "default-rib")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("routes", ("routes", RoutingState.RoutingInstance.Ribs.Rib.Routes))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('address_family', YLeaf(YType.identityref, 'address-family')),
+                        ('default_rib', YLeaf(YType.boolean, 'default-rib')),
+                    ])
+                    self.name = None
+                    self.address_family = None
+                    self.default_rib = None
 
                     self.routes = RoutingState.RoutingInstance.Ribs.Rib.Routes()
                     self.routes.parent = self
                     self._children_name_map["routes"] = "routes"
                     self._children_yang_names.add("routes")
-                    self._segment_path = lambda: "rib" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "rib" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib, ['name', 'address_family', 'default_rib'], name, value)
@@ -7694,8 +8036,10 @@ class RoutingState(Entity):
                         self.yang_parent_name = "rib"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"route" : ("route", RoutingState.RoutingInstance.Ribs.Rib.Routes.Route)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("route", ("route", RoutingState.RoutingInstance.Ribs.Rib.Routes.Route))])
+                        self._leafs = OrderedDict()
 
                         self.route = YList(self)
                         self._segment_path = lambda: "routes"
@@ -7710,7 +8054,7 @@ class RoutingState(Entity):
                         with information specific for routes of each address
                         family.
                         
-                        .. attribute:: destination_prefix  <key>
+                        .. attribute:: destination_prefix  (key)
                         
                         	Destination IP address with prefix
                         	**type**\: str
@@ -7786,39 +8130,42 @@ class RoutingState(Entity):
                             self.yang_parent_name = "routes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"next-hop" : ("next_hop", RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop)}
-                            self._child_list_classes = {}
-
-                            self.destination_prefix = YLeaf(YType.str, "destination-prefix")
-
-                            self.route_preference = YLeaf(YType.uint32, "route-preference")
-
-                            self.metric = YLeaf(YType.uint32, "metric")
-
-                            self.source_protocol = YLeaf(YType.identityref, "source-protocol")
-
-                            self.active = YLeaf(YType.empty, "active")
-
-                            self.last_updated = YLeaf(YType.str, "last-updated")
-
-                            self.update_source = YLeaf(YType.str, "update-source")
-
-                            self.tag = YLeaf(YType.uint32, "ietf-ospf:tag")
-
-                            self.route_type = YLeaf(YType.enumeration, "ietf-ospf:route-type")
+                            self.ylist_key_names = ['destination_prefix']
+                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('destination_prefix', YLeaf(YType.str, 'destination-prefix')),
+                                ('route_preference', YLeaf(YType.uint32, 'route-preference')),
+                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                ('source_protocol', YLeaf(YType.identityref, 'source-protocol')),
+                                ('active', YLeaf(YType.empty, 'active')),
+                                ('last_updated', YLeaf(YType.str, 'last-updated')),
+                                ('update_source', YLeaf(YType.str, 'update-source')),
+                                ('tag', YLeaf(YType.uint32, 'ietf-ospf:tag')),
+                                ('route_type', YLeaf(YType.enumeration, 'ietf-ospf:route-type')),
+                            ])
+                            self.destination_prefix = None
+                            self.route_preference = None
+                            self.metric = None
+                            self.source_protocol = None
+                            self.active = None
+                            self.last_updated = None
+                            self.update_source = None
+                            self.tag = None
+                            self.route_type = None
 
                             self.next_hop = RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop()
                             self.next_hop.parent = self
                             self._children_name_map["next_hop"] = "next-hop"
                             self._children_yang_names.add("next-hop")
-                            self._segment_path = lambda: "route" + "[destination-prefix='" + self.destination_prefix.get() + "']"
+                            self._segment_path = lambda: "route" + "[destination-prefix='" + str(self.destination_prefix) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route, ['destination_prefix', 'route_preference', 'metric', 'source_protocol', 'active', 'last_updated', 'update_source', 'tag', 'route_type'], name, value)
 
                         class RouteType(Enum):
                             """
-                            RouteType
+                            RouteType (Enum Class)
 
                             OSPF route type
 
@@ -7895,14 +8242,17 @@ class RoutingState(Entity):
                                 self.yang_parent_name = "route"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                                self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                                self.special_next_hop = YLeaf(YType.enumeration, "special-next-hop")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
+                                    ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                    ('special_next_hop', YLeaf(YType.enumeration, 'special-next-hop')),
+                                ])
+                                self.outgoing_interface = None
+                                self.next_hop_address = None
+                                self.special_next_hop = None
                                 self._segment_path = lambda: "next-hop"
 
                             def __setattr__(self, name, value):
@@ -7910,7 +8260,7 @@ class RoutingState(Entity):
 
                             class SpecialNextHop(Enum):
                                 """
-                                SpecialNextHop
+                                SpecialNextHop (Enum Class)
 
                                 Special next\-hop options.
 
@@ -7977,8 +8327,10 @@ class Routing(Entity):
         self.yang_parent_name = "ietf-routing"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"routing-instance" : ("routing_instance", Routing.RoutingInstance)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("routing-instance", ("routing_instance", Routing.RoutingInstance))])
+        self._leafs = OrderedDict()
 
         self.routing_instance = YList(self)
         self._segment_path = lambda: "ietf-routing:routing"
@@ -7991,7 +8343,7 @@ class Routing(Entity):
         """
         Configuration of a routing instance.
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	The name of the routing instance.  For system\-controlled entries, the value of this leaf must be the same as the name of the corresponding entry in state data.  For user\-controlled entries, an arbitrary name can be used
         	**type**\: str
@@ -8051,18 +8403,21 @@ class Routing(Entity):
             self.yang_parent_name = "routing"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interfaces" : ("interfaces", Routing.RoutingInstance.Interfaces), "routing-protocols" : ("routing_protocols", Routing.RoutingInstance.RoutingProtocols), "ribs" : ("ribs", Routing.RoutingInstance.Ribs)}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.type = YLeaf(YType.identityref, "type")
-
-            self.enabled = YLeaf(YType.boolean, "enabled")
-
-            self.router_id = YLeaf(YType.str, "router-id")
-
-            self.description = YLeaf(YType.str, "description")
+            self.ylist_key_names = ['name']
+            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Routing.RoutingInstance.Interfaces)), ("routing-protocols", ("routing_protocols", Routing.RoutingInstance.RoutingProtocols)), ("ribs", ("ribs", Routing.RoutingInstance.Ribs))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('type', YLeaf(YType.identityref, 'type')),
+                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                ('router_id', YLeaf(YType.str, 'router-id')),
+                ('description', YLeaf(YType.str, 'description')),
+            ])
+            self.name = None
+            self.type = None
+            self.enabled = None
+            self.router_id = None
+            self.description = None
 
             self.interfaces = Routing.RoutingInstance.Interfaces()
             self.interfaces.parent = self
@@ -8078,7 +8433,7 @@ class Routing(Entity):
             self.ribs.parent = self
             self._children_name_map["ribs"] = "ribs"
             self._children_yang_names.add("ribs")
-            self._segment_path = lambda: "routing-instance" + "[name='" + self.name.get() + "']"
+            self._segment_path = lambda: "routing-instance" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-routing:routing/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -8110,10 +8465,13 @@ class Routing(Entity):
                 self.yang_parent_name = "routing-instance"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface = YLeafList(YType.str, "interface")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface', YLeafList(YType.str, 'interface')),
+                ])
+                self.interface = []
                 self._segment_path = lambda: "interfaces"
 
             def __setattr__(self, name, value):
@@ -8143,8 +8501,10 @@ class Routing(Entity):
                 self.yang_parent_name = "routing-instance"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"routing-protocol" : ("routing_protocol", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("routing-protocol", ("routing_protocol", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol))])
+                self._leafs = OrderedDict()
 
                 self.routing_protocol = YList(self)
                 self._segment_path = lambda: "routing-protocols"
@@ -8158,12 +8518,12 @@ class Routing(Entity):
                 Each entry contains configuration of a routing protocol
                 instance.
                 
-                .. attribute:: type  <key>
+                .. attribute:: type  (key)
                 
                 	Type of the routing protocol \- an identity derived from the 'routing\-protocol' base identity
                 	**type**\:  :py:class:`RoutingProtocol <ydk.models.ietf.ietf_routing.RoutingProtocol>`
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	An arbitrary name of the routing protocol instance
                 	**type**\: str
@@ -8197,14 +8557,17 @@ class Routing(Entity):
                     self.yang_parent_name = "routing-protocols"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"static-routes" : ("static_routes", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes), "ietf-ospf:ospf" : ("ospf", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf)}
-                    self._child_list_classes = {}
-
-                    self.type = YLeaf(YType.identityref, "type")
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.description = YLeaf(YType.str, "description")
+                    self.ylist_key_names = ['type','name']
+                    self._child_container_classes = OrderedDict([("static-routes", ("static_routes", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes)), ("ietf-ospf:ospf", ("ospf", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.identityref, 'type')),
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('description', YLeaf(YType.str, 'description')),
+                    ])
+                    self.type = None
+                    self.name = None
+                    self.description = None
 
                     self.static_routes = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes()
                     self.static_routes.parent = self
@@ -8213,9 +8576,9 @@ class Routing(Entity):
 
                     self.ospf = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf()
                     self.ospf.parent = self
-                    self._children_name_map["ospf"] = "ospf"
-                    self._children_yang_names.add("ospf")
-                    self._segment_path = lambda: "routing-protocol" + "[type='" + self.type.get() + "']" + "[name='" + self.name.get() + "']"
+                    self._children_name_map["ospf"] = "ietf-ospf:ospf"
+                    self._children_yang_names.add("ietf-ospf:ospf")
+                    self._segment_path = lambda: "routing-protocol" + "[type='" + str(self.type) + "']" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol, ['type', 'name', 'description'], name, value)
@@ -8252,18 +8615,20 @@ class Routing(Entity):
                         self.yang_parent_name = "routing-protocol"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"ietf-ipv4-unicast-routing:ipv4" : ("ipv4", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4), "ietf-ipv6-unicast-routing:ipv6" : ("ipv6", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("ietf-ipv4-unicast-routing:ipv4", ("ipv4", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4)), ("ietf-ipv6-unicast-routing:ipv6", ("ipv6", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.ipv4 = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4()
                         self.ipv4.parent = self
-                        self._children_name_map["ipv4"] = "ipv4"
-                        self._children_yang_names.add("ipv4")
+                        self._children_name_map["ipv4"] = "ietf-ipv4-unicast-routing:ipv4"
+                        self._children_yang_names.add("ietf-ipv4-unicast-routing:ipv4")
 
                         self.ipv6 = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6()
                         self.ipv6.parent = self
-                        self._children_name_map["ipv6"] = "ipv6"
-                        self._children_yang_names.add("ipv6")
+                        self._children_name_map["ipv6"] = "ietf-ipv6-unicast-routing:ipv6"
+                        self._children_yang_names.add("ietf-ipv6-unicast-routing:ipv6")
                         self._segment_path = lambda: "static-routes"
 
 
@@ -8291,8 +8656,10 @@ class Routing(Entity):
                             self.yang_parent_name = "static-routes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"route" : ("route", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("route", ("route", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route))])
+                            self._leafs = OrderedDict()
 
                             self.route = YList(self)
                             self._segment_path = lambda: "ietf-ipv4-unicast-routing:ipv4"
@@ -8305,7 +8672,7 @@ class Routing(Entity):
                             """
                             A user\-ordered list of static routes.
                             
-                            .. attribute:: destination_prefix  <key>
+                            .. attribute:: destination_prefix  (key)
                             
                             	IPv4 destination prefix
                             	**type**\: str
@@ -8338,18 +8705,21 @@ class Routing(Entity):
                                 self.yang_parent_name = "ipv4"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"next-hop" : ("next_hop", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop)}
-                                self._child_list_classes = {}
-
-                                self.destination_prefix = YLeaf(YType.str, "destination-prefix")
-
-                                self.description = YLeaf(YType.str, "description")
+                                self.ylist_key_names = ['destination_prefix']
+                                self._child_container_classes = OrderedDict([("next-hop", ("next_hop", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('destination_prefix', YLeaf(YType.str, 'destination-prefix')),
+                                    ('description', YLeaf(YType.str, 'description')),
+                                ])
+                                self.destination_prefix = None
+                                self.description = None
 
                                 self.next_hop = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop()
                                 self.next_hop.parent = self
                                 self._children_name_map["next_hop"] = "next-hop"
                                 self._children_yang_names.add("next-hop")
-                                self._segment_path = lambda: "route" + "[destination-prefix='" + self.destination_prefix.get() + "']"
+                                self._segment_path = lambda: "route" + "[destination-prefix='" + str(self.destination_prefix) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route, ['destination_prefix', 'description'], name, value)
@@ -8390,14 +8760,17 @@ class Routing(Entity):
                                     self.yang_parent_name = "route"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                                    self.special_next_hop = YLeaf(YType.enumeration, "special-next-hop")
-
-                                    self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
+                                        ('special_next_hop', YLeaf(YType.enumeration, 'special-next-hop')),
+                                        ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                    ])
+                                    self.outgoing_interface = None
+                                    self.special_next_hop = None
+                                    self.next_hop_address = None
                                     self._segment_path = lambda: "next-hop"
 
                                 def __setattr__(self, name, value):
@@ -8405,7 +8778,7 @@ class Routing(Entity):
 
                                 class SpecialNextHop(Enum):
                                     """
-                                    SpecialNextHop
+                                    SpecialNextHop (Enum Class)
 
                                     Special next\-hop options.
 
@@ -8469,8 +8842,10 @@ class Routing(Entity):
                             self.yang_parent_name = "static-routes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"route" : ("route", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("route", ("route", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route))])
+                            self._leafs = OrderedDict()
 
                             self.route = YList(self)
                             self._segment_path = lambda: "ietf-ipv6-unicast-routing:ipv6"
@@ -8483,7 +8858,7 @@ class Routing(Entity):
                             """
                             A user\-ordered list of static routes.
                             
-                            .. attribute:: destination_prefix  <key>
+                            .. attribute:: destination_prefix  (key)
                             
                             	IPv6 destination prefix
                             	**type**\: str
@@ -8516,18 +8891,21 @@ class Routing(Entity):
                                 self.yang_parent_name = "ipv6"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"next-hop" : ("next_hop", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop)}
-                                self._child_list_classes = {}
-
-                                self.destination_prefix = YLeaf(YType.str, "destination-prefix")
-
-                                self.description = YLeaf(YType.str, "description")
+                                self.ylist_key_names = ['destination_prefix']
+                                self._child_container_classes = OrderedDict([("next-hop", ("next_hop", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('destination_prefix', YLeaf(YType.str, 'destination-prefix')),
+                                    ('description', YLeaf(YType.str, 'description')),
+                                ])
+                                self.destination_prefix = None
+                                self.description = None
 
                                 self.next_hop = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop()
                                 self.next_hop.parent = self
                                 self._children_name_map["next_hop"] = "next-hop"
                                 self._children_yang_names.add("next-hop")
-                                self._segment_path = lambda: "route" + "[destination-prefix='" + self.destination_prefix.get() + "']"
+                                self._segment_path = lambda: "route" + "[destination-prefix='" + str(self.destination_prefix) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route, ['destination_prefix', 'description'], name, value)
@@ -8568,14 +8946,17 @@ class Routing(Entity):
                                     self.yang_parent_name = "route"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                                    self.special_next_hop = YLeaf(YType.enumeration, "special-next-hop")
-
-                                    self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
+                                        ('special_next_hop', YLeaf(YType.enumeration, 'special-next-hop')),
+                                        ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                    ])
+                                    self.outgoing_interface = None
+                                    self.special_next_hop = None
+                                    self.next_hop_address = None
                                     self._segment_path = lambda: "next-hop"
 
                                 def __setattr__(self, name, value):
@@ -8583,7 +8964,7 @@ class Routing(Entity):
 
                                 class SpecialNextHop(Enum):
                                     """
-                                    SpecialNextHop
+                                    SpecialNextHop (Enum Class)
 
                                     Special next\-hop options.
 
@@ -8658,10 +9039,13 @@ class Routing(Entity):
                         self.yang_parent_name = "routing-protocol"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"all-instances-inherit" : ("all_instances_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit)}
-                        self._child_list_classes = {"instance" : ("instance", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance)}
-
-                        self.operation_mode = YLeaf(YType.identityref, "operation-mode")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("all-instances-inherit", ("all_instances_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit))])
+                        self._child_list_classes = OrderedDict([("instance", ("instance", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance))])
+                        self._leafs = OrderedDict([
+                            ('operation_mode', YLeaf(YType.identityref, 'operation-mode')),
+                        ])
+                        self.operation_mode = None
 
                         self.all_instances_inherit = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit()
                         self.all_instances_inherit.parent = self
@@ -8703,8 +9087,10 @@ class Routing(Entity):
                             self.yang_parent_name = "ospf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"area" : ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Area), "interface" : ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Interface)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("area", ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Area)), ("interface", ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Interface))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.area = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit.Area()
                             self.area.parent = self
@@ -8737,8 +9123,10 @@ class Routing(Entity):
                                 self.yang_parent_name = "all-instances-inherit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
                                 self._segment_path = lambda: "area"
 
 
@@ -8761,8 +9149,10 @@ class Routing(Entity):
                                 self.yang_parent_name = "all-instances-inherit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
                                 self._segment_path = lambda: "interface"
 
 
@@ -8770,7 +9160,7 @@ class Routing(Entity):
                         """
                         An OSPF routing protocol instance.
                         
-                        .. attribute:: af  <key>
+                        .. attribute:: af  (key)
                         
                         	Address\-family of the instance
                         	**type**\:  :py:class:`AddressFamily <ydk.models.ietf.ietf_routing.AddressFamily>`
@@ -8863,14 +9253,17 @@ class Routing(Entity):
                             self.yang_parent_name = "ospf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"admin-distance" : ("admin_distance", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance), "nsr" : ("nsr", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr), "graceful-restart" : ("graceful_restart", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart), "auto-cost" : ("auto_cost", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost), "spf-control" : ("spf_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl), "database-control" : ("database_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl), "reload-control" : ("reload_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.ReloadControl), "mpls" : ("mpls", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls), "fast-reroute" : ("fast_reroute", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute), "all-areas-inherit" : ("all_areas_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit)}
-                            self._child_list_classes = {"area" : ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area), "topology" : ("topology", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology)}
-
-                            self.af = YLeaf(YType.identityref, "af")
-
-                            self.router_id = YLeaf(YType.str, "router-id")
-
-                            self.enable = YLeaf(YType.boolean, "enable")
+                            self.ylist_key_names = ['af']
+                            self._child_container_classes = OrderedDict([("admin-distance", ("admin_distance", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance)), ("nsr", ("nsr", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr)), ("graceful-restart", ("graceful_restart", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart)), ("auto-cost", ("auto_cost", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost)), ("spf-control", ("spf_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl)), ("database-control", ("database_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl)), ("reload-control", ("reload_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.ReloadControl)), ("mpls", ("mpls", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls)), ("fast-reroute", ("fast_reroute", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute)), ("all-areas-inherit", ("all_areas_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit))])
+                            self._child_list_classes = OrderedDict([("area", ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area)), ("topology", ("topology", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology))])
+                            self._leafs = OrderedDict([
+                                ('af', YLeaf(YType.identityref, 'af')),
+                                ('router_id', YLeaf(YType.str, 'router-id')),
+                                ('enable', YLeaf(YType.boolean, 'enable')),
+                            ])
+                            self.af = None
+                            self.router_id = None
+                            self.enable = None
 
                             self.admin_distance = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance()
                             self.admin_distance.parent = self
@@ -8924,7 +9317,7 @@ class Routing(Entity):
 
                             self.area = YList(self)
                             self.topology = YList(self)
-                            self._segment_path = lambda: "instance" + "[af='" + self.af.get() + "']"
+                            self._segment_path = lambda: "instance" + "[af='" + str(self.af) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance, ['af', 'router_id', 'enable'], name, value)
@@ -8976,16 +9369,19 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.intra_area = YLeaf(YType.uint8, "intra-area")
-
-                                self.inter_area = YLeaf(YType.uint8, "inter-area")
-
-                                self.internal = YLeaf(YType.uint8, "internal")
-
-                                self.external = YLeaf(YType.uint8, "external")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('intra_area', YLeaf(YType.uint8, 'intra-area')),
+                                    ('inter_area', YLeaf(YType.uint8, 'inter-area')),
+                                    ('internal', YLeaf(YType.uint8, 'internal')),
+                                    ('external', YLeaf(YType.uint8, 'external')),
+                                ])
+                                self.intra_area = None
+                                self.inter_area = None
+                                self.internal = None
+                                self.external = None
                                 self._segment_path = lambda: "admin-distance"
 
                             def __setattr__(self, name, value):
@@ -9015,10 +9411,13 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                ])
+                                self.enable = None
                                 self._segment_path = lambda: "nsr"
 
                             def __setattr__(self, name, value):
@@ -9069,16 +9468,19 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.helper_enable = YLeaf(YType.boolean, "helper-enable")
-
-                                self.restart_interval = YLeaf(YType.uint16, "restart-interval")
-
-                                self.helper_strict_lsa_checking = YLeaf(YType.boolean, "helper-strict-lsa-checking")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('helper_enable', YLeaf(YType.boolean, 'helper-enable')),
+                                    ('restart_interval', YLeaf(YType.uint16, 'restart-interval')),
+                                    ('helper_strict_lsa_checking', YLeaf(YType.boolean, 'helper-strict-lsa-checking')),
+                                ])
+                                self.enable = None
+                                self.helper_enable = None
+                                self.restart_interval = None
+                                self.helper_strict_lsa_checking = None
                                 self._segment_path = lambda: "graceful-restart"
 
                             def __setattr__(self, name, value):
@@ -9117,12 +9519,15 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.boolean, "enable")
-
-                                self.reference_bandwidth = YLeaf(YType.uint32, "reference-bandwidth")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('reference_bandwidth', YLeaf(YType.uint32, 'reference-bandwidth')),
+                                ])
+                                self.enable = None
+                                self.reference_bandwidth = None
                                 self._segment_path = lambda: "auto-cost"
 
                             def __setattr__(self, name, value):
@@ -9154,10 +9559,13 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.paths = YLeaf(YType.uint16, "paths")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('paths', YLeaf(YType.uint16, 'paths')),
+                                ])
+                                self.paths = None
                                 self._segment_path = lambda: "spf-control"
 
                             def __setattr__(self, name, value):
@@ -9189,10 +9597,13 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_lsa = YLeaf(YType.uint32, "max-lsa")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_lsa', YLeaf(YType.uint32, 'max-lsa')),
+                                ])
+                                self.max_lsa = None
                                 self._segment_path = lambda: "database-control"
 
                             def __setattr__(self, name, value):
@@ -9217,8 +9628,10 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
                                 self._segment_path = lambda: "reload-control"
 
 
@@ -9250,8 +9663,10 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"te-rid" : ("te_rid", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid), "ldp" : ("ldp", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.Ldp)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("te-rid", ("te_rid", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid)), ("ldp", ("ldp", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.Ldp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.te_rid = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid()
                                 self.te_rid.parent = self
@@ -9297,12 +9712,15 @@ class Routing(Entity):
                                     self.yang_parent_name = "mpls"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface = YLeaf(YType.str, "interface")
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface', YLeaf(YType.str, 'interface')),
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ])
+                                    self.interface = None
+                                    self.router_id = None
                                     self._segment_path = lambda: "te-rid"
 
                                 def __setattr__(self, name, value):
@@ -9337,12 +9755,15 @@ class Routing(Entity):
                                     self.yang_parent_name = "mpls"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.igp_sync = YLeaf(YType.boolean, "igp-sync")
-
-                                    self.autoconfig = YLeaf(YType.boolean, "autoconfig")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('igp_sync', YLeaf(YType.boolean, 'igp-sync')),
+                                        ('autoconfig', YLeaf(YType.boolean, 'autoconfig')),
+                                    ])
+                                    self.igp_sync = None
+                                    self.autoconfig = None
                                     self._segment_path = lambda: "ldp"
 
                                 def __setattr__(self, name, value):
@@ -9373,8 +9794,10 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"lfa" : ("lfa", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute.Lfa)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("lfa", ("lfa", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute.Lfa))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.lfa = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute.Lfa()
                                 self.lfa.parent = self
@@ -9404,8 +9827,10 @@ class Routing(Entity):
                                     self.yang_parent_name = "fast-reroute"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
                                     self._segment_path = lambda: "lfa"
 
 
@@ -9437,8 +9862,10 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"area" : ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Area), "interface" : ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Interface)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("area", ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Area)), ("interface", ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Interface))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.area = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit.Area()
                                 self.area.parent = self
@@ -9470,8 +9897,10 @@ class Routing(Entity):
                                     self.yang_parent_name = "all-areas-inherit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
                                     self._segment_path = lambda: "area"
 
 
@@ -9494,8 +9923,10 @@ class Routing(Entity):
                                     self.yang_parent_name = "all-areas-inherit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
                                     self._segment_path = lambda: "interface"
 
 
@@ -9503,7 +9934,7 @@ class Routing(Entity):
                             """
                             List of ospf areas
                             
-                            .. attribute:: area_id  <key>
+                            .. attribute:: area_id  (key)
                             
                             	Area ID
                             	**type**\: union of the below types:
@@ -9574,16 +10005,19 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"all-interfaces-inherit" : ("all_interfaces_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit)}
-                                self._child_list_classes = {"range" : ("range", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range), "virtual-link" : ("virtual_link", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink), "sham-link" : ("sham_link", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink), "interface" : ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface)}
-
-                                self.area_id = YLeaf(YType.str, "area-id")
-
-                                self.area_type = YLeaf(YType.identityref, "area-type")
-
-                                self.summary = YLeaf(YType.boolean, "summary")
-
-                                self.default_cost = YLeaf(YType.uint32, "default-cost")
+                                self.ylist_key_names = ['area_id']
+                                self._child_container_classes = OrderedDict([("all-interfaces-inherit", ("all_interfaces_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit))])
+                                self._child_list_classes = OrderedDict([("range", ("range", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range)), ("virtual-link", ("virtual_link", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink)), ("sham-link", ("sham_link", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink)), ("interface", ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface))])
+                                self._leafs = OrderedDict([
+                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('area_type', YLeaf(YType.identityref, 'area-type')),
+                                    ('summary', YLeaf(YType.boolean, 'summary')),
+                                    ('default_cost', YLeaf(YType.uint32, 'default-cost')),
+                                ])
+                                self.area_id = None
+                                self.area_type = None
+                                self.summary = None
+                                self.default_cost = None
 
                                 self.all_interfaces_inherit = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit()
                                 self.all_interfaces_inherit.parent = self
@@ -9594,7 +10028,7 @@ class Routing(Entity):
                                 self.virtual_link = YList(self)
                                 self.sham_link = YList(self)
                                 self.interface = YList(self)
-                                self._segment_path = lambda: "area" + "[area-id='" + self.area_id.get() + "']"
+                                self._segment_path = lambda: "area" + "[area-id='" + str(self.area_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area, ['area_id', 'area_type', 'summary', 'default_cost'], name, value)
@@ -9605,7 +10039,7 @@ class Routing(Entity):
                                 Summarize routes matching address/mask (border
                                 routers only)
                                 
-                                .. attribute:: prefix  <key>
+                                .. attribute:: prefix  (key)
                                 
                                 	IPv4 or IPv6 prefix
                                 	**type**\: str
@@ -9636,15 +10070,18 @@ class Routing(Entity):
                                     self.yang_parent_name = "area"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                    self.advertise = YLeaf(YType.boolean, "advertise")
-
-                                    self.cost = YLeaf(YType.uint32, "cost")
-                                    self._segment_path = lambda: "range" + "[prefix='" + self.prefix.get() + "']"
+                                    self.ylist_key_names = ['prefix']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                        ('advertise', YLeaf(YType.boolean, 'advertise')),
+                                        ('cost', YLeaf(YType.uint32, 'cost')),
+                                    ])
+                                    self.prefix = None
+                                    self.advertise = None
+                                    self.cost = None
+                                    self._segment_path = lambda: "range" + "[prefix='" + str(self.prefix) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range, ['prefix', 'advertise', 'cost'], name, value)
@@ -9673,8 +10110,10 @@ class Routing(Entity):
                                     self.yang_parent_name = "area"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"interface" : ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit.Interface)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("interface", ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit.Interface))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.interface = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit.Interface()
                                     self.interface.parent = self
@@ -9702,8 +10141,10 @@ class Routing(Entity):
                                         self.yang_parent_name = "all-interfaces-inherit"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
                                         self._segment_path = lambda: "interface"
 
 
@@ -9711,7 +10152,7 @@ class Routing(Entity):
                                 """
                                 OSPF virtual link
                                 
-                                .. attribute:: router_id  <key>
+                                .. attribute:: router_id  (key)
                                 
                                 	Virtual link router ID
                                 	**type**\: str
@@ -9812,30 +10253,33 @@ class Routing(Entity):
                                     self.yang_parent_name = "area"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"ttl-security" : ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity), "authentication" : ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication)}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.cost = YLeaf(YType.uint16, "cost")
-
-                                    self.hello_interval = YLeaf(YType.uint16, "hello-interval")
-
-                                    self.dead_interval = YLeaf(YType.uint16, "dead-interval")
-
-                                    self.retransmit_interval = YLeaf(YType.uint16, "retransmit-interval")
-
-                                    self.transmit_delay = YLeaf(YType.uint16, "transmit-delay")
-
-                                    self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                    self.lls = YLeaf(YType.boolean, "lls")
-
-                                    self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                    self.bfd = YLeaf(YType.boolean, "bfd")
-
-                                    self.enable = YLeaf(YType.boolean, "enable")
+                                    self.ylist_key_names = ['router_id']
+                                    self._child_container_classes = OrderedDict([("ttl-security", ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity)), ("authentication", ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('cost', YLeaf(YType.uint16, 'cost')),
+                                        ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
+                                        ('dead_interval', YLeaf(YType.uint16, 'dead-interval')),
+                                        ('retransmit_interval', YLeaf(YType.uint16, 'retransmit-interval')),
+                                        ('transmit_delay', YLeaf(YType.uint16, 'transmit-delay')),
+                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                        ('lls', YLeaf(YType.boolean, 'lls')),
+                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                        ('bfd', YLeaf(YType.boolean, 'bfd')),
+                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ])
+                                    self.router_id = None
+                                    self.cost = None
+                                    self.hello_interval = None
+                                    self.dead_interval = None
+                                    self.retransmit_interval = None
+                                    self.transmit_delay = None
+                                    self.mtu_ignore = None
+                                    self.lls = None
+                                    self.prefix_suppression = None
+                                    self.bfd = None
+                                    self.enable = None
 
                                     self.ttl_security = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity()
                                     self.ttl_security.parent = self
@@ -9846,7 +10290,7 @@ class Routing(Entity):
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
                                     self._children_yang_names.add("authentication")
-                                    self._segment_path = lambda: "virtual-link" + "[router-id='" + self.router_id.get() + "']"
+                                    self._segment_path = lambda: "virtual-link" + "[router-id='" + str(self.router_id) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink, ['router_id', 'cost', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay', 'mtu_ignore', 'lls', 'prefix_suppression', 'bfd', 'enable'], name, value)
@@ -9882,12 +10326,15 @@ class Routing(Entity):
                                         self.yang_parent_name = "virtual-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.hops = YLeaf(YType.uint8, "hops")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('hops', YLeaf(YType.uint8, 'hops')),
+                                        ])
+                                        self.enable = None
+                                        self.hops = None
                                         self._segment_path = lambda: "ttl-security"
 
                                     def __setattr__(self, name, value):
@@ -9934,14 +10381,17 @@ class Routing(Entity):
                                         self.yang_parent_name = "virtual-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"crypto-algorithm" : ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm)}
-                                        self._child_list_classes = {}
-
-                                        self.sa = YLeaf(YType.str, "sa")
-
-                                        self.key_chain = YLeaf(YType.str, "key-chain")
-
-                                        self.key = YLeaf(YType.str, "key")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("crypto-algorithm", ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sa', YLeaf(YType.str, 'sa')),
+                                            ('key_chain', YLeaf(YType.str, 'key-chain')),
+                                            ('key', YLeaf(YType.str, 'key')),
+                                        ])
+                                        self.sa = None
+                                        self.key_chain = None
+                                        self.key = None
 
                                         self.crypto_algorithm = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm()
                                         self.crypto_algorithm.parent = self
@@ -10011,24 +10461,27 @@ class Routing(Entity):
                                             self.yang_parent_name = "authentication"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.hmac_sha1_12 = YLeaf(YType.empty, "hmac-sha1-12")
-
-                                            self.hmac_sha1_20 = YLeaf(YType.empty, "hmac-sha1-20")
-
-                                            self.md5 = YLeaf(YType.empty, "md5")
-
-                                            self.sha_1 = YLeaf(YType.empty, "sha-1")
-
-                                            self.hmac_sha_1 = YLeaf(YType.empty, "hmac-sha-1")
-
-                                            self.hmac_sha_256 = YLeaf(YType.empty, "hmac-sha-256")
-
-                                            self.hmac_sha_384 = YLeaf(YType.empty, "hmac-sha-384")
-
-                                            self.hmac_sha_512 = YLeaf(YType.empty, "hmac-sha-512")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
+                                                ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
+                                                ('md5', YLeaf(YType.empty, 'md5')),
+                                                ('sha_1', YLeaf(YType.empty, 'sha-1')),
+                                                ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
+                                                ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
+                                                ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
+                                                ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                                            ])
+                                            self.hmac_sha1_12 = None
+                                            self.hmac_sha1_20 = None
+                                            self.md5 = None
+                                            self.sha_1 = None
+                                            self.hmac_sha_1 = None
+                                            self.hmac_sha_256 = None
+                                            self.hmac_sha_384 = None
+                                            self.hmac_sha_512 = None
                                             self._segment_path = lambda: "crypto-algorithm"
 
                                         def __setattr__(self, name, value):
@@ -10039,7 +10492,7 @@ class Routing(Entity):
                                 """
                                 OSPF sham link
                                 
-                                .. attribute:: local_id  <key>
+                                .. attribute:: local_id  (key)
                                 
                                 	Address of the local end\-point
                                 	**type**\: union of the below types:
@@ -10052,7 +10505,7 @@ class Routing(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: remote_id  <key>
+                                .. attribute:: remote_id  (key)
                                 
                                 	Address of the remote end\-point
                                 	**type**\: union of the below types:
@@ -10159,32 +10612,35 @@ class Routing(Entity):
                                     self.yang_parent_name = "area"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"ttl-security" : ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity), "authentication" : ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication)}
-                                    self._child_list_classes = {}
-
-                                    self.local_id = YLeaf(YType.str, "local-id")
-
-                                    self.remote_id = YLeaf(YType.str, "remote-id")
-
-                                    self.cost = YLeaf(YType.uint16, "cost")
-
-                                    self.hello_interval = YLeaf(YType.uint16, "hello-interval")
-
-                                    self.dead_interval = YLeaf(YType.uint16, "dead-interval")
-
-                                    self.retransmit_interval = YLeaf(YType.uint16, "retransmit-interval")
-
-                                    self.transmit_delay = YLeaf(YType.uint16, "transmit-delay")
-
-                                    self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                    self.lls = YLeaf(YType.boolean, "lls")
-
-                                    self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                    self.bfd = YLeaf(YType.boolean, "bfd")
-
-                                    self.enable = YLeaf(YType.boolean, "enable")
+                                    self.ylist_key_names = ['local_id','remote_id']
+                                    self._child_container_classes = OrderedDict([("ttl-security", ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity)), ("authentication", ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('local_id', YLeaf(YType.str, 'local-id')),
+                                        ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                        ('cost', YLeaf(YType.uint16, 'cost')),
+                                        ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
+                                        ('dead_interval', YLeaf(YType.uint16, 'dead-interval')),
+                                        ('retransmit_interval', YLeaf(YType.uint16, 'retransmit-interval')),
+                                        ('transmit_delay', YLeaf(YType.uint16, 'transmit-delay')),
+                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                        ('lls', YLeaf(YType.boolean, 'lls')),
+                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                        ('bfd', YLeaf(YType.boolean, 'bfd')),
+                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ])
+                                    self.local_id = None
+                                    self.remote_id = None
+                                    self.cost = None
+                                    self.hello_interval = None
+                                    self.dead_interval = None
+                                    self.retransmit_interval = None
+                                    self.transmit_delay = None
+                                    self.mtu_ignore = None
+                                    self.lls = None
+                                    self.prefix_suppression = None
+                                    self.bfd = None
+                                    self.enable = None
 
                                     self.ttl_security = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity()
                                     self.ttl_security.parent = self
@@ -10195,7 +10651,7 @@ class Routing(Entity):
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
                                     self._children_yang_names.add("authentication")
-                                    self._segment_path = lambda: "sham-link" + "[local-id='" + self.local_id.get() + "']" + "[remote-id='" + self.remote_id.get() + "']"
+                                    self._segment_path = lambda: "sham-link" + "[local-id='" + str(self.local_id) + "']" + "[remote-id='" + str(self.remote_id) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink, ['local_id', 'remote_id', 'cost', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay', 'mtu_ignore', 'lls', 'prefix_suppression', 'bfd', 'enable'], name, value)
@@ -10231,12 +10687,15 @@ class Routing(Entity):
                                         self.yang_parent_name = "sham-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.hops = YLeaf(YType.uint8, "hops")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('hops', YLeaf(YType.uint8, 'hops')),
+                                        ])
+                                        self.enable = None
+                                        self.hops = None
                                         self._segment_path = lambda: "ttl-security"
 
                                     def __setattr__(self, name, value):
@@ -10283,14 +10742,17 @@ class Routing(Entity):
                                         self.yang_parent_name = "sham-link"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"crypto-algorithm" : ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm)}
-                                        self._child_list_classes = {}
-
-                                        self.sa = YLeaf(YType.str, "sa")
-
-                                        self.key_chain = YLeaf(YType.str, "key-chain")
-
-                                        self.key = YLeaf(YType.str, "key")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("crypto-algorithm", ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sa', YLeaf(YType.str, 'sa')),
+                                            ('key_chain', YLeaf(YType.str, 'key-chain')),
+                                            ('key', YLeaf(YType.str, 'key')),
+                                        ])
+                                        self.sa = None
+                                        self.key_chain = None
+                                        self.key = None
 
                                         self.crypto_algorithm = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm()
                                         self.crypto_algorithm.parent = self
@@ -10360,24 +10822,27 @@ class Routing(Entity):
                                             self.yang_parent_name = "authentication"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.hmac_sha1_12 = YLeaf(YType.empty, "hmac-sha1-12")
-
-                                            self.hmac_sha1_20 = YLeaf(YType.empty, "hmac-sha1-20")
-
-                                            self.md5 = YLeaf(YType.empty, "md5")
-
-                                            self.sha_1 = YLeaf(YType.empty, "sha-1")
-
-                                            self.hmac_sha_1 = YLeaf(YType.empty, "hmac-sha-1")
-
-                                            self.hmac_sha_256 = YLeaf(YType.empty, "hmac-sha-256")
-
-                                            self.hmac_sha_384 = YLeaf(YType.empty, "hmac-sha-384")
-
-                                            self.hmac_sha_512 = YLeaf(YType.empty, "hmac-sha-512")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
+                                                ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
+                                                ('md5', YLeaf(YType.empty, 'md5')),
+                                                ('sha_1', YLeaf(YType.empty, 'sha-1')),
+                                                ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
+                                                ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
+                                                ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
+                                                ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                                            ])
+                                            self.hmac_sha1_12 = None
+                                            self.hmac_sha1_20 = None
+                                            self.md5 = None
+                                            self.sha_1 = None
+                                            self.hmac_sha_1 = None
+                                            self.hmac_sha_256 = None
+                                            self.hmac_sha_384 = None
+                                            self.hmac_sha_512 = None
                                             self._segment_path = lambda: "crypto-algorithm"
 
                                         def __setattr__(self, name, value):
@@ -10388,7 +10853,7 @@ class Routing(Entity):
                                 """
                                 List of OSPF interfaces.
                                 
-                                .. attribute:: interface  <key>
+                                .. attribute:: interface  (key)
                                 
                                 	Interface
                                 	**type**\: str
@@ -10531,38 +10996,41 @@ class Routing(Entity):
                                     self.yang_parent_name = "area"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"multi-area" : ("multi_area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea), "static-neighbors" : ("static_neighbors", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors), "fast-reroute" : ("fast_reroute", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute), "ttl-security" : ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity), "authentication" : ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication)}
-                                    self._child_list_classes = {"topology" : ("topology", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology)}
-
-                                    self.interface = YLeaf(YType.str, "interface")
-
-                                    self.network_type = YLeaf(YType.enumeration, "network-type")
-
-                                    self.passive = YLeaf(YType.boolean, "passive")
-
-                                    self.demand_circuit = YLeaf(YType.boolean, "demand-circuit")
-
-                                    self.node_flag = YLeaf(YType.boolean, "node-flag")
-
-                                    self.cost = YLeaf(YType.uint16, "cost")
-
-                                    self.hello_interval = YLeaf(YType.uint16, "hello-interval")
-
-                                    self.dead_interval = YLeaf(YType.uint16, "dead-interval")
-
-                                    self.retransmit_interval = YLeaf(YType.uint16, "retransmit-interval")
-
-                                    self.transmit_delay = YLeaf(YType.uint16, "transmit-delay")
-
-                                    self.mtu_ignore = YLeaf(YType.boolean, "mtu-ignore")
-
-                                    self.lls = YLeaf(YType.boolean, "lls")
-
-                                    self.prefix_suppression = YLeaf(YType.boolean, "prefix-suppression")
-
-                                    self.bfd = YLeaf(YType.boolean, "bfd")
-
-                                    self.enable = YLeaf(YType.boolean, "enable")
+                                    self.ylist_key_names = ['interface']
+                                    self._child_container_classes = OrderedDict([("multi-area", ("multi_area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea)), ("static-neighbors", ("static_neighbors", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors)), ("fast-reroute", ("fast_reroute", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute)), ("ttl-security", ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity)), ("authentication", ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication))])
+                                    self._child_list_classes = OrderedDict([("topology", ("topology", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology))])
+                                    self._leafs = OrderedDict([
+                                        ('interface', YLeaf(YType.str, 'interface')),
+                                        ('network_type', YLeaf(YType.enumeration, 'network-type')),
+                                        ('passive', YLeaf(YType.boolean, 'passive')),
+                                        ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
+                                        ('node_flag', YLeaf(YType.boolean, 'node-flag')),
+                                        ('cost', YLeaf(YType.uint16, 'cost')),
+                                        ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
+                                        ('dead_interval', YLeaf(YType.uint16, 'dead-interval')),
+                                        ('retransmit_interval', YLeaf(YType.uint16, 'retransmit-interval')),
+                                        ('transmit_delay', YLeaf(YType.uint16, 'transmit-delay')),
+                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
+                                        ('lls', YLeaf(YType.boolean, 'lls')),
+                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
+                                        ('bfd', YLeaf(YType.boolean, 'bfd')),
+                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ])
+                                    self.interface = None
+                                    self.network_type = None
+                                    self.passive = None
+                                    self.demand_circuit = None
+                                    self.node_flag = None
+                                    self.cost = None
+                                    self.hello_interval = None
+                                    self.dead_interval = None
+                                    self.retransmit_interval = None
+                                    self.transmit_delay = None
+                                    self.mtu_ignore = None
+                                    self.lls = None
+                                    self.prefix_suppression = None
+                                    self.bfd = None
+                                    self.enable = None
 
                                     self.multi_area = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea()
                                     self.multi_area.parent = self
@@ -10590,14 +11058,14 @@ class Routing(Entity):
                                     self._children_yang_names.add("authentication")
 
                                     self.topology = YList(self)
-                                    self._segment_path = lambda: "interface" + "[interface='" + self.interface.get() + "']"
+                                    self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface, ['interface', 'network_type', 'passive', 'demand_circuit', 'node_flag', 'cost', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay', 'mtu_ignore', 'lls', 'prefix_suppression', 'bfd', 'enable'], name, value)
 
                                 class NetworkType(Enum):
                                     """
-                                    NetworkType
+                                    NetworkType (Enum Class)
 
                                     Network type.
 
@@ -10669,12 +11137,15 @@ class Routing(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.multi_area_id = YLeaf(YType.str, "multi-area-id")
-
-                                        self.cost = YLeaf(YType.uint16, "cost")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('multi_area_id', YLeaf(YType.str, 'multi-area-id')),
+                                            ('cost', YLeaf(YType.uint16, 'cost')),
+                                        ])
+                                        self.multi_area_id = None
+                                        self.cost = None
                                         self._segment_path = lambda: "multi-area"
 
                                     def __setattr__(self, name, value):
@@ -10704,8 +11175,10 @@ class Routing(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"neighbor" : ("neighbor", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor))])
+                                        self._leafs = OrderedDict()
 
                                         self.neighbor = YList(self)
                                         self._segment_path = lambda: "static-neighbors"
@@ -10718,7 +11191,7 @@ class Routing(Entity):
                                         """
                                         Specify a neighbor router.
                                         
-                                        .. attribute:: address  <key>
+                                        .. attribute:: address  (key)
                                         
                                         	Neighbor IP address
                                         	**type**\: union of the below types:
@@ -10768,17 +11241,20 @@ class Routing(Entity):
                                             self.yang_parent_name = "static-neighbors"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.address = YLeaf(YType.str, "address")
-
-                                            self.cost = YLeaf(YType.uint16, "cost")
-
-                                            self.poll_interval = YLeaf(YType.uint16, "poll-interval")
-
-                                            self.priority = YLeaf(YType.uint8, "priority")
-                                            self._segment_path = lambda: "neighbor" + "[address='" + self.address.get() + "']"
+                                            self.ylist_key_names = ['address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('cost', YLeaf(YType.uint16, 'cost')),
+                                                ('poll_interval', YLeaf(YType.uint16, 'poll-interval')),
+                                                ('priority', YLeaf(YType.uint8, 'priority')),
+                                            ])
+                                            self.address = None
+                                            self.cost = None
+                                            self.poll_interval = None
+                                            self.priority = None
+                                            self._segment_path = lambda: "neighbor" + "[address='" + str(self.address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor, ['address', 'cost', 'poll_interval', 'priority'], name, value)
@@ -10807,8 +11283,10 @@ class Routing(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"lfa" : ("lfa", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("lfa", ("lfa", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.lfa = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa()
                                         self.lfa.parent = self
@@ -10850,12 +11328,15 @@ class Routing(Entity):
                                             self.yang_parent_name = "fast-reroute"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"remote-lfa" : ("remote_lfa", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa)}
-                                            self._child_list_classes = {}
-
-                                            self.candidate_disabled = YLeaf(YType.boolean, "candidate-disabled")
-
-                                            self.enabled = YLeaf(YType.boolean, "enabled")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('candidate_disabled', YLeaf(YType.boolean, 'candidate-disabled')),
+                                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                            ])
+                                            self.candidate_disabled = None
+                                            self.enabled = None
 
                                             self.remote_lfa = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa()
                                             self.remote_lfa.parent = self
@@ -10890,10 +11371,13 @@ class Routing(Entity):
                                                 self.yang_parent_name = "lfa"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                                ])
+                                                self.enabled = None
                                                 self._segment_path = lambda: "remote-lfa"
 
                                             def __setattr__(self, name, value):
@@ -10930,12 +11414,15 @@ class Routing(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.boolean, "enable")
-
-                                        self.hops = YLeaf(YType.uint8, "hops")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.boolean, 'enable')),
+                                            ('hops', YLeaf(YType.uint8, 'hops')),
+                                        ])
+                                        self.enable = None
+                                        self.hops = None
                                         self._segment_path = lambda: "ttl-security"
 
                                     def __setattr__(self, name, value):
@@ -10982,14 +11469,17 @@ class Routing(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"crypto-algorithm" : ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm)}
-                                        self._child_list_classes = {}
-
-                                        self.sa = YLeaf(YType.str, "sa")
-
-                                        self.key_chain = YLeaf(YType.str, "key-chain")
-
-                                        self.key = YLeaf(YType.str, "key")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("crypto-algorithm", ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sa', YLeaf(YType.str, 'sa')),
+                                            ('key_chain', YLeaf(YType.str, 'key-chain')),
+                                            ('key', YLeaf(YType.str, 'key')),
+                                        ])
+                                        self.sa = None
+                                        self.key_chain = None
+                                        self.key = None
 
                                         self.crypto_algorithm = Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm()
                                         self.crypto_algorithm.parent = self
@@ -11059,24 +11549,27 @@ class Routing(Entity):
                                             self.yang_parent_name = "authentication"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.hmac_sha1_12 = YLeaf(YType.empty, "hmac-sha1-12")
-
-                                            self.hmac_sha1_20 = YLeaf(YType.empty, "hmac-sha1-20")
-
-                                            self.md5 = YLeaf(YType.empty, "md5")
-
-                                            self.sha_1 = YLeaf(YType.empty, "sha-1")
-
-                                            self.hmac_sha_1 = YLeaf(YType.empty, "hmac-sha-1")
-
-                                            self.hmac_sha_256 = YLeaf(YType.empty, "hmac-sha-256")
-
-                                            self.hmac_sha_384 = YLeaf(YType.empty, "hmac-sha-384")
-
-                                            self.hmac_sha_512 = YLeaf(YType.empty, "hmac-sha-512")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
+                                                ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
+                                                ('md5', YLeaf(YType.empty, 'md5')),
+                                                ('sha_1', YLeaf(YType.empty, 'sha-1')),
+                                                ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
+                                                ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
+                                                ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
+                                                ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                                            ])
+                                            self.hmac_sha1_12 = None
+                                            self.hmac_sha1_20 = None
+                                            self.md5 = None
+                                            self.sha_1 = None
+                                            self.hmac_sha_1 = None
+                                            self.hmac_sha_256 = None
+                                            self.hmac_sha_384 = None
+                                            self.hmac_sha_512 = None
                                             self._segment_path = lambda: "crypto-algorithm"
 
                                         def __setattr__(self, name, value):
@@ -11087,7 +11580,7 @@ class Routing(Entity):
                                     """
                                     OSPF interface topology.
                                     
-                                    .. attribute:: name  <key>
+                                    .. attribute:: name  (key)
                                     
                                     	One of the topology enabled on this interface
                                     	**type**\: str
@@ -11115,13 +11608,16 @@ class Routing(Entity):
                                         self.yang_parent_name = "interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.cost = YLeaf(YType.uint32, "cost")
-                                        self._segment_path = lambda: "topology" + "[name='" + self.name.get() + "']"
+                                        self.ylist_key_names = ['name']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('cost', YLeaf(YType.uint32, 'cost')),
+                                        ])
+                                        self.name = None
+                                        self.cost = None
+                                        self._segment_path = lambda: "topology" + "[name='" + str(self.name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology, ['name', 'cost'], name, value)
@@ -11131,7 +11627,7 @@ class Routing(Entity):
                             """
                             OSPF topology.
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: name  (key)
                             
                             	RIB
                             	**type**\: str
@@ -11157,13 +11653,16 @@ class Routing(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"area" : ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area)}
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = ['name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("area", ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area))])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.name = None
 
                                 self.area = YList(self)
-                                self._segment_path = lambda: "topology" + "[name='" + self.name.get() + "']"
+                                self._segment_path = lambda: "topology" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology, ['name'], name, value)
@@ -11173,7 +11672,7 @@ class Routing(Entity):
                                 """
                                 List of ospf areas
                                 
-                                .. attribute:: area_id  <key>
+                                .. attribute:: area_id  (key)
                                 
                                 	Area ID
                                 	**type**\: union of the below types:
@@ -11224,19 +11723,22 @@ class Routing(Entity):
                                     self.yang_parent_name = "topology"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"range" : ("range", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range)}
-
-                                    self.area_id = YLeaf(YType.str, "area-id")
-
-                                    self.area_type = YLeaf(YType.identityref, "area-type")
-
-                                    self.summary = YLeaf(YType.boolean, "summary")
-
-                                    self.default_cost = YLeaf(YType.uint32, "default-cost")
+                                    self.ylist_key_names = ['area_id']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("range", ("range", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range))])
+                                    self._leafs = OrderedDict([
+                                        ('area_id', YLeaf(YType.str, 'area-id')),
+                                        ('area_type', YLeaf(YType.identityref, 'area-type')),
+                                        ('summary', YLeaf(YType.boolean, 'summary')),
+                                        ('default_cost', YLeaf(YType.uint32, 'default-cost')),
+                                    ])
+                                    self.area_id = None
+                                    self.area_type = None
+                                    self.summary = None
+                                    self.default_cost = None
 
                                     self.range = YList(self)
-                                    self._segment_path = lambda: "area" + "[area-id='" + self.area_id.get() + "']"
+                                    self._segment_path = lambda: "area" + "[area-id='" + str(self.area_id) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, ['area_id', 'area_type', 'summary', 'default_cost'], name, value)
@@ -11247,7 +11749,7 @@ class Routing(Entity):
                                     Summarize routes matching address/mask (border
                                     routers only)
                                     
-                                    .. attribute:: prefix  <key>
+                                    .. attribute:: prefix  (key)
                                     
                                     	IPv4 or IPv6 prefix
                                     	**type**\: str
@@ -11278,15 +11780,18 @@ class Routing(Entity):
                                         self.yang_parent_name = "area"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.prefix = YLeaf(YType.str, "prefix")
-
-                                        self.advertise = YLeaf(YType.boolean, "advertise")
-
-                                        self.cost = YLeaf(YType.uint32, "cost")
-                                        self._segment_path = lambda: "range" + "[prefix='" + self.prefix.get() + "']"
+                                        self.ylist_key_names = ['prefix']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('prefix', YLeaf(YType.str, 'prefix')),
+                                            ('advertise', YLeaf(YType.boolean, 'advertise')),
+                                            ('cost', YLeaf(YType.uint32, 'cost')),
+                                        ])
+                                        self.prefix = None
+                                        self.advertise = None
+                                        self.cost = None
+                                        self._segment_path = lambda: "range" + "[prefix='" + str(self.prefix) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range, ['prefix', 'advertise', 'cost'], name, value)
@@ -11315,8 +11820,10 @@ class Routing(Entity):
                 self.yang_parent_name = "routing-instance"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"rib" : ("rib", Routing.RoutingInstance.Ribs.Rib)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("rib", ("rib", Routing.RoutingInstance.Ribs.Rib))])
+                self._leafs = OrderedDict()
 
                 self.rib = YList(self)
                 self._segment_path = lambda: "ribs"
@@ -11335,7 +11842,7 @@ class Routing(Entity):
                 used for configuring parameters of that entry. Other
                 entries define additional user\-controlled RIBs.
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	The name of the RIB.  For system\-controlled entries, the value of this leaf must be the same as the name of the corresponding entry in state data.  For user\-controlled entries, an arbitrary name can be used
                 	**type**\: str
@@ -11364,15 +11871,18 @@ class Routing(Entity):
                     self.yang_parent_name = "ribs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.address_family = YLeaf(YType.identityref, "address-family")
-
-                    self.description = YLeaf(YType.str, "description")
-                    self._segment_path = lambda: "rib" + "[name='" + self.name.get() + "']"
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('address_family', YLeaf(YType.identityref, 'address-family')),
+                        ('description', YLeaf(YType.str, 'description')),
+                    ])
+                    self.name = None
+                    self.address_family = None
+                    self.description = None
+                    self._segment_path = lambda: "rib" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Routing.RoutingInstance.Ribs.Rib, ['name', 'address_family', 'description'], name, value)
@@ -11411,8 +11921,10 @@ class FibRoute(Entity):
         self.yang_parent_name = "ietf-routing"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = FibRoute.Input()
         self.input.parent = self
@@ -11456,10 +11968,13 @@ class FibRoute(Entity):
             self.yang_parent_name = "fib-route"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"destination-address" : ("destination_address", FibRoute.Input.DestinationAddress)}
-            self._child_list_classes = {}
-
-            self.routing_instance_name = YLeaf(YType.str, "routing-instance-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("destination-address", ("destination_address", FibRoute.Input.DestinationAddress))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('routing_instance_name', YLeaf(YType.str, 'routing-instance-name')),
+            ])
+            self.routing_instance_name = None
 
             self.destination_address = FibRoute.Input.DestinationAddress()
             self.destination_address.parent = self
@@ -11514,14 +12029,17 @@ class FibRoute(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.address_family = YLeaf(YType.identityref, "address-family")
-
-                self.ietf_ipv4_unicast_routing_address = YLeaf(YType.str, "ietf-ipv4-unicast-routing:address")
-
-                self.ietf_ipv6_unicast_routing_address = YLeaf(YType.str, "ietf-ipv6-unicast-routing:address")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('address_family', YLeaf(YType.identityref, 'address-family')),
+                    ('ietf_ipv4_unicast_routing_address', YLeaf(YType.str, 'ietf-ipv4-unicast-routing:address')),
+                    ('ietf_ipv6_unicast_routing_address', YLeaf(YType.str, 'ietf-ipv6-unicast-routing:address')),
+                ])
+                self.address_family = None
+                self.ietf_ipv4_unicast_routing_address = None
+                self.ietf_ipv6_unicast_routing_address = None
                 self._segment_path = lambda: "destination-address"
                 self._absolute_path = lambda: "ietf-routing:fib-route/input/%s" % self._segment_path()
 
@@ -11552,8 +12070,10 @@ class FibRoute(Entity):
             self.yang_parent_name = "fib-route"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"route" : ("route", FibRoute.Output.Route)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("route", ("route", FibRoute.Output.Route))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.route = FibRoute.Output.Route()
             self.route.parent = self
@@ -11634,20 +12154,23 @@ class FibRoute(Entity):
                 self.yang_parent_name = "output"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"next-hop" : ("next_hop", FibRoute.Output.Route.NextHop)}
-                self._child_list_classes = {}
-
-                self.address_family = YLeaf(YType.identityref, "address-family")
-
-                self.source_protocol = YLeaf(YType.identityref, "source-protocol")
-
-                self.active = YLeaf(YType.empty, "active")
-
-                self.last_updated = YLeaf(YType.str, "last-updated")
-
-                self.ietf_ipv4_unicast_routing_destination_prefix = YLeaf(YType.str, "ietf-ipv4-unicast-routing:destination-prefix")
-
-                self.ietf_ipv6_unicast_routing_destination_prefix = YLeaf(YType.str, "ietf-ipv6-unicast-routing:destination-prefix")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("next-hop", ("next_hop", FibRoute.Output.Route.NextHop))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('address_family', YLeaf(YType.identityref, 'address-family')),
+                    ('source_protocol', YLeaf(YType.identityref, 'source-protocol')),
+                    ('active', YLeaf(YType.empty, 'active')),
+                    ('last_updated', YLeaf(YType.str, 'last-updated')),
+                    ('ietf_ipv4_unicast_routing_destination_prefix', YLeaf(YType.str, 'ietf-ipv4-unicast-routing:destination-prefix')),
+                    ('ietf_ipv6_unicast_routing_destination_prefix', YLeaf(YType.str, 'ietf-ipv6-unicast-routing:destination-prefix')),
+                ])
+                self.address_family = None
+                self.source_protocol = None
+                self.active = None
+                self.last_updated = None
+                self.ietf_ipv4_unicast_routing_destination_prefix = None
+                self.ietf_ipv6_unicast_routing_destination_prefix = None
 
                 self.next_hop = FibRoute.Output.Route.NextHop()
                 self.next_hop.parent = self
@@ -11707,18 +12230,21 @@ class FibRoute(Entity):
                     self.yang_parent_name = "route"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                    self.ietf_routing_next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                    self.ietf_ipv4_unicast_routing_next_hop_address = YLeaf(YType.str, "ietf-ipv4-unicast-routing:next-hop-address")
-
-                    self.ietf_ipv6_unicast_routing_next_hop_address = YLeaf(YType.str, "ietf-ipv6-unicast-routing:next-hop-address")
-
-                    self.special_next_hop = YLeaf(YType.enumeration, "special-next-hop")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
+                        ('ietf_routing_next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                        ('ietf_ipv4_unicast_routing_next_hop_address', YLeaf(YType.str, 'ietf-ipv4-unicast-routing:next-hop-address')),
+                        ('ietf_ipv6_unicast_routing_next_hop_address', YLeaf(YType.str, 'ietf-ipv6-unicast-routing:next-hop-address')),
+                        ('special_next_hop', YLeaf(YType.enumeration, 'special-next-hop')),
+                    ])
+                    self.outgoing_interface = None
+                    self.ietf_routing_next_hop_address = None
+                    self.ietf_ipv4_unicast_routing_next_hop_address = None
+                    self.ietf_ipv6_unicast_routing_next_hop_address = None
+                    self.special_next_hop = None
                     self._segment_path = lambda: "next-hop"
                     self._absolute_path = lambda: "ietf-routing:fib-route/output/route/%s" % self._segment_path()
 
@@ -11727,7 +12253,7 @@ class FibRoute(Entity):
 
                 class SpecialNextHop(Enum):
                     """
-                    SpecialNextHop
+                    SpecialNextHop (Enum Class)
 
                     Special next\-hop options.
 

@@ -38,6 +38,20 @@ module Cisco-IOS-XE-bfd {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+     description
+       "Added 40 and 100GE augmentations";
+  }
+
+  revision 2017-09-14 {
+     description
+       "Modify yang model for new 2gig interface addition";
+  }
   revision 2017-08-23 {
      description
        "Modify yang model for interval * command under bfd-template";
@@ -301,11 +315,23 @@ module Cisco-IOS-XE-bfd {
     uses config-interface-bfd-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:bfd" {
+    uses config-interface-bfd-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:bfd" {
     uses config-interface-bfd-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:bfd" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:bfd" {
+    uses config-interface-bfd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:bfd" {
+    uses config-interface-bfd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:bfd" {
     uses config-interface-bfd-grouping;
   }
 

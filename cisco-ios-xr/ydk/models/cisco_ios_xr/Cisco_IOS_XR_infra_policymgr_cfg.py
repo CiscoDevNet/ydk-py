@@ -3,19 +3,21 @@
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR ASR9k policy manager configuration.
  
-Copyright (c) 2013, 2015\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013, 2015\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class AuthorizeIdentifier(Enum):
     """
-    AuthorizeIdentifier
+    AuthorizeIdentifier (Enum Class)
 
     Authorize identifier.
 
@@ -66,7 +68,7 @@ class AuthorizeIdentifier(Enum):
 
 class ClassMapType(Enum):
     """
-    ClassMapType
+    ClassMapType (Enum Class)
 
     Policy manager class\-map type.
 
@@ -93,7 +95,7 @@ class ClassMapType(Enum):
 
 class EventType(Enum):
     """
-    EventType
+    EventType (Enum Class)
 
     Event type.
 
@@ -198,7 +200,7 @@ class EventType(Enum):
 
 class ExecutionStrategy(Enum):
     """
-    ExecutionStrategy
+    ExecutionStrategy (Enum Class)
 
     Executuion strategy.
 
@@ -225,7 +227,7 @@ class ExecutionStrategy(Enum):
 
 class PmapClassMapType(Enum):
     """
-    PmapClassMapType
+    PmapClassMapType (Enum Class)
 
     Policy manager class\-map type.
 
@@ -252,7 +254,7 @@ class PmapClassMapType(Enum):
 
 class PolicyMapType(Enum):
     """
-    PolicyMapType
+    PolicyMapType (Enum Class)
 
     Policy manager policy\-map type.
 
@@ -315,7 +317,7 @@ class PolicyManager(Entity):
     """
 
     _prefix = 'infra-policymgr-cfg'
-    _revision = '2017-08-11'
+    _revision = '2017-12-09'
 
     def __init__(self):
         super(PolicyManager, self).__init__()
@@ -325,8 +327,10 @@ class PolicyManager(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-policymgr-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"class-maps" : ("class_maps", PolicyManager.ClassMaps), "policy-maps" : ("policy_maps", PolicyManager.PolicyMaps)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("class-maps", ("class_maps", PolicyManager.ClassMaps)), ("policy-maps", ("policy_maps", PolicyManager.PolicyMaps))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.class_maps = PolicyManager.ClassMaps()
         self.class_maps.parent = self
@@ -354,7 +358,7 @@ class PolicyManager(Entity):
         """
 
         _prefix = 'infra-policymgr-cfg'
-        _revision = '2017-08-11'
+        _revision = '2017-12-09'
 
         def __init__(self):
             super(PolicyManager.ClassMaps, self).__init__()
@@ -363,8 +367,10 @@ class PolicyManager(Entity):
             self.yang_parent_name = "policy-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"class-map" : ("class_map", PolicyManager.ClassMaps.ClassMap)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("class-map", ("class_map", PolicyManager.ClassMaps.ClassMap))])
+            self._leafs = OrderedDict()
 
             self.class_map = YList(self)
             self._segment_path = lambda: "class-maps"
@@ -378,12 +384,12 @@ class PolicyManager(Entity):
             """
             Class\-map configuration.
             
-            .. attribute:: type  <key>
+            .. attribute:: type  (key)
             
             	Type of class\-map
             	**type**\:  :py:class:`ClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ClassMapType>`
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Name of class\-map
             	**type**\: str
@@ -420,7 +426,7 @@ class PolicyManager(Entity):
             """
 
             _prefix = 'infra-policymgr-cfg'
-            _revision = '2017-08-11'
+            _revision = '2017-12-09'
 
             def __init__(self):
                 super(PolicyManager.ClassMaps.ClassMap, self).__init__()
@@ -429,18 +435,21 @@ class PolicyManager(Entity):
                 self.yang_parent_name = "class-maps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"match" : ("match", PolicyManager.ClassMaps.ClassMap.Match), "match-not" : ("match_not", PolicyManager.ClassMaps.ClassMap.MatchNot)}
-                self._child_list_classes = {}
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.class_map_mode_match_any = YLeaf(YType.empty, "class-map-mode-match-any")
-
-                self.class_map_mode_match_all = YLeaf(YType.empty, "class-map-mode-match-all")
-
-                self.description = YLeaf(YType.str, "description")
+                self.ylist_key_names = ['type','name']
+                self._child_container_classes = OrderedDict([("match", ("match", PolicyManager.ClassMaps.ClassMap.Match)), ("match-not", ("match_not", PolicyManager.ClassMaps.ClassMap.MatchNot))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('type', YLeaf(YType.enumeration, 'type')),
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('class_map_mode_match_any', YLeaf(YType.empty, 'class-map-mode-match-any')),
+                    ('class_map_mode_match_all', YLeaf(YType.empty, 'class-map-mode-match-all')),
+                    ('description', YLeaf(YType.str, 'description')),
+                ])
+                self.type = None
+                self.name = None
+                self.class_map_mode_match_any = None
+                self.class_map_mode_match_all = None
+                self.description = None
 
                 self.match = PolicyManager.ClassMaps.ClassMap.Match()
                 self.match.parent = self
@@ -451,7 +460,7 @@ class PolicyManager(Entity):
                 self.match_not.parent = self
                 self._children_name_map["match_not"] = "match-not"
                 self._children_yang_names.add("match-not")
-                self._segment_path = lambda: "class-map" + "[type='" + self.type.get() + "']" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "class-map" + "[type='" + str(self.type) + "']" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/class-maps/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -930,7 +939,7 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2017-08-11'
+                _revision = '2017-12-09'
 
                 def __init__(self):
                     super(PolicyManager.ClassMaps.ClassMap.Match, self).__init__()
@@ -939,128 +948,131 @@ class PolicyManager(Entity):
                     self.yang_parent_name = "class-map"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"flow" : ("flow", PolicyManager.ClassMaps.ClassMap.Match.Flow)}
-                    self._child_list_classes = {"destination-address-ipv4" : ("destination_address_ipv4", PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4), "destination-address-ipv6" : ("destination_address_ipv6", PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6), "source-address-ipv4" : ("source_address_ipv4", PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4), "source-address-ipv6" : ("source_address_ipv6", PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6), "dhcp-client-id" : ("dhcp_client_id", PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId), "dhcp-client-id-regex" : ("dhcp_client_id_regex", PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex), "domain-name" : ("domain_name", PolicyManager.ClassMaps.ClassMap.Match.DomainName), "domain-name-regex" : ("domain_name_regex", PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex)}
-
-                    self.ipv4_dscp = YLeafList(YType.str, "ipv4-dscp")
-
-                    self.ipv6_dscp = YLeafList(YType.str, "ipv6-dscp")
-
-                    self.dscp = YLeafList(YType.str, "dscp")
-
-                    self.ipv4_precedence = YLeafList(YType.str, "ipv4-precedence")
-
-                    self.ipv6_precedence = YLeafList(YType.str, "ipv6-precedence")
-
-                    self.precedence = YLeafList(YType.str, "precedence")
-
-                    self.qos_group = YLeafList(YType.str, "qos-group")
-
-                    self.traffic_class = YLeafList(YType.str, "traffic-class")
-
-                    self.cos = YLeafList(YType.uint8, "cos")
-
-                    self.inner_cos = YLeafList(YType.uint8, "inner-cos")
-
-                    self.dei = YLeaf(YType.uint8, "dei")
-
-                    self.dei_inner = YLeaf(YType.uint8, "dei-inner")
-
-                    self.protocol = YLeafList(YType.str, "protocol")
-
-                    self.ipv4_acl = YLeaf(YType.str, "ipv4-acl")
-
-                    self.ipv6_acl = YLeaf(YType.str, "ipv6-acl")
-
-                    self.ethernet_services_acl = YLeaf(YType.str, "ethernet-services-acl")
-
-                    self.mpls_experimental_topmost = YLeafList(YType.uint8, "mpls-experimental-topmost")
-
-                    self.mpls_experimental_imposition = YLeafList(YType.uint8, "mpls-experimental-imposition")
-
-                    self.discard_class = YLeafList(YType.uint8, "discard-class")
-
-                    self.ipv4_packet_length = YLeafList(YType.str, "ipv4-packet-length")
-
-                    self.ipv6_packet_length = YLeafList(YType.str, "ipv6-packet-length")
-
-                    self.packet_length = YLeafList(YType.str, "packet-length")
-
-                    self.mpls_disposition_ipv4_access_list = YLeaf(YType.str, "mpls-disposition-ipv4-access-list")
-
-                    self.mpls_disposition_ipv6_access_list = YLeaf(YType.str, "mpls-disposition-ipv6-access-list")
-
-                    self.vlan = YLeafList(YType.str, "vlan")
-
-                    self.inner_vlan = YLeafList(YType.str, "inner-vlan")
-
-                    self.flow_tag = YLeafList(YType.str, "flow-tag")
-
-                    self.ethertype = YLeafList(YType.str, "ethertype")
-
-                    self.destination_port = YLeafList(YType.str, "destination-port")
-
-                    self.fragment_type = YLeafList(YType.str, "fragment-type")
-
-                    self.frame_relay_dlci = YLeafList(YType.str, "frame-relay-dlci")
-
-                    self.fr_de = YLeaf(YType.uint8, "fr-de")
-
-                    self.icmpv4_code = YLeafList(YType.str, "icmpv4-code")
-
-                    self.icmpv4_type = YLeafList(YType.str, "icmpv4-type")
-
-                    self.icmpv6_code = YLeafList(YType.str, "icmpv6-code")
-
-                    self.icmpv6_type = YLeafList(YType.str, "icmpv6-type")
-
-                    self.source_port = YLeafList(YType.str, "source-port")
-
-                    self.tcp_flag = YLeaf(YType.uint16, "tcp-flag")
-
-                    self.authen_status = YLeaf(YType.str, "authen-status")
-
-                    self.circuit_id = YLeafList(YType.str, "circuit-id")
-
-                    self.circuit_id_regex = YLeafList(YType.str, "circuit-id-regex")
-
-                    self.remote_id = YLeafList(YType.str, "remote-id")
-
-                    self.remote_id_regex = YLeafList(YType.str, "remote-id-regex")
-
-                    self.service_name = YLeafList(YType.str, "service-name")
-
-                    self.service_name_regex = YLeafList(YType.str, "service-name-regex")
-
-                    self.timer = YLeafList(YType.str, "timer")
-
-                    self.timer_regex = YLeafList(YType.str, "timer-regex")
-
-                    self.user_name = YLeafList(YType.str, "user-name")
-
-                    self.user_name_regex = YLeafList(YType.str, "user-name-regex")
-
-                    self.source_mac = YLeafList(YType.str, "source-mac")
-
-                    self.destination_mac = YLeafList(YType.str, "destination-mac")
-
-                    self.vpls_control = YLeaf(YType.empty, "vpls-control")
-
-                    self.vpls_broadcast = YLeaf(YType.empty, "vpls-broadcast")
-
-                    self.vpls_multicast = YLeaf(YType.empty, "vpls-multicast")
-
-                    self.vpls_known = YLeaf(YType.empty, "vpls-known")
-
-                    self.vpls_unknown = YLeaf(YType.empty, "vpls-unknown")
-
-                    self.atm_clp = YLeaf(YType.uint8, "atm-clp")
-
-                    self.atm_oam = YLeaf(YType.empty, "atm-oam")
-
-                    self.cac_admit = YLeaf(YType.empty, "cac-admit")
-
-                    self.cac_unadmit = YLeaf(YType.empty, "cac-unadmit")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("flow", ("flow", PolicyManager.ClassMaps.ClassMap.Match.Flow))])
+                    self._child_list_classes = OrderedDict([("destination-address-ipv4", ("destination_address_ipv4", PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4)), ("destination-address-ipv6", ("destination_address_ipv6", PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6)), ("source-address-ipv4", ("source_address_ipv4", PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4)), ("source-address-ipv6", ("source_address_ipv6", PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6)), ("dhcp-client-id", ("dhcp_client_id", PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId)), ("dhcp-client-id-regex", ("dhcp_client_id_regex", PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex)), ("domain-name", ("domain_name", PolicyManager.ClassMaps.ClassMap.Match.DomainName)), ("domain-name-regex", ("domain_name_regex", PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex))])
+                    self._leafs = OrderedDict([
+                        ('ipv4_dscp', YLeafList(YType.str, 'ipv4-dscp')),
+                        ('ipv6_dscp', YLeafList(YType.str, 'ipv6-dscp')),
+                        ('dscp', YLeafList(YType.str, 'dscp')),
+                        ('ipv4_precedence', YLeafList(YType.str, 'ipv4-precedence')),
+                        ('ipv6_precedence', YLeafList(YType.str, 'ipv6-precedence')),
+                        ('precedence', YLeafList(YType.str, 'precedence')),
+                        ('qos_group', YLeafList(YType.str, 'qos-group')),
+                        ('traffic_class', YLeafList(YType.str, 'traffic-class')),
+                        ('cos', YLeafList(YType.uint8, 'cos')),
+                        ('inner_cos', YLeafList(YType.uint8, 'inner-cos')),
+                        ('dei', YLeaf(YType.uint8, 'dei')),
+                        ('dei_inner', YLeaf(YType.uint8, 'dei-inner')),
+                        ('protocol', YLeafList(YType.str, 'protocol')),
+                        ('ipv4_acl', YLeaf(YType.str, 'ipv4-acl')),
+                        ('ipv6_acl', YLeaf(YType.str, 'ipv6-acl')),
+                        ('ethernet_services_acl', YLeaf(YType.str, 'ethernet-services-acl')),
+                        ('mpls_experimental_topmost', YLeafList(YType.uint8, 'mpls-experimental-topmost')),
+                        ('mpls_experimental_imposition', YLeafList(YType.uint8, 'mpls-experimental-imposition')),
+                        ('discard_class', YLeafList(YType.uint8, 'discard-class')),
+                        ('ipv4_packet_length', YLeafList(YType.str, 'ipv4-packet-length')),
+                        ('ipv6_packet_length', YLeafList(YType.str, 'ipv6-packet-length')),
+                        ('packet_length', YLeafList(YType.str, 'packet-length')),
+                        ('mpls_disposition_ipv4_access_list', YLeaf(YType.str, 'mpls-disposition-ipv4-access-list')),
+                        ('mpls_disposition_ipv6_access_list', YLeaf(YType.str, 'mpls-disposition-ipv6-access-list')),
+                        ('vlan', YLeafList(YType.str, 'vlan')),
+                        ('inner_vlan', YLeafList(YType.str, 'inner-vlan')),
+                        ('flow_tag', YLeafList(YType.str, 'flow-tag')),
+                        ('ethertype', YLeafList(YType.str, 'ethertype')),
+                        ('destination_port', YLeafList(YType.str, 'destination-port')),
+                        ('fragment_type', YLeafList(YType.str, 'fragment-type')),
+                        ('frame_relay_dlci', YLeafList(YType.str, 'frame-relay-dlci')),
+                        ('fr_de', YLeaf(YType.uint8, 'fr-de')),
+                        ('icmpv4_code', YLeafList(YType.str, 'icmpv4-code')),
+                        ('icmpv4_type', YLeafList(YType.str, 'icmpv4-type')),
+                        ('icmpv6_code', YLeafList(YType.str, 'icmpv6-code')),
+                        ('icmpv6_type', YLeafList(YType.str, 'icmpv6-type')),
+                        ('source_port', YLeafList(YType.str, 'source-port')),
+                        ('tcp_flag', YLeaf(YType.uint16, 'tcp-flag')),
+                        ('authen_status', YLeaf(YType.str, 'authen-status')),
+                        ('circuit_id', YLeafList(YType.str, 'circuit-id')),
+                        ('circuit_id_regex', YLeafList(YType.str, 'circuit-id-regex')),
+                        ('remote_id', YLeafList(YType.str, 'remote-id')),
+                        ('remote_id_regex', YLeafList(YType.str, 'remote-id-regex')),
+                        ('service_name', YLeafList(YType.str, 'service-name')),
+                        ('service_name_regex', YLeafList(YType.str, 'service-name-regex')),
+                        ('timer', YLeafList(YType.str, 'timer')),
+                        ('timer_regex', YLeafList(YType.str, 'timer-regex')),
+                        ('user_name', YLeafList(YType.str, 'user-name')),
+                        ('user_name_regex', YLeafList(YType.str, 'user-name-regex')),
+                        ('source_mac', YLeafList(YType.str, 'source-mac')),
+                        ('destination_mac', YLeafList(YType.str, 'destination-mac')),
+                        ('vpls_control', YLeaf(YType.empty, 'vpls-control')),
+                        ('vpls_broadcast', YLeaf(YType.empty, 'vpls-broadcast')),
+                        ('vpls_multicast', YLeaf(YType.empty, 'vpls-multicast')),
+                        ('vpls_known', YLeaf(YType.empty, 'vpls-known')),
+                        ('vpls_unknown', YLeaf(YType.empty, 'vpls-unknown')),
+                        ('atm_clp', YLeaf(YType.uint8, 'atm-clp')),
+                        ('atm_oam', YLeaf(YType.empty, 'atm-oam')),
+                        ('cac_admit', YLeaf(YType.empty, 'cac-admit')),
+                        ('cac_unadmit', YLeaf(YType.empty, 'cac-unadmit')),
+                    ])
+                    self.ipv4_dscp = []
+                    self.ipv6_dscp = []
+                    self.dscp = []
+                    self.ipv4_precedence = []
+                    self.ipv6_precedence = []
+                    self.precedence = []
+                    self.qos_group = []
+                    self.traffic_class = []
+                    self.cos = []
+                    self.inner_cos = []
+                    self.dei = None
+                    self.dei_inner = None
+                    self.protocol = []
+                    self.ipv4_acl = None
+                    self.ipv6_acl = None
+                    self.ethernet_services_acl = None
+                    self.mpls_experimental_topmost = []
+                    self.mpls_experimental_imposition = []
+                    self.discard_class = []
+                    self.ipv4_packet_length = []
+                    self.ipv6_packet_length = []
+                    self.packet_length = []
+                    self.mpls_disposition_ipv4_access_list = None
+                    self.mpls_disposition_ipv6_access_list = None
+                    self.vlan = []
+                    self.inner_vlan = []
+                    self.flow_tag = []
+                    self.ethertype = []
+                    self.destination_port = []
+                    self.fragment_type = []
+                    self.frame_relay_dlci = []
+                    self.fr_de = None
+                    self.icmpv4_code = []
+                    self.icmpv4_type = []
+                    self.icmpv6_code = []
+                    self.icmpv6_type = []
+                    self.source_port = []
+                    self.tcp_flag = None
+                    self.authen_status = None
+                    self.circuit_id = []
+                    self.circuit_id_regex = []
+                    self.remote_id = []
+                    self.remote_id_regex = []
+                    self.service_name = []
+                    self.service_name_regex = []
+                    self.timer = []
+                    self.timer_regex = []
+                    self.user_name = []
+                    self.user_name_regex = []
+                    self.source_mac = []
+                    self.destination_mac = []
+                    self.vpls_control = None
+                    self.vpls_broadcast = None
+                    self.vpls_multicast = None
+                    self.vpls_known = None
+                    self.vpls_unknown = None
+                    self.atm_clp = None
+                    self.atm_oam = None
+                    self.cac_admit = None
+                    self.cac_unadmit = None
 
                     self.flow = PolicyManager.ClassMaps.ClassMap.Match.Flow()
                     self.flow.parent = self
@@ -1085,14 +1097,14 @@ class PolicyManager(Entity):
                     """
                     Match destination IPv4 address.
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IPv4 address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: netmask  <key>
+                    .. attribute:: netmask  (key)
                     
                     	IPv4 netmask
                     	**type**\: str
@@ -1104,7 +1116,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4, self).__init__()
@@ -1113,13 +1125,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.netmask = YLeaf(YType.str, "netmask")
-                        self._segment_path = lambda: "destination-address-ipv4" + "[address='" + self.address.get() + "']" + "[netmask='" + self.netmask.get() + "']"
+                        self.ylist_key_names = ['address','netmask']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('netmask', YLeaf(YType.str, 'netmask')),
+                        ])
+                        self.address = None
+                        self.netmask = None
+                        self._segment_path = lambda: "destination-address-ipv4" + "[address='" + str(self.address) + "']" + "[netmask='" + str(self.netmask) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4, ['address', 'netmask'], name, value)
@@ -1129,14 +1144,14 @@ class PolicyManager(Entity):
                     """
                     Match destination IPv6 address.
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IPv6 address
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: prefix_length  <key>
+                    .. attribute:: prefix_length  (key)
                     
                     	IPv6 prefix length
                     	**type**\: int
@@ -1148,7 +1163,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6, self).__init__()
@@ -1157,13 +1172,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                        self._segment_path = lambda: "destination-address-ipv6" + "[address='" + self.address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                        self.ylist_key_names = ['address','prefix_length']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                        ])
+                        self.address = None
+                        self.prefix_length = None
+                        self._segment_path = lambda: "destination-address-ipv6" + "[address='" + str(self.address) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6, ['address', 'prefix_length'], name, value)
@@ -1173,14 +1191,14 @@ class PolicyManager(Entity):
                     """
                     Match source IPv4 address.
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IPv4 address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: netmask  <key>
+                    .. attribute:: netmask  (key)
                     
                     	IPv4 netmask
                     	**type**\: str
@@ -1192,7 +1210,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4, self).__init__()
@@ -1201,13 +1219,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.netmask = YLeaf(YType.str, "netmask")
-                        self._segment_path = lambda: "source-address-ipv4" + "[address='" + self.address.get() + "']" + "[netmask='" + self.netmask.get() + "']"
+                        self.ylist_key_names = ['address','netmask']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('netmask', YLeaf(YType.str, 'netmask')),
+                        ])
+                        self.address = None
+                        self.netmask = None
+                        self._segment_path = lambda: "source-address-ipv4" + "[address='" + str(self.address) + "']" + "[netmask='" + str(self.netmask) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4, ['address', 'netmask'], name, value)
@@ -1217,14 +1238,14 @@ class PolicyManager(Entity):
                     """
                     Match source IPv6 address.
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IPv6 address
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: prefix_length  <key>
+                    .. attribute:: prefix_length  (key)
                     
                     	IPv6 prefix length
                     	**type**\: int
@@ -1236,7 +1257,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6, self).__init__()
@@ -1245,13 +1266,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                        self._segment_path = lambda: "source-address-ipv6" + "[address='" + self.address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                        self.ylist_key_names = ['address','prefix_length']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                        ])
+                        self.address = None
+                        self.prefix_length = None
+                        self._segment_path = lambda: "source-address-ipv6" + "[address='" + str(self.address) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6, ['address', 'prefix_length'], name, value)
@@ -1261,14 +1285,14 @@ class PolicyManager(Entity):
                     """
                     Match dhcp client ID.
                     
-                    .. attribute:: value  <key>
+                    .. attribute:: value  (key)
                     
                     	Dhcp client Id
                     	**type**\: str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: flag  <key>
+                    .. attribute:: flag  (key)
                     
                     	Dhcp client id Ascii/Hex
                     	**type**\: str
@@ -1280,7 +1304,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId, self).__init__()
@@ -1289,13 +1313,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.value = YLeaf(YType.str, "value")
-
-                        self.flag = YLeaf(YType.str, "flag")
-                        self._segment_path = lambda: "dhcp-client-id" + "[value='" + self.value.get() + "']" + "[flag='" + self.flag.get() + "']"
+                        self.ylist_key_names = ['value','flag']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.str, 'value')),
+                            ('flag', YLeaf(YType.str, 'flag')),
+                        ])
+                        self.value = None
+                        self.flag = None
+                        self._segment_path = lambda: "dhcp-client-id" + "[value='" + str(self.value) + "']" + "[flag='" + str(self.flag) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId, ['value', 'flag'], name, value)
@@ -1305,14 +1332,14 @@ class PolicyManager(Entity):
                     """
                     Match dhcp client id regex.
                     
-                    .. attribute:: value  <key>
+                    .. attribute:: value  (key)
                     
                     	Dhcp client id regular expression
                     	**type**\: str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: flag  <key>
+                    .. attribute:: flag  (key)
                     
                     	Dhcp client Id regex Ascii/Hex
                     	**type**\: str
@@ -1324,7 +1351,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex, self).__init__()
@@ -1333,13 +1360,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.value = YLeaf(YType.str, "value")
-
-                        self.flag = YLeaf(YType.str, "flag")
-                        self._segment_path = lambda: "dhcp-client-id-regex" + "[value='" + self.value.get() + "']" + "[flag='" + self.flag.get() + "']"
+                        self.ylist_key_names = ['value','flag']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.str, 'value')),
+                            ('flag', YLeaf(YType.str, 'flag')),
+                        ])
+                        self.value = None
+                        self.flag = None
+                        self._segment_path = lambda: "dhcp-client-id-regex" + "[value='" + str(self.value) + "']" + "[flag='" + str(self.flag) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex, ['value', 'flag'], name, value)
@@ -1349,14 +1379,14 @@ class PolicyManager(Entity):
                     """
                     Match domain name.
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Domain name or regular expression
                     	**type**\: str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: format  (key)
                     
                     	Domain\-format name
                     	**type**\: str
@@ -1368,7 +1398,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DomainName, self).__init__()
@@ -1377,13 +1407,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.format = YLeaf(YType.str, "format")
-                        self._segment_path = lambda: "domain-name" + "[name='" + self.name.get() + "']" + "[format='" + self.format.get() + "']"
+                        self.ylist_key_names = ['name','format']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('format', YLeaf(YType.str, 'format')),
+                        ])
+                        self.name = None
+                        self.format = None
+                        self._segment_path = lambda: "domain-name" + "[name='" + str(self.name) + "']" + "[format='" + str(self.format) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DomainName, ['name', 'format'], name, value)
@@ -1393,14 +1426,14 @@ class PolicyManager(Entity):
                     """
                     Match domain name.
                     
-                    .. attribute:: regex  <key>
+                    .. attribute:: regex  (key)
                     
                     	Domain name or regular expression
                     	**type**\: str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: format  (key)
                     
                     	Domain\-format name
                     	**type**\: str
@@ -1412,7 +1445,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex, self).__init__()
@@ -1421,13 +1454,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.regex = YLeaf(YType.str, "regex")
-
-                        self.format = YLeaf(YType.str, "format")
-                        self._segment_path = lambda: "domain-name-regex" + "[regex='" + self.regex.get() + "']" + "[format='" + self.format.get() + "']"
+                        self.ylist_key_names = ['regex','format']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('regex', YLeaf(YType.str, 'regex')),
+                            ('format', YLeaf(YType.str, 'format')),
+                        ])
+                        self.regex = None
+                        self.format = None
+                        self._segment_path = lambda: "domain-name-regex" + "[regex='" + str(self.regex) + "']" + "[format='" + str(self.format) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex, ['regex', 'format'], name, value)
@@ -1454,7 +1490,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.Match.Flow, self).__init__()
@@ -1463,10 +1499,13 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"flow-cache" : ("flow_cache", PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache)}
-                        self._child_list_classes = {}
-
-                        self.flow_key = YLeafList(YType.str, "flow-key")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("flow-cache", ("flow_cache", PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('flow_key', YLeafList(YType.str, 'flow-key')),
+                        ])
+                        self.flow_key = []
 
                         self.flow_cache = PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache()
                         self.flow_cache.parent = self
@@ -1500,7 +1539,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache, self).__init__()
@@ -1509,10 +1548,13 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "flow"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.idle_timeout = YLeaf(YType.str, "idle-timeout")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('idle_timeout', YLeaf(YType.str, 'idle-timeout')),
+                            ])
+                            self.idle_timeout = None
                             self._segment_path = lambda: "flow-cache"
 
                         def __setattr__(self, name, value):
@@ -1969,7 +2011,7 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2017-08-11'
+                _revision = '2017-12-09'
 
                 def __init__(self):
                     super(PolicyManager.ClassMaps.ClassMap.MatchNot, self).__init__()
@@ -1978,120 +2020,123 @@ class PolicyManager(Entity):
                     self.yang_parent_name = "class-map"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"flow" : ("flow", PolicyManager.ClassMaps.ClassMap.MatchNot.Flow)}
-                    self._child_list_classes = {"destination-address-ipv4" : ("destination_address_ipv4", PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4), "destination-address-ipv6" : ("destination_address_ipv6", PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6), "source-address-ipv4" : ("source_address_ipv4", PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4), "source-address-ipv6" : ("source_address_ipv6", PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6), "dhcp-client-id" : ("dhcp_client_id", PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId), "dhcp-client-id-regex" : ("dhcp_client_id_regex", PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex), "domain-name" : ("domain_name", PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName), "domain-name-regex" : ("domain_name_regex", PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex)}
-
-                    self.ipv4_dscp = YLeafList(YType.str, "ipv4-dscp")
-
-                    self.ipv6_dscp = YLeafList(YType.str, "ipv6-dscp")
-
-                    self.dscp = YLeafList(YType.str, "dscp")
-
-                    self.ipv4_precedence = YLeafList(YType.str, "ipv4-precedence")
-
-                    self.ipv6_precedence = YLeafList(YType.str, "ipv6-precedence")
-
-                    self.precedence = YLeafList(YType.str, "precedence")
-
-                    self.qos_group = YLeafList(YType.str, "qos-group")
-
-                    self.traffic_class = YLeafList(YType.str, "traffic-class")
-
-                    self.cos = YLeafList(YType.uint8, "cos")
-
-                    self.inner_cos = YLeafList(YType.uint8, "inner-cos")
-
-                    self.dei = YLeaf(YType.uint8, "dei")
-
-                    self.dei_inner = YLeaf(YType.uint8, "dei-inner")
-
-                    self.protocol = YLeafList(YType.str, "protocol")
-
-                    self.ipv4_acl = YLeaf(YType.str, "ipv4-acl")
-
-                    self.ipv6_acl = YLeaf(YType.str, "ipv6-acl")
-
-                    self.ethernet_services_acl = YLeaf(YType.str, "ethernet-services-acl")
-
-                    self.mpls_experimental_topmost = YLeafList(YType.uint8, "mpls-experimental-topmost")
-
-                    self.mpls_experimental_imposition = YLeafList(YType.uint8, "mpls-experimental-imposition")
-
-                    self.discard_class = YLeafList(YType.uint8, "discard-class")
-
-                    self.ipv4_packet_length = YLeafList(YType.str, "ipv4-packet-length")
-
-                    self.ipv6_packet_length = YLeafList(YType.str, "ipv6-packet-length")
-
-                    self.packet_length = YLeafList(YType.str, "packet-length")
-
-                    self.mpls_disposition_ipv4_access_list = YLeaf(YType.str, "mpls-disposition-ipv4-access-list")
-
-                    self.mpls_disposition_ipv6_access_list = YLeaf(YType.str, "mpls-disposition-ipv6-access-list")
-
-                    self.vlan = YLeafList(YType.str, "vlan")
-
-                    self.inner_vlan = YLeafList(YType.str, "inner-vlan")
-
-                    self.flow_tag = YLeafList(YType.str, "flow-tag")
-
-                    self.ethertype = YLeafList(YType.str, "ethertype")
-
-                    self.destination_port = YLeafList(YType.str, "destination-port")
-
-                    self.fragment_type = YLeafList(YType.str, "fragment-type")
-
-                    self.frame_relay_dlci = YLeafList(YType.str, "frame-relay-dlci")
-
-                    self.fr_de = YLeaf(YType.uint8, "fr-de")
-
-                    self.icmpv4_code = YLeafList(YType.str, "icmpv4-code")
-
-                    self.icmpv4_type = YLeafList(YType.str, "icmpv4-type")
-
-                    self.icmpv6_code = YLeafList(YType.str, "icmpv6-code")
-
-                    self.icmpv6_type = YLeafList(YType.str, "icmpv6-type")
-
-                    self.source_port = YLeafList(YType.str, "source-port")
-
-                    self.tcp_flag = YLeaf(YType.uint16, "tcp-flag")
-
-                    self.authen_status = YLeaf(YType.str, "authen-status")
-
-                    self.circuit_id = YLeafList(YType.str, "circuit-id")
-
-                    self.circuit_id_regex = YLeafList(YType.str, "circuit-id-regex")
-
-                    self.remote_id = YLeafList(YType.str, "remote-id")
-
-                    self.remote_id_regex = YLeafList(YType.str, "remote-id-regex")
-
-                    self.service_name = YLeafList(YType.str, "service-name")
-
-                    self.service_name_regex = YLeafList(YType.str, "service-name-regex")
-
-                    self.timer = YLeafList(YType.str, "timer")
-
-                    self.timer_regex = YLeafList(YType.str, "timer-regex")
-
-                    self.user_name = YLeafList(YType.str, "user-name")
-
-                    self.user_name_regex = YLeafList(YType.str, "user-name-regex")
-
-                    self.source_mac = YLeafList(YType.str, "source-mac")
-
-                    self.destination_mac = YLeafList(YType.str, "destination-mac")
-
-                    self.vpls_control = YLeaf(YType.empty, "vpls-control")
-
-                    self.vpls_broadcast = YLeaf(YType.empty, "vpls-broadcast")
-
-                    self.vpls_multicast = YLeaf(YType.empty, "vpls-multicast")
-
-                    self.vpls_known = YLeaf(YType.empty, "vpls-known")
-
-                    self.vpls_unknown = YLeaf(YType.empty, "vpls-unknown")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("flow", ("flow", PolicyManager.ClassMaps.ClassMap.MatchNot.Flow))])
+                    self._child_list_classes = OrderedDict([("destination-address-ipv4", ("destination_address_ipv4", PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4)), ("destination-address-ipv6", ("destination_address_ipv6", PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6)), ("source-address-ipv4", ("source_address_ipv4", PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4)), ("source-address-ipv6", ("source_address_ipv6", PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6)), ("dhcp-client-id", ("dhcp_client_id", PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId)), ("dhcp-client-id-regex", ("dhcp_client_id_regex", PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex)), ("domain-name", ("domain_name", PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName)), ("domain-name-regex", ("domain_name_regex", PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex))])
+                    self._leafs = OrderedDict([
+                        ('ipv4_dscp', YLeafList(YType.str, 'ipv4-dscp')),
+                        ('ipv6_dscp', YLeafList(YType.str, 'ipv6-dscp')),
+                        ('dscp', YLeafList(YType.str, 'dscp')),
+                        ('ipv4_precedence', YLeafList(YType.str, 'ipv4-precedence')),
+                        ('ipv6_precedence', YLeafList(YType.str, 'ipv6-precedence')),
+                        ('precedence', YLeafList(YType.str, 'precedence')),
+                        ('qos_group', YLeafList(YType.str, 'qos-group')),
+                        ('traffic_class', YLeafList(YType.str, 'traffic-class')),
+                        ('cos', YLeafList(YType.uint8, 'cos')),
+                        ('inner_cos', YLeafList(YType.uint8, 'inner-cos')),
+                        ('dei', YLeaf(YType.uint8, 'dei')),
+                        ('dei_inner', YLeaf(YType.uint8, 'dei-inner')),
+                        ('protocol', YLeafList(YType.str, 'protocol')),
+                        ('ipv4_acl', YLeaf(YType.str, 'ipv4-acl')),
+                        ('ipv6_acl', YLeaf(YType.str, 'ipv6-acl')),
+                        ('ethernet_services_acl', YLeaf(YType.str, 'ethernet-services-acl')),
+                        ('mpls_experimental_topmost', YLeafList(YType.uint8, 'mpls-experimental-topmost')),
+                        ('mpls_experimental_imposition', YLeafList(YType.uint8, 'mpls-experimental-imposition')),
+                        ('discard_class', YLeafList(YType.uint8, 'discard-class')),
+                        ('ipv4_packet_length', YLeafList(YType.str, 'ipv4-packet-length')),
+                        ('ipv6_packet_length', YLeafList(YType.str, 'ipv6-packet-length')),
+                        ('packet_length', YLeafList(YType.str, 'packet-length')),
+                        ('mpls_disposition_ipv4_access_list', YLeaf(YType.str, 'mpls-disposition-ipv4-access-list')),
+                        ('mpls_disposition_ipv6_access_list', YLeaf(YType.str, 'mpls-disposition-ipv6-access-list')),
+                        ('vlan', YLeafList(YType.str, 'vlan')),
+                        ('inner_vlan', YLeafList(YType.str, 'inner-vlan')),
+                        ('flow_tag', YLeafList(YType.str, 'flow-tag')),
+                        ('ethertype', YLeafList(YType.str, 'ethertype')),
+                        ('destination_port', YLeafList(YType.str, 'destination-port')),
+                        ('fragment_type', YLeafList(YType.str, 'fragment-type')),
+                        ('frame_relay_dlci', YLeafList(YType.str, 'frame-relay-dlci')),
+                        ('fr_de', YLeaf(YType.uint8, 'fr-de')),
+                        ('icmpv4_code', YLeafList(YType.str, 'icmpv4-code')),
+                        ('icmpv4_type', YLeafList(YType.str, 'icmpv4-type')),
+                        ('icmpv6_code', YLeafList(YType.str, 'icmpv6-code')),
+                        ('icmpv6_type', YLeafList(YType.str, 'icmpv6-type')),
+                        ('source_port', YLeafList(YType.str, 'source-port')),
+                        ('tcp_flag', YLeaf(YType.uint16, 'tcp-flag')),
+                        ('authen_status', YLeaf(YType.str, 'authen-status')),
+                        ('circuit_id', YLeafList(YType.str, 'circuit-id')),
+                        ('circuit_id_regex', YLeafList(YType.str, 'circuit-id-regex')),
+                        ('remote_id', YLeafList(YType.str, 'remote-id')),
+                        ('remote_id_regex', YLeafList(YType.str, 'remote-id-regex')),
+                        ('service_name', YLeafList(YType.str, 'service-name')),
+                        ('service_name_regex', YLeafList(YType.str, 'service-name-regex')),
+                        ('timer', YLeafList(YType.str, 'timer')),
+                        ('timer_regex', YLeafList(YType.str, 'timer-regex')),
+                        ('user_name', YLeafList(YType.str, 'user-name')),
+                        ('user_name_regex', YLeafList(YType.str, 'user-name-regex')),
+                        ('source_mac', YLeafList(YType.str, 'source-mac')),
+                        ('destination_mac', YLeafList(YType.str, 'destination-mac')),
+                        ('vpls_control', YLeaf(YType.empty, 'vpls-control')),
+                        ('vpls_broadcast', YLeaf(YType.empty, 'vpls-broadcast')),
+                        ('vpls_multicast', YLeaf(YType.empty, 'vpls-multicast')),
+                        ('vpls_known', YLeaf(YType.empty, 'vpls-known')),
+                        ('vpls_unknown', YLeaf(YType.empty, 'vpls-unknown')),
+                    ])
+                    self.ipv4_dscp = []
+                    self.ipv6_dscp = []
+                    self.dscp = []
+                    self.ipv4_precedence = []
+                    self.ipv6_precedence = []
+                    self.precedence = []
+                    self.qos_group = []
+                    self.traffic_class = []
+                    self.cos = []
+                    self.inner_cos = []
+                    self.dei = None
+                    self.dei_inner = None
+                    self.protocol = []
+                    self.ipv4_acl = None
+                    self.ipv6_acl = None
+                    self.ethernet_services_acl = None
+                    self.mpls_experimental_topmost = []
+                    self.mpls_experimental_imposition = []
+                    self.discard_class = []
+                    self.ipv4_packet_length = []
+                    self.ipv6_packet_length = []
+                    self.packet_length = []
+                    self.mpls_disposition_ipv4_access_list = None
+                    self.mpls_disposition_ipv6_access_list = None
+                    self.vlan = []
+                    self.inner_vlan = []
+                    self.flow_tag = []
+                    self.ethertype = []
+                    self.destination_port = []
+                    self.fragment_type = []
+                    self.frame_relay_dlci = []
+                    self.fr_de = None
+                    self.icmpv4_code = []
+                    self.icmpv4_type = []
+                    self.icmpv6_code = []
+                    self.icmpv6_type = []
+                    self.source_port = []
+                    self.tcp_flag = None
+                    self.authen_status = None
+                    self.circuit_id = []
+                    self.circuit_id_regex = []
+                    self.remote_id = []
+                    self.remote_id_regex = []
+                    self.service_name = []
+                    self.service_name_regex = []
+                    self.timer = []
+                    self.timer_regex = []
+                    self.user_name = []
+                    self.user_name_regex = []
+                    self.source_mac = []
+                    self.destination_mac = []
+                    self.vpls_control = None
+                    self.vpls_broadcast = None
+                    self.vpls_multicast = None
+                    self.vpls_known = None
+                    self.vpls_unknown = None
 
                     self.flow = PolicyManager.ClassMaps.ClassMap.MatchNot.Flow()
                     self.flow.parent = self
@@ -2116,14 +2161,14 @@ class PolicyManager(Entity):
                     """
                     Match destination IPv4 address.
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IPv4 address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: netmask  <key>
+                    .. attribute:: netmask  (key)
                     
                     	IPv4 netmask
                     	**type**\: str
@@ -2135,7 +2180,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4, self).__init__()
@@ -2144,13 +2189,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.netmask = YLeaf(YType.str, "netmask")
-                        self._segment_path = lambda: "destination-address-ipv4" + "[address='" + self.address.get() + "']" + "[netmask='" + self.netmask.get() + "']"
+                        self.ylist_key_names = ['address','netmask']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('netmask', YLeaf(YType.str, 'netmask')),
+                        ])
+                        self.address = None
+                        self.netmask = None
+                        self._segment_path = lambda: "destination-address-ipv4" + "[address='" + str(self.address) + "']" + "[netmask='" + str(self.netmask) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4, ['address', 'netmask'], name, value)
@@ -2160,14 +2208,14 @@ class PolicyManager(Entity):
                     """
                     Match destination IPv6 address.
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IPv6 address
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: prefix_length  <key>
+                    .. attribute:: prefix_length  (key)
                     
                     	IPv6 prefix length
                     	**type**\: int
@@ -2179,7 +2227,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6, self).__init__()
@@ -2188,13 +2236,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                        self._segment_path = lambda: "destination-address-ipv6" + "[address='" + self.address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                        self.ylist_key_names = ['address','prefix_length']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                        ])
+                        self.address = None
+                        self.prefix_length = None
+                        self._segment_path = lambda: "destination-address-ipv6" + "[address='" + str(self.address) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6, ['address', 'prefix_length'], name, value)
@@ -2204,14 +2255,14 @@ class PolicyManager(Entity):
                     """
                     Match source IPv4 address.
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IPv4 address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: netmask  <key>
+                    .. attribute:: netmask  (key)
                     
                     	IPv4 netmask
                     	**type**\: str
@@ -2223,7 +2274,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4, self).__init__()
@@ -2232,13 +2283,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.netmask = YLeaf(YType.str, "netmask")
-                        self._segment_path = lambda: "source-address-ipv4" + "[address='" + self.address.get() + "']" + "[netmask='" + self.netmask.get() + "']"
+                        self.ylist_key_names = ['address','netmask']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('netmask', YLeaf(YType.str, 'netmask')),
+                        ])
+                        self.address = None
+                        self.netmask = None
+                        self._segment_path = lambda: "source-address-ipv4" + "[address='" + str(self.address) + "']" + "[netmask='" + str(self.netmask) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4, ['address', 'netmask'], name, value)
@@ -2248,14 +2302,14 @@ class PolicyManager(Entity):
                     """
                     Match source IPv6 address.
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IPv6 address
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: prefix_length  <key>
+                    .. attribute:: prefix_length  (key)
                     
                     	IPv6 prefix length
                     	**type**\: int
@@ -2267,7 +2321,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6, self).__init__()
@@ -2276,13 +2330,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                        self._segment_path = lambda: "source-address-ipv6" + "[address='" + self.address.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+                        self.ylist_key_names = ['address','prefix_length']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                        ])
+                        self.address = None
+                        self.prefix_length = None
+                        self._segment_path = lambda: "source-address-ipv6" + "[address='" + str(self.address) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6, ['address', 'prefix_length'], name, value)
@@ -2292,14 +2349,14 @@ class PolicyManager(Entity):
                     """
                     Match dhcp client ID.
                     
-                    .. attribute:: value  <key>
+                    .. attribute:: value  (key)
                     
                     	Dhcp client Id
                     	**type**\: str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: flag  <key>
+                    .. attribute:: flag  (key)
                     
                     	Dhcp client id Ascii/Hex
                     	**type**\: str
@@ -2311,7 +2368,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId, self).__init__()
@@ -2320,13 +2377,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.value = YLeaf(YType.str, "value")
-
-                        self.flag = YLeaf(YType.str, "flag")
-                        self._segment_path = lambda: "dhcp-client-id" + "[value='" + self.value.get() + "']" + "[flag='" + self.flag.get() + "']"
+                        self.ylist_key_names = ['value','flag']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.str, 'value')),
+                            ('flag', YLeaf(YType.str, 'flag')),
+                        ])
+                        self.value = None
+                        self.flag = None
+                        self._segment_path = lambda: "dhcp-client-id" + "[value='" + str(self.value) + "']" + "[flag='" + str(self.flag) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId, ['value', 'flag'], name, value)
@@ -2336,14 +2396,14 @@ class PolicyManager(Entity):
                     """
                     Match dhcp client id regex.
                     
-                    .. attribute:: value  <key>
+                    .. attribute:: value  (key)
                     
                     	Dhcp client id regular expression
                     	**type**\: str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: flag  <key>
+                    .. attribute:: flag  (key)
                     
                     	Dhcp client Id regex Ascii/Hex
                     	**type**\: str
@@ -2355,7 +2415,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex, self).__init__()
@@ -2364,13 +2424,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.value = YLeaf(YType.str, "value")
-
-                        self.flag = YLeaf(YType.str, "flag")
-                        self._segment_path = lambda: "dhcp-client-id-regex" + "[value='" + self.value.get() + "']" + "[flag='" + self.flag.get() + "']"
+                        self.ylist_key_names = ['value','flag']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.str, 'value')),
+                            ('flag', YLeaf(YType.str, 'flag')),
+                        ])
+                        self.value = None
+                        self.flag = None
+                        self._segment_path = lambda: "dhcp-client-id-regex" + "[value='" + str(self.value) + "']" + "[flag='" + str(self.flag) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex, ['value', 'flag'], name, value)
@@ -2380,14 +2443,14 @@ class PolicyManager(Entity):
                     """
                     Match domain name.
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Domain name or regular expression
                     	**type**\: str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: format  (key)
                     
                     	Domain\-format name
                     	**type**\: str
@@ -2399,7 +2462,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName, self).__init__()
@@ -2408,13 +2471,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.format = YLeaf(YType.str, "format")
-                        self._segment_path = lambda: "domain-name" + "[name='" + self.name.get() + "']" + "[format='" + self.format.get() + "']"
+                        self.ylist_key_names = ['name','format']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('format', YLeaf(YType.str, 'format')),
+                        ])
+                        self.name = None
+                        self.format = None
+                        self._segment_path = lambda: "domain-name" + "[name='" + str(self.name) + "']" + "[format='" + str(self.format) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName, ['name', 'format'], name, value)
@@ -2424,14 +2490,14 @@ class PolicyManager(Entity):
                     """
                     Match domain name.
                     
-                    .. attribute:: regex  <key>
+                    .. attribute:: regex  (key)
                     
                     	Domain name or regular expression
                     	**type**\: str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: format  (key)
                     
                     	Domain\-format name
                     	**type**\: str
@@ -2443,7 +2509,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex, self).__init__()
@@ -2452,13 +2518,16 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.regex = YLeaf(YType.str, "regex")
-
-                        self.format = YLeaf(YType.str, "format")
-                        self._segment_path = lambda: "domain-name-regex" + "[regex='" + self.regex.get() + "']" + "[format='" + self.format.get() + "']"
+                        self.ylist_key_names = ['regex','format']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('regex', YLeaf(YType.str, 'regex')),
+                            ('format', YLeaf(YType.str, 'format')),
+                        ])
+                        self.regex = None
+                        self.format = None
+                        self._segment_path = lambda: "domain-name-regex" + "[regex='" + str(self.regex) + "']" + "[format='" + str(self.format) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex, ['regex', 'format'], name, value)
@@ -2480,7 +2549,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.ClassMaps.ClassMap.MatchNot.Flow, self).__init__()
@@ -2489,10 +2558,13 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "match-not"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.flow_tag = YLeafList(YType.uint16, "flow-tag")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('flow_tag', YLeafList(YType.uint16, 'flow-tag')),
+                        ])
+                        self.flow_tag = []
                         self._segment_path = lambda: "flow"
 
                     def __setattr__(self, name, value):
@@ -2513,7 +2585,7 @@ class PolicyManager(Entity):
         """
 
         _prefix = 'infra-policymgr-cfg'
-        _revision = '2017-08-11'
+        _revision = '2017-12-09'
 
         def __init__(self):
             super(PolicyManager.PolicyMaps, self).__init__()
@@ -2522,8 +2594,10 @@ class PolicyManager(Entity):
             self.yang_parent_name = "policy-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"policy-map" : ("policy_map", PolicyManager.PolicyMaps.PolicyMap)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("policy-map", ("policy_map", PolicyManager.PolicyMaps.PolicyMap))])
+            self._leafs = OrderedDict()
 
             self.policy_map = YList(self)
             self._segment_path = lambda: "policy-maps"
@@ -2537,12 +2611,12 @@ class PolicyManager(Entity):
             """
             Policy\-map configuration.
             
-            .. attribute:: type  <key>
+            .. attribute:: type  (key)
             
             	Type of policy\-map
             	**type**\:  :py:class:`PolicyMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyMapType>`
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Name of policy\-map
             	**type**\: str
@@ -2569,7 +2643,7 @@ class PolicyManager(Entity):
             """
 
             _prefix = 'infra-policymgr-cfg'
-            _revision = '2017-08-11'
+            _revision = '2017-12-09'
 
             def __init__(self):
                 super(PolicyManager.PolicyMaps.PolicyMap, self).__init__()
@@ -2578,18 +2652,21 @@ class PolicyManager(Entity):
                 self.yang_parent_name = "policy-maps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"event" : ("event", PolicyManager.PolicyMaps.PolicyMap.Event), "policy-map-rule" : ("policy_map_rule", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule)}
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.description = YLeaf(YType.str, "description")
+                self.ylist_key_names = ['type','name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("event", ("event", PolicyManager.PolicyMaps.PolicyMap.Event)), ("policy-map-rule", ("policy_map_rule", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule))])
+                self._leafs = OrderedDict([
+                    ('type', YLeaf(YType.enumeration, 'type')),
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('description', YLeaf(YType.str, 'description')),
+                ])
+                self.type = None
+                self.name = None
+                self.description = None
 
                 self.event = YList(self)
                 self.policy_map_rule = YList(self)
-                self._segment_path = lambda: "policy-map" + "[type='" + self.type.get() + "']" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "policy-map" + "[type='" + str(self.type) + "']" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/policy-maps/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2600,7 +2677,7 @@ class PolicyManager(Entity):
                 """
                 Policy event.
                 
-                .. attribute:: event_type  <key>
+                .. attribute:: event_type  (key)
                 
                 	Event type
                 	**type**\:  :py:class:`EventType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.EventType>`
@@ -2618,14 +2695,14 @@ class PolicyManager(Entity):
                 .. attribute:: class_
                 
                 	Class\-map rule
-                	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_>`
+                	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class>`
                 
                 
 
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2017-08-11'
+                _revision = '2017-12-09'
 
                 def __init__(self):
                     super(PolicyManager.PolicyMaps.PolicyMap.Event, self).__init__()
@@ -2634,34 +2711,37 @@ class PolicyManager(Entity):
                     self.yang_parent_name = "policy-map"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"class" : ("class_", PolicyManager.PolicyMaps.PolicyMap.Event.Class_)}
-
-                    self.event_type = YLeaf(YType.enumeration, "event-type")
-
-                    self.event_mode_match_all = YLeaf(YType.empty, "event-mode-match-all")
-
-                    self.event_mode_match_first = YLeaf(YType.empty, "event-mode-match-first")
+                    self.ylist_key_names = ['event_type']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("class", ("class_", PolicyManager.PolicyMaps.PolicyMap.Event.Class))])
+                    self._leafs = OrderedDict([
+                        ('event_type', YLeaf(YType.enumeration, 'event-type')),
+                        ('event_mode_match_all', YLeaf(YType.empty, 'event-mode-match-all')),
+                        ('event_mode_match_first', YLeaf(YType.empty, 'event-mode-match-first')),
+                    ])
+                    self.event_type = None
+                    self.event_mode_match_all = None
+                    self.event_mode_match_first = None
 
                     self.class_ = YList(self)
-                    self._segment_path = lambda: "event" + "[event-type='" + self.event_type.get() + "']"
+                    self._segment_path = lambda: "event" + "[event-type='" + str(self.event_type) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event, ['event_type', 'event_mode_match_all', 'event_mode_match_first'], name, value)
 
 
-                class Class_(Entity):
+                class Class(Entity):
                     """
                     Class\-map rule.
                     
-                    .. attribute:: class_name  <key>
+                    .. attribute:: class_name  (key)
                     
                     	Name of class
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
                     
-                    .. attribute:: class_type  <key>
+                    .. attribute:: class_type  (key)
                     
                     	Type of class
                     	**type**\:  :py:class:`PmapClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapType>`
@@ -2674,43 +2754,46 @@ class PolicyManager(Entity):
                     .. attribute:: action_rule
                     
                     	Action rule
-                    	**type**\: list of  		 :py:class:`ActionRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule>`
+                    	**type**\: list of  		 :py:class:`ActionRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule>`
                     
                     
 
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.Event.Class_, self).__init__()
+                        super(PolicyManager.PolicyMaps.PolicyMap.Event.Class, self).__init__()
 
                         self.yang_name = "class"
                         self.yang_parent_name = "event"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"action-rule" : ("action_rule", PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule)}
-
-                        self.class_name = YLeaf(YType.str, "class-name")
-
-                        self.class_type = YLeaf(YType.enumeration, "class-type")
-
-                        self.class_execution_strategy = YLeaf(YType.enumeration, "class-execution-strategy")
+                        self.ylist_key_names = ['class_name','class_type']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("action-rule", ("action_rule", PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule))])
+                        self._leafs = OrderedDict([
+                            ('class_name', YLeaf(YType.str, 'class-name')),
+                            ('class_type', YLeaf(YType.enumeration, 'class-type')),
+                            ('class_execution_strategy', YLeaf(YType.enumeration, 'class-execution-strategy')),
+                        ])
+                        self.class_name = None
+                        self.class_type = None
+                        self.class_execution_strategy = None
 
                         self.action_rule = YList(self)
-                        self._segment_path = lambda: "class" + "[class-name='" + self.class_name.get() + "']" + "[class-type='" + self.class_type.get() + "']"
+                        self._segment_path = lambda: "class" + "[class-name='" + str(self.class_name) + "']" + "[class-type='" + str(self.class_type) + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class_, ['class_name', 'class_type', 'class_execution_strategy'], name, value)
+                        self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class, ['class_name', 'class_type', 'class_execution_strategy'], name, value)
 
 
                     class ActionRule(Entity):
                         """
                         Action rule.
                         
-                        .. attribute:: action_sequence_number  <key>
+                        .. attribute:: action_sequence_number  (key)
                         
                         	Sequence number for this action
                         	**type**\: int
@@ -2720,26 +2803,26 @@ class PolicyManager(Entity):
                         .. attribute:: activate_dynamic_template
                         
                         	Activate dynamic templates
-                        	**type**\:  :py:class:`ActivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate>`
+                        	**type**\:  :py:class:`ActivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: authenticate
                         
                         	Authentication related configuration
-                        	**type**\:  :py:class:`Authenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate>`
+                        	**type**\:  :py:class:`Authenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate>`
                         
                         .. attribute:: authorize
                         
                         	Authorize
-                        	**type**\:  :py:class:`Authorize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize>`
+                        	**type**\:  :py:class:`Authorize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: deactivate_dynamic_template
                         
                         	Deactivate dynamic templates
-                        	**type**\:  :py:class:`DeactivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate>`
+                        	**type**\:  :py:class:`DeactivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate>`
                         
                         	**presence node**\: True
                         
@@ -2756,43 +2839,46 @@ class PolicyManager(Entity):
                         .. attribute:: set_timer
                         
                         	Set a timer to execute a rule on its  expiry
-                        	**type**\:  :py:class:`SetTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer>`
+                        	**type**\:  :py:class:`SetTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer>`
                         
                         	**presence node**\: True
                         
                         .. attribute:: stop_timer
                         
                         	Disable timer before it expires
-                        	**type**\:  :py:class:`StopTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer>`
+                        	**type**\:  :py:class:`StopTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer>`
                         
                         
 
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule, self).__init__()
+                            super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule, self).__init__()
 
                             self.yang_name = "action-rule"
                             self.yang_parent_name = "class"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"activate-dynamic-template" : ("activate_dynamic_template", PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate), "authenticate" : ("authenticate", PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate), "authorize" : ("authorize", PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize), "deactivate-dynamic-template" : ("deactivate_dynamic_template", PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate), "set-timer" : ("set_timer", PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer), "stop-timer" : ("stop_timer", PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer)}
-                            self._child_list_classes = {}
-
-                            self.action_sequence_number = YLeaf(YType.uint16, "action-sequence-number")
-
-                            self.disconnect = YLeaf(YType.empty, "disconnect")
-
-                            self.monitor = YLeaf(YType.empty, "monitor")
+                            self.ylist_key_names = ['action_sequence_number']
+                            self._child_container_classes = OrderedDict([("activate-dynamic-template", ("activate_dynamic_template", PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate)), ("authenticate", ("authenticate", PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate)), ("authorize", ("authorize", PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize)), ("deactivate-dynamic-template", ("deactivate_dynamic_template", PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate)), ("set-timer", ("set_timer", PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer)), ("stop-timer", ("stop_timer", PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('action_sequence_number', YLeaf(YType.uint16, 'action-sequence-number')),
+                                ('disconnect', YLeaf(YType.empty, 'disconnect')),
+                                ('monitor', YLeaf(YType.empty, 'monitor')),
+                            ])
+                            self.action_sequence_number = None
+                            self.disconnect = None
+                            self.monitor = None
 
                             self.activate_dynamic_template = None
                             self._children_name_map["activate_dynamic_template"] = "activate-dynamic-template"
                             self._children_yang_names.add("activate-dynamic-template")
 
-                            self.authenticate = PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate()
+                            self.authenticate = PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate()
                             self.authenticate.parent = self
                             self._children_name_map["authenticate"] = "authenticate"
                             self._children_yang_names.add("authenticate")
@@ -2809,14 +2895,14 @@ class PolicyManager(Entity):
                             self._children_name_map["set_timer"] = "set-timer"
                             self._children_yang_names.add("set-timer")
 
-                            self.stop_timer = PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer()
+                            self.stop_timer = PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer()
                             self.stop_timer.parent = self
                             self._children_name_map["stop_timer"] = "stop-timer"
                             self._children_yang_names.add("stop-timer")
-                            self._segment_path = lambda: "action-rule" + "[action-sequence-number='" + self.action_sequence_number.get() + "']"
+                            self._segment_path = lambda: "action-rule" + "[action-sequence-number='" + str(self.action_sequence_number) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule, ['action_sequence_number', 'disconnect', 'monitor'], name, value)
+                            self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule, ['action_sequence_number', 'disconnect', 'monitor'], name, value)
 
 
                         class ActivateDynamicTemplate(Entity):
@@ -2842,26 +2928,29 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate, self).__init__()
+                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate, self).__init__()
 
                                 self.yang_name = "activate-dynamic-template"
                                 self.yang_parent_name = "action-rule"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.aaa_list = YLeaf(YType.str, "aaa-list")
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('aaa_list', YLeaf(YType.str, 'aaa-list')),
+                                ])
+                                self.name = None
+                                self.aaa_list = None
                                 self._segment_path = lambda: "activate-dynamic-template"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate, ['name', 'aaa_list'], name, value)
+                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate, ['name', 'aaa_list'], name, value)
 
 
                         class Authenticate(Entity):
@@ -2878,23 +2967,26 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate, self).__init__()
+                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate, self).__init__()
 
                                 self.yang_name = "authenticate"
                                 self.yang_parent_name = "action-rule"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.aaa_list = YLeaf(YType.str, "aaa-list")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('aaa_list', YLeaf(YType.str, 'aaa-list')),
+                                ])
+                                self.aaa_list = None
                                 self._segment_path = lambda: "authenticate"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate, ['aaa_list'], name, value)
+                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate, ['aaa_list'], name, value)
 
 
                         class Authorize(Entity):
@@ -2932,30 +3024,33 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize, self).__init__()
+                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize, self).__init__()
 
                                 self.yang_name = "authorize"
                                 self.yang_parent_name = "action-rule"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.aaa_list = YLeaf(YType.str, "aaa-list")
-
-                                self.format = YLeaf(YType.str, "format")
-
-                                self.identifier = YLeaf(YType.enumeration, "identifier")
-
-                                self.password = YLeaf(YType.str, "password")
+                                self._leafs = OrderedDict([
+                                    ('aaa_list', YLeaf(YType.str, 'aaa-list')),
+                                    ('format', YLeaf(YType.str, 'format')),
+                                    ('identifier', YLeaf(YType.enumeration, 'identifier')),
+                                    ('password', YLeaf(YType.str, 'password')),
+                                ])
+                                self.aaa_list = None
+                                self.format = None
+                                self.identifier = None
+                                self.password = None
                                 self._segment_path = lambda: "authorize"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize, ['aaa_list', 'format', 'identifier', 'password'], name, value)
+                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize, ['aaa_list', 'format', 'identifier', 'password'], name, value)
 
 
                         class DeactivateDynamicTemplate(Entity):
@@ -2981,26 +3076,29 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate, self).__init__()
+                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate, self).__init__()
 
                                 self.yang_name = "deactivate-dynamic-template"
                                 self.yang_parent_name = "action-rule"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.aaa_list = YLeaf(YType.str, "aaa-list")
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('aaa_list', YLeaf(YType.str, 'aaa-list')),
+                                ])
+                                self.name = None
+                                self.aaa_list = None
                                 self._segment_path = lambda: "deactivate-dynamic-template"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate, ['name', 'aaa_list'], name, value)
+                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate, ['name', 'aaa_list'], name, value)
 
 
                         class SetTimer(Entity):
@@ -3033,26 +3131,29 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer, self).__init__()
+                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer, self).__init__()
 
                                 self.yang_name = "set-timer"
                                 self.yang_parent_name = "action-rule"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.timer_name = YLeaf(YType.str, "timer-name")
-
-                                self.timer_value = YLeaf(YType.uint32, "timer-value")
+                                self._leafs = OrderedDict([
+                                    ('timer_name', YLeaf(YType.str, 'timer-name')),
+                                    ('timer_value', YLeaf(YType.uint32, 'timer-value')),
+                                ])
+                                self.timer_name = None
+                                self.timer_value = None
                                 self._segment_path = lambda: "set-timer"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer, ['timer_name', 'timer_value'], name, value)
+                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer, ['timer_name', 'timer_value'], name, value)
 
 
                         class StopTimer(Entity):
@@ -3069,37 +3170,40 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer, self).__init__()
+                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer, self).__init__()
 
                                 self.yang_name = "stop-timer"
                                 self.yang_parent_name = "action-rule"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.timer_name = YLeaf(YType.str, "timer-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('timer_name', YLeaf(YType.str, 'timer-name')),
+                                ])
+                                self.timer_name = None
                                 self._segment_path = lambda: "stop-timer"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer, ['timer_name'], name, value)
+                                self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer, ['timer_name'], name, value)
 
 
             class PolicyMapRule(Entity):
                 """
                 Class\-map rule.
                 
-                .. attribute:: class_name  <key>
+                .. attribute:: class_name  (key)
                 
                 	Name of class\-map
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
                 
-                .. attribute:: class_type  <key>
+                .. attribute:: class_type  (key)
                 
                 	Type of class\-map
                 	**type**\:  :py:class:`PmapClassMapType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapType>`
@@ -3238,7 +3342,7 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2017-08-11'
+                _revision = '2017-12-09'
 
                 def __init__(self):
                     super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule, self).__init__()
@@ -3247,30 +3351,33 @@ class PolicyManager(Entity):
                     self.yang_parent_name = "policy-map"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"shape" : ("shape", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape), "min-bandwidth" : ("min_bandwidth", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth), "bandwidth-remaining" : ("bandwidth_remaining", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining), "queue-limit" : ("queue_limit", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit), "pfc" : ("pfc", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc), "set" : ("set", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set), "police" : ("police", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police), "service-policy" : ("service_policy", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy), "cac-local" : ("cac_local", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal), "flow-params" : ("flow_params", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams), "metrics-ipcbr" : ("metrics_ipcbr", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr), "react" : ("react", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React), "pbr-redirect" : ("pbr_redirect", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect), "pbr-forward" : ("pbr_forward", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward), "service-function-path" : ("service_function_path", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath)}
-                    self._child_list_classes = {"random-detect" : ("random_detect", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect)}
-
-                    self.class_name = YLeaf(YType.str, "class-name")
-
-                    self.class_type = YLeaf(YType.enumeration, "class-type")
-
-                    self.priority_level = YLeaf(YType.uint8, "priority-level")
-
-                    self.default_red = YLeaf(YType.empty, "default-red")
-
-                    self.ecn_red = YLeaf(YType.empty, "ecn-red")
-
-                    self.http_redirect = YLeaf(YType.str, "http-redirect")
-
-                    self.pbr_transmit = YLeaf(YType.empty, "pbr-transmit")
-
-                    self.pbr_drop = YLeaf(YType.empty, "pbr-drop")
-
-                    self.decap_gre = YLeaf(YType.empty, "decap-gre")
-
-                    self.service_fragment = YLeaf(YType.str, "service-fragment")
-
-                    self.fragment = YLeaf(YType.str, "fragment")
+                    self.ylist_key_names = ['class_name','class_type']
+                    self._child_container_classes = OrderedDict([("shape", ("shape", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape)), ("min-bandwidth", ("min_bandwidth", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth)), ("bandwidth-remaining", ("bandwidth_remaining", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining)), ("queue-limit", ("queue_limit", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit)), ("pfc", ("pfc", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc)), ("set", ("set", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set)), ("police", ("police", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police)), ("service-policy", ("service_policy", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy)), ("cac-local", ("cac_local", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal)), ("flow-params", ("flow_params", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams)), ("metrics-ipcbr", ("metrics_ipcbr", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr)), ("react", ("react", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React)), ("pbr-redirect", ("pbr_redirect", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect)), ("pbr-forward", ("pbr_forward", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward)), ("service-function-path", ("service_function_path", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath))])
+                    self._child_list_classes = OrderedDict([("random-detect", ("random_detect", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect))])
+                    self._leafs = OrderedDict([
+                        ('class_name', YLeaf(YType.str, 'class-name')),
+                        ('class_type', YLeaf(YType.enumeration, 'class-type')),
+                        ('priority_level', YLeaf(YType.uint8, 'priority-level')),
+                        ('default_red', YLeaf(YType.empty, 'default-red')),
+                        ('ecn_red', YLeaf(YType.empty, 'ecn-red')),
+                        ('http_redirect', YLeaf(YType.str, 'http-redirect')),
+                        ('pbr_transmit', YLeaf(YType.empty, 'pbr-transmit')),
+                        ('pbr_drop', YLeaf(YType.empty, 'pbr-drop')),
+                        ('decap_gre', YLeaf(YType.empty, 'decap-gre')),
+                        ('service_fragment', YLeaf(YType.str, 'service-fragment')),
+                        ('fragment', YLeaf(YType.str, 'fragment')),
+                    ])
+                    self.class_name = None
+                    self.class_type = None
+                    self.priority_level = None
+                    self.default_red = None
+                    self.ecn_red = None
+                    self.http_redirect = None
+                    self.pbr_transmit = None
+                    self.pbr_drop = None
+                    self.decap_gre = None
+                    self.service_fragment = None
+                    self.fragment = None
 
                     self.shape = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape()
                     self.shape.parent = self
@@ -3347,7 +3454,7 @@ class PolicyManager(Entity):
                     self._children_yang_names.add("service-function-path")
 
                     self.random_detect = YList(self)
-                    self._segment_path = lambda: "policy-map-rule" + "[class-name='" + self.class_name.get() + "']" + "[class-type='" + self.class_type.get() + "']"
+                    self._segment_path = lambda: "policy-map-rule" + "[class-name='" + str(self.class_name) + "']" + "[class-type='" + str(self.class_type) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule, ['class_name', 'class_type', 'priority_level', 'default_red', 'ecn_red', 'http_redirect', 'pbr_transmit', 'pbr_drop', 'decap_gre', 'service_fragment', 'fragment'], name, value)
@@ -3372,7 +3479,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape, self).__init__()
@@ -3381,8 +3488,10 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rate" : ("rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate), "burst" : ("burst", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rate", ("rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate)), ("burst", ("burst", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate()
                         self.rate.parent = self
@@ -3419,7 +3528,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate, self).__init__()
@@ -3428,12 +3537,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "shape"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.unit = YLeaf(YType.str, "unit")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('unit', YLeaf(YType.str, 'unit')),
+                            ])
+                            self.value = None
+                            self.unit = None
                             self._segment_path = lambda: "rate"
 
                         def __setattr__(self, name, value):
@@ -3463,7 +3575,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst, self).__init__()
@@ -3472,12 +3584,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "shape"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.units = YLeaf(YType.str, "units")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('units', YLeaf(YType.str, 'units')),
+                            ])
+                            self.value = None
+                            self.units = None
                             self._segment_path = lambda: "burst"
 
                         def __setattr__(self, name, value):
@@ -3507,7 +3622,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth, self).__init__()
@@ -3516,12 +3631,15 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.value = YLeaf(YType.uint32, "value")
-
-                        self.unit = YLeaf(YType.str, "unit")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.uint32, 'value')),
+                            ('unit', YLeaf(YType.str, 'unit')),
+                        ])
+                        self.value = None
+                        self.unit = None
                         self._segment_path = lambda: "min-bandwidth"
 
                     def __setattr__(self, name, value):
@@ -3551,7 +3669,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining, self).__init__()
@@ -3560,12 +3678,15 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.value = YLeaf(YType.uint32, "value")
-
-                        self.unit = YLeaf(YType.str, "unit")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.uint32, 'value')),
+                            ('unit', YLeaf(YType.str, 'unit')),
+                        ])
+                        self.value = None
+                        self.unit = None
                         self._segment_path = lambda: "bandwidth-remaining"
 
                     def __setattr__(self, name, value):
@@ -3595,7 +3716,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit, self).__init__()
@@ -3604,12 +3725,15 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.value = YLeaf(YType.uint32, "value")
-
-                        self.unit = YLeaf(YType.str, "unit")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.uint32, 'value')),
+                            ('unit', YLeaf(YType.str, 'unit')),
+                        ])
+                        self.value = None
+                        self.unit = None
                         self._segment_path = lambda: "queue-limit"
 
                     def __setattr__(self, name, value):
@@ -3645,7 +3769,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc, self).__init__()
@@ -3654,10 +3778,13 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"pfc-buffer-size" : ("pfc_buffer_size", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize), "pfc-pause-threshold" : ("pfc_pause_threshold", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold), "pfc-resume-threshold" : ("pfc_resume_threshold", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold)}
-                        self._child_list_classes = {}
-
-                        self.pfc_pause_set = YLeaf(YType.empty, "pfc-pause-set")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("pfc-buffer-size", ("pfc_buffer_size", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize)), ("pfc-pause-threshold", ("pfc_pause_threshold", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold)), ("pfc-resume-threshold", ("pfc_resume_threshold", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pfc_pause_set', YLeaf(YType.empty, 'pfc-pause-set')),
+                        ])
+                        self.pfc_pause_set = None
 
                         self.pfc_buffer_size = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize()
                         self.pfc_buffer_size.parent = self
@@ -3702,7 +3829,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize, self).__init__()
@@ -3711,12 +3838,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "pfc"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.unit = YLeaf(YType.str, "unit")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('unit', YLeaf(YType.str, 'unit')),
+                            ])
+                            self.value = None
+                            self.unit = None
                             self._segment_path = lambda: "pfc-buffer-size"
 
                         def __setattr__(self, name, value):
@@ -3746,7 +3876,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold, self).__init__()
@@ -3755,12 +3885,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "pfc"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.unit = YLeaf(YType.str, "unit")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('unit', YLeaf(YType.str, 'unit')),
+                            ])
+                            self.value = None
+                            self.unit = None
                             self._segment_path = lambda: "pfc-pause-threshold"
 
                         def __setattr__(self, name, value):
@@ -3790,7 +3923,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold, self).__init__()
@@ -3799,12 +3932,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "pfc"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.unit = YLeaf(YType.str, "unit")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('unit', YLeaf(YType.str, 'unit')),
+                            ])
+                            self.value = None
+                            self.unit = None
                             self._segment_path = lambda: "pfc-resume-threshold"
 
                         def __setattr__(self, name, value):
@@ -3817,28 +3953,28 @@ class PolicyManager(Entity):
                     All RED profiles in a class must be based
                     on the same field.
                     
-                    .. attribute:: threshold_min_value  <key>
+                    .. attribute:: threshold_min_value  (key)
                     
                     	Minimum RED threshold value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: threshold_min_units  <key>
+                    .. attribute:: threshold_min_units  (key)
                     
                     	Minimum RED threshold units
                     	**type**\: str
                     
                     	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                     
-                    .. attribute:: threshold_max_value  <key>
+                    .. attribute:: threshold_max_value  (key)
                     
                     	Maximum RED threshold value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: threshold_max_units  <key>
+                    .. attribute:: threshold_max_units  (key)
                     
                     	Maximum RED threshold units
                     	**type**\: str
@@ -3903,7 +4039,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect, self).__init__()
@@ -3912,31 +4048,34 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.threshold_min_value = YLeaf(YType.uint32, "threshold-min-value")
-
-                        self.threshold_min_units = YLeaf(YType.str, "threshold-min-units")
-
-                        self.threshold_max_value = YLeaf(YType.uint32, "threshold-max-value")
-
-                        self.threshold_max_units = YLeaf(YType.str, "threshold-max-units")
-
-                        self.cos = YLeafList(YType.str, "cos")
-
-                        self.discard_class = YLeafList(YType.uint8, "discard-class")
-
-                        self.dscp = YLeafList(YType.str, "dscp")
-
-                        self.mpls_exp = YLeafList(YType.uint8, "mpls-exp")
-
-                        self.precedence = YLeafList(YType.str, "precedence")
-
-                        self.dei = YLeaf(YType.uint8, "dei")
-
-                        self.ecn = YLeaf(YType.empty, "ecn")
-                        self._segment_path = lambda: "random-detect" + "[threshold-min-value='" + self.threshold_min_value.get() + "']" + "[threshold-min-units='" + self.threshold_min_units.get() + "']" + "[threshold-max-value='" + self.threshold_max_value.get() + "']" + "[threshold-max-units='" + self.threshold_max_units.get() + "']"
+                        self.ylist_key_names = ['threshold_min_value','threshold_min_units','threshold_max_value','threshold_max_units']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('threshold_min_value', YLeaf(YType.uint32, 'threshold-min-value')),
+                            ('threshold_min_units', YLeaf(YType.str, 'threshold-min-units')),
+                            ('threshold_max_value', YLeaf(YType.uint32, 'threshold-max-value')),
+                            ('threshold_max_units', YLeaf(YType.str, 'threshold-max-units')),
+                            ('cos', YLeafList(YType.str, 'cos')),
+                            ('discard_class', YLeafList(YType.uint8, 'discard-class')),
+                            ('dscp', YLeafList(YType.str, 'dscp')),
+                            ('mpls_exp', YLeafList(YType.uint8, 'mpls-exp')),
+                            ('precedence', YLeafList(YType.str, 'precedence')),
+                            ('dei', YLeaf(YType.uint8, 'dei')),
+                            ('ecn', YLeaf(YType.empty, 'ecn')),
+                        ])
+                        self.threshold_min_value = None
+                        self.threshold_min_units = None
+                        self.threshold_max_value = None
+                        self.threshold_max_units = None
+                        self.cos = []
+                        self.discard_class = []
+                        self.dscp = []
+                        self.mpls_exp = []
+                        self.precedence = []
+                        self.dei = None
+                        self.ecn = None
+                        self._segment_path = lambda: "random-detect" + "[threshold-min-value='" + str(self.threshold_min_value) + "']" + "[threshold-min-units='" + str(self.threshold_min_units) + "']" + "[threshold-max-value='" + str(self.threshold_max_value) + "']" + "[threshold-max-units='" + str(self.threshold_max_units) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect, ['threshold_min_value', 'threshold_min_units', 'threshold_max_value', 'threshold_max_units', 'cos', 'discard_class', 'dscp', 'mpls_exp', 'precedence', 'dei', 'ecn'], name, value)
@@ -4089,7 +4228,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set, self).__init__()
@@ -4098,44 +4237,47 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.dscp = YLeaf(YType.str, "dscp")
-
-                        self.qos_group = YLeaf(YType.uint16, "qos-group")
-
-                        self.traffic_class = YLeaf(YType.uint8, "traffic-class")
-
-                        self.discard_class = YLeaf(YType.uint8, "discard-class")
-
-                        self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                        self.df = YLeaf(YType.uint8, "df")
-
-                        self.cos = YLeaf(YType.uint8, "cos")
-
-                        self.inner_cos = YLeaf(YType.uint8, "inner-cos")
-
-                        self.precedence = YLeaf(YType.str, "precedence")
-
-                        self.precedence_tunnel = YLeaf(YType.str, "precedence-tunnel")
-
-                        self.mpls_experimental_top_most = YLeaf(YType.uint8, "mpls-experimental-top-most")
-
-                        self.mpls_experimental_imposition = YLeaf(YType.uint8, "mpls-experimental-imposition")
-
-                        self.srp_priority = YLeaf(YType.uint8, "srp-priority")
-
-                        self.fr_de = YLeaf(YType.uint8, "fr-de")
-
-                        self.dei = YLeaf(YType.uint8, "dei")
-
-                        self.dei_imposition = YLeaf(YType.uint8, "dei-imposition")
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('dscp', YLeaf(YType.str, 'dscp')),
+                            ('qos_group', YLeaf(YType.uint16, 'qos-group')),
+                            ('traffic_class', YLeaf(YType.uint8, 'traffic-class')),
+                            ('discard_class', YLeaf(YType.uint8, 'discard-class')),
+                            ('forward_class', YLeaf(YType.uint8, 'forward-class')),
+                            ('df', YLeaf(YType.uint8, 'df')),
+                            ('cos', YLeaf(YType.uint8, 'cos')),
+                            ('inner_cos', YLeaf(YType.uint8, 'inner-cos')),
+                            ('precedence', YLeaf(YType.str, 'precedence')),
+                            ('precedence_tunnel', YLeaf(YType.str, 'precedence-tunnel')),
+                            ('mpls_experimental_top_most', YLeaf(YType.uint8, 'mpls-experimental-top-most')),
+                            ('mpls_experimental_imposition', YLeaf(YType.uint8, 'mpls-experimental-imposition')),
+                            ('srp_priority', YLeaf(YType.uint8, 'srp-priority')),
+                            ('fr_de', YLeaf(YType.uint8, 'fr-de')),
+                            ('dei', YLeaf(YType.uint8, 'dei')),
+                            ('dei_imposition', YLeaf(YType.uint8, 'dei-imposition')),
+                            ('source_address', YLeaf(YType.str, 'source-address')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                        ])
+                        self.dscp = None
+                        self.qos_group = None
+                        self.traffic_class = None
+                        self.discard_class = None
+                        self.forward_class = None
+                        self.df = None
+                        self.cos = None
+                        self.inner_cos = None
+                        self.precedence = None
+                        self.precedence_tunnel = None
+                        self.mpls_experimental_top_most = None
+                        self.mpls_experimental_imposition = None
+                        self.srp_priority = None
+                        self.fr_de = None
+                        self.dei = None
+                        self.dei_imposition = None
+                        self.source_address = None
+                        self.destination_address = None
                         self._segment_path = lambda: "set"
 
                     def __setattr__(self, name, value):
@@ -4186,7 +4328,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police, self).__init__()
@@ -4195,8 +4337,10 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rate" : ("rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate), "peak-rate" : ("peak_rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate), "burst" : ("burst", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst), "peak-burst" : ("peak_burst", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst), "conform-action" : ("conform_action", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction), "exceed-action" : ("exceed_action", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction), "violate-action" : ("violate_action", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rate", ("rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate)), ("peak-rate", ("peak_rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate)), ("burst", ("burst", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst)), ("peak-burst", ("peak_burst", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst)), ("conform-action", ("conform_action", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction)), ("exceed-action", ("exceed_action", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction)), ("violate-action", ("violate_action", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate()
                         self.rate.parent = self
@@ -4258,7 +4402,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate, self).__init__()
@@ -4267,12 +4411,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "police"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.units = YLeaf(YType.str, "units")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('units', YLeaf(YType.str, 'units')),
+                            ])
+                            self.value = None
+                            self.units = None
                             self._segment_path = lambda: "rate"
 
                         def __setattr__(self, name, value):
@@ -4302,7 +4449,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate, self).__init__()
@@ -4311,12 +4458,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "police"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.units = YLeaf(YType.str, "units")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('units', YLeaf(YType.str, 'units')),
+                            ])
+                            self.value = None
+                            self.units = None
                             self._segment_path = lambda: "peak-rate"
 
                         def __setattr__(self, name, value):
@@ -4346,7 +4496,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst, self).__init__()
@@ -4355,12 +4505,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "police"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.units = YLeaf(YType.str, "units")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('units', YLeaf(YType.str, 'units')),
+                            ])
+                            self.value = None
+                            self.units = None
                             self._segment_path = lambda: "burst"
 
                         def __setattr__(self, name, value):
@@ -4390,7 +4543,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst, self).__init__()
@@ -4399,12 +4552,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "police"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.units = YLeaf(YType.str, "units")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('units', YLeaf(YType.str, 'units')),
+                            ])
+                            self.value = None
+                            self.units = None
                             self._segment_path = lambda: "peak-burst"
 
                         def __setattr__(self, name, value):
@@ -4436,7 +4592,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction, self).__init__()
@@ -4445,12 +4601,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "police"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"set" : ("set", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set)}
-                            self._child_list_classes = {}
-
-                            self.transmit = YLeaf(YType.empty, "Transmit")
-
-                            self.drop = YLeaf(YType.empty, "drop")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("set", ("set", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('transmit', YLeaf(YType.empty, 'Transmit')),
+                                ('drop', YLeaf(YType.empty, 'drop')),
+                            ])
+                            self.transmit = None
+                            self.drop = None
 
                             self.set = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set()
                             self.set.parent = self
@@ -4609,7 +4768,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set, self).__init__()
@@ -4618,44 +4777,47 @@ class PolicyManager(Entity):
                                 self.yang_parent_name = "conform-action"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.dscp = YLeaf(YType.str, "dscp")
-
-                                self.qos_group = YLeaf(YType.uint16, "qos-group")
-
-                                self.traffic_class = YLeaf(YType.uint8, "traffic-class")
-
-                                self.discard_class = YLeaf(YType.uint8, "discard-class")
-
-                                self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                                self.df = YLeaf(YType.uint8, "df")
-
-                                self.cos = YLeaf(YType.uint8, "cos")
-
-                                self.inner_cos = YLeaf(YType.uint8, "inner-cos")
-
-                                self.precedence = YLeaf(YType.str, "precedence")
-
-                                self.precedence_tunnel = YLeaf(YType.str, "precedence-tunnel")
-
-                                self.mpls_experimental_top_most = YLeaf(YType.uint8, "mpls-experimental-top-most")
-
-                                self.mpls_experimental_imposition = YLeaf(YType.uint8, "mpls-experimental-imposition")
-
-                                self.srp_priority = YLeaf(YType.uint8, "srp-priority")
-
-                                self.fr_de = YLeaf(YType.uint8, "fr-de")
-
-                                self.dei = YLeaf(YType.uint8, "dei")
-
-                                self.dei_imposition = YLeaf(YType.uint8, "dei-imposition")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.destination_address = YLeaf(YType.str, "destination-address")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('dscp', YLeaf(YType.str, 'dscp')),
+                                    ('qos_group', YLeaf(YType.uint16, 'qos-group')),
+                                    ('traffic_class', YLeaf(YType.uint8, 'traffic-class')),
+                                    ('discard_class', YLeaf(YType.uint8, 'discard-class')),
+                                    ('forward_class', YLeaf(YType.uint8, 'forward-class')),
+                                    ('df', YLeaf(YType.uint8, 'df')),
+                                    ('cos', YLeaf(YType.uint8, 'cos')),
+                                    ('inner_cos', YLeaf(YType.uint8, 'inner-cos')),
+                                    ('precedence', YLeaf(YType.str, 'precedence')),
+                                    ('precedence_tunnel', YLeaf(YType.str, 'precedence-tunnel')),
+                                    ('mpls_experimental_top_most', YLeaf(YType.uint8, 'mpls-experimental-top-most')),
+                                    ('mpls_experimental_imposition', YLeaf(YType.uint8, 'mpls-experimental-imposition')),
+                                    ('srp_priority', YLeaf(YType.uint8, 'srp-priority')),
+                                    ('fr_de', YLeaf(YType.uint8, 'fr-de')),
+                                    ('dei', YLeaf(YType.uint8, 'dei')),
+                                    ('dei_imposition', YLeaf(YType.uint8, 'dei-imposition')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                ])
+                                self.dscp = None
+                                self.qos_group = None
+                                self.traffic_class = None
+                                self.discard_class = None
+                                self.forward_class = None
+                                self.df = None
+                                self.cos = None
+                                self.inner_cos = None
+                                self.precedence = None
+                                self.precedence_tunnel = None
+                                self.mpls_experimental_top_most = None
+                                self.mpls_experimental_imposition = None
+                                self.srp_priority = None
+                                self.fr_de = None
+                                self.dei = None
+                                self.dei_imposition = None
+                                self.source_address = None
+                                self.destination_address = None
                                 self._segment_path = lambda: "set"
 
                             def __setattr__(self, name, value):
@@ -4687,7 +4849,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction, self).__init__()
@@ -4696,12 +4858,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "police"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"set" : ("set", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set)}
-                            self._child_list_classes = {}
-
-                            self.transmit = YLeaf(YType.empty, "Transmit")
-
-                            self.drop = YLeaf(YType.empty, "drop")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("set", ("set", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('transmit', YLeaf(YType.empty, 'Transmit')),
+                                ('drop', YLeaf(YType.empty, 'drop')),
+                            ])
+                            self.transmit = None
+                            self.drop = None
 
                             self.set = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set()
                             self.set.parent = self
@@ -4860,7 +5025,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set, self).__init__()
@@ -4869,44 +5034,47 @@ class PolicyManager(Entity):
                                 self.yang_parent_name = "exceed-action"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.dscp = YLeaf(YType.str, "dscp")
-
-                                self.qos_group = YLeaf(YType.uint16, "qos-group")
-
-                                self.traffic_class = YLeaf(YType.uint8, "traffic-class")
-
-                                self.discard_class = YLeaf(YType.uint8, "discard-class")
-
-                                self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                                self.df = YLeaf(YType.uint8, "df")
-
-                                self.cos = YLeaf(YType.uint8, "cos")
-
-                                self.inner_cos = YLeaf(YType.uint8, "inner-cos")
-
-                                self.precedence = YLeaf(YType.str, "precedence")
-
-                                self.precedence_tunnel = YLeaf(YType.str, "precedence-tunnel")
-
-                                self.mpls_experimental_top_most = YLeaf(YType.uint8, "mpls-experimental-top-most")
-
-                                self.mpls_experimental_imposition = YLeaf(YType.uint8, "mpls-experimental-imposition")
-
-                                self.srp_priority = YLeaf(YType.uint8, "srp-priority")
-
-                                self.fr_de = YLeaf(YType.uint8, "fr-de")
-
-                                self.dei = YLeaf(YType.uint8, "dei")
-
-                                self.dei_imposition = YLeaf(YType.uint8, "dei-imposition")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.destination_address = YLeaf(YType.str, "destination-address")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('dscp', YLeaf(YType.str, 'dscp')),
+                                    ('qos_group', YLeaf(YType.uint16, 'qos-group')),
+                                    ('traffic_class', YLeaf(YType.uint8, 'traffic-class')),
+                                    ('discard_class', YLeaf(YType.uint8, 'discard-class')),
+                                    ('forward_class', YLeaf(YType.uint8, 'forward-class')),
+                                    ('df', YLeaf(YType.uint8, 'df')),
+                                    ('cos', YLeaf(YType.uint8, 'cos')),
+                                    ('inner_cos', YLeaf(YType.uint8, 'inner-cos')),
+                                    ('precedence', YLeaf(YType.str, 'precedence')),
+                                    ('precedence_tunnel', YLeaf(YType.str, 'precedence-tunnel')),
+                                    ('mpls_experimental_top_most', YLeaf(YType.uint8, 'mpls-experimental-top-most')),
+                                    ('mpls_experimental_imposition', YLeaf(YType.uint8, 'mpls-experimental-imposition')),
+                                    ('srp_priority', YLeaf(YType.uint8, 'srp-priority')),
+                                    ('fr_de', YLeaf(YType.uint8, 'fr-de')),
+                                    ('dei', YLeaf(YType.uint8, 'dei')),
+                                    ('dei_imposition', YLeaf(YType.uint8, 'dei-imposition')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                ])
+                                self.dscp = None
+                                self.qos_group = None
+                                self.traffic_class = None
+                                self.discard_class = None
+                                self.forward_class = None
+                                self.df = None
+                                self.cos = None
+                                self.inner_cos = None
+                                self.precedence = None
+                                self.precedence_tunnel = None
+                                self.mpls_experimental_top_most = None
+                                self.mpls_experimental_imposition = None
+                                self.srp_priority = None
+                                self.fr_de = None
+                                self.dei = None
+                                self.dei_imposition = None
+                                self.source_address = None
+                                self.destination_address = None
                                 self._segment_path = lambda: "set"
 
                             def __setattr__(self, name, value):
@@ -4938,7 +5106,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction, self).__init__()
@@ -4947,12 +5115,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "police"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"set" : ("set", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set)}
-                            self._child_list_classes = {}
-
-                            self.transmit = YLeaf(YType.empty, "Transmit")
-
-                            self.drop = YLeaf(YType.empty, "drop")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("set", ("set", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('transmit', YLeaf(YType.empty, 'Transmit')),
+                                ('drop', YLeaf(YType.empty, 'drop')),
+                            ])
+                            self.transmit = None
+                            self.drop = None
 
                             self.set = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set()
                             self.set.parent = self
@@ -5111,7 +5282,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set, self).__init__()
@@ -5120,44 +5291,47 @@ class PolicyManager(Entity):
                                 self.yang_parent_name = "violate-action"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.dscp = YLeaf(YType.str, "dscp")
-
-                                self.qos_group = YLeaf(YType.uint16, "qos-group")
-
-                                self.traffic_class = YLeaf(YType.uint8, "traffic-class")
-
-                                self.discard_class = YLeaf(YType.uint8, "discard-class")
-
-                                self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                                self.df = YLeaf(YType.uint8, "df")
-
-                                self.cos = YLeaf(YType.uint8, "cos")
-
-                                self.inner_cos = YLeaf(YType.uint8, "inner-cos")
-
-                                self.precedence = YLeaf(YType.str, "precedence")
-
-                                self.precedence_tunnel = YLeaf(YType.str, "precedence-tunnel")
-
-                                self.mpls_experimental_top_most = YLeaf(YType.uint8, "mpls-experimental-top-most")
-
-                                self.mpls_experimental_imposition = YLeaf(YType.uint8, "mpls-experimental-imposition")
-
-                                self.srp_priority = YLeaf(YType.uint8, "srp-priority")
-
-                                self.fr_de = YLeaf(YType.uint8, "fr-de")
-
-                                self.dei = YLeaf(YType.uint8, "dei")
-
-                                self.dei_imposition = YLeaf(YType.uint8, "dei-imposition")
-
-                                self.source_address = YLeaf(YType.str, "source-address")
-
-                                self.destination_address = YLeaf(YType.str, "destination-address")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('dscp', YLeaf(YType.str, 'dscp')),
+                                    ('qos_group', YLeaf(YType.uint16, 'qos-group')),
+                                    ('traffic_class', YLeaf(YType.uint8, 'traffic-class')),
+                                    ('discard_class', YLeaf(YType.uint8, 'discard-class')),
+                                    ('forward_class', YLeaf(YType.uint8, 'forward-class')),
+                                    ('df', YLeaf(YType.uint8, 'df')),
+                                    ('cos', YLeaf(YType.uint8, 'cos')),
+                                    ('inner_cos', YLeaf(YType.uint8, 'inner-cos')),
+                                    ('precedence', YLeaf(YType.str, 'precedence')),
+                                    ('precedence_tunnel', YLeaf(YType.str, 'precedence-tunnel')),
+                                    ('mpls_experimental_top_most', YLeaf(YType.uint8, 'mpls-experimental-top-most')),
+                                    ('mpls_experimental_imposition', YLeaf(YType.uint8, 'mpls-experimental-imposition')),
+                                    ('srp_priority', YLeaf(YType.uint8, 'srp-priority')),
+                                    ('fr_de', YLeaf(YType.uint8, 'fr-de')),
+                                    ('dei', YLeaf(YType.uint8, 'dei')),
+                                    ('dei_imposition', YLeaf(YType.uint8, 'dei-imposition')),
+                                    ('source_address', YLeaf(YType.str, 'source-address')),
+                                    ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                ])
+                                self.dscp = None
+                                self.qos_group = None
+                                self.traffic_class = None
+                                self.discard_class = None
+                                self.forward_class = None
+                                self.df = None
+                                self.cos = None
+                                self.inner_cos = None
+                                self.precedence = None
+                                self.precedence_tunnel = None
+                                self.mpls_experimental_top_most = None
+                                self.mpls_experimental_imposition = None
+                                self.srp_priority = None
+                                self.fr_de = None
+                                self.dei = None
+                                self.dei_imposition = None
+                                self.source_address = None
+                                self.destination_address = None
                                 self._segment_path = lambda: "set"
 
                             def __setattr__(self, name, value):
@@ -5187,7 +5361,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy, self).__init__()
@@ -5196,12 +5370,15 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.policy_name = YLeaf(YType.str, "policy-name")
-
-                        self.type = YLeaf(YType.str, "type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('policy_name', YLeaf(YType.str, 'policy-name')),
+                            ('type', YLeaf(YType.str, 'type')),
+                        ])
+                        self.policy_name = None
+                        self.type = None
                         self._segment_path = lambda: "service-policy"
 
                     def __setattr__(self, name, value):
@@ -5240,7 +5417,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal, self).__init__()
@@ -5249,10 +5426,13 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rate" : ("rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate), "flow-rate" : ("flow_rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate)}
-                        self._child_list_classes = {}
-
-                        self.flow_idle_timeout = YLeaf(YType.str, "flow-idle-timeout")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rate", ("rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate)), ("flow-rate", ("flow_rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('flow_idle_timeout', YLeaf(YType.str, 'flow-idle-timeout')),
+                        ])
+                        self.flow_idle_timeout = None
 
                         self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate()
                         self.rate.parent = self
@@ -5292,7 +5472,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate, self).__init__()
@@ -5301,12 +5481,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "cac-local"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.units = YLeaf(YType.str, "units")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('units', YLeaf(YType.str, 'units')),
+                            ])
+                            self.value = None
+                            self.units = None
                             self._segment_path = lambda: "rate"
 
                         def __setattr__(self, name, value):
@@ -5336,7 +5519,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate, self).__init__()
@@ -5345,12 +5528,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "cac-local"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.value = YLeaf(YType.uint32, "value")
-
-                            self.units = YLeaf(YType.str, "units")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('value', YLeaf(YType.uint32, 'value')),
+                                ('units', YLeaf(YType.str, 'units')),
+                            ])
+                            self.value = None
+                            self.units = None
                             self._segment_path = lambda: "flow-rate"
 
                         def __setattr__(self, name, value):
@@ -5398,7 +5584,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams, self).__init__()
@@ -5407,16 +5593,19 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.max_flow = YLeaf(YType.uint16, "max-flow")
-
-                        self.interval_duration = YLeaf(YType.uint32, "interval-duration")
-
-                        self.history = YLeaf(YType.uint32, "history")
-
-                        self.timeout = YLeaf(YType.uint32, "timeout")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('max_flow', YLeaf(YType.uint16, 'max-flow')),
+                            ('interval_duration', YLeaf(YType.uint32, 'interval-duration')),
+                            ('history', YLeaf(YType.uint32, 'history')),
+                            ('timeout', YLeaf(YType.uint32, 'timeout')),
+                        ])
+                        self.max_flow = None
+                        self.interval_duration = None
+                        self.history = None
+                        self.timeout = None
                         self._segment_path = lambda: "flow-params"
 
                     def __setattr__(self, name, value):
@@ -5442,7 +5631,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr, self).__init__()
@@ -5451,8 +5640,10 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rate" : ("rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate), "media-packet" : ("media_packet", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rate", ("rate", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate)), ("media-packet", ("media_packet", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate()
                         self.rate.parent = self
@@ -5502,7 +5693,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate, self).__init__()
@@ -5511,14 +5702,17 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "metrics-ipcbr"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.layer3 = YLeaf(YType.uint32, "layer3")
-
-                            self.packet = YLeaf(YType.uint32, "packet")
-
-                            self.media = YLeaf(YType.uint32, "media")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('layer3', YLeaf(YType.uint32, 'layer3')),
+                                ('packet', YLeaf(YType.uint32, 'packet')),
+                                ('media', YLeaf(YType.uint32, 'media')),
+                            ])
+                            self.layer3 = None
+                            self.packet = None
+                            self.media = None
                             self._segment_path = lambda: "rate"
 
                         def __setattr__(self, name, value):
@@ -5552,7 +5746,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket, self).__init__()
@@ -5561,12 +5755,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "metrics-ipcbr"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.size = YLeaf(YType.uint16, "size")
-
-                            self.count_in_layer3 = YLeaf(YType.uint8, "count-in-layer3")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('size', YLeaf(YType.uint16, 'size')),
+                                ('count_in_layer3', YLeaf(YType.uint8, 'count-in-layer3')),
+                            ])
+                            self.size = None
+                            self.count_in_layer3 = None
                             self._segment_path = lambda: "media-packet"
 
                         def __setattr__(self, name, value):
@@ -5627,7 +5824,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React, self).__init__()
@@ -5636,20 +5833,23 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"action" : ("action", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action), "alarm" : ("alarm", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm), "threshold" : ("threshold", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold)}
-                        self._child_list_classes = {}
-
-                        self.descrition = YLeaf(YType.str, "descrition")
-
-                        self.criterion_delay_factor = YLeaf(YType.empty, "criterion-delay-factor")
-
-                        self.criterion_media_stop = YLeaf(YType.empty, "criterion-media-stop")
-
-                        self.criterion_mrv = YLeaf(YType.empty, "criterion-mrv")
-
-                        self.criterion_flow_count = YLeaf(YType.empty, "criterion-flow-count")
-
-                        self.criterion_packet_rate = YLeaf(YType.empty, "criterion-packet-rate")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("action", ("action", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action)), ("alarm", ("alarm", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm)), ("threshold", ("threshold", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('descrition', YLeaf(YType.str, 'descrition')),
+                            ('criterion_delay_factor', YLeaf(YType.empty, 'criterion-delay-factor')),
+                            ('criterion_media_stop', YLeaf(YType.empty, 'criterion-media-stop')),
+                            ('criterion_mrv', YLeaf(YType.empty, 'criterion-mrv')),
+                            ('criterion_flow_count', YLeaf(YType.empty, 'criterion-flow-count')),
+                            ('criterion_packet_rate', YLeaf(YType.empty, 'criterion-packet-rate')),
+                        ])
+                        self.descrition = None
+                        self.criterion_delay_factor = None
+                        self.criterion_media_stop = None
+                        self.criterion_mrv = None
+                        self.criterion_flow_count = None
+                        self.criterion_packet_rate = None
 
                         self.action = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action()
                         self.action.parent = self
@@ -5690,7 +5890,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action, self).__init__()
@@ -5699,12 +5899,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "react"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.syslog = YLeaf(YType.empty, "syslog")
-
-                            self.snmp = YLeaf(YType.empty, "snmp")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('syslog', YLeaf(YType.empty, 'syslog')),
+                                ('snmp', YLeaf(YType.empty, 'snmp')),
+                            ])
+                            self.syslog = None
+                            self.snmp = None
                             self._segment_path = lambda: "action"
 
                         def __setattr__(self, name, value):
@@ -5732,7 +5935,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm, self).__init__()
@@ -5741,10 +5944,13 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "react"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"type" : ("type", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type)}
-                            self._child_list_classes = {}
-
-                            self.severity = YLeaf(YType.str, "severity")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("type", ("type", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('severity', YLeaf(YType.str, 'severity')),
+                            ])
+                            self.severity = None
 
                             self.type = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type()
                             self.type.parent = self
@@ -5788,7 +5994,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type, self).__init__()
@@ -5797,14 +6003,17 @@ class PolicyManager(Entity):
                                 self.yang_parent_name = "alarm"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.discrete = YLeaf(YType.empty, "discrete")
-
-                                self.group_count = YLeaf(YType.uint16, "group-count")
-
-                                self.group_percent = YLeaf(YType.uint16, "group-percent")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('discrete', YLeaf(YType.empty, 'discrete')),
+                                    ('group_count', YLeaf(YType.uint16, 'group-count')),
+                                    ('group_percent', YLeaf(YType.uint16, 'group-percent')),
+                                ])
+                                self.discrete = None
+                                self.group_count = None
+                                self.group_percent = None
                                 self._segment_path = lambda: "type"
 
                             def __setattr__(self, name, value):
@@ -5830,7 +6039,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold, self).__init__()
@@ -5839,8 +6048,10 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "react"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"trigger-value" : ("trigger_value", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue), "trigger-type" : ("trigger_type", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("trigger-value", ("trigger_value", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue)), ("trigger-type", ("trigger_type", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.trigger_value = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue()
                             self.trigger_value.parent = self
@@ -5888,7 +6099,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue, self).__init__()
@@ -5897,18 +6108,21 @@ class PolicyManager(Entity):
                                 self.yang_parent_name = "threshold"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.greater_than = YLeaf(YType.str, "greater-than")
-
-                                self.greater_than_equal = YLeaf(YType.str, "greater-than-equal")
-
-                                self.less_than = YLeaf(YType.str, "less-than")
-
-                                self.less_than_equal = YLeaf(YType.str, "less-than-equal")
-
-                                self.range = YLeaf(YType.str, "range")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('greater_than', YLeaf(YType.str, 'greater-than')),
+                                    ('greater_than_equal', YLeaf(YType.str, 'greater-than-equal')),
+                                    ('less_than', YLeaf(YType.str, 'less-than')),
+                                    ('less_than_equal', YLeaf(YType.str, 'less-than-equal')),
+                                    ('range', YLeaf(YType.str, 'range')),
+                                ])
+                                self.greater_than = None
+                                self.greater_than_equal = None
+                                self.less_than = None
+                                self.less_than_equal = None
+                                self.range = None
                                 self._segment_path = lambda: "trigger-value"
 
                             def __setattr__(self, name, value):
@@ -5936,7 +6150,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType, self).__init__()
@@ -5945,12 +6159,15 @@ class PolicyManager(Entity):
                                 self.yang_parent_name = "threshold"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.immediate = YLeaf(YType.empty, "immediate")
-
-                                self.average = YLeaf(YType.uint32, "average")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('immediate', YLeaf(YType.empty, 'immediate')),
+                                    ('average', YLeaf(YType.uint32, 'average')),
+                                ])
+                                self.immediate = None
+                                self.average = None
                                 self._segment_path = lambda: "trigger-type"
 
                             def __setattr__(self, name, value):
@@ -5981,7 +6198,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect, self).__init__()
@@ -5990,8 +6207,10 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"ipv4" : ("ipv4", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4), "ipv6" : ("ipv6", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6), "next-hop" : ("next_hop", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("ipv4", ("ipv4", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4)), ("ipv6", ("ipv6", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6)), ("next-hop", ("next_hop", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.ipv4 = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4()
                         self.ipv4.parent = self
@@ -6031,7 +6250,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4, self).__init__()
@@ -6040,12 +6259,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "pbr-redirect"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ipv4_next_hop = YLeaf(YType.str, "ipv4-next-hop")
-
-                            self.vrf = YLeaf(YType.str, "vrf")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ipv4_next_hop', YLeaf(YType.str, 'ipv4-next-hop')),
+                                ('vrf', YLeaf(YType.str, 'vrf')),
+                            ])
+                            self.ipv4_next_hop = None
+                            self.vrf = None
                             self._segment_path = lambda: "ipv4"
 
                         def __setattr__(self, name, value):
@@ -6073,7 +6295,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6, self).__init__()
@@ -6082,12 +6304,15 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "pbr-redirect"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ipv6_next_hop = YLeaf(YType.str, "ipv6-next-hop")
-
-                            self.vrf = YLeaf(YType.str, "vrf")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ipv6_next_hop', YLeaf(YType.str, 'ipv6-next-hop')),
+                                ('vrf', YLeaf(YType.str, 'vrf')),
+                            ])
+                            self.ipv6_next_hop = None
+                            self.vrf = None
                             self._segment_path = lambda: "ipv6"
 
                         def __setattr__(self, name, value):
@@ -6108,7 +6333,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop, self).__init__()
@@ -6117,8 +6342,10 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "pbr-redirect"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"route-target" : ("route_target", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("route-target", ("route_target", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.route_target = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget()
                             self.route_target.parent = self
@@ -6155,7 +6382,7 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2017-08-11'
+                            _revision = '2017-12-09'
 
                             def __init__(self):
                                 super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget, self).__init__()
@@ -6164,12 +6391,15 @@ class PolicyManager(Entity):
                                 self.yang_parent_name = "next-hop"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"ipv4-address" : ("ipv4_address", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address)}
-                                self._child_list_classes = {}
-
-                                self.as_number = YLeaf(YType.uint32, "as-number")
-
-                                self.index = YLeaf(YType.uint32, "index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("ipv4-address", ("ipv4_address", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('as_number', YLeaf(YType.uint32, 'as-number')),
+                                    ('index', YLeaf(YType.uint32, 'index')),
+                                ])
+                                self.as_number = None
+                                self.index = None
 
                                 self.ipv4_address = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address()
                                 self.ipv4_address.parent = self
@@ -6202,7 +6432,7 @@ class PolicyManager(Entity):
                                 """
 
                                 _prefix = 'infra-policymgr-cfg'
-                                _revision = '2017-08-11'
+                                _revision = '2017-12-09'
 
                                 def __init__(self):
                                     super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address, self).__init__()
@@ -6211,12 +6441,15 @@ class PolicyManager(Entity):
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address = YLeaf(YType.str, "address")
-
-                                    self.netmask = YLeaf(YType.str, "netmask")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('netmask', YLeaf(YType.str, 'netmask')),
+                                    ])
+                                    self.address = None
+                                    self.netmask = None
                                     self._segment_path = lambda: "ipv4-address"
 
                                 def __setattr__(self, name, value):
@@ -6242,7 +6475,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward, self).__init__()
@@ -6251,10 +6484,13 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"next-hop" : ("next_hop", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop)}
-                        self._child_list_classes = {}
-
-                        self.default = YLeaf(YType.empty, "default")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("next-hop", ("next_hop", PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('default', YLeaf(YType.empty, 'default')),
+                        ])
+                        self.default = None
 
                         self.next_hop = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop()
                         self.next_hop.parent = self
@@ -6301,7 +6537,7 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2017-08-11'
+                        _revision = '2017-12-09'
 
                         def __init__(self):
                             super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop, self).__init__()
@@ -6310,14 +6546,17 @@ class PolicyManager(Entity):
                             self.yang_parent_name = "pbr-forward"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.vrf = YLeaf(YType.str, "vrf")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf', YLeaf(YType.str, 'vrf')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.vrf = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "next-hop"
 
                         def __setattr__(self, name, value):
@@ -6358,7 +6597,7 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2017-08-11'
+                    _revision = '2017-12-09'
 
                     def __init__(self):
                         super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath, self).__init__()
@@ -6367,15 +6606,18 @@ class PolicyManager(Entity):
                         self.yang_parent_name = "policy-map-rule"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.path_id = YLeaf(YType.uint32, "path-id")
-
-                        self.index = YLeaf(YType.uint8, "index")
-
-                        self.metadata = YLeaf(YType.str, "metadata")
+                        self._leafs = OrderedDict([
+                            ('path_id', YLeaf(YType.uint32, 'path-id')),
+                            ('index', YLeaf(YType.uint8, 'index')),
+                            ('metadata', YLeaf(YType.str, 'metadata')),
+                        ])
+                        self.path_id = None
+                        self.index = None
+                        self.metadata = None
                         self._segment_path = lambda: "service-function-path"
 
                     def __setattr__(self, name, value):

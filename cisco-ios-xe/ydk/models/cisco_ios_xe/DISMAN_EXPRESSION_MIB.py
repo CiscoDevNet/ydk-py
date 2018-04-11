@@ -4,9 +4,11 @@ The MIB module for defining expressions of MIB objects for
 management purposes.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -55,8 +57,10 @@ class DISMANEXPRESSIONMIB(Entity):
         self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"expResource" : ("expresource", DISMANEXPRESSIONMIB.Expresource), "expExpressionTable" : ("expexpressiontable", DISMANEXPRESSIONMIB.Expexpressiontable), "expErrorTable" : ("experrortable", DISMANEXPRESSIONMIB.Experrortable), "expObjectTable" : ("expobjecttable", DISMANEXPRESSIONMIB.Expobjecttable), "expValueTable" : ("expvaluetable", DISMANEXPRESSIONMIB.Expvaluetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("expResource", ("expresource", DISMANEXPRESSIONMIB.Expresource)), ("expExpressionTable", ("expexpressiontable", DISMANEXPRESSIONMIB.Expexpressiontable)), ("expErrorTable", ("experrortable", DISMANEXPRESSIONMIB.Experrortable)), ("expObjectTable", ("expobjecttable", DISMANEXPRESSIONMIB.Expobjecttable)), ("expValueTable", ("expvaluetable", DISMANEXPRESSIONMIB.Expvaluetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.expresource = DISMANEXPRESSIONMIB.Expresource()
         self.expresource.parent = self
@@ -148,18 +152,21 @@ class DISMANEXPRESSIONMIB(Entity):
             self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.expresourcedeltaminimum = YLeaf(YType.int32, "expResourceDeltaMinimum")
-
-            self.expresourcedeltawildcardinstancemaximum = YLeaf(YType.uint32, "expResourceDeltaWildcardInstanceMaximum")
-
-            self.expresourcedeltawildcardinstances = YLeaf(YType.uint32, "expResourceDeltaWildcardInstances")
-
-            self.expresourcedeltawildcardinstanceshigh = YLeaf(YType.uint32, "expResourceDeltaWildcardInstancesHigh")
-
-            self.expresourcedeltawildcardinstanceresourcelacks = YLeaf(YType.uint32, "expResourceDeltaWildcardInstanceResourceLacks")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('expresourcedeltaminimum', YLeaf(YType.int32, 'expResourceDeltaMinimum')),
+                ('expresourcedeltawildcardinstancemaximum', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceMaximum')),
+                ('expresourcedeltawildcardinstances', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstances')),
+                ('expresourcedeltawildcardinstanceshigh', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstancesHigh')),
+                ('expresourcedeltawildcardinstanceresourcelacks', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceResourceLacks')),
+            ])
+            self.expresourcedeltaminimum = None
+            self.expresourcedeltawildcardinstancemaximum = None
+            self.expresourcedeltawildcardinstances = None
+            self.expresourcedeltawildcardinstanceshigh = None
+            self.expresourcedeltawildcardinstanceresourcelacks = None
             self._segment_path = lambda: "expResource"
             self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self._segment_path()
 
@@ -190,8 +197,10 @@ class DISMANEXPRESSIONMIB(Entity):
             self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"expExpressionEntry" : ("expexpressionentry", DISMANEXPRESSIONMIB.Expexpressiontable.Expexpressionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("expExpressionEntry", ("expexpressionentry", DISMANEXPRESSIONMIB.Expexpressiontable.Expexpressionentry))])
+            self._leafs = OrderedDict()
 
             self.expexpressionentry = YList(self)
             self._segment_path = lambda: "expExpressionTable"
@@ -241,14 +250,14 @@ class DISMANEXPRESSIONMIB(Entity):
             Values of read\-write objects in this table may be changed
             at any time.
             
-            .. attribute:: expexpressionowner  <key>
+            .. attribute:: expexpressionowner  (key)
             
             	The owner of this entry. The exact semantics of this string are subject to the security policy defined by the security administrator
             	**type**\: str
             
             	**length:** 0..32
             
-            .. attribute:: expexpressionname  <key>
+            .. attribute:: expexpressionname  (key)
             
             	The name of the expression.  This is locally unique, within the scope of an expExpressionOwner
             	**type**\: str
@@ -314,27 +323,30 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.yang_parent_name = "expExpressionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
-
-                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
-
-                self.expexpression = YLeaf(YType.str, "expExpression")
-
-                self.expexpressionvaluetype = YLeaf(YType.enumeration, "expExpressionValueType")
-
-                self.expexpressioncomment = YLeaf(YType.str, "expExpressionComment")
-
-                self.expexpressiondeltainterval = YLeaf(YType.int32, "expExpressionDeltaInterval")
-
-                self.expexpressionprefix = YLeaf(YType.str, "expExpressionPrefix")
-
-                self.expexpressionerrors = YLeaf(YType.uint32, "expExpressionErrors")
-
-                self.expexpressionentrystatus = YLeaf(YType.enumeration, "expExpressionEntryStatus")
-                self._segment_path = lambda: "expExpressionEntry" + "[expExpressionOwner='" + self.expexpressionowner.get() + "']" + "[expExpressionName='" + self.expexpressionname.get() + "']"
+                self.ylist_key_names = ['expexpressionowner','expexpressionname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
+                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
+                    ('expexpression', YLeaf(YType.str, 'expExpression')),
+                    ('expexpressionvaluetype', YLeaf(YType.enumeration, 'expExpressionValueType')),
+                    ('expexpressioncomment', YLeaf(YType.str, 'expExpressionComment')),
+                    ('expexpressiondeltainterval', YLeaf(YType.int32, 'expExpressionDeltaInterval')),
+                    ('expexpressionprefix', YLeaf(YType.str, 'expExpressionPrefix')),
+                    ('expexpressionerrors', YLeaf(YType.uint32, 'expExpressionErrors')),
+                    ('expexpressionentrystatus', YLeaf(YType.enumeration, 'expExpressionEntryStatus')),
+                ])
+                self.expexpressionowner = None
+                self.expexpressionname = None
+                self.expexpression = None
+                self.expexpressionvaluetype = None
+                self.expexpressioncomment = None
+                self.expexpressiondeltainterval = None
+                self.expexpressionprefix = None
+                self.expexpressionerrors = None
+                self.expexpressionentrystatus = None
+                self._segment_path = lambda: "expExpressionEntry" + "[expExpressionOwner='" + str(self.expexpressionowner) + "']" + "[expExpressionName='" + str(self.expexpressionname) + "']"
                 self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expExpressionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -342,7 +354,7 @@ class DISMANEXPRESSIONMIB(Entity):
 
             class Expexpressionvaluetype(Enum):
                 """
-                Expexpressionvaluetype
+                Expexpressionvaluetype (Enum Class)
 
                 The type of the expression value.  One and only one of the
 
@@ -413,8 +425,10 @@ class DISMANEXPRESSIONMIB(Entity):
             self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"expErrorEntry" : ("experrorentry", DISMANEXPRESSIONMIB.Experrortable.Experrorentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("expErrorEntry", ("experrorentry", DISMANEXPRESSIONMIB.Experrortable.Experrorentry))])
+            self._leafs = OrderedDict()
 
             self.experrorentry = YList(self)
             self._segment_path = lambda: "expErrorTable"
@@ -433,7 +447,7 @@ class DISMANEXPRESSIONMIB(Entity):
             error for that expression as reflected by the error codes
             defined for expErrorCode.
             
-            .. attribute:: expexpressionowner  <key>
+            .. attribute:: expexpressionowner  (key)
             
             	
             	**type**\: str
@@ -442,7 +456,7 @@ class DISMANEXPRESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`expexpressionowner <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DISMANEXPRESSIONMIB.Expexpressiontable.Expexpressionentry>`
             
-            .. attribute:: expexpressionname  <key>
+            .. attribute:: expexpressionname  (key)
             
             	
             	**type**\: str
@@ -491,21 +505,24 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.yang_parent_name = "expErrorTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
-
-                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
-
-                self.experrortime = YLeaf(YType.uint32, "expErrorTime")
-
-                self.experrorindex = YLeaf(YType.int32, "expErrorIndex")
-
-                self.experrorcode = YLeaf(YType.enumeration, "expErrorCode")
-
-                self.experrorinstance = YLeaf(YType.str, "expErrorInstance")
-                self._segment_path = lambda: "expErrorEntry" + "[expExpressionOwner='" + self.expexpressionowner.get() + "']" + "[expExpressionName='" + self.expexpressionname.get() + "']"
+                self.ylist_key_names = ['expexpressionowner','expexpressionname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
+                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
+                    ('experrortime', YLeaf(YType.uint32, 'expErrorTime')),
+                    ('experrorindex', YLeaf(YType.int32, 'expErrorIndex')),
+                    ('experrorcode', YLeaf(YType.enumeration, 'expErrorCode')),
+                    ('experrorinstance', YLeaf(YType.str, 'expErrorInstance')),
+                ])
+                self.expexpressionowner = None
+                self.expexpressionname = None
+                self.experrortime = None
+                self.experrorindex = None
+                self.experrorcode = None
+                self.experrorinstance = None
+                self._segment_path = lambda: "expErrorEntry" + "[expExpressionOwner='" + str(self.expexpressionowner) + "']" + "[expExpressionName='" + str(self.expexpressionname) + "']"
                 self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expErrorTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -513,7 +530,7 @@ class DISMANEXPRESSIONMIB(Entity):
 
             class Experrorcode(Enum):
                 """
-                Experrorcode
+                Experrorcode (Enum Class)
 
                 The error that occurred.  In the following explanations the
 
@@ -684,8 +701,10 @@ class DISMANEXPRESSIONMIB(Entity):
             self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"expObjectEntry" : ("expobjectentry", DISMANEXPRESSIONMIB.Expobjecttable.Expobjectentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("expObjectEntry", ("expobjectentry", DISMANEXPRESSIONMIB.Expobjecttable.Expobjectentry))])
+            self._leafs = OrderedDict()
 
             self.expobjectentry = YList(self)
             self._segment_path = lambda: "expObjectTable"
@@ -704,7 +723,7 @@ class DISMANEXPRESSIONMIB(Entity):
             Values of read\-create objects in this table may be
             changed at any time.
             
-            .. attribute:: expexpressionowner  <key>
+            .. attribute:: expexpressionowner  (key)
             
             	
             	**type**\: str
@@ -713,7 +732,7 @@ class DISMANEXPRESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`expexpressionowner <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DISMANEXPRESSIONMIB.Expexpressiontable.Expexpressionentry>`
             
-            .. attribute:: expexpressionname  <key>
+            .. attribute:: expexpressionname  (key)
             
             	
             	**type**\: str
@@ -722,7 +741,7 @@ class DISMANEXPRESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`expexpressionname <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DISMANEXPRESSIONMIB.Expexpressiontable.Expexpressionentry>`
             
-            .. attribute:: expobjectindex  <key>
+            .. attribute:: expobjectindex  (key)
             
             	Within an expression, a unique, numeric identification for an object.  Prefixed with a dollar sign ('$') this is used to reference the object in the corresponding expExpression
             	**type**\: int
@@ -794,33 +813,36 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.yang_parent_name = "expObjectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
-
-                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
-
-                self.expobjectindex = YLeaf(YType.uint32, "expObjectIndex")
-
-                self.expobjectid = YLeaf(YType.str, "expObjectID")
-
-                self.expobjectidwildcard = YLeaf(YType.boolean, "expObjectIDWildcard")
-
-                self.expobjectsampletype = YLeaf(YType.enumeration, "expObjectSampleType")
-
-                self.expobjectdeltadiscontinuityid = YLeaf(YType.str, "expObjectDeltaDiscontinuityID")
-
-                self.expobjectdiscontinuityidwildcard = YLeaf(YType.boolean, "expObjectDiscontinuityIDWildcard")
-
-                self.expobjectdiscontinuityidtype = YLeaf(YType.enumeration, "expObjectDiscontinuityIDType")
-
-                self.expobjectconditional = YLeaf(YType.str, "expObjectConditional")
-
-                self.expobjectconditionalwildcard = YLeaf(YType.boolean, "expObjectConditionalWildcard")
-
-                self.expobjectentrystatus = YLeaf(YType.enumeration, "expObjectEntryStatus")
-                self._segment_path = lambda: "expObjectEntry" + "[expExpressionOwner='" + self.expexpressionowner.get() + "']" + "[expExpressionName='" + self.expexpressionname.get() + "']" + "[expObjectIndex='" + self.expobjectindex.get() + "']"
+                self.ylist_key_names = ['expexpressionowner','expexpressionname','expobjectindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
+                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
+                    ('expobjectindex', YLeaf(YType.uint32, 'expObjectIndex')),
+                    ('expobjectid', YLeaf(YType.str, 'expObjectID')),
+                    ('expobjectidwildcard', YLeaf(YType.boolean, 'expObjectIDWildcard')),
+                    ('expobjectsampletype', YLeaf(YType.enumeration, 'expObjectSampleType')),
+                    ('expobjectdeltadiscontinuityid', YLeaf(YType.str, 'expObjectDeltaDiscontinuityID')),
+                    ('expobjectdiscontinuityidwildcard', YLeaf(YType.boolean, 'expObjectDiscontinuityIDWildcard')),
+                    ('expobjectdiscontinuityidtype', YLeaf(YType.enumeration, 'expObjectDiscontinuityIDType')),
+                    ('expobjectconditional', YLeaf(YType.str, 'expObjectConditional')),
+                    ('expobjectconditionalwildcard', YLeaf(YType.boolean, 'expObjectConditionalWildcard')),
+                    ('expobjectentrystatus', YLeaf(YType.enumeration, 'expObjectEntryStatus')),
+                ])
+                self.expexpressionowner = None
+                self.expexpressionname = None
+                self.expobjectindex = None
+                self.expobjectid = None
+                self.expobjectidwildcard = None
+                self.expobjectsampletype = None
+                self.expobjectdeltadiscontinuityid = None
+                self.expobjectdiscontinuityidwildcard = None
+                self.expobjectdiscontinuityidtype = None
+                self.expobjectconditional = None
+                self.expobjectconditionalwildcard = None
+                self.expobjectentrystatus = None
+                self._segment_path = lambda: "expObjectEntry" + "[expExpressionOwner='" + str(self.expexpressionowner) + "']" + "[expExpressionName='" + str(self.expexpressionname) + "']" + "[expObjectIndex='" + str(self.expobjectindex) + "']"
                 self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expObjectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -828,7 +850,7 @@ class DISMANEXPRESSIONMIB(Entity):
 
             class Expobjectdiscontinuityidtype(Enum):
                 """
-                Expobjectdiscontinuityidtype
+                Expobjectdiscontinuityidtype (Enum Class)
 
                 The value 'timeTicks' indicates the expObjectDeltaDiscontinuityID
 
@@ -859,7 +881,7 @@ class DISMANEXPRESSIONMIB(Entity):
 
             class Expobjectsampletype(Enum):
                 """
-                Expobjectsampletype
+                Expobjectsampletype (Enum Class)
 
                 The method of sampling the selected variable.
 
@@ -932,8 +954,10 @@ class DISMANEXPRESSIONMIB(Entity):
             self.yang_parent_name = "DISMAN-EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"expValueEntry" : ("expvalueentry", DISMANEXPRESSIONMIB.Expvaluetable.Expvalueentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("expValueEntry", ("expvalueentry", DISMANEXPRESSIONMIB.Expvaluetable.Expvalueentry))])
+            self._leafs = OrderedDict()
 
             self.expvalueentry = YList(self)
             self._segment_path = lambda: "expValueTable"
@@ -977,7 +1001,7 @@ class DISMANEXPRESSIONMIB(Entity):
             Management Frameworks.  These are the security credentials of the
             creator of the corresponding expExpressionEntry.
             
-            .. attribute:: expexpressionowner  <key>
+            .. attribute:: expexpressionowner  (key)
             
             	
             	**type**\: str
@@ -986,7 +1010,7 @@ class DISMANEXPRESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`expexpressionowner <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DISMANEXPRESSIONMIB.Expexpressiontable.Expexpressionentry>`
             
-            .. attribute:: expexpressionname  <key>
+            .. attribute:: expexpressionname  (key)
             
             	
             	**type**\: str
@@ -995,7 +1019,7 @@ class DISMANEXPRESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`expexpressionname <ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB.DISMANEXPRESSIONMIB.Expexpressiontable.Expexpressionentry>`
             
-            .. attribute:: expvalueinstance  <key>
+            .. attribute:: expvalueinstance  (key)
             
             	The final instance portion of a value's OID according to the wildcarding in instances of expObjectID for the expression.  The prefix of this OID fragment is 0.0, leading to the following behavior.  If there is no wildcarding, the value is 0.0.0.  In other words, there is one value which standing alone would have been a scalar with a 0 at the end of its OID.  If there is wildcarding, the value is 0.0 followed by a value that the wildcard can take, thus defining one value instance for each real, possible value of the wildcard. So, for example, if the wildcard worked out to be an ifIndex, there is an expValueInstance for each applicable ifIndex
             	**type**\: str
@@ -1072,31 +1096,34 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.yang_parent_name = "expValueTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
-
-                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
-
-                self.expvalueinstance = YLeaf(YType.str, "expValueInstance")
-
-                self.expvaluecounter32val = YLeaf(YType.uint32, "expValueCounter32Val")
-
-                self.expvalueunsigned32val = YLeaf(YType.uint32, "expValueUnsigned32Val")
-
-                self.expvaluetimeticksval = YLeaf(YType.uint32, "expValueTimeTicksVal")
-
-                self.expvalueinteger32val = YLeaf(YType.int32, "expValueInteger32Val")
-
-                self.expvalueipaddressval = YLeaf(YType.str, "expValueIpAddressVal")
-
-                self.expvalueoctetstringval = YLeaf(YType.str, "expValueOctetStringVal")
-
-                self.expvalueoidval = YLeaf(YType.str, "expValueOidVal")
-
-                self.expvaluecounter64val = YLeaf(YType.uint64, "expValueCounter64Val")
-                self._segment_path = lambda: "expValueEntry" + "[expExpressionOwner='" + self.expexpressionowner.get() + "']" + "[expExpressionName='" + self.expexpressionname.get() + "']" + "[expValueInstance='" + self.expvalueinstance.get() + "']"
+                self.ylist_key_names = ['expexpressionowner','expexpressionname','expvalueinstance']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
+                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
+                    ('expvalueinstance', YLeaf(YType.str, 'expValueInstance')),
+                    ('expvaluecounter32val', YLeaf(YType.uint32, 'expValueCounter32Val')),
+                    ('expvalueunsigned32val', YLeaf(YType.uint32, 'expValueUnsigned32Val')),
+                    ('expvaluetimeticksval', YLeaf(YType.uint32, 'expValueTimeTicksVal')),
+                    ('expvalueinteger32val', YLeaf(YType.int32, 'expValueInteger32Val')),
+                    ('expvalueipaddressval', YLeaf(YType.str, 'expValueIpAddressVal')),
+                    ('expvalueoctetstringval', YLeaf(YType.str, 'expValueOctetStringVal')),
+                    ('expvalueoidval', YLeaf(YType.str, 'expValueOidVal')),
+                    ('expvaluecounter64val', YLeaf(YType.uint64, 'expValueCounter64Val')),
+                ])
+                self.expexpressionowner = None
+                self.expexpressionname = None
+                self.expvalueinstance = None
+                self.expvaluecounter32val = None
+                self.expvalueunsigned32val = None
+                self.expvaluetimeticksval = None
+                self.expvalueinteger32val = None
+                self.expvalueipaddressval = None
+                self.expvalueoctetstringval = None
+                self.expvalueoidval = None
+                self.expvaluecounter64val = None
+                self._segment_path = lambda: "expValueEntry" + "[expExpressionOwner='" + str(self.expexpressionowner) + "']" + "[expExpressionName='" + str(self.expexpressionname) + "']" + "[expValueInstance='" + str(self.expvalueinstance) + "']"
                 self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expValueTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

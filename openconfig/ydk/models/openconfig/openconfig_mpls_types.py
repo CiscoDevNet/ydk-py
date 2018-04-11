@@ -3,15 +3,17 @@
 General types for MPLS / TE data model
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class MplsLabel(Enum):
     """
-    MplsLabel
+    MplsLabel (Enum Class)
 
     type for MPLS label value encoding
 
@@ -66,9 +68,9 @@ class MplsLabel(Enum):
     ENTROPY_LABEL_INDICATOR = Enum.YLeaf(7, "ENTROPY_LABEL_INDICATOR")
 
 
-class TunnelType(Enum):
+class TunnelType_(Enum):
     """
-    TunnelType
+    TunnelType\_ (Enum Class)
 
     defines the tunnel type for the LSP
 
@@ -201,6 +203,22 @@ class NullLabelType(Identity):
 
     def __init__(self):
         super(NullLabelType, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:null-label-type")
+
+
+class PATHSETUPPROTOCOL(Identity):
+    """
+    base identity for supported MPLS signaling
+    protocols
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        super(PATHSETUPPROTOCOL, self).__init__("http://openconfig.net/yang/mpls-types", "openconfig-mpls-types", "openconfig-mpls-types:PATH_SETUP_PROTOCOL")
 
 
 class PathSetupRsvp(Identity):

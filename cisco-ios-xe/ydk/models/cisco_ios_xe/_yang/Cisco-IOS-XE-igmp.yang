@@ -37,7 +37,20 @@ module Cisco-IOS-XE-igmp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
 
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-14 {
+    description
+      "This revison has changes for new 2gig interface addition";
+  }
   revision 2017-08-28 {
     description
       "Extend modeling for multicast";
@@ -367,7 +380,19 @@ module Cisco-IOS-XE-igmp {
     uses config-interface-ip-igmp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-igmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-igmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-igmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
     uses config-interface-ip-igmp-grouping;
   }
 
@@ -388,6 +413,10 @@ module Cisco-IOS-XE-igmp {
   }
 
   augment "/ios:native/ios:interface/ios:VirtualPortGroup/ios:ip" {
+    uses config-interface-ip-igmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Vlan/ios:ip" {
     uses config-interface-ip-igmp-grouping;
   }
 }

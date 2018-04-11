@@ -10,9 +10,11 @@ intercepts and CISCO\-USER\-CONNECTION\-TAP\-MIB for
 RADIUS\-based user connection intercepts.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -66,8 +68,10 @@ class CISCOTAP2MIB(Entity):
         self.yang_parent_name = "CISCO-TAP2-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cTap2MediationGroup" : ("ctap2mediationgroup", CISCOTAP2MIB.Ctap2Mediationgroup), "cTap2DebugGroup" : ("ctap2debuggroup", CISCOTAP2MIB.Ctap2Debuggroup), "cTap2MediationTable" : ("ctap2mediationtable", CISCOTAP2MIB.Ctap2Mediationtable), "cTap2StreamTable" : ("ctap2streamtable", CISCOTAP2MIB.Ctap2Streamtable), "cTap2DebugTable" : ("ctap2debugtable", CISCOTAP2MIB.Ctap2Debugtable), "cTap2DebugUserTable" : ("ctap2debugusertable", CISCOTAP2MIB.Ctap2Debugusertable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cTap2MediationGroup", ("ctap2mediationgroup", CISCOTAP2MIB.Ctap2Mediationgroup)), ("cTap2DebugGroup", ("ctap2debuggroup", CISCOTAP2MIB.Ctap2Debuggroup)), ("cTap2MediationTable", ("ctap2mediationtable", CISCOTAP2MIB.Ctap2Mediationtable)), ("cTap2StreamTable", ("ctap2streamtable", CISCOTAP2MIB.Ctap2Streamtable)), ("cTap2DebugTable", ("ctap2debugtable", CISCOTAP2MIB.Ctap2Debugtable)), ("cTap2DebugUserTable", ("ctap2debugusertable", CISCOTAP2MIB.Ctap2Debugusertable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ctap2mediationgroup = CISCOTAP2MIB.Ctap2Mediationgroup()
         self.ctap2mediationgroup.parent = self
@@ -131,12 +135,15 @@ class CISCOTAP2MIB(Entity):
             self.yang_parent_name = "CISCO-TAP2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ctap2mediationnewindex = YLeaf(YType.int32, "cTap2MediationNewIndex")
-
-            self.ctap2mediationcapabilities = YLeaf(YType.bits, "cTap2MediationCapabilities")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ctap2mediationnewindex', YLeaf(YType.int32, 'cTap2MediationNewIndex')),
+                ('ctap2mediationcapabilities', YLeaf(YType.bits, 'cTap2MediationCapabilities')),
+            ])
+            self.ctap2mediationnewindex = None
+            self.ctap2mediationcapabilities = Bits()
             self._segment_path = lambda: "cTap2MediationGroup"
             self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self._segment_path()
 
@@ -176,12 +183,15 @@ class CISCOTAP2MIB(Entity):
             self.yang_parent_name = "CISCO-TAP2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ctap2debugage = YLeaf(YType.int32, "cTap2DebugAge")
-
-            self.ctap2debugmaxentries = YLeaf(YType.int32, "cTap2DebugMaxEntries")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ctap2debugage', YLeaf(YType.int32, 'cTap2DebugAge')),
+                ('ctap2debugmaxentries', YLeaf(YType.int32, 'cTap2DebugMaxEntries')),
+            ])
+            self.ctap2debugage = None
+            self.ctap2debugmaxentries = None
             self._segment_path = lambda: "cTap2DebugGroup"
             self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self._segment_path()
 
@@ -222,8 +232,10 @@ class CISCOTAP2MIB(Entity):
             self.yang_parent_name = "CISCO-TAP2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cTap2MediationEntry" : ("ctap2mediationentry", CISCOTAP2MIB.Ctap2Mediationtable.Ctap2Mediationentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cTap2MediationEntry", ("ctap2mediationentry", CISCOTAP2MIB.Ctap2Mediationtable.Ctap2Mediationentry))])
+            self._leafs = OrderedDict()
 
             self.ctap2mediationentry = YList(self)
             self._segment_path = lambda: "cTap2MediationTable"
@@ -238,7 +250,7 @@ class CISCOTAP2MIB(Entity):
             The entry describes a single session maintained with an
             application on a Mediation Device.
             
-            .. attribute:: ctap2mediationcontentid  <key>
+            .. attribute:: ctap2mediationcontentid  (key)
             
             	cTap2MediationContentId is a session identifier, from the intercept application's perspective, and a content identifier from the Mediation Device's perspective. The Mediation Device is responsible for making sure these are unique, although the SNMP RowStatus row creation process will help by not allowing it to create conflicting entries. Before creating a new entry, a value for this variable may be obtained by reading cTap2MediationNewIndex to reduce the probability of a value collision
             	**type**\: int
@@ -340,37 +352,40 @@ class CISCOTAP2MIB(Entity):
                 self.yang_parent_name = "cTap2MediationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ctap2mediationcontentid = YLeaf(YType.int32, "cTap2MediationContentId")
-
-                self.ctap2mediationdestaddresstype = YLeaf(YType.enumeration, "cTap2MediationDestAddressType")
-
-                self.ctap2mediationdestaddress = YLeaf(YType.str, "cTap2MediationDestAddress")
-
-                self.ctap2mediationdestport = YLeaf(YType.uint16, "cTap2MediationDestPort")
-
-                self.ctap2mediationsrcinterface = YLeaf(YType.int32, "cTap2MediationSrcInterface")
-
-                self.ctap2mediationrtcpport = YLeaf(YType.uint16, "cTap2MediationRtcpPort")
-
-                self.ctap2mediationdscp = YLeaf(YType.int32, "cTap2MediationDscp")
-
-                self.ctap2mediationdatatype = YLeaf(YType.int32, "cTap2MediationDataType")
-
-                self.ctap2mediationretransmittype = YLeaf(YType.int32, "cTap2MediationRetransmitType")
-
-                self.ctap2mediationtimeout = YLeaf(YType.str, "cTap2MediationTimeout")
-
-                self.ctap2mediationtransport = YLeaf(YType.enumeration, "cTap2MediationTransport")
-
-                self.ctap2mediationnotificationenable = YLeaf(YType.boolean, "cTap2MediationNotificationEnable")
-
-                self.ctap2mediationstatus = YLeaf(YType.enumeration, "cTap2MediationStatus")
-
-                self.ctap2mediationradiuskey = YLeaf(YType.str, "cTap2MediationRadiusKey")
-                self._segment_path = lambda: "cTap2MediationEntry" + "[cTap2MediationContentId='" + self.ctap2mediationcontentid.get() + "']"
+                self.ylist_key_names = ['ctap2mediationcontentid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ctap2mediationcontentid', YLeaf(YType.int32, 'cTap2MediationContentId')),
+                    ('ctap2mediationdestaddresstype', YLeaf(YType.enumeration, 'cTap2MediationDestAddressType')),
+                    ('ctap2mediationdestaddress', YLeaf(YType.str, 'cTap2MediationDestAddress')),
+                    ('ctap2mediationdestport', YLeaf(YType.uint16, 'cTap2MediationDestPort')),
+                    ('ctap2mediationsrcinterface', YLeaf(YType.int32, 'cTap2MediationSrcInterface')),
+                    ('ctap2mediationrtcpport', YLeaf(YType.uint16, 'cTap2MediationRtcpPort')),
+                    ('ctap2mediationdscp', YLeaf(YType.int32, 'cTap2MediationDscp')),
+                    ('ctap2mediationdatatype', YLeaf(YType.int32, 'cTap2MediationDataType')),
+                    ('ctap2mediationretransmittype', YLeaf(YType.int32, 'cTap2MediationRetransmitType')),
+                    ('ctap2mediationtimeout', YLeaf(YType.str, 'cTap2MediationTimeout')),
+                    ('ctap2mediationtransport', YLeaf(YType.enumeration, 'cTap2MediationTransport')),
+                    ('ctap2mediationnotificationenable', YLeaf(YType.boolean, 'cTap2MediationNotificationEnable')),
+                    ('ctap2mediationstatus', YLeaf(YType.enumeration, 'cTap2MediationStatus')),
+                    ('ctap2mediationradiuskey', YLeaf(YType.str, 'cTap2MediationRadiusKey')),
+                ])
+                self.ctap2mediationcontentid = None
+                self.ctap2mediationdestaddresstype = None
+                self.ctap2mediationdestaddress = None
+                self.ctap2mediationdestport = None
+                self.ctap2mediationsrcinterface = None
+                self.ctap2mediationrtcpport = None
+                self.ctap2mediationdscp = None
+                self.ctap2mediationdatatype = None
+                self.ctap2mediationretransmittype = None
+                self.ctap2mediationtimeout = None
+                self.ctap2mediationtransport = None
+                self.ctap2mediationnotificationenable = None
+                self.ctap2mediationstatus = None
+                self.ctap2mediationradiuskey = None
+                self._segment_path = lambda: "cTap2MediationEntry" + "[cTap2MediationContentId='" + str(self.ctap2mediationcontentid) + "']"
                 self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2MediationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -378,7 +393,7 @@ class CISCOTAP2MIB(Entity):
 
             class Ctap2Mediationtransport(Enum):
                 """
-                Ctap2Mediationtransport
+                Ctap2Mediationtransport (Enum Class)
 
                 The protocol used in transferring intercepted data to the
 
@@ -478,8 +493,10 @@ class CISCOTAP2MIB(Entity):
             self.yang_parent_name = "CISCO-TAP2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cTap2StreamEntry" : ("ctap2streamentry", CISCOTAP2MIB.Ctap2Streamtable.Ctap2Streamentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cTap2StreamEntry", ("ctap2streamentry", CISCOTAP2MIB.Ctap2Streamtable.Ctap2Streamentry))])
+            self._leafs = OrderedDict()
 
             self.ctap2streamentry = YList(self)
             self._segment_path = lambda: "cTap2StreamTable"
@@ -496,7 +513,7 @@ class CISCOTAP2MIB(Entity):
             streams may go to the same application interface, and many
             application interfaces are supported.
             
-            .. attribute:: ctap2mediationcontentid  <key>
+            .. attribute:: ctap2mediationcontentid  (key)
             
             	
             	**type**\: int
@@ -505,7 +522,7 @@ class CISCOTAP2MIB(Entity):
             
             	**refers to**\:  :py:class:`ctap2mediationcontentid <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CISCOTAP2MIB.Ctap2Mediationtable.Ctap2Mediationentry>`
             
-            .. attribute:: ctap2streamindex  <key>
+            .. attribute:: ctap2streamindex  (key)
             
             	The index of the stream itself
             	**type**\: int
@@ -569,27 +586,30 @@ class CISCOTAP2MIB(Entity):
                 self.yang_parent_name = "cTap2StreamTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ctap2mediationcontentid = YLeaf(YType.str, "cTap2MediationContentId")
-
-                self.ctap2streamindex = YLeaf(YType.int32, "cTap2StreamIndex")
-
-                self.ctap2streamtype = YLeaf(YType.enumeration, "cTap2StreamType")
-
-                self.ctap2streaminterceptenable = YLeaf(YType.boolean, "cTap2StreamInterceptEnable")
-
-                self.ctap2streaminterceptedpackets = YLeaf(YType.uint32, "cTap2StreamInterceptedPackets")
-
-                self.ctap2streaminterceptdrops = YLeaf(YType.uint32, "cTap2StreamInterceptDrops")
-
-                self.ctap2streamstatus = YLeaf(YType.enumeration, "cTap2StreamStatus")
-
-                self.ctap2streaminterceptedhcpackets = YLeaf(YType.uint64, "cTap2StreamInterceptedHCPackets")
-
-                self.ctap2streamintercepthcdrops = YLeaf(YType.uint64, "cTap2StreamInterceptHCDrops")
-                self._segment_path = lambda: "cTap2StreamEntry" + "[cTap2MediationContentId='" + self.ctap2mediationcontentid.get() + "']" + "[cTap2StreamIndex='" + self.ctap2streamindex.get() + "']"
+                self.ylist_key_names = ['ctap2mediationcontentid','ctap2streamindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ctap2mediationcontentid', YLeaf(YType.str, 'cTap2MediationContentId')),
+                    ('ctap2streamindex', YLeaf(YType.int32, 'cTap2StreamIndex')),
+                    ('ctap2streamtype', YLeaf(YType.enumeration, 'cTap2StreamType')),
+                    ('ctap2streaminterceptenable', YLeaf(YType.boolean, 'cTap2StreamInterceptEnable')),
+                    ('ctap2streaminterceptedpackets', YLeaf(YType.uint32, 'cTap2StreamInterceptedPackets')),
+                    ('ctap2streaminterceptdrops', YLeaf(YType.uint32, 'cTap2StreamInterceptDrops')),
+                    ('ctap2streamstatus', YLeaf(YType.enumeration, 'cTap2StreamStatus')),
+                    ('ctap2streaminterceptedhcpackets', YLeaf(YType.uint64, 'cTap2StreamInterceptedHCPackets')),
+                    ('ctap2streamintercepthcdrops', YLeaf(YType.uint64, 'cTap2StreamInterceptHCDrops')),
+                ])
+                self.ctap2mediationcontentid = None
+                self.ctap2streamindex = None
+                self.ctap2streamtype = None
+                self.ctap2streaminterceptenable = None
+                self.ctap2streaminterceptedpackets = None
+                self.ctap2streaminterceptdrops = None
+                self.ctap2streamstatus = None
+                self.ctap2streaminterceptedhcpackets = None
+                self.ctap2streamintercepthcdrops = None
+                self._segment_path = lambda: "cTap2StreamEntry" + "[cTap2MediationContentId='" + str(self.ctap2mediationcontentid) + "']" + "[cTap2StreamIndex='" + str(self.ctap2streamindex) + "']"
                 self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2StreamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -597,7 +617,7 @@ class CISCOTAP2MIB(Entity):
 
             class Ctap2Streamtype(Enum):
                 """
-                Ctap2Streamtype
+                Ctap2Streamtype (Enum Class)
 
                 Identifies the type of intercept filter associated to this
 
@@ -730,8 +750,10 @@ class CISCOTAP2MIB(Entity):
             self.yang_parent_name = "CISCO-TAP2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cTap2DebugEntry" : ("ctap2debugentry", CISCOTAP2MIB.Ctap2Debugtable.Ctap2Debugentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cTap2DebugEntry", ("ctap2debugentry", CISCOTAP2MIB.Ctap2Debugtable.Ctap2Debugentry))])
+            self._leafs = OrderedDict()
 
             self.ctap2debugentry = YList(self)
             self._segment_path = lambda: "cTap2DebugTable"
@@ -745,7 +767,7 @@ class CISCOTAP2MIB(Entity):
             """
             A list of the debug messages.
             
-            .. attribute:: ctap2debugindex  <key>
+            .. attribute:: ctap2debugindex  (key)
             
             	Index to the debug table
             	**type**\: int
@@ -790,19 +812,22 @@ class CISCOTAP2MIB(Entity):
                 self.yang_parent_name = "cTap2DebugTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ctap2debugindex = YLeaf(YType.int32, "cTap2DebugIndex")
-
-                self.ctap2debugmediationid = YLeaf(YType.uint32, "cTap2DebugMediationId")
-
-                self.ctap2debugstreamid = YLeaf(YType.uint32, "cTap2DebugStreamId")
-
-                self.ctap2debugmessage = YLeaf(YType.str, "cTap2DebugMessage")
-
-                self.ctap2debugstatus = YLeaf(YType.enumeration, "cTap2DebugStatus")
-                self._segment_path = lambda: "cTap2DebugEntry" + "[cTap2DebugIndex='" + self.ctap2debugindex.get() + "']"
+                self.ylist_key_names = ['ctap2debugindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ctap2debugindex', YLeaf(YType.int32, 'cTap2DebugIndex')),
+                    ('ctap2debugmediationid', YLeaf(YType.uint32, 'cTap2DebugMediationId')),
+                    ('ctap2debugstreamid', YLeaf(YType.uint32, 'cTap2DebugStreamId')),
+                    ('ctap2debugmessage', YLeaf(YType.str, 'cTap2DebugMessage')),
+                    ('ctap2debugstatus', YLeaf(YType.enumeration, 'cTap2DebugStatus')),
+                ])
+                self.ctap2debugindex = None
+                self.ctap2debugmediationid = None
+                self.ctap2debugstreamid = None
+                self.ctap2debugmessage = None
+                self.ctap2debugstatus = None
+                self._segment_path = lambda: "cTap2DebugEntry" + "[cTap2DebugIndex='" + str(self.ctap2debugindex) + "']"
                 self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2DebugTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -839,8 +864,10 @@ class CISCOTAP2MIB(Entity):
             self.yang_parent_name = "CISCO-TAP2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cTap2DebugUserEntry" : ("ctap2debuguserentry", CISCOTAP2MIB.Ctap2Debugusertable.Ctap2Debuguserentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cTap2DebugUserEntry", ("ctap2debuguserentry", CISCOTAP2MIB.Ctap2Debugusertable.Ctap2Debuguserentry))])
+            self._leafs = OrderedDict()
 
             self.ctap2debuguserentry = YList(self)
             self._segment_path = lambda: "cTap2DebugUserTable"
@@ -858,7 +885,7 @@ class CISCOTAP2MIB(Entity):
             access to Lawful Intercept commands and cTap2DebugUserTimeout
             represents the time when the entry will expire.
             
-            .. attribute:: ctap2mediationcontentid  <key>
+            .. attribute:: ctap2mediationcontentid  (key)
             
             	
             	**type**\: int
@@ -867,7 +894,7 @@ class CISCOTAP2MIB(Entity):
             
             	**refers to**\:  :py:class:`ctap2mediationcontentid <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CISCOTAP2MIB.Ctap2Mediationtable.Ctap2Mediationentry>`
             
-            .. attribute:: ctap2debugusername  <key>
+            .. attribute:: ctap2debugusername  (key)
             
             	A human readable string representing the name of debug user who will have access to Lawful Intercept commands
             	**type**\: str
@@ -903,19 +930,22 @@ class CISCOTAP2MIB(Entity):
                 self.yang_parent_name = "cTap2DebugUserTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ctap2mediationcontentid = YLeaf(YType.str, "cTap2MediationContentId")
-
-                self.ctap2debugusername = YLeaf(YType.str, "cTap2DebugUserName")
-
-                self.ctap2debugusertimeout = YLeaf(YType.str, "cTap2DebugUserTimeout")
-
-                self.ctap2debuguserstoragetype = YLeaf(YType.enumeration, "cTap2DebugUserStorageType")
-
-                self.ctap2debuguserstatus = YLeaf(YType.enumeration, "cTap2DebugUserStatus")
-                self._segment_path = lambda: "cTap2DebugUserEntry" + "[cTap2MediationContentId='" + self.ctap2mediationcontentid.get() + "']" + "[cTap2DebugUserName='" + self.ctap2debugusername.get() + "']"
+                self.ylist_key_names = ['ctap2mediationcontentid','ctap2debugusername']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ctap2mediationcontentid', YLeaf(YType.str, 'cTap2MediationContentId')),
+                    ('ctap2debugusername', YLeaf(YType.str, 'cTap2DebugUserName')),
+                    ('ctap2debugusertimeout', YLeaf(YType.str, 'cTap2DebugUserTimeout')),
+                    ('ctap2debuguserstoragetype', YLeaf(YType.enumeration, 'cTap2DebugUserStorageType')),
+                    ('ctap2debuguserstatus', YLeaf(YType.enumeration, 'cTap2DebugUserStatus')),
+                ])
+                self.ctap2mediationcontentid = None
+                self.ctap2debugusername = None
+                self.ctap2debugusertimeout = None
+                self.ctap2debuguserstoragetype = None
+                self.ctap2debuguserstatus = None
+                self._segment_path = lambda: "cTap2DebugUserEntry" + "[cTap2MediationContentId='" + str(self.ctap2mediationcontentid) + "']" + "[cTap2DebugUserName='" + str(self.ctap2debugusername) + "']"
                 self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2DebugUserTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

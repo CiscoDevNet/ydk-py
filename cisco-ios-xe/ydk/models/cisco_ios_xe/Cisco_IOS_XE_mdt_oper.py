@@ -6,15 +6,17 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class MdtConState(Enum):
     """
-    MdtConState
+    MdtConState (Enum Class)
 
     Connection states.
 
@@ -51,7 +53,7 @@ class MdtConState(Enum):
 
 class MdtReceiverState(Enum):
     """
-    MdtReceiverState
+    MdtReceiverState (Enum Class)
 
     Receiver states.
 
@@ -90,7 +92,7 @@ class MdtReceiverState(Enum):
 
 class MdtSubState(Enum):
     """
-    MdtSubState
+    MdtSubState (Enum Class)
 
     Subscription states
 
@@ -129,7 +131,7 @@ class MdtSubState(Enum):
 
 class MdtSubType(Enum):
     """
-    MdtSubType
+    MdtSubType (Enum Class)
 
     Subscription types
 
@@ -185,7 +187,7 @@ class MdtOperData(Entity):
     """
 
     _prefix = 'mdt-oper'
-    _revision = '2017-07-01'
+    _revision = '2017-09-20'
 
     def __init__(self):
         super(MdtOperData, self).__init__()
@@ -195,8 +197,10 @@ class MdtOperData(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-mdt-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mdt-streams" : ("mdt_streams", MdtOperData.MdtStreams)}
-        self._child_list_classes = {"mdt-subscriptions" : ("mdt_subscriptions", MdtOperData.MdtSubscriptions), "mdt-connections" : ("mdt_connections", MdtOperData.MdtConnections)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("mdt-streams", ("mdt_streams", MdtOperData.MdtStreams))])
+        self._child_list_classes = OrderedDict([("mdt-subscriptions", ("mdt_subscriptions", MdtOperData.MdtSubscriptions)), ("mdt-connections", ("mdt_connections", MdtOperData.MdtConnections))])
+        self._leafs = OrderedDict()
 
         self.mdt_streams = MdtOperData.MdtStreams()
         self.mdt_streams.parent = self
@@ -225,7 +229,7 @@ class MdtOperData(Entity):
         """
 
         _prefix = 'mdt-oper'
-        _revision = '2017-07-01'
+        _revision = '2017-09-20'
 
         def __init__(self):
             super(MdtOperData.MdtStreams, self).__init__()
@@ -234,10 +238,13 @@ class MdtOperData(Entity):
             self.yang_parent_name = "mdt-oper-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stream = YLeafList(YType.str, "stream")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stream', YLeafList(YType.str, 'stream')),
+            ])
+            self.stream = []
             self._segment_path = lambda: "mdt-streams"
             self._absolute_path = lambda: "Cisco-IOS-XE-mdt-oper:mdt-oper-data/%s" % self._segment_path()
 
@@ -249,7 +256,7 @@ class MdtOperData(Entity):
         """
         MDT subscription operational data.
         
-        .. attribute:: subscription_id  <key>
+        .. attribute:: subscription_id  (key)
         
         	Unique subscription identifier
         	**type**\: int
@@ -307,7 +314,7 @@ class MdtOperData(Entity):
         """
 
         _prefix = 'mdt-oper'
-        _revision = '2017-07-01'
+        _revision = '2017-09-20'
 
         def __init__(self):
             super(MdtOperData.MdtSubscriptions, self).__init__()
@@ -316,22 +323,25 @@ class MdtOperData(Entity):
             self.yang_parent_name = "mdt-oper-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"base" : ("base", MdtOperData.MdtSubscriptions.Base)}
-            self._child_list_classes = {"mdt-receivers" : ("mdt_receivers", MdtOperData.MdtSubscriptions.MdtReceivers)}
-
-            self.subscription_id = YLeaf(YType.uint32, "subscription-id")
-
-            self.type = YLeaf(YType.enumeration, "type")
-
-            self.state = YLeaf(YType.enumeration, "state")
-
-            self.comments = YLeaf(YType.str, "comments")
-
-            self.updates_in = YLeaf(YType.uint64, "updates-in")
-
-            self.updates_dampened = YLeaf(YType.uint64, "updates-dampened")
-
-            self.updates_dropped = YLeaf(YType.uint64, "updates-dropped")
+            self.ylist_key_names = ['subscription_id']
+            self._child_container_classes = OrderedDict([("base", ("base", MdtOperData.MdtSubscriptions.Base))])
+            self._child_list_classes = OrderedDict([("mdt-receivers", ("mdt_receivers", MdtOperData.MdtSubscriptions.MdtReceivers))])
+            self._leafs = OrderedDict([
+                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+                ('type', YLeaf(YType.enumeration, 'type')),
+                ('state', YLeaf(YType.enumeration, 'state')),
+                ('comments', YLeaf(YType.str, 'comments')),
+                ('updates_in', YLeaf(YType.uint64, 'updates-in')),
+                ('updates_dampened', YLeaf(YType.uint64, 'updates-dampened')),
+                ('updates_dropped', YLeaf(YType.uint64, 'updates-dropped')),
+            ])
+            self.subscription_id = None
+            self.type = None
+            self.state = None
+            self.comments = None
+            self.updates_in = None
+            self.updates_dampened = None
+            self.updates_dropped = None
 
             self.base = MdtOperData.MdtSubscriptions.Base()
             self.base.parent = self
@@ -339,7 +349,7 @@ class MdtOperData(Entity):
             self._children_yang_names.add("base")
 
             self.mdt_receivers = YList(self)
-            self._segment_path = lambda: "mdt-subscriptions" + "[subscription-id='" + self.subscription_id.get() + "']"
+            self._segment_path = lambda: "mdt-subscriptions" + "[subscription-id='" + str(self.subscription_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-mdt-oper:mdt-oper-data/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -426,12 +436,17 @@ class MdtOperData(Entity):
             	TDL\-URI expression describing the set of objects wanted as part of the subscription
             	**type**\: str
             
+            .. attribute:: transform_name
+            
+            	Transform name is the reference to  tdl transform scheme
+            	**type**\: str
+            
             
 
             """
 
             _prefix = 'mdt-oper'
-            _revision = '2017-07-01'
+            _revision = '2017-09-20'
 
             def __init__(self):
                 super(MdtOperData.MdtSubscriptions.Base, self).__init__()
@@ -440,39 +455,44 @@ class MdtOperData(Entity):
                 self.yang_parent_name = "mdt-subscriptions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stream = YLeaf(YType.str, "stream")
-
-                self.encoding = YLeaf(YType.str, "encoding")
-
-                self.source_vrf = YLeaf(YType.str, "source-vrf")
-
-                self.source_address = YLeaf(YType.str, "source-address")
-
-                self.no_trigger = YLeaf(YType.uint32, "no-trigger")
-
-                self.period = YLeaf(YType.uint32, "period")
-
-                self.no_synch_on_start = YLeaf(YType.boolean, "no-synch-on-start")
-
-                self.no_filter = YLeaf(YType.uint32, "no-filter")
-
-                self.xpath = YLeaf(YType.str, "xpath")
-
-                self.tdl_uri = YLeaf(YType.str, "tdl-uri")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stream', YLeaf(YType.str, 'stream')),
+                    ('encoding', YLeaf(YType.str, 'encoding')),
+                    ('source_vrf', YLeaf(YType.str, 'source-vrf')),
+                    ('source_address', YLeaf(YType.str, 'source-address')),
+                    ('no_trigger', YLeaf(YType.uint32, 'no-trigger')),
+                    ('period', YLeaf(YType.uint32, 'period')),
+                    ('no_synch_on_start', YLeaf(YType.boolean, 'no-synch-on-start')),
+                    ('no_filter', YLeaf(YType.uint32, 'no-filter')),
+                    ('xpath', YLeaf(YType.str, 'xpath')),
+                    ('tdl_uri', YLeaf(YType.str, 'tdl-uri')),
+                    ('transform_name', YLeaf(YType.str, 'transform-name')),
+                ])
+                self.stream = None
+                self.encoding = None
+                self.source_vrf = None
+                self.source_address = None
+                self.no_trigger = None
+                self.period = None
+                self.no_synch_on_start = None
+                self.no_filter = None
+                self.xpath = None
+                self.tdl_uri = None
+                self.transform_name = None
                 self._segment_path = lambda: "base"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtOperData.MdtSubscriptions.Base, ['stream', 'encoding', 'source_vrf', 'source_address', 'no_trigger', 'period', 'no_synch_on_start', 'no_filter', 'xpath', 'tdl_uri'], name, value)
+                self._perform_setattr(MdtOperData.MdtSubscriptions.Base, ['stream', 'encoding', 'source_vrf', 'source_address', 'no_trigger', 'period', 'no_synch_on_start', 'no_filter', 'xpath', 'tdl_uri', 'transform_name'], name, value)
 
 
         class MdtReceivers(Entity):
             """
             List of MDT receivers.
             
-            .. attribute:: address  <key>
+            .. attribute:: address  (key)
             
             	IP address of the receiver
             	**type**\: union of the below types:
@@ -487,7 +507,7 @@ class MdtOperData(Entity):
             
             	**mandatory**\: True
             
-            .. attribute:: port  <key>
+            .. attribute:: port  (key)
             
             	Network port of the receiver
             	**type**\: int
@@ -511,12 +531,17 @@ class MdtOperData(Entity):
             	Comments related to receiver state
             	**type**\: str
             
+            .. attribute:: security_profile
+            
+            	Receiver security profile
+            	**type**\: str
+            
             
 
             """
 
             _prefix = 'mdt-oper'
-            _revision = '2017-07-01'
+            _revision = '2017-09-20'
 
             def __init__(self):
                 super(MdtOperData.MdtSubscriptions.MdtReceivers, self).__init__()
@@ -525,29 +550,34 @@ class MdtOperData(Entity):
                 self.yang_parent_name = "mdt-subscriptions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.address = YLeaf(YType.str, "address")
-
-                self.port = YLeaf(YType.uint16, "port")
-
-                self.protocol = YLeaf(YType.str, "protocol")
-
-                self.state = YLeaf(YType.enumeration, "state")
-
-                self.comments = YLeaf(YType.str, "comments")
-                self._segment_path = lambda: "mdt-receivers" + "[address='" + self.address.get() + "']" + "[port='" + self.port.get() + "']"
+                self.ylist_key_names = ['address','port']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('address', YLeaf(YType.str, 'address')),
+                    ('port', YLeaf(YType.uint16, 'port')),
+                    ('protocol', YLeaf(YType.str, 'protocol')),
+                    ('state', YLeaf(YType.enumeration, 'state')),
+                    ('comments', YLeaf(YType.str, 'comments')),
+                    ('security_profile', YLeaf(YType.str, 'security-profile')),
+                ])
+                self.address = None
+                self.port = None
+                self.protocol = None
+                self.state = None
+                self.comments = None
+                self.security_profile = None
+                self._segment_path = lambda: "mdt-receivers" + "[address='" + str(self.address) + "']" + "[port='" + str(self.port) + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtOperData.MdtSubscriptions.MdtReceivers, ['address', 'port', 'protocol', 'state', 'comments'], name, value)
+                self._perform_setattr(MdtOperData.MdtSubscriptions.MdtReceivers, ['address', 'port', 'protocol', 'state', 'comments', 'security_profile'], name, value)
 
 
     class MdtConnections(Entity):
         """
         MDT subscription connection operational data.
         
-        .. attribute:: address  <key>
+        .. attribute:: address  (key)
         
         	IP address
         	**type**\: union of the below types:
@@ -560,19 +590,19 @@ class MdtOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
-        .. attribute:: port  <key>
+        .. attribute:: port  (key)
         
         	Network port
         	**type**\: int
         
         	**range:** 0..65535
         
-        .. attribute:: source_vrf  <key>
+        .. attribute:: source_vrf  (key)
         
         	Network instance name for the VRF that the connection originates from
         	**type**\: str
         
-        .. attribute:: source_address  <key>
+        .. attribute:: source_address  (key)
         
         	The source address used for the connection
         	**type**\: union of the below types:
@@ -605,12 +635,17 @@ class MdtOperData(Entity):
         	List of subscription specific statistics for this connection
         	**type**\: list of  		 :py:class:`MdtSubConStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtOperData.MdtConnections.MdtSubConStats>`
         
+        .. attribute:: security_profile
+        
+        	Security profile used with this connection
+        	**type**\: str
+        
         
 
         """
 
         _prefix = 'mdt-oper'
-        _revision = '2017-07-01'
+        _revision = '2017-09-20'
 
         def __init__(self):
             super(MdtOperData.MdtConnections, self).__init__()
@@ -619,29 +654,34 @@ class MdtOperData(Entity):
             self.yang_parent_name = "mdt-oper-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mdt-sub-con-stats" : ("mdt_sub_con_stats", MdtOperData.MdtConnections.MdtSubConStats)}
-
-            self.address = YLeaf(YType.str, "address")
-
-            self.port = YLeaf(YType.uint16, "port")
-
-            self.source_vrf = YLeaf(YType.str, "source-vrf")
-
-            self.source_address = YLeaf(YType.str, "source-address")
-
-            self.transport = YLeaf(YType.str, "transport")
-
-            self.peer_id = YLeaf(YType.str, "peer-id")
-
-            self.state = YLeaf(YType.enumeration, "state")
+            self.ylist_key_names = ['address','port','source_vrf','source_address']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mdt-sub-con-stats", ("mdt_sub_con_stats", MdtOperData.MdtConnections.MdtSubConStats))])
+            self._leafs = OrderedDict([
+                ('address', YLeaf(YType.str, 'address')),
+                ('port', YLeaf(YType.uint16, 'port')),
+                ('source_vrf', YLeaf(YType.str, 'source-vrf')),
+                ('source_address', YLeaf(YType.str, 'source-address')),
+                ('transport', YLeaf(YType.str, 'transport')),
+                ('peer_id', YLeaf(YType.str, 'peer-id')),
+                ('state', YLeaf(YType.enumeration, 'state')),
+                ('security_profile', YLeaf(YType.str, 'security-profile')),
+            ])
+            self.address = None
+            self.port = None
+            self.source_vrf = None
+            self.source_address = None
+            self.transport = None
+            self.peer_id = None
+            self.state = None
+            self.security_profile = None
 
             self.mdt_sub_con_stats = YList(self)
-            self._segment_path = lambda: "mdt-connections" + "[address='" + self.address.get() + "']" + "[port='" + self.port.get() + "']" + "[source-vrf='" + self.source_vrf.get() + "']" + "[source-address='" + self.source_address.get() + "']"
+            self._segment_path = lambda: "mdt-connections" + "[address='" + str(self.address) + "']" + "[port='" + str(self.port) + "']" + "[source-vrf='" + str(self.source_vrf) + "']" + "[source-address='" + str(self.source_address) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-mdt-oper:mdt-oper-data/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MdtOperData.MdtConnections, ['address', 'port', 'source_vrf', 'source_address', 'transport', 'peer_id', 'state'], name, value)
+            self._perform_setattr(MdtOperData.MdtConnections, ['address', 'port', 'source_vrf', 'source_address', 'transport', 'peer_id', 'state', 'security_profile'], name, value)
 
 
         class MdtSubConStats(Entity):
@@ -649,7 +689,7 @@ class MdtOperData(Entity):
             List of subscription specific statistics for this
             connection.
             
-            .. attribute:: sub_id  <key>
+            .. attribute:: sub_id  (key)
             
             	Subscription identifier
             	**type**\: int
@@ -675,7 +715,7 @@ class MdtOperData(Entity):
             """
 
             _prefix = 'mdt-oper'
-            _revision = '2017-07-01'
+            _revision = '2017-09-20'
 
             def __init__(self):
                 super(MdtOperData.MdtConnections.MdtSubConStats, self).__init__()
@@ -684,15 +724,18 @@ class MdtOperData(Entity):
                 self.yang_parent_name = "mdt-connections"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.sub_id = YLeaf(YType.uint32, "sub-id")
-
-                self.updates_sent = YLeaf(YType.uint64, "updates-sent")
-
-                self.updates_dropped = YLeaf(YType.uint64, "updates-dropped")
-                self._segment_path = lambda: "mdt-sub-con-stats" + "[sub-id='" + self.sub_id.get() + "']"
+                self.ylist_key_names = ['sub_id']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('sub_id', YLeaf(YType.uint32, 'sub-id')),
+                    ('updates_sent', YLeaf(YType.uint64, 'updates-sent')),
+                    ('updates_dropped', YLeaf(YType.uint64, 'updates-dropped')),
+                ])
+                self.sub_id = None
+                self.updates_sent = None
+                self.updates_dropped = None
+                self._segment_path = lambda: "mdt-sub-con-stats" + "[sub-id='" + str(self.sub_id) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MdtOperData.MdtConnections.MdtSubConStats, ['sub_id', 'updates_sent', 'updates_dropped'], name, value)

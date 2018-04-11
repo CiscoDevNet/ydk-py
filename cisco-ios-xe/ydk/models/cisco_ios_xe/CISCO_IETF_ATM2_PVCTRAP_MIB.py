@@ -4,9 +4,11 @@ This MIB Module is a supplement to the
 ATM\-MIB.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -35,8 +37,10 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-ATM2-PVCTRAP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"atmCurrentlyFailingPVclTable" : ("atmcurrentlyfailingpvcltable", CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("atmCurrentlyFailingPVclTable", ("atmcurrentlyfailingpvcltable", CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.atmcurrentlyfailingpvcltable = CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable()
         self.atmcurrentlyfailingpvcltable.parent = self
@@ -71,8 +75,10 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ATM2-PVCTRAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"atmCurrentlyFailingPVclEntry" : ("atmcurrentlyfailingpvclentry", CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("atmCurrentlyFailingPVclEntry", ("atmcurrentlyfailingpvclentry", CISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry))])
+            self._leafs = OrderedDict()
 
             self.atmcurrentlyfailingpvclentry = YList(self)
             self._segment_path = lambda: "atmCurrentlyFailingPVclTable"
@@ -88,7 +94,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             the atmVclRowStatus is `active', the atmVclConnKind is
             `pvc', and the atmVclOperStatus is other than `up'.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -97,7 +103,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: atmvclvpi  <key>
+            .. attribute:: atmvclvpi  (key)
             
             	
             	**type**\: int
@@ -106,7 +112,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
             
-            .. attribute:: atmvclvci  <key>
+            .. attribute:: atmvclvci  (key)
             
             	
             	**type**\: int
@@ -143,19 +149,22 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
                 self.yang_parent_name = "atmCurrentlyFailingPVclTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.atmvclvpi = YLeaf(YType.str, "atmVclVpi")
-
-                self.atmvclvci = YLeaf(YType.str, "atmVclVci")
-
-                self.atmcurrentlyfailingpvcltimestamp = YLeaf(YType.uint32, "atmCurrentlyFailingPVclTimeStamp")
-
-                self.atmpreviouslyfailedpvcltimestamp = YLeaf(YType.uint32, "atmPreviouslyFailedPVclTimeStamp")
-                self._segment_path = lambda: "atmCurrentlyFailingPVclEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[atmVclVci='" + self.atmvclvci.get() + "']"
+                self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
+                    ('atmvclvci', YLeaf(YType.str, 'atmVclVci')),
+                    ('atmcurrentlyfailingpvcltimestamp', YLeaf(YType.uint32, 'atmCurrentlyFailingPVclTimeStamp')),
+                    ('atmpreviouslyfailedpvcltimestamp', YLeaf(YType.uint32, 'atmPreviouslyFailedPVclTimeStamp')),
+                ])
+                self.ifindex = None
+                self.atmvclvpi = None
+                self.atmvclvci = None
+                self.atmcurrentlyfailingpvcltimestamp = None
+                self.atmpreviouslyfailedpvcltimestamp = None
+                self._segment_path = lambda: "atmCurrentlyFailingPVclEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB/atmCurrentlyFailingPVclTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

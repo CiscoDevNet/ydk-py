@@ -17,15 +17,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class FsyncClockSource(Enum):
     """
-    FsyncClockSource
+    FsyncClockSource (Enum Class)
 
     Fsync clock source
 
@@ -46,7 +48,7 @@ class FsyncClockSource(Enum):
 
 class FsyncSourceSelectionLogging(Enum):
     """
-    FsyncSourceSelectionLogging
+    FsyncSourceSelectionLogging (Enum Class)
 
     Fsync source selection logging
 
@@ -67,7 +69,7 @@ class FsyncSourceSelectionLogging(Enum):
 
 class FsyncSystemTimingMode(Enum):
     """
-    FsyncSystemTimingMode
+    FsyncSystemTimingMode (Enum Class)
 
     Fsync system timing mode
 
@@ -133,18 +135,21 @@ class FrequencySynchronization(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-freqsync-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-
-        self.enable = YLeaf(YType.empty, "enable")
-
-        self.source_selection_logging = YLeaf(YType.enumeration, "source-selection-logging")
-
-        self.clock_interface_source_type = YLeaf(YType.enumeration, "clock-interface-source-type")
-
-        self.system_timing_mode = YLeaf(YType.enumeration, "system-timing-mode")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('quality_level_option', YLeaf(YType.enumeration, 'quality-level-option')),
+            ('enable', YLeaf(YType.empty, 'enable')),
+            ('source_selection_logging', YLeaf(YType.enumeration, 'source-selection-logging')),
+            ('clock_interface_source_type', YLeaf(YType.enumeration, 'clock-interface-source-type')),
+            ('system_timing_mode', YLeaf(YType.enumeration, 'system-timing-mode')),
+        ])
+        self.quality_level_option = None
+        self.enable = None
+        self.source_selection_logging = None
+        self.clock_interface_source_type = None
+        self.system_timing_mode = None
         self._segment_path = lambda: "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
 
     def __setattr__(self, name, value):

@@ -16,15 +16,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class BfdMode(Enum):
     """
-    BfdMode
+    BfdMode (Enum Class)
 
     Bfd mode
 
@@ -51,7 +53,7 @@ class BfdMode(Enum):
 
 class BundleCiscoExtTypes(Enum):
     """
-    BundleCiscoExtTypes
+    BundleCiscoExtTypes (Enum Class)
 
     Bundle cisco ext types
 
@@ -72,7 +74,7 @@ class BundleCiscoExtTypes(Enum):
 
 class BundleLoadBalance(Enum):
     """
-    BundleLoadBalance
+    BundleLoadBalance (Enum Class)
 
     Bundle load balance
 
@@ -115,7 +117,7 @@ class BundleLoadBalance(Enum):
 
 class BundleMaximumActiveLinksMode(Enum):
     """
-    BundleMaximumActiveLinksMode
+    BundleMaximumActiveLinksMode (Enum Class)
 
     Bundle maximum active links mode
 
@@ -136,7 +138,7 @@ class BundleMaximumActiveLinksMode(Enum):
 
 class BundleMinimumBandwidthRange(Enum):
     """
-    BundleMinimumBandwidthRange
+    BundleMinimumBandwidthRange (Enum Class)
 
     Bundle minimum bandwidth range
 
@@ -169,7 +171,7 @@ class BundleMinimumBandwidthRange(Enum):
 
 class BundleMode(Enum):
     """
-    BundleMode
+    BundleMode (Enum Class)
 
     Bundle mode
 
@@ -196,7 +198,7 @@ class BundleMode(Enum):
 
 class BundlePeriod(Enum):
     """
-    BundlePeriod
+    BundlePeriod (Enum Class)
 
     Bundle period
 
@@ -211,7 +213,7 @@ class BundlePeriod(Enum):
 
 class BundlePortActivity(Enum):
     """
-    BundlePortActivity
+    BundlePortActivity (Enum Class)
 
     Bundle port activity
 
@@ -244,7 +246,7 @@ class BundlePortActivity(Enum):
 
 class ChurnLogging(Enum):
     """
-    ChurnLogging
+    ChurnLogging (Enum Class)
 
     Churn logging
 
@@ -271,7 +273,7 @@ class ChurnLogging(Enum):
 
 class MlacpMaximizeParameter(Enum):
     """
-    MlacpMaximizeParameter
+    MlacpMaximizeParameter (Enum Class)
 
     Mlacp maximize parameter
 
@@ -292,7 +294,7 @@ class MlacpMaximizeParameter(Enum):
 
 class MlacpSwitchover(Enum):
     """
-    MlacpSwitchover
+    MlacpSwitchover (Enum Class)
 
     Mlacp switchover
 
@@ -313,7 +315,7 @@ class MlacpSwitchover(Enum):
 
 class PeriodShortEnum(Enum):
     """
-    PeriodShortEnum
+    PeriodShortEnum (Enum Class)
 
     Period short enum
 
@@ -362,12 +364,15 @@ class Lacp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-bundlemgr-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.system_mac = YLeaf(YType.str, "system-mac")
-
-        self.system_priority = YLeaf(YType.uint32, "system-priority")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('system_mac', YLeaf(YType.str, 'system-mac')),
+            ('system_priority', YLeaf(YType.uint32, 'system-priority')),
+        ])
+        self.system_mac = None
+        self.system_priority = None
         self._segment_path = lambda: "Cisco-IOS-XR-bundlemgr-cfg:lacp"
 
     def __setattr__(self, name, value):

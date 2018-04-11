@@ -3,9 +3,11 @@
 The MIB module for IEEE Token Ring entities.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -130,8 +132,10 @@ class TOKENRINGMIB(Entity):
         self.yang_parent_name = "TOKENRING-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dot5Table" : ("dot5table", TOKENRINGMIB.Dot5Table), "dot5StatsTable" : ("dot5statstable", TOKENRINGMIB.Dot5Statstable), "dot5TimerTable" : ("dot5timertable", TOKENRINGMIB.Dot5Timertable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("dot5Table", ("dot5table", TOKENRINGMIB.Dot5Table)), ("dot5StatsTable", ("dot5statstable", TOKENRINGMIB.Dot5Statstable)), ("dot5TimerTable", ("dot5timertable", TOKENRINGMIB.Dot5Timertable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.dot5table = TOKENRINGMIB.Dot5Table()
         self.dot5table.parent = self
@@ -175,8 +179,10 @@ class TOKENRINGMIB(Entity):
             self.yang_parent_name = "TOKENRING-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot5Entry" : ("dot5entry", TOKENRINGMIB.Dot5Table.Dot5Entry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot5Entry", ("dot5entry", TOKENRINGMIB.Dot5Table.Dot5Entry))])
+            self._leafs = OrderedDict()
 
             self.dot5entry = YList(self)
             self._segment_path = lambda: "dot5Table"
@@ -191,7 +197,7 @@ class TOKENRINGMIB(Entity):
             A list of Token Ring status and parameter
             values for an 802.5 interface.
             
-            .. attribute:: dot5ifindex  <key>
+            .. attribute:: dot5ifindex  (key)
             
             	The value of this object identifies the 802.5 interface for which this entry contains management information.  The value of this object for a particular interface has the same value as the ifIndex object, defined in MIB\-II for the same interface
             	**type**\: int
@@ -265,29 +271,32 @@ class TOKENRINGMIB(Entity):
                 self.yang_parent_name = "dot5Table"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot5ifindex = YLeaf(YType.int32, "dot5IfIndex")
-
-                self.dot5commands = YLeaf(YType.enumeration, "dot5Commands")
-
-                self.dot5ringstatus = YLeaf(YType.int32, "dot5RingStatus")
-
-                self.dot5ringstate = YLeaf(YType.enumeration, "dot5RingState")
-
-                self.dot5ringopenstatus = YLeaf(YType.enumeration, "dot5RingOpenStatus")
-
-                self.dot5ringspeed = YLeaf(YType.enumeration, "dot5RingSpeed")
-
-                self.dot5upstream = YLeaf(YType.str, "dot5UpStream")
-
-                self.dot5actmonparticipate = YLeaf(YType.enumeration, "dot5ActMonParticipate")
-
-                self.dot5functional = YLeaf(YType.str, "dot5Functional")
-
-                self.dot5lastbeaconsent = YLeaf(YType.uint32, "dot5LastBeaconSent")
-                self._segment_path = lambda: "dot5Entry" + "[dot5IfIndex='" + self.dot5ifindex.get() + "']"
+                self.ylist_key_names = ['dot5ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot5ifindex', YLeaf(YType.int32, 'dot5IfIndex')),
+                    ('dot5commands', YLeaf(YType.enumeration, 'dot5Commands')),
+                    ('dot5ringstatus', YLeaf(YType.int32, 'dot5RingStatus')),
+                    ('dot5ringstate', YLeaf(YType.enumeration, 'dot5RingState')),
+                    ('dot5ringopenstatus', YLeaf(YType.enumeration, 'dot5RingOpenStatus')),
+                    ('dot5ringspeed', YLeaf(YType.enumeration, 'dot5RingSpeed')),
+                    ('dot5upstream', YLeaf(YType.str, 'dot5UpStream')),
+                    ('dot5actmonparticipate', YLeaf(YType.enumeration, 'dot5ActMonParticipate')),
+                    ('dot5functional', YLeaf(YType.str, 'dot5Functional')),
+                    ('dot5lastbeaconsent', YLeaf(YType.uint32, 'dot5LastBeaconSent')),
+                ])
+                self.dot5ifindex = None
+                self.dot5commands = None
+                self.dot5ringstatus = None
+                self.dot5ringstate = None
+                self.dot5ringopenstatus = None
+                self.dot5ringspeed = None
+                self.dot5upstream = None
+                self.dot5actmonparticipate = None
+                self.dot5functional = None
+                self.dot5lastbeaconsent = None
+                self._segment_path = lambda: "dot5Entry" + "[dot5IfIndex='" + str(self.dot5ifindex) + "']"
                 self._absolute_path = lambda: "TOKENRING-MIB:TOKENRING-MIB/dot5Table/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -295,7 +304,7 @@ class TOKENRINGMIB(Entity):
 
             class Dot5Actmonparticipate(Enum):
                 """
-                Dot5Actmonparticipate
+                Dot5Actmonparticipate (Enum Class)
 
                 If this object has a value of true(1) then
 
@@ -326,7 +335,7 @@ class TOKENRINGMIB(Entity):
 
             class Dot5Commands(Enum):
                 """
-                Dot5Commands
+                Dot5Commands (Enum Class)
 
                 When this object is set to the value of
 
@@ -401,7 +410,7 @@ class TOKENRINGMIB(Entity):
 
             class Dot5Ringopenstatus(Enum):
                 """
-                Dot5Ringopenstatus
+                Dot5Ringopenstatus (Enum Class)
 
                 This object indicates the success, or the
 
@@ -458,7 +467,7 @@ class TOKENRINGMIB(Entity):
 
             class Dot5Ringspeed(Enum):
                 """
-                Dot5Ringspeed
+                Dot5Ringspeed (Enum Class)
 
                 The ring\-speed at the next insertion into
 
@@ -499,7 +508,7 @@ class TOKENRINGMIB(Entity):
 
             class Dot5Ringstate(Enum):
                 """
-                Dot5Ringstate
+                Dot5Ringstate (Enum Class)
 
                 The current interface state with respect
 
@@ -565,8 +574,10 @@ class TOKENRINGMIB(Entity):
             self.yang_parent_name = "TOKENRING-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot5StatsEntry" : ("dot5statsentry", TOKENRINGMIB.Dot5Statstable.Dot5Statsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot5StatsEntry", ("dot5statsentry", TOKENRINGMIB.Dot5Statstable.Dot5Statsentry))])
+            self._leafs = OrderedDict()
 
             self.dot5statsentry = YList(self)
             self._segment_path = lambda: "dot5StatsTable"
@@ -581,7 +592,7 @@ class TOKENRINGMIB(Entity):
             An entry contains the 802.5 statistics
             for a particular interface.
             
-            .. attribute:: dot5statsifindex  <key>
+            .. attribute:: dot5statsifindex  (key)
             
             	The value of this object identifies the 802.5 interface for which this entry contains management information.  The value of this object for a particular interface has the same value as MIB\-II's ifIndex object for the same interface
             	**type**\: int
@@ -728,47 +739,50 @@ class TOKENRINGMIB(Entity):
                 self.yang_parent_name = "dot5StatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot5statsifindex = YLeaf(YType.int32, "dot5StatsIfIndex")
-
-                self.dot5statslineerrors = YLeaf(YType.uint32, "dot5StatsLineErrors")
-
-                self.dot5statsbursterrors = YLeaf(YType.uint32, "dot5StatsBurstErrors")
-
-                self.dot5statsacerrors = YLeaf(YType.uint32, "dot5StatsACErrors")
-
-                self.dot5statsaborttranserrors = YLeaf(YType.uint32, "dot5StatsAbortTransErrors")
-
-                self.dot5statsinternalerrors = YLeaf(YType.uint32, "dot5StatsInternalErrors")
-
-                self.dot5statslostframeerrors = YLeaf(YType.uint32, "dot5StatsLostFrameErrors")
-
-                self.dot5statsreceivecongestions = YLeaf(YType.uint32, "dot5StatsReceiveCongestions")
-
-                self.dot5statsframecopiederrors = YLeaf(YType.uint32, "dot5StatsFrameCopiedErrors")
-
-                self.dot5statstokenerrors = YLeaf(YType.uint32, "dot5StatsTokenErrors")
-
-                self.dot5statssofterrors = YLeaf(YType.uint32, "dot5StatsSoftErrors")
-
-                self.dot5statsharderrors = YLeaf(YType.uint32, "dot5StatsHardErrors")
-
-                self.dot5statssignalloss = YLeaf(YType.uint32, "dot5StatsSignalLoss")
-
-                self.dot5statstransmitbeacons = YLeaf(YType.uint32, "dot5StatsTransmitBeacons")
-
-                self.dot5statsrecoverys = YLeaf(YType.uint32, "dot5StatsRecoverys")
-
-                self.dot5statslobewires = YLeaf(YType.uint32, "dot5StatsLobeWires")
-
-                self.dot5statsremoves = YLeaf(YType.uint32, "dot5StatsRemoves")
-
-                self.dot5statssingles = YLeaf(YType.uint32, "dot5StatsSingles")
-
-                self.dot5statsfreqerrors = YLeaf(YType.uint32, "dot5StatsFreqErrors")
-                self._segment_path = lambda: "dot5StatsEntry" + "[dot5StatsIfIndex='" + self.dot5statsifindex.get() + "']"
+                self.ylist_key_names = ['dot5statsifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot5statsifindex', YLeaf(YType.int32, 'dot5StatsIfIndex')),
+                    ('dot5statslineerrors', YLeaf(YType.uint32, 'dot5StatsLineErrors')),
+                    ('dot5statsbursterrors', YLeaf(YType.uint32, 'dot5StatsBurstErrors')),
+                    ('dot5statsacerrors', YLeaf(YType.uint32, 'dot5StatsACErrors')),
+                    ('dot5statsaborttranserrors', YLeaf(YType.uint32, 'dot5StatsAbortTransErrors')),
+                    ('dot5statsinternalerrors', YLeaf(YType.uint32, 'dot5StatsInternalErrors')),
+                    ('dot5statslostframeerrors', YLeaf(YType.uint32, 'dot5StatsLostFrameErrors')),
+                    ('dot5statsreceivecongestions', YLeaf(YType.uint32, 'dot5StatsReceiveCongestions')),
+                    ('dot5statsframecopiederrors', YLeaf(YType.uint32, 'dot5StatsFrameCopiedErrors')),
+                    ('dot5statstokenerrors', YLeaf(YType.uint32, 'dot5StatsTokenErrors')),
+                    ('dot5statssofterrors', YLeaf(YType.uint32, 'dot5StatsSoftErrors')),
+                    ('dot5statsharderrors', YLeaf(YType.uint32, 'dot5StatsHardErrors')),
+                    ('dot5statssignalloss', YLeaf(YType.uint32, 'dot5StatsSignalLoss')),
+                    ('dot5statstransmitbeacons', YLeaf(YType.uint32, 'dot5StatsTransmitBeacons')),
+                    ('dot5statsrecoverys', YLeaf(YType.uint32, 'dot5StatsRecoverys')),
+                    ('dot5statslobewires', YLeaf(YType.uint32, 'dot5StatsLobeWires')),
+                    ('dot5statsremoves', YLeaf(YType.uint32, 'dot5StatsRemoves')),
+                    ('dot5statssingles', YLeaf(YType.uint32, 'dot5StatsSingles')),
+                    ('dot5statsfreqerrors', YLeaf(YType.uint32, 'dot5StatsFreqErrors')),
+                ])
+                self.dot5statsifindex = None
+                self.dot5statslineerrors = None
+                self.dot5statsbursterrors = None
+                self.dot5statsacerrors = None
+                self.dot5statsaborttranserrors = None
+                self.dot5statsinternalerrors = None
+                self.dot5statslostframeerrors = None
+                self.dot5statsreceivecongestions = None
+                self.dot5statsframecopiederrors = None
+                self.dot5statstokenerrors = None
+                self.dot5statssofterrors = None
+                self.dot5statsharderrors = None
+                self.dot5statssignalloss = None
+                self.dot5statstransmitbeacons = None
+                self.dot5statsrecoverys = None
+                self.dot5statslobewires = None
+                self.dot5statsremoves = None
+                self.dot5statssingles = None
+                self.dot5statsfreqerrors = None
+                self._segment_path = lambda: "dot5StatsEntry" + "[dot5StatsIfIndex='" + str(self.dot5statsifindex) + "']"
                 self._absolute_path = lambda: "TOKENRING-MIB:TOKENRING-MIB/dot5StatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -802,8 +816,10 @@ class TOKENRINGMIB(Entity):
             self.yang_parent_name = "TOKENRING-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot5TimerEntry" : ("dot5timerentry", TOKENRINGMIB.Dot5Timertable.Dot5Timerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot5TimerEntry", ("dot5timerentry", TOKENRINGMIB.Dot5Timertable.Dot5Timerentry))])
+            self._leafs = OrderedDict()
 
             self.dot5timerentry = YList(self)
             self._segment_path = lambda: "dot5TimerTable"
@@ -818,7 +834,7 @@ class TOKENRINGMIB(Entity):
             A list of Token Ring timer values for an
             802.5 interface.
             
-            .. attribute:: dot5timerifindex  <key>
+            .. attribute:: dot5timerifindex  (key)
             
             	The value of this object identifies the 802.5 interface for which this entry contains timer values.  The value of   this object for a particular interface has the same value as MIB\-II's ifIndex object for the same interface
             	**type**\: int
@@ -931,31 +947,34 @@ class TOKENRINGMIB(Entity):
                 self.yang_parent_name = "dot5TimerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot5timerifindex = YLeaf(YType.int32, "dot5TimerIfIndex")
-
-                self.dot5timerreturnrepeat = YLeaf(YType.int32, "dot5TimerReturnRepeat")
-
-                self.dot5timerholding = YLeaf(YType.int32, "dot5TimerHolding")
-
-                self.dot5timerqueuepdu = YLeaf(YType.int32, "dot5TimerQueuePDU")
-
-                self.dot5timervalidtransmit = YLeaf(YType.int32, "dot5TimerValidTransmit")
-
-                self.dot5timernotoken = YLeaf(YType.int32, "dot5TimerNoToken")
-
-                self.dot5timeractivemon = YLeaf(YType.int32, "dot5TimerActiveMon")
-
-                self.dot5timerstandbymon = YLeaf(YType.int32, "dot5TimerStandbyMon")
-
-                self.dot5timererrorreport = YLeaf(YType.int32, "dot5TimerErrorReport")
-
-                self.dot5timerbeacontransmit = YLeaf(YType.int32, "dot5TimerBeaconTransmit")
-
-                self.dot5timerbeaconreceive = YLeaf(YType.int32, "dot5TimerBeaconReceive")
-                self._segment_path = lambda: "dot5TimerEntry" + "[dot5TimerIfIndex='" + self.dot5timerifindex.get() + "']"
+                self.ylist_key_names = ['dot5timerifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot5timerifindex', YLeaf(YType.int32, 'dot5TimerIfIndex')),
+                    ('dot5timerreturnrepeat', YLeaf(YType.int32, 'dot5TimerReturnRepeat')),
+                    ('dot5timerholding', YLeaf(YType.int32, 'dot5TimerHolding')),
+                    ('dot5timerqueuepdu', YLeaf(YType.int32, 'dot5TimerQueuePDU')),
+                    ('dot5timervalidtransmit', YLeaf(YType.int32, 'dot5TimerValidTransmit')),
+                    ('dot5timernotoken', YLeaf(YType.int32, 'dot5TimerNoToken')),
+                    ('dot5timeractivemon', YLeaf(YType.int32, 'dot5TimerActiveMon')),
+                    ('dot5timerstandbymon', YLeaf(YType.int32, 'dot5TimerStandbyMon')),
+                    ('dot5timererrorreport', YLeaf(YType.int32, 'dot5TimerErrorReport')),
+                    ('dot5timerbeacontransmit', YLeaf(YType.int32, 'dot5TimerBeaconTransmit')),
+                    ('dot5timerbeaconreceive', YLeaf(YType.int32, 'dot5TimerBeaconReceive')),
+                ])
+                self.dot5timerifindex = None
+                self.dot5timerreturnrepeat = None
+                self.dot5timerholding = None
+                self.dot5timerqueuepdu = None
+                self.dot5timervalidtransmit = None
+                self.dot5timernotoken = None
+                self.dot5timeractivemon = None
+                self.dot5timerstandbymon = None
+                self.dot5timererrorreport = None
+                self.dot5timerbeacontransmit = None
+                self.dot5timerbeaconreceive = None
+                self._segment_path = lambda: "dot5TimerEntry" + "[dot5TimerIfIndex='" + str(self.dot5timerifindex) + "']"
                 self._absolute_path = lambda: "TOKENRING-MIB:TOKENRING-MIB/dot5TimerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

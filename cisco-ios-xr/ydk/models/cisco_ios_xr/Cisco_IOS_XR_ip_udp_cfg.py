@@ -15,9 +15,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -52,7 +54,7 @@ class IpUdp(Entity):
     """
 
     _prefix = 'ip-udp-cfg'
-    _revision = '2017-05-01'
+    _revision = '2017-07-31'
 
     def __init__(self):
         super(IpUdp, self).__init__()
@@ -62,10 +64,13 @@ class IpUdp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-udp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"num-thread" : ("num_thread", IpUdp.NumThread), "directory" : ("directory", IpUdp.Directory)}
-        self._child_list_classes = {}
-
-        self.receive_q = YLeaf(YType.uint32, "receive-q")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("num-thread", ("num_thread", IpUdp.NumThread)), ("directory", ("directory", IpUdp.Directory))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('receive_q', YLeaf(YType.uint32, 'receive-q')),
+        ])
+        self.receive_q = None
 
         self.num_thread = None
         self._children_name_map["num_thread"] = "num-thread"
@@ -109,7 +114,7 @@ class IpUdp(Entity):
         """
 
         _prefix = 'ip-udp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-07-31'
 
         def __init__(self):
             super(IpUdp.NumThread, self).__init__()
@@ -118,13 +123,16 @@ class IpUdp(Entity):
             self.yang_parent_name = "ip-udp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.udp_in_q_threads = YLeaf(YType.uint32, "udp-in-q-threads")
-
-            self.udp_out_q_threads = YLeaf(YType.uint32, "udp-out-q-threads")
+            self._leafs = OrderedDict([
+                ('udp_in_q_threads', YLeaf(YType.uint32, 'udp-in-q-threads')),
+                ('udp_out_q_threads', YLeaf(YType.uint32, 'udp-out-q-threads')),
+            ])
+            self.udp_in_q_threads = None
+            self.udp_out_q_threads = None
             self._segment_path = lambda: "num-thread"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp/%s" % self._segment_path()
 
@@ -150,7 +158,7 @@ class IpUdp(Entity):
         
         	**range:** 1..5000
         
-        	**mandatory**\: True
+        	**default value**\: 256
         
         .. attribute:: max_file_size_files
         
@@ -158,8 +166,6 @@ class IpUdp(Entity):
         	**type**\: int
         
         	**range:** 1024..4294967295
-        
-        	**mandatory**\: True
         
         	**units**\: byte
         
@@ -170,7 +176,7 @@ class IpUdp(Entity):
         """
 
         _prefix = 'ip-udp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-07-31'
 
         def __init__(self):
             super(IpUdp.Directory, self).__init__()
@@ -179,15 +185,18 @@ class IpUdp(Entity):
             self.yang_parent_name = "ip-udp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.directoryname = YLeaf(YType.str, "directoryname")
-
-            self.max_udp_debug_files = YLeaf(YType.uint32, "max-udp-debug-files")
-
-            self.max_file_size_files = YLeaf(YType.uint32, "max-file-size-files")
+            self._leafs = OrderedDict([
+                ('directoryname', YLeaf(YType.str, 'directoryname')),
+                ('max_udp_debug_files', YLeaf(YType.uint32, 'max-udp-debug-files')),
+                ('max_file_size_files', YLeaf(YType.uint32, 'max-file-size-files')),
+            ])
+            self.directoryname = None
+            self.max_udp_debug_files = None
+            self.max_file_size_files = None
             self._segment_path = lambda: "directory"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp/%s" % self._segment_path()
 

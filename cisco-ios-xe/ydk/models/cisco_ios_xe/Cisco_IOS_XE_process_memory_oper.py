@@ -6,9 +6,11 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -37,8 +39,10 @@ class MemoryUsageProcesses(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-process-memory-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"memory-usage-process" : ("memory_usage_process", MemoryUsageProcesses.MemoryUsageProcess)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("memory-usage-process", ("memory_usage_process", MemoryUsageProcesses.MemoryUsageProcess))])
+        self._leafs = OrderedDict()
 
         self.memory_usage_process = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-process-memory-oper:memory-usage-processes"
@@ -51,14 +55,14 @@ class MemoryUsageProcesses(Entity):
         """
         The list of software processes on the device.
         
-        .. attribute:: pid  <key>
+        .. attribute:: pid  (key)
         
         	Process\-ID of the process
         	**type**\: int
         
         	**range:** 0..4294967295
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	The name of the process
         	**type**\: str
@@ -125,25 +129,28 @@ class MemoryUsageProcesses(Entity):
             self.yang_parent_name = "memory-usage-processes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.pid = YLeaf(YType.uint32, "pid")
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.tty = YLeaf(YType.uint16, "tty")
-
-            self.allocated_memory = YLeaf(YType.uint64, "allocated-memory")
-
-            self.freed_memory = YLeaf(YType.uint64, "freed-memory")
-
-            self.holding_memory = YLeaf(YType.uint64, "holding-memory")
-
-            self.get_buffers = YLeaf(YType.uint32, "get-buffers")
-
-            self.ret_buffers = YLeaf(YType.uint32, "ret-buffers")
-            self._segment_path = lambda: "memory-usage-process" + "[pid='" + self.pid.get() + "']" + "[name='" + self.name.get() + "']"
+            self.ylist_key_names = ['pid','name']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('pid', YLeaf(YType.uint32, 'pid')),
+                ('name', YLeaf(YType.str, 'name')),
+                ('tty', YLeaf(YType.uint16, 'tty')),
+                ('allocated_memory', YLeaf(YType.uint64, 'allocated-memory')),
+                ('freed_memory', YLeaf(YType.uint64, 'freed-memory')),
+                ('holding_memory', YLeaf(YType.uint64, 'holding-memory')),
+                ('get_buffers', YLeaf(YType.uint32, 'get-buffers')),
+                ('ret_buffers', YLeaf(YType.uint32, 'ret-buffers')),
+            ])
+            self.pid = None
+            self.name = None
+            self.tty = None
+            self.allocated_memory = None
+            self.freed_memory = None
+            self.holding_memory = None
+            self.get_buffers = None
+            self.ret_buffers = None
+            self._segment_path = lambda: "memory-usage-process" + "[pid='" + str(self.pid) + "']" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-process-memory-oper:memory-usage-processes/%s" % self._segment_path()
 
         def __setattr__(self, name, value):

@@ -49,9 +49,25 @@ module Cisco-IOS-XE-native {
   // =========================================================================
   // REVISION
   // =========================================================================
-  revision 2017-10-25 {
+  revision 2018-02-01 {
+    description
+      "fix banner issue";
+  }
+  revision 2017-10-24 {
+    description
+      "Add banner support back for login and motd";
+  }
+  revision 2017-10-23 {
+    description
+      "Support for AVB,PTP,MVRP";
+  }
+  revision 2017-10-16 {
     description
       "Add diff-dependency on VirtualPortGroup for virtual-service";
+  }
+  revision 2017-09-26 {
+    description
+      "Add username view";
   }
   revision 2017-08-30 {
     description
@@ -247,6 +263,41 @@ module Cisco-IOS-XE-native {
 
     leaf boot-end-marker {
       type empty;
+    }
+
+    /// ========================================================================
+    /// banner
+    /// ========================================================================
+    grouping banner-grouping {
+      leaf banner {
+        description
+          "Banner message format, c banner-text c, where 'c' is a delimiting character";
+        type string;
+      }
+    }
+    container banner {
+      description
+        "Define a login banner";
+      container exec {
+        description
+          "Set EXEC process creation banner";
+        uses banner-grouping;
+      }
+      container login {
+        description
+          "Set login banner";
+        uses banner-grouping;
+      }
+      container prompt-timeout {
+        description
+          "Set Message for login authentication timeout";
+        uses banner-grouping;
+      }
+      container motd {
+        description
+          "Set Message of the Day banner";
+        uses banner-grouping;
+      }
     }
 
     /////////////////////////////////////////////////////////
@@ -1626,6 +1677,7 @@ module Cisco-IOS-XE-native {
       leaf name {
         type string;
       }
+      // username * privilege
       leaf privilege {
         description
           "Set user privilege level";
@@ -1633,13 +1685,18 @@ module Cisco-IOS-XE-native {
           range "0..15";
         }
       }
-
+      // username * view
+      leaf view {
+        description
+          "Set view name";
+        type string;
+      }
       leaf one-time {
         description
           "Specify that the username/password is valid for only one time";
         type empty;
       }
-      // username * privilege
+      // username * password
       container password {
         description
           "Specify the password for the user";
@@ -1649,7 +1706,6 @@ module Cisco-IOS-XE-native {
             enum "7";
           }
         }
-        // username * password
         leaf password {
           type string;
         }
@@ -1843,6 +1899,34 @@ module Cisco-IOS-XE-native {
         "Global vlan configuration";
       // @mount Cisco-IOS-XE-vlan
     }
+
+     /////////////////////////////////////////////////////////
+     // native / mvrp
+     /////////////////////////////////////////////////////////
+     container mvrp { 
+       description
+         "Global MVRP";
+       //@mount Cisco-IOS-XE-mvrp
+     }   
+ 
+     /////////////////////////////////////////////////////////
+     // native / avb 
+     /////////////////////////////////////////////////////////
+     container avb { 
+       description
+         "Global AVB";
+          presence "true";
+       //@mount Cisco-IOS-XE-avb
+     }   
+ 
+     /////////////////////////////////////////////////////////
+     // native / ptp 
+     /////////////////////////////////////////////////////////
+     container ptp { 
+       description
+         "Global PTP";
+       //@mount Cisco-IOS-XE-ptp
+     }   
 
     /////////////////////////////////////////////////////////
     // native / cdp
@@ -2635,6 +2719,8 @@ module Cisco-IOS-XE-native {
         type enumeration {
           enum "webauth";
           enum "authbypass";
+          enum "consent";
+          enum "webconsent";
         }
       }
       // @mount Cisco-IOS-XE-policy

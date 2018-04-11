@@ -1,213 +1,229 @@
 module Cisco-IOS-XR-tunnel-vpdn-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-tunnel-vpdn-cfg";
+  prefix tunnel-vpdn-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  prefix "tunnel-vpdn-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR tunnel-vpdn package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        vpdn: VPDN configuration
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Df-bit {
     type enumeration {
-      enum clear {
+      enum "clear" {
         value 0;
-        description "Clear df bit";
+        description
+          "Clear df bit";
       }
-      enum reflect {
+      enum "reflect" {
         value 1;
-        description "Reflect df bit from inner ip header";
+        description
+          "Reflect df bit from inner ip header";
       }
-      enum set {
+      enum "set" {
         value 2;
-        description "Set df bit";
+        description
+          "Set df bit";
       }
     }
-    description "Df bit";
+    description
+      "Df bit";
   }
+
   typedef Option {
     type enumeration {
-      enum local {
+      enum "local" {
         value 1;
-        description "Log VPDN events locally";
+        description
+          "Log VPDN events locally";
       }
-      enum user {
+      enum "user" {
         value 2;
-        description "Log VPDN user events";
+        description
+          "Log VPDN user events";
       }
-      enum dead-cache {
+      enum "dead-cache" {
         value 8;
-        description "Log VPDN dead cache";
+        description
+          "Log VPDN dead cache";
       }
-      enum tunnel-drop {
+      enum "tunnel-drop" {
         value 16;
-        description "Log VPDN tunnel drops";
+        description
+          "Log VPDN tunnel drops";
       }
     }
-    description "Option";
+    description
+      "Option";
   }
 
   container vpdn {
-    description "VPDN configuration";
-
+    description
+      "VPDN configuration";
     container history {
-      description "VPDN history logging";
+      description
+        "VPDN history logging";
       leaf failure {
         type empty;
-        description "User failure";
+        description
+          "User failure";
       }
     }
-
     container redundancy {
-      description "Enable VPDN redundancy";
-
+      description
+        "Enable VPDN redundancy";
       container process-failures {
-        description "Process crash configuration";
+        description
+          "Process crash configuration";
         leaf switchover {
           type empty;
-          description "Force a switchover if the process crashes";
+          description
+            "Force a switchover if the process crashes";
         }
       }
       leaf enable {
         type empty;
         description
           "Enable Enable VPDN redundancy. Deletion of this
-          object also causes deletion of all associated
-          objects under Redundancy.";
+           object also causes deletion of all associated
+           objects under Redundancy.";
       }
     }
-
     container local {
-      description "VPDN Local radius process configuration";
+      description
+        "VPDN Local radius process configuration";
       leaf secret-text {
         type string {
           length "1..32";
         }
-        description "secret password";
+        description
+          "secret password";
       }
       leaf path {
         type string {
           length "1..64";
         }
-        description "local path of the saved profile";
+        description
+          "local path of the saved profile";
       }
       leaf cache-disabled {
         type empty;
-        description "Set constant integer";
+        description
+          "Set constant integer";
       }
       leaf port {
         type xr:Cisco-ios-xr-port-number;
-        description "port value";
+        description
+          "port value";
       }
     }
-
     container templates {
-      description "Table of Template";
-
+      description
+        "Table of Template";
       list template {
         key "template-name";
-        description "VPDN template configuration";
-
+        description
+          "VPDN template configuration";
         container caller-id {
-          description "Options to apply on calling station id";
+          description
+            "Options to apply on calling station id";
           leaf mask {
             type string {
               length "1..63";
             }
-            description "Mask characters by method";
+            description
+              "Mask characters by method";
           }
         }
-
         container vpn {
-          description "VPN ID/VRF name";
-
+          description
+            "VPN ID/VRF name";
           container id {
-            description "VPN ID";
+            description
+              "VPN ID";
             leaf oui {
               type xr:Hex-integer;
               description
                 "VPN ID, (OUI:VPN-Index) format(hex), 3 bytes
-                OUI Part";
+                 OUI Part";
             }
             leaf index {
               type xr:Hex-integer;
               description
                 "VPN ID, (OUI:VPN-Index) format(hex), 4 bytes
-                VPN_Index Part";
+                 VPN_Index Part";
             }
           }
           leaf vrf {
             type xr:Cisco-ios-xr-string {
               length "1..32";
             }
-            description "VRF name";
+            description
+              "VRF name";
           }
         }
-
         container tunnel {
-          description "L2TP tunnel commands";
+          description
+            "L2TP tunnel commands";
           leaf busy-timeout {
             type uint32 {
               range "60..65535";
             }
             units "second";
-            description "Busy time out value in seconds";
+            description
+              "Busy time out value in seconds";
           }
         }
-
         container ip {
-          description "Set IP TOS value";
+          description
+            "Set IP TOS value";
           leaf tos {
             type int32;
-            description "Set constant integer";
+            description
+              "Set constant integer";
           }
         }
-
         container ipv4 {
-          description "IPv4 settings for tunnel";
+          description
+            "IPv4 settings for tunnel";
           leaf df-bit {
             type Df-bit;
-            description "IPv4 don't fragment bit set/clear/reflect";
+            description
+              "IPv4 don't fragment bit set/clear/reflect";
           }
           leaf source {
             type inet:ipv4-address-no-zone;
-            description "Enter an IP address";
+            description
+              "Enter an IP address";
           }
         }
         leaf cisco-avp100-format-e-enable {
@@ -221,72 +237,78 @@ module Cisco-IOS-XR-tunnel-vpdn-cfg {
           }
           description
             "Up to 100 characters describing this VPDN
-            template";
+             template";
         }
         leaf l2tp-class {
           type xr:Cisco-ios-xr-string {
             length "1..79";
           }
-          description "L2TP class  command";
+          description
+            "L2TP class  command";
         }
         leaf dsl-line-forwarding {
           type empty;
-          description "Forward DSL Line Info attributes";
+          description
+            "Forward DSL Line Info attributes";
         }
         leaf template-name {
           type xr:Cisco-ios-xr-string {
             length "1..63";
           }
-          description "VPDN template name";
+          description
+            "VPDN template name";
         }
       }
     }
-
     container caller-id {
-      description "Options to apply on calling station ID";
+      description
+        "Options to apply on calling station ID";
       leaf mask {
         type string {
           length "1..63";
         }
-        description "Mask characters by method";
+        description
+          "Mask characters by method";
       }
     }
-
     container vpd-ngroups {
-      description "Table of VPDNgroup";
-
+      description
+        "Table of VPDNgroup";
       list vpd-ngroup {
         key "vpd-ngroupname";
-        description "vpdn-group configuration";
-
+        description
+          "vpdn-group configuration";
         container vpn-id {
-          description "Vpn id";
+          description
+            "Vpn id";
           leaf vpn-id-oui {
             type xr:Hex-integer;
             description
               "VPN ID, (OUI:VPN-Index) format(hex), 3 bytes
-              OUI Part";
+               OUI Part";
           }
           leaf vpn-id-index {
             type xr:Hex-integer;
             description
               "VPN ID, (OUI:VPN-Index) format(hex), 4 bytes
-              VPN_Index Part";
+               VPN_Index Part";
           }
         }
-
         container ip {
-          description "set ip tos value";
+          description
+            "set ip tos value";
           leaf tos {
             type uint32 {
               range "0..255";
             }
-            description "ip tos value";
+            description
+              "ip tos value";
           }
         }
         leaf dsl-line-forwarding {
           type empty;
-          description "Forward DSL Line Info attributes";
+          description
+            "Forward DSL Line Info attributes";
         }
         leaf cisco-avp100-format-e-enable {
           type empty;
@@ -304,65 +326,73 @@ module Cisco-IOS-XR-tunnel-vpdn-cfg {
           type string {
             length "1..63";
           }
-          description "match substring";
+          description
+            "match substring";
         }
         leaf l2tp-class {
           type string {
             length "1..79";
           }
-          description "l2tp class name";
+          description
+            "l2tp class name";
         }
         leaf tunnel-busy-timeout {
           type uint32 {
             range "1..65535";
           }
-          description "Busy list timeout length";
+          description
+            "Busy list timeout length";
         }
         leaf vrf-name {
           type xr:Cisco-ios-xr-string {
             length "1..32";
           }
-          description "Vrf name";
+          description
+            "Vrf name";
         }
         leaf sr-ctemplate {
           type string {
             length "1..63";
           }
-          description "Source vpdn-template";
+          description
+            "Source vpdn-template";
         }
         leaf vpd-ngroupname {
           type xr:Cisco-ios-xr-string {
             length "1..63";
           }
-          description "vpdn-group name";
+          description
+            "vpdn-group name";
         }
       }
     }
-
     container loggings {
-      description "Table of Logging";
-
+      description
+        "Table of Logging";
       list logging {
         key "option";
-        description "Configure logging for VPDN";
+        description
+          "Configure logging for VPDN";
         leaf option {
           type Option;
-          description "VPDN logging options";
+          description
+            "VPDN logging options";
         }
       }
     }
-
     container l2tp {
-      description "L2TPv2 protocol commands";
-
+      description
+        "L2TPv2 protocol commands";
       container session-id {
-        description "Session ID commands";
-
+        description
+          "Session ID commands";
         container space {
-          description "Session ID space commands";
+          description
+            "Session ID space commands";
           leaf hierarchy {
             type empty;
-            description "Session ID space hierarchical command";
+            description
+              "Session ID space hierarchical command";
           }
         }
       }
@@ -372,29 +402,32 @@ module Cisco-IOS-XR-tunnel-vpdn-cfg {
         }
         description
           "TCP MSS adjust value. The acceptable values
-          might be further limited depending on platform.";
+           might be further limited depending on platform.";
       }
       leaf reassembly {
         type empty;
-        description "L2TP IP packet reassembly enable";
+        description
+          "L2TP IP packet reassembly enable";
       }
     }
     leaf session-limit {
       type uint32 {
         range "1..131072";
       }
-      description "Maximum simultaneous VPDN sessions";
+      description
+        "Maximum simultaneous VPDN sessions";
     }
     leaf enable {
       type empty;
       description
         "Enable VPDN configuration. Deletion of this
-        object also causes deletion of all associated
-        objects under VPDN.";
+         object also causes deletion of all associated
+         objects under VPDN.";
     }
     leaf soft-shut {
       type empty;
-      description "New session no longer allowed";
+      description
+        "New session no longer allowed";
     }
   }
 }

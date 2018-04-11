@@ -17,9 +17,11 @@ Finally 'stop\-query' is used to clean up query resources on the
 server.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -53,8 +55,10 @@ class StartQuery(Entity):
         self.yang_parent_name = "tailf-netconf-query"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = StartQuery.Input()
         self.input.parent = self
@@ -128,18 +132,21 @@ class StartQuery(Entity):
             self.yang_parent_name = "start-query"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"select" : ("select", StartQuery.Input.Select)}
-
-            self.foreach = YLeaf(YType.str, "foreach")
-
-            self.sort_by = YLeafList(YType.str, "sort-by")
-
-            self.limit = YLeaf(YType.uint32, "limit")
-
-            self.offset = YLeaf(YType.uint32, "offset")
-
-            self.timeout = YLeaf(YType.uint32, "timeout")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("select", ("select", StartQuery.Input.Select))])
+            self._leafs = OrderedDict([
+                ('foreach', YLeaf(YType.str, 'foreach')),
+                ('sort_by', YLeafList(YType.str, 'sort-by')),
+                ('limit', YLeaf(YType.uint32, 'limit')),
+                ('offset', YLeaf(YType.uint32, 'offset')),
+                ('timeout', YLeaf(YType.uint32, 'timeout')),
+            ])
+            self.foreach = None
+            self.sort_by = []
+            self.limit = None
+            self.offset = None
+            self.timeout = None
 
             self.select = YList(self)
             self._segment_path = lambda: "input"
@@ -185,14 +192,17 @@ class StartQuery(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.label = YLeaf(YType.str, "label")
-
-                self.expression = YLeaf(YType.str, "expression")
-
-                self.result_type = YLeafList(YType.enumeration, "result-type")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('label', YLeaf(YType.str, 'label')),
+                    ('expression', YLeaf(YType.str, 'expression')),
+                    ('result_type', YLeafList(YType.enumeration, 'result-type')),
+                ])
+                self.label = None
+                self.expression = None
+                self.result_type = []
                 self._segment_path = lambda: "select"
                 self._absolute_path = lambda: "tailf-netconf-query:start-query/input/%s" % self._segment_path()
 
@@ -201,7 +211,7 @@ class StartQuery(Entity):
 
             class ResultType(Enum):
                 """
-                ResultType
+                ResultType (Enum Class)
 
                 Controls how the result of the select expression is returned
 
@@ -274,10 +284,13 @@ class StartQuery(Entity):
             self.yang_parent_name = "start-query"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.query_handle = YLeaf(YType.uint32, "query-handle")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('query_handle', YLeaf(YType.uint32, 'query-handle')),
+            ])
+            self.query_handle = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "tailf-netconf-query:start-query/%s" % self._segment_path()
 
@@ -317,8 +330,10 @@ class FetchQueryResult(Entity):
         self.yang_parent_name = "tailf-netconf-query"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = FetchQueryResult.Input()
         self.input.parent = self
@@ -357,10 +372,13 @@ class FetchQueryResult(Entity):
             self.yang_parent_name = "fetch-query-result"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.query_handle = YLeaf(YType.uint32, "query-handle")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('query_handle', YLeaf(YType.uint32, 'query-handle')),
+            ])
+            self.query_handle = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "tailf-netconf-query:fetch-query-result/%s" % self._segment_path()
 
@@ -391,8 +409,10 @@ class FetchQueryResult(Entity):
             self.yang_parent_name = "fetch-query-result"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"query-result" : ("query_result", FetchQueryResult.Output.QueryResult)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("query-result", ("query_result", FetchQueryResult.Output.QueryResult))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.query_result = FetchQueryResult.Output.QueryResult()
             self.query_result.parent = self
@@ -425,8 +445,10 @@ class FetchQueryResult(Entity):
                 self.yang_parent_name = "output"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"result" : ("result", FetchQueryResult.Output.QueryResult.Result)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("result", ("result", FetchQueryResult.Output.QueryResult.Result))])
+                self._leafs = OrderedDict()
 
                 self.result = YList(self)
                 self._segment_path = lambda: "query-result"
@@ -460,8 +482,10 @@ class FetchQueryResult(Entity):
                     self.yang_parent_name = "query-result"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"select" : ("select", FetchQueryResult.Output.QueryResult.Result.Select)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("select", ("select", FetchQueryResult.Output.QueryResult.Result.Select))])
+                    self._leafs = OrderedDict()
 
                     self.select = YList(self)
                     self._segment_path = lambda: "result"
@@ -509,16 +533,19 @@ class FetchQueryResult(Entity):
                         self.yang_parent_name = "result"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.label = YLeaf(YType.str, "label")
-
-                        self.path = YLeaf(YType.str, "path")
-
-                        self.value = YLeaf(YType.str, "value")
-
-                        self.data = YLeaf(YType.str, "data")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('label', YLeaf(YType.str, 'label')),
+                            ('path', YLeaf(YType.str, 'path')),
+                            ('value', YLeaf(YType.str, 'value')),
+                            ('data', YLeaf(YType.str, 'data')),
+                        ])
+                        self.label = None
+                        self.path = None
+                        self.value = None
+                        self.data = None
                         self._segment_path = lambda: "select"
                         self._absolute_path = lambda: "tailf-netconf-query:fetch-query-result/output/query-result/result/%s" % self._segment_path()
 
@@ -553,8 +580,10 @@ class ResetQuery(Entity):
         self.yang_parent_name = "tailf-netconf-query"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = ResetQuery.Input()
         self.input.parent = self
@@ -606,14 +635,17 @@ class ResetQuery(Entity):
             self.yang_parent_name = "reset-query"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.query_handle = YLeaf(YType.uint32, "query-handle")
-
-            self.offset = YLeaf(YType.uint32, "offset")
-
-            self.timeout = YLeaf(YType.uint32, "timeout")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('query_handle', YLeaf(YType.uint32, 'query-handle')),
+                ('offset', YLeaf(YType.uint32, 'offset')),
+                ('timeout', YLeaf(YType.uint32, 'timeout')),
+            ])
+            self.query_handle = None
+            self.offset = None
+            self.timeout = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "tailf-netconf-query:reset-query/%s" % self._segment_path()
 
@@ -648,8 +680,10 @@ class StopQuery(Entity):
         self.yang_parent_name = "tailf-netconf-query"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = StopQuery.Input()
         self.input.parent = self
@@ -683,10 +717,13 @@ class StopQuery(Entity):
             self.yang_parent_name = "stop-query"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.query_handle = YLeaf(YType.uint32, "query-handle")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('query_handle', YLeaf(YType.uint32, 'query-handle')),
+            ])
+            self.query_handle = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "tailf-netconf-query:stop-query/%s" % self._segment_path()
 

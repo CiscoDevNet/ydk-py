@@ -12,15 +12,17 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 class LogicalProtocol(Enum):
     """
-    LogicalProtocol
+    LogicalProtocol (Enum Class)
 
     Logical protocol
 
@@ -47,7 +49,7 @@ class LogicalProtocol(Enum):
 
 class TribProtocol(Enum):
     """
-    TribProtocol
+    TribProtocol (Enum Class)
 
     Trib protocol
 
@@ -196,7 +198,7 @@ class TribProtocol(Enum):
 
 class TribRateClass(Enum):
     """
-    TribRateClass
+    TribRateClass (Enum Class)
 
     Trib rate class
 
@@ -284,8 +286,10 @@ class OpticalInterface(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-terminal-device-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"config-status" : ("config_status", OpticalInterface.ConfigStatus), "optical-channel-interfaces" : ("optical_channel_interfaces", OpticalInterface.OpticalChannelInterfaces), "graph" : ("graph", OpticalInterface.Graph), "operational-modes" : ("operational_modes", OpticalInterface.OperationalModes), "optical-logical-interfaces" : ("optical_logical_interfaces", OpticalInterface.OpticalLogicalInterfaces)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("config-status", ("config_status", OpticalInterface.ConfigStatus)), ("optical-channel-interfaces", ("optical_channel_interfaces", OpticalInterface.OpticalChannelInterfaces)), ("graph", ("graph", OpticalInterface.Graph)), ("operational-modes", ("operational_modes", OpticalInterface.OperationalModes)), ("optical-logical-interfaces", ("optical_logical_interfaces", OpticalInterface.OpticalLogicalInterfaces))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.config_status = OpticalInterface.ConfigStatus()
         self.config_status.parent = self
@@ -342,8 +346,10 @@ class OpticalInterface(Entity):
             self.yang_parent_name = "optical-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"partial-config" : ("partial_config", OpticalInterface.ConfigStatus.PartialConfig), "slice-tables" : ("slice_tables", OpticalInterface.ConfigStatus.SliceTables)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("partial-config", ("partial_config", OpticalInterface.ConfigStatus.PartialConfig)), ("slice-tables", ("slice_tables", OpticalInterface.ConfigStatus.SliceTables))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.partial_config = OpticalInterface.ConfigStatus.PartialConfig()
             self.partial_config.parent = self
@@ -383,10 +389,13 @@ class OpticalInterface(Entity):
                 self.yang_parent_name = "config-status"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.partial_config = YLeaf(YType.uint8, "partial-config")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('partial_config', YLeaf(YType.uint8, 'partial-config')),
+                ])
+                self.partial_config = None
                 self._segment_path = lambda: "partial-config"
                 self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/config-status/%s" % self._segment_path()
 
@@ -418,8 +427,10 @@ class OpticalInterface(Entity):
                 self.yang_parent_name = "config-status"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"slice-table" : ("slice_table", OpticalInterface.ConfigStatus.SliceTables.SliceTable)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("slice-table", ("slice_table", OpticalInterface.ConfigStatus.SliceTables.SliceTable))])
+                self._leafs = OrderedDict()
 
                 self.slice_table = YList(self)
                 self._segment_path = lambda: "slice-tables"
@@ -433,7 +444,7 @@ class OpticalInterface(Entity):
                 """
                 The table contains list of slices present
                 
-                .. attribute:: index  <key>
+                .. attribute:: index  (key)
                 
                 	The index of slice
                 	**type**\: int
@@ -459,16 +470,19 @@ class OpticalInterface(Entity):
                     self.yang_parent_name = "slice-tables"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"slice-status-attr" : ("slice_status_attr", OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr)}
-                    self._child_list_classes = {}
-
-                    self.index = YLeaf(YType.int32, "index")
+                    self.ylist_key_names = ['index']
+                    self._child_container_classes = OrderedDict([("slice-status-attr", ("slice_status_attr", OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('index', YLeaf(YType.int32, 'index')),
+                    ])
+                    self.index = None
 
                     self.slice_status_attr = OpticalInterface.ConfigStatus.SliceTables.SliceTable.SliceStatusAttr()
                     self.slice_status_attr.parent = self
                     self._children_name_map["slice_status_attr"] = "slice-status-attr"
                     self._children_yang_names.add("slice-status-attr")
-                    self._segment_path = lambda: "slice-table" + "[index='" + self.index.get() + "']"
+                    self._segment_path = lambda: "slice-table" + "[index='" + str(self.index) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/config-status/slice-tables/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -549,24 +563,27 @@ class OpticalInterface(Entity):
                         self.yang_parent_name = "slice-table"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.slice = YLeaf(YType.uint8, "slice")
-
-                        self.prov_status = YLeaf(YType.str, "prov-status")
-
-                        self.present_config = YLeaf(YType.str, "present-config")
-
-                        self.present_timestamp = YLeaf(YType.str, "present-timestamp")
-
-                        self.past_config = YLeaf(YType.str, "past-config")
-
-                        self.past_timestamp = YLeaf(YType.str, "past-timestamp")
-
-                        self.err_str = YLeaf(YType.str, "err-str")
-
-                        self.err_timestamp = YLeaf(YType.str, "err-timestamp")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('slice', YLeaf(YType.uint8, 'slice')),
+                            ('prov_status', YLeaf(YType.str, 'prov-status')),
+                            ('present_config', YLeaf(YType.str, 'present-config')),
+                            ('present_timestamp', YLeaf(YType.str, 'present-timestamp')),
+                            ('past_config', YLeaf(YType.str, 'past-config')),
+                            ('past_timestamp', YLeaf(YType.str, 'past-timestamp')),
+                            ('err_str', YLeaf(YType.str, 'err-str')),
+                            ('err_timestamp', YLeaf(YType.str, 'err-timestamp')),
+                        ])
+                        self.slice = None
+                        self.prov_status = None
+                        self.present_config = None
+                        self.present_timestamp = None
+                        self.past_config = None
+                        self.past_timestamp = None
+                        self.err_str = None
+                        self.err_timestamp = None
                         self._segment_path = lambda: "slice-status-attr"
 
                     def __setattr__(self, name, value):
@@ -597,8 +614,10 @@ class OpticalInterface(Entity):
             self.yang_parent_name = "optical-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"optical-channel-interface" : ("optical_channel_interface", OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("optical-channel-interface", ("optical_channel_interface", OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface))])
+            self._leafs = OrderedDict()
 
             self.optical_channel_interface = YList(self)
             self._segment_path = lambda: "optical-channel-interfaces"
@@ -613,7 +632,7 @@ class OpticalInterface(Entity):
             The operational attributes for an optical
             channel
             
-            .. attribute:: location  <key>
+            .. attribute:: location  (key)
             
             	The name of the optical\-channel
             	**type**\: str
@@ -639,16 +658,19 @@ class OpticalInterface(Entity):
                 self.yang_parent_name = "optical-channel-interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"optical-channel-interface-attr" : ("optical_channel_interface_attr", OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr)}
-                self._child_list_classes = {}
-
-                self.location = YLeaf(YType.str, "location")
+                self.ylist_key_names = ['location']
+                self._child_container_classes = OrderedDict([("optical-channel-interface-attr", ("optical_channel_interface_attr", OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('location', YLeaf(YType.str, 'location')),
+                ])
+                self.location = None
 
                 self.optical_channel_interface_attr = OpticalInterface.OpticalChannelInterfaces.OpticalChannelInterface.OpticalChannelInterfaceAttr()
                 self.optical_channel_interface_attr.parent = self
                 self._children_name_map["optical_channel_interface_attr"] = "optical-channel-interface-attr"
                 self._children_yang_names.add("optical-channel-interface-attr")
-                self._segment_path = lambda: "optical-channel-interface" + "[location='" + self.location.get() + "']"
+                self._segment_path = lambda: "optical-channel-interface" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-channel-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -716,20 +738,23 @@ class OpticalInterface(Entity):
                     self.yang_parent_name = "optical-channel-interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.index = YLeaf(YType.uint32, "index")
-
-                    self.frequency = YLeaf(YType.uint64, "frequency")
-
-                    self.power = YLeaf(YType.uint64, "power")
-
-                    self.oper_mode = YLeaf(YType.uint32, "oper-mode")
-
-                    self.line_port = YLeaf(YType.str, "line-port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('index', YLeaf(YType.uint32, 'index')),
+                        ('frequency', YLeaf(YType.uint64, 'frequency')),
+                        ('power', YLeaf(YType.uint64, 'power')),
+                        ('oper_mode', YLeaf(YType.uint32, 'oper-mode')),
+                        ('line_port', YLeaf(YType.str, 'line-port')),
+                    ])
+                    self.name = None
+                    self.index = None
+                    self.frequency = None
+                    self.power = None
+                    self.oper_mode = None
+                    self.line_port = None
                     self._segment_path = lambda: "optical-channel-interface-attr"
 
                 def __setattr__(self, name, value):
@@ -765,8 +790,10 @@ class OpticalInterface(Entity):
             self.yang_parent_name = "optical-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"adj-list-path" : ("adj_list_path", OpticalInterface.Graph.AdjListPath), "graph-structure-path" : ("graph_structure_path", OpticalInterface.Graph.GraphStructurePath)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("adj-list-path", ("adj_list_path", OpticalInterface.Graph.AdjListPath)), ("graph-structure-path", ("graph_structure_path", OpticalInterface.Graph.GraphStructurePath))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.adj_list_path = OpticalInterface.Graph.AdjListPath()
             self.adj_list_path.parent = self
@@ -807,10 +834,13 @@ class OpticalInterface(Entity):
                 self.yang_parent_name = "graph"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.path = YLeaf(YType.str, "path")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('path', YLeaf(YType.str, 'path')),
+                ])
+                self.path = None
                 self._segment_path = lambda: "adj-list-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/graph/%s" % self._segment_path()
 
@@ -844,10 +874,13 @@ class OpticalInterface(Entity):
                 self.yang_parent_name = "graph"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.path = YLeaf(YType.str, "path")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('path', YLeaf(YType.str, 'path')),
+                ])
+                self.path = None
                 self._segment_path = lambda: "graph-structure-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/graph/%s" % self._segment_path()
 
@@ -878,8 +911,10 @@ class OpticalInterface(Entity):
             self.yang_parent_name = "optical-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"operational-mode" : ("operational_mode", OpticalInterface.OperationalModes.OperationalMode)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("operational-mode", ("operational_mode", OpticalInterface.OperationalModes.OperationalMode))])
+            self._leafs = OrderedDict()
 
             self.operational_mode = YList(self)
             self._segment_path = lambda: "operational-modes"
@@ -893,7 +928,7 @@ class OpticalInterface(Entity):
             """
             Mode supported on Device
             
-            .. attribute:: mode_id  <key>
+            .. attribute:: mode_id  (key)
             
             	Mode\-id for supported mode on Device
             	**type**\: int
@@ -919,16 +954,19 @@ class OpticalInterface(Entity):
                 self.yang_parent_name = "operational-modes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"operational-mode-attributes" : ("operational_mode_attributes", OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes)}
-                self._child_list_classes = {}
-
-                self.mode_id = YLeaf(YType.int32, "mode-id")
+                self.ylist_key_names = ['mode_id']
+                self._child_container_classes = OrderedDict([("operational-mode-attributes", ("operational_mode_attributes", OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mode_id', YLeaf(YType.int32, 'mode-id')),
+                ])
+                self.mode_id = None
 
                 self.operational_mode_attributes = OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes()
                 self.operational_mode_attributes.parent = self
                 self._children_name_map["operational_mode_attributes"] = "operational-mode-attributes"
                 self._children_yang_names.add("operational-mode-attributes")
-                self._segment_path = lambda: "operational-mode" + "[mode-id='" + self.mode_id.get() + "']"
+                self._segment_path = lambda: "operational-mode" + "[mode-id='" + str(self.mode_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/operational-modes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -968,12 +1006,15 @@ class OpticalInterface(Entity):
                     self.yang_parent_name = "operational-mode"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.vendor_id = YLeaf(YType.str, "vendor-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('vendor_id', YLeaf(YType.str, 'vendor-id')),
+                    ])
+                    self.description = None
+                    self.vendor_id = None
                     self._segment_path = lambda: "operational-mode-attributes"
 
                 def __setattr__(self, name, value):
@@ -1003,8 +1044,10 @@ class OpticalInterface(Entity):
             self.yang_parent_name = "optical-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"optical-logical-interface" : ("optical_logical_interface", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("optical-logical-interface", ("optical_logical_interface", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface))])
+            self._leafs = OrderedDict()
 
             self.optical_logical_interface = YList(self)
             self._segment_path = lambda: "optical-logical-interfaces"
@@ -1019,7 +1062,7 @@ class OpticalInterface(Entity):
             The operational attributes for a logical
             channel
             
-            .. attribute:: index  <key>
+            .. attribute:: index  (key)
             
             	The index of the logical\-channel
             	**type**\: int
@@ -1050,10 +1093,13 @@ class OpticalInterface(Entity):
                 self.yang_parent_name = "optical-logical-interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"optical-logical-interface-attr" : ("optical_logical_interface_attr", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr), "optical-logical-interface-logical-channel-assignments" : ("optical_logical_interface_logical_channel_assignments", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments)}
-                self._child_list_classes = {}
-
-                self.index = YLeaf(YType.int32, "index")
+                self.ylist_key_names = ['index']
+                self._child_container_classes = OrderedDict([("optical-logical-interface-attr", ("optical_logical_interface_attr", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr)), ("optical-logical-interface-logical-channel-assignments", ("optical_logical_interface_logical_channel_assignments", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('index', YLeaf(YType.int32, 'index')),
+                ])
+                self.index = None
 
                 self.optical_logical_interface_attr = OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr()
                 self.optical_logical_interface_attr.parent = self
@@ -1064,7 +1110,7 @@ class OpticalInterface(Entity):
                 self.optical_logical_interface_logical_channel_assignments.parent = self
                 self._children_name_map["optical_logical_interface_logical_channel_assignments"] = "optical-logical-interface-logical-channel-assignments"
                 self._children_yang_names.add("optical-logical-interface-logical-channel-assignments")
-                self._segment_path = lambda: "optical-logical-interface" + "[index='" + self.index.get() + "']"
+                self._segment_path = lambda: "optical-logical-interface" + "[index='" + str(self.index) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-oper:optical-interface/optical-logical-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1168,32 +1214,35 @@ class OpticalInterface(Entity):
                     self.yang_parent_name = "optical-logical-interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.logical_channel_index = YLeaf(YType.uint32, "logical-channel-index")
-
-                    self.logical_channel_ifname = YLeaf(YType.str, "logical-channel-ifname")
-
-                    self.type = YLeaf(YType.str, "type")
-
-                    self.trib_rate_class = YLeaf(YType.enumeration, "trib-rate-class")
-
-                    self.trib_protocol = YLeaf(YType.enumeration, "trib-protocol")
-
-                    self.protocol_type = YLeaf(YType.enumeration, "protocol-type")
-
-                    self.admin_state = YLeaf(YType.uint32, "admin-state")
-
-                    self.loopback_mode = YLeaf(YType.uint32, "loopback-mode")
-
-                    self.ingress_client_port = YLeaf(YType.str, "ingress-client-port")
-
-                    self.ingress_physical_channel = YLeaf(YType.uint32, "ingress-physical-channel")
-
-                    self.tti_transmit = YLeaf(YType.str, "tti-transmit")
-
-                    self.tti_expected = YLeaf(YType.str, "tti-expected")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('logical_channel_index', YLeaf(YType.uint32, 'logical-channel-index')),
+                        ('logical_channel_ifname', YLeaf(YType.str, 'logical-channel-ifname')),
+                        ('type', YLeaf(YType.str, 'type')),
+                        ('trib_rate_class', YLeaf(YType.enumeration, 'trib-rate-class')),
+                        ('trib_protocol', YLeaf(YType.enumeration, 'trib-protocol')),
+                        ('protocol_type', YLeaf(YType.enumeration, 'protocol-type')),
+                        ('admin_state', YLeaf(YType.uint32, 'admin-state')),
+                        ('loopback_mode', YLeaf(YType.uint32, 'loopback-mode')),
+                        ('ingress_client_port', YLeaf(YType.str, 'ingress-client-port')),
+                        ('ingress_physical_channel', YLeaf(YType.uint32, 'ingress-physical-channel')),
+                        ('tti_transmit', YLeaf(YType.str, 'tti-transmit')),
+                        ('tti_expected', YLeaf(YType.str, 'tti-expected')),
+                    ])
+                    self.logical_channel_index = None
+                    self.logical_channel_ifname = None
+                    self.type = None
+                    self.trib_rate_class = None
+                    self.trib_protocol = None
+                    self.protocol_type = None
+                    self.admin_state = None
+                    self.loopback_mode = None
+                    self.ingress_client_port = None
+                    self.ingress_physical_channel = None
+                    self.tti_transmit = None
+                    self.tti_expected = None
                     self._segment_path = lambda: "optical-logical-interface-attr"
 
                 def __setattr__(self, name, value):
@@ -1224,8 +1273,10 @@ class OpticalInterface(Entity):
                     self.yang_parent_name = "optical-logical-interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"optical-logical-interface-logical-channel-assignment" : ("optical_logical_interface_logical_channel_assignment", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("optical-logical-interface-logical-channel-assignment", ("optical_logical_interface_logical_channel_assignment", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment))])
+                    self._leafs = OrderedDict()
 
                     self.optical_logical_interface_logical_channel_assignment = YList(self)
                     self._segment_path = lambda: "optical-logical-interface-logical-channel-assignments"
@@ -1239,7 +1290,7 @@ class OpticalInterface(Entity):
                     The operational attributes for a logical
                     channel assignment
                     
-                    .. attribute:: index  <key>
+                    .. attribute:: index  (key)
                     
                     	The index of the logical\-channel
                     	**type**\: int
@@ -1265,16 +1316,19 @@ class OpticalInterface(Entity):
                         self.yang_parent_name = "optical-logical-interface-logical-channel-assignments"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"optical-logical-interface-logical-channel-assignment-attr" : ("optical_logical_interface_logical_channel_assignment_attr", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr)}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.int32, "index")
+                        self.ylist_key_names = ['index']
+                        self._child_container_classes = OrderedDict([("optical-logical-interface-logical-channel-assignment-attr", ("optical_logical_interface_logical_channel_assignment_attr", OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('index', YLeaf(YType.int32, 'index')),
+                        ])
+                        self.index = None
 
                         self.optical_logical_interface_logical_channel_assignment_attr = OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment.OpticalLogicalInterfaceLogicalChannelAssignmentAttr()
                         self.optical_logical_interface_logical_channel_assignment_attr.parent = self
                         self._children_name_map["optical_logical_interface_logical_channel_assignment_attr"] = "optical-logical-interface-logical-channel-assignment-attr"
                         self._children_yang_names.add("optical-logical-interface-logical-channel-assignment-attr")
-                        self._segment_path = lambda: "optical-logical-interface-logical-channel-assignment" + "[index='" + self.index.get() + "']"
+                        self._segment_path = lambda: "optical-logical-interface-logical-channel-assignment" + "[index='" + str(self.index) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment, ['index'], name, value)
@@ -1346,22 +1400,25 @@ class OpticalInterface(Entity):
                             self.yang_parent_name = "optical-logical-interface-logical-channel-assignment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.index = YLeaf(YType.uint32, "index")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.is_logical_link = YLeaf(YType.boolean, "is-logical-link")
-
-                            self.logical_channel = YLeaf(YType.uint32, "logical-channel")
-
-                            self.optical_channel = YLeaf(YType.str, "optical-channel")
-
-                            self.allocation = YLeaf(YType.uint32, "allocation")
-
-                            self.assignment_type = YLeaf(YType.uint32, "assignment-type")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', YLeaf(YType.uint32, 'index')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('is_logical_link', YLeaf(YType.boolean, 'is-logical-link')),
+                                ('logical_channel', YLeaf(YType.uint32, 'logical-channel')),
+                                ('optical_channel', YLeaf(YType.str, 'optical-channel')),
+                                ('allocation', YLeaf(YType.uint32, 'allocation')),
+                                ('assignment_type', YLeaf(YType.uint32, 'assignment-type')),
+                            ])
+                            self.index = None
+                            self.name = None
+                            self.is_logical_link = None
+                            self.logical_channel = None
+                            self.optical_channel = None
+                            self.allocation = None
+                            self.assignment_type = None
                             self._segment_path = lambda: "optical-logical-interface-logical-channel-assignment-attr"
 
                         def __setattr__(self, name, value):

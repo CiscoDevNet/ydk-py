@@ -11,9 +11,11 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
-from ydk.errors import YPYError, YPYModelError
+from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
@@ -42,8 +44,10 @@ class Nsr(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-nsr-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"process-failure" : ("process_failure", Nsr.ProcessFailure)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("process-failure", ("process_failure", Nsr.ProcessFailure))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.process_failure = Nsr.ProcessFailure()
         self.process_failure.parent = self
@@ -76,10 +80,13 @@ class Nsr(Entity):
             self.yang_parent_name = "nsr"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.switchover = YLeaf(YType.empty, "switchover")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('switchover', YLeaf(YType.empty, 'switchover')),
+            ])
+            self.switchover = None
             self._segment_path = lambda: "process-failure"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-nsr-cfg:nsr/%s" % self._segment_path()
 
